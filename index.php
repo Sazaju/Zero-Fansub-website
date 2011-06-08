@@ -1,3 +1,8 @@
+<!--
+	This file gives the structure of each page. The content is given in the body
+	tag, dynamically by a PHP code.
+-->
+
 <?php
 	require_once("php/constants.php");
 ?>
@@ -18,5 +23,6 @@
 	<body>
 		<h1><?php echo TITLE; ?></h1>
 		<p>Here is a first file with some initial PHP code.</p>
+		<!-- put the PHP code of the content here -->
 	</body>
 </html>
