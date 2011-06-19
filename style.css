@@ -1,0 +1,121 @@
+body
+{
+    background: #ffffff url('images/interface/bg_.jpg');
+    font-family: 'Cantarell', Courier;
+    color: #595959;
+    font-size: 1em;
+/*	letter-spacing: 1px;*/
+}
+
+img
+{
+    border: none;
+    font-size: 12px;
+    vertical-align: bottom;
+}
+
+a
+{
+    text-decoration: none;
+    color: #595959;
+}
+
+a:hover
+{
+    text-decoration: underline overline;
+}
+
+#main
+{
+    margin: auto;
+    width: 80%;
+    margin-top: 10px;
+}
+
+/****************/
+
+#menu
+{
+    float: right;
+    background: url('images/interface/logo/zero.png') no-repeat center top;
+    width: 20%;
+}
+#sub_menu
+{
+    margin: auto;
+    margin-top: 130px;
+    width: 80%;
+    min-height: 500px;
+}
+
+#sub_menu ul
+{
+    list-style-type: none;
+}
+
+#sub_menu, .news
+{
+    border: 3px solid #DEDFE0;
+    background: #D5D6D8;
+}
+
+#page
+{
+    width: 80%;
+    min-height: 650px;
+}
+
+.news
+{
+    height: 500px;
+}
+
+.news .title
+{
+    width: 100% - 30px;
+    font-size: 2em;
+    padding: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+    text-align: right;
+    text-shadow: #5F5F5F 1px 1px 5px;
+    text-transform: capitalize;
+    /*	font-family: "Lucida Console", fantasy, monospace;*/
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+.news .image
+{
+    float: left;
+    overflow: hidden;
+    padding-right: 20px;
+}
+
+.news .image img
+{
+    height: 365px;
+    border: 3px solid #DEDFE0;
+    overflow: hidden;
+}
+
+.news .content
+{
+    height: 370px;
+    margin: 20px;
+    margin-top: 0;
+    background: white;
+    border: 3px solid #DEDFE0;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.news .content .text
+{
+    font-size: 1em;
+    overflow: hidden;
+}
+
+#footer
+{
+
+}

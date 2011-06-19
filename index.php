@@ -33,14 +33,110 @@ $menu->addEntry('entry 2', 'link 2');
 $menu->addEntry('entry 3', 'link 3');
 
 $builder = new HtmlBuilder();
-$builder->setTitle(TITLE);
+
+/**********************************\
+           HTML CONTENT
+\**********************************/
+
 $builder->addComponent(new Example());
 $builder->addComponent($menu);
+
+/**********************************\
+            META DATA
+\**********************************/
+
+/*
+	we give a "text/html" content to be compatible with most of the
+	explorers, it should be "application/xhtml+xml". See this link :
+	
+	http://www.pompage.net/traduction/declarations
+*/
+$builder->addMeta(array(
+		'http-equiv' => 'Content-Type',
+		'content' => 'text/html; charset=UTF-8' // TODO iso-8859-1 ?
+));
+$builder->addMeta(array(
+		'http-equiv' => 'Content-Language',
+		'content' => 'fr'
+));
+$builder->addMeta(array(
+		'http-equiv' => 'Content-Script-Type',
+		'content' => 'text/javascript'
+));
+$builder->addMeta(array(
+		'http-equiv' => 'Content-Style-Type',
+		'content' => 'text/css'
+));
+
+$builder->addMeta(array(
+		'name' => 'DC.Language',
+		'scheme' => 'RFC3066',
+		'content' => 'fr'
+));
+$builder->addMeta(array(
+		'name' => 'author',
+		'content' => 'The db0 company, http://db0.fr Contact db0company@gmail.com'
+));
+$builder->addMeta(array(
+		'name' => 'copyright',
+		'content' => 'The db0 company, Copyright 2010, Tout droits résérvés. Si du contenu vous appartient et que vous souhaitez qu\'il soit retiré du 	site, demandez-le par mail db0company@gmail.com'
+));
+$builder->addMeta(array(
+		'name' => 'Keywords',
+		'content' => '' // TODO
+));
+$builder->addMeta(array(
+		'name' => 'description',
+		'content' => '' // TODO
+));
+
+/**********************************\
+            LINK DATA
+\**********************************/
+
+$builder->addLink(array(
+		'rel' => 'stylesheet',
+		'type' => 'text/css',
+		'href' => 'http://fonts.googleapis.com/css?family=Molengo'
+));
+$builder->addLink(array(
+		'rel' => 'stylesheet',
+		'type' => 'text/css',
+		'href' => 'http://fonts.googleapis.com/css?family=Droid Sans'
+));
+$builder->addLink(array(
+		'rel' => 'stylesheet',
+		'type' => 'text/css',
+		'href' => 'http://fonts.googleapis.com/css?family=Cantarell'
+));
+$builder->addLink(array(
+		'rel' => 'stylesheet',
+		'type' => 'text/css',
+		'media' => 'screen',
+		'title' => 'Normal',
+		'href' => 'style.css'
+));
+$builder->addLink(array(
+		'rel' => 'shortcut icon',
+		'href' => 'fav.ico'
+));
+
+/**********************************\
+            OTHER DATA
+\**********************************/
+
+$builder->setTitle(TITLE);
+
+/**********************************\
+         GENERATE & DISPLAY
+\**********************************/
+
 $builder->generateHtml();
 $html = $builder->getHtml();
 
 // TODO debugging
 $html = formatHtml($html);
 // TODO /debugging
+
 echo $html;
 ?>

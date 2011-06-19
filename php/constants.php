@@ -5,5 +5,5 @@
 	be defined here.
 */
 
-define('TITLE', 'Zero Fansub');
+define('TITLE', 'Zéro ~fansub~ :: Sous-titrage bénévole français d\'animation Japonaise');
 ?>

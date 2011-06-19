@@ -15,6 +15,8 @@ class HtmlBuilder {
 	private $body = '';
 	private $html = '';
 	private $components = array();
+	private $metas = array();
+	private $links = array();
 	
 	/* CONFIGURATION METHODS */
 	
@@ -24,6 +26,22 @@ class HtmlBuilder {
 	
 	public function getComponents() {
 		return $this->components;
+	}
+	
+	public function addMeta($metaData) {
+		$this->metas[] = $metaData;
+	}
+	
+	public function getMetas() {
+		return $this->metas;
+	}
+	
+	public function addLink($linkData) {
+		$this->links[] = $linkData;
+	}
+	
+	public function getLinks() {
+		return $this->links;
 	}
 	
 	public function setDoctype($doctype) {
@@ -43,17 +61,31 @@ class HtmlBuilder {
 	}
 	
 	/* BUILDING METHODS */
+	private function createAutoClosingTag($name, array $dataArray) {
+		$data = '';
+		foreach($dataArray as $attribute => $value) {
+			$data .= $attribute.'="'.$value.'" ';
+		}
+		return '<'.$name.' '.$data.'/>';
+	}
 	
 	private function generateHead() {
 		$content = '';
+		
+		// title tag
 		$content .= '<title>'.$this->title.'</title>';
-		/*
-			we give a "text/html" content to be compatible with most of the
-			explorers, it should be "application/xhtml+xml". See this link :
-			
-			http://www.pompage.net/traduction/declarations
-		*/
-		$content .= '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
+		
+		// meta tags
+		foreach($this->metas as $metaData) {
+			$content .= $this->createAutoClosingTag('meta', $metaData);
+		}
+		
+		// link tags
+		foreach($this->links as $linkData) {
+			$content .= $this->createAutoClosingTag('link', $linkData);
+		}
+		
+		// finalizing
 		$this->head = '<head>'.$content.'</head>';
 	}
 	
