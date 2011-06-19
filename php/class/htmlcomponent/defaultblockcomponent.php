@@ -1,7 +1,6 @@
 <?php
 /*
-	This is the default implementation of a block component. It gives a basic
-	implementation of a component managing an ID, classes, style, ... . All the
+	This is the default implementation of a block component (div tag). All the
 	data given by the root tag of this component (div) can be setted through
 	this implementation. Extend this class implies to give the content of this
 	div, implementing the following methods :
@@ -9,48 +8,24 @@
 	- public function getInnerHtml()
 */
 
-require_once("ihtmlcomponent.php");
+require_once("defaulthtmlcomponent.php");
 
-abstract class DefaultBlockComponent implements IHtmlComponent {
+abstract class DefaultBlockComponent extends DefaultHtmlComponent {
 	private $html = '';
-	private $id = '';
-	private $clazz = '';
-	private $style = '';
-	
-	public function setId($id) {
-		$this->id = $id;
-	}
-	
-	public function getId() {
-		return $this->id;
-	}
-	
-	public function setClass($class) {
-		$this->clazz = $class;
-	}
-	
-	public function getClass() {
-		return $this->clazz;
-	}
-	
-	public function setStyle($style) {
-		$this->style = $style;
-	}
-	
-	public function getStyle() {
-		return $this->style;
-	}
 	
 	abstract public function generateInnerHtml();
 	abstract public function getInnerHtml();
 	
 	public function generateHtml() {
-		$idPart = !empty($this->id) ? ' id="'.$this->id.'"' : '';
-		$classPart = !empty($this->clazz) ? ' class="'.$this->clazz.'"' : '';
-		$stylePart = !empty($this->style) ? ' style="'.$this->style.'"' : '';
+		$id = $this->getId();
+		$class = $this->getClass();
+		$style = $this->getStyle();
+		$idPart = !empty($id) ? ' id="'.$id.'"' : '';
+		$classPart = !empty($class) ? ' class="'.$class.'"' : '';
+		$stylePart = !empty($style) ? ' style="'.$style.'"' : '';
+		$options = $idPart.$classPart.$stylePart;
 		
 		$this->generateInnerHtml();
-		$options = $idPart.$classPart.$stylePart;
 		$this->html = '<div'.$options.'>'.$this->getInnerHtml().'</div>';
 	}
 	

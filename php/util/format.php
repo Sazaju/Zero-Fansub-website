@@ -30,7 +30,7 @@ function formatHtml($html) {
 		}
 		
 		for($line = $min + 1; $line < $max ; $line ++) {
-			$explodedHtml[$line] = "    ".$explodedHtml[$line];
+			$explodedHtml[$line] = "  ".$explodedHtml[$line];
 		}
 		$openingTags[$min] = null;
 	}
@@ -40,8 +40,10 @@ function formatHtml($html) {
 	}
 	$html = implode("\n", $explodedHtml);
 	
+	// strip blank characters
+	$html = trim($html);
+	
 	return $html;
 }
 
 ?>
-

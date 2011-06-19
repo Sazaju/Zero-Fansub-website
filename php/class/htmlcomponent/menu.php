@@ -10,6 +10,10 @@ class Menu extends DefaultBlockComponent {
 	private $entries = array();
 	private $ordered = false;
 	
+	function __construct() {
+		$this->setClass('menu');
+	}
+	
 	public function setOrdered($bool) {
 		$this->ordered = $bool;
 	}
@@ -38,6 +42,7 @@ class Menu extends DefaultBlockComponent {
 		}
 		$tag = $this->isOrdered() ? 'ol' : 'ul';
 		$content = "<$tag>".$content."</$tag>";
+		$content = '<div id="sub_menu">'.$content.'</div>'; // TODO remove (only to be design-compatible)
 		$this->innerHtml = $content;
 	}
 	
