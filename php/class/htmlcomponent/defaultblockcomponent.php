@@ -9,7 +9,7 @@
 	- public function getInnerHtml()
 */
 
-require_once("interface/ihtmlcomponent.php");
+require_once("ihtmlcomponent.php");
 
 abstract class DefaultBlockComponent implements IHtmlComponent {
 	private $html = '';

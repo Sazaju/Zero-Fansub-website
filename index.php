@@ -6,7 +6,7 @@
 
 require_once("php/constants.php");
 require_once("php/class/htmlbuilder.php");
-require_once("php/class/menu.php");
+require_once("php/class/htmlcomponent/menu.php");
 require_once("php/util/format.php");
 
 
