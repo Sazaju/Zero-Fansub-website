@@ -3,11 +3,9 @@
 	A menu is a component giving a list of entries in a specific block.
 */
 
-require_once("defaultblockcomponent.php");
+require_once("simpleblockcomponent.php");
 
-class Menu extends DefaultBlockComponent {
-	private $innerHtml = '';
-	private $entries = array();
+class Menu extends SimpleBlockComponent {
 	private $ordered = false;
 	
 	function __construct() {
@@ -23,31 +21,12 @@ class Menu extends DefaultBlockComponent {
 	}
 	
 	public function addEntry($name, $link) {
-		$this->entries[$name] = $link;
+		$this->content .= '<li><a href="'.$link.'">'.$name.'</a></li>';
 	}
 	
-	public function removeEntry($name) {
-		$this->entries[$name] = null;
-		array_filter($this->entries);
-	}
-	
-	public function getEntries() {
-		return $this->entries;
-	}
-	
-	public function generateInnerHtml() {
-		$content = '';
-		foreach($this->entries as $name => $link) {
-			$content .= '<li><a href="'.$link.'">'.$name.'</a></li>';
-		}
+	public function getContent() {
 		$tag = $this->isOrdered() ? 'ol' : 'ul';
-		$content = "<$tag>".$content."</$tag>";
-		$content = '<div id="sub_menu">'.$content.'</div>'; // TODO remove (only to be design-compatible)
-		$this->innerHtml = $content;
-	}
-	
-	public function getInnerHtml() {
-		return $this->innerHtml;
+		return '<'.$tag.'>'.$this->content.'</'.$tag.'>';
 	}
 }
 ?>

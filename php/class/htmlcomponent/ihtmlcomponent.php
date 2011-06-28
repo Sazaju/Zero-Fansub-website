@@ -10,5 +10,6 @@ interface IHtmlComponent {
 	public function getStyle();
 	public function generateHtml();
 	public function getHtml();
+	public function getHtmlTag();
 }
 ?>

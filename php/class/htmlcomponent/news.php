@@ -4,10 +4,10 @@
 	to display and some added data (image, author, date of writing, ...).
 */
 
-require_once("defaultblockcomponent.php");
+require_once("simpleblockcomponent.php");
 require_once("image.php");
 
-class News extends DefaultBlockComponent {
+class News extends SimpleBlockComponent {
 	private $innerHtml = '';
 	private $title = '';
 	private $text = '';
@@ -41,7 +41,7 @@ class News extends DefaultBlockComponent {
 		return $this->image;
 	}
 	
-	public function generateInnerHtml() {
+	public function getContent() {
 		$content = '';
 		// TODO simplify the architecture
 		$content .= '<div class="title">'.$this->title.'</div>';
@@ -50,11 +50,8 @@ class News extends DefaultBlockComponent {
 		$content .= '<div class="image">'.$this->image->getHtml().'</div>';
 		$content .= '<div class="text">'.$this->text.'</div>';
 		$content .= '</div>';
-		$this->innerHtml = $content;
-	}
-	
-	public function getInnerHtml() {
-		return $this->innerHtml;
+		
+		return $content;
 	}
 }
 ?>

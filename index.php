@@ -15,7 +15,6 @@ require_once("php/class/htmlbuilder.php");
 require_once("php/class/database.php");
 require_once("php/class/htmlcomponent/simpleblockcomponent.php");
 require_once("php/class/htmlcomponent/simpletextcomponent.php");
-require_once("php/class/htmlcomponent/paragraph.php");
 require_once("php/class/htmlcomponent/menu.php");
 require_once("php/class/htmlcomponent/news.php");
 require_once("php/util/format.php");
@@ -53,10 +52,14 @@ $database = new Database(TEST_MODE_ACTIVATED);
 \**********************************/
 
 $menu = new Menu();
-$menu->setId('menu');
+$menu->setId('sub_menu');
 $menu->addEntry('entry 1', 'link 1');
 $menu->addEntry('entry 2', 'link 2');
 $menu->addEntry('entry 3', 'link 3');
+$temp = new SimpleBlockComponent();
+$temp->setId('menu');
+$temp->addComponent($menu);
+$menu = $temp;
 
 $news = new News();
 $imageNews = new Image();
@@ -110,7 +113,7 @@ $page->setId('page');
 $page->addComponent($news);
 
 $footerText = new SimpleTextComponent();
-$footerText->addText('crédits blabla');
+$footerText->setContent('crédits blabla');
 $footer = new SimpleBlockComponent();
 $footer->setId('footer');
 $footer->addComponent($footerText);
@@ -124,10 +127,11 @@ $main->addComponent($footer);
 $builder = new HtmlBuilder();
 $builder->setTitle('Zéro ~fansub~ :: Sous-titrage bénévole français d\'animation Japonaise');
 if (TEST_MODE_ACTIVATED) {
-	$warning = new SimpleTextComponent();
+/*
+	$warning = $builder->addSimpleText();
 	$warning->addText('TESTING');
 	$warning->setStyle('display:block;text-align:center;border:1px solid #FF0000;');
-	$builder->addComponent($warning);
+*/
 }
 $builder->addComponent($main);
 

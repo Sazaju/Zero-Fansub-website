@@ -88,7 +88,8 @@ class HtmlBuilder {
 		// finalizing
 		$this->head = '<head>'.$content.'</head>';
 	}
-	
+
+	// TODO replace by a component
 	private function generateBody() {
 		$content = '';
 		foreach($this->components as $component) {
@@ -96,6 +97,10 @@ class HtmlBuilder {
 			$content .= $component->getHtml();
 		}
 		$this->body = '<body>'.$content.'</body>';
+	}
+	
+	public function getBodyComponent() {
+		return $this->body;
 	}
 	
 	public function generateHtml() {
