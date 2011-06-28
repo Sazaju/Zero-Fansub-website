@@ -4,14 +4,53 @@
 	complete page.
 */
 
-require_once("php/constants.php");
+define("TEST_MODE_ACTIVATED",
+		in_array($_SERVER["SERVER_NAME"], array('127.0.0.1', 'localhost'), true));
+
+/**********************************\
+              IMPORTS
+\**********************************/
+
 require_once("php/class/htmlbuilder.php");
+require_once("php/class/database.php");
 require_once("php/class/htmlcomponent/simpleblockcomponent.php");
 require_once("php/class/htmlcomponent/simpletextcomponent.php");
 require_once("php/class/htmlcomponent/paragraph.php");
 require_once("php/class/htmlcomponent/menu.php");
 require_once("php/class/htmlcomponent/news.php");
 require_once("php/util/format.php");
+
+/**********************************\
+       CRITICAL CONFIGURATION
+\**********************************/
+
+function exception_handler($exception) {
+	// TODO
+	$administrators = "sazaju@gmail.com";
+	$subject = "ERROR";
+	$message = "aze";//$exception->getMessage();
+	$header = "From: noreply@zerofansub.net\r\n";
+	$sent = false;//mail($administrators, $subject, $message, $header);
+  echo "An error as occured, ".(
+  		$sent ? "administrators has been noticed by mail"
+  		      : "contact the administrators : ".$administrators
+  		).".";
+}
+
+if (!TEST_MODE_ACTIVATED) {
+	set_exception_handler('exception_handler');
+	set_error_handler('exception_handler');
+}
+
+/**********************************\
+             DATABASE
+\**********************************/
+
+$database = new Database(TEST_MODE_ACTIVATED);
+
+/**********************************\
+           PAGE BUILDING
+\**********************************/
 
 $menu = new Menu();
 $menu->setId('menu');
@@ -66,25 +105,30 @@ $news->setText('
               </p>
 ');
 
-$builder = new HtmlBuilder();
+$page = new SimpleBlockComponent();
+$page->setId('page');
+$page->addComponent($news);
 
-/**********************************\
-           HTML CONTENT
-\**********************************/
+$footerText = new SimpleTextComponent();
+$footerText->addText('crédits blabla');
+$footer = new SimpleBlockComponent();
+$footer->setId('footer');
+$footer->addComponent($footerText);
 
 $main = new SimpleBlockComponent();
 $main->setId('main');
 $main->addComponent($menu);
-$page = new SimpleBlockComponent();
-$page->setId('page');
-$page->addComponent($news);
 $main->addComponent($page);
-$footer = new SimpleBlockComponent();
-$footer->setId('footer');
-$footerText = new SimpleTextComponent();
-$footerText->addText('crédits blabla');
-$footer->addComponent($footerText);
 $main->addComponent($footer);
+
+$builder = new HtmlBuilder();
+$builder->setTitle('Zéro ~fansub~ :: Sous-titrage bénévole français d\'animation Japonaise');
+if (TEST_MODE_ACTIVATED) {
+	$warning = new SimpleTextComponent();
+	$warning->addText('TESTING');
+	$warning->setStyle('display:block;text-align:center;border:1px solid #FF0000;');
+	$builder->addComponent($warning);
+}
 $builder->addComponent($main);
 
 /**********************************\
@@ -166,12 +210,6 @@ $builder->addLink(array(
 		'rel' => 'shortcut icon',
 		'href' => 'fav.ico'
 ));
-
-/**********************************\
-            OTHER DATA
-\**********************************/
-
-$builder->setTitle(TITLE);
 
 /**********************************\
          GENERATE & DISPLAY

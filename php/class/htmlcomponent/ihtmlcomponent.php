@@ -7,6 +7,7 @@
 interface IHtmlComponent {
 	public function getId();
 	public function getClass();
+	public function getStyle();
 	public function generateHtml();
 	public function getHtml();
 }
