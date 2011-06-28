@@ -12,11 +12,12 @@ define("TEST_MODE_ACTIVATED",
 \**********************************/
 
 require_once("php/class/htmlbuilder.php");
-require_once("php/class/database.php");
-require_once("php/class/htmlcomponent/simpleblockcomponent.php");
-require_once("php/class/htmlcomponent/simpletextcomponent.php");
-require_once("php/class/htmlcomponent/menu.php");
-require_once("php/class/htmlcomponent/news.php");
+require_once("php/class/image.php");
+require_once("php/class/database/database.php");
+require_once("php/class/xhtml/simpleblockcomponent.php");
+require_once("php/class/xhtml/simpletextcomponent.php");
+require_once("php/class/xhtml/menu.php");
+require_once("php/class/xhtml/news.php");
 require_once("php/util/format.php");
 
 /**********************************\
@@ -46,8 +47,10 @@ if (!TEST_MODE_ACTIVATED) {
 \**********************************/
 
 $database = new Database(TEST_MODE_ACTIVATED);
-$database->clearDatabase();
-$database->initializeDatabase();
+if (TEST_MODE_ACTIVATED) {
+	$database->clearDatabase();
+	$database->initializeDatabase();
+}
 
 /**********************************\
            PAGE BUILDING
@@ -67,12 +70,10 @@ $page = new SimpleBlockComponent();
 $page->setId('page');
 $result = $database->getConnection()->query('select * from "news"');
 foreach  ($result as $row) {
+	$imageNews = new Image($database, $row['image_id']);
+	$imageNews->load();
 	$news = new News();
-	$row2 = $database->getConnection()->query('select * from "image" where id = '.$row['image_id'])->fetch();
-	$imageNews = new Image();
-	$imageNews->setSource($row2['url']);
-	$imageNews->setAlternative($row2['title']);
-	$news->setImage($imageNews);
+	$news->setImage($imageNews->getHtmlComponent());
 	$news->setTitle($row['title']);
 	$news->setText($row['text']);
 }
@@ -94,13 +95,13 @@ $main->addComponent($footer);
 $builder = new HtmlBuilder();
 $row = $database->getConnection()->query('select * from "property" where id = "title"')->fetch();
 $builder->setTitle($row['value']);
+$builder->addComponent($main);
 if (TEST_MODE_ACTIVATED) {
 	$warning = new SimpleTextComponent();
 	$warning->setContent('TESTING');
 	$warning->setStyle('display:block;text-align:center;border:1px solid #FF0000;');
 	$builder->addComponent($warning);
 }
-$builder->addComponent($main);
 
 /**********************************\
             META DATA

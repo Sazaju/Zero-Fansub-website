@@ -5,7 +5,7 @@
 */
 
 require_once("simpleblockcomponent.php");
-require_once("image.php");
+require_once("htmlimage.php");
 
 class News extends SimpleBlockComponent {
 	private $innerHtml = '';
@@ -33,7 +33,7 @@ class News extends SimpleBlockComponent {
 		return $this->text;
 	}
 	
-	public function setImage(Image $image) {
+	public function setImage(HtmlImage $image) {
 		$this->image = $image;
 	}
 	

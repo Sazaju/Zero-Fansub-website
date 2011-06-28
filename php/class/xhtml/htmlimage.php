@@ -5,7 +5,7 @@
 
 require_once("defaulthtmlcomponent.php");
 
-class Image extends DefaultHtmlComponent {
+class HtmlImage extends DefaultHtmlComponent {
 	private $source = '';
 	private $alternative = '';
 	
