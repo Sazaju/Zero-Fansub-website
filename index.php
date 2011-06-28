@@ -4,7 +4,7 @@
 	complete page.
 */
 
-define("TEST_MODE_ACTIVATED",
+define("TEST_MODE_ACTIVATED", 
 		in_array($_SERVER["SERVER_NAME"], array('127.0.0.1', 'localhost'), true));
 
 /**********************************\
@@ -46,6 +46,8 @@ if (!TEST_MODE_ACTIVATED) {
 \**********************************/
 
 $database = new Database(TEST_MODE_ACTIVATED);
+$database->clearDatabase();
+$database->initializeDatabase();
 
 /**********************************\
            PAGE BUILDING
@@ -61,59 +63,24 @@ $temp->setId('menu');
 $temp->addComponent($menu);
 $menu = $temp;
 
-$news = new News();
-$imageNews = new Image();
-$imageNews->setSource('images/news/test_news.jpg');
-$imageNews->setAlternative('Random Test News Mitsudomoe');
-$news->setImage($imageNews);
-$news->setTitle('[ fansub ] Mitsudomoe épisode 01');
-$news->setText('
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Donec vitae porttitor arcu. Proin non condimentum lorem.
-                Aenean in ante a ligula pulvinar pellentesque in vel
-                ipsum. Nullam metus sapien, faucibus sit amet tincidunt
-                nec, ultrices ut tellus. Quisque varius pharetra felis,
-                eget pretium quam mattis a. Mauris at turpis vel arcu
-                molestie vulputate ac sit amet lorem. In hac habitasse
-                platea dictumst. Quisque pharetra neque id eros
-                elementum facilisis. Nullam augue nulla, laoreet ut
-                vulputate ac, auctor id enim. Vivamus varius eleifend
-                lectus, a dignissim ante blandit eget. Donec congue,
-                quam non pharetra faucibus, nunc nisi feugiat augue,
-                nec sollicitudin quam lorem eget augue. In fringilla,
-                felis ac pharetra convallis, eros mi pulvinar velit, ac
-                congue quam turpis et dolor. In pellentesque tincidunt
-                purus, eget laoreet orci semper in. Sed pulvinar justo
-                nunc, sit amet eleifend tellus. Donec non elit tellus.
-              </p>
-              <p>
-                Integer in arcu massa, id venenatis mauris. Nulla non
-                felis dui. Integer nec ipsum nisi, sed commodo purus.
-                Pellentesque habitant morbi tristique senectus et netus
-                et malesuada fames ac turpis egestas. Donec in blandit
-                diam. Suspendisse vel arcu purus, nec rhoncus lorem.
-                Etiam ac consectetur lorem. Aliquam fringilla, velit sit
-                amet ornare tempor, turpis lacus tristique orci, ut
-                porta justo diam id sem. Etiam imperdiet nibh nec nibh
-                eleifend ut accumsan leo dapibus. Etiam sem leo, egestas
-                sed consequat vel, euismod quis metus. Ut gravida
-                placerat metus sed tincidunt. Integer lacinia viverra
-                dolor, non porta tortor aliquam a. Donec sodales justo
-                eget magna sollicitudin blandit. Ut molestie, augue in
-                pretium condimentum, orci erat facilisis tortor, nec
-                auctor enim felis sed tellus. Vestibulum blandit massa
-                eget mi tincidunt a aliquet dolor convallis. Nullam et
-                magna vitae est imperdiet mattis. Ut semper urna tortor.
-              </p>
-');
-
 $page = new SimpleBlockComponent();
 $page->setId('page');
+$result = $database->getConnection()->query('select * from "news"');
+foreach  ($result as $row) {
+	$news = new News();
+	$row2 = $database->getConnection()->query('select * from "image" where id = '.$row['image_id'])->fetch();
+	$imageNews = new Image();
+	$imageNews->setSource($row2['url']);
+	$imageNews->setAlternative($row2['title']);
+	$news->setImage($imageNews);
+	$news->setTitle($row['title']);
+	$news->setText($row['text']);
+}
 $page->addComponent($news);
 
+$row = $database->getConnection()->query('select * from "property" where id = "footer"')->fetch();
 $footerText = new SimpleTextComponent();
-$footerText->setContent('crédits blabla');
+$footerText->setContent($row['value']);
 $footer = new SimpleBlockComponent();
 $footer->setId('footer');
 $footer->addComponent($footerText);
@@ -125,13 +92,13 @@ $main->addComponent($page);
 $main->addComponent($footer);
 
 $builder = new HtmlBuilder();
-$builder->setTitle('Zéro ~fansub~ :: Sous-titrage bénévole français d\'animation Japonaise');
+$row = $database->getConnection()->query('select * from "property" where id = "title"')->fetch();
+$builder->setTitle($row['value']);
 if (TEST_MODE_ACTIVATED) {
-/*
-	$warning = $builder->addSimpleText();
-	$warning->addText('TESTING');
+	$warning = new SimpleTextComponent();
+	$warning->setContent('TESTING');
 	$warning->setStyle('display:block;text-align:center;border:1px solid #FF0000;');
-*/
+	$builder->addComponent($warning);
 }
 $builder->addComponent($main);
 

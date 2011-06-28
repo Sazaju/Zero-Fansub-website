@@ -25,6 +25,7 @@ class Menu extends SimpleBlockComponent {
 	}
 	
 	public function getContent() {
+		// TODO simplify architecture
 		$tag = $this->isOrdered() ? 'ol' : 'ul';
 		return '<'.$tag.'>'.$this->content.'</'.$tag.'>';
 	}

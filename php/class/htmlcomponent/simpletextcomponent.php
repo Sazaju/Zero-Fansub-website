@@ -5,7 +5,7 @@
 
 require_once('defaulthtmlcomponent.php');
 
-class SimpleTextComponent extends DefaulthtmlComponent {
+class SimpleTextComponent extends DefaultHtmlComponent {
 	public function getHtmlTag() {
 		return 'span';
 	}

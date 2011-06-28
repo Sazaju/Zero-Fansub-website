@@ -50,12 +50,6 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		$this->subcomponents[] = $component;
 	}
 	
-	public function addSimpleText() {
-		$text = new SimpleTextComponent();
-		$this->addSimpleBlock($text);
-		return $text;
-	}
-	
 	public function getComponents() {
 		return $this->subcomponents;
 	}
