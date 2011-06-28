@@ -7,8 +7,7 @@
 require_once("simpleblockcomponent.php");
 require_once("htmlimage.php");
 
-class News extends SimpleBlockComponent {
-	private $innerHtml = '';
+class HtmlNews extends SimpleBlockComponent {
 	private $title = '';
 	private $text = '';
 	private $image = null;

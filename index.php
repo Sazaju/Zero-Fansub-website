@@ -13,11 +13,11 @@ define("TEST_MODE_ACTIVATED",
 
 require_once("php/class/htmlbuilder.php");
 require_once("php/class/image.php");
+require_once("php/class/news.php");
 require_once("php/class/database/database.php");
 require_once("php/class/xhtml/simpleblockcomponent.php");
 require_once("php/class/xhtml/simpletextcomponent.php");
 require_once("php/class/xhtml/menu.php");
-require_once("php/class/xhtml/news.php");
 require_once("php/util/format.php");
 
 /**********************************\
@@ -66,18 +66,11 @@ $temp->setId('menu');
 $temp->addComponent($menu);
 $menu = $temp;
 
+$news = new News($database, 0);
+$news->load();
 $page = new SimpleBlockComponent();
 $page->setId('page');
-$result = $database->getConnection()->query('select * from "news"');
-foreach  ($result as $row) {
-	$imageNews = new Image($database, $row['image_id']);
-	$imageNews->load();
-	$news = new News();
-	$news->setImage($imageNews->getHtmlComponent());
-	$news->setTitle($row['title']);
-	$news->setText($row['text']);
-}
-$page->addComponent($news);
+$page->addComponent($news->getHtmlComponent());
 
 $row = $database->getConnection()->query('select * from "property" where id = "footer"')->fetch();
 $footerText = new SimpleTextComponent();
