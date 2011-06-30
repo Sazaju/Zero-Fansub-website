@@ -40,6 +40,7 @@ class Database {
 		$statement = $this->connection->prepare('INSERT INTO "property" (id, value) VALUES (?, ?)');
 		$statement->execute(array('title', 'Zéro ~fansub~ :: Sous-titrage bénévole français d\'animation Japonaise'));
 		$statement->execute(array('footer', 'crédits blabla'));
+		$statement->execute(array('quickbar', 'Quick bar : images random vers : series, articles, pages,...'));
 		
 		$this->connection->exec('CREATE TABLE "image" (
 			id       INTEGER(10),
@@ -50,6 +51,7 @@ class Database {
 		)');
 		$statement = $this->connection->prepare('INSERT INTO "image" (id, url, title) VALUES (?, ?, ?)');
 		$statement->execute(array('0', 'images/news/test_news.jpg', 'Random Test News Mitsudomoe'));
+		$statement->execute(array('1', 'images/interface/logo/zero.png', 'Zéro ~fansub~'));
 		
 		$this->connection->exec('CREATE TABLE "news" (
 			id       INTEGER(10),
@@ -105,4 +107,3 @@ class Database {
 	}
 }
 ?>
-

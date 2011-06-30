@@ -5,11 +5,15 @@
 
 require_once("simpleblockcomponent.php");
 
-class Menu extends SimpleBlockComponent {
+class Menu extends DefaultHtmlComponent {
 	private $ordered = false;
 	
 	function __construct() {
 		$this->setClass('menu');
+	}
+	
+	public function getHtmlTag() {
+		return $this->isOrdered() ? 'ol' : 'ul';;
 	}
 	
 	public function setOrdered($bool) {
@@ -21,13 +25,8 @@ class Menu extends SimpleBlockComponent {
 	}
 	
 	public function addEntry($name, $link) {
-		$this->content .= '<li><a href="'.$link.'">'.$name.'</a></li>';
+		$this->setContent($this->getContent().'<li><a href="'.$link.'">'.$name.'</a></li>');
 	}
 	
-	public function getContent() {
-		// TODO simplify architecture
-		$tag = $this->isOrdered() ? 'ol' : 'ul';
-		return '<'.$tag.'>'.$this->content.'</'.$tag.'>';
-	}
 }
 ?>

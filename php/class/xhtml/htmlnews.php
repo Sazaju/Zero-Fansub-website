@@ -6,6 +6,7 @@
 
 require_once("simpleblockcomponent.php");
 require_once("htmlimage.php");
+require_once("pin.php");
 
 class HtmlNews extends SimpleBlockComponent {
 	private $title = '';
@@ -44,10 +45,12 @@ class HtmlNews extends SimpleBlockComponent {
 		$content = '';
 		// TODO simplify the architecture
 		$content .= '<div class="title">'.$this->title.'</div>';
-		$content .= '<div class="content">';
+		$content .= '<div class="text">';
 		$this->image->generateHtml();
+		$pin = new Pin();
 		$content .= '<div class="image">'.$this->image->getHtml().'</div>';
-		$content .= '<div class="text">'.$this->text.'</div>';
+		$content .= $this->text;
+		$content .= $pin->getHtml();
 		$content .= '</div>';
 		
 		return $content;

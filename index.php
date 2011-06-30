@@ -56,21 +56,72 @@ if (TEST_MODE_ACTIVATED) {
            PAGE BUILDING
 \**********************************/
 
-$menu = new Menu();
-$menu->setId('sub_menu');
-$menu->addEntry('entry 1', 'link 1');
-$menu->addEntry('entry 2', 'link 2');
-$menu->addEntry('entry 3', 'link 3');
-$temp = new SimpleBlockComponent();
-$temp->setId('menu');
-$temp->addComponent($menu);
-$menu = $temp;
-
-$news = new News($database, 0);
-$news->load();
 $page = new SimpleBlockComponent();
 $page->setId('page');
-$page->addComponent($news->getHtmlComponent());
+
+$news0 = new News($database, 0);
+$news0->load();
+$html = $news0->getHtmlComponent();
+$html->setClass('news');
+$page->addComponent($html);
+
+$news1 = new News($database, 0);
+$news1->load();
+$html = $news1->getHtmlComponent();
+$html->setClass('short_news');
+$html->setText(truncateText(strip_tags($html->getText()), 150));
+$page->addComponent($html);
+
+$news2 = new News($database, 0);
+$news2->load();
+$html = $news2->getHtmlComponent();
+$html->setClass('short_news');
+$html->setText(truncateText(strip_tags($html->getText()), 150));
+$page->addComponent($html);
+
+$news3 = new News($database, 0);
+$news3->load();
+$html = $news3->getHtmlComponent();
+$html->setClass('short_news');
+$html->setText(truncateText(strip_tags($html->getText()), 150));
+$page->addComponent($html);
+
+/**********************************\
+        RIGHT PANEL BUILDING
+\**********************************/
+
+$rightPanel = new SimpleBlockComponent();
+$rightPanel->setId('right_panel');
+
+$logo = new Image($database, 1);
+$logo->load();
+$html = $logo->getHtmlComponent();
+$html->setId('logo');
+$rightPanel->addComponent($html);
+
+$menu = new Menu();
+$menu->setId('menu');
+$menu->addEntry('Menu 1', '#link 1');
+$menu->addEntry('Menu 2', '#link 2');
+$menu->addEntry('Menu 3', '#link 3');
+$menu->addEntry('Menu 4', '#link 4');
+$menu->addEntry('Menu 5', '#link 5');
+$rightPanel->addComponent($menu);
+
+/**********************************\
+         QUICKBAR BUILDING
+\**********************************/
+
+$row = $database->getConnection()->query('select * from "property" where id = "quickbar"')->fetch();
+$quickText = new SimpleTextComponent();
+$quickText->setContent($row['value']);
+$quick = new SimpleBlockComponent();
+$quick->setId('quickbar');
+$quick->addComponent($quickText);
+
+/**********************************\
+          FOOTER BUILDING
+\**********************************/
 
 $row = $database->getConnection()->query('select * from "property" where id = "footer"')->fetch();
 $footerText = new SimpleTextComponent();
@@ -79,11 +130,21 @@ $footer = new SimpleBlockComponent();
 $footer->setId('footer');
 $footer->addComponent($footerText);
 
+/**********************************\
+          BODY MERGING
+\**********************************/
+
 $main = new SimpleBlockComponent();
 $main->setId('main');
-$main->addComponent($menu);
 $main->addComponent($page);
+$main->addComponent($rightPanel);
+$main->addComponent(new Pin());
+$main->addComponent($quick);
 $main->addComponent($footer);
+
+/**********************************\
+        HTML PAGE CREATING
+\**********************************/
 
 $builder = new HtmlBuilder();
 $row = $database->getConnection()->query('select * from "property" where id = "title"')->fetch();
@@ -92,7 +153,7 @@ $builder->addComponent($main);
 if (TEST_MODE_ACTIVATED) {
 	$warning = new SimpleTextComponent();
 	$warning->setContent('TESTING');
-	$warning->setStyle('display:block;text-align:center;border:1px solid #FF0000;');
+	$warning->setStyle('float:left;width:100%;text-align:center;border:1px solid #FF0000;');
 	$builder->addComponent($warning);
 }
 
