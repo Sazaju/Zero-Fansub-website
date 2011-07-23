@@ -21,23 +21,32 @@ require_once("php/class/xhtml/menu.php");
 require_once("php/util/format.php");
 
 /**********************************\
-       CRITICAL CONFIGURATION
+           ERROR MANAGING
 \**********************************/
 
-function exception_handler($exception) {
-	// TODO
-	$administrators = "sazaju@gmail.com";
-	$subject = "ERROR";
-	$message = "aze";//$exception->getMessage();
-	$header = "From: noreply@zerofansub.net\r\n";
-	$sent = false;//mail($administrators, $subject, $message, $header);
-	echo "An error as occured, ".(
-		$sent ? "administrators has been noticed by mail"
-		      : "contact the administrators : ".$administrators
-		).".";
-}
-
 if (!TEST_MODE_ACTIVATED) {
+	function exception_handler($exception) {
+		// TODO
+		$administrators = "sazaju@gmail.com";
+		$subject = "ERROR";
+		$message = "aze";//$exception->getMessage();
+		$header = "From: noreply@zerofansub.net\r\n";
+		$sent = false;//mail($administrators, $subject, $message, $header);
+		echo "An error as occured, ".(
+			$sent ? "administrators has been noticed by mail"
+				  : "contact the administrators : ".$administrators
+			).".";
+	}
+
+	set_exception_handler('exception_handler');
+	set_error_handler('exception_handler');
+}
+else {
+	function exception_handler($exception) {
+		echo "An error as occured : ".$exception;
+		phpinfo();
+	}
+
 	set_exception_handler('exception_handler');
 	set_error_handler('exception_handler');
 }
