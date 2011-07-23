@@ -5,7 +5,7 @@
 */
 
 define("TEST_MODE_ACTIVATED", 
-		in_array($_SERVER["SERVER_NAME"], array('127.0.0.1', 'localhost'), true));
+		in_array($_SERVER["SERVER_NAME"], array('127.0.0.1', 'localhost', 'to-do-list.me'), true));
 
 /**********************************\
               IMPORTS
@@ -31,10 +31,10 @@ function exception_handler($exception) {
 	$message = "aze";//$exception->getMessage();
 	$header = "From: noreply@zerofansub.net\r\n";
 	$sent = false;//mail($administrators, $subject, $message, $header);
-  echo "An error as occured, ".(
-  		$sent ? "administrators has been noticed by mail"
-  		      : "contact the administrators : ".$administrators
-  		).".";
+	echo "An error as occured, ".(
+		$sent ? "administrators has been noticed by mail"
+		      : "contact the administrators : ".$administrators
+		).".";
 }
 
 if (!TEST_MODE_ACTIVATED) {
