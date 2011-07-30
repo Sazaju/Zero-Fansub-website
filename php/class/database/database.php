@@ -10,10 +10,10 @@ class Database {
 	
 	function __construct($testing = false) {
 		if ($testing) {
-			$this->connection = new PDO('sqlite::memory:');
+			$this->connection = new PDO('sqlite:test.db');
 		}
 		else {
-			$this->connection = new PDO('sqlite::memory:');
+			$this->connection = new PDO('sqlite:database.db');
 			// TODO replace by :
 			// $this->connection = new PDO('mysql:host=localhost;dbname=base', "user", "password", array(PDO::ATTR_PERSISTENT => true));
 		}

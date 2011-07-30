@@ -19,13 +19,14 @@ require_once("php/class/xhtml/simpleblockcomponent.php");
 require_once("php/class/xhtml/simpletextcomponent.php");
 require_once("php/class/xhtml/menu.php");
 require_once("php/util/format.php");
+require_once("php/util/check.php");
 
 /**********************************\
            ERROR MANAGING
 \**********************************/
 
-if (!TEST_MODE_ACTIVATED) {
-	function exception_handler($exception) {
+function exception_handler($exception) {
+	if (!TEST_MODE_ACTIVATED) {
 		// TODO
 		$administrators = "sazaju@gmail.com";
 		$subject = "ERROR";
@@ -37,26 +38,21 @@ if (!TEST_MODE_ACTIVATED) {
 				  : "contact the administrators : ".$administrators
 			).".";
 	}
-
-	set_exception_handler('exception_handler');
-	set_error_handler('exception_handler');
-}
-else {
-	function exception_handler($exception) {
-		echo "An error as occured : ".$exception;
+	else {
+		echo "An error as occured : ".$exception;//->getMessage();
 		phpinfo();
 	}
-
-	set_exception_handler('exception_handler');
-	set_error_handler('exception_handler');
 }
+
+set_exception_handler('exception_handler');
+set_error_handler('exception_handler');
 
 /**********************************\
              DATABASE
 \**********************************/
 
 $database = new Database(TEST_MODE_ACTIVATED);
-if (TEST_MODE_ACTIVATED) {
+if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
 	$database->clearDatabase();
 	$database->initializeDatabase();
 }
@@ -65,35 +61,44 @@ if (TEST_MODE_ACTIVATED) {
            PAGE BUILDING
 \**********************************/
 
+$pageId = checkInput(isset($_GET['page']) ? $_GET['page'] : null, array('projects'), 'home');
 $page = new SimpleBlockComponent();
 $page->setId('page');
 
-$news0 = new News($database, 0);
-$news0->load();
-$html = $news0->getHtmlComponent();
-$html->setClass('news');
-$page->addComponent($html);
+if ($pageId == 'home') {
+	$news0 = new News($database, 0);
+	$news0->load();
+	$html = $news0->getHtmlComponent();
+	$html->setClass('news');
+	$page->addComponent($html);
 
-$news1 = new News($database, 0);
-$news1->load();
-$html = $news1->getHtmlComponent();
-$html->setClass('short_news');
-$html->setText(truncateText(strip_tags($html->getText()), 150));
-$page->addComponent($html);
+	$news1 = new News($database, 0);
+	$news1->load();
+	$html = $news1->getHtmlComponent();
+	$html->setClass('short_news');
+	$html->setText(truncateText(strip_tags($html->getText()), 150));
+	$page->addComponent($html);
 
-$news2 = new News($database, 0);
-$news2->load();
-$html = $news2->getHtmlComponent();
-$html->setClass('short_news');
-$html->setText(truncateText(strip_tags($html->getText()), 150));
-$page->addComponent($html);
+	$news2 = new News($database, 0);
+	$news2->load();
+	$html = $news2->getHtmlComponent();
+	$html->setClass('short_news');
+	$html->setText(truncateText(strip_tags($html->getText()), 150));
+	$page->addComponent($html);
 
-$news3 = new News($database, 0);
-$news3->load();
-$html = $news3->getHtmlComponent();
-$html->setClass('short_news');
-$html->setText(truncateText(strip_tags($html->getText()), 150));
-$page->addComponent($html);
+	$news3 = new News($database, 0);
+	$news3->load();
+	$html = $news3->getHtmlComponent();
+	$html->setClass('short_news');
+	$html->setText(truncateText(strip_tags($html->getText()), 150));
+	$page->addComponent($html);
+}
+
+else if ($pageId == 'projects') {
+	$project = new SimpleTextComponent();
+	$project->setContent('Projet XXX');
+	$page->addComponent($project);
+}
 
 /**********************************\
         RIGHT PANEL BUILDING
@@ -110,11 +115,8 @@ $rightPanel->addComponent($html);
 
 $menu = new Menu();
 $menu->setId('menu');
-$menu->addEntry('Menu 1', '#link 1');
-$menu->addEntry('Menu 2', '#link 2');
-$menu->addEntry('Menu 3', '#link 3');
-$menu->addEntry('Menu 4', '#link 4');
-$menu->addEntry('Menu 5', '#link 5');
+$menu->addEntry('Accueil', $_SERVER['PHP_SELF']);
+$menu->addEntry('Projets', $_SERVER['PHP_SELF'].'?'.'page=projects');
 $rightPanel->addComponent($menu);
 
 /**********************************\
@@ -161,7 +163,7 @@ $builder->setTitle($row['value']);
 $builder->addComponent($main);
 if (TEST_MODE_ACTIVATED) {
 	$warning = new SimpleTextComponent();
-	$warning->setContent('TESTING');
+	$warning->setContent('TESTING - <a href="'.$_SERVER['PHP_SELF'].'?clearDB'.'">clear DB</a>');
 	$warning->setStyle('float:left;width:100%;text-align:center;border:1px solid #FF0000;');
 	$builder->addComponent($warning);
 }
