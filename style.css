@@ -48,7 +48,7 @@ a:hover
 	height: 0;
 }
 
-/****************/
+/**************************************************************************************************/
 
 #page
 {
@@ -91,11 +91,13 @@ a:hover
 	text-align: center;
 }
 
-#menu, #quickbar, .news, .short_news
+#menu, #quickbar, .news, .short_news, .project
 {
 	border: 3px solid #DEDFE0;
 	background: #D5D6D8;
 }
+
+/**************************************************************************************************/
 
 .news, .short_news
 {
@@ -149,4 +151,44 @@ a:hover
 .short_news .image
 {
 	display: none;
+}
+
+/**************************************************************************************************/
+
+.project
+{
+	padding: 1%;
+	margin: 1%;
+}
+
+.project .title
+{
+    font-size: 2em;
+    padding: 1%;
+    text-align: right;
+    text-shadow: #5F5F5F 1px 1px 5px;
+    text-transform: capitalize;
+    /*	font-family: "Lucida Console", fantasy, monospace;*/
+    font-weight: bold;
+    letter-spacing: 0.15em;
+}
+
+.project .description
+{
+	background: white;
+	border: 3px solid #DEDFE0;
+	padding: 1%;
+}
+
+.project .image
+{
+	float: left;
+	width: 30%;
+	margin: 1%;
+	border: 3px solid #DEDFE0;
+}
+
+.project .image img
+{
+	width: 100%;
 }

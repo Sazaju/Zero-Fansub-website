@@ -4,10 +4,14 @@
 	complete page.
 */
 
-define('TEST_MODE_ACTIVATED', 
-		in_array($_SERVER["SERVER_NAME"], array('127.0.0.1', 'localhost', 'to-do-list.me', 'sazaju.dyndns-home.com'), true));
+define('TEST_MODE_ACTIVATED', in_array($_SERVER["SERVER_NAME"], array(
+				'127.0.0.1',
+				'localhost',
+				'to-do-list.me',
+				'sazaju.dyndns-home.com'
+		), true));
 if (TEST_MODE_ACTIVATED) {
-	define('TESTING_FEATURE', 'TESTING : <a href="'.$_SERVER['PHP_SELF'].'?clearDB'.'">clear DB</a>');
+	define('TESTING_FEATURE', 'Testing mode : <a href="'.$_SERVER['PHP_SELF'].'?clearDB'.'">clear DB</a>');
 }
 
 /**********************************\
@@ -17,6 +21,7 @@ if (TEST_MODE_ACTIVATED) {
 require_once("php/class/htmlbuilder.php");
 require_once("php/class/image.php");
 require_once("php/class/news.php");
+require_once("php/class/project.php");
 require_once("php/class/database/database.php");
 require_once("php/class/xhtml/simpleblockcomponent.php");
 require_once("php/class/xhtml/simpletextcomponent.php");
@@ -51,7 +56,7 @@ function exception_handler($exception) {
 			).".";
 	}
 	else {
-		echo TESTING_FEATURE."<br/>An error as occured : ".$exception;
+		echo "An error as occured : ".$exception."<br/><br/>".TESTING_FEATURE;
 		phpinfo();
 	}
 }
@@ -73,7 +78,7 @@ if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
            PAGE BUILDING
 \**********************************/
 
-$pageId = checkInput(isset($_GET['page']) ? $_GET['page'] : null, array('projects'), 'home');
+$pageId = checkInput(isset($_GET['page']) ? $_GET['page'] : null, array('project'), 'home');
 $page = new SimpleBlockComponent();
 $page->setId('page');
 
@@ -81,7 +86,6 @@ if ($pageId == 'home') {
 	$news0 = new News($database, 0);
 	$news0->load();
 	$html = $news0->getHtmlComponent();
-	$html->setClass('news');
 	$page->addComponent($html);
 
 	$news1 = new News($database, 0);
@@ -106,10 +110,13 @@ if ($pageId == 'home') {
 	$page->addComponent($html);
 }
 
-else if ($pageId == 'projects') {
-	$project = new SimpleTextComponent();
-	$project->setContent('Projet XXX');
-	$page->addComponent($project);
+else if ($pageId == 'project') {
+	$projectId = checkNumericInput(isset($_GET['id']) ? $_GET['id'] : null);
+	
+	$project = new Project($database, $projectId);
+	$project->load();
+	$html = $project->getHtmlComponent();
+	$page->addComponent($html);
 }
 
 /**********************************\
@@ -128,7 +135,7 @@ $rightPanel->addComponent($html);
 $menu = new Menu();
 $menu->setId('menu');
 $menu->addEntry('Accueil', $_SERVER['PHP_SELF']);
-$menu->addEntry('Projets', $_SERVER['PHP_SELF'].'?'.'page=projects');
+$menu->addEntry('Projet X', $_SERVER['PHP_SELF'].'?'.'page=project&id=0');
 $rightPanel->addComponent($menu);
 
 /**********************************\
