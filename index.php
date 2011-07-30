@@ -4,8 +4,11 @@
 	complete page.
 */
 
-define("TEST_MODE_ACTIVATED", 
+define('TEST_MODE_ACTIVATED', 
 		in_array($_SERVER["SERVER_NAME"], array('127.0.0.1', 'localhost', 'to-do-list.me', 'sazaju.dyndns-home.com'), true));
+if (TEST_MODE_ACTIVATED) {
+	define('TESTING_FEATURE', 'TESTING : <a href="'.$_SERVER['PHP_SELF'].'?clearDB'.'">clear DB</a>');
+}
 
 /**********************************\
               IMPORTS
@@ -25,6 +28,15 @@ require_once("php/util/check.php");
            ERROR MANAGING
 \**********************************/
 
+function error_handler($code, $message, $file, $line)
+{
+    if (0 == error_reporting())
+    {
+        return;
+    }
+    throw new ErrorException($message, 0, $code, $file, $line);
+}
+
 function exception_handler($exception) {
 	if (!TEST_MODE_ACTIVATED) {
 		// TODO
@@ -39,13 +51,13 @@ function exception_handler($exception) {
 			).".";
 	}
 	else {
-		echo "An error as occured : ".$exception;//->getMessage();
+		echo TESTING_FEATURE."<br/>An error as occured : ".$exception;
 		phpinfo();
 	}
 }
 
+set_error_handler("error_handler");
 set_exception_handler('exception_handler');
-set_error_handler('exception_handler');
 
 /**********************************\
              DATABASE
@@ -163,7 +175,7 @@ $builder->setTitle($row['value']);
 $builder->addComponent($main);
 if (TEST_MODE_ACTIVATED) {
 	$warning = new SimpleTextComponent();
-	$warning->setContent('TESTING - <a href="'.$_SERVER['PHP_SELF'].'?clearDB'.'">clear DB</a>');
+	$warning->setContent(TESTING_FEATURE);
 	$warning->setStyle('float:left;width:100%;text-align:center;border:1px solid #FF0000;');
 	$builder->addComponent($warning);
 }
