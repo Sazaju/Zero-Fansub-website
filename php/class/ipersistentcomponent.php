@@ -8,5 +8,6 @@ interface IPersistentComponent {
 	public function getHtmlComponent();
 	public function getDatabaseComponent();
 	public function load();
+	public function isLoaded();
 }
 ?>

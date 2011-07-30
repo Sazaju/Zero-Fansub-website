@@ -5,8 +5,6 @@
 	HTML code is already done after the instanciation.
 */
 
-require_once("simpleblockcomponent.php");
-
 class Pin extends DefaultHtmlComponent {
 	function __construct() {
 		$this->setClass('pin');

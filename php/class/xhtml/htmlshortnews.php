@@ -4,13 +4,12 @@
 	to display and some added data (image, author, date of writing, ...).
 */
 
-class HtmlNews extends SimpleBlockComponent {
+class HtmlShortNews extends SimpleBlockComponent {
 	private $title = '';
 	private $text = '';
-	private $image = null;
 	
 	function __construct() {
-		$this->setClass('news');
+		$this->setClass('short_news');
 	}
 	
 	public function setTitle($title) {
@@ -29,24 +28,12 @@ class HtmlNews extends SimpleBlockComponent {
 		return $this->text;
 	}
 	
-	public function setImage(HtmlImage $image) {
-		$this->image = $image;
-	}
-	
-	public function getImage() {
-		return $this->image;
-	}
-	
 	public function getContent() {
 		$content = '';
 		// TODO simplify the architecture
 		$content .= '<div class="title">'.$this->title.'</div>';
 		$content .= '<div class="text">';
-		$this->image->generateHtml();
-		$pin = new Pin();
-		$content .= '<div class="image">'.$this->image->getHtml().'</div>';
-		$content .= Format::convertTextToHtml($this->text);
-		$content .= $pin->getHtml();
+		$content .= Format::convertTextToHtml(Format::truncateText($this->text, 150));
 		$content .= '</div>';
 		
 		return $content;

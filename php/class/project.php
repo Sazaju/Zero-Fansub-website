@@ -1,11 +1,8 @@
 <?php
-require_once('ipersistentcomponent.php');
-require_once('database/databaseproject.php');
-require_once('xhtml/htmlproject.php');
-
 class Project implements IPersistentComponent {
 	private $htmlComponent = null;
 	private $databaseComponent = null;
+	private $isLoaded = false;
 	
 	public function __construct(Database $db, $id) {
 		$this->databaseComponent = new DatabaseProject();
@@ -30,8 +27,11 @@ class Project implements IPersistentComponent {
 		$image = new Image($this->databaseComponent->getDatabase(), $data['image_id']);
 		$image->load();
 		$this->htmlComponent->setImage($image->getHtmlComponent());
+		$this->isLoaded = true;
 	}
 
-	
+	public function isLoaded(){
+		return $this->isLoaded;
+	}
 }
 ?>

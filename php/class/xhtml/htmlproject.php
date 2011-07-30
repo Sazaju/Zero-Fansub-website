@@ -3,8 +3,6 @@
 	A project is a complete presentation of a specific projet of teh team.
 */
 
-require_once("simpleblockcomponent.php");
-
 class HtmlProject extends SimpleBlockComponent {
 	private $title = '';
 	private $description = '';
@@ -46,7 +44,7 @@ class HtmlProject extends SimpleBlockComponent {
 		$this->image->generateHtml();
 		$pin = new Pin();
 		$content .= '<div class="image">'.$this->image->getHtml().'</div>';
-		$content .= $this->description;
+		$content .= Format::convertTextToHtml($this->description);
 		$content .= $pin->getHtml();
 		$content .= '</div>';
 		

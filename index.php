@@ -18,16 +18,20 @@ if (TEST_MODE_ACTIVATED) {
               IMPORTS
 \**********************************/
 
-require_once("php/class/htmlbuilder.php");
-require_once("php/class/image.php");
-require_once("php/class/news.php");
-require_once("php/class/project.php");
-require_once("php/class/database/database.php");
-require_once("php/class/xhtml/simpleblockcomponent.php");
-require_once("php/class/xhtml/simpletextcomponent.php");
-require_once("php/class/xhtml/menu.php");
-require_once("php/util/format.php");
-require_once("php/util/check.php");
+function __autoload($className) {
+	$classDirs = array(
+		'php/class',
+		'php/class/util',
+		'php/class/xhtml',
+		'php/class/database',
+	);
+	foreach($classDirs as $dir) {
+		$file = $dir.'/'.strtolower($className).'.php';
+		if (file_exists($file)) {
+			include $file;
+		}
+	}
+}
 
 /**********************************\
            ERROR MANAGING
@@ -78,45 +82,20 @@ if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
            PAGE BUILDING
 \**********************************/
 
-$pageId = checkInput(isset($_GET['page']) ? $_GET['page'] : null, array('project'), 'home');
+$pageId = Check::getInputIn(isset($_GET['page']) ? $_GET['page'] : null, array('project'), 'home');
 $page = new SimpleBlockComponent();
 $page->setId('page');
 
 if ($pageId == 'home') {
-	$news0 = new News($database, 0);
-	$news0->load();
-	$html = $news0->getHtmlComponent();
-	$page->addComponent($html);
-
-	$news1 = new News($database, 0);
-	$news1->load();
-	$html = $news1->getHtmlComponent();
-	$html->setClass('short_news');
-	$html->setText(truncateText(strip_tags($html->getText()), 150));
-	$page->addComponent($html);
-
-	$news2 = new News($database, 0);
-	$news2->load();
-	$html = $news2->getHtmlComponent();
-	$html->setClass('short_news');
-	$html->setText(truncateText(strip_tags($html->getText()), 150));
-	$page->addComponent($html);
-
-	$news3 = new News($database, 0);
-	$news3->load();
-	$html = $news3->getHtmlComponent();
-	$html->setClass('short_news');
-	$html->setText(truncateText(strip_tags($html->getText()), 150));
-	$page->addComponent($html);
+	$page->addComponent(new News($database, 0));
+	$page->addComponent(new ShortNews($database, 0));
+	$page->addComponent(new ShortNews($database, 0));
+	$page->addComponent(new ShortNews($database, 0));
 }
 
 else if ($pageId == 'project') {
-	$projectId = checkNumericInput(isset($_GET['id']) ? $_GET['id'] : null);
-	
-	$project = new Project($database, $projectId);
-	$project->load();
-	$html = $project->getHtmlComponent();
-	$page->addComponent($html);
+	$projectId = Check::getNumericInput(isset($_GET['id']) ? $_GET['id'] : null);
+	$page->addComponent(new Project($database, $projectId));
 }
 
 /**********************************\
@@ -275,7 +254,7 @@ $builder->generateHtml();
 $html = $builder->getHtml();
 
 // TODO debugging
-$html = formatHtml($html);
+$html = Format::indentHtml($html);
 // TODO /debugging
 
 echo $html;

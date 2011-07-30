@@ -3,8 +3,6 @@
 	An image is a simple picture which can have some attributes.
 */
 
-require_once("defaulthtmlcomponent.php");
-
 class HtmlImage extends DefaultHtmlComponent {
 	private $source = '';
 	private $alternative = '';

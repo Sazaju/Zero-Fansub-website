@@ -3,8 +3,6 @@
 	A menu is a component giving a list of entries in a specific block.
 */
 
-require_once("simpleblockcomponent.php");
-
 class Menu extends DefaultHtmlComponent {
 	private $ordered = false;
 	

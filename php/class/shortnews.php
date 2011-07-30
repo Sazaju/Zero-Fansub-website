@@ -1,5 +1,5 @@
 <?php
-class News implements IPersistentComponent {
+class ShortNews implements IPersistentComponent {
 	private $htmlComponent = null;
 	private $databaseComponent = null;
 	private $isLoaded = false;
@@ -8,7 +8,7 @@ class News implements IPersistentComponent {
 		$this->databaseComponent = new DatabaseNews();
 		$this->databaseComponent->setDatabase($db);
 		$this->databaseComponent->setDatabaseId($id);
-		$this->htmlComponent = new HtmlNews();
+		$this->htmlComponent = new HtmlShortNews();
 	}
 	
 	public function getHtmlComponent() {
@@ -24,9 +24,6 @@ class News implements IPersistentComponent {
 		$data = $this->databaseComponent->getData();
 		$this->htmlComponent->setTitle($data['title']);
 		$this->htmlComponent->setText($data['text']);
-		$image = new Image($this->databaseComponent->getDatabase(), $data['image_id']);
-		$image->load();
-		$this->htmlComponent->setImage($image->getHtmlComponent());
 		$this->isLoaded = true;
 	}
 

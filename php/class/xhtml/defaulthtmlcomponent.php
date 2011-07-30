@@ -4,8 +4,6 @@
 	setters/getters for the basic options (ID, class, style, ...).
 */
 
-require_once("ihtmlcomponent.php");
-
 abstract class DefaultHtmlComponent implements IHtmlComponent {
 	private $id = '';
 	private $clazz = '';
@@ -46,7 +44,7 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		return $this->content;
 	}
 	
-	public function addComponent(IHtmlComponent $component) {
+	public function addComponent($component) {
 		$this->subcomponents[] = $component;
 	}
 	
@@ -69,6 +67,16 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	public function generateHtml() {
 		$content = $this->getContent();
 		foreach($this->subcomponents as $component) {
+			if ($component instanceof IPersistentComponent) {
+				if (!$component->isLoaded()) {
+					$component->load();
+				}
+				$component = $component->getHtmlComponent();
+			}
+			if (!($component instanceof IHtmlComponent)) {
+				throw new Exception(get_class($component).' is not a HTML component');
+			}
+	
 			$component->generateHtml();
 			$content .= $component->getHtml();
 		}
