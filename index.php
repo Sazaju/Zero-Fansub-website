@@ -73,8 +73,7 @@ set_exception_handler('exception_handler');
 
 Database::createDefaultDatabase(TEST_MODE_ACTIVATED);
 if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
-	Database::getDefaultDatabase()->clearDatabase();
-	Database::getDefaultDatabase()->initializeDatabase();
+	Database::getDefaultDatabase()->clear();
 	header('Location: '.$_SERVER['PHP_SELF']);
 	exit();
 }
@@ -88,9 +87,9 @@ $page = new SimpleBlockComponent();
 $page->setId('page');
 
 if ($pageId == 'home') {
-	$page->addComponent(new News(0));
-	$page->addComponent(new ShortNews(0));
-	$page->addComponent(new ShortNews(0));
+	$page->addComponent(new News(3));
+	$page->addComponent(new ShortNews(2));
+	$page->addComponent(new ShortNews(1));
 	$page->addComponent(new ShortNews(0));
 }
 
