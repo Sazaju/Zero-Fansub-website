@@ -4,8 +4,7 @@
 	database.
 */
 
-interface IPersistentComponent {
-	public function getHtmlComponent();
+interface IPersistentComponent extends IHtmlComponent {
 	public function getDatabaseComponent();
 	public function load();
 	public function isLoaded();

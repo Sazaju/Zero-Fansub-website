@@ -20,10 +20,9 @@ if (TEST_MODE_ACTIVATED) {
 
 function __autoload($className) {
 	$classDirs = array(
-		'php/class',
-		'php/class/util',
-		'php/class/xhtml',
-		'php/class/database',
+		'class',
+		'class/util',
+		'class/database',
 	);
 	foreach($classDirs as $dir) {
 		$file = $dir.'/'.strtolower($className).'.php';
@@ -72,10 +71,12 @@ set_exception_handler('exception_handler');
              DATABASE
 \**********************************/
 
-$database = new Database(TEST_MODE_ACTIVATED);
+Database::createDefaultDatabase(TEST_MODE_ACTIVATED);
 if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
-	$database->clearDatabase();
-	$database->initializeDatabase();
+	Database::getDefaultDatabase()->clearDatabase();
+	Database::getDefaultDatabase()->initializeDatabase();
+	header('Location: '.$_SERVER['PHP_SELF']);
+	exit();
 }
 
 /**********************************\
@@ -87,15 +88,15 @@ $page = new SimpleBlockComponent();
 $page->setId('page');
 
 if ($pageId == 'home') {
-	$page->addComponent(new News($database, 0));
-	$page->addComponent(new ShortNews($database, 0));
-	$page->addComponent(new ShortNews($database, 0));
-	$page->addComponent(new ShortNews($database, 0));
+	$page->addComponent(new News(0));
+	$page->addComponent(new ShortNews(0));
+	$page->addComponent(new ShortNews(0));
+	$page->addComponent(new ShortNews(0));
 }
 
 else if ($pageId == 'project') {
 	$projectId = Check::getNumericInput(isset($_GET['id']) ? $_GET['id'] : null);
-	$page->addComponent(new Project($database, $projectId));
+	$page->addComponent(new Project($projectId));
 }
 
 /**********************************\
@@ -105,11 +106,10 @@ else if ($pageId == 'project') {
 $rightPanel = new SimpleBlockComponent();
 $rightPanel->setId('right_panel');
 
-$logo = new Image($database, 1);
+$logo = new Image(1);
 $logo->load();
-$html = $logo->getHtmlComponent();
-$html->setId('logo');
-$rightPanel->addComponent($html);
+$logo->setId('logo');
+$rightPanel->addComponent($logo);
 
 $menu = new Menu();
 $menu->setId('menu');
@@ -121,7 +121,7 @@ $rightPanel->addComponent($menu);
          QUICKBAR BUILDING
 \**********************************/
 
-$row = $database->getConnection()->query('select * from "property" where id = "quickbar"')->fetch();
+$row = Database::getDefaultDatabase()->getConnection()->query('select * from "property" where id = "quickbar"')->fetch();
 $quickText = new SimpleTextComponent();
 $quickText->setContent($row['value']);
 $quick = new SimpleBlockComponent();
@@ -132,7 +132,7 @@ $quick->addComponent($quickText);
           FOOTER BUILDING
 \**********************************/
 
-$row = $database->getConnection()->query('select * from "property" where id = "footer"')->fetch();
+$row = Database::getDefaultDatabase()->getConnection()->query('select * from "property" where id = "footer"')->fetch();
 $footerText = new SimpleTextComponent();
 $footerText->setContent($row['value']);
 $footer = new SimpleBlockComponent();
@@ -156,7 +156,7 @@ $main->addComponent($footer);
 \**********************************/
 
 $builder = new HtmlBuilder();
-$row = $database->getConnection()->query('select * from "property" where id = "title"')->fetch();
+$row = Database::getDefaultDatabase()->getConnection()->query('select * from "property" where id = "title"')->fetch();
 $builder->setTitle($row['value']);
 $builder->addComponent($main);
 if (TEST_MODE_ACTIVATED) {

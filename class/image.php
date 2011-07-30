@@ -3,9 +3,31 @@
 	An image is a simple picture which can have some attributes.
 */
 
-class HtmlImage extends DefaultHtmlComponent {
+class Image extends DefaultHtmlComponent implements IPersistentComponent {
 	private $source = '';
 	private $alternative = '';
+	private $databaseComponent = null;
+	private $isLoaded = false;
+	
+	public function __construct($id) {
+		$this->databaseComponent = new DatabaseImage($id);
+	}
+	
+	public function getDatabaseComponent() {
+		return $this->databaseComponent;
+	}
+	
+	public function load() {
+		$this->databaseComponent->load();
+		$data = $this->databaseComponent->getData();
+		$this->setSource($data['url']);
+		$this->setAlternative($data['title']);
+		$this->isLoaded = true;
+	}
+
+	public function isLoaded(){
+		return $this->isLoaded;
+	}
 	
 	public function getHtmlTag() {
 		return 'img';

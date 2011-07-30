@@ -11,6 +11,11 @@ abstract class DefaultDatabaseComponent implements IDatabaseComponent {
 	private $databaseId = null;
 	private $data = null;
 	
+	public function __construct($id) {
+		$this->setDatabase(Database::getDefaultDatabase());
+		$this->setDatabaseId($id);
+	}
+	
 	public function setDatabase(Database $db) {
 		$this->database = $db;
 	}

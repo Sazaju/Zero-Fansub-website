@@ -3,10 +3,28 @@
 	The database class wrap all the needed database code (PDO-based) with the
 	specific data of this website. In particular, a testing mode is available,
 	giving an initial database in memory.
+	
+	Static methods are available to create and get the default database. This default database is
+	used by default in the persistent components.
 */
 
 class Database {
+	private static $defaultDatabase = null;
 	private $connection;
+	
+	public static function createDefaultDatabase($testing = false) {
+		Database::$defaultDatabase = new Database($testing);
+	}
+	
+	public static function getDefaultDatabase() {
+		$db = Database::$defaultDatabase;
+		if ($db === null) {
+			throw new Exception('default database not created yet');
+		}
+		else {
+			return $db;
+		}
+	}
 	
 	function __construct($testing = false) {
 		if ($testing) {

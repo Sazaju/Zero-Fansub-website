@@ -4,13 +4,35 @@
 	to display and some added data (image, author, date of writing, ...).
 */
 
-class HtmlNews extends SimpleBlockComponent {
+class News extends SimpleBlockComponent implements IPersistentComponent {
 	private $title = '';
 	private $text = '';
 	private $image = null;
+	private $databaseComponent = null;
+	private $isLoaded = false;
 	
-	function __construct() {
+	public function __construct($id) {
 		$this->setClass('news');
+		$this->databaseComponent = new DatabaseNews($id);
+	}
+	
+	public function getDatabaseComponent() {
+		return $this->databaseComponent;
+	}
+	
+	public function load() {
+		$this->databaseComponent->load();
+		$data = $this->databaseComponent->getData();
+		$this->setTitle($data['title']);
+		$this->setText($data['text']);
+		$image = new Image($data['image_id']);
+		$image->load();
+		$this->setImage($image);
+		$this->isLoaded = true;
+	}
+
+	public function isLoaded(){
+		return $this->isLoaded;
 	}
 	
 	public function setTitle($title) {
@@ -29,7 +51,7 @@ class HtmlNews extends SimpleBlockComponent {
 		return $this->text;
 	}
 	
-	public function setImage(HtmlImage $image) {
+	public function setImage(Image $image) {
 		$this->image = $image;
 	}
 	

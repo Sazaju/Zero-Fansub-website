@@ -3,13 +3,35 @@
 	A project is a complete presentation of a specific projet of teh team.
 */
 
-class HtmlProject extends SimpleBlockComponent {
+class Project extends SimpleBlockComponent implements IPersistentComponent {
 	private $title = '';
 	private $description = '';
 	private $image = null;
+	private $databaseComponent = null;
+	private $isLoaded = false;
 	
-	function __construct() {
+	public function __construct($id) {
 		$this->setClass('project');
+		$this->databaseComponent = new DatabaseProject($id);
+	}
+	
+	public function getDatabaseComponent() {
+		return $this->databaseComponent;
+	}
+	
+	public function load() {
+		$this->databaseComponent->load();
+		$data = $this->databaseComponent->getData();
+		$this->setTitle($data['title']);
+		$this->setdescription($data['description']);
+		$image = new Image($data['image_id']);
+		$image->load();
+		$this->setImage($image);
+		$this->isLoaded = true;
+	}
+
+	public function isLoaded(){
+		return $this->isLoaded;
 	}
 	
 	public function setTitle($title) {
@@ -28,7 +50,7 @@ class HtmlProject extends SimpleBlockComponent {
 		return $this->description;
 	}
 	
-	public function setImage(HtmlImage $image) {
+	public function setImage(Image $image) {
 		$this->image = $image;
 	}
 	

@@ -44,7 +44,7 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		return $this->content;
 	}
 	
-	public function addComponent($component) {
+	public function addComponent(IHtmlComponent $component) {
 		$this->subcomponents[] = $component;
 	}
 	
@@ -71,10 +71,6 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 				if (!$component->isLoaded()) {
 					$component->load();
 				}
-				$component = $component->getHtmlComponent();
-			}
-			if (!($component instanceof IHtmlComponent)) {
-				throw new Exception(get_class($component).' is not a HTML component');
 			}
 	
 			$component->generateHtml();
