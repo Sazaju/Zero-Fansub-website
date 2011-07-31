@@ -22,9 +22,9 @@ class Menu extends DefaultHtmlComponent {
 		return $this->ordered;
 	}
 	
-	public function addEntry($name, $link) {
-		$this->setContent($this->getContent().'<li><a href="'.$link.'">'.$name.'</a></li>');
+	public function addEntry(Link $link) {
+		$link->generateHtml();
+		$this->setContent($this->getContent().'<li>'.$link->getHtml().'</li>');
 	}
-	
 }
 ?>

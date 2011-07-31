@@ -82,7 +82,7 @@ if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
            PAGE BUILDING
 \**********************************/
 
-$pageId = Check::getInputIn(isset($_GET['page']) ? $_GET['page'] : null, array('project'), 'home');
+$pageId = Check::getInputIn(isset($_GET['page']) ? $_GET['page'] : null, array('project', 'projectList'), 'home');
 $page = new SimpleBlockComponent();
 $page->setId('page');
 
@@ -96,6 +96,11 @@ if ($pageId == 'home') {
 else if ($pageId == 'project') {
 	$projectId = Check::getNumericInput(isset($_GET['id']) ? $_GET['id'] : null);
 	$page->addComponent(new Project($projectId));
+}
+
+else if ($pageId == 'projectList') {
+	$page->addComponent(new PageTitle('Projets'));
+	$page->addComponent(new ProjectList());
 }
 
 /**********************************\
@@ -112,8 +117,8 @@ $rightPanel->addComponent($logo);
 
 $menu = new Menu();
 $menu->setId('menu');
-$menu->addEntry('Accueil', $_SERVER['PHP_SELF']);
-$menu->addEntry('Projet X', $_SERVER['PHP_SELF'].'?'.'page=project&id=0');
+$menu->addEntry(new IndexLink('', 'Accueil'));
+$menu->addEntry(new IndexLink('page=projectList', 'Projets'));
 $rightPanel->addComponent($menu);
 
 /**********************************\

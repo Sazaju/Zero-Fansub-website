@@ -97,6 +97,10 @@ a:hover
 	background: #D5D6D8;
 }
 
+.pageTitle {
+	text-align: center;
+}
+
 /**************************************************************************************************/
 
 .news, .short_news
@@ -191,4 +195,17 @@ a:hover
 .project .image img
 {
 	width: 100%;
+}
+
+/**************************************************************************************************/
+
+.projectList
+{
+	list-style-type: none;
+}
+
+.projectList li
+{
+	float: left;
+	margin: 1%;
 }

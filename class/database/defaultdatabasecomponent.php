@@ -3,9 +3,6 @@
 	This class gives the default implementation of a database component.
 */
 
-require_once("database.php");
-require_once("idatabasecomponent.php");
-
 abstract class DefaultDatabaseComponent implements IDatabaseComponent {
 	private $database = null;
 	private $databaseId = null;
