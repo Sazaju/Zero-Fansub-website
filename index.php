@@ -15,24 +15,6 @@ if (TEST_MODE_ACTIVATED) {
 }
 
 /**********************************\
-              IMPORTS
-\**********************************/
-
-function __autoload($className) {
-	$classDirs = array(
-		'class',
-		'class/util',
-		'class/database',
-	);
-	foreach($classDirs as $dir) {
-		$file = $dir.'/'.strtolower($className).'.php';
-		if (file_exists($file)) {
-			include $file;
-		}
-	}
-}
-
-/**********************************\
            ERROR MANAGING
 \**********************************/
 
@@ -66,6 +48,33 @@ function exception_handler($exception) {
 
 set_error_handler("error_handler");
 set_exception_handler('exception_handler');
+
+/**********************************\
+              IMPORTS
+\**********************************/
+
+function findFile($fileName, $dir) {
+	$expected = strtolower($dir.'/'.$fileName);
+	foreach(glob($dir . '/*') as $file) {
+		if (strtolower($file) == $expected) {
+			return $file;
+		}
+		else if (is_dir($file)) {
+			$file = findFile($fileName, $file);
+			if ($file != null) {
+				return $file;
+			}
+		}
+	}
+	return null;
+}
+
+function __autoload($className) {
+	$file = findFile($className.'.php', 'class');
+	if ($file != null) {
+		include $file;
+	}
+}
 
 /**********************************\
              DATABASE
