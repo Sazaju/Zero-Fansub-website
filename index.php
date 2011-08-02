@@ -83,7 +83,8 @@ function __autoload($className) {
 Database::createDefaultDatabase(TEST_MODE_ACTIVATED);
 if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
 	Database::getDefaultDatabase()->clear();
-	header('Location: '.$_SERVER['PHP_SELF']);
+	$link = new IndexLink();
+	header('Location: '.$link->getUrl());
 	exit();
 }
 
