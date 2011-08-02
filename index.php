@@ -134,23 +134,17 @@ $rightPanel->addComponent($menu);
          QUICKBAR BUILDING
 \**********************************/
 
-$row = Database::getDefaultDatabase()->getConnection()->query('select * from "property" where id = "quickbar"')->fetch();
-$quickText = new SimpleTextComponent();
-$quickText->setContent($row['value']);
 $quick = new SimpleBlockComponent();
 $quick->setId('quickbar');
-$quick->addComponent($quickText);
+$quick->setContent(DatabasePropertyManager::read('quickbar'));
 
 /**********************************\
           FOOTER BUILDING
 \**********************************/
 
-$row = Database::getDefaultDatabase()->getConnection()->query('select * from "property" where id = "footer"')->fetch();
-$footerText = new SimpleTextComponent();
-$footerText->setContent($row['value']);
 $footer = new SimpleBlockComponent();
 $footer->setId('footer');
-$footer->addComponent($footerText);
+$footer->setContent(DatabasePropertyManager::read('footer'));
 
 /**********************************\
           BODY MERGING
@@ -169,8 +163,7 @@ $main->addComponent($footer);
 \**********************************/
 
 $builder = new HtmlBuilder();
-$row = Database::getDefaultDatabase()->getConnection()->query('select * from "property" where id = "title"')->fetch();
-$builder->setTitle($row['value']);
+$builder->setTitle(DatabasePropertyManager::read('title'));
 $builder->addComponent($main);
 if (TEST_MODE_ACTIVATED) {
 	$warning = new SimpleTextComponent();
@@ -191,7 +184,7 @@ if (TEST_MODE_ACTIVATED) {
 */
 $builder->addMeta(array(
 		'http-equiv' => 'Content-Type',
-		'content' => 'text/html; charset=UTF-8' // TODO iso-8859-1 ?
+		'content' => 'text/html; charset=UTF-8'
 ));
 $builder->addMeta(array(
 		'http-equiv' => 'Content-Language',
@@ -213,19 +206,19 @@ $builder->addMeta(array(
 ));
 $builder->addMeta(array(
 		'name' => 'author',
-		'content' => 'The db0 company, http://db0.fr Contact db0company@gmail.com'
+		'content' => DatabasePropertyManager::read('meta_author')
 ));
 $builder->addMeta(array(
 		'name' => 'copyright',
-		'content' => 'The db0 company, Copyright 2010, Tout droits résérvés. Si du contenu vous appartient et que vous souhaitez qu\'il soit retiré du 	site, demandez-le par mail db0company@gmail.com'
+		'content' => DatabasePropertyManager::read('meta_copyright')
 ));
 $builder->addMeta(array(
-		'name' => 'Keywords',
-		'content' => '' // TODO
+		'name' => 'keywords',
+		'content' => DatabasePropertyManager::read('meta_keywords')
 ));
 $builder->addMeta(array(
 		'name' => 'description',
-		'content' => '' // TODO
+		'content' => DatabasePropertyManager::read('meta_description')
 ));
 
 /**********************************\

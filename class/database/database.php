@@ -66,6 +66,10 @@ class Database {
 		$statement->execute(array('title', 'Zéro ~fansub~ :: Sous-titrage bénévole français d\'animation Japonaise'));
 		$statement->execute(array('footer', 'crédits blabla'));
 		$statement->execute(array('quickbar', 'Quick bar : images random vers : series, articles, pages,...'));
+		$statement->execute(array('meta_author', 'The db0 company, http://db0.fr Contact db0company@gmail.com'));
+		$statement->execute(array('meta_copyright', 'The db0 company, Copyright 2010, Tout droits résérvés. Si du contenu vous appartient et que vous souhaitez qu\'il soit retiré du 	site, demandez-le par mail db0company@gmail.com'));
+		$statement->execute(array('meta_keywords', ''));
+		$statement->execute(array('meta_description', ''));
 		
 		$this->connection->exec('CREATE TABLE "image" (
 			id       INTEGER(10),
