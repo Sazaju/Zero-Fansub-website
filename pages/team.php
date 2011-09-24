@@ -1,6 +1,10 @@
-<h3>La Team de fansub</h3>
-
-<h2>Administrateur(s)</h2>
+<?php
+	$title = new Title("La Team de fansub", 3);
+	$title->writeNow();
+	
+	$title = new Title("Administrateur(s)", 2);
+	$title->writeNow();
+?>
 <?php
 	$list = new MemberList();
 	
@@ -23,13 +27,15 @@
 	
 	$list->writeNow();
 ?>
-
-<h2>Membres</h2>
+<?php
+	$title = new Title("Membres", 2);
+	$title->writeNow();
+?>
 <?php
 	$list = new MemberList();
 	
 	$member = new TeamMember();
-	$member->setPseudo("Sazaju");
+	$member->setPseudo("Sazaju HITOKAGE");
 	$member->setRole("Adapt Jap, Tracker BT, XDCC.");
 	$member->setImage("sazaju.png");
 	$member->setMail("sazaju@gmail.com");
@@ -78,8 +84,10 @@
 	
 	$list->writeNow();
 ?>
-
-<h2>Traducteurs</h2>
+<?php
+	$title = new Title("Traducteurs", 2);
+	$title->writeNow();
+?>
 <?php
 	$list = new MemberList();
 	
@@ -114,8 +122,10 @@
 	
 	$list->writeNow();
 ?>
-
-<h2>Seeders, Uploaders</h2>
+<?php
+	$title = new Title("Seeders, Uploaders", 2);
+	$title->writeNow();
+?>
 <?php
 	$list = new SimpleListComponent();
 	$list->add("sazaju");
