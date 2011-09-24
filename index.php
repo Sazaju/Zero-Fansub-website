@@ -376,11 +376,11 @@ $page = "home";
 }
 if (file_exists("pages/$page.php")) {
 require_once("pages/$page.php");
-PageContent::getInstance()->writeNow();
 }
 else {
 require_once("pages/home.php");
 }
+PageContent::getInstance()->writeNow();
 ?>
 	</div>
 
