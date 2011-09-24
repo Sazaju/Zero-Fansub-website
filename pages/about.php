@@ -11,51 +11,79 @@
 <?php
 	$title = new Title("Historique des versions", 2);
 	$title->writeNow();
+	
+	$table = new Table();
+	$table->setClass("about");
 ?>
-<table class="about">
-  <tr>
-    <th class="version">Version</th>
-    <th class="description">D&eacute;scription</th>
-    <th class="preview">Aperçu</th>
-  </tr>
-  <tr>
-    <td><b>1.0</b></td>
-    <td>Z&eacute;ro était un site de ddl.</td>
-    <td>Non dispo.</td>
-  </tr>
-  <tr>
-    <td>1.1</td>
-    <td>Z&eacute;ro devient une team de fansub avec pour seul projet <a href="index.php?page=series/kimikiss">Kimikiss pure rouge</a>.</td>
-    <td><a href="http://zero.xooit.fr/index.php?theme=test" target="_blank">Utiliser cette version</a></td>
-  </tr>
-  <tr>
-    <td><b>2.0</b></td>
-    <td>On essaye un design plus moderne, et c'est jouli. Enfin, je trouve. Et puis c'est rose !</td>
-    <td><a href="http://zerofansub.net/v2/?s_theme=rose" target="_blank">Utiliser cette version</a></td>
-  </tr>
-  <tr>
-    <td>2.1</td>
-    <td>On laisse le choix &agrave; l'utilisateur, si il pr&eacute;f&egrave;re le bleu ^^</td>
-    <td><a href="http://zerofansub.net/v2/index.php?s_theme=bleu" target="_blank">Utiliser cette version</a></td>
-  </tr>
-  <tr>
-    <td>2.2</td>
-    <td>Et pour les tristes, du noir. Du black !</td>
-    <td><a href="http://zerofansub.net/v2/index.php?s_theme=noir" target="_blank">Utiliser cette version</a></td>
-  </tr>
-  <tr>
-    <td><b>3.0</b></td>
-    <td>Le petit rond de la v2 n'&eacute;tant pas pratique, on change de syst&eacute;me pour la v3. De couleurs aussi.</td>
-    <td><a href="index3.0.php" target="_blank">Utiliser cette version</a></td>
-  </tr>
-  <tr>
-    <td>3.1</td>
-    <td>&Agrave; part le design g&eacute;n&eacute;ral change, mais le contenu des pages reste le m&ecirc;me. C'est juste histoire d'am&eacute;liorer le code.</td>
-    <td>Version actuelle !</td>
-  </tr>
-</table>
+<?php
+	$row = new TableRow();
+	$head = new TableHeader("Version");
+	$head->setClass("version");
+	$row->addComponent($head);
+	$head = new TableHeader("D&eacute;scription");
+	$head->setClass("description");
+	$row->addComponent($head);
+	$head = new TableHeader("Aperçu");
+	$head->setClass("preview");
+	$row->addComponent($head);
+	$table->addComponent($row);
+?>
+<?php
+	$row = new TableRow();
+	$row->addComponent(new TableCell("<b>1.0</b>"));
+	$row->addComponent(new TableCell("Z&eacute;ro était un site de ddl."));
+	$row->addComponent(new TableCell("Non dispo."));
+	$table->addComponent($row);
+?>
+<?php
+	$row = new TableRow();
+	$row->addComponent(new TableCell("1.1"));
+	$content = new SimpleTextComponent("Z&eacute;ro devient une team de fansub avec pour seul projet ");
+	$content->addComponent(new IndexLink("page=series/kimikiss", "Kimikiss pure rouge"));
+	$content->addComponent(".");
+	$row->addComponent(new TableCell($content));
+	$row->addComponent(new TableCell(new NewWindowLink("http://zero.xooit.fr/index.php?theme=test", "Utiliser cette version")));
+	$table->addComponent($row);
+?>
+<?php
+	$row = new TableRow();
+	$row->addComponent(new TableCell("<b>2.0</b>"));
+	$row->addComponent(new TableCell("On essaye un design plus moderne, et c'est jouli. Enfin, je trouve. Et puis c'est rose !"));
+	$row->addComponent(new TableCell(new NewWindowLink("http://zerofansub.net/v2/?s_theme=rose", "Utiliser cette version")));
+	$table->addComponent($row);
+?>
+<?php
+	$row = new TableRow();
+	$row->addComponent(new TableCell("2.1"));
+	$row->addComponent(new TableCell("On laisse le choix &agrave; l'utilisateur, si il pr&eacute;f&egrave;re le bleu ^^"));
+	$row->addComponent(new TableCell(new NewWindowLink("http://zerofansub.net/v2/index.php?s_theme=bleu", "Utiliser cette version")));
+	$table->addComponent($row);
+?>
+<?php
+	$row = new TableRow();
+	$row->addComponent(new TableCell("2.2"));
+	$row->addComponent(new TableCell("Et pour les tristes, du noir. Du black !"));
+	$row->addComponent(new TableCell(new NewWindowLink("http://zerofansub.net/v2/index.php?s_theme=noir", "Utiliser cette version")));
+	$table->addComponent($row);
+?>
+<?php
+	$row = new TableRow();
+	$row->addComponent(new TableCell("<b>3.0</b>"));
+	$row->addComponent(new TableCell("Le petit rond de la v2 n'&eacute;tant pas pratique, on change de syst&eacute;me pour la v3. De couleurs aussi."));
+	$row->addComponent(new TableCell(new NewWindowLink("index3.0.php", "Utiliser cette version")));
+	$table->addComponent($row);
+?>
+<?php
+	$row = new TableRow();
+	$row->addComponent(new TableCell("3.1"));
+	$row->addComponent(new TableCell("&Agrave; part le design g&eacute;n&eacute;ral change, mais le contenu des pages reste le m&ecirc;me. C'est juste histoire d'am&eacute;liorer le code."));
+	$row->addComponent(new TableCell("Version actuelle !"));
+	$table->addComponent($row);
+?>
+<?php
+	$table->writeNow();
+?>
 <p></p>
-
 <!--<h2>Optimisation</h2>
    <p style="text-align: center;">Il est conseillé pour une bonne navigation d'utiliser le navigateur Mozilla Firefox :
      <a href="http://download.mozilla.org/?product=firefox-3.0.3&os=win&lang=fr" target="_blank"><img src="images/icones/firefox.png" border="0"></a></p>

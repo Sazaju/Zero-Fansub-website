@@ -174,9 +174,6 @@ text-align: center;
 .teamList, .teamList ul{
 list-style: none;
 }
-.teamList ul:after, .teamList:before, .archives:after, .p:after{
-content: url('images/interface/barre.png');
-}
 .teamList ul img{
 float: right;
 display: block;
@@ -252,7 +249,7 @@ content: url('images/interface/quote1.jpg');
 .quote:after {
 content: url('images/interface/quote2.jpg');
 }
-table.about {
+.about {
 width: 600px;
 font-family: Tahoma;
 font-size: 0.8em;
@@ -261,19 +258,25 @@ margin-left: 40px;
 margin-right: 40px;
 margin-top: 0px;
 }
-table.about, table.about td, table.about th {
+.about, .about td, .about th {
 border: 1px solid grey;
 }
-table.about td, table.about th {
+.about td, .about th {
 margin: 5px;
 padding: 5px;
 }
-table.about .version{
+.about .version{
 width: 50px;
 }
-table.about .description{
+.about .description{
 width: 400px;
 }
-table.about .preview{
+.about .preview{
 width: 150px;
+}
+
+
+
+#pageContent:after, .memberTeamList:after, .teamList:before, .archives:after, .p:after{
+content: url('images/interface/barre.png');
 }
