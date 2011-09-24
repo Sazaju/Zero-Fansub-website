@@ -10,10 +10,10 @@
 Licenci&eacute; !<br /><br />
 
 <img src="images/icones/bonus.png" border="0"> Photos négatives positivées 
-[ <a href="images/news/%5bZero%5dCanaan_02_Photo_n%c3%a9gatif_1.jpg" target="_blank">1</a> ] 
-[ <a href="images/news/%5bZero%5dCanaan_02_Photo_n%c3%a9gatif_2.jpg" target="_blank">2</a> ] 
-[ <a href="images/news/%5bZero%5dCanaan_02_Photo_n%c3%a9gatif_3.jpg" target="_blank">3</a> ] 
-[ <a href="images/news/%5bZero%5dCanaan_02_Photo_n%c3%a9gatif_4.jpg" target="_blank">4</a> ] 
-[ <a href="images/news/%5bZero%5dCanaan_02_Photo_n%c3%a9gatif_5.jpg" target="_blank">5</a> ]
+[ <a href="images/news/%5bZero%5dCanaan_02_Photo_negatif_1.jpg" target="_blank">1</a> ] 
+[ <a href="images/news/%5bZero%5dCanaan_02_Photo_negatif_2.jpg" target="_blank">2</a> ] 
+[ <a href="images/news/%5bZero%5dCanaan_02_Photo_negatif_3.jpg" target="_blank">3</a> ] 
+[ <a href="images/news/%5bZero%5dCanaan_02_Photo_negatif_4.jpg" target="_blank">4</a> ] 
+[ <a href="images/news/%5bZero%5dCanaan_02_Photo_negatif_5.jpg" target="_blank">5</a> ]
 
 </div>
