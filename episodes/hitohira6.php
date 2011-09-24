@@ -1,4 +1,4 @@
-<h5><a href="#" onClick="show('ep6');return(false)" id="plus">Hitohira Épisode 06</a></h5>
+<h5><a href="#" onClick="show('ep6');return(false)" id="plus">Hitohira Épisode 06 v2</a></h5>
 
 
 <div id="ep6" style="display:none;">
@@ -10,17 +10,11 @@
 <b>Synopsis</b> Une dispute a éclaté au sein du groupe. Nono ne veut pas abbandonner le théâtre à tout prix.<br />
 <b>Staff Zéro</b> Trad : whatake | Check-Adapt : db0 | Time : Khorx | Edit : db0 | Kara OP-ED : db0 | QC :  Praia | Aide : Klick (kara) | Enco : Lepims<br />
 <b>Fichiers</b><br />
-<img src="images/icones/puce.png"> [Zero]Hitohira_06_[x264_480p_AAC]_[F8049DC9].mp4<br />
+<img src="images/icones/puce.png"> [Zero]Hitohira_06v2[H264-AAC][06E22B2C].mp4<br />
  Taille : 190.00 Mo 
  Codecs : H264 AAC<br />
 
 <b>Téléchargements</b><br />
-<img src="images/icones/ddl.png"> 		[ <a href="ddl/[Zero]Hitohira_06_[x264_480p_AAC]_[F8049DC9].mp4">X264</a> ]<br />
-
-<a href="http://bt.fansub-irc.eu/tracker_team/index.php?id_tracker=26" target="_blank"><img src="images/icones/torrent.png" border="0"></a> 		<br />
-<a href="index.php?page=xdcc"><img src="images/icones/xdcc.png" border="0"></a><br />
-
-<img src="images/icones/streaming.png"><br />
-
+<img src="images/icones/ddl.png"> 		[ <a href="ddl/[Zero]Hitohira_06v2[H264-AAC][06E22B2C].mp4">T&eacute;l&eacute;charger</a> ]<br />
 
 </div>

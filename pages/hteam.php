@@ -18,6 +18,28 @@ type="text/javascript"></script>
 <span>~ <a href="http://commentaires.zerofansub.net/t64.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=64" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
 <p></p>
 
+<h2>Recrutement traducteur</h2>
+<h4>04/07/2011 par praia</h4>
+<div class="p">
+  <img src="images/news/m1.jpg" alt="Mitsudomoe" />
+  <br /><br />
+  Nous avons urgemment besoin d'un trad pour Mitsudomoe !!<br />
+  S'il vous pla&icirc;t, piti&eacute; xD<br />
+  Notre edit s'impatiente et ne peux continuer la s&eacute;rie, alors aidez-nous ^_^<br />
+  C'est pas souvent qu'on demande du renfort, mais l&agrave;, c'est devenu indispensable...<br />
+  Nous avons perdu un trad r&eacute;cemment, il ne nous en reste plus qu'un... et comble de malheur,  il n'a pas accroch&eacute; &agrave; la s&eacute;rie,
+  mais je le remercie pour avoir quand m&ecirc;me traduit deux &eacute;pisodes pour nous d&eacute;panner.<br />
+  Des petits cours sont dispos ici : <a href="http://forum.zerofansub.net/f221-Cours-br.htm" target="_blank">Lien</a>.
+  <br /><br />
+  Pour postuler, faites une candidatures &agrave; l'&eacute;cole : <a href="http://ecole.zerofansub.net/?page=postuler" target="_blank">Lien</a>.
+  <br /><br />
+  <img src="images/news/m2.jpg" alt="Mitsudomoe" />
+  <br /><br />
+  <span>~ <a href="http://commentaires.zerofansub.net/t266.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=266" target="_blank">Ajouter un commentaire</a> ~<br />
+    ~ <a href="http://twitter.com/home?status=Zero recherche un traducteur" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
+    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
+<p></p>
+
 <h2>Joyeuses f&ecirc;tes !</h2>
 <h4>26/12/2010 par Sazaju HITOKAGE</h4>
 <div class="p">

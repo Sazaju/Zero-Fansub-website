@@ -26,9 +26,9 @@
  Codecs : H264 AAC MP4<br />
 
 <b>Téléchargements</b><br />
-<img src="images/icones/ddl.png"> 				[ <a   href="http://www.zerofansub.net/ddl/%5BZero%5DKodomo_no_Jikan%5B05%5D%5BXviD-MP3%5D%5BLD%5D%5B37497FDE%5D.avi">XviD</a> ] 
-		[ <a href="http://www.zerofansub.net/ddl/%5BZero%5DKodomo_no_Jikan%5B05%5D%5BH264-AAC%5D%5BHD%5D%5B5D041505%5D.mp4">H264</a> ] 
-		[ <a href="http://www.zerofansub.net/ddl/%5BZero%5DKodomo_no_Jikan%5B05%5D%5BH264-AAC%5D%5BFHD%5D%5BE2A57EF9%5D.mp4">FullHD</a> ] <br />
+<img src="images/icones/ddl.png"> 				[ <a   href="http://zerofansub.net/ddl/%5BZero%5DKodomo_no_Jikan%5B05%5D%5BXviD-MP3%5D%5BLD%5D%5B37497FDE%5D.avi">XviD</a> ] 
+		[ <a href="http://zerofansub.net/ddl/%5BZero%5DKodomo_no_Jikan%5B05%5D%5BH264-AAC%5D%5BHD%5D%5B5D041505%5D.mp4">H264</a> ] 
+		[ <a href="http://zerofansub.net/ddl/%5BZero%5DKodomo_no_Jikan%5B05%5D%5BH264-AAC%5D%5BFHD%5D%5BE2A57EF9%5D.mp4">FullHD</a> ] <br />
 		
  
   <img src="images/icones/megaup.jpg"> 		

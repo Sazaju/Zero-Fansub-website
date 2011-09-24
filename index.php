@@ -1,3 +1,82 @@
+<?php
+/*
+	This file is the root of the website. Here is the global code generating the
+	complete page.
+*/
+
+define('TEST_MODE_ACTIVATED', in_array($_SERVER["SERVER_NAME"], array(
+				'127.0.0.1',
+				'localhost',
+				'to-do-list.me',
+				'sazaju.dyndns-home.com'
+		), true));
+if (TEST_MODE_ACTIVATED) {
+	define('TESTING_FEATURE', 'Testing mode : <a href="'.$_SERVER['PHP_SELF'].'?clearDB'.'">clear DB</a>');
+}
+
+/**********************************\
+           ERROR MANAGING
+\**********************************/
+
+function error_handler($code, $message, $file, $line)
+{
+    if (0 == error_reporting())
+    {
+        return;
+    }
+    throw new ErrorException($message, 0, $code, $file, $line);
+}
+
+function exception_handler($exception) {
+	if (!TEST_MODE_ACTIVATED) {
+		// TODO
+		$administrators = "sazaju@gmail.com";
+		$subject = "ERROR";
+		$message = "aze";//$exception->getMessage();
+		$header = "From: noreply@zerofansub.net\r\n";
+		$sent = false;//mail($administrators, $subject, $message, $header);
+		echo "An error as occured, ".(
+			$sent ? "administrators has been noticed by mail"
+				  : "contact the administrators : ".$administrators
+			).".";
+	}
+	else {
+		echo "An error as occured : ".$exception."<br/><br/>".TESTING_FEATURE;
+		phpinfo();
+	}
+}
+
+set_error_handler("error_handler");
+set_exception_handler('exception_handler');
+
+/**********************************\
+              IMPORTS
+\**********************************/
+
+function findFile($fileName, $dir) {
+	$expected = strtolower($dir.'/'.$fileName);
+	foreach(glob($dir . '/*') as $file) {
+		if (strtolower($file) == $expected) {
+			return $file;
+		}
+		else if (is_dir($file)) {
+			$file = findFile($fileName, $file);
+			if ($file != null) {
+				return $file;
+			}
+		}
+	}
+	return null;
+}
+
+function __autoload($className) {
+	$file = findFile($className.'.php', 'class');
+	if ($file != null) {
+		include $file;
+	}
+}
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
@@ -8,8 +87,6 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="DC.Language" scheme="RFC3066" content="fr" />
   <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Normal" />  
-  <link rel="alternate" type="application/rss+xml" title="Le pays du 42 RSS Feed"
-	href="http://zerofansub.feedxs.com/zero.rss" />
   <link rel="icon" type="image/gif" href="fav.gif" />
   <link rel="shortcut icon" href="fav.ico" />
   <script type="text/javascript" language="Javascript">
@@ -192,7 +269,6 @@ if(gotosite != "")
 		  <img src="images/partenaires/anime-ultime.jpg" border="0" alt="Anime-ultime" />
 		</a>
 	      </li>
-	      <!--<li><a href="http://www.stream-anime.org/" target="_blank"><img src="images/partenaires/stream.png" border="0" alt="Stream-Anime" /></a></li>-->
 	    </ul>
 	 
 	  </div><!--partenaires-->
@@ -201,12 +277,8 @@ if(gotosite != "")
 	<ul>
 	  <li>Fansub potes</li>
 	  
-	  <!--<li><a href="http://animekami.com/" target="_blank"><img src="images/partenaires/animekami.jpg" border="0" alt="Animekami" /></a></li>-->
-	  <!--<li><a href="http://www.ecchi-scan.com/" target="_blank"><img src="images/partenaires/ecchi.png" border="0" alt="Ecchi Scantrad" /></a></li>-->
 	  <li><a href="http://finalfan51.free.fr/ffs/" target="_blank"><img src="images/partenaires/finalfan.png" border="0" alt="FinalFan sub" /></a></li>
-	  <!--<li><a href="http://www.maboroshinofansub.com/" target="_blank"><img src="images/partenaires/maboroshi.jpg" border="0" alt="Maboroshi no fansub" /></a></li>-->
 	  <li><a href="http://www.mangas-arigatou.fr/" target="_blank"><img src="images/partenaires/mangas_arigatou.png" border="0" alt="Mangas Arigatou" /></a></li>
-	  <!--<li><a href="http://www.moe-fansub.fr/" target="_blank"><img src="images/partenaires/moe.jpg" border="0" alt="Moe fansub" /></a></li>-->
 	  <li><a href="http://www.kanaii.com" target="_blank"><img src="images/partenaires/kanaii.png" border="0" alt="Kanaii" /></a></li>
 	  <li><a href="http://kouhaiscantrad.wordpress.com" target="_blank"><img src="images/partenaires/kouhai.jpg" border="0" alt="Kouhai Scantrad" /></a></li>
 	  <li><a href="http://samazamablog.wordpress.com/" target="_blank"><img src="images/partenaires/samazama.gif" border="0" alt="Samazama na Koto" /></a></li>
@@ -219,7 +291,6 @@ if(gotosite != "")
 	    <ul>
 	      <li>Liens</li>
 	      <li><a href="http://animeka.com/fansub/teams/zero.html" target="_blank"><img src="images/partenaires/animeka.jpg" border="0" alt="Animeka" /></a></li>
-	      <!--<li><a href="http://mangazaki.over-blog.com/" target="_blank"><img src="images/partenaires/mangazaki.jpg" border="0" alt="Mangazaki" /></a></li>-->
 	    </ul>
 	    
 	  </div>
@@ -242,7 +313,6 @@ if(gotosite != "")
 	      <li><a href="irc://irc.Fansub-IRC.eu/zero" target="_blank">IRC</a></li>	
 	      <li><a href="http://forum.zerofansub.net" target="_blank">Forum</a></li>
 	      <li><a href="http://twitter.com/db0company" target="_blank">Twitter</a></li>
-	      <li><a href="http://zerofansub.feedxs.com/zero.rss" target="_blank">RSS</a></li>
 	      <li><a href="#" onclick="window.open('radio','radio','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=280, height=380, left=200, top=200');return(false)">Radio</a></li>
 	      <li><a href="index.php?page=contact">Contact</a></li>
 	      <li><a href="index.php?page=about">À propos...</a></li>
@@ -251,9 +321,10 @@ if(gotosite != "")
 	  <div class="menu">
 	    <ul>
 	      <li><a href="index.php?page=series" style="font-size: 1.5em;">Projets</a></li>
+      <li><a href="index.php?page=series">T&eacute;l&eacute;chargements</a></li>
 	      <li><a href="index.php?page=team">L'&eacute;quipe</a></li>
 	      <li><a href="http://forum.zerofansub.net/p32750.htm" target="_blank">Avancement</a></li>
-	      <li><a href="index.php?page=recrutement" target="_blank">Recrutement</a></li>
+	      <li><a href="http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-team-de-fansub.htm" target="_blank">Recrutement</a></li>
 	      <li><a href="http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro" target="_blank">Torrent</a></li>
 	      <li><a href="index.php?page=xdcc">XDCC</a></li>
 	    </ul>
@@ -285,12 +356,7 @@ else
 {
 $page = "sortie";
 }
-if (file_exists("sorties/$sortie.php")) {
-require("sorties/$sortie.php");
-}
-else {
 require("sorties/sortie.php");
-}
 ?>
 	  </div>
 	  <div id="contenu">

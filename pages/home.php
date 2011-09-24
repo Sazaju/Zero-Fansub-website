@@ -1,190 +1,218 @@
-<h2>Archives</h2>
-<p style="align: center;"><a href="index.php?page=home">Dernières news</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hsorties">Sorties</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hteam">Infos team</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hpartenaires">Partenaires</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hdb0c">db0 company</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hbonus">Bonus</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=havert" style="color: #FF3399;" id="plus">Henta&icirc;</a>
-</p>
-
-<h2>Mitsudomoe 01 + 02</h2>
-<h4>27/05/2011 par db0</h4>
-<div class="p">
-<img src="images/news/mitsu0102.jpg" alt="Mitsudomoe" />
-<br /><br />
-Bonjour les amis !<br />
-Apr&egrave;s des mois d'attente, les premiers &eacute;pisodes de Mitsudomoe sont enfin disponibles !<br />
-Quelques petits changements dans notre fa&ccedil;on de faire habituelle, on attend vos retours avec impatience ;)
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t263.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=263" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Mitsudomoe 01 + 02 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>[Zero] BlogBang</h2>
-<h4>19/01/38 à 3h 14min 7s par db0</h4>
-<div class="p"><script src="http://www.blogbang.com/demo/js/blogbang_ad.php?id=6ee3436cd7"
-type="text/javascript"></script>
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t64.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=64" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Tayutama ~ Kiss on my Deity ~ Pure my Heart ~ - S&eacute;rie compl&egrave;te 6 OAV</h2>
-<h4>15/05/2011 par db0</h4>
-<div class="p">
-<img src="images/news/tayutamapure.jpg" alt="Tayutama ~ Kiss on my Deity ~ Pure my Heart ~" />
-<br /><br />
-On continue dans les s&eacute;ries compl&egrave;tes avec cette fois-ci la petite s&eacute;rie de 6 OAV qui fait suite &agrave; la s&eacute;rie Tayutama ~ Kiss on my Deity : les 'Pure my Heart'. Ils sont assez courts mais plut&ocirc;t dr&ocirc;le alors amusez-vous bien !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t262.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=262" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Tayutama Kiss on my Deity Pure my Heart serie complete chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Potemayo OAV - S&eacute;rie compl&egrave;te</h2>
-<h4>11/05/2011 par db0</h4>
-<div class="p">
-<img src="images/series/potemayooav.jpg" alt="Potemayo" />
-<br /><br />
-Petit bonjour !<br />
-Dans la suite de la s&eacute;rie Potemayo, voici la petite s&eacute;rie d'OAV. Au nombre de 6, ils sont disponibles en versions basses qialit&eacute; uniquement puisqu'ils ne sont pas sortis dans un autre format. D&eacute;sol&eacute;e !<br />
-Amusez-vous bien !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t261.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=261" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Potemayo - S&eacute;rie compl&egrave;te enti&eacute;rement refaite</h2>
-<h4>08/05/2011 par db0</h4>
-<div class="p">
-<img src="images/series/potemayo.jpg" alt="Potemayo" />
-<br /><br />
-Bonjour le monde !<br /><br />
- Tout comme pour Kujibiki Unbalance 2, nous avons enti&egrave;rement refait la s&eacute;rie Potemayo. Pour ceux qui suivaient la s&eacute;rie, seule les versions avi en petit format &eacute;taient disponible puisque c&#039;etait le format qu&#039;utilisait Kirei no Tsubasa, l&#039;&eacute;quipe qui nous a l&eacute;gu&eacute; le projet.<br /><br />
- Du coup, la s&eacute;rie compl&egrave;te a &eacute;t&eacute; r&eacute;envod&eacute;e et on en a profit&eacute; pour ajouter quelques am&eacute;liorations.<br /><br />
- Rendez-vous page 'Projet' sur le site pour t&eacute;l&eacute;charger les 12 &eacute;pisodes !<br /><br />
- Et n&#039;oubliez pas : si vous avez une remarque, une question ou quoi que ce soit &agrave; nous dire, utilisez le syst&egrave;me de commentaires ! Nous vous r&eacute;pondrons avec plaisir.<br /><br />
- Bons &eacute;pisodes, &agrave; tr&egrave;s bient&ocirc;t pour les 6 OAV suppl&eacute;mentaires Potemayo... et un petit bonjour &agrave; toi aussi !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t261.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=261" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-
- <h2>Kujibiki Unbalance 2 - S&eacute;rie compl&egrave;te enti&eacute;rement refaite</h2>
-<h4>02/05/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kujiend.jpg" alt="Kujibiki Unbalance 2"  style="float: right;" /><br />
-La s&eacute;rie Kujibiki Unbalance 2 a enti&eacute;rement &eacute;t&eacute; refaite !<br />
-Les polices illisibles ont &eacute;t&eacute; chang&eacute;es, les panneaux stylis&eacute;s ont &eacute;t&eacute; refait, la traduction a &eacute;t&eacute; revue, bref, une jolie s&eacute;rie compl&egrave;te vous attend !<br /><br />
-Pour t&eacute;l&eacute;charger les &eacute;pisodes, c'est comme d'habitude :<br />
-- Page projet, liens DDL,<br />
-- Sur notre tracker Torrent (restez en seed !)<br />
-- Sur le XDCC de notre chan irc (profitez-en pour nous dire bonjour :D)<br />
-<br />
-Petite info importante :<br />
-Cette s&eacute;rie est comp&eacute;tement ind&eacute;pendante, n'a rien a voir avec la premi&eacute;re saison de Kujibiki Unbalance ni avec la s&eacute;rie Genshiken et il n'est pas n&eacute;cessaire d'avoir vu celles-ci pour appr&eacute;cier cette petite s&eacute;rie.<br /><br />
-Si vous avez aim&eacute; la s&eacute;rie, si vous avez des remarques &agrave; nous faire ou autre, n'h&eacute;sitez pas &agrave; nous en faire part ! (Commentaires, Forum, Mail, IRC, ...)<br /><br />
-&Agrave; tr&eacute;s bient&ocirc;t pour Potemayo !
-.<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t260.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=260" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kujibiki Unbalance 2 serie complete chez Zero Fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-
-<h2>Kodomo no Natsu Jikan</h2>
-<h4>11/04/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kodomonatsu1.jpg" alt="Kodomo no Natsu Jikan" /><br />
-Rin, Kuro et Mimi sont de retour dans un OAV Sp&eacute;cial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'&eacute;t&eacute;, en vacances avec Aoki et Houin.<br /><br />
-<img src="images/news/kodomonatsu2.jpg" alt="Kodomo no Natsu Jikan" /><br />
-<img src="images/news/kodomonatsu3.jpg" alt="Kodomo no Natsu Jikan" /><br />
-<img src="images/news/kodomonatsu4.jpg" alt="Kodomo no Natsu Jikan" /><br />
-<img src="images/news/kodomonatsu5.jpg" alt="Kodomo no Natsu Jikan" /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t259.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=259" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kodomo no Natsu Jikan chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Licence de Hyakko</h2>
-<h4>11/04/2011 par Sazaju</h4>
-<div class="p">
-<img src="images/news/licencehyakko.png" alt="Hyakko" style="float: right; padding: 10px;" />
-C&apos;est avec joie que nous vous informons que la s&eacute;rie Hyakko a &eacute;t&eacute; licenci&eacute;e {^_^} ! En effet, le site de simulcast <a href="http://www.wakanim.tv">Wakanim.tv</a> a acquis cette licence et compte afficher cette s&eacute;rie &agrave; partir du 29 Avril.<br /><br />
-
-Pour ceux qui ne le savent pas, Wakanim est un site de <i>simulcast</i> r&eacute;cent, principalement fond&eacute; sur la mise &agrave; disposition d&apos;animes sur le Web, notamment par <i>streaming</i>. Chaque &eacute;pisode est mis &agrave; disposition gratuitement pendant un mois, apr&egrave;s quoi il faut disposer d&apos;un compte premium pour pouvoir regarder d&apos;anciens &eacute;pisodes.<br /><br />
-
-Je salue fi&egrave;rement cette approche qui tente d&apos;allier facilit&eacute; d&apos;acc&egrave;s &agrave; ces &oelig;uvres et gratuit&eacute; (valeurs importantes dans le monde du Fansub), tout en essayant de respecter les contraintes de financement impos&eacute;es par le march&eacute; de l&apos;animation. &Agrave; mes yeux, c&apos;est le site de <i>simulcast</i> qui respecte le plus les valeurs qu&apos;ont tent&eacute; de transmettre les &eacute;quipes de Fansub depuis toutes ces ann&eacute;es. C&apos;est le genre de solution qu&apos;on souhaite voir fleurir depuis longtemps, aussi je vous sugg&egrave;re vivement de les soutenir !<br /><br />
-
-Je leur souhaite bon courage pour la suite et vous donne rendez-vous le 29 Avril pour suivre le premier &eacute;pisode de Hyakko chez eux ! {^_&deg;}<br /><br />
-
-<span>~ <a href="http://commentaires.zerofansub.net/t258.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=258" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Licence de Hyakko chez Wakanim" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Licence de Isshoni Sleeping (S'endormir avec Hinako)</h2>
-<h4>01/04/2011 par db0</h4>
-<div class="p">
-
-Licence de l'OAV Isshoni Sleeping (S'endormir avec Hinako) chez Kaz&eacute; sous forme d'un DVD interactif.<br /><br />
-<a href="images/news/hinakodvd.jpg" target="_blank"><img src="images/news/hinakodvdsmall.jpg" alt="Isshoni Sleeping (S'endormir avec Hinako) DVD Kaze" /></a>
-<br /><br />
-Salut toi, c'est Hinako !<br />
-Tu m'as tellement manquer depuis notre entraînement, tout les deux...<br />
-Tu te souviens ? Flexions, extensions ! Une, deux, une deux !<br />
-Grâce à toi, j'ai perdu du poids, et toi aussi, non ?<br />
-Tu sais, cette nuit, je dors toute seule, chez moi, et ça me rend triste...<br />
-Quoi ? C'est vrai ? Tu veux bien dormir avec moi !?<br />
-Oh merci ! Je savais que je pouvais compter sur toi.<br />
-Alors, à tr&egrave;s bient&ocirc;t, quand tu auras achet&eacute; mon DVD !<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t257.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=257" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Licence de Isshoni Sleeping (S'endormir avec Hinako) chez Kaze !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 13 - FIN</h2>
-<h4>29/03/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kana131.jpg" alt="Kanamemo" /><br /><br />
-<img src="images/news/kana132.jpg" alt="Kanamemo" />
-<br /><br />
-Eh oui, c'est déjà la fin de Kanamemo, j'espère que cette petite série fort sympathique vous aura plus autant qu'à nous.<br />
-C'est pour nous une bonne nouvelle, on diminue ainsi le nombre de nos projets en cours/futurs, on espère pouvoir faire de même avec d'autres séries prochainement...<br />
-<img src="images/news/kana133.jpg" alt="Kanamemo" /><br /><br />
-On vous annonce déjà que Kujibiki Unbalance II et Potemayo seront entièrement refaits ! Pas mal de choses ont été revues, j'espère que vous apprécierez nos efforts.<br />
-Kodomo no Jikan OAV 4 ne devrait plus tarder...<br />
-Merci de nous avoir suivis et à bientôt pour d'autres épisodes ^_^<br /><br />
-<img src="images/news/kana134.jpg" alt="Kanamemo" /><br /><br />
-<img src="images/news/kana135.jpg" alt="Kanamemo" /><br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t256.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=256" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie du dernier episode de Kanamemo 13 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 12</h2>
-<h4>20/03/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kana12.jpg" alt="Kanamemo" />
-<br /><br />
-Bonjour !<br />
-Sortie de l'&eacute;pisode 12 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t255.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=255" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 12 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-
-<h2>Archives</h2>
-<p style="align: center;"><a href="index.php?page=home">Dernières news</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hsorties">Sorties</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hteam">Infos team</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hpartenaires">Partenaires</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hdb0c">db0 company</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hbonus">Bonus</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=havert" style="color: #FF3399;" id="plus">Hentaï</a>
-</p>
+<?php
+	$archives = new Archives();
+	$archives->writeNow();
+?>
+<?php
+	$newsMessage = new SimpleTextComponent();
+	$newsMessage->addLine(new Image("images/news/hito1.jpg", "Hitohira"));
+	$newsMessage->addLine();
+	$newsMessage->addLine("Sortie de Hitohira, la s&eacute;rie compl&egrave;te, 12 &eacute;pisodes d'un coup !");
+	$newsMessage->addLine();
+	$newsMessage->addLine(new Image("images/news/hito2.jpg", "Hitohira"));
+	$newsMessage->addLine();
+	
+	$news = new News();
+	$news->setTitle("Hitohira - S&eacute;rie compl&egrave;te");
+	$news->setDate("14/08/2011");
+	$news->setAuthor("db0");
+	$news->setCommentId(270);
+	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Hitohira serie complete chez Z%C3%A9ro fansub !");
+	$news->setMessage($newsMessage);
+	$news->writeNow();
+?>
+<?php
+	$newsMessage = new SimpleTextComponent();
+	$newsMessage->addLine(new Image("images/episodes/mitsudomoe3.jpg", "Mitsudomoe"));
+	$newsMessage->addLine();
+	$newsMessage->addLine("Sortie de l'&eacute;pisode 03 de Mitsudomoe.");
+	$newsMessage->addLine();
+	
+	$news = new News();
+	$news->setTitle("Mitsudomoe 03");
+	$news->setDate("05/08/2011");
+	$news->setAuthor("db0");
+	$news->setCommentId(269);
+	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Mitsudomoe 03 chez Z%C3%A9ro fansub !");
+	$news->setMessage($newsMessage);
+	$news->writeNow();
+?>
+<?php
+	$newsMessage = new SimpleTextComponent();
+	$newsMessage->addLine(new Image("images/series/toradorasos.jpg", "Toradora SOS"));
+	$newsMessage->addLine();
+	$newsMessage->addLine("4 mini OAV d&eacute;lirants sur la bouffe, avec les personnages en taille r&eacute;duite.");
+	$newsMessage->addLine("C'est de la superproduction ^_^");
+	$newsMessage->addLine();
+	
+	$news = new News();
+	$news->setTitle("Toradora! SOS - S&eacute;rie compl&egrave;te 4 OAV");
+	$news->setDate("26/07/2011");
+	$news->setAuthor("praia");
+	$news->setCommentId(268);
+	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Toradora! SOS chez Zero fansub !");
+	$news->setMessage($newsMessage);
+	$news->writeNow();
+?>
+<?php
+	$newsMessage = new SimpleTextComponent();
+	$newsMessage->addLine(new Image("images/news/bath.jpg", "Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko"));
+	$newsMessage->addLine();
+	$newsMessage->addLine("Nous avons appris qu'Ankama va diffuser &agrave; partir de la rentr&eacute;e de septembre 2011 :");
+	$newsMessage->addLine("Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc &eacute;t&eacute; retir&eacute;s.");
+	$newsMessage->addLine("On vous invite &agrave; cesser la diffusion de nos liens et &agrave; aller regarder la s&eacute;rie sur leur site.");
+	$newsMessage->addLine();
+	$newsMessage->addLine("Sorties d'Isshoni Training Ofuro : Bathtime with Hinako & Hiyoko");
+	$newsMessage->addLine();
+	$newsMessage->addLine("3e volet des \"isshoni\", on apprend comment les Japonaises prennent leur bain, tr&egrave;s int&eacute;ressant...");
+	$newsMessage->addLine("Avec en bonus, une petite s&eacute;ance de stretching...");
+	$newsMessage->addLine();
+	$newsMessage->addLine("Je ne sais pas s'il y aura une suite, mais si oui, je devine un peu le genre ^_^");
+	$newsMessage->addLine();
+	
+	$news = new News();
+	$news->setTitle("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
+	$news->setDate("23/07/2011");
+	$news->setAuthor("praia");
+	$news->setCommentId(267);
+	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Isshoni Training Ofuro chez Zero fansub !");
+	$news->setMessage($newsMessage);
+	$news->writeNow();
+?>
+<?php
+	$newsMessage = new SimpleTextComponent();
+	$newsMessage->addLine(new Image("images/news/m1.jpg", "Mitsudomoe"));
+	$newsMessage->addLine();
+	$newsMessage->addLine("Nous avons urgemment besoin d'un trad pour Mitsudomoe !!");
+	$newsMessage->addLine("S'il vous pla&icirc;t, piti&eacute; xD");
+	$newsMessage->addLine("Notre edit s'impatiente et ne peux continuer la s&eacute;rie, alors aidez-nous ^_^");
+	$newsMessage->addLine("C'est pas souvent qu'on demande du renfort, mais l&agrave;, c'est devenu indispensable...");
+	$newsMessage->addLine("Nous avons perdu un trad r&eacute;cemment, il ne nous en reste plus qu'un... et comble de malheur,  il n'a pas accroch&eacute; &agrave; la s&eacute;rie, mais je le remercie pour avoir quand m&ecirc;me traduit deux &eacute;pisodes pour nous d&eacute;panner.");
+	$newsMessage->addComponent("Des petits cours sont dispos ici : ");
+	$link = new Link("http://forum.zerofansub.net/f221-Cours-br.htm", "Lien");
+	$link->openNewWindow(true);
+	$newsMessage->addComponent($link);
+	$newsMessage->addLine(".");
+	$newsMessage->addLine();
+	$newsMessage->addComponent("Pour postuler, faites une candidatures &agrave; l'&eacute;cole : ");
+	$link = new Link("http://ecole.zerofansub.net/?page=postuler", "Lien");
+	$link->openNewWindow(true);
+	$newsMessage->addComponent($link);
+	$newsMessage->addLine(".");
+	$newsMessage->addLine();
+	$newsMessage->addLine(new Image("images/news/m2.jpg", "Mitsudomoe"));
+	$newsMessage->addLine();
+	
+	$news = new News();
+	$news->setTitle("Recrutement traducteur");
+	$news->setDate("04/07/2011");
+	$news->setAuthor("praia");
+	$news->setCommentId(266);
+	$news->setTwitterUrl("http://twitter.com/home?status=Zero recherche un traducteur");
+	$news->setMessage($newsMessage);
+	$news->writeNow();
+?>
+<?php
+	$newsMessage = new SimpleTextComponent();
+	$link = new Link("http://zerofansub.net/galerie/gal/Zero_fansub/Images/Kannagi/%5BZero%5DKannagi_Image63.jpg", new Image("images/news/kannagi.jpg", "Kannagi"));
+	$link->openNewWindow(true);
+	$newsMessage->addLine($link);
+	$newsMessage->addLine();
+	$newsMessage->addLine("Bonjour les amis !");
+	$newsMessage->addLine("La s&eacute;rie Kannagi est termin&eacute;e !");
+	$newsMessage->addLine("J&#039;&eacute;sp&egrave;re qu&#039;elle vous plaira.");
+	$newsMessage->addLine("N&#039;h&eacute;sitez pas &agrave; nous dire ce que vous en pensez dans les commentaires. C&#039;est en apprenant de ses erreurs qu&#039;on avance, apr&egrave;s tout ;)");
+	$newsMessage->addLine();
+	$newsMessage->addLine("P.S.: Les karaok&eacute;s sont nuls. D&eacute;sol&eacute;e !");
+	$newsMessage->addLine();
+	
+	$news = new News();
+	$news->setTitle("Kannagi - S&eacute;rie compl&egrave;te");
+	$news->setDate("19/06/2011");
+	$news->setAuthor("db0");
+	$news->setCommentId(264);
+	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Kannagi serie complete chez Zero fansub !");
+	$news->setMessage($newsMessage);
+	$news->writeNow();
+?>
+<?php
+	$newsMessage = new SimpleTextComponent();
+	$newsMessage->addLine(new Image("images/news/mitsu0102.jpg", "Mitsudomoe"));
+	$newsMessage->addLine();
+	$newsMessage->addLine("Bonjour les amis !");
+	$newsMessage->addLine("Apr&egrave;s des mois d'attente, les premiers &eacute;pisodes de Mitsudomoe sont enfin disponibles !");
+	$newsMessage->addLine("Quelques petits changements dans notre fa&ccedil;on de faire habituelle, on attend vos retours avec impatience ;)");
+	$newsMessage->addLine();
+	
+	$news = new News();
+	$news->setTitle("Mitsudomoe 01 + 02");
+	$news->setDate("27/05/2011");
+	$news->setAuthor("db0");
+	$news->setCommentId(263);
+	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Mitsudomoe 01 + 02 chez Zero fansub !");
+	$news->setMessage($newsMessage);
+	$news->writeNow();
+?>
+<?php
+	$newsMessage = new SimpleTextComponent();
+	$newsMessage->addLine(new Image("images/news/tayutamapure.jpg", "Tayutama ~ Kiss on my Deity ~ Pure my Heart ~"));
+	$newsMessage->addLine();
+	$newsMessage->addLine("On continue dans les s&eacute;ries compl&egrave;tes avec cette fois-ci la petite s&eacute;rie de 6 OAV qui fait suite &agrave; la s&eacute;rie Tayutama ~ Kiss on my Deity : les 'Pure my Heart'. Ils sont assez courts mais plut&ocirc;t dr&ocirc;le alors amusez-vous bien !");
+	$newsMessage->addLine();
+	
+	$news = new News();
+	$news->setTitle("Tayutama ~ Kiss on my Deity ~ Pure my Heart ~ - S&eacute;rie compl&egrave;te 6 OAV");
+	$news->setDate("15/05/2011");
+	$news->setAuthor("db0");
+	$news->setCommentId(262);
+	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Tayutama Kiss on my Deity Pure my Heart serie complete chez Zero fansub !");
+	$news->setMessage($newsMessage);
+	$news->writeNow();
+?>
+<?php
+	$newsMessage = new SimpleTextComponent();
+	$newsMessage->addLine(new Image("images/series/potemayooav.jpg", "Potemayo"));
+	$newsMessage->addLine();
+	$newsMessage->addLine("Petit bonjour !");
+	$newsMessage->addLine("Dans la suite de la s&eacute;rie Potemayo, voici la petite s&eacute;rie d'OAV. Au nombre de 6, ils sont disponibles en versions basses qialit&eacute; uniquement puisqu'ils ne sont pas sortis dans un autre format. D&eacute;sol&eacute;e !");
+	$newsMessage->addLine("Amusez-vous bien !");
+	$newsMessage->addLine();
+	
+	$news = new News();
+	$news->setTitle("Potemayo OAV - S&eacute;rie compl&egrave;te");
+	$news->setDate("11/05/2011");
+	$news->setAuthor("db0");
+	$news->setCommentId(261);
+	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !");
+	$news->setMessage($newsMessage);
+	$news->writeNow();
+?>
+<?php
+	$newsMessage = new SimpleTextComponent();
+	$newsMessage->addLine(new Image("images/series/potemayo.jpg", "Potemayo"));
+	$newsMessage->addLine();
+	$newsMessage->addLine("Bonjour le monde !");
+	$newsMessage->addLine();
+	$newsMessage->addLine("Tout comme pour Kujibiki Unbalance 2, nous avons enti&egrave;rement refait la s&eacute;rie Potemayo. Pour ceux qui suivaient la s&eacute;rie, seule les versions avi en petit format &eacute;taient disponible puisque c&#039;etait le format qu&#039;utilisait Kirei no Tsubasa, l&#039;&eacute;quipe qui nous a l&eacute;gu&eacute; le projet.");
+	$newsMessage->addLine();
+	$newsMessage->addLine("Du coup, la s&eacute;rie compl&egrave;te a &eacute;t&eacute; r&eacute;envod&eacute;e et on en a profit&eacute; pour ajouter quelques am&eacute;liorations.");
+	$newsMessage->addLine();
+	$newsMessage->addLine("Rendez-vous page 'Projet' sur le site pour t&eacute;l&eacute;charger les 12 &eacute;pisodes !");
+	$newsMessage->addLine();
+	$newsMessage->addLine("Et n&#039;oubliez pas : si vous avez une remarque, une question ou quoi que ce soit &agrave; nous dire, utilisez le syst&egrave;me de commentaires ! Nous vous r&eacute;pondrons avec plaisir.");
+	$newsMessage->addLine();
+	$newsMessage->addLine("Bons &eacute;pisodes, &agrave; tr&egrave;s bient&ocirc;t pour les 6 OAV suppl&eacute;mentaires Potemayo... et un petit bonjour &agrave; toi aussi !");
+	$newsMessage->addLine();
+	
+	$news = new News();
+	$news->setTitle("Potemayo - S&eacute;rie compl&egrave;te enti&eacute;rement refaite");
+	$news->setDate("08/05/2011");
+	$news->setAuthor("db0");
+	$news->setCommentId(261);
+	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !");
+	$news->setMessage($newsMessage);
+	$news->writeNow();
+?>
+<?php
+	// rewrite the archive header as a footer
+	$archives->writeNow();
+?>

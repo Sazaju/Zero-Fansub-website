@@ -168,6 +168,23 @@ font-decoration: line-through;
 content: url('images/interface/barre.png');
 width: 100%;
 }
+.archives div{
+text-align: center;
+}
+.teamList, .teamList ul{
+list-style: none;
+}
+.teamList ul:after, .teamList:before, .archives:after, .p:after{
+content: url('images/interface/barre.png');
+}
+.teamList ul img{
+float: right;
+display: block;
+margin-right: 50px;
+margin-top: 10px;
+width: 100px;
+height: 100px;
+}
 #contenu h3 {
 margin-left: 150px;
 letter-spacing: 12px;
