@@ -7,7 +7,7 @@
 		$page->addComponent(new IndexLink("page=".$_GET['page']."&noImage", new Title("Voir la liste sans images", 2)));
 	}
 	else {
-		$page->addComponent(new IndexLink("page=".$_GET['page'], new Title("Voir la liste avec les images", 2)));
+		$page->addComponent(new IndexLink("page=".$_GET['page'], new Title("Voir la liste avec images", 2)));
 	}
 ?>
 <?php
@@ -16,7 +16,7 @@
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	foreach(Project::getAllProjects() as $project) {
+	foreach(Project::getNonHentaiProjects() as $project) {
 		if ($project->isRunning()) {
 			$list->addComponent($project);
 		}
@@ -28,7 +28,7 @@
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	foreach(Project::getAllProjects() as $project) {
+	foreach(Project::getNonHentaiProjects() as $project) {
 		if ($project->isFinished()) {
 			$list->addComponent($project);
 		}
@@ -40,7 +40,7 @@
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	foreach(Project::getAllProjects() as $project) {
+	foreach(Project::getNonHentaiProjects() as $project) {
 		if (!$project->isStarted() && !$project->isLicensed() && !$project->isAbandonned()) {
 			$list->addComponent($project);
 		}
@@ -52,7 +52,7 @@
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	foreach(Project::getAllProjects() as $project) {
+	foreach(Project::getNonHentaiProjects() as $project) {
 		if ($project->isAbandonned()) {
 			$list->addComponent($project);
 		}
@@ -64,7 +64,7 @@
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	foreach(Project::getAllProjects() as $project) {
+	foreach(Project::getNonHentaiProjects() as $project) {
 		if ($project->isLicensed()) {
 			$list->addComponent($project);
 		}

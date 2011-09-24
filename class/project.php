@@ -11,6 +11,7 @@ class Project {
 	private $isFinished = false;
 	private $isAbandonned = false;
 	private $isLicensed = false;
+	private $isHentai = false;
 	
 	public function __construct($id = null, $name = null) {
 		$this->setID($id);
@@ -84,152 +85,180 @@ class Project {
 		return $this->isLicensed;
 	}
 	
-	private static $projects = null;
+	public function setIsHentai($boolean) {
+		$this->isHentai = $boolean;
+	}
+	
+	public function isHentai() {
+		return $this->isHentai;
+	}
+	
+	private static $allProjects = null;
 	public static function getAllProjects() {
-		if (Project::$projects === null) {
+		if (Project::$allProjects === null) {
 			$project = new Project("canaan", "Canaan");
 			$project->setIsFinished(true);
 			$project->setIsLicensed(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("denpa", "Denpa Onna to Seishun Otoko");
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 
 			$project = new Project("genshiken", "Genshiken 2");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("hitohira", "Hitohira");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("hyakko", "Hyakko");
 			$project->setIsFinished(true);
 			$project->setIsLicensed(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("hyakkooav", "Hyakko OAV");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("training", "Isshoni Training - L'entra&icirc;nement avec Hinako");
+			$project->setIsFinished(true);
+			$project->setIsLicensed(true);
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("bath", "Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
-			$project = new Project("sleeping", "S'endormir avec Hinako (Isshoni Sleeping)");
+			$project = new Project("sleeping", "Isshoni Sleeping - S'endormir avec Hinako");
 			$project->setIsFinished(true);
 			$project->setIsLicensed(true);
-			Project::$projects[] = $project;
-			
-			$project = new Project("training", "L'entra&icirc;nement avec Hinako (Isshoni Training)");
-			$project->setIsFinished(true);
-			$project->setIsLicensed(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kanamemo", "Kanamemo");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kannagi", "Kannagi");
 			$project->setIsFinished(true);
 			$project->setIsLicensed(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kissxsis", "KissXsis TV");
 			$project->setIsRunning(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kissxsisoav", "KissXsis OAV");
 			$project->setIsRunning(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
-			$project = new Project("kimikiss", "Kimikiss pure rouge");
+			$project = new Project("kimikiss", "Kimikiss Pure Rouge");
 			$project->setIsAbandonned(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomo", "Kodomo no Jikan");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomooav", "Kodomo no Jikan OAV");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomo2", "Kodomo no Jikan ~ Ni Gakki");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomonatsu", "Kodomo no Natsu Jikan");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomofilm", "Kodomo no Jikan Le Film");
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 
 			$project = new Project("kujibiki", "Kujibiki Unbalance 2");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("mariaholic", "Maria+Holic");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("mayoi", "Mayoi Neko Overrun!");
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 
-			$project = new Project("mermaid", "Mermaid melody Pichi Pichi Pitch");
+			$project = new Project("mermaid", "Mermaid Melody Pichi Pichi Pitch");
 			$project->setIsAbandonned(true);
 			$project->setIsLicensed(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("mitsudomoe", "Mitsudomoe");
 			$project->setIsRunning(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("nanami", "Nanami Madobe Windows 7 Publicit&eacute;");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("potemayo", "Potemayo");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("potemayooav", "Potemayo OAV");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("sketchbook", "Sketchbook ~full colors~");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("sketchbookdrama", "Sketchbook ~full colors~ Picture Drama");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("tayutama", "Tayutama - Kiss on my Deity -");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("tayutamapure", "Tayutama - Kiss on my Deity - Pure My Heart");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("toradora", "Toradora!");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("toradorasos", "Toradora! Spécial SOS");
 			$project->setIsFinished(true);
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("working", "Working!!");
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("working2", "Working!! 2");
-			Project::$projects[] = $project;
+			Project::$allProjects[] = $project;
 		}
 		
-		return Project::$projects;
+		return Project::$allProjects;
+	}
+	
+	public static function getNonHentaiProjects() {
+		$projects = array();
+		foreach(Project::getAllProjects() as $project) {
+			if (!$project->isHentai()) {
+				$projects[] = $project;
+			}
+		}
+		return $projects;
+	}
+	
+	public static function getHentaiProjects() {
+		$projects = array();
+		foreach(Project::getAllProjects() as $project) {
+			if ($project->isHentai()) {
+				$projects[] = $project;
+			}
+		}
+		return $projects;
 	}
 }
 ?>
