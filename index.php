@@ -386,8 +386,6 @@ require_once("pages/home.php");
 	</div>
 
 
-      </div><div class="p">
-
       </div>
     </div>
     <div id="footer"></div>

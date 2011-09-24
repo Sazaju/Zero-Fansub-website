@@ -15,6 +15,7 @@ class MemberList extends SimpleListComponent {
 		}
 		
 		$list = new SimpleListComponent();
+		$list->setClass("memberTeamList");
 		$this->addComponent($list);
 		
 		$image = $member->getImage();

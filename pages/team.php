@@ -1,12 +1,10 @@
 <?php
-	$title = new Title("La Team de fansub", 3);
-	$title->writeNow();
-	
-	$title = new Title("Administrateur(s)", 2);
-	$title->writeNow();
+	$page = new PageContent("La Team de fansub");
+	$page->addComponent(new Title("Administrateur(s)", 2));
 ?>
 <?php
 	$list = new MemberList();
+	$page->addComponent($list);
 	
 	$member = new TeamMember();
 	$member->setPseudo("db0");
@@ -24,15 +22,13 @@
 	$member->setImage("ryocu.png");
 	$member->setWebsite("http://anime-ultime.net/", "Anime-Ultime");
 	$list->add($member);
-	
-	$list->writeNow();
 ?>
 <?php
-	$title = new Title("Membres", 2);
-	$title->writeNow();
+	$page->addComponent(new Title("Membres", 2));
 ?>
 <?php
 	$list = new MemberList();
+	$page->addComponent($list);
 	
 	$member = new TeamMember();
 	$member->setPseudo("Sazaju HITOKAGE");
@@ -81,15 +77,13 @@
 	$member->setPseudo("Nyaa-Gentle");
 	$member->setRole("Time");
 	$list->add($member);
-	
-	$list->writeNow();
 ?>
 <?php
-	$title = new Title("Traducteurs", 2);
-	$title->writeNow();
+	$page->addComponent(new Title("Traducteurs", 2));
 ?>
 <?php
 	$list = new MemberList();
+	$page->addComponent($list);
 	
 	$member = new TeamMember();
 	$member->setImage("zack.jpg");
@@ -119,20 +113,19 @@
 	$member->setPseudo("Litinae");
 	$member->setRole("Traducteur En>Fr");
 	$list->add($member);
-	
-	$list->writeNow();
 ?>
 <?php
-	$title = new Title("Seeders, Uploaders", 2);
-	$title->writeNow();
+	$page->addComponent(new Title("Seeders, Uploaders", 2));
 ?>
 <?php
 	$list = new SimpleListComponent();
+	$page->addComponent($list);
 	$list->add("sazaju");
 	$list->add("etienne2000");
 	$list->add("lwienlin");
 	$list->add("lepims");
 	$list->add("secouss");
 	$list->add("manu");
-	$list->writeNow();
+	
+	$page->writeNow();
 ?>
