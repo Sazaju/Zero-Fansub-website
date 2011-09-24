@@ -9,7 +9,6 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	private $clazz = '';
 	private $style = '';
 	private $subcomponents = array();
-	private $content = '';
 	private $html = '';
 	
 	public function setId($id) {
@@ -36,19 +35,18 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		return $this->style;
 	}
 	
-	public function setContent($code) {
-		$this->content = $code;
+	public function setContent($content) {
+		$this->clear();
+		$this->addComponent($content);
 	}
 	
-	public function getContent() {
-		return $this->content;
+	public function getCurrentContent() {
+		$this->generateHtml();
+		return $this->getHtml();
 	}
 	
 	public function addComponent($component) {
 		if ($component !== null) {
-			if (!($component instanceof IHtmlComponent)) {
-				$component = new SimpleTextComponent($component);
-			}
 			$this->subcomponents[] = $component;
 		}
 	}
@@ -59,7 +57,6 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	
 	public function clear() {
 		$this->subcomponents = array();
-		$this->setContent(null);
 	}
 	
 	public function getOptions() {
@@ -75,16 +72,24 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	}
 	
 	public function generateHtml() {
-		$content = $this->getContent();
+		$content = '';
 		foreach($this->subcomponents as $component) {
-			if ($component instanceof IPersistentComponent) {
-				if (!$component->isLoaded()) {
-					$component->load();
-				}
+			if (is_string($component)) {
+				$content .= $component;
 			}
-	
-			$component->generateHtml();
-			$content .= $component->getHtml();
+			else if ($component instanceof IHtmlComponent) {
+				if ($component instanceof IPersistentComponent) {
+					if (!$component->isLoaded()) {
+						$component->load();
+					}
+				}
+				
+				$component->generateHtml();
+				$content .= $component->getHtml();
+			}
+			else {
+				throw new Exception("Cannot take the component ".$component);
+			}
 		}
 		
 		$this->html = '<'.$this->getHtmlTag().$this->getOptions().'>'.$content.'</'.$this->getHtmlTag().'>';
@@ -95,8 +100,7 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	}
 	
 	public function writeNow() {
-		$this->generateHtml();
-		echo $this->getHtml();
+		echo $this->getCurrentContent();
 	}
 }
 ?>
