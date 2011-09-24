@@ -14,50 +14,45 @@ class News extends SimpleBlockComponent {
 	private $twitterUrl = null;
 	
 	public function __construct() {
-		$this->title = new SimpleTextComponent();
-		$this->date = new SimpleTextComponent();
-		$this->author = new SimpleTextComponent();
-		$this->message = new SimpleTextComponent();
-		$this->commentUrl = new Link();
-		$this->commentAddUrl = new Link();
-		$this->twitterUrl = new Link();
+		$this->setClass("news");
 		
-		$newsFooter = new SimpleTextComponent();
-		$newsFooter->addComponent("~ ");
-		$this->commentUrl->setContent("Commentaires");
-		$this->commentUrl->openNewWindow(true);
-		$newsFooter->addComponent($this->commentUrl);
-		$newsFooter->addComponent(" - ");
-		$this->commentAddUrl->setContent("Ajouter un commentaire");
-		$this->commentAddUrl->openNewWindow(true);
-		$newsFooter->addComponent($this->commentAddUrl);
-		$newsFooter->addComponent(" ~");
-		$newsFooter->addLine();
-		$newsFooter->addComponent("~ ");
-		$this->twitterUrl->setContent("Partager sur <img src='images/autre/logo_twitter.png' border='0' alt='twitter' />");
-		$this->twitterUrl->openNewWindow(true);
-		$this->twitterUrl->setOnClick("javascript:pageTracker._trackPageview ('/outbound/twitter.com');");
-		$newsFooter->addComponent($this->twitterUrl);
-		$newsFooter->addComponent(" ou ");
-		$newsFooter->addComponent("<a name='fb_share' type='button' share_url='http://zerofansub.net'></a>");
-		$newsFooter->addComponent("<script src='http://static.ak.fbcdn.net/connect.php/js/FB.Share' type='text/javascript'></script>");
-		$newsFooter->addComponent(" ~");
-		$newsFooter->addLine();
-		
-		$newsContent = new SimpleBlockComponent();
-		$newsContent->setClass("p");
-		$newsContent->addComponent($this->message);
-		$newsContent->addComponent($newsFooter);
-		
-		$this->addComponent("<h2>");
+		$this->title = new Title(null, 2);
+		$this->title->setClass("title");
 		$this->addComponent($this->title);
-		$this->addComponent("</h2>");
-		$this->addComponent("<h4>");
-		$this->addComponent($this->date);
-		$this->addComponent(" par ");
-		$this->addComponent($this->author);
-		$this->addComponent("</h4>");
-		$this->addComponent($newsContent);
+		
+		$subtitle = new Title(null, 4);
+		$subtitle->setClass("subtitle");
+		$this->date = new SimpleTextComponent();
+		$subtitle->addComponent($this->date);
+		$subtitle->addComponent(" par ");
+		$this->author = new SimpleTextComponent();
+		$subtitle->addComponent($this->author);
+		$this->addComponent($subtitle);
+		
+		$this->message = new SimpleTextComponent();
+		$this->message->setClass("message");
+		$this->addComponent($this->message);
+		
+		$footer = new SimpleTextComponent();
+		$footer->setClass("footer");
+		$footer->addComponent("~ ");
+		$this->commentUrl = new NewWindowLink(null, "Commentaires");
+		$footer->addComponent($this->commentUrl);
+		$footer->addComponent(" - ");
+		$this->commentAddUrl = new NewWindowLink(null, "Ajouter un commentaire");
+		$footer->addComponent($this->commentAddUrl);
+		$footer->addComponent(" ~");
+		$footer->addLine();
+		$footer->addComponent("~ ");
+		$this->twitterUrl = new NewWindowLink(null, "Partager sur <img src='images/autre/logo_twitter.png' border='0' alt='twitter' />");
+		$this->twitterUrl->setOnClick("javascript:pageTracker._trackPageview ('/outbound/twitter.com');");
+		$footer->addComponent($this->twitterUrl);
+		$footer->addComponent(" ou ");
+		$footer->addComponent("<a name='fb_share' type='button' share_url='http://zerofansub.net'></a>");
+		$footer->addComponent("<script src='http://static.ak.fbcdn.net/connect.php/js/FB.Share' type='text/javascript'></script>");
+		$footer->addComponent(" ~");
+		$footer->addLine();
+		$this->addComponent($footer);
 	}
 	
 	public function setTitle($title) {

@@ -8,12 +8,7 @@ class Title extends DefaultHtmlComponent {
 	
 	public function __construct($content, $level = 1) {
 		$this->setLevel($level);
-		if ($content instanceof IHtmlComponent) {
-			$this->addComponent($content);
-		}
-		else {
-			$this->setContent($content === null ? $url : $content);
-		}
+		$this->setContent($content);
 	}
 	
 	public function getHtmlTag() {

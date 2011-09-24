@@ -1,6 +1,6 @@
 <?php
-	$title = new Title("&Agrave; propos...", 3);
-	$title->writeNow();
+	$page = PageContent::getInstance();
+	$page->setTitle("&Agrave; propos...");
 ?>
 <!--<h2>Hébergement du site</h2>
 		    <p style="text-align: center;">
@@ -9,11 +9,11 @@
 		    </p>-->
 
 <?php
-	$title = new Title("Historique des versions", 2);
-	$title->writeNow();
+	$page->addComponent(new Title("Historique des versions", 2));
 	
 	$table = new Table();
 	$table->setClass("about");
+	$page->addComponent($table);
 ?>
 <?php
 	$row = new TableRow();
@@ -80,10 +80,6 @@
 	$row->addComponent(new TableCell("Version actuelle !"));
 	$table->addComponent($row);
 ?>
-<?php
-	$table->writeNow();
-?>
-<p></p>
 <!--<h2>Optimisation</h2>
    <p style="text-align: center;">Il est conseillé pour une bonne navigation d'utiliser le navigateur Mozilla Firefox :
      <a href="http://download.mozilla.org/?product=firefox-3.0.3&os=win&lang=fr" target="_blank"><img src="images/icones/firefox.png" border="0"></a></p>

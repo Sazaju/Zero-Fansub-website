@@ -1,8 +1,9 @@
 <?php
-	$title = new Title("Contact", 3);
-	$title->writeNow();
+	$page = PageContent::getInstance();
+	$page->setTitle("Contact");
 	
 	$contact = new SimpleTextComponent();
+	$contact->setClass("contact");
 	$contact->addLine();
 	$contact->addLine();
 	$contact->addLine();
@@ -20,8 +21,5 @@
 	$link->setStyle("font-size: 25px;");
 	$contact->addComponent($link);
 	
-	$contact2 = new SimpleBlockComponent();
-	$contact2->setClass("p");
-	$contact2->addComponent($contact);
-	$contact2->writeNow();
+	$page->addComponent($contact);
 ?>

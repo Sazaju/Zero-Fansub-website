@@ -4,6 +4,14 @@
 */
 
 class PageContent extends SimpleBlockComponent {
+	private static $instance = null;
+	public static function getInstance() {
+		if (PageContent::$instance == null) {
+			PageContent::$instance = new PageContent();
+		}
+		return PageContent::$instance;
+	}
+	
 	private $title = null;
 	
 	public function __construct($title = null) {

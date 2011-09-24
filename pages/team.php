@@ -1,5 +1,6 @@
 <?php
-	$page = new PageContent("La Team de fansub");
+	$page = PageContent::getInstance();
+	$page->setTitle("La Team de fansub");
 	$page->addComponent(new Title("Administrateur(s)", 2));
 ?>
 <?php
@@ -126,6 +127,4 @@
 	$list->add("lepims");
 	$list->add("secouss");
 	$list->add("manu");
-	
-	$page->writeNow();
 ?>

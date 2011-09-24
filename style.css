@@ -64,9 +64,6 @@ padding-bottom: 18px;
 padding-left: 25px;
 padding-right: 25px;
 }
-#contenu {
-margin: 0;
-}
 
 #menu{
 margin: 0;
@@ -130,16 +127,6 @@ font-size: 13px;
 margin-left: 0px;
 }
 
-#contenu p{ 
-text-indent: 10px;
-font-family: Tahoma;
-font-size: 12px;
-font-size: 12px;
-color: #666666;
-margin-left: 40px;
-margin-right: 40px;
-margin-top: 0px;
-}
 .p { 
 text-align: center;
 text-indent: 10px;
@@ -149,91 +136,6 @@ color: #666666;
 margin-left: 40px;
 margin-right: 40px;
 margin-top: 0px;
-}
-#contenu a {
-font-weight: normal;
-text-decoration: none;
-color: #999999;
-}
-#contenu a:hover {
-font-weight: bold;
-}
-#contenu a:active, #contenu a:focus {
-color: #696969;
-}
-#contenu a:visited {
-font-decoration: line-through;
-}
-#contenu p:after{ 
-content: url('images/interface/barre.png');
-width: 100%;
-}
-.archives div{
-text-align: center;
-}
-.teamList, .teamList ul{
-list-style: none;
-}
-.teamList ul img{
-float: right;
-display: block;
-margin-right: 50px;
-margin-top: 10px;
-width: 100px;
-height: 100px;
-}
-#contenu h3 {
-margin-left: 150px;
-letter-spacing: 12px;
-font-family: Tahoma;
-font-weight: normal;
-font-size: 18px;
-}
-#contenu h2 {
-color: #000000;
-font-size: 17px;
-margin-left: 60px;
-margin-right: 20px;
-margin-top: 0px;
-}
-#contenu h4 /* Date, auteur, sous-titre, ect */ {
-color: #999999;
-font-size: 10px;
-margin-left: 80px;
-margin-right: 20px;
-font-weight: normal;
-margin-top: -15px;
-}
-#contenu h5 /* épisodes */ {
-color: #FFFFFF;
-background: url('images/interface/episodes.png') no-repeat;
-width: 603px;
-height: 30px;
-margin-top: 0px;
-margin-bottom: 0px;
-margin-left: 20px;
-padding-left: 20px;
-padding-top: 5px;
-font-size: 16px;
-font-family: 'Courier New';
-}
-#contenu h5 a /* épisodes */ {
-color: #FFFFFF;
-background: url('images/interface/episodes.png') no-repeat;
-font-size: 16px;
-}
-#contenu h6 /* épisodes ND */{
-background: url('images/interface/episodesnd.png') no-repeat;
-width: 603px;
-height: 30px;
-margin-top: 0px;
-margin-bottom: 0;
-margin-left: 20px;
-padding-left: 20px;
-padding-top: 5px;
-font-size: 16px;
-font-family: 'Courier New';
-color: #999999;
 }
 .quote {
 width: 550px;
@@ -249,34 +151,156 @@ content: url('images/interface/quote1.jpg');
 .quote:after {
 content: url('images/interface/quote2.jpg');
 }
-.about {
-width: 600px;
+.p:after{
+	content: url('images/interface/barre.png');
+}
+
+/*
+	START OF THE STYLE FOR THE REFINED VERSION
+*/
+#pageContent {
+margin: 0;
+}
+#pageContent p{ 
+text-indent: 10px;
 font-family: Tahoma;
-font-size: 0.8em;
+font-size: 12px;
+font-size: 12px;
 color: #666666;
 margin-left: 40px;
 margin-right: 40px;
 margin-top: 0px;
 }
+#pageContent a {
+font-weight: normal;
+text-decoration: none;
+color: #999999;
+}
+#pageContent a:hover {
+font-weight: bold;
+}
+#pageContent a:active, #pageContent a:focus {
+color: #696969;
+}
+#pageContent a:visited {
+font-decoration: line-through;
+}
+#pageContent p:after{ 
+content: url('images/interface/barre.png');
+width: 100%;
+}
+#pageContent h3 {
+margin-left: 150px;
+letter-spacing: 12px;
+font-family: Tahoma;
+font-weight: normal;
+font-size: 18px;
+}
+#pageContent h2 {
+color: #000000;
+font-size: 17px;
+margin-left: 60px;
+margin-right: 20px;
+margin-top: 0px;
+}
+#pageContent h4 /* Date, auteur, sous-titre, ect */ {
+color: #999999;
+font-size: 10px;
+margin-left: 80px;
+margin-right: 20px;
+font-weight: normal;
+margin-top: -15px;
+}
+#pageContent h5 /* épisodes */ {
+color: #FFFFFF;
+background: url('images/interface/episodes.png') no-repeat;
+width: 603px;
+height: 30px;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 20px;
+padding-left: 20px;
+padding-top: 5px;
+font-size: 16px;
+font-family: 'Courier New';
+}
+#pageContent h5 a /* épisodes */ {
+color: #FFFFFF;
+background: url('images/interface/episodes.png') no-repeat;
+font-size: 16px;
+}
+#pageContent h6 /* épisodes ND */{
+background: url('images/interface/episodesnd.png') no-repeat;
+width: 603px;
+height: 30px;
+margin-top: 0px;
+margin-bottom: 0;
+margin-left: 20px;
+padding-left: 20px;
+padding-top: 5px;
+font-size: 16px;
+font-family: 'Courier New';
+color: #999999;
+}
+
+.about {
+	width: 600px;
+	font-family: Tahoma;
+	font-size: 0.8em;
+	color: #666666;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 0px;
+}
 .about, .about td, .about th {
-border: 1px solid grey;
+	border: 1px solid grey;
 }
 .about td, .about th {
-margin: 5px;
-padding: 5px;
+	margin: 5px;
+	padding: 5px;
 }
 .about .version{
-width: 50px;
+	width: 50px;
 }
 .about .description{
-width: 400px;
+	width: 400px;
 }
 .about .preview{
-width: 150px;
+	width: 150px;
+}
+
+.archives div{
+	text-align: center;
+}
+
+.teamList, .teamList ul{
+	list-style: none;
+}
+.teamList ul img{
+	float: right;
+	display: block;
+	margin-right: 50px;
+	margin-top: 10px;
+	width: 100px;
+	height: 100px;
+}
+
+.contact, .news{ 
+	display: block;
+	text-align: center;
+	text-indent: 10px;
+	font-family: Tahoma;
+	font-size: 12px;
+	color: #666666;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 0px;
+}
+.news .title, .news .subtitle { 
+	text-align: left;
 }
 
 
-
-#pageContent:after, .memberTeamList:after, .teamList:before, .archives:after, .p:after{
-content: url('images/interface/barre.png');
+#pageContent:after, .teamList .member:after, .teamList:before, .archives:after, .news:after{
+	content: url('images/interface/barre.png');
 }

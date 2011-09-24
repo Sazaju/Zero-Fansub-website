@@ -1,6 +1,6 @@
 <?php
-	$archives = new Archives();
-	$archives->writeNow();
+	$page = PageContent::getInstance();
+	$page->addComponent(new Archives());
 ?>
 <?php
 	$newsMessage = new SimpleTextComponent();
@@ -18,7 +18,7 @@
 	$news->setCommentId(270);
 	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Hitohira serie complete chez Z%C3%A9ro fansub !");
 	$news->setMessage($newsMessage);
-	$news->writeNow();
+	$page->addComponent($news);
 ?>
 <?php
 	$newsMessage = new SimpleTextComponent();
@@ -34,7 +34,7 @@
 	$news->setCommentId(269);
 	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Mitsudomoe 03 chez Z%C3%A9ro fansub !");
 	$news->setMessage($newsMessage);
-	$news->writeNow();
+	$page->addComponent($news);
 ?>
 <?php
 	$newsMessage = new SimpleTextComponent();
@@ -51,7 +51,7 @@
 	$news->setCommentId(268);
 	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Toradora! SOS chez Zero fansub !");
 	$news->setMessage($newsMessage);
-	$news->writeNow();
+	$page->addComponent($news);
 ?>
 <?php
 	$newsMessage = new SimpleTextComponent();
@@ -76,7 +76,7 @@
 	$news->setCommentId(267);
 	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Isshoni Training Ofuro chez Zero fansub !");
 	$news->setMessage($newsMessage);
-	$news->writeNow();
+	$page->addComponent($news);
 ?>
 <?php
 	$newsMessage = new SimpleTextComponent();
@@ -109,7 +109,7 @@
 	$news->setCommentId(266);
 	$news->setTwitterUrl("http://twitter.com/home?status=Zero recherche un traducteur");
 	$news->setMessage($newsMessage);
-	$news->writeNow();
+	$page->addComponent($news);
 ?>
 <?php
 	$newsMessage = new SimpleTextComponent();
@@ -132,7 +132,7 @@
 	$news->setCommentId(264);
 	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Kannagi serie complete chez Zero fansub !");
 	$news->setMessage($newsMessage);
-	$news->writeNow();
+	$page->addComponent($news);
 ?>
 <?php
 	$newsMessage = new SimpleTextComponent();
@@ -150,7 +150,7 @@
 	$news->setCommentId(263);
 	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Mitsudomoe 01 + 02 chez Zero fansub !");
 	$news->setMessage($newsMessage);
-	$news->writeNow();
+	$page->addComponent($news);
 ?>
 <?php
 	$newsMessage = new SimpleTextComponent();
@@ -166,7 +166,7 @@
 	$news->setCommentId(262);
 	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Tayutama Kiss on my Deity Pure my Heart serie complete chez Zero fansub !");
 	$news->setMessage($newsMessage);
-	$news->writeNow();
+	$page->addComponent($news);
 ?>
 <?php
 	$newsMessage = new SimpleTextComponent();
@@ -184,7 +184,7 @@
 	$news->setCommentId(261);
 	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !");
 	$news->setMessage($newsMessage);
-	$news->writeNow();
+	$page->addComponent($news);
 ?>
 <?php
 	$newsMessage = new SimpleTextComponent();
@@ -210,9 +210,9 @@
 	$news->setCommentId(261);
 	$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !");
 	$news->setMessage($newsMessage);
-	$news->writeNow();
+	$page->addComponent($news);
 ?>
 <?php
 	// rewrite the archive header as a footer
-	$archives->writeNow();
+	$page->addComponent(new Archives());
 ?>

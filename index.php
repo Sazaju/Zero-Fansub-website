@@ -359,7 +359,6 @@ $page = "sortie";
 require("sorties/sortie.php");
 ?>
 	  </div>
-	  <div id="contenu">
 	    <!-- COMCLICK France : 468 x 60 -->
 	    <!--<iframe src="http://fl01.ct2.comclick.com/aff_frame.ct2?id_regie=1&num_editeur=14388&num_site=3&num_emplacement=1"
 			WIDTH="468" HEIGHT="60" marginwidth="0" marginheight="0" hspace="0"
@@ -377,12 +376,12 @@ $page = "home";
 }
 if (file_exists("pages/$page.php")) {
 require_once("pages/$page.php");
+PageContent::getInstance()->writeNow();
 }
 else {
 require_once("pages/home.php");
 }
 ?>
-	  </div>
 	</div>
 
 
