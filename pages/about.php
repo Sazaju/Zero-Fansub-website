@@ -1,29 +1,30 @@
-<h3>À propos...</h3>
+<?php
+	$title = new Title("&Agrave; propos...", 3);
+	$title->writeNow();
+?>
 <!--<h2>Hébergement du site</h2>
 		    <p style="text-align: center;">
 		      Le site Zéro fansub ainsi que tous les autres sites de la <a href="http://db0.fr" target="_blank">db0 company</a> sont hébergés par :<br /><br />
 		      <a href="http://www.anime-ultime.net/part/Site-93" target="_blank"><img src="images/partenaires/anime-ultime.gif" border="0"></a><br />
 		    </p>-->
 
-<h2>Historique des versions</h2>
-<table width="600" cellpadding="5" cellspacing="5" border="1" bordercolor="grey" style="font-family: Tahoma;
-											font-size: 0.8em;
-											color: #666666;
-											margin-left: 40px;
-											margin-right: 40px;
-											margin-top: 0px;">
+<?php
+	$title = new Title("Historique des versions", 2);
+	$title->writeNow();
+?>
+<table class="about">
   <tr>
-    <th width="50">Version
+    <th class="version">Version
     </th>
-    <th width="400">Déscription
+    <th class="description">D&eacute;scription
     </th>
-    <th width="150">Aperçu
+    <th class="preview">Aperçu
     </th>
   </tr>
   <tr>
     <td><b>1.0</b>
     </td>
-    <td>Zéro était un site de ddl.
+    <td>Z&eacute;ro était un site de ddl.
     </td>
     <td>Non dispo.
     </td>
@@ -31,7 +32,7 @@
   <tr>
     <td>1.1
     </td>
-    <td>Zéro devient une team de fansub avec pour seul projet <a href="index.php?page=series/kimikiss">Kimikiss pure rouge</a>.
+    <td>Z&eacute;ro devient une team de fansub avec pour seul projet <a href="index.php?page=series/kimikiss">Kimikiss pure rouge</a>.
     </td>
     <td><a href="http://zero.xooit.fr/index.php?theme=test" target="_blank">Utiliser cette version</a>
     </td>
@@ -47,7 +48,7 @@
   <tr>
     <td>2.1
     </td>
-    <td>On laisse le choix à l'utilisateur, si il préfère le bleu ^^
+    <td>On laisse le choix &agrave; l'utilisateur, si il pr&eacute;f&egrave;re le bleu ^^
     </td>
     <td><a href="http://zerofansub.net/v2/index.php?s_theme=bleu" target="_blank">Utiliser cette version</a>
     </td>
@@ -63,18 +64,19 @@
   <tr>
     <td><b>3.0</b>
     </td>
-    <td>Le petit rond de la v2 n'étant pas pratique, on change de systéme pour la v3. De couleurs aussi.
+    <td>Le petit rond de la v2 n'&eacute;tant pas pratique, on change de syst&eacute;me pour la v3. De couleurs aussi.
     </td>
     <td><a href="index3.0.php" target="_blank">Utiliser cette version</a>
     </td>
   </tr>
-  <td>3.1
-  </td>
-  <td>À part le design général change, mais le contenu des pages reste le même. C'est juste histoire d'améliorer le code.
-  </td>
-  <td>Version actuelle !
-  </td>
-</tr>
+  <tr>
+    <td>3.1
+    </td>
+    <td>&Agrave; part le design g&eacute;n&eacute;ral change, mais le contenu des pages reste le m&ecirc;me. C'est juste histoire d'am&eacute;liorer le code.
+    </td>
+    <td>Version actuelle !
+    </td>
+  </tr>
 </table>
 <p></p>
 
