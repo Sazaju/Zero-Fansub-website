@@ -1,36 +1,36 @@
 <?php
 /*
-	A project list is a list giving all the projects of the team.
+	A project list is a list able to take the projects of the team and format it in a convenient way.
 */
 
-class ProjectList extends SimpleListComponent implements IPersistentComponent {
-	private $databaseComponent = null;
-	private $isLoaded = false;
+class ProjectList extends SimpleListComponent {
+	private $useImage = false;
 	
 	public function __construct() {
-		$this->setClass('projectList');
-		$this->databaseComponent = new DatabaseProjectList();
+		$this->setClass("projectList");
 	}
 	
-	public function getDatabaseComponent() {
-		return $this->databaseComponent;
-	}
-	
-	public function load() {
-		$this->databaseComponent->cacheAll();
-		foreach($this->databaseComponent->getCachedComponents() as $component) {
-			$component->load();
-			$data = $component->getData();
-			$image = new Image($data['shortimage_id']);
-			$link = new IndexLink('page=project&id='.$data['id'], $image);
-			$link->setTitle($data['title']);
-			$this->add($link);
+	public function addComponent($project) {
+		if ($project instanceof ProjectLink) {
+			// nothing to do
 		}
-		$this->isLoaded = true;
+		else if ($project instanceof Project) {
+			$project = new ProjectLink($project);
+		}
+		else {
+			throw new Exception("Cannot take components other than projects and project links.");
+		}
+		
+		$project->useImage($this->useImage);
+		parent::addComponent($project);
 	}
 	
-	public function isLoaded() {
-		return $this->isLoaded;
+	public function useImage($boolean) {
+		$this->useImage = $boolean;
+		foreach($this->getComponents() as $listElement) {
+			$projectLink = $listElement->getComponent(0);
+			$projectLink->useImage($this->useImage);
+		}
 	}
 }
 ?>

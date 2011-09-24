@@ -13,8 +13,8 @@ class SimpleListComponent extends DefaultHtmlComponent {
 		return $this->isOrdered ? 'ol' : 'ul';
 	}
 	
-	public function add($content) {
-		$this->addComponent(new ListElement($content));
+	public function addComponent($content) {
+		parent::addComponent(new ListElement($content));
 	}
 	
 }

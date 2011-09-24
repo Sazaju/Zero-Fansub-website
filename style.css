@@ -300,6 +300,15 @@ color: #999999;
 	text-align: left;
 }
 
+.projectList {
+	text-align: left;
+	list-style: none;
+}
+.projectList img {
+	display: block;
+	margin: auto;
+	margin-bottom: 1.5em;
+}
 
 #pageContent:after, .teamList .member:after, .teamList:before, .archives:after, .news:after{
 	content: url('images/interface/barre.png');

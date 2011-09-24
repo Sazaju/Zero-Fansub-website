@@ -359,6 +359,7 @@ $page = "sortie";
 require("sorties/sortie.php");
 ?>
 	  </div>
+	  <div id="pageContent"><!-- TODO remove this level when all pages will be translated in object PHP -->
 	    <!-- COMCLICK France : 468 x 60 -->
 	    <!--<iframe src="http://fl01.ct2.comclick.com/aff_frame.ct2?id_regie=1&num_editeur=14388&num_site=3&num_emplacement=1"
 			WIDTH="468" HEIGHT="60" marginwidth="0" marginheight="0" hspace="0"
@@ -382,6 +383,7 @@ require_once("pages/home.php");
 }
 PageContent::getInstance()->writeNow();
 ?>
+	</div>
 	</div>
 
 
