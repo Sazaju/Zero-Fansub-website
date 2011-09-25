@@ -23,12 +23,10 @@ class TableRow extends DefaultHtmlComponent {
 	}
 	
 	public function addComponent($component) {
-		if ($component instanceof TableCell) {
-			parent::addComponent($component);
+		if (!($component instanceof TableCell)) {
+			$component = new TableCell($component);
 		}
-		else {
-			throw new Exception("A table row cannot get other components than table cells.");
-		}
+		parent::addComponent($component);
 	}
 }
 

@@ -260,5 +260,14 @@ class Project {
 		}
 		return $projects;
 	}
+	
+	public static function getProject($id) {
+		foreach(Project::getAllProjects() as $project) {
+			if ($project->getID() === $id) {
+				return $project;
+			}
+		}
+		throw new Exception($id." is not a known project ID.");
+	}
 }
 ?>

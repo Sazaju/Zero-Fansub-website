@@ -1,8 +1,7 @@
 <?php
 	$page = PageContent::getInstance();
 	$page->setTitle("La Team de fansub");
-?>
-<?php
+
 	$page->addComponent(new Title("Administrateurs", 2));
 
 	$list = new TeamMemberList();
@@ -12,8 +11,7 @@
 			$list->addComponent($member);
 		}
 	}
-?>
-<?php
+
 	$page->addComponent(new Title("Membres", 2));
 
 	$list = new TeamMemberList();
@@ -23,8 +21,7 @@
 			$list->addComponent($member);
 		}
 	}
-?>
-<?php
+
 	$page->addComponent(new Title("Seeders, Uploaders", 2));
 
 	$list = new SimpleListComponent();
