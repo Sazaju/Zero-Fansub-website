@@ -1,17 +1,17 @@
 <?php
 /*
-	The member list display a list of members. Because of that it only take in charge TeamMember
+	The team member list display a list of members. Because of that it only take in charge TeamMember
 	elements.
 */
 
-class MemberList extends SimpleListComponent {
+class TeamMemberList extends SimpleListComponent {
 	public function __construct() {
 		$this->setClass("teamList");
 	}
 	
 	public function addComponent($member) {
 		if (!($member instanceof TeamMember)) {
-			throw new Exception('The given element is not a member');
+			throw new Exception('The given element is not a member.');
 		}
 		
 		$list = new SimpleListComponent();
@@ -24,10 +24,25 @@ class MemberList extends SimpleListComponent {
 		$pseudo = $member->getPseudo();
 		$list->addComponent("<b>".$pseudo."</b>");
 		
-		$role = $member->getRole();
-		if ($role !== null) {
-			$list->addComponent("<b>R&ocirc;le</b> ".$role);
+		$roles = $member->getRoles();
+		$description = "<b>R&ocirc;le</b> ";
+		if (!empty($roles)) {
+			$isFirst = true;
+			foreach($roles as $role) {
+				if ($isFirst) {
+					// TODO first letter in upper case
+					$description .= ucfirst($role->getName());
+					$isFirst = false;
+				}
+				else {
+					$description .= ', '.$role->getName();
+				}
+			}
 		}
+		else {
+			$description .= "Rien";
+		}
+		$list->addComponent($description.".");
 		
 		$firstName = $member->getFirstName();
 		if ($firstName !== null) {
