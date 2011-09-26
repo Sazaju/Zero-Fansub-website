@@ -75,6 +75,18 @@ function __autoload($className) {
 		include $file;
 	}
 }
+
+/**********************************\
+             DATABASE
+\**********************************/
+
+Database::createDefaultDatabase(TEST_MODE_ACTIVATED);
+if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
+	Database::getDefaultDatabase()->clear();
+	$link = new IndexLink();
+	header('Location: '.$link->getUrl());
+	exit();
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
