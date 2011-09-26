@@ -3,6 +3,7 @@
 	A team member is a person participating in the team.
 */
 class TeamMember {
+	private $id = null;
 	private $image = null;
 	private $pseudo = null;
 	private $roles = array();
@@ -14,8 +15,9 @@ class TeamMember {
 	private $firstName = null;
 	private $isAdmin = false;
 	
-	public function __construct() {
+	public function __construct($id = null) {
 		$this->image = new Image();
+		$this->setID($id);
 	}
 	
 	public function setIsAdmin($boolean) {
@@ -42,6 +44,14 @@ class TeamMember {
 	
 	public function getPseudo() {
 		return $this->pseudo;
+	}
+	
+	public function setID($id) {
+		$this->id = $id;
+	}
+	
+	public function getID() {
+		return $this->id;
 	}
 	
 	public function addRole($role) {
@@ -114,7 +124,7 @@ class TeamMember {
 		if (TeamMember::$allMembers === null) {
 			TeamMember::$allMembers = array();
 			
-			$member = new TeamMember();
+			$member = new TeamMember(1);
 			$member->setPseudo("db0");
 			$member->setIsAdmin(true);
 			$member->addRole(Role::getRole("verifFinale"));
@@ -126,14 +136,25 @@ class TeamMember {
 			$member->setWebsite("http://db0.fr/", "db0.fr");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember();
-			$member->setPseudo("Ryocu");
-			$member->setIsAdmin(true);
-			$member->setImage("ryocu.png");
-			$member->setWebsite("http://anime-ultime.net/", "Anime-Ultime");
+			$member = new TeamMember(2);
+			$member->setPseudo("Jembé");
+			$member->setImage(""); // TODO
+			$member->addRole(Role::getRole("adapt"));
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember();
+			$member = new TeamMember(3);
+			$member->setPseudo("Ryuuken");
+			$member->setImage(""); // TODO
+			$member->addRole(Role::getRole("adapt"));
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(4);
+			$member->setPseudo("Nyaan~");
+			$member->setImage(""); // TODO
+			$member->addRole(Role::getRole("time")); // TODO manage male/female
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(5);
 			$member->setPseudo("Sazaju HITOKAGE");
 			$member->addRole(Role::getRole("tradJp"));
 			$member->addRole(Role::getRole("adapt"));
@@ -143,7 +164,7 @@ class TeamMember {
 			$member->setMail("sazaju@gmail.com");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember();
+			$member = new TeamMember(6);
 			$member->setPseudo("lepims");
 			$member->addRole(Role::getRole("encod"));
 			$member->setFirstName("Lepims");
@@ -152,7 +173,7 @@ class TeamMember {
 			$member->setLocation("Clermont-Ferrand");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember();
+			$member = new TeamMember(7);
 			$member->setPseudo("DC");
 			$member->setImage("");// TODO http://img8.xooimage.com/files/1/f/5/superman-micro--bfcab6.jpg
 			$member->addRole(Role::getRole("encod"));
@@ -161,7 +182,7 @@ class TeamMember {
 			$member->setLocation("Lyon");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember();
+			$member = new TeamMember(8);
 			$member->setPseudo("praia");
 			$member->setImage("");// TODO http://img6.xooimage.com/files/a/1/a/komori-kiri-139d03f.jpg
 			$member->addRole(Role::getRole("qc"));
@@ -171,7 +192,7 @@ class TeamMember {
 			$member->setMail("raiapietro_dam22@hotmail.com");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember();
+			$member = new TeamMember(9);
 			$member->setPseudo("Personne");
 			$member->setImage("personne.jpg");
 			$member->addRole(Role::getRole("edit"));
@@ -179,42 +200,50 @@ class TeamMember {
 			$member->setAge("23 ans");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember();
+			$member = new TeamMember(10);
 			$member->setPseudo("Nyaa-Gentle");
 			$member->setImage(""); // TODO http://img7.xooimage.com/files/a/2/2/a22f797271adf8a2...a2577a9-24ccb16.jpeg
 			$member->addRole(Role::getRole("time"));
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember();
+			$member = new TeamMember(11);
 			$member->setPseudo("ZackDeMars");
 			$member->setImage("zack.jpg");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setFirstName("Zack");
 			$member->setAge("22 ans");
 			$member->setLocation("Marseille");
-			$member->setMail("Tsuki-Usagi@hotmail.fr");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember();
+			$member = new TeamMember(12);
 			$member->setPseudo("Shana-chan");
 			$member->setImage("shana.png");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setFirstName("Guillaume");
 			TeamMember::$allMembers[] = $member;
 
-			$member = new TeamMember();
+			$member = new TeamMember(13);
 			$member->setPseudo("Onee-chan");
 			$member->setImage("onee-chan.jpg");
 			$member->addRole(Role::getRole("tradEn"));
 			TeamMember::$allMembers[] = $member;
 
-			$member = new TeamMember();
+			$member = new TeamMember(14);
 			$member->setPseudo("Litinae");
 			$member->setImage("litinae.jpg");
 			$member->addRole(Role::getRole("tradEn"));
 			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;
+	}
+	
+	public static function getMember($id) {
+		foreach(TeamMember::getAllMembers() as $member) {
+			if ($member->getID() === $id) {
+				return $member;
+			}
+		}
+		throw new Exception($id." is not a known member ID.");
 	}
 }
 ?>
