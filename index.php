@@ -269,6 +269,11 @@ if(gotosite != "")
 
 
 <body>
+<?php
+if (TEST_MODE_ACTIVATED) {
+	echo "<div class='testFeatures'>".TESTING_FEATURE."</div>";
+}
+?>
   <div id="main">
     <div id="header">
       <div id="pageright">
@@ -417,5 +422,10 @@ PageContent::getInstance()->writeNow();
       var pageTracker = _gat._getTracker("UA-4691079-6");
       pageTracker._trackPageview();
       } catch(err) {}</script>
+<?php
+if (TEST_MODE_ACTIVATED) {
+	echo "<div class='testFeatures'>".TESTING_FEATURE."</div>";
+}
+?>
   </body>
 </html>

@@ -313,3 +313,9 @@ color: #999999;
 #pageContent:after, .teamList .member:after, .teamList:before, .archives:after, .news:after{
 	content: url('images/interface/barre.png');
 }
+
+.testFeatures {
+	text-align: center;
+	border: 1px solid red;
+	background-color: white;
+}
