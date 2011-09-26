@@ -130,18 +130,20 @@ class News extends SimpleBlockComponent {
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("url", "title")); // TODO
 			$newsMessage->addLine();
-			$newsMessage->addLine("Zero ne reste pas inactive, avec la fin de nos release on a décidé de commencer de nouveaux projets.");
+			$newsMessage->addLine("Bon... par où commencer... Dur dur, surtout que le moins réjouissant c'est pour ma pomme {'^_^}. Alors commençons par ça !");
 			$newsMessage->addLine();
-			$newsMessage->addLine("Le premier projet sera Denpa onna to seishun otoko. Une petite comédie aux limites du fantastique où extraterrestre rime avec futon :). Et comme on est gourmands, on a vu double avec notre 2e projet. En effet, ce n'est pas une mais deux saisons qu'on fera avec notre prochain projet, Working!!. Trois ? Vous en voulez encore ? Votre souhait sera peut-être exaucé avec un projet mystère.");
+			$newsMessage->addLine("Tout d'abord, sachez que le site est actuellement en cours de raffinage. Autrement dit, une révision complète du code est en cours. Par conséquent, si vous voyez des petites modifications par rapport à avant, c'est normal, mais dans l'ensemble il ne devrait pas y avoir de changement notable sur le site. Quel intérêt que j'en parle vous me direz... Tout simplement parce qu'il est possible que certaines pages boguent (ou bug, comme vous voulez), et si jamais vous en trouvez une, le mieux c'est de me le faire savoir directement par mail : <a href='mailto:sazaju@gmail.com'>sazaju@gmail.com</a>. Le raffinage étant en cours, il est possible que des pages qui fonctionnent maintenant ne fonctionnent pas plus tard, aussi ne soyez pas surpris. Je fais mon possible pour que ça n'arrive pas, mais si j'en loupe merci de m'aider à les repérer {^_^}.");
 			$newsMessage->addLine();
-			$newsMessage->addLine("Après cette triple doses d'infos, un petit mot pour les plus impatients d'entre vous, ou ceux plus soucieux de la qualité. Nous avons décidé de ne plus sortir de release issue d'une version tv, mais de ne faire que des BD.");
+			$newsMessage->addLine("Voilà, les mauvaises nouvelles c'est fini ! Passons aux réjoussances : 3 nouveaux épisodes de Mitsudomoe sont terminés (4 à 6). Si vous ne les voyez pas sur la page de la série... c'est encore de ma faute (lapidez-moi si vous voulez {;_;}). Si au contraire vous les voyez, alors profitez-en, ruez-vous dessus, parce que depuis le temps qu'on n'a pas fait de news vous devez avoir faim, non ? {^_°}");
 			$newsMessage->addLine();
-			$newsMessage->addLine("Et pour finir cette news sous le signe du chiffre 3, une dose de triplées est à prévoir sous peu avec la sortie des prochains Mitsudomoe.");
+			$newsMessage->addLine("Allez, mangez doucement, ça se déguste les animes (purée j'ai la dalle maintenant {'>.<}). Cela dit, si vous en voulez encore, on a un bon dessert tout droit sorti du restau : Working!! fait désormais partie de nos futurs projets ! Certains doivent se dire qu'il y ont déjà goûté ailleurs... Mais non ! Parce que vous aurez droit aux deux saisons {^o^}v. Tout le monde le sait (surtout dans le Sud de la France), quand on a bien mangé, une sieste s'impose. Vous pourrez donc rejoindre la fille aux ondes dans son futon : Denpa Onna to Seishun Otoko vient aussi allonger la liste de nos projets ! On dit même qu'un projet mystère se faufile entre les membres de l'équipe...");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Pour terminer, un petit mot sur notre charte qualité. Nous avons décidé de ne plus sortir de releases issues d'une version TV, mais de ne faire que des Blu-Ray. Bien entendu, on fera toujours attention aux petites connexions : nos encodeurs travaillent d'arrache pied pour vous fournir la meilleure vidéo dans le plus petit fichier. J'espère donc que vous apprécierez la qualité de nos futurs épisodes {^_^} (et que vous n'aurez pas trop de pages boguées {'-.-}).");
 			
 			$news = new News();
-			$news->setTitle("Nouveaux projets");
+			$news->setTitle("Nouveau site, nouvelles sorties, nouveaux projets !");
 			$news->setDate("26/09/2011");
-			$news->setAuthor(TeamMember::getMember(9));
+			$news->setAuthor(TeamMember::getMember(5));
 			$news->setCommentId(null); //TODO
 			$news->setTwitterUrl(null); // TODO
 			$news->setMessage($newsMessage);
