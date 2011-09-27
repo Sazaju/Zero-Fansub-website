@@ -31,15 +31,15 @@ class Role {
 	public static function getAllRoles() {
 		if (Role::$allRoles === null) {
 			Role::$allRoles = array();
-			Role::$allRoles[] = new Role('tradEn', 'traducteur En>Fr');
-			Role::$allRoles[] = new Role('tradJp', 'traducteur Jp>Fr');
-			Role::$allRoles[] = new Role('adapt', 'adapteur');
-			Role::$allRoles[] = new Role('time', 'timeur');
-			Role::$allRoles[] = new Role('edit', 'éditeur');
-			Role::$allRoles[] = new Role('kara', 'karamaker');
+			Role::$allRoles[] = new Role('tradEn', 'traduction En>Fr');
+			Role::$allRoles[] = new Role('tradJp', 'traduction Jp>Fr');
+			Role::$allRoles[] = new Role('adapt', 'adaptation');
+			Role::$allRoles[] = new Role('time', 'time');
+			Role::$allRoles[] = new Role('edit', 'édition');
+			Role::$allRoles[] = new Role('kara', 'karaoke');
 			Role::$allRoles[] = new Role('qc', 'QC');
 			Role::$allRoles[] = new Role('verifFinale', 'v&eacute;rif finale');
-			Role::$allRoles[] = new Role('encod', 'encodeur');
+			Role::$allRoles[] = new Role('encod', 'encodage');
 			Role::$allRoles[] = new Role('sorties', 'sorties');
 			Role::$allRoles[] = new Role('torrent', 'tracker BT');
 			Role::$allRoles[] = new Role('xdcc', 'XDCC');

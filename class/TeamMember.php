@@ -151,7 +151,7 @@ class TeamMember {
 			$member = new TeamMember(4);
 			$member->setPseudo("Nyaan~");
 			$member->setImage("nyaan.png");
-			$member->addRole(Role::getRole("time")); // TODO manage male/female
+			$member->addRole(Role::getRole("time"));
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(5);
@@ -233,6 +233,11 @@ class TeamMember {
 			$member->setImage("litinae.jpg");
 			$member->addRole(Role::getRole("tradEn"));
 			TeamMember::$allMembers[] = $member;
+			
+			function sortMembers(TeamMember $a, TeamMember $b) {
+				return strcasecmp($a->getPseudo(), $b->getPseudo());
+			}
+			usort(TeamMember::$allMembers, 'sortMembers');
 		}
 		return TeamMember::$allMembers;
 	}
