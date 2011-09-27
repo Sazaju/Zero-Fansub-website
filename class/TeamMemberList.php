@@ -30,7 +30,6 @@ class TeamMemberList extends SimpleListComponent {
 			$isFirst = true;
 			foreach($roles as $role) {
 				if ($isFirst) {
-					// TODO first letter in upper case
 					$description .= ucfirst($role->getName());
 					$isFirst = false;
 				}
