@@ -142,7 +142,7 @@ class News extends SimpleBlockComponent {
 			$news->setTitle("Nouvelles sorties, nouveaux projets, nouveaux bugs...");
 			$news->setDate("26/09/2011");
 			$news->setAuthor(TeamMember::getMember(5));
-			$news->setCommentId(null); //TODO
+			$news->setCommentId(271);
 			$news->setTwitterUrl(null); // TODO
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
