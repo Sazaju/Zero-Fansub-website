@@ -175,7 +175,7 @@ class TeamMember {
 			
 			$member = new TeamMember(7);
 			$member->setPseudo("DC");
-			$member->setImage("");// TODO http://img8.xooimage.com/files/1/f/5/superman-micro--bfcab6.jpg
+			$member->setImage("dc.jpg");
 			$member->addRole(Role::getRole("encod"));
 			$member->setFirstName("Denis");
 			$member->setAge("24 ans");
