@@ -138,19 +138,19 @@ class TeamMember {
 			
 			$member = new TeamMember(2);
 			$member->setPseudo("Jembé");
-			$member->setImage(""); // TODO
+			$member->setImage("jembe.png");
 			$member->addRole(Role::getRole("adapt"));
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(3);
 			$member->setPseudo("Ryuuken");
-			$member->setImage(""); // TODO
+			$member->setImage("ryuuken.jpeg");
 			$member->addRole(Role::getRole("adapt"));
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(4);
 			$member->setPseudo("Nyaan~");
-			$member->setImage(""); // TODO
+			$member->setImage("nyaan.png");
 			$member->addRole(Role::getRole("time")); // TODO manage male/female
 			TeamMember::$allMembers[] = $member;
 			
