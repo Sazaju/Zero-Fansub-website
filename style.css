@@ -299,6 +299,13 @@ color: #999999;
 .news .title, .news .subtitle { 
 	text-align: left;
 }
+.news .message {
+	display: block;
+	margin-bottom: 2em;
+}
+.news .comment {
+	display: block;
+}
 
 .projectList {
 	text-align: left;
@@ -318,4 +325,9 @@ color: #999999;
 	text-align: center;
 	border: 1px solid red;
 	background-color: white;
+}
+
+.hidden {
+	display: none;
+	visibility: hidden;
 }

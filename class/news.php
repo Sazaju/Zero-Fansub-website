@@ -9,8 +9,7 @@ class News extends SimpleBlockComponent {
 	private $date = null;
 	private $author = null;
 	private $message = null;
-	private $commentUrl = null;
-	private $commentAddUrl = null;
+	private $commentAccess = null;
 	private $twitterUrl = null;
 	
 	public function __construct() {
@@ -33,31 +32,23 @@ class News extends SimpleBlockComponent {
 		$this->message->setClass("message");
 		$this->addComponent($this->message);
 		
-		$footer = new SimpleTextComponent();
-		$footer->setClass("footer");
-		$footer->addLine();
-		$footer->addComponent("~ ");
-		$this->commentUrl = new NewWindowLink(null, "Commentaires");
-		$footer->addComponent($this->commentUrl);
-		$footer->addComponent(" - ");
-		$this->commentAddUrl = new NewWindowLink(null, "Ajouter un commentaire");
-		$footer->addComponent($this->commentAddUrl);
-		$footer->addComponent(" ~");
-		$footer->addLine();
-		$footer->addComponent("~ ");
+		$this->commentAccess = new SimpleTextComponent();
+		$this->commentAccess->setClass("comment");
+		$this->addComponent($this->commentAccess);
+
+		$this->addComponent("~ ");
 		$this->twitterUrl = new NewWindowLink(null, "Partager sur <img src='images/autre/logo_twitter.png' border='0' alt='twitter' />");
 		$this->twitterUrl->setOnClick("javascript:pageTracker._trackPageview ('/outbound/twitter.com');");
-		$footer->addComponent($this->twitterUrl);
-		$footer->addComponent(" ou ");
-		$footer->addComponent("<a name='fb_share' type='button' share_url='http://zerofansub.net'></a>");
-		$footer->addComponent("<script src='http://static.ak.fbcdn.net/connect.php/js/FB.Share' type='text/javascript'></script>");
-		$footer->addComponent(" ~");
-		$footer->addLine();
-		$this->addComponent($footer);
+		$this->addComponent($this->twitterUrl);
+		$this->addComponent(" ou ");
+		$this->addComponent("<a name='fb_share' type='button' share_url='http://zerofansub.net'></a>");
+		$this->addComponent("<script src='http://static.ak.fbcdn.net/connect.php/js/FB.Share' type='text/javascript'></script>");
+		$this->addComponent(" ~");
 	}
 	
 	public function setTitle($title) {
 		$this->title->setContent($title);
+		$this->setTwitterUrl("http://twitter.com/home?status=[Zero] ".$title);
 	}
 	
 	public function getTitle() {
@@ -93,10 +84,23 @@ class News extends SimpleBlockComponent {
 		return $components[0];
 	}
 	
+	private $commentClass = null;
 	public function setCommentID($id) {
+		if ($this->commentClass === null) {
+			$this->commentClass = $this->commentAccess->getClass();
+		}
+		
 		if ($id !== null) {
-			$this->setCommentUrl("http://commentaires.zerofansub.net/t$id.htm");
-			$this->setCommentAddUrl("http://commentaires.zerofansub.net/posting.php?mode=reply&t=$id");
+			$this->commentAccess->setClass($this->commentClass);
+			$this->commentAccess->addComponent("~ ");
+			$this->commentAccess->addComponent(new NewWindowLink("http://commentaires.zerofansub.net/t$id.htm", "Commentaires"));
+			$this->commentAccess->addComponent(" - ");
+			$this->commentAccess->addComponent(new NewWindowLink("http://commentaires.zerofansub.net/posting.php?mode=reply&t=$id", "Ajouter un commentaire"));
+			$this->commentAccess->addComponent(" ~");
+		}
+		else {
+			
+			$this->commentAccess->setClass("hidden");
 		}
 	}
 	
@@ -143,7 +147,6 @@ class News extends SimpleBlockComponent {
 			$news->setDate("26/09/2011");
 			$news->setAuthor(TeamMember::getMember(5));
 			$news->setCommentId(271);
-			$news->setTwitterUrl("http://twitter.com/home?status=[Zero] Nouvelles sorties, nouveaux projets, nouveaux bugs..."); // TODO
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
@@ -159,7 +162,6 @@ class News extends SimpleBlockComponent {
 			$news->setDate("14/08/2011");
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(270);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Hitohira serie complete chez Z%C3%A9ro fansub !");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
