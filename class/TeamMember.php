@@ -184,7 +184,7 @@ class TeamMember {
 			
 			$member = new TeamMember(8);
 			$member->setPseudo("praia");
-			$member->setImage("");// TODO http://img6.xooimage.com/files/a/1/a/komori-kiri-139d03f.jpg
+			$member->setImage("praia.jpg");
 			$member->addRole(Role::getRole("qc"));
 			$member->setFirstName("Piet");
 			$member->setAge("30 ans");
