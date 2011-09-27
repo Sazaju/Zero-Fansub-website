@@ -5,8 +5,8 @@
 <img alt="" src="images/episodes/mitsudomoe3.jpg"><br />
 <b>Fichiers</b><br />
  <img src="images/icones/puce.png"> [Zero]Mitsudomoe_03[H264-AAC][8C7C6BC3].mp4<br />
- Taille : 300 Mo 
- Codecs : MP4 AAC H364<br />
+ Taille : 227.2 Mo 
+ Codecs : MP4 AAC H264<br />
  <b>Téléchargements</b><br />
    <img src="images/icones/ddl.png"> [ <a href="ddl/[Zero]Mitsudomoe_03[H264-AAC][8C7C6BC3].mp4">T&eacute;l&eacute;charger</a> ]<br />
  </p>
