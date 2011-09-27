@@ -24,12 +24,18 @@
 
 	$page->addComponent(new Title("Seeders, Uploaders", 2));
 
+	$uploaders = array();
+	$uploaders[] = "Sazaju HITOKAGE";
+	$uploaders[] = "etienne2000";
+	$uploaders[] = "lwienlin";
+	$uploaders[] = "lepims";
+	$uploaders[] = "secouss";
+	$uploaders[] = "manu";
+	natcasesort($uploaders);
+	
 	$list = new SimpleListComponent();
 	$page->addComponent($list);
-	$list->addComponent("Sazaju HITOKAGE");
-	$list->addComponent("etienne2000");
-	$list->addComponent("lwienlin");
-	$list->addComponent("lepims");
-	$list->addComponent("secouss");
-	$list->addComponent("manu");
+	foreach($uploaders as $uploader) {
+		$list->addComponent($uploader);
+	}
 ?>
