@@ -8,6 +8,7 @@
 	used by default in the persistent components.
 */
 
+require_once("criticalData.php");
 class Database {
 	private static $defaultDatabase = null;
 	private $connection;
@@ -34,7 +35,7 @@ class Database {
 			}
 		}
 		else {
-			$this->connection = new PDO('sqlite:database.db');
+			$this->connection = new PDO('mysql:dbname='.DB_NAME.';host='.DB_HOST, DB_USER, DB_PASS);
 		}
 	}
 	

@@ -141,7 +141,7 @@ class News extends SimpleBlockComponent {
 			$newsMessage->addLine("Pour terminer, un petit mot sur notre charte qualité. Nous avons décidé de ne plus sortir de releases issues d'une version TV, mais de ne faire que des Blu-Ray. Bien entendu, on fera toujours attention aux petites connexions : nos encodeurs travaillent d'arrache pied pour vous fournir la meilleure vidéo dans le plus petit fichier. J'espère donc que vous apprécierez la qualité de nos futurs épisodes {^_^} (et que vous n'aurez pas trop de pages boguées {'-.-}).");
 			
 			$news = new News();
-			$news->setTitle("Nouveau site, nouvelles sorties, nouveaux projets !");
+			$news->setTitle("Nouvelles sorties, nouveaux projets, nouveaux bugs...");
 			$news->setDate("26/09/2011");
 			$news->setAuthor(TeamMember::getMember(5));
 			$news->setCommentId(null); //TODO
