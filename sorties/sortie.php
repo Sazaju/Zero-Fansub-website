@@ -10,12 +10,12 @@
 		}
 	}
 	
-	$link = new Sortie("toradorasos", "lastsos.png");
+	$link = new Sortie("mitsudomoe", "mitsudomoe4.png");
 	$link->writeNow();
 	
-	$link = new Sortie("mitsudomoe", "lastmitsudomoe3.png");
+	$link = new Sortie("mitsudomoe", "mitsudomoe5.png");
 	$link->writeNow();
 	
-	$link = new Sortie("hitohira", "lasthitohira.png");
+	$link = new Sortie("mitsudomoe", "mitsudomoe6.png");
 	$link->writeNow();
 ?>
