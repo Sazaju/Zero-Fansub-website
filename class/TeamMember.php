@@ -202,7 +202,7 @@ class TeamMember {
 			
 			$member = new TeamMember(10);
 			$member->setPseudo("Nyaa-Gentle");
-			$member->setImage(""); // TODO http://img7.xooimage.com/files/a/2/2/a22f797271adf8a2...a2577a9-24ccb16.jpeg
+			$member->setImage("nyaa-gentle.jpeg");
 			$member->addRole(Role::getRole("time"));
 			TeamMember::$allMembers[] = $member;
 			
