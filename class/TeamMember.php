@@ -29,7 +29,7 @@ class TeamMember {
 	}
 	
 	public function setImage($imageName) {
-		$this->image->setSource("images/team/".$imageName);
+		$this->image->setUrl("images/team/".$imageName);
 	}
 	
 	public function getImage() {

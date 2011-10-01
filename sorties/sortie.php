@@ -4,7 +4,7 @@
 		public function __construct($serie, $imageName) {
 			$this->setUrl("page=series/".$serie);
 			$image = new Image();
-			$image->setSource("images/sorties/".$imageName);
+			$image->setUrl("images/sorties/".$imageName);
 			$image->setStyle("border:0;");
 			$this->addComponent($image);
 		}

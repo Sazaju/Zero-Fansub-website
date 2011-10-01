@@ -29,9 +29,6 @@ class Link extends DefaultHtmlComponent {
 	
 	public function setUrl($url) {
 		$this->url = $url;
-		if ($url == null) {
-			$this->setClass("noUrl");
-		}
 	}
 	
 	public function getUrl() {

@@ -18,11 +18,11 @@ class Image extends DefaultHtmlComponent {
 		return 'img';
 	}
 	
-	public function setSource($url) {
+	public function setUrl($url) {
 		$this->source = $url;
 	}
 	
-	public function getSource() {
+	public function getUrl() {
 		return $this->source;
 	}
 	
@@ -43,7 +43,7 @@ class Image extends DefaultHtmlComponent {
 	}
 	
 	public function getOptions() {
-		$source = $this->getSource();
+		$source = $this->getUrl();
 		$alt = $this->getAlternative();
 		$title = $this->getTitle();
 		$sourcePart = ' src="'.$source.'"';

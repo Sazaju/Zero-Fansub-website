@@ -11,11 +11,11 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	private $subcomponents = array();
 	private $html = '';
 	
-	public function setId($id) {
+	public function setID($id) {
 		$this->id = $id;
 	}
 	
-	public function getId() {
+	public function getID() {
 		return $this->id;
 	}
 	
@@ -59,12 +59,16 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		return $this->subcomponents[$index];
 	}
 	
+	public function isEmpty() {
+		return empty($this->subcomponents);
+	}
+	
 	public function clear() {
 		$this->subcomponents = array();
 	}
 	
 	public function getOptions() {
-		$id = $this->getId();
+		$id = $this->getID();
 		$class = $this->getClass();
 		$style = $this->getStyle();
 		

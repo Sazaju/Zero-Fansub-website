@@ -84,6 +84,24 @@ class Format {
 		$html = nl2br($text);
 		return $html;
 	}
+	
+	public static function formatSize($size) {
+		$step = 1024;
+		$units = array( 'octets', 'kio', 'Mio', 'Gio', 'Tio' );
+		for( $i = 0 ; $size > $step && $i < count( $units ) - 1 ; ++ $i ) {
+			$size /= $step;
+		}
+		$size = round( $size, 2 );
+		return $size.' '.$units[$i];
+	}
+	
+	public static function arrayToString($array, $separator = ', ') {
+		$string = '';
+		foreach($array as $element) {
+			$string .= $separator.$element;
+		}
+		return substr($string, strlen($separator));
+	}
 }
 
 ?>
