@@ -270,6 +270,10 @@ if(gotosite != "")
 
 <body>
 <?php
+if (isset($_GET['phpinfo'])) {
+	phpinfo();
+	exit;
+}
 if (TEST_MODE_ACTIVATED) {
 	echo "<div class='testFeatures'>".TESTING_FEATURE."</div>";
 }
