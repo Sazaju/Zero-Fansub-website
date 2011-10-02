@@ -31,6 +31,7 @@ class Role {
 	public static function getAllRoles() {
 		if (Role::$allRoles === null) {
 			Role::$allRoles = array();
+			Role::$allRoles[] = new Role('raw', 'RAW hunting');
 			Role::$allRoles[] = new Role('tradEn', 'traduction En>Fr');
 			Role::$allRoles[] = new Role('tradJp', 'traduction Jp>Fr');
 			Role::$allRoles[] = new Role('adapt', 'adaptation');

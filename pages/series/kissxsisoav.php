@@ -20,14 +20,19 @@
 <p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p><h2>Épisodes</h2>
 
 <?php
-for ($i = 0; $i <= 6; $i++)
-{
-  $file = "episodes/kissxsis" . $i . ".php";
-  if (file_exists($file))
-    require($file);
-  else
-    echo '<h6>Kiss X Sis OAV '.($i < 10 ? '0' : '').$i.' - Non disponible</h6>';
-}
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
+
+	$releases = Release::getAllReleasesForProject('kissxsisoav');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
 ?>
 
 <p></p>

@@ -6,7 +6,7 @@
 
 	$list = new TeamMemberList();
 	$page->addComponent($list);
-	foreach(TeamMember::getAllMembers() as $member) {
+	foreach(TeamMember::getAllCurrentMembers() as $member) {
 		if ($member->isAdmin()) {
 			$list->addComponent($member);
 		}
@@ -16,7 +16,7 @@
 
 	$list = new TeamMemberList();
 	$page->addComponent($list);
-	foreach(TeamMember::getAllMembers() as $member) {
+	foreach(TeamMember::getAllCurrentMembers() as $member) {
 		if (!$member->isAdmin()) {
 			$list->addComponent($member);
 		}

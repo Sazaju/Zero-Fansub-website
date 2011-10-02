@@ -19,41 +19,74 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$link->setUrl("#");
 			$link->setOnClick("show('".$release->getID()."');return(false)");
 			
-			$fileName = new SimpleTextComponent($release->getFileName());
-			$fileName->setClass("fileName");
+			$fileList = new SimpleListComponent();
+			$fileList->setClass("fileList");
 			
-			$fileLink = new DirectDownloadLink(null, "Télécharger");
-			$fileLink->getLink()->setUrl("ddl/".$release->getFileName());
-			
-			$torrentLink = new TorrentLink($release->getTorrentID());
+			$ddlLinks = new GroupedLinks(new Image("images/icones/ddl.png"));
+			$ddlLinks->setClass("ddlLinks");
+			$megauploadLinks = new GroupedLinks(new Image("images/icones/megaup.jpg"));
+			$megauploadLinks->setClass("megauploadLinks");
+			$freeLinks = new GroupedLinks(new Image("images/icones/free.jpg"));
+			$freeLinks->setClass("freeLinks");
+			$rapidShareLinks = new GroupedLinks(new Image("images/icones/rapidshare.jpg"));
+			$rapidShareLinks->setClass("rapidShareLinks");
+			$fileDescriptors = $release->getFileDescriptors();
+			foreach($fileDescriptors as $descriptor) {
+				$description = new SimpleTextComponent();
+				
+				$name = $descriptor->getFileName();
+				$description->addLine($name);
+				
+				$url = "ddl/".$name;
+				
+				$size = "";
+				try {
+					$size = "Taille : ".Format::formatSize(filesize($url))." ";
+				} catch(Exception $e) {
+				}
+				$description->addComponent($size);
+				
+				if ($descriptor->getCRC() !== null) {
+					$description->addComponent("CRC : ".$descriptor->getCRC()." ");
+				}
+				
+				$array = array();
+				if ($descriptor->getVideoCodec() !== null) {
+					$array[] = $descriptor->getVideoCodec()->getName();
+				}
+				if ($descriptor->getSoundCodec() !== null) {
+					$array[] = $descriptor->getSoundCodec()->getName();
+				}
+				if ($descriptor->getContainerCodec() !== null) {
+					$array[] = $descriptor->getContainerCodec()->getName();
+				}
+				$codecs = "";
+				if (!empty($array)) {
+					$codecs = "Codecs : ".Format::arrayToString($array, " ");
+				}
+				$description->addComponent($codecs);
+				
+				$description->addLine();
+				$fileList->addcomponent($description);
+				
+				$linkName = count($fileDescriptors) == 1 ? "Télécharger" : $array[0];
+				$ddlLinks->addLink(new Link($url, $linkName));
+				if ($descriptor->getMegauploadUrl() !== null) {
+					$megauploadLinks->addLink(new Link($descriptor->getMegauploadUrl(), $linkName));
+				}
+				if ($descriptor->getFreeUrl() !== null) {
+					$freeLinks->addLink(new Link($descriptor->getFreeUrl(), $linkName));
+				}
+				if ($descriptor->getRapidShareUrl() !== null) {
+					$rapidShareLinks->addLink(new Link($descriptor->getRapidShareUrl(), $linkName));
+				}
+			}
 			
 			$previewImage = new Image($release->getPreviewUrl());
 			$previewImage->setClass("previewImage");
-			
-			$size = new SimpleBlockComponent();
-			$size->setClass("size");
-			try {
-				$size->addComponent(new Title("Taille"));
-				$size->addComponent(Format::formatSize(filesize($this->fileLink->getLink()->getUrl())));
-			} catch(Exception $e) {
-				$size->clear();
-			}
-			
-			$codecs = new SimpleBlockComponent();
-			$codecs->setClass("codecs");
-			$array = array();
-			if ($release->getVideoCodec() !== null) {
-				$array[] = $release->getVideoCodec()->getName();
-			}
-			if ($release->getSoundCodec() !== null) {
-				$array[] = $release->getSoundCodec()->getName();
-			}
-			if ($release->getContainerCodec() !== null) {
-				$array[] = $release->getContainerCodec()->getName();
-			}
-			if (!empty($array)) {
-				$codecs->addComponent(new Title("Codecs"));
-				$codecs->addComponent(Format::arrayToString($array, " "));
+			$description = getimagesize($release->getPreviewUrl());
+			if ($description[0] < $description[1]) {
+				$previewImage->setStyle("float : right;");
 			}
 			
 			$synopsis = new SimpleBlockComponent();
@@ -98,6 +131,17 @@ class ReleaseComponent extends SimpleBlockComponent {
 				$localizedName->addComponent($release->getLocalizedName());
 			}
 			
+			$bonusLinks = new GroupedLinks(new Image("images/icones/bonus.png"));
+			$bonusLinks->setClass("bonusLinks");
+			foreach($release->getBonuses() as $link) {
+				$bonusLinks->addLink($link);
+			}
+			
+			$streamingsLinks = new GroupedLinks(new Image("images/icones/streaming.png"));
+			$streamingsLinks->setClass("streamingsLinks");
+			foreach($release->getStreamings() as $link) {
+				$streamingsLinks->addLink($link);
+			}
 			
 			$content = new SimpleBlockComponent();
 			$content->setID($release->getID());
@@ -110,18 +154,28 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$content->addComponent($synopsis);
 			$content->addComponent($staff);
 			$content->addComponent(new title("Fichiers"));
-			$list = new SimpleListComponent();
-			$list->setClass("fileList");
-			$list->addcomponent($fileName);
-			$content->addComponent($list);
-			$content->addComponent($size);
-			$content->addComponent($codecs);
+			$content->addComponent($fileList);
 			$content->addComponent(new title("Téléchargements"));
 			$list = new SimpleListComponent();
 			$list->setClass("linkList");
-			$list->addcomponent($fileLink);
-			$list->addComponent($torrentLink);
+			$list->addcomponent($ddlLinks);
+			if (!$megauploadLinks->isEmpty()) {
+				$list->addComponent($megauploadLinks);
+			}
+			if (!$freeLinks->isEmpty()) {
+				$list->addComponent($freeLinks);
+			}
+			if (!$rapidShareLinks->isEmpty()) {
+				$list->addComponent($rapidShareLinks);
+			}
+			$list->addComponent(new TorrentLink());
 			$list->addComponent(new XdccLink());
+			if (!$streamingsLinks->isEmpty()) {
+				$list->addComponent($streamingsLinks);
+			}
+			if (!$bonusLinks->isEmpty()) {
+				$list->addComponent($bonusLinks);
+			}
 			$content->addComponent($list);
 		}
 		else {
@@ -132,4 +186,26 @@ class ReleaseComponent extends SimpleBlockComponent {
 	}
 }
 
+class GroupedLinks extends SimpleTextComponent {
+	private $icon = null;
+	
+	public function __construct(Image $icon) {
+		$this->addComponent($icon);
+		$this->icon = $icon;
+	}
+	
+	public function isEmpty() {
+		return count($this->getComponents()) < ($this->icon === null ? 1 : 2);
+	}
+	
+	public function getIcon() {
+		return $this->icon;
+	}
+	
+	public function addLink(Link $link) {
+		$this->addComponent(" [ ");
+		$this->addComponent($link);
+		$this->addComponent(" ]");
+	}
+}
 ?>

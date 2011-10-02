@@ -7,24 +7,10 @@
 class TorrentLink extends NewWindowLink {
 	private $id = null;
 	
-	public function __construct($torrentId = null) {
-		$this->setTorrentID($torrentId);
+	public function __construct() {
 		$this->setClass("torrentLink");
-	}
-	
-	public function getTorrentID() {
-		return $this->id;
-	}
-	
-	public function setTorrentID($id) {
-		$this->id = $id;
-		if ($id !== null) {
-			$this->setUrl("http://bt.fansub-irc.eu/tracker_team/index.php?id_tracker=".$id);
-			$this->setContent(new Image("images/icones/torrent.png"));
-		}
-		else {
-			$this->setContent(null);
-		}
+		$this->setUrl("http://bt.fansub-irc.eu/tracker_team/index.php?id_tracker=26");
+		$this->setContent(new Image("images/icones/torrent.png"));
 	}
 }
 ?>

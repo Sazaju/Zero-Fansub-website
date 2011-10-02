@@ -14,6 +14,7 @@ class TeamMember {
 	private $website = null;
 	private $firstName = null;
 	private $isAdmin = false;
+	private $hasGone = false;
 	
 	public function __construct($id = null) {
 		$this->image = new Image();
@@ -26,6 +27,14 @@ class TeamMember {
 	
 	public function isAdmin() {
 		return $this->isAdmin;
+	}
+	
+	public function setHasGone($boolean) {
+		$this->hasGone = $boolean;
+	}
+	
+	public function hasGone() {
+		return $this->hasGone;
 	}
 	
 	public function setImage($imageName) {
@@ -234,6 +243,13 @@ class TeamMember {
 			$member->addRole(Role::getRole("tradEn"));
 			TeamMember::$allMembers[] = $member;
 			
+			$member = new TeamMember(15);
+			$member->setPseudo("Merry-Aime");
+			$member->addRole(Role::getRole("tradEn"));
+			$member->setHasGone(true);
+			TeamMember::$allMembers[] = $member;
+			
+			// TODO remove this sort, prefer a sort at a lower level
 			function sortMembers(TeamMember $a, TeamMember $b) {
 				return strcasecmp($a->getPseudo(), $b->getPseudo());
 			}
@@ -249,6 +265,16 @@ class TeamMember {
 			}
 		}
 		throw new Exception($id." is not a known member ID.");
+	}
+	
+	public static function getAllCurrentMembers() {
+		$members = array();
+		foreach(TeamMember::getAllMembers() as $member) {
+			if (!$member->hasGone()) {
+				$members[] = $member;
+			}
+		}
+		return $members;
 	}
 }
 ?>
