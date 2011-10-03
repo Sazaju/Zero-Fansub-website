@@ -9,7 +9,7 @@ class TorrentLink extends NewWindowLink {
 	
 	public function __construct() {
 		$this->setClass("torrentLink");
-		$this->setUrl("http://bt.fansub-irc.eu/tracker_team/index.php?id_tracker=26");
+		$this->setUrl("http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro");
 		$this->setContent(new Image("images/icones/torrent.png"));
 	}
 }
