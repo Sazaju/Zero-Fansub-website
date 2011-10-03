@@ -12,16 +12,6 @@
 	OLD STYLE (should be removed when refining completed)
 */
 
-body {
-background: url('../../images/interface/bg.jpg');
-font-family: Tahoma;
-margin: auto;
-margin-top:0;
-margin-bottom: 0px;
-font-size: 12px;
-color: rgb(128,128,128);
-}
-
 #main {
 background: url('../../images/interface/bg2.png') repeat-y;
 margin: auto;
