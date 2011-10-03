@@ -294,7 +294,7 @@ margin-top: -15px;
 	max-height: 100px;
 }
 
-.contact, .news, .xdcc{ 
+.contact, .news, .xdcc, .havert{ 
 	display: block;
 	text-align: center;
 	text-indent: 10px;
@@ -395,6 +395,15 @@ margin-top: -15px;
 #pageContent .released .originalName h1, #pageContent .released .localizedName h1, #pageContent .released .size h1, #pageContent .released .codecs h1 {
 	display: inline;
 	margin-right: 1em;
+}
+
+.havert a {
+	display: block;
+	font-size: 25px;
+	margin: 50px auto;
+}
+.havert h2, .havert p {
+	text-align: left;
 }
 
 #pageContent:after, .teamList .member:after, .teamList:before, .archives:after, .news:after{

@@ -4,6 +4,11 @@
 */
 
 class SimpleParagraphComponent extends DefaultHtmlComponent {
+	
+	public function __construct($content = null) {
+		$this->setContent($content);
+	}
+	
 	public function getHtmlTag() {
 		return 'p';
 	}
