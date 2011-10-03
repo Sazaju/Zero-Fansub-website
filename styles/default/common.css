@@ -1,0 +1,78 @@
+li{
+	text-indent: 0;
+}
+
+#pageContent {
+margin: 0;
+}
+#pageContent p{ 
+text-indent: 10px;
+font-family: Tahoma;
+font-size: 12px;
+font-size: 12px;
+color: #666666;
+margin-left: 40px;
+margin-right: 40px;
+margin-top: 0px;
+}
+#pageContent a {
+font-weight: normal;
+text-decoration: none;
+color: #999999;
+}
+#pageContent a:hover {
+font-weight: bold;
+}
+#pageContent a:active, #pageContent a:focus {
+color: #696969;
+}
+#pageContent a:visited {
+font-decoration: line-through;
+}
+#pageContent p:after{ 
+content: url('../../images/interface/barre.png');
+width: 100%;
+}
+#pageContent h3 {
+margin-left: 150px;
+letter-spacing: 12px;
+font-family: Tahoma;
+font-weight: normal;
+font-size: 18px;
+}
+#pageContent h2 {
+color: #000000;
+font-size: 17px;
+margin-left: 60px;
+margin-right: 20px;
+margin-top: 0px;
+}
+#pageContent h4 /* Date, auteur, sous-titre, ect */ {
+color: #999999;
+font-size: 10px;
+margin-left: 80px;
+margin-right: 20px;
+font-weight: normal;
+margin-top: -15px;
+}
+
+.contact, .news, .xdcc, .havert{ 
+	display: block;
+	text-align: center;
+	text-indent: 10px;
+	font-family: Tahoma;
+	font-size: 12px;
+	color: #666666;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 0px;
+}
+
+#pageContent:after, .teamList .member:after, .teamList:before, .archives:after, .news:after{
+	content: url('../../images/interface/barre.png');
+}
+
+.hidden {
+	display: none;
+	visibility: hidden;
+}

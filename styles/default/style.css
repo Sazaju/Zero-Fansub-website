@@ -1,0 +1,202 @@
+@import url(common.css);
+@import url(about.css);
+@import url(archives.css);
+@import url(team.css);
+@import url(news.css);
+@import url(projectList.css);
+@import url(project.css);
+@import url(hentai.css);
+@import url(test.css);
+
+/*
+	OLD STYLE (should be removed when refining completed)
+*/
+
+body {
+background: url('../../images/interface/bg.jpg');
+font-family: Tahoma;
+margin: auto;
+margin-top:0;
+margin-bottom: 0px;
+font-size: 12px;
+color: rgb(128,128,128);
+}
+
+#main {
+background: url('../../images/interface/bg2.png') repeat-y;
+margin: auto;
+width: 1000px;
+} 
+
+#header{
+background: url('../../images/interface/banniere.png') no-repeat;
+margin: auto;
+width: 1000px;
+} 
+
+#pageright{
+background: url('../../images/interface/logo.png') no-repeat;
+float: right;
+margin: 0;
+width: 203px;
+} 
+#partenaires{
+margin-top: 135px;
+} 
+.partenaires {
+	border: 5px solid rgb(128, 128, 128);
+    -moz-border-radius-topleft: 15px;
+    -moz-border-radius-topright: 15px;
+    -moz-border-radius-bottomright: 15px;
+    -moz-border-radius-bottomleft: 15px;
+	background: rgb(214,214,214);
+	opacity: 0.8;
+	width: 150px;
+	margin-right: 0px;
+	margin-left: 53px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	}
+
+#pageleft{
+margin: 0;
+width: 797px;
+min-height: 800px;
+} 
+#page{
+margin: 0;
+width: 647px;
+margin-left: 150px;
+} 
+#sortie {
+margin: 0;
+height: 126px;
+}
+#sortie img {
+padding-top: 18px;
+padding-bottom: 18px;
+padding-left: 25px;
+padding-right: 25px;
+}
+
+#menu{
+margin: 0;
+width: 150px;
+float: left;
+} 
+#menutop {
+height: 250px;
+margin-bottom: 0px;
+}
+.menu {
+	border: 5px solid rgb(128, 128, 128);
+    -moz-border-radius-topleft: 15px;
+    -moz-border-radius-topright: 15px;
+    -moz-border-radius-bottomright: 15px;
+    -moz-border-radius-bottomleft: 15px;
+	background: rgb(214,214,214);
+	opacity: 0.8;
+	width: 150px;
+	margin-right: 0px;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+#footer {
+background: url('../../images/interface/banniere.png') no-repeat;
+height: 50px;
+}
+
+
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.center {
+	text-align: center;
+}
+
+
+
+
+.menu ul {
+list-style-type : none;
+font-size: 13px;
+text-indent: 0px;
+}
+ul a{
+text-decoration: none;
+color: rgb(80,80,80);
+}
+ul a:hover{
+font-weight: bold;
+color: rgb(80,80,80);
+}
+.partenaires li{
+list-style-type : none;
+font-size: 13px;
+margin-left: 0px;
+}
+
+.p { 
+text-align: center;
+text-indent: 10px;
+font-family: Tahoma;
+font-size: 12px;
+color: #666666;
+margin-left: 40px;
+margin-right: 40px;
+margin-top: 0px;
+}
+.quote {
+width: 550px;
+background: #F0F4FF;
+margin-left: 40px;
+margin-right: 40px;
+}
+
+.quote:before {
+content: url('../../images/interface/quote1.jpg');
+}
+
+.quote:after {
+content: url('../../images/interface/quote2.jpg');
+}
+.p:after{
+	content: url('../../images/interface/barre.png');
+}
+
+#pageContent h5 /* épisodes */ {
+color: #FFFFFF;
+background: url('../../images/interface/episodes.png') no-repeat;
+width: 603px;
+height: 30px;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 20px;
+padding-left: 20px;
+padding-top: 5px;
+font-size: 16px;
+font-family: 'Courier New';
+}
+#pageContent h5 a /* épisodes */ {
+color: #FFFFFF;
+background: url('../../images/interface/episodes.png') no-repeat;
+font-size: 16px;
+}
+#pageContent h6 /* épisodes ND */{
+background: url('../../images/interface/episodesnd.png') no-repeat;
+width: 603px;
+height: 30px;
+margin-top: 0px;
+margin-bottom: 0;
+margin-left: 20px;
+padding-left: 20px;
+padding-top: 5px;
+font-size: 16px;
+font-family: 'Courier New';
+color: #999999;
+}

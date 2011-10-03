@@ -98,7 +98,7 @@ if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="DC.Language" scheme="RFC3066" content="fr" />
-  <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Normal" />  
+  <link rel="stylesheet" href="styles/default/style.css" type="text/css" media="screen" title="Normal" />  
   <link rel="icon" type="image/gif" href="fav.gif" />
   <link rel="shortcut icon" href="fav.ico" />
   <script type="text/javascript" language="Javascript">

@@ -101,6 +101,7 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		}
 		
 		$this->html = '<'.$this->getHtmlTag().$this->getOptions().'>'.$content.'</'.$this->getHtmlTag().'>';
+		//TODO $this->html = Format::parseBBCode($this->html);
 	}
 	
 	public function getHtml() {

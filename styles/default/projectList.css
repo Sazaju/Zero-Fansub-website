@@ -1,0 +1,9 @@
+.projectList {
+	text-align: left;
+	list-style: none;
+}
+.projectList img {
+	display: block;
+	margin: auto;
+	margin-bottom: 1.5em;
+}

@@ -1,0 +1,25 @@
+.about {
+	width: 600px;
+	font-family: Tahoma;
+	font-size: 0.8em;
+	color: #666666;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 0px;
+}
+.about, .about td, .about th {
+	border: 1px solid grey;
+}
+.about td, .about th {
+	margin: 5px;
+	padding: 5px;
+}
+.about .version{
+	width: 50px;
+}
+.about .description{
+	width: 400px;
+}
+.about .preview{
+	width: 150px;
+}

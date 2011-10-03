@@ -102,6 +102,39 @@ class Format {
 		}
 		return substr($string, strlen($separator));
 	}
+	
+	private static $BBHandler = null;
+	public static function parseBBCode($text) {
+		if (Format::$BBHandler === null) {
+			$arrayBBCode = array(
+				'b'		=> array(
+								'type'			=> BBCODE_TYPE_NOARG,
+								'open_tag'		=> '<b>',
+								'close_tag'		=> '</b>',
+							),
+				'i'		=> array(
+								'type'			=> BBCODE_TYPE_NOARG,
+								'open_tag'		=> '<i>',
+								'close_tag'		=> '</i>',
+								//'childs'		=> 'b',
+							),
+				'url'	=> array(
+								'type'			=> BBCODE_TYPE_OPTARG,
+								'open_tag'		=> '<a href="{PARAM}">',
+								'close_tag'		=> '</a>',
+								'default_arg'	=> '{CONTENT}',
+								//'childs'		=> 'b,i,img',
+							),
+				'img'	=> array(
+								'type'			=> BBCODE_TYPE_NOARG,
+								'open_tag'		=> '<img src="',
+								'close_tag'		=> '" />',
+							),
+			);
+			Format::$BBHandler = bbcode_create($arrayBBCode);
+		}
+		return bbcode_parse(Format::$BBHandler, $text);
+	}
 }
 
 ?>
