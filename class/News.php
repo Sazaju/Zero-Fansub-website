@@ -132,21 +132,6 @@ class News extends SimpleBlockComponent {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine("Avis aux amateurs ! {^_^}");
-			$newsMessage->addLine();
-			$newsMessage->addLine("On recherche activement un traducteur anglais > français pour nous aider à finir Mitsudomoe. L'école ayant fermé on ne forme plus, mais ce poste requiert juste de savoir parler anglais (le travail d'équipe faisant le reste {^_°}). Cela dit, nos cours sont toujours disponibles pour ceux qui sont motivés. De plus, vous serez directement au coeur de la série ! Etant donné qu'on renouvelle notre catalogue, c'est une chance en or si vous voulez disposer d'un peu de pratique avant de prendre en charge une série complète.");
-			$newsMessage->addLine();
-			$newsMessage->addLine("Si vous avez le goût du défi ou envie de montrer de quoi vous êtes capable, c'est le moment {>o<}° !");
-			
-			$news = new News();
-			$news->setTitle("Mitsudomoe - Recrutement traducteur");
-			$news->setDate("03/10/2011");
-			$news->setAuthor(TeamMember::getMember(5));
-			//TODO $news->setCommentId(272);
-			$news->setMessage($newsMessage);
-			//TODO News::$allNews[] = $news;
-			
-			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine("Bon... par où commencer... Dur dur, surtout que le moins réjouissant c'est pour ma pomme {'^_^}. En plus j'ai pas d'image pour vous, vous allez morfler. Alors allons-y gaiement !");
 			$newsMessage->addLine(); // TODO replace double lines by CSS
 			$newsMessage->addLine("Tout d'abord, sachez que le site est actuellement en cours de raffinage. Autrement dit, une révision complète du code est en cours. Par conséquent, si vous voyez des petites modifications par rapport à avant, c'est normal, mais dans l'ensemble il ne devrait pas y avoir de changement notable sur le site. Quel intérêt que j'en parle vous me direz... Tout simplement parce qu'il est possible que certaines pages boguent (ou bug, comme vous voulez), et si jamais vous en trouvez une, le mieux c'est de me le faire savoir directement par mail : <a href='mailto:sazaju@gmail.com'>sazaju@gmail.com</a>. Le raffinage étant en cours, il est possible que des pages qui fonctionnent maintenant ne fonctionnent pas plus tard, aussi ne soyez pas surpris. Je fais mon possible pour que ça n'arrive pas, mais si j'en loupe merci de m'aider à les repérer {^_^}.");
