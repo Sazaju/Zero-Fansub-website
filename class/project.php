@@ -173,6 +173,7 @@ class Project {
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomofilm", "Kodomo no Jikan Le Film");
+			$project->setIsFinished(true);
 			Project::$allProjects[] = $project;
 
 			$project = new Project("kujibiki", "Kujibiki Unbalance 2");
