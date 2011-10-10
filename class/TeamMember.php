@@ -136,8 +136,7 @@ class TeamMember {
 			$member = new TeamMember(1);
 			$member->setPseudo("db0");
 			$member->setIsAdmin(true);
-			$member->addRole(Role::getRole("verifFinale"));
-			$member->addRole(Role::getRole("sorties"));
+			$member->addRole(Role::getRole("admin"));
 			$member->setImage("db0.png");
 			$member->setAge("19 ans");
 			$member->setLocation("Le Kremlin-Bicetre (94)");
@@ -169,6 +168,8 @@ class TeamMember {
 			$member->addRole(Role::getRole("adapt"));
 			$member->addRole(Role::getRole("torrent"));
 			$member->addRole(Role::getRole("xdcc"));
+			$member->addRole(Role::getRole("webadmin"));
+			$member->setIsAdmin(true);
 			$member->setImage("sazaju.png");
 			$member->setMail("sazaju@gmail.com");
 			TeamMember::$allMembers[] = $member;
@@ -178,7 +179,7 @@ class TeamMember {
 			$member->addRole(Role::getRole("encod"));
 			$member->setFirstName("Lepims");
 			$member->setAge("25 ans");
-			$member->setImage("lepims.png");
+			$member->setImage("lepims.gif");
 			$member->setLocation("Clermont-Ferrand");
 			TeamMember::$allMembers[] = $member;
 			
@@ -194,7 +195,10 @@ class TeamMember {
 			$member = new TeamMember(8);
 			$member->setPseudo("praia");
 			$member->setImage("praia.jpg");
+			$member->addRole(Role::getRole("verifFinale"));
 			$member->addRole(Role::getRole("qc"));
+			$member->addRole(Role::getRole("forumadmin"));
+			$member->setIsAdmin(true);
 			$member->setFirstName("Piet");
 			$member->setAge("30 ans");
 			$member->setLocation("Belgique");
