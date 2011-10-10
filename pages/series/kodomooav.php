@@ -30,12 +30,19 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 <p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p><h2>Épisodes</h2>
 
 <?php
-for ($i = 0; $i <= 2; $i++)
-{
-  $file = "episodes/kodomooav" . $i . ".php";
-  if (file_exists($file))
-    require($file);
-}
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
+
+	$releases = Release::getAllReleasesForProject('kodomooav');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
 ?>
 <p></p>
 <h2>Voir aussi</h2>

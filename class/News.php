@@ -134,20 +134,12 @@ class News extends SimpleBlockComponent {
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/news/pedobear.jpg", "Pedobear"));
 			$newsMessage->addLine();
-			$newsMessage->addLine("Oui, donc, finalement, on a réussi à faire deux news en moins d'un mois, je sais pas si Sazaju arrivera à foutre une image sur le site cette fois-ci, je parie qu'il a hésité entre une ecchi et une extême...");
-			$newsMessage->addLine();
-			$newsMessage->addLine("Je vous annonce donc la sortie de l'OAD v3 de Kodomo no Jikan ^_^");
-			$newsMessage->addLine();
-			$newsMessage->addLine("Mais pourquoi cette v3 ? ");
-			$newsMessage->addLine();
-			$newsMessage->addLine("Ben, la v2, c'était juste une v1 réencodée avec 6 fautes d'ortho en moins... On n'avait pas repéré les 44 autres restantes :p");
+			$newsMessage->addLine("Sortie de la v3 de Kodomo no Jikan OAD.");
 			$newsMessage->addLine();
 			$newsMessage->addLine("Et le film Kodomo no Jikan, qu'on n'a pas abandonné, non, non... Même si l'envie était là.");
 			$newsMessage->addLine("<small>Sazaju: Hein ? Quoi !? {'O_O}</small>");
 			$newsMessage->addLine();
-			$newsMessage->addLine("Film qui résume donc l'OAD, ainsi que la plupart des épisodes de la saison 1, sauf deux, je vous laisse découvrir lesquels...");
-			$newsMessage->addLine();
-			$newsMessage->addLine("Bon matage et à bientôt pour la suite de Mitsudomoe qui sortira dans la prochaine news.");
+			$newsMessage->addLine("Bon matage et à bientôt pour la suite de Mitsudomoe.");
 			
 			$news = new News();
 			$news->setTitle("Kodomo no Jikan - Du neuf et du moins neuf");

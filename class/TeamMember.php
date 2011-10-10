@@ -253,6 +253,30 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
+			$member = new TeamMember(16);
+			$member->setPseudo("Lyf");
+			$member->addRole(Role::getRole("check"));
+			$member->setHasGone(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(17);
+			$member->setPseudo("Nixy'Z");
+			$member->addRole(Role::getRole("qc"));
+			$member->setHasGone(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(18);
+			$member->setPseudo("Bk");
+			$member->addRole(Role::getRole("encod"));
+			$member->setHasGone(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(19);
+			$member->setPseudo("Klick");
+			$member->addRole(Role::getRole("help"));
+			$member->setHasGone(true);
+			TeamMember::$allMembers[] = $member;
+			
 			// TODO remove this sort, prefer a sort at a lower level
 			function sortMembers(TeamMember $a, TeamMember $b) {
 				return strcasecmp($a->getPseudo(), $b->getPseudo());

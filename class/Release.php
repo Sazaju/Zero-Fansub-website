@@ -428,6 +428,36 @@ class Release {
 			$release->addBonus(new NewWindowLink("ddl/[Zero]Kiss_x_Sis_OAV_02[Screenshot].zip", "Pack de Screenshots"));
 			$release->setIsReleased(true);
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kodomooav'), 'oav');
+			$release->setName(null);
+			$release->setPreviewUrl("images/episodes/kodomooav.jpg");
+			$release->setLocalizedName("Ce que tu m'as offert...");
+			$release->setOriginalName("Yasumi Jikan '~Anata ga Watashi ni Kureta Mono~'");
+			$release->setSynopsis("Rin, Kuro et Mimi sont trois adorables petites filles de 10 ans qui découvrent le monde des adultes... C'est l'anniversaire de Aoki, leur professeur mais aussi l'amoureux secret de Rin. Celle-ci tentent donc de le séduire en lui offrant un cadeau...original ^^");
+			$release->addStaff(TeamMember::getMember(1), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMember(16), Role::getRole('check'));
+			$release->addStaff(TeamMember::getMember(1), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMember(17), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMember(1), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMember(18), Role::getRole('encod'));
+			$release->addStaff(TeamMember::getMember(18), Role::getRole('help'));
+			$release->addStaff(TeamMember::getMember(19), Role::getRole('help'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kodomo_OAV_V3[H264-AAC][083E4AFB].mp4", $h264, $aac, $mp4);
+			$descriptor->setCRC("083E4AFB");
+			$release->addFileDescriptor($descriptor);
+			$release->setIsReleased(true);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kodomofilm'), 'film');
+			$release->setName(null);
+			//TODO $release->setPreviewUrl("images/episodes/kodomofilm.jpg");
+			//TODO $release->addStaff(TeamMember::getMember(1), Role::getRole('tradEn'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kodomo_no_Jikan_FILM[H264-AAC].mp4", $h264, $aac, $mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setIsReleased(true);
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}
@@ -479,6 +509,7 @@ class Assignment {
 }
 
 class ReleaseFileDescriptor {
+	private $id = null;
 	private $fileName = null;
 	private $videoCodec = null;
 	private $soundCodec = null;
@@ -487,6 +518,7 @@ class ReleaseFileDescriptor {
 	private $megauploadUrl = null;
 	private $freeUrl = null;
 	private $rapidShareUrl = null;
+	private $torrentUrl = null;
 	
 	public function __construct($name = null, VideoCodec $videoCodec = null, SoundCodec $soundCodec = null, ContainerCodec $containerCodec = null) {
 		$this->setFileName($name);
@@ -557,6 +589,22 @@ class ReleaseFileDescriptor {
 	
 	public function setRapidShareUrl($url) {
 		$this->rapidShareUrl = $url;
+	}
+	
+	public function getTorrentUrl() {
+		return $this->torrentUrl;
+	}
+	
+	public function setTorrentUrl($url) {
+		$this->torrentUrl = $url;
+	}
+	
+	public function getID() {
+		return $this->id;
+	}
+	
+	public function setID($id) {
+		$this->id = $id;
 	}
 }
 ?>
