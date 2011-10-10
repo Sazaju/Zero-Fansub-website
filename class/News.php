@@ -132,19 +132,30 @@ class News extends SimpleBlockComponent {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine("Avis aux amateurs ! {^_^}");
+			$newsMessage->addLine(new Image("images/news/pedobear.jpg", "Pedobear"));
 			$newsMessage->addLine();
-			$newsMessage->addLine("On recherche activement un traducteur anglais > français pour nous aider à finir Mitsudomoe. L'école ayant fermé on ne forme plus, mais ce poste requiert juste de savoir parler anglais (le travail d'équipe faisant le reste {^_°}). Cela dit, nos cours sont toujours disponibles pour ceux qui sont motivés. De plus, vous serez directement au coeur de la série ! Etant donné qu'on renouvelle notre catalogue, c'est une chance en or si vous voulez disposer d'un peu de pratique avant de prendre en charge une série complète.");
+			$newsMessage->addLine("Oui, donc, finalement, on a réussi à faire deux news en moins d'un mois, je sais pas si Sazaju arrivera à foutre une image sur le site cette fois-ci, je parie qu'il a hésité entre une ecchi et une extême...");
 			$newsMessage->addLine();
-			$newsMessage->addLine("Si vous avez le goût du défi ou envie de montrer de quoi vous êtes capable, c'est le moment {>o<}° !");
+			$newsMessage->addLine("Je vous annonce donc la sortie de l'OAD v3 de Kodomo no Jikan ^_^");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Mais pourquoi cette v3 ? ");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Ben, la v2, c'était juste une v1 réencodée avec 6 fautes d'ortho en moins... On n'avait pas repéré les 44 autres restantes :p");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Et le film Kodomo no Jikan, qu'on n'a pas abandonné, non, non... Même si l'envie était là.");
+			$newsMessage->addLine("<small>Sazaju: Hein ? Quoi !? {'O_O}</small>");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Film qui résume donc l'OAD, ainsi que la plupart des épisodes de la saison 1, sauf deux, je vous laisse découvrir lesquels...");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Bon matage et à bientôt pour la suite de Mitsudomoe qui sortira dans la prochaine news.");
 			
 			$news = new News();
-			$news->setTitle("Mitsudomoe - Recrutement traducteur");
-			$news->setDate("03/10/2011");
-			$news->setAuthor(TeamMember::getMember(5));
+			$news->setTitle("Kodomo no Jikan - Du neuf et du moins neuf");
+			$news->setDate("10/10/2011");
+			$news->setAuthor(TeamMember::getMember(8));
 			//TODO $news->setCommentId(272);
 			$news->setMessage($newsMessage);
-			//TODO News::$allNews[] = $news;
+			News::$allNews[] = $news;
 			
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine("Bon... par où commencer... Dur dur, surtout que le moins réjouissant c'est pour ma pomme {'^_^}. En plus j'ai pas d'image pour vous, vous allez morfler. Alors allons-y gaiement !");
