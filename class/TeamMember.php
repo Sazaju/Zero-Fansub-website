@@ -15,6 +15,7 @@ class TeamMember {
 	private $firstName = null;
 	private $isAdmin = false;
 	private $hasGone = false;
+	private $temporaryMember = false;
 	
 	public function __construct($id = null) {
 		$this->image = new Image();
@@ -113,6 +114,14 @@ class TeamMember {
 	
 	public function getMail() {
 		return $this->mail;
+	}
+	
+	public function setTemporaryMember($boolean) {
+		$this->temporaryMember = $boolean;
+	}
+	
+	public function isTemporaryMember() {
+		return $this->temporaryMember;
 	}
 	
 	public function setWebsite($address, $name = null) {
@@ -277,6 +286,12 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
+			$member = new TeamMember(20);
+			$member->setPseudo("Galaf");
+			$member->addRole(Role::getRole("kara"));
+			$member->setTemporaryMember(true);
+			TeamMember::$allMembers[] = $member;
+			
 			// TODO remove this sort, prefer a sort at a lower level
 			function sortMembers(TeamMember $a, TeamMember $b) {
 				return strcasecmp($a->getPseudo(), $b->getPseudo());
@@ -298,7 +313,7 @@ class TeamMember {
 	public static function getAllCurrentMembers() {
 		$members = array();
 		foreach(TeamMember::getAllMembers() as $member) {
-			if (!$member->hasGone()) {
+			if (!$member->hasGone() && !$member->isTemporaryMember()) {
 				$members[] = $member;
 			}
 		}

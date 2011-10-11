@@ -19,7 +19,9 @@ class TeamMemberList extends SimpleListComponent {
 		parent::addComponent($list);
 		
 		$image = $member->getImage();
-		$list->addComponent($image);
+		if ($image->getUrl() != null) {
+			$list->addComponent($image);
+		}
 		
 		$pseudo = $member->getPseudo();
 		$list->addComponent("<b>".$pseudo."</b>");
