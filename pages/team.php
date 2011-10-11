@@ -22,16 +22,6 @@
 		}
 	}
 
-	$page->addComponent(new Title("Membres temporaires", 2));
-
-	$list = new TeamMemberList();
-	$page->addComponent($list);
-	foreach(TeamMember::getAllMembers() as $member) {
-		if ($member->isTemporaryMember()) {
-			$list->addComponent($member);
-		}
-	}
-
 	$page->addComponent(new Title("Seeders, Uploaders", 2));
 
 	$uploaders = array();
