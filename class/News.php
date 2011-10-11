@@ -132,6 +132,25 @@ class News extends SimpleBlockComponent {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("Allez on enchaîne les news, la motivation est là... Mais elle va peut-être pas durer...");
+			$newsMessage->addLine();
+			$newsMessage->addLine("<span style='color:red;font-size:2em;'>On a besoin de votre aide !</span>");
+			$newsMessage->addLine();
+			$newsMessage->addLine(new Image("images/news/urgent.gif", "Au secours !"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("On embauche des timeurs ! On n'en a pas assez et du coup chacun essaye de faire pour avoir un time à peu près correcte... Mais ce n'est pas la même chose quand quelqu'un s'y met à plein temps. C'est quelque chose qui nous ralentis beaucoup car, même si ce n'est pas difficile, ça demande du temps pour faire quelque chose de bien (en tout cas pour suivre notre charte qualité {^_^}). On a les outils, les connaissances, il ne manque plus que les personnes motivées !");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Si vous êtes interessés, les candidatures sont ouvertes (cliquez sur <b>Recrutement</b> dans le menu à gauche) ! Si vous êtes soucieux du détail au point d'en faire chier vos amis, c'est un plus ! Oui on est des vrai SM à la Zéro {>.<}.");
+			
+			$news = new News();
+			$news->setTitle("Besoin de timeurs !");
+			$news->setDate("11/10/2011");
+			$news->setAuthor(TeamMember::getMember(5));
+			$news->setCommentId(273);
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/news/pedobear.jpg", "Pedobear"));
 			$newsMessage->addLine();
 			$newsMessage->addLine("Sortie de la v3 de Kodomo no Jikan OAD.");
@@ -145,7 +164,7 @@ class News extends SimpleBlockComponent {
 			$news->setTitle("Kodomo no Jikan - Du neuf et du moins neuf");
 			$news->setDate("10/10/2011");
 			$news->setAuthor(TeamMember::getMember(8));
-			//TODO $news->setCommentId(272);
+			$news->setCommentId(272);
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 			

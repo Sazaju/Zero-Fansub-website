@@ -15,7 +15,7 @@ class TeamMember {
 	private $firstName = null;
 	private $isAdmin = false;
 	private $hasGone = false;
-	private $temporaryMember = false;
+	private $ponctualMember = false;
 	
 	public function __construct($id = null) {
 		$this->image = new Image();
@@ -116,12 +116,12 @@ class TeamMember {
 		return $this->mail;
 	}
 	
-	public function setTemporaryMember($boolean) {
-		$this->temporaryMember = $boolean;
+	public function setPonctualMember($boolean) {
+		$this->ponctualMember = $boolean;
 	}
 	
-	public function isTemporaryMember() {
-		return $this->temporaryMember;
+	public function isPonctualMember() {
+		return $this->ponctualMember;
 	}
 	
 	public function setWebsite($address, $name = null) {
@@ -289,7 +289,7 @@ class TeamMember {
 			$member = new TeamMember(20);
 			$member->setPseudo("Galaf");
 			$member->addRole(Role::getRole("kara"));
-			$member->setTemporaryMember(true);
+			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
 			// TODO remove this sort, prefer a sort at a lower level
@@ -313,7 +313,7 @@ class TeamMember {
 	public static function getAllCurrentMembers() {
 		$members = array();
 		foreach(TeamMember::getAllMembers() as $member) {
-			if (!$member->hasGone() && !$member->isTemporaryMember()) {
+			if (!$member->hasGone() && !$member->isPonctualMember()) {
 				$members[] = $member;
 			}
 		}
