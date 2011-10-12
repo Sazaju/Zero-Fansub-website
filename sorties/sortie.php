@@ -3,6 +3,7 @@
 	class Sortie extends IndexLink {
 		public function __construct($serie, $imageName) {
 			$this->setUrl("page=series/".$serie);
+			$this->setClass("sortie");
 			$image = new Image();
 			$image->setUrl("images/sorties/".$imageName);
 			$image->setStyle("border:0;");
@@ -10,12 +11,13 @@
 		}
 	}
 	
-	$link = new Sortie("mitsudomoe", "mitsudomoe4.png");
-	$link->writeNow();
-	
-	$link = new Sortie("mitsudomoe", "mitsudomoe5.png");
-	$link->writeNow();
-	
 	$link = new Sortie("mitsudomoe", "mitsudomoe6.png");
 	$link->writeNow();
+	
+	$link = new Sortie("kodomooav", "kodomooavv3.png");
+	$link->writeNow();
+	
+	$link = new Sortie("kodomofilm", "kodomofilm.png");
+	$link->writeNow();
+	
 ?>
