@@ -1,13 +1,10 @@
 <?php
 	
 	class Sortie extends IndexLink {
-		public function __construct(Project $project, $imageName) {
-			$this->setUrl("page=series/".$project->getID());
+		public function __construct(Release $release) {
+			$this->setUrl("page=series/".$release->getProject()->getID());
 			$this->setClass("sortie");
-			$image = new Image();
-			$image->setUrl($imageName);
-			$image->setTitle($project->getName());
-			$this->addComponent($image);
+			$this->addComponent(new Image($release->getHeaderImage(), $release->getProject()->getName()));
 		}
 	}
 	
@@ -27,7 +24,7 @@
 	$list->setClass("sortieList");
 	for($i = 3 ; $i > 0 ; $i --) {
 		$release = $completeList[$i-1];
-		$list->addComponent(new Sortie($release->getProject(), $release->getHeaderImage()));
+		$list->addComponent(new Sortie($release));
 	}
 	$list->writeNow();
 ?>
