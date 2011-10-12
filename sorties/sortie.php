@@ -1,23 +1,33 @@
 <?php
 	
 	class Sortie extends IndexLink {
-		public function __construct($serie, $imageName) {
-			$this->setUrl("page=series/".$serie);
+		public function __construct(Project $project, $imageName) {
+			$this->setUrl("page=series/".$project->getID());
 			$this->setClass("sortie");
 			$image = new Image();
-			$image->setUrl("images/sorties/".$imageName);
-			$image->setStyle("border:0;");
+			$image->setUrl($imageName);
+			$image->setTitle($project->getName());
 			$this->addComponent($image);
 		}
 	}
 	
-	$link = new Sortie("mitsudomoe", "mitsudomoe6.png");
-	$link->writeNow();
+	$completeList = Release::getAllReleases();
 	
-	$link = new Sortie("kodomooav", "kodomooavv3.png");
-	$link->writeNow();
+	function byReleasingDate($a, $b) {
+		$a = $a->getReleasingTime();
+		$b = $b->getReleasingTime();
+		if ($a == $b) {
+		    return 0;
+		}
+		return ($a > $b) ? -1 : 1;
+	}
+	usort($completeList, 'byReleasingDate');
 	
-	$link = new Sortie("kodomofilm", "kodomofilm.png");
-	$link->writeNow();
-	
+	$list = new SimpleListComponent();
+	$list->setClass("sortieList");
+	for($i = 3 ; $i > 0 ; $i --) {
+		$release = $completeList[$i-1];
+		$list->addComponent(new Sortie($release->getProject(), $release->getHeaderImage()));
+	}
+	$list->writeNow();
 ?>

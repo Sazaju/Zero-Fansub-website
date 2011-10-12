@@ -7,13 +7,14 @@ class Release {
 	private $id = null;
 	private $name = null;
 	private $previewUrl = null;
+	private $headerImage = null;
 	private $files = array();
 	private $bonuses = array();
 	private $streamings = array();
 	private $synopsis = null;
 	private $originalName = null;
 	private $localizedName = null;
-	private $isReleased = false;
+	private $releasingTime = null;
 	private $staff = array();
 	
 	public function __construct(Project $project, $id = null) {
@@ -51,6 +52,14 @@ class Release {
 	
 	public function setPreviewUrl($previewUrl) {
 		$this->previewUrl = $previewUrl;
+	}
+	
+	public function getHeaderImage() {
+		return $this->headerImage;
+	}
+	
+	public function setHeaderImage($headerImage) {
+		$this->headerImage = $headerImage;
 	}
 	
 	public function getSynopsis() {
@@ -111,11 +120,15 @@ class Release {
 	}
 	
 	public function isReleased() {
-		return $this->isReleased;
+		return $this->releasingTime !== null;
 	}
 	
-	public function setIsReleased($boolean) {
-		$this->isReleased = $boolean;
+	public function getReleasingTime() {
+		return $this->releasingTime;
+	}
+	
+	public function setReleasingTime($timestamp) {
+		$this->releasingTime = $timestamp;
 	}
 	
 	public function getFileDescriptors() {
@@ -168,7 +181,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(6), Role::getRole('encod'));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep13");
@@ -179,35 +192,35 @@ class Release {
 			$release->setName("épisode 2");
 			$release->setPreviewUrl("images/episodes/mitsudomoe2.jpg");
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Mitsudomoe_02[H264-AAC][D324A25E].mp4", $h264, $aac, $mp4));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep1");
 			$release->setName("épisode 1");
 			$release->setPreviewUrl("images/episodes/mitsudomoe1.jpg");
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Mitsudomoe_01[H264-AAC][A551786E].mp4", $h264, $aac, $mp4));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep3");
 			$release->setName("épisode 3");
 			$release->setPreviewUrl("images/episodes/mitsudomoe3.jpg");
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Mitsudomoe_03[H264-AAC][8C7C6BC3].mp4", $h264, $aac, $mp4));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep4");
 			$release->setName("épisode 4");
 			$release->setPreviewUrl("images/episodes/mitsudomoe4.jpg");
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Mitsudomoe_04[H264-AAC][A9514039].mp4", $h264, $aac, $mp4));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep5");
 			$release->setName("épisode 5");
 			$release->setPreviewUrl("images/episodes/mitsudomoe5.jpg");
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Mitsudomoe_05[H264-AAC][199319E2].mp4", $h264, $aac, $mp4));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep7");
@@ -217,8 +230,9 @@ class Release {
 			$release = new Release(Project::getProject("mitsudomoe"), "ep6");
 			$release->setName("épisode 6");
 			$release->setPreviewUrl("images/episodes/mitsudomoe6.jpg");
+			$release->setHeaderImage("images/sorties/mitsudomoe6.png");
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Mitsudomoe_06[H264-AAC][43B2986A].mp4", $h264, $aac, $mp4));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(strtotime("10 October 2011"));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep8");
@@ -257,7 +271,7 @@ class Release {
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_01[XVID-MP3][0FA22F79].avi", $xvid, $mp3, $avi));
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_01[H264-AAC][12FDBD2A].mp4", $h264, $aac, $mp4));
 			$release->addBonus(new NewWindowLink("ddl/[Zero]Kiss_X_Sis_01[Screenshots].zip", "Screenshots"));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep2');
@@ -276,7 +290,7 @@ class Release {
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_02[XVID-MP3][99FB09D9].avi", $xvid, $mp3, $avi));
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_02[H264-AAC][9FFC6A66].mp4", $h264, $aac, $mp4));
 			$release->addBonus(new NewWindowLink("ddl/[Zero]Kiss_X_Sis_02[Screenshots].zip", "Screenshots"));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep3');
@@ -295,7 +309,7 @@ class Release {
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_03[XVID-MP3][0DC775AC].avi", $xvid, $mp3, $avi));
 			$release->addFileDescriptor(new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_03[H264-AAC][A445B0AE].mp4", $h264, $aac, $mp4));
 			$release->addBonus(new NewWindowLink("ddl/[Zero]Kiss_x_Sis_03[Screenshots].zip", "Screenshots"));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep4');
@@ -378,7 +392,7 @@ class Release {
 			$release->addStreaming(new NewWindowLink("http://www.anime-ultime.net/info-0-1/14643", "Haute Définition"));
 			$release->addStreaming(new NewWindowLink("http://www.wat.tv/video/kiss-sis-oav-01-1bjbe_1bjbg_.html", "WAT"));
 			$release->addBonus(new NewWindowLink("http://www.yanmaga.kodansha.co.jp/ym/rensai/bessatu/kissxsis/001/001.html", "Le Manga papier (en VO)"));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsisoav'), 'ep1');
@@ -401,7 +415,7 @@ class Release {
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_OAV_01[HD][X264-AAC][E1992856].mp4", $h264, $aac, $mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsisoav'), 'ep2');
@@ -426,12 +440,13 @@ class Release {
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_OAV_02[HD][X264-AAC][E1992856].mp4", $h264, $aac, $mp4);
 			$release->addFileDescriptor($descriptor);
 			$release->addBonus(new NewWindowLink("ddl/[Zero]Kiss_x_Sis_OAV_02[Screenshot].zip", "Pack de Screenshots"));
-			$release->setIsReleased(true);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kodomooav'), 'oav');
 			$release->setName(null);
 			$release->setPreviewUrl("images/episodes/kodomooav.jpg");
+			$release->setHeaderImage("images/sorties/kodomooavv3.png");
 			$release->setLocalizedName("Ce que tu m'as offert...");
 			$release->setOriginalName("Yasumi Jikan '~Anata ga Watashi ni Kureta Mono~'");
 			$release->setSynopsis("Rin, Kuro et Mimi sont trois adorables petites filles de 10 ans qui découvrent le monde des adultes... C'est l'anniversaire de Aoki, leur professeur mais aussi l'amoureux secret de Rin. Celle-ci tentent donc de le séduire en lui offrant un cadeau...original ^^");
@@ -445,12 +460,13 @@ class Release {
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kodomo_OAV_V3[H264-AAC][083E4AFB].mp4", $h264, $aac, $mp4);
 			$descriptor->setCRC("083E4AFB");
 			$release->addFileDescriptor($descriptor);
-			$release->setIsReleased(true);
+			$release->setReleasingTime(strtotime("12 October 2011"));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kodomofilm'), 'film');
 			$release->setName(null);
 			//TODO $release->setPreviewUrl("images/episodes/kodomofilm.jpg");
+			$release->setHeaderImage("images/sorties/kodomofilm.png");
 			$release->addStaff(TeamMember::getMember(12), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMember(2), Role::getRole('adapt'));
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('time'));
@@ -463,7 +479,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(20), Role::getRole('kara'));
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kodomo_no_Jikan_FILM[H264-AAC].mp4", $h264, $aac, $mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->setIsReleased(true);
+			$release->setReleasingTime(strtotime("12 October 2011"));
 			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
