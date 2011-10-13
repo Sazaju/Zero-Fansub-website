@@ -465,7 +465,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kodomofilm'), 'film');
 			$release->setName(null);
-			//TODO $release->setPreviewUrl("images/episodes/kodomofilm.jpg");
+			$release->setPreviewUrl("images/episodes/kodomofilm.png");
 			$release->setHeaderImage("images/sorties/kodomofilm.png");
 			$release->addStaff(TeamMember::getMember(12), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMember(2), Role::getRole('adapt'));
