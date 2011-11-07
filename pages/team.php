@@ -29,8 +29,6 @@
 	$uploaders[] = "etienne2000";
 	$uploaders[] = "lwienlin";
 	$uploaders[] = "lepims";
-	$uploaders[] = "secouss";
-	$uploaders[] = "manu";
 	natcasesort($uploaders);
 	
 	$list = new SimpleListComponent();

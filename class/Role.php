@@ -31,6 +31,9 @@ class Role {
 	public static function getAllRoles() {
 		if (Role::$allRoles === null) {
 			Role::$allRoles = array();
+			Role::$allRoles[] = new Role('admin', 'administration');
+			Role::$allRoles[] = new Role('webadmin', 'administration web');
+			Role::$allRoles[] = new Role('forumadmin', 'administration forum');
 			Role::$allRoles[] = new Role('raw', 'RAW hunting');
 			Role::$allRoles[] = new Role('tradEn', 'traduction En>Fr');
 			Role::$allRoles[] = new Role('tradJp', 'traduction Jp>Fr');
@@ -38,12 +41,14 @@ class Role {
 			Role::$allRoles[] = new Role('time', 'time');
 			Role::$allRoles[] = new Role('edit', 'édition');
 			Role::$allRoles[] = new Role('kara', 'karaoke');
+			Role::$allRoles[] = new Role('check', 'check');
 			Role::$allRoles[] = new Role('qc', 'QC');
 			Role::$allRoles[] = new Role('verifFinale', 'v&eacute;rif finale');
 			Role::$allRoles[] = new Role('encod', 'encodage');
 			Role::$allRoles[] = new Role('sorties', 'sorties');
 			Role::$allRoles[] = new Role('torrent', 'tracker BT');
 			Role::$allRoles[] = new Role('xdcc', 'XDCC');
+			Role::$allRoles[] = new Role('help', 'aide');
 		}
 		return Role::$allRoles;
 	}

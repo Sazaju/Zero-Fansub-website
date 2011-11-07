@@ -15,6 +15,7 @@ class TeamMember {
 	private $firstName = null;
 	private $isAdmin = false;
 	private $hasGone = false;
+	private $ponctualMember = false;
 	
 	public function __construct($id = null) {
 		$this->image = new Image();
@@ -115,6 +116,14 @@ class TeamMember {
 		return $this->mail;
 	}
 	
+	public function setPonctualMember($boolean) {
+		$this->ponctualMember = $boolean;
+	}
+	
+	public function isPonctualMember() {
+		return $this->ponctualMember;
+	}
+	
 	public function setWebsite($address, $name = null) {
 		if ($address !== null) {
 			$this->website = new Link($address, $name);
@@ -136,8 +145,7 @@ class TeamMember {
 			$member = new TeamMember(1);
 			$member->setPseudo("db0");
 			$member->setIsAdmin(true);
-			$member->addRole(Role::getRole("verifFinale"));
-			$member->addRole(Role::getRole("sorties"));
+			$member->addRole(Role::getRole("admin"));
 			$member->setImage("db0.png");
 			$member->setAge("19 ans");
 			$member->setLocation("Le Kremlin-Bicetre (94)");
@@ -169,6 +177,8 @@ class TeamMember {
 			$member->addRole(Role::getRole("adapt"));
 			$member->addRole(Role::getRole("torrent"));
 			$member->addRole(Role::getRole("xdcc"));
+			$member->addRole(Role::getRole("webadmin"));
+			$member->setIsAdmin(true);
 			$member->setImage("sazaju.png");
 			$member->setMail("sazaju@gmail.com");
 			TeamMember::$allMembers[] = $member;
@@ -178,7 +188,7 @@ class TeamMember {
 			$member->addRole(Role::getRole("encod"));
 			$member->setFirstName("Lepims");
 			$member->setAge("25 ans");
-			$member->setImage("lepims.png");
+			$member->setImage("lepims.gif");
 			$member->setLocation("Clermont-Ferrand");
 			TeamMember::$allMembers[] = $member;
 			
@@ -194,7 +204,10 @@ class TeamMember {
 			$member = new TeamMember(8);
 			$member->setPseudo("praia");
 			$member->setImage("praia.jpg");
+			$member->addRole(Role::getRole("verifFinale"));
 			$member->addRole(Role::getRole("qc"));
+			$member->addRole(Role::getRole("forumadmin"));
+			$member->setIsAdmin(true);
 			$member->setFirstName("Piet");
 			$member->setAge("30 ans");
 			$member->setLocation("Belgique");
@@ -249,6 +262,36 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
+			$member = new TeamMember(16);
+			$member->setPseudo("Lyf");
+			$member->addRole(Role::getRole("check"));
+			$member->setHasGone(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(17);
+			$member->setPseudo("Nixy'Z");
+			$member->addRole(Role::getRole("qc"));
+			$member->setHasGone(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(18);
+			$member->setPseudo("Bk");
+			$member->addRole(Role::getRole("encod"));
+			$member->setHasGone(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(19);
+			$member->setPseudo("Klick");
+			$member->addRole(Role::getRole("help"));
+			$member->setHasGone(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(20);
+			$member->setPseudo("Galaf");
+			$member->addRole(Role::getRole("kara"));
+			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
 			// TODO remove this sort, prefer a sort at a lower level
 			function sortMembers(TeamMember $a, TeamMember $b) {
 				return strcasecmp($a->getPseudo(), $b->getPseudo());
@@ -270,7 +313,7 @@ class TeamMember {
 	public static function getAllCurrentMembers() {
 		$members = array();
 		foreach(TeamMember::getAllMembers() as $member) {
-			if (!$member->hasGone()) {
+			if (!$member->hasGone() && !$member->isPonctualMember()) {
 				$members[] = $member;
 			}
 		}

@@ -7,7 +7,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 		$title = ucfirst($release->getName());
 		$project = $release->getProject();
 		if ($project !== null) {
-			$title = $project->getName()." - ".$title;
+			$title = $project->getName().($title == null ? null : " - ".$title);
 		}
 		$link = new Link(null, $title);
 		$title = new Title($link);
@@ -30,6 +30,8 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$freeLinks->setClass("freeLinks");
 			$rapidShareLinks = new GroupedLinks(new Image("images/icones/rapidshare.jpg"));
 			$rapidShareLinks->setClass("rapidShareLinks");
+			$torrentLinks = new GroupedLinks(new Link("http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro", new Image("images/icones/torrent.png")));
+			$torrentLinks->setClass("torrentLink");
 			$fileDescriptors = $release->getFileDescriptors();
 			foreach($fileDescriptors as $descriptor) {
 				$description = new SimpleTextComponent();
@@ -51,6 +53,9 @@ class ReleaseComponent extends SimpleBlockComponent {
 				}
 				
 				$array = array();
+				if ($descriptor->getID() != null) {
+					$array[] = $descriptor->getID();
+				}
 				if ($descriptor->getVideoCodec() !== null) {
 					$array[] = $descriptor->getVideoCodec()->getName();
 				}
@@ -80,13 +85,19 @@ class ReleaseComponent extends SimpleBlockComponent {
 				if ($descriptor->getRapidShareUrl() !== null) {
 					$rapidShareLinks->addLink(new Link($descriptor->getRapidShareUrl(), $linkName));
 				}
+				if ($descriptor->getTorrentUrl() !== null) {
+					$torrentLinks->addLink(new Link($descriptor->getTorrentUrl(), $linkName));
+				}
 			}
 			
-			$previewImage = new Image($release->getPreviewUrl());
-			$previewImage->setClass("previewImage");
-			$description = getimagesize($release->getPreviewUrl());
-			if ($description[0] < $description[1]) {
-				$previewImage->setStyle("float : right;");
+			$previewImage = null;
+			if ($release->getPreviewUrl() !== null) {
+				$previewImage = new Image($release->getPreviewUrl());
+				$previewImage->setClass("previewImage");
+				$description = getimagesize($release->getPreviewUrl());
+				if ($description[0] < $description[1]) {
+					$previewImage->setStyle("float : right;");
+				}
 			}
 			
 			$synopsis = new SimpleBlockComponent();
@@ -168,7 +179,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			if (!$rapidShareLinks->isEmpty()) {
 				$list->addComponent($rapidShareLinks);
 			}
-			$list->addComponent(new TorrentLink());
+			$list->addComponent($torrentLinks);
 			$list->addComponent(new XdccLink());
 			if (!$streamingsLinks->isEmpty()) {
 				$list->addComponent($streamingsLinks);
@@ -187,19 +198,19 @@ class ReleaseComponent extends SimpleBlockComponent {
 }
 
 class GroupedLinks extends SimpleTextComponent {
-	private $icon = null;
+	private $prefix = null;
 	
-	public function __construct(Image $icon) {
-		$this->addComponent($icon);
-		$this->icon = $icon;
+	public function __construct($prefix) {
+		$this->addComponent($prefix);
+		$this->prefix = $prefix;
 	}
 	
 	public function isEmpty() {
-		return count($this->getComponents()) < ($this->icon === null ? 1 : 2);
+		return count($this->getComponents()) < ($this->prefix === null ? 1 : 2);
 	}
 	
-	public function getIcon() {
-		return $this->icon;
+	public function getPrefix() {
+		return $this->prefix;
 	}
 	
 	public function addLink(Link $link) {
