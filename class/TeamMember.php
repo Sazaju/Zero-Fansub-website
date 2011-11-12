@@ -310,6 +310,81 @@ class TeamMember {
 			$member->setPonctualMember(true); // TODO check this point
 			TeamMember::$allMembers[] = $member;
 			
+			$member = new TeamMember(24);
+			$member->setPseudo("Kurosaki");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(25);
+			$member->setPseudo("Kaj");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(26);
+			$member->setPseudo("Baka !");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(27);
+			$member->setPseudo("Vegeta");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(28);
+			$member->setPseudo("Zorro25");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(29);
+			$member->setPseudo("Adeo");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(30);
+			$member->setPseudo("Ryocu");
+			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(30);
+			$member->setPseudo("Thrax");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(31);
+			$member->setPseudo("Man-ban");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(32);
+			$member->setPseudo("Thibou");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(33);
+			$member->setPseudo("Ryuku");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(34);
+			$member->setPseudo("Ed3");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(35);
+			$member->setPseudo("Jet9009");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(36);
+			$member->setPseudo("Shibo");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(37);
+			$member->setPseudo("Suke");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
 			// TODO remove this sort, prefer a sort at a lower level
 			function sortMembers(TeamMember $a, TeamMember $b) {
 				return strcasecmp($a->getPseudo(), $b->getPseudo());
@@ -326,6 +401,15 @@ class TeamMember {
 			}
 		}
 		throw new Exception($id." is not a known member ID.");
+	}
+	
+	public static function getMemberByPseudo($pseudo) {
+		foreach(TeamMember::getAllMembers() as $member) {
+			if ($member->getPseudo() === $pseudo) {
+				return $member;
+			}
+		}
+		throw new Exception($pseudo." is not a known member pseudonym.");
 	}
 	
 	public static function getAllCurrentMembers() {

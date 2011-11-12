@@ -845,6 +845,275 @@ class Release {
 			$release = new Release(Project::getProject('mayoi'), 'ep12');
 			$release->setName("12");
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep1');
+			$release->setName("01");
+			$release->setLocalizedTitle("Les retrouvailles");
+			$release->setOriginalTitle("Meet again");
+			$release->setPreviewUrl("images/episodes/kimikiss1.jpg");
+			$release->setSynopsis("Mao reviens au Japon aprés avoir passé 2 ans en France. Elle retrouve ses amis d'enfance Kouichi et Kazuki. Tous ont grandit et ont maintenant leurs problémes d'ados respectifs, et leurs histoires d'amour...");
+			$release->addStaff(TeamMember::getMember(24), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMember(1), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMember(1), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMember(17), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMember(25), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMember(19), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMember(26), Role::getRole('help'));
+			$release->addStaff(TeamMember::getMember(23), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 01 [XviD] [BBFD08A1].avi");
+			$descriptor->setCRC("BBFD08A1");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 01 [H264] [99AB2169].mp4");
+			$descriptor->setCRC("99AB2169");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=78Y70CFW");
+			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/tCuDr9Dv");
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep2');
+			$release->setName("02");
+			$release->setLocalizedTitle("Une beauté fraîche");
+			$release->setOriginalTitle("Cool Beauty");
+			$release->setPreviewUrl("images/episodes/kimikiss2.jpg");
+			$release->setSynopsis("Kazuki tente de retrouver la mystérieuse Futami pendant que Mao essaye d'approcher Kai tout en surveillant Kouichi...");
+			$release->addStaff(TeamMember::getMember(24), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMember(27), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMember(1), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMember(17), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMember(19), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMember(20), Role::getRole('help'));
+			$release->addStaff(TeamMember::getMember(23), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 02 [XviD] [56E75A2D].avi");
+			$descriptor->setCRC("56E75A2D");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 02 [h264] [0F28AE34].mp4");
+			$descriptor->setCRC("0F28AE34");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=U8ZFXH46");
+			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/g3Ci9lFO/[Zero]_Kimikiss_Pure_Rouge_02_[h264]_[0F28AE34].mp4");
+			$release->addFileDescriptor($descriptor);
+			$release->addStreaming(new NewWindowLink("http://www.megavideo.com/?v=8ZP386FU", "Megavideo"));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep3');
+			$release->setName("03");
+			$release->setLocalizedTitle("Marque-page");
+			$release->setOriginalTitle("Bookmark");
+			$release->setPreviewUrl("images/episodes/kimikiss3.jpg");
+			$release->setSynopsis("Nana organise une petite fête de bienvenue pour Mao. Au programme, un karaoké. Et surtout une excuse, pour Kouichi et Kazuki, pour inviter les filles de leurs rêves...");
+			$release->addStaff(TeamMember::getMemberByPseudo("Kurosaki"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Zorro25"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Vegeta"), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Lyf"), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Adeo"), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Ryocu"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Klick"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Thrax"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Bkdenice"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 03 [XviD] [E15269A5].avi");
+			$descriptor->setCRC("E15269A5");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 03 [V2][H264] [DED6B5E4].mp4");
+			$descriptor->setCRC("CD8AD570");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=SO0HKZ1F");
+			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/ZVV1J4IZ");
+			$release->addFileDescriptor($descriptor);
+			$release->addStreaming(new NewWindowLink("http://www.megavideo.com/?v=JVMK6AOM", "Megavideo"));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep4');
+			$release->setName("04");
+			$release->setLocalizedTitle("Intervention");
+			$release->setOriginalTitle("Step in");
+			$release->setPreviewUrl("images/episodes/kimikiss4.jpg");
+			$release->setSynopsis("Kazuki reprend l'entraîment de foot de Sakino. Mao fait une baisse de tension et rencontre Futami à l'infirmerie...");
+			$release->addStaff(TeamMember::getMemberByPseudo("Man-ban"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Thibou"), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Nixy'Z"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Klick"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Galaf"), Role::getRole('help'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Bkdenice"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 04 [XviD] [463CB76C].avi");
+			$descriptor->setCRC("463CB76C");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 04 [h264] [F39E1C30].mp4");
+			$descriptor->setCRC("F39E1C30");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=SWYZQJ88");
+			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/whQlC2jm/[Zero]_Kimikiss_Pure_Rouge_04_[h264]_[F39E1C30].mp4");
+			$release->addFileDescriptor($descriptor);
+			$release->addStreaming(new NewWindowLink("http://www.megavideo.com/?v=9ATP6YT3", "Megavideo"));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep5');
+			$release->setName("05");
+			$release->setLocalizedTitle("Bondir");
+			$release->setOriginalTitle("Jumping");
+			$release->setPreviewUrl("images/episodes/kimikiss5.jpg");
+			$release->setSynopsis("Mao a rdv avec Kai. Kazuki et elle se remémore des souvenirs d'enfance. Kouichi se rapproche de Yuumi.");
+			$release->addStaff(TeamMember::getMemberByPseudo("Ryuku"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Ed3"), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Man-ban"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Ryocu"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Klick"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Jet9009"), Role::getRole('help'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Bkdenice"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 05 [XviD] [005DED0D].avi");
+			$descriptor->setCRC("005DED0D");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 05 [H264] [FD65BB51].mp4");
+			$descriptor->setCRC("FD65BB51");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/it/?d=SS3HZPZO");
+			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/4QQnhnMx/[Zero]_Kimikiss_Pure_Rouge_05_[H264]_[FD65BB51].mp4");
+			$release->addFileDescriptor($descriptor);
+			$release->addStreaming(new NewWindowLink("http://www.megavideo.com/?v=U22V4KP5", "Megavideo"));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep6');
+			$release->setName("06");
+			$release->setLocalizedTitle("Chaque mélancolie");
+			$release->setOriginalTitle("each melancholy");
+			$release->setPreviewUrl("images/episodes/kimikiss6.jpg");
+			$release->setSynopsis("Mao et Sakino voient leurs résultats scolaires baissés, tout le monde se cotise pour les aider à travailler.");
+			$release->addStaff(TeamMember::getMemberByPseudo("Ryuku"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Shibo"), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Klick"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Suke"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 06 [XviD] [13A0079F].avi");
+			$descriptor->setCRC("13A0079F");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$descriptor = new ReleaseFileDescriptor("[Zero] Kimikiss Pure Rouge 06 [H264] [8680B64F].mp4");
+			$descriptor->setCRC("8680B64F");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/it/?d=SE5XN3GY");
+			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/QDIZL6un");
+			$release->addFileDescriptor($descriptor);
+			$release->addStreaming(new NewWindowLink("http://www.megavideo.com/?v=4YB9PO67", "Megavideo"));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep7');
+			$release->setName("07");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep8');
+			$release->setName("08");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep9');
+			$release->setName("09");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep10');
+			$release->setName("10");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep11');
+			$release->setName("11");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep12');
+			$release->setName("12");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep13');
+			$release->setName("13");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep14');
+			$release->setName("14");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep15');
+			$release->setName("15");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep16');
+			$release->setName("16");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep17');
+			$release->setName("17");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep18');
+			$release->setName("18");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep19');
+			$release->setName("19");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep20');
+			$release->setName("20");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep21');
+			$release->setName("21");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep22');
+			$release->setName("22");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep23');
+			$release->setName("23");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kimikiss'), 'ep24');
+			$release->setName("24");
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}
