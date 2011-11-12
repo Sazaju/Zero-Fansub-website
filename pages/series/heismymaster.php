@@ -16,30 +16,21 @@
 
 <p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p><h2>Chapitres</h2>
 
+<?php
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
 
-<h5>He is my master - Ce sont mes Maids</h5>
-
-<div style="float : right; display:block; margin-right: 20px;">
-	<img src="images/episodes/heismymaster.jpg" border="0">
-</div>
-<p><b>Nom de l'épisode FR</b> Ce sont mes maids<br />
-<b>Titre Original</b> Kore ga Oresama no Maidtachi<br />
-<b>Staff Zéro</b> Trad : db0 | Edit : db0 | Check : Praia<br />
-
-<b>Fichier</b><br />
-<img src="images/icones/puce.png"> [Zero]_He_is_my_master_Ce_sont_mes_<br />
-maids_doujin_FR_[zerofansub.net].zip<br />
-17 pages 8,26 Mo<br />
-
- 
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png">		
-[ <a   href="ddl/[Zero]_He_is_my_master_Ce_sont_mes_maids_doujin_FR_[zerofansub.net].zip">HD</a> ]
-<br />
-
-<a href="http://bt.fansub-irc.eu/tracker_team/index.php?id_tracker=26" target="_blank"><img src="images/icones/torrent.png" border="0"></a><br />
-
-<img src="images/icones/streaming.png"> [ <a href="http://zerofansub.net/hentai/visio/index.php?spgmGal=The%20doujin%20factory/He%20is%20my%20Master%20-%20Ce%20sont%20mes%20Maids" target="_blank">Lecture en ligne</a> ]<br />
+	$releases = Release::getAllReleasesForProject('heismymaster');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
+?>
 
 
 <p></p>

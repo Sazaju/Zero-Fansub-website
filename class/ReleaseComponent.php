@@ -30,9 +30,12 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$freeLinks->setClass("freeLinks");
 			$rapidShareLinks = new GroupedLinks(new Image("images/icones/rapidshare.jpg"));
 			$rapidShareLinks->setClass("rapidShareLinks");
+			$mediaFireLinks = new GroupedLinks(new Image("images/icones/mediafire.jpg", "Mediafire"));
+			$mediaFireLinks->setClass("mediaFireLinks");
 			$torrentLinks = new GroupedLinks(new Link("http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro", new Image("images/icones/torrent.png")));
 			$torrentLinks->setClass("torrentLink");
 			$fileDescriptors = $release->getFileDescriptors();
+			$index = 1;
 			foreach($fileDescriptors as $descriptor) {
 				$description = new SimpleTextComponent();
 				
@@ -52,29 +55,59 @@ class ReleaseComponent extends SimpleBlockComponent {
 					$description->addComponent("CRC : ".$descriptor->getCRC()." ");
 				}
 				
-				$array = array();
+				$id = null;
+				if ($project->isDoujin()) {
+					$pages = "";
+					if ($descriptor->getPageNumber() != null) {
+						$n = $descriptor->getPageNumber();
+						$pages = $n." page".($n > 1 ? "s" : null)." ";
+					}
+					$description->addComponent($pages);
+				}
+				else {
+					$array = array();
+					if ($descriptor->getVideoCodec() !== null) {
+						$array[] = $descriptor->getVideoCodec()->getName();
+						if ($id == null) {
+							$id = $descriptor->getVideoCodec()->getName();
+						}
+					}
+					if ($descriptor->getSoundCodec() !== null) {
+						$array[] = $descriptor->getSoundCodec()->getName();
+						if ($id == null) {
+							$id = $descriptor->getSoundCodec()->getName();
+						}
+					}
+					if ($descriptor->getContainerCodec() !== null) {
+						$array[] = $descriptor->getContainerCodec()->getName();
+						if ($id == null) {
+							$id = $descriptor->getContainerCodec()->getName();
+						}
+					}
+					$codecs = "";
+					if (!empty($array)) {
+						$codecs = "Codecs : ".Format::arrayToString($array, " ");
+					}
+					$description->addComponent($codecs);
+				}
+				
 				if ($descriptor->getID() != null) {
-					$array[] = $descriptor->getID();
+					$id = $descriptor->getID();
 				}
-				if ($descriptor->getVideoCodec() !== null) {
-					$array[] = $descriptor->getVideoCodec()->getName();
+				else if ($id == null) {
+					$id = $index;
 				}
-				if ($descriptor->getSoundCodec() !== null) {
-					$array[] = $descriptor->getSoundCodec()->getName();
+				$index ++;
+				
+				if ($descriptor->getComment() !== null) {
+					$description->addLine();
+					$description->addComponent($descriptor->getComment());
 				}
-				if ($descriptor->getContainerCodec() !== null) {
-					$array[] = $descriptor->getContainerCodec()->getName();
-				}
-				$codecs = "";
-				if (!empty($array)) {
-					$codecs = "Codecs : ".Format::arrayToString($array, " ");
-				}
-				$description->addComponent($codecs);
 				
 				$description->addLine();
 				$fileList->addcomponent($description);
 				
-				$linkName = count($fileDescriptors) == 1 ? "Télécharger" : $array[0];
+				$linkName = count($fileDescriptors) == 1 ? "Télécharger" : $id;
 				$ddlLinks->addLink(new Link($url, $linkName));
 				if ($descriptor->getMegauploadUrl() !== null) {
 					$megauploadLinks->addLink(new Link($descriptor->getMegauploadUrl(), $linkName));
@@ -84,6 +117,9 @@ class ReleaseComponent extends SimpleBlockComponent {
 				}
 				if ($descriptor->getRapidShareUrl() !== null) {
 					$rapidShareLinks->addLink(new Link($descriptor->getRapidShareUrl(), $linkName));
+				}
+				if ($descriptor->getMediaFireUrl() !== null) {
+					$mediaFireLinks->addLink(new Link($descriptor->getMediaFireUrl(), $linkName));
 				}
 				if ($descriptor->getTorrentUrl() !== null) {
 					$torrentLinks->addLink(new Link($descriptor->getTorrentUrl(), $linkName));
@@ -130,16 +166,16 @@ class ReleaseComponent extends SimpleBlockComponent {
 			
 			$originalName = new SimpleBlockComponent();
 			$originalName->setClass("originalName");
-			if ($release->getOriginalName() !== null) {
+			if ($release->getOriginalTitle() !== null) {
 				$originalName->addComponent(new Title("Nom original"));
-				$originalName->addComponent($release->getOriginalName());
+				$originalName->addComponent($release->getOriginalTitle());
 			}
 			
 			$localizedName = new SimpleBlockComponent();
 			$localizedName->setClass("localizedName");
-			if ($release->getLocalizedName() !== null) {
+			if ($release->getLocalizedTitle() !== null) {
 				$localizedName->addComponent(new Title("Nom de l'épisode FR"));
-				$localizedName->addComponent($release->getLocalizedName());
+				$localizedName->addComponent($release->getLocalizedTitle());
 			}
 			
 			$bonusLinks = new GroupedLinks(new Image("images/icones/bonus.png"));
@@ -179,6 +215,9 @@ class ReleaseComponent extends SimpleBlockComponent {
 			if (!$rapidShareLinks->isEmpty()) {
 				$list->addComponent($rapidShareLinks);
 			}
+			if (!$mediaFireLinks->isEmpty()) {
+				$list->addComponent($mediaFireLinks);
+			}
 			$list->addComponent($torrentLinks);
 			$list->addComponent(new XdccLink());
 			if (!$streamingsLinks->isEmpty()) {
@@ -188,6 +227,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 				$list->addComponent($bonusLinks);
 			}
 			$content->addComponent($list);
+			$content->addComponent(new Pin());
 		}
 		else {
 			$this->setClass("notReleased");

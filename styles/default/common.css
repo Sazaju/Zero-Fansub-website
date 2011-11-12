@@ -86,3 +86,8 @@ margin-top: -15px;
 	display: none;
 	visibility: hidden;
 }
+
+.pin {
+	width: 100%;
+	visibility: hidden;
+}

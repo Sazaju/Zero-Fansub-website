@@ -292,6 +292,24 @@ class TeamMember {
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
+			$member = new TeamMember(21);
+			$member->setPseudo("FinalFan");
+			// TODO specify the original team
+			$member->addRole(Role::getRole("time"));
+			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(22);
+			$member->setPseudo("Sky_Lekas");
+			$member->addRole(Role::getRole("encod"));
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(23);
+			$member->setPseudo("Bkdenice");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
 			// TODO remove this sort, prefer a sort at a lower level
 			function sortMembers(TeamMember $a, TeamMember $b) {
 				return strcasecmp($a->getPseudo(), $b->getPseudo());

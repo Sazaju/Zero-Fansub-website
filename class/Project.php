@@ -12,6 +12,7 @@ class Project {
 	private $isAbandonned = false;
 	private $isLicensed = false;
 	private $isHentai = false;
+	private $isDoujin = false;
 	
 	public function __construct($id = null, $name = null) {
 		$this->setID($id);
@@ -91,6 +92,14 @@ class Project {
 	
 	public function isHentai() {
 		return $this->isHentai;
+	}
+	
+	public function setIsDoujin($boolean) {
+		$this->isDoujin = $boolean;
+	}
+	
+	public function isDoujin() {
+		return $this->isDoujin;
 	}
 	
 	private static $allProjects = null;
@@ -236,6 +245,34 @@ class Project {
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("working2", "Working!! 2");
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("akinahshiyo", "Akina To Onsen De H Shiyo !");
+			$project->setIsHentai(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("hshiyo", "Faisons l'amour ensemble !");
+			$project->setIsHentai(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("alignment", "Alignment You ! You ! The Animation");
+			$project->setIsHentai(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("konoe", "Konoe no Jikan");
+			$project->setIsHentai(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("eriko", "ERIKO");
+			$project->setIsHentai(true);
+			$project->setIsDoujin(true);
+			$project->setIsFinished(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("heismymaster", "Ce sont mes Maids");
+			$project->setIsHentai(true);
+			$project->setIsDoujin(true);
+			$project->setIsFinished(true);
 			Project::$allProjects[] = $project;
 		}
 		

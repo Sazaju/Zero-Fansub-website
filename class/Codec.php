@@ -14,6 +14,7 @@ abstract class Codec {
 			Codec::$allCodecs[] = new VideoCodec("h264", "H264");
 			Codec::$allCodecs[] = new SoundCodec("mp3", "MP3");
 			Codec::$allCodecs[] = new SoundCodec("aac", "AAC");
+			Codec::$allCodecs[] = new SoundCodec("ac3", "AC3");
 			Codec::$allCodecs[] = new ContainerCodec("mp4", "MP4");
 			Codec::$allCodecs[] = new ContainerCodec("mkv", "MKV");
 			Codec::$allCodecs[] = new ContainerCodec("avi", "AVI");
