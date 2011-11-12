@@ -12,6 +12,7 @@ class Release {
 	private $bonuses = array();
 	private $streamings = array();
 	private $synopsis = null;
+	private $comment = null;
 	private $originalName = null;
 	private $localizedName = null;
 	private $releasingTime = null;
@@ -68,6 +69,14 @@ class Release {
 	
 	public function setSynopsis($synopsis) {
 		$this->synopsis = $synopsis;
+	}
+	
+	public function getComment() {
+		return $this->comment;
+	}
+	
+	public function setComment($comment) {
+		$this->comment = $comment;
 	}
 	
 	public function getOriginalTitle() {
@@ -1113,6 +1122,238 @@ class Release {
 			
 			$release = new Release(Project::getProject('kimikiss'), 'ep24');
 			$release->setName("24");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep1');
+			$release->setName("01");
+			$release->setLocalizedTitle("Les larmes d'une perle");
+			$release->setOriginalTitle("Shinju no Namida");
+			$release->setPreviewUrl("images/episodes/mermaid1.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 01 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep2');
+			$release->setName("02");
+			$release->setLocalizedTitle("Sentiments dont je ne peux parler");
+			$release->setOriginalTitle("Ienai Kokoro");
+			$release->setPreviewUrl("images/episodes/mermaid2.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 02 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep3');
+			$release->setName("03");
+			$release->setLocalizedTitle("Sentiments noyés");
+			$release->setOriginalTitle("Yureru Omoi");
+			$release->setPreviewUrl("images/episodes/mermaid3.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 03 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep4');
+			$release->setName("04");
+			$release->setLocalizedTitle("La princesse solitaire");
+			$release->setOriginalTitle("Kodoku na Ojo");
+			$release->setPreviewUrl("images/episodes/mermaid4.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 04 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep5');
+			$release->setName("05");
+			$release->setLocalizedTitle("Baiser glacé");
+			$release->setOriginalTitle("Tsumetai Kisu");
+			$release->setPreviewUrl("images/episodes/mermaid5.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 05 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep6');
+			$release->setName("06");
+			$release->setLocalizedTitle("La lumière de l'amour");
+			$release->setOriginalTitle("Ai no Toka");
+			$release->setPreviewUrl("images/episodes/mermaid6.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 06 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep7');
+			$release->setName("07");
+			$release->setLocalizedTitle("La jalousie d'une sirène");
+			$release->setOriginalTitle("Mameido no Jerashi");
+			$release->setPreviewUrl("images/episodes/mermaid7.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 07 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep8');
+			$release->setName("08");
+			$release->setLocalizedTitle(null);
+			$release->setOriginalTitle("Kootia Kimochi");
+			$release->setPreviewUrl("images/episodes/mermaid8.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 08 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep9');
+			$release->setName("09");
+			$release->setLocalizedTitle("Mélodie volée");
+			$release->setOriginalTitle("Nusumareta Merodi");
+			$release->setPreviewUrl("images/episodes/mermaid9.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 09 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep10');
+			$release->setName("10");
+			$release->setLocalizedTitle("Images du passé");
+			$release->setOriginalTitle("Kako no Omokage");
+			$release->setPreviewUrl("images/episodes/mermaid10.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 10 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep11');
+			$release->setName("11");
+			$release->setLocalizedTitle("La pluie des voeux");
+			$release->setOriginalTitle("Negai no Yubiwa");
+			$release->setPreviewUrl("images/episodes/mermaid11.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 11 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep12');
+			$release->setName("12");
+			$release->setLocalizedTitle("Coeur cisaillé");
+			$release->setOriginalTitle("Sure Chigau Kokoro");
+			$release->setPreviewUrl("images/episodes/mermaid12.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 12 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep13');
+			$release->setName("13");
+			$release->setLocalizedTitle("Le rituel des sirénes");
+			$release->setOriginalTitle("Mameido no Gishiki");
+			$release->setPreviewUrl("images/episodes/mermaid13.jpg");
+			$release->setComment("Episode entiérement réalisé par l'ancienne équipe Maboroshi no fansub");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi No Fansub] Mermaid Melody Pichi Pichi Pitch 13 vostf.avi");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep53');
+			$release->setName("01 (Italien)");
+			$release->setLocalizedTitle("Perle de Sirène");
+			$release->setOriginalTitle("Una sirena fra noi");
+			$release->setPreviewUrl("images/episodes/mermaid1.jpg");
+			$release->setSynopsis("Lucia est une sirène. Durant son enfance, elle a sauvé un humain en lui donnant sa perle. Elle est amoureuse de lui et recherche sa perle.");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Thrax"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Bk"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]_Mermaid_Melody_Pichi_Pichi_Pitch _01_[XviD]_[D4AF3D69].avi");
+			$descriptor->setCRC("D4AF3D69");
+			$descriptor->setVideoCodec($xvid);
+			$descriptor->setSoundCodec($mp3);
+			$descriptor->setContainerCodec($avi);
+			$descriptor->setComment("Version Italienne sous-titrée français.");
+			$release->addFileDescriptor($descriptor);
+			$release->addStreaming(new NewWindowLink("http://www.megavideo.com/?v=TBHLLBN5", "Megavideo"));
+			$release->addStreaming(new NewWindowLink("http://www.anime-ultime.net/info-0-1/13975-Mermaid_Melody_Pichi_Pichi_Pitch_Version_Italienne_01", "Haute Définition"));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mermaid'), 'ep54');
+			$release->setName("02 (Italien)");
+			$release->setLocalizedTitle("Un secret à ne pas réveler");
+			$release->setOriginalTitle("Segreti da non rivelare");
+			$release->setPreviewUrl("images/episodes/mermaid2.jpg");
+			$release->setSynopsis("Lucia découvre que Hanon est aussi une siréne. Elle découvre aussi ce qu'il arrivera si elle tombe amoureuse d'un humain.");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Ryocu"), Role::getRole('verifFinale'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Thrax"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Bkdenice"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("B3rning"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]_Mermaid_Melody_Pichi_Pichi_Pitch _02_[H264]_[3913101370].mp4");
+			$descriptor->setCRC("3913101370");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$descriptor->setComment("Version Italienne sous-titrée français.");
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;

@@ -47,6 +47,9 @@
 	margin-top: 0;
 	margin-bottom: 10px;
 }
+#pageContent .released .comment {
+	font-weight: bold;
+}
 #pageContent .linkList, #pageContent .releaseList {
 	list-style: none;
 	padding-left: 0;

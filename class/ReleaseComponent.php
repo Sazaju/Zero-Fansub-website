@@ -101,7 +101,10 @@ class ReleaseComponent extends SimpleBlockComponent {
 				
 				if ($descriptor->getComment() !== null) {
 					$description->addLine();
-					$description->addComponent($descriptor->getComment());
+					$comment = new SimpleBlockComponent();
+					$comment->setClass("comment");
+					$comment->setContent($descriptor->getComment());
+					$description->addComponent($comment);
 				}
 				
 				$description->addLine();
@@ -130,9 +133,13 @@ class ReleaseComponent extends SimpleBlockComponent {
 			if ($release->getPreviewUrl() !== null) {
 				$previewImage = new Image($release->getPreviewUrl());
 				$previewImage->setClass("previewImage");
-				$description = getimagesize($release->getPreviewUrl());
-				if ($description[0] < $description[1]) {
-					$previewImage->setStyle("float : right;");
+				try {
+					$description = getimagesize($release->getPreviewUrl());
+					if ($description[0] < $description[1]) {
+						$previewImage->setStyle("float : right;");
+					}
+				} catch(ErrorException $ex) {
+					// TODO use a default preview image?
 				}
 			}
 			
@@ -141,6 +148,12 @@ class ReleaseComponent extends SimpleBlockComponent {
 			if ($release->getSynopsis() !== null) {
 				$synopsis->addComponent(new Title("Synopsis"));
 				$synopsis->addComponent($release->getSynopsis());
+			}
+			
+			$comment = new SimpleBlockComponent();
+			$comment->setClass("comment");
+			if ($release->getComment() !== null) {
+				$comment->addComponent($release->getComment());
 			}
 			
 			$staff = new SimpleBlockComponent();
@@ -199,6 +212,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$content->addComponent($localizedName);
 			$content->addComponent($originalName);
 			$content->addComponent($synopsis);
+			$content->addComponent($comment);
 			$content->addComponent($staff);
 			$content->addComponent(new title("Fichiers"));
 			$content->addComponent($fileList);
