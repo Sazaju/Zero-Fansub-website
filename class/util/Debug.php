@@ -157,5 +157,9 @@ class Debug {
 		//on renvoie le texte
 		return $string;
 	}
+	
+	public static function createWarningTag($text) {
+		return "<span class='warning'>".$text."</span>";
+	}
 }
 ?>

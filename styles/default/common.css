@@ -82,6 +82,11 @@ margin-top: -15px;
 	content: url('../../images/interface/barre.png');
 }
 
+.warning {
+	color: red;
+	font-weight: bold;
+}
+
 .hidden {
 	display: none;
 	visibility: hidden;

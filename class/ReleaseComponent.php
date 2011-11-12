@@ -44,11 +44,13 @@ class ReleaseComponent extends SimpleBlockComponent {
 				
 				$url = "ddl/".$name;
 				
-				$size = "";
+				$size = "Taille : ";
 				try {
-					$size = "Taille : ".Format::formatSize(filesize($url))." ";
+					$size .= Format::formatSize(filesize($url));
 				} catch(Exception $e) {
+					$size .= Debug::createWarningTag("inconnue");
 				}
+				$size .= " ";
 				$description->addComponent($size);
 				
 				if ($descriptor->getCRC() !== null) {
@@ -139,7 +141,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 						$previewImage->setStyle("float : right;");
 					}
 				} catch(ErrorException $ex) {
-					// TODO use a default preview image?
+					$previewImage = Debug::createWarningTag("Preview introuvable");
 				}
 			}
 			
