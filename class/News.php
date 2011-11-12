@@ -7,6 +7,7 @@
 class News extends SimpleBlockComponent {
 	private $title = null;
 	private $date = null;
+	private $timestamp = null;
 	private $author = null;
 	private $message = null;
 	private $commentAccess = null;
@@ -55,12 +56,17 @@ class News extends SimpleBlockComponent {
 		return $this->title->getContent();
 	}
 	
-	public function setDate($date) {
-		$this->date->setContent($date);
-	}
-	
 	public function getDate() {
 		return $this->date->getContent();
+	}
+	
+	public function setTimestamp($timestamp) {
+		$this->timestamp = $timestamp;
+		$this->date->setContent(strftime("%d/%m/%Y", $timestamp));
+	}
+	
+	public function getTimestamp() {
+		return $this->timestamp;
 	}
 	
 	public function setAuthor($author) {
@@ -144,7 +150,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Besoin de timeurs !");
-			$news->setDate("11/10/2011");
+			$news->setTimestamp(strtotime("11 October 2011"));
 			$news->setAuthor(TeamMember::getMember(5));
 			$news->setCommentId(273);
 			$news->setMessage($newsMessage);
@@ -162,7 +168,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Kodomo no Jikan - Du neuf et du moins neuf");
-			$news->setDate("10/10/2011");
+			$news->setTimestamp(strtotime("10 October 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(272);
 			$news->setMessage($newsMessage);
@@ -181,7 +187,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Nouvelles sorties, nouveaux projets, nouveaux bugs...");
-			$news->setDate("26/09/2011");
+			$news->setTimestamp(strtotime("26 September 2011"));
 			$news->setAuthor(TeamMember::getMember(5));
 			$news->setCommentId(271);
 			$news->setMessage($newsMessage);
@@ -196,7 +202,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Hitohira - S&eacute;rie compl&egrave;te");
-			$news->setDate("14/08/2011");
+			$news->setTimestamp(strtotime("14 August 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(270);
 			$news->setMessage($newsMessage);
@@ -209,7 +215,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Mitsudomoe 03");
-			$news->setDate("05/08/2011");
+			$news->setTimestamp(strtotime("05 August 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(269);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Mitsudomoe 03 chez Z%C3%A9ro fansub !");
@@ -224,7 +230,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Toradora! SOS - S&eacute;rie compl&egrave;te 4 OAV");
-			$news->setDate("26/07/2011");
+			$news->setTimestamp(strtotime("26 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(268);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Toradora! SOS chez Zero fansub !");
@@ -247,7 +253,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
-			$news->setDate("23/07/2011");
+			$news->setTimestamp(strtotime("23 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(267);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Isshoni Training Ofuro chez Zero fansub !");
@@ -278,7 +284,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Recrutement traducteur");
-			$news->setDate("04/07/2011");
+			$news->setTimestamp(strtotime("04 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(266);
 			$news->setTwitterUrl("http://twitter.com/home?status=Zero recherche un traducteur");
@@ -299,7 +305,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Kannagi - S&eacute;rie compl&egrave;te");
-			$news->setDate("19/06/2011");
+			$news->setTimestamp(strtotime("19 June 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(264);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Kannagi serie complete chez Zero fansub !");
@@ -315,7 +321,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Mitsudomoe 01 + 02");
-			$news->setDate("27/05/2011");
+			$news->setTimestamp(strtotime("27 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(263);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Mitsudomoe 01 + 02 chez Zero fansub !");
@@ -329,7 +335,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Tayutama ~ Kiss on my Deity ~ Pure my Heart ~ - S&eacute;rie compl&egrave;te 6 OAV");
-			$news->setDate("15/05/2011");
+			$news->setTimestamp(strtotime("15 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(262);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Tayutama Kiss on my Deity Pure my Heart serie complete chez Zero fansub !");
@@ -345,7 +351,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Potemayo OAV - S&eacute;rie compl&egrave;te");
-			$news->setDate("11/05/2011");
+			$news->setTimestamp(strtotime("11 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(261);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !");
@@ -369,7 +375,7 @@ class News extends SimpleBlockComponent {
 			
 			$news = new News();
 			$news->setTitle("Potemayo - S&eacute;rie compl&egrave;te enti&eacute;rement refaite");
-			$news->setDate("08/05/2011");
+			$news->setTimestamp(strtotime("08 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(261);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !");
