@@ -797,6 +797,54 @@ class Release {
 			$release->addStreaming(new NewWindowLink("http://zerofansub.net/hentai/visio/index.php?spgmGal=The%20doujin%20factory/He%20is%20my%20Master%20-%20Ce%20sont%20mes%20Maids", "Lecture en ligne"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep1');
+			$release->setName("01");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep2');
+			$release->setName("02");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep3');
+			$release->setName("03");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep4');
+			$release->setName("04");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep5');
+			$release->setName("05");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep6');
+			$release->setName("06");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep7');
+			$release->setName("07");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep8');
+			$release->setName("08");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep9');
+			$release->setName("09");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep10');
+			$release->setName("10");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep11');
+			$release->setName("11");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('mayoi'), 'ep12');
+			$release->setName("12");
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}
