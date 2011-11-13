@@ -13,18 +13,18 @@ class License {
 		return License::$noDataLicense;
 	}
 	
-	private $name = null;
+	private $owner = null;
 	
-	public function __construct($name) {
-		$this->setName($name);
+	public function __construct($owner) {
+		$this->setOwner($owner);
 	}
 	
-	public function setName($name) {
-		$this->name = $name;
+	public function setOwner($owner) {
+		$this->owner = $owner;
 	}
 	
-	public function getName() {
-		return $this->name;
+	public function getOwner() {
+		return $this->owner;
 	}
 }
 ?>

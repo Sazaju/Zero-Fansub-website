@@ -109,7 +109,15 @@ class ReleaseComponent extends SimpleBlockComponent {
 	}
 	
 	private function fillWithLicenseData($releaseContent, $release) {
+		$license = $release->getLicense();
+		
 		$releaseContent->addComponent(new title("Licencié"));
+		$list = new SimpleListComponent();
+		$list->setClass("licenseList");
+		if ($license->getOwner() != null) {
+			$list->addComponent("Propriétaire : ".$license->getOwner());
+		}
+		$releaseContent->addComponent($list);
 		
 		$list = new SimpleListComponent();
 		$list->setClass("linkList");

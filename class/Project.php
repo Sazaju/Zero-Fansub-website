@@ -127,7 +127,7 @@ class Project {
 			
 			$project = new Project("hyakko", "Hyakko");
 			$project->setIsFinished(true);
-			$project->setLicense(License::getDefaultLicense());
+			$project->setLicense(new License("Wakanim"));
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hyakkooav", "Hyakko OAV");
