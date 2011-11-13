@@ -10,13 +10,16 @@
 	
 	$completeList = Release::getAllReleases();
 	
-	function byReleasingDate($a, $b) {
-		$a = $a->getReleasingTime();
-		$b = $b->getReleasingTime();
-		if ($a == $b) {
+	function byReleasingDate(Release $a, Release $b) {
+		if ($a->getHeaderImage() === null) {
+			return 1;
+		}
+		$ta = $a->getReleasingTime();
+		$tb = $b->getReleasingTime();
+		if ($ta == $tb) {
 		    return 0;
 		}
-		return ($a > $b) ? -1 : 1;
+		return ($ta > $tb) ? -1 : 1;
 	}
 	usort($completeList, 'byReleasingDate');
 	

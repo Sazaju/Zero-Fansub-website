@@ -1361,6 +1361,7 @@ class Release {
 			$release->setLocalizedTitle("Un secret à ne pas réveler");
 			$release->setOriginalTitle("Segreti da non rivelare");
 			$release->setPreviewUrl("images/episodes/mermaid2.jpg");
+			$release->setHeaderImage("images/sorties/lastmermaid2.png");
 			$release->setSynopsis("Lucia découvre que Hanon est aussi une siréne. Elle découvre aussi ce qu'il arrivera si elle tombe amoureuse d'un humain.");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryocu"), Role::getRole('verifFinale'));
@@ -1385,6 +1386,7 @@ class Release {
 			$release->setName("01");
 			$release->setLocalizedTitle("Shangai pourpre");
 			$release->setPreviewUrl("images/episodes/canaan1.jpg");
+			$release->setHeaderImage("images/sorties/canaan1.png");
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryocu"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
@@ -1397,6 +1399,7 @@ class Release {
 			$release = new Release(Project::getProject('canaan'), 'ep2');
 			$release->setName("02");
 			$release->setPreviewUrl("images/episodes/canaan2.jpg");
+			$release->setHeaderImage("images/sorties/lastcanaan2.png");
 			$release->setLocalizedTitle("Un jeu cruel");
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryocu"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
@@ -1415,6 +1418,7 @@ class Release {
 			$release = new Release(Project::getProject('canaan'), 'ep3');
 			$release->setName("03");
 			$release->setPreviewUrl("images/episodes/canaan3.jpg");
+			$release->setHeaderImage("images/sorties/lastcanaan3.png");
 			$release->setLocalizedTitle("Rien d'important");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
@@ -1441,6 +1445,7 @@ class Release {
 			$release = new Release(Project::getProject('canaan'), 'ep5');
 			$release->setName("05");
 			$release->setPreviewUrl("images/episodes/canaan5.jpg");
+			$release->setHeaderImage("images/sorties/lastcanaan5.png");
 			$release->setLocalizedTitle("Amies");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -1454,6 +1459,7 @@ class Release {
 			$release = new Release(Project::getProject('canaan'), 'ep6');
 			$release->setName("06");
 			$release->setPreviewUrl("images/episodes/canaan6.jpg");
+			$release->setHeaderImage("images/sorties/lastcanaan6.png");
 			$release->setLocalizedTitle("Love and Piece");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -1467,6 +1473,7 @@ class Release {
 			$release = new Release(Project::getProject('canaan'), 'ep7');
 			$release->setName("07");
 			$release->setPreviewUrl("images/episodes/canaan7.jpg");
+			$release->setHeaderImage("images/sorties/lastcanaan7.png");
 			$release->setLocalizedTitle("Pierre tombale");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryocu"), Role::getRole('tradEn'));
@@ -1481,6 +1488,7 @@ class Release {
 			$release = new Release(Project::getProject('canaan'), 'ep8');
 			$release->setName("08");
 			$release->setPreviewUrl("images/episodes/canaan8.jpg");
+			$release->setHeaderImage("images/sorties/lastcanaan8.png");
 			$release->setLocalizedTitle("Requête");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -1494,6 +1502,7 @@ class Release {
 			$release = new Release(Project::getProject('canaan'), 'ep9');
 			$release->setName("09");
 			$release->setPreviewUrl("images/episodes/canaan9.jpg");
+			$release->setHeaderImage("images/sorties/lastcanaan9.png");
 			$release->setLocalizedTitle("Fleurs du passé");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -1507,6 +1516,7 @@ class Release {
 			$release = new Release(Project::getProject('canaan'), 'ep10');
 			$release->setName("10");
 			$release->setPreviewUrl("images/episodes/canaan10.jpg");
+			$release->setHeaderImage("images/sorties/lastcanaan10.png");
 			$release->setLocalizedTitle("Fleurs du passé");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -1520,6 +1530,7 @@ class Release {
 			$release = new Release(Project::getProject('canaan'), 'ep11');
 			$release->setName("11");
 			$release->setPreviewUrl("images/episodes/canaan11.jpg");
+			$release->setHeaderImage("images/sorties/lastcanaan11.png");
 			$release->setLocalizedTitle("Pensées");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -1533,6 +1544,7 @@ class Release {
 			$release = new Release(Project::getProject('canaan'), 'ep12');
 			$release->setName("12");
 			$release->setPreviewUrl("images/episodes/canaan12.jpg");
+			$release->setHeaderImage("images/sorties/lastcanaan12.png");
 			$release->setLocalizedTitle("Train Saisonnier");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -1547,6 +1559,7 @@ class Release {
 			$release = new Release(Project::getProject('canaan'), 'ep13');
 			$release->setName("13");
 			$release->setPreviewUrl("images/episodes/canaan13.jpg");
+			$release->setHeaderImage("images/sorties/lastcanaan13.png");
 			$release->setLocalizedTitle("Terre d'espoir");
 			$release->addStaff(TeamMember::getMemberByPseudo("Pyra"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -1560,6 +1573,7 @@ class Release {
 			$release = new Release(Project::getProject('hyakko'), 'ep1');
 			$release->setName("01");
 			$release->setPreviewUrl("images/episodes/hyakko1.jpg");
+			$release->setHeaderImage("images/sorties/hyakko.jpg");
 			$release->setLocalizedTitle("Rencontre avec un tigre");
 			$release->setOriginalTitle("Aimamieru Torako");
 			$release->setSynopsis("Ayumu est à la recherche de sa salle de classe. Elle rencontre sur son chemin Tatsuki. en cherchant toutes les deux, elle voient Torako et Suzume sautant du deuxième étage d'une fenêtre. Après avoir rejoint le groupe, elles se dirige vers la salle de classe.");
@@ -1820,6 +1834,7 @@ class Release {
 			$release = new Release(Project::getProject('training'), 'oav');
 			$release->setName(null);
 			$release->setPreviewUrl("images/episodes/training.jpg");
+			$release->setHeaderImage("images/sorties/lasttraining.png");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
@@ -1831,6 +1846,7 @@ class Release {
 			$release = new Release(Project::getProject('sleeping'), 'oav');
 			$release->setName(null);
 			$release->setPreviewUrl("images/episodes/sleeping.jpg");
+			$release->setHeaderImage("images/sorties/lastsleeping.png");
 			$release->addStaff(TeamMember::getMemberByPseudo("Benjee"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('adapt'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -1843,6 +1859,7 @@ class Release {
 			$release = new Release(Project::getProject('kannagi'), 'ep1');
 			$release->setName("01");
 			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/01/01.jpg");
+			$release->setHeaderImage("images/sorties/lastkannagi.png");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/01/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/01/03.jpg" border="0" />
