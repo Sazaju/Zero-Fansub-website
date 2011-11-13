@@ -3,7 +3,7 @@
 	A news is a block of text giving actual information. A news contains the text
 	to display and some added data (image, author, date of writing, ...).
 */
-
+// TODO separate in a News (data) + NewsComponent (HTML)
 class News extends SimpleBlockComponent {
 	private $title = null;
 	private $date = null;
@@ -34,6 +34,7 @@ class News extends SimpleBlockComponent {
 		$this->message = new SimpleTextComponent();
 		$this->message->setClass("message");
 		$this->addComponent($this->message);
+		
 		$this->addComponent(new Pin());
 		
 		$this->commentAccess = new SimpleTextComponent();

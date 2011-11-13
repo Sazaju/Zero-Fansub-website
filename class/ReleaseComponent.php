@@ -4,6 +4,8 @@
 */
 class ReleaseComponent extends SimpleBlockComponent {
 	public function __construct(Release $release) {
+		$this->addComponent(new Anchor($release->getID()));
+		
 		$title = ucfirst($release->getName());
 		if ($release->getProject() !== null) {
 			$title = $release->getProject()->getName().($title == null ? null : " - ".$title);
@@ -20,7 +22,6 @@ class ReleaseComponent extends SimpleBlockComponent {
 			
 			$releaseContent = new SimpleBlockComponent();
 			$releaseContent->setID($release->getID());
-			$releaseContent->setStyle("display:none;");
 			$releaseContent->setClass("content");
 			$this->addComponent($releaseContent);
 			
@@ -96,6 +97,10 @@ class ReleaseComponent extends SimpleBlockComponent {
 			}
 			
 			$releaseContent->addComponent(new Pin());
+			
+			if (!isset($_GET['show']) || strstr($_GET['show'], $release->getID()) === false) {
+				$releaseContent->addComponent("<script language='javascript'>show('".$release->getID()."');</script>");
+			}
 		}
 		else {
 			$this->setClass("notReleased");
