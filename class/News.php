@@ -12,6 +12,8 @@ class News extends SimpleBlockComponent {
 	private $message = null;
 	private $commentAccess = null;
 	private $twitterUrl = null;
+	private $releasesOut = array();
+	private $licensesOut = array();
 	
 	public function __construct() {
 		$this->setClass("news");
@@ -32,6 +34,7 @@ class News extends SimpleBlockComponent {
 		$this->message = new SimpleTextComponent();
 		$this->message->setClass("message");
 		$this->addComponent($this->message);
+		$this->addComponent(new Pin());
 		
 		$this->commentAccess = new SimpleTextComponent();
 		$this->commentAccess->setClass("comment");
@@ -134,9 +137,44 @@ class News extends SimpleBlockComponent {
 		return $this->twitterUrl->getUrl();
 	}
 	
+	public function addReleasing($target) {
+		// /!\ can be a release or a project (if a complete project is released)
+		if ($target != null) {
+			$this->releasesOut[] = $target;
+		}
+	}
+	
+	public function getReleasing() {
+		return $this->releasesOut;
+	}
+	
+	public function isReleasing() {
+		return count($this->releasesOut) > 0;
+	}
+	
+	public function addLicensing($target) {
+		// /!\ can be a release or a project (if a complete project is licensed)
+		if ($target != null) {
+			$this->licensesOut[] = $target;
+		}
+	}
+	
+	public function getLicensing() {
+		return $this->licensesOut;
+	}
+	
+	public function isLicensing() {
+		return count($this->licensesOut) > 0;
+	}
+	
 	private static $allNews = null;
 	public static function getAllNews() {
 		if (News::$allNews === null) {
+			$news = new News();
+			$news->setTitle("Besoin de timeurs !");
+			$news->setTimestamp(strtotime("11 October 2011"));
+			$news->setAuthor(TeamMember::getMember(5));
+			$news->setCommentId(273);
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine("Allez on enchaÓne les news, la motivation est l‡... Mais elle va peut-Ítre pas durer...");
 			$newsMessage->addLine();
@@ -147,15 +185,16 @@ class News extends SimpleBlockComponent {
 			$newsMessage->addLine("On embauche des timeurs ! On n'en a pas assez et du coup chacun essaye de faire pour avoir un time ‡ peu prËs correcte... Mais ce n'est pas la mÍme chose quand quelqu'un s'y met ‡ plein temps. C'est quelque chose qui nous ralentis beaucoup car, mÍme si ce n'est pas difficile, Áa demande du temps pour faire quelque chose de bien (en tout cas pour suivre notre charte qualitÈ {^_^}). On a les outils, les connaissances, il ne manque plus que les personnes motivÈes !");
 			$newsMessage->addLine();
 			$newsMessage->addLine("Si vous Ítes interessÈs, les candidatures sont ouvertes (cliquez sur <b>Recrutement</b> dans le menu ‡ gauche) ! Si vous Ítes soucieux du dÈtail au point d'en faire chier vos amis, c'est un plus ! Oui on est des vrai SM ‡ la ZÈro {>.<}.");
-			
-			$news = new News();
-			$news->setTitle("Besoin de timeurs !");
-			$news->setTimestamp(strtotime("11 October 2011"));
-			$news->setAuthor(TeamMember::getMember(5));
-			$news->setCommentId(273);
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Kodomo no Jikan - Du neuf et du moins neuf");
+			$news->setTimestamp(strtotime("10 October 2011"));
+			$news->setAuthor(TeamMember::getMember(8));
+			$news->setCommentId(272);
+			$news->addReleasing(Project::getProject('kodomooav'));
+			$news->addReleasing(Project::getProject('kodomofilm'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/news/pedobear.jpg", "Pedobear"));
 			$newsMessage->addLine();
@@ -165,15 +204,17 @@ class News extends SimpleBlockComponent {
 			$newsMessage->addLine("<small>Sazaju: Hein ? Quoi !? {'O_O}</small>");
 			$newsMessage->addLine();
 			$newsMessage->addLine("Bon matage et ‡ bientÙt pour la suite de Mitsudomoe.");
-			
-			$news = new News();
-			$news->setTitle("Kodomo no Jikan - Du neuf et du moins neuf");
-			$news->setTimestamp(strtotime("10 October 2011"));
-			$news->setAuthor(TeamMember::getMember(8));
-			$news->setCommentId(272);
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Nouvelles sorties, nouveaux projets, nouveaux bugs...");
+			$news->setTimestamp(strtotime("26 September 2011"));
+			$news->setAuthor(TeamMember::getMember(5));
+			$news->setCommentId(271);
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep4'));
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep5'));
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep6'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine("Bon... par o˘ commencer... Dur dur, surtout que le moins rÈjouissant c'est pour ma pomme {'^_^}. En plus j'ai pas d'image pour vous, vous allez morfler. Alors allons-y gaiement !");
 			$newsMessage->addLine(); // TODO replace double lines by CSS
@@ -184,206 +225,399 @@ class News extends SimpleBlockComponent {
 			$newsMessage->addLine("Allez, mangez doucement, Áa se dÈguste les animes (purÈe j'ai la dalle maintenant {'>.<}). Cela dit, si vous en voulez encore, on a un bon dessert tout droit sorti du restau : Working!! fait dÈsormais partie de nos futurs projets ! Certains doivent se dire qu'il y ont dÈj‡ go˚tÈ ailleurs... Mais non ! Parce que vous aurez droit aux deux saisons {^o^}v. Tout le monde le sait (surtout dans le Sud de la France), quand on a bien mangÈ, une sieste s'impose. Vous pourrez donc rejoindre la fille aux ondes dans son futon : Denpa Onna to Seishun Otoko vient aussi allonger la liste de nos projets ! On dit mÍme qu'un projet mystËre se faufile entre les membres de l'Èquipe...");
 			$newsMessage->addLine();
 			$newsMessage->addLine("Pour terminer, un petit mot sur notre charte qualitÈ. Nous avons dÈcidÈ de ne plus sortir de releases issues d'une version TV, mais de ne faire que des Blu-Ray. Bien entendu, on fera toujours attention aux petites connexions : nos encodeurs travaillent d'arrache pied pour vous fournir la meilleure vidÈo dans le plus petit fichier. J'espËre donc que vous apprÈcierez la qualitÈ de nos futurs Èpisodes {^_^} (et que vous n'aurez pas trop de pages boguÈes {'-.-}).");
-			
-			$news = new News();
-			$news->setTitle("Nouvelles sorties, nouveaux projets, nouveaux bugs...");
-			$news->setTimestamp(strtotime("26 September 2011"));
-			$news->setAuthor(TeamMember::getMember(5));
-			$news->setCommentId(271);
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
-			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine(new Image("images/news/hito1.jpg", "Hitohira"));
-			$newsMessage->addLine();
-			$newsMessage->addLine("Sortie de Hitohira, la s&eacute;rie compl&egrave;te, 12 &eacute;pisodes d'un coup !");
-			$newsMessage->addLine();
-			$newsMessage->addLine(new Image("images/news/hito2.jpg", "Hitohira"));
-			
 			$news = new News();
-			$news->setTitle("Hitohira - S&eacute;rie compl&egrave;te");
+			$news->setTitle("Hitohira - SÈrie complËte");
 			$news->setTimestamp(strtotime("14 August 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(270);
+			$news->addReleasing(Project::getProject('hitohira'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/news/hito1.jpg", "Hitohira"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("Sortie de Hitohira, la sÈrie complËte, 12 Èpisodes d'un coup !");
+			$newsMessage->addLine();
+			$newsMessage->addLine(new Image("images/news/hito2.jpg", "Hitohira"));
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
-			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine(new Image("images/episodes/mitsudomoe3.jpg", "Mitsudomoe"));
-			$newsMessage->addLine();
-			$newsMessage->addLine("Sortie de l'&eacute;pisode 03 de Mitsudomoe.");
-			
 			$news = new News();
 			$news->setTitle("Mitsudomoe 03");
 			$news->setTimestamp(strtotime("05 August 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(269);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Mitsudomoe 03 chez Z%C3%A9ro fansub !");
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep3'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/episodes/mitsudomoe3.jpg", "Mitsudomoe"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("Sortie de l'Èpisode 03 de Mitsudomoe.");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
-			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine(new Image("images/series/toradorasos.jpg", "Toradora SOS"));
-			$newsMessage->addLine();
-			$newsMessage->addLine("4 mini OAV d&eacute;lirants sur la bouffe, avec les personnages en taille r&eacute;duite.");
-			$newsMessage->addLine("C'est de la superproduction ^_^");
-			
 			$news = new News();
-			$news->setTitle("Toradora! SOS - S&eacute;rie compl&egrave;te 4 OAV");
+			$news->setTitle("Toradora! SOS - SÈrie complËte 4 OAV");
 			$news->setTimestamp(strtotime("26 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(268);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Toradora! SOS chez Zero fansub !");
+			$news->addReleasing(Project::getProject('toradorasos'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/series/toradorasos.jpg", "Toradora SOS"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("4 mini OAV dÈlirants sur la bouffe, avec les personnages en taille rÈduite.");
+			$newsMessage->addLine("C'est de la superproduction ^_^");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
-			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine(new Image("images/news/bath.jpg", "Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko"));
-			$newsMessage->addLine();
-			$newsMessage->addLine("Nous avons appris qu'Ankama va diffuser &agrave; partir de la rentr&eacute;e de septembre 2011 :");
-			$newsMessage->addLine("Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc &eacute;t&eacute; retir&eacute;s.");
-			$newsMessage->addLine("On vous invite &agrave; cesser la diffusion de nos liens et &agrave; aller regarder la s&eacute;rie sur leur site.");
-			$newsMessage->addLine();
-			$newsMessage->addLine("Sorties d'Isshoni Training Ofuro : Bathtime with Hinako & Hiyoko");
-			$newsMessage->addLine();
-			$newsMessage->addLine("3e volet des \"isshoni\", on apprend comment les Japonaises prennent leur bain, tr&egrave;s int&eacute;ressant...");
-			$newsMessage->addLine("Avec en bonus, une petite s&eacute;ance de stretching...");
-			$newsMessage->addLine();
-			$newsMessage->addLine("Je ne sais pas s'il y aura une suite, mais si oui, je devine un peu le genre ^_^");
-			
 			$news = new News();
 			$news->setTitle("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
 			$news->setTimestamp(strtotime("23 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(267);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Isshoni Training Ofuro chez Zero fansub !");
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/news/bath.jpg", "Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("Nous avons appris qu'Ankama va diffuser &agrave; partir de la rentrÈe de septembre 2011 :");
+			$newsMessage->addLine("Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc ÈtÈ retirÈs.");
+			$newsMessage->addLine("On vous invite &agrave; cesser la diffusion de nos liens et &agrave; aller regarder la sÈrie sur leur site.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Sorties d'Isshoni Training Ofuro : Bathtime with Hinako & Hiyoko");
+			$newsMessage->addLine();
+			$newsMessage->addLine("3e volet des \"isshoni\", on apprend comment les Japonaises prennent leur bain, trËs intÈressant...");
+			$newsMessage->addLine("Avec en bonus, une petite sÈance de stretching...");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Je ne sais pas s'il y aura une suite, mais si oui, je devine un peu le genre ^_^");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
-			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine(new Image("images/news/m1.jpg", "Mitsudomoe"));
-			$newsMessage->addLine();
-			$newsMessage->addLine("Nous avons urgemment besoin d'un trad pour Mitsudomoe !!");
-			$newsMessage->addLine("S'il vous pla&icirc;t, piti&eacute; xD");
-			$newsMessage->addLine("Notre edit s'impatiente et ne peux continuer la s&eacute;rie, alors aidez-nous ^_^");
-			$newsMessage->addLine("C'est pas souvent qu'on demande du renfort, mais l&agrave;, c'est devenu indispensable...");
-			$newsMessage->addLine("Nous avons perdu un trad r&eacute;cemment, il ne nous en reste plus qu'un... et comble de malheur,  il n'a pas accroch&eacute; &agrave; la s&eacute;rie, mais je le remercie pour avoir quand m&ecirc;me traduit deux &eacute;pisodes pour nous d&eacute;panner.");
-			$newsMessage->addComponent("Des petits cours sont dispos ici : ");
-			$link = new Link("http://forum.zerofansub.net/f221-Cours-br.htm", "Lien");
-			$link->openNewWindow(true);
-			$newsMessage->addComponent($link);
-			$newsMessage->addLine(".");
-			$newsMessage->addLine();
-			$newsMessage->addComponent("Pour postuler, faites une candidatures &agrave; l'&eacute;cole : ");
-			$link = new Link("http://ecole.zerofansub.net/?page=postuler", "Lien");
-			$link->openNewWindow(true);
-			$newsMessage->addComponent($link);
-			$newsMessage->addLine(".");
-			$newsMessage->addLine();
-			$newsMessage->addLine(new Image("images/news/m2.jpg", "Mitsudomoe"));
-			
 			$news = new News();
 			$news->setTitle("Recrutement traducteur");
 			$news->setTimestamp(strtotime("04 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(266);
 			$news->setTwitterUrl("http://twitter.com/home?status=Zero recherche un traducteur");
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/news/m1.jpg", "Mitsudomoe"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("Nous avons urgemment besoin d'un trad pour Mitsudomoe !!");
+			$newsMessage->addLine("S'il vous pla&icirc;t, pitiÈ xD");
+			$newsMessage->addLine("Notre edit s'impatiente et ne peux continuer la sÈrie, alors aidez-nous ^_^");
+			$newsMessage->addLine("C'est pas souvent qu'on demande du renfort, mais l&agrave;, c'est devenu indispensable...");
+			$newsMessage->addLine("Nous avons perdu un trad rÈcemment, il ne nous en reste plus qu'un... et comble de malheur,  il n'a pas accrochÈ &agrave; la sÈrie, mais je le remercie pour avoir quand m&ecirc;me traduit deux Èpisodes pour nous dÈpanner.");
+			$newsMessage->addComponent("Des petits cours sont dispos ici : ");
+			$link = new Link("http://forum.zerofansub.net/f221-Cours-br.htm", "Lien");
+			$link->openNewWindow(true);
+			$newsMessage->addComponent($link);
+			$newsMessage->addLine(".");
+			$newsMessage->addLine();
+			$newsMessage->addComponent("Pour postuler, faites une candidatures &agrave; l'Ècole : ");
+			$link = new Link("http://ecole.zerofansub.net/?page=postuler", "Lien");
+			$link->openNewWindow(true);
+			$newsMessage->addComponent($link);
+			$newsMessage->addLine(".");
+			$newsMessage->addLine();
+			$newsMessage->addLine(new Image("images/news/m2.jpg", "Mitsudomoe"));
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
+			$news = new News();
+			$news->setTitle("Kannagi - SÈrie complËte");
+			$news->setTimestamp(strtotime("19 June 2011"));
+			$news->setAuthor(TeamMember::getMember(1));
+			$news->setCommentId(264);
+			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Kannagi serie complete chez Zero fansub !");
+			$news->addReleasing(Project::getProject('kannagi'));
 			$newsMessage = new SimpleTextComponent();
 			$link = new Link("http://zerofansub.net/galerie/gal/Zero_fansub/Images/Kannagi/%5BZero%5DKannagi_Image63.jpg", new Image("images/news/kannagi.jpg", "Kannagi"));
 			$link->openNewWindow(true);
 			$newsMessage->addLine($link);
 			$newsMessage->addLine();
 			$newsMessage->addLine("Bonjour les amis !");
-			$newsMessage->addLine("La s&eacute;rie Kannagi est termin&eacute;e !");
-			$newsMessage->addLine("J&#039;&eacute;sp&egrave;re qu&#039;elle vous plaira.");
-			$newsMessage->addLine("N&#039;h&eacute;sitez pas &agrave; nous dire ce que vous en pensez dans les commentaires. C&#039;est en apprenant de ses erreurs qu&#039;on avance, apr&egrave;s tout ;)");
+			$newsMessage->addLine("La sÈrie Kannagi est terminÈe !");
+			$newsMessage->addLine("J&#039;ÈspËre qu&#039;elle vous plaira.");
+			$newsMessage->addLine("N&#039;hÈsitez pas &agrave; nous dire ce que vous en pensez dans les commentaires. C&#039;est en apprenant de ses erreurs qu&#039;on avance, aprËs tout ;)");
 			$newsMessage->addLine();
-			$newsMessage->addLine("P.S.: Les karaok&eacute;s sont nuls. D&eacute;sol&eacute;e !");
-			
-			$news = new News();
-			$news->setTitle("Kannagi - S&eacute;rie compl&egrave;te");
-			$news->setTimestamp(strtotime("19 June 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
-			$news->setCommentId(264);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Kannagi serie complete chez Zero fansub !");
+			$newsMessage->addLine("P.S.: Les karaokÈs sont nuls. DÈsolÈe !");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
-			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine(new Image("images/news/mitsu0102.jpg", "Mitsudomoe"));
-			$newsMessage->addLine();
-			$newsMessage->addLine("Bonjour les amis !");
-			$newsMessage->addLine("Apr&egrave;s des mois d'attente, les premiers &eacute;pisodes de Mitsudomoe sont enfin disponibles !");
-			$newsMessage->addLine("Quelques petits changements dans notre fa&ccedil;on de faire habituelle, on attend vos retours avec impatience ;)");
-			
 			$news = new News();
 			$news->setTitle("Mitsudomoe 01 + 02");
 			$news->setTimestamp(strtotime("27 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(263);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Mitsudomoe 01 + 02 chez Zero fansub !");
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep1'));
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep2'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/news/mitsu0102.jpg", "Mitsudomoe"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("Bonjour les amis !");
+			$newsMessage->addLine("AprËs des mois d'attente, les premiers Èpisodes de Mitsudomoe sont enfin disponibles !");
+			$newsMessage->addLine("Quelques petits changements dans notre fa&ccedil;on de faire habituelle, on attend vos retours avec impatience ;)");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
-			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine(new Image("images/news/tayutamapure.jpg", "Tayutama ~ Kiss on my Deity ~ Pure my Heart ~"));
-			$newsMessage->addLine();
-			$newsMessage->addLine("On continue dans les s&eacute;ries compl&egrave;tes avec cette fois-ci la petite s&eacute;rie de 6 OAV qui fait suite &agrave; la s&eacute;rie Tayutama ~ Kiss on my Deity : les 'Pure my Heart'. Ils sont assez courts mais plut&ocirc;t dr&ocirc;le alors amusez-vous bien !");
-			
 			$news = new News();
-			$news->setTitle("Tayutama ~ Kiss on my Deity ~ Pure my Heart ~ - S&eacute;rie compl&egrave;te 6 OAV");
+			$news->setTitle("Tayutama ~ Kiss on my Deity ~ Pure my Heart ~ - SÈrie complËte 6 OAV");
 			$news->setTimestamp(strtotime("15 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(262);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Tayutama Kiss on my Deity Pure my Heart serie complete chez Zero fansub !");
+			$news->addReleasing(Project::getProject('tayutamapure'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/news/tayutamapure.jpg", "Tayutama ~ Kiss on my Deity ~ Pure my Heart ~"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("On continue dans les sÈries complËtes avec cette fois-ci la petite sÈrie de 6 OAV qui fait suite &agrave; la sÈrie Tayutama ~ Kiss on my Deity : les 'Pure my Heart'. Ils sont assez courts mais plut&ocirc;t dr&ocirc;le alors amusez-vous bien !");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
-			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine(new Image("images/series/potemayooav.jpg", "Potemayo"));
-			$newsMessage->addLine();
-			$newsMessage->addLine("Petit bonjour !");
-			$newsMessage->addLine("Dans la suite de la s&eacute;rie Potemayo, voici la petite s&eacute;rie d'OAV. Au nombre de 6, ils sont disponibles en versions basses qialit&eacute; uniquement puisqu'ils ne sont pas sortis dans un autre format. D&eacute;sol&eacute;e !");
-			$newsMessage->addLine("Amusez-vous bien !");
-			
 			$news = new News();
-			$news->setTitle("Potemayo OAV - S&eacute;rie compl&egrave;te");
+			$news->setTitle("Potemayo OAV - SÈrie complËte");
 			$news->setTimestamp(strtotime("11 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(261);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !");
+			$news->addReleasing(Project::getProject('potemayooav'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/series/potemayooav.jpg", "Potemayo"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("Petit bonjour !");
+			$newsMessage->addLine("Dans la suite de la sÈrie Potemayo, voici la petite sÈrie d'OAV. Au nombre de 6, ils sont disponibles en versions basses qialitÈ uniquement puisqu'ils ne sont pas sortis dans un autre format. DÈsolÈe !");
+			$newsMessage->addLine("Amusez-vous bien !");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 
+			$news = new News();
+			$news->setTitle("Potemayo - SÈrie complËte entiÈrement refaite");
+			$news->setTimestamp(strtotime("08 May 2011"));
+			$news->setAuthor(TeamMember::getMember(1));
+			$news->setCommentId(261);
+			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !");
+			$news->addReleasing(Project::getProject('potemayo'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/series/potemayo.jpg", "Potemayo"));
 			$newsMessage->addLine();
 			$newsMessage->addLine("Bonjour le monde !");
 			$newsMessage->addLine();
-			$newsMessage->addLine("Tout comme pour Kujibiki Unbalance 2, nous avons enti&egrave;rement refait la s&eacute;rie Potemayo. Pour ceux qui suivaient la s&eacute;rie, seule les versions avi en petit format &eacute;taient disponible puisque c&#039;etait le format qu&#039;utilisait Kirei no Tsubasa, l&#039;&eacute;quipe qui nous a l&eacute;gu&eacute; le projet.");
+			$newsMessage->addLine("Tout comme pour Kujibiki Unbalance 2, nous avons entiËrement refait la sÈrie Potemayo. Pour ceux qui suivaient la sÈrie, seule les versions avi en petit format Ètaient disponible puisque c&#039;etait le format qu&#039;utilisait Kirei no Tsubasa, l&#039;Èquipe qui nous a lÈguÈ le projet.");
 			$newsMessage->addLine();
-			$newsMessage->addLine("Du coup, la s&eacute;rie compl&egrave;te a &eacute;t&eacute; r&eacute;envod&eacute;e et on en a profit&eacute; pour ajouter quelques am&eacute;liorations.");
+			$newsMessage->addLine("Du coup, la sÈrie complËte a ÈtÈ rÈenvodÈe et on en a profitÈ pour ajouter quelques amÈliorations.");
 			$newsMessage->addLine();
-			$newsMessage->addLine("Rendez-vous page 'Projet' sur le site pour t&eacute;l&eacute;charger les 12 &eacute;pisodes !");
+			$newsMessage->addLine("Rendez-vous page 'Projet' sur le site pour tÈlÈcharger les 12 Èpisodes !");
 			$newsMessage->addLine();
-			$newsMessage->addLine("Et n&#039;oubliez pas : si vous avez une remarque, une question ou quoi que ce soit &agrave; nous dire, utilisez le syst&egrave;me de commentaires ! Nous vous r&eacute;pondrons avec plaisir.");
+			$newsMessage->addLine("Et n&#039;oubliez pas : si vous avez une remarque, une question ou quoi que ce soit &agrave; nous dire, utilisez le systËme de commentaires ! Nous vous rÈpondrons avec plaisir.");
 			$newsMessage->addLine();
-			$newsMessage->addLine("Bons &eacute;pisodes, &agrave; tr&egrave;s bient&ocirc;t pour les 6 OAV suppl&eacute;mentaires Potemayo... et un petit bonjour &agrave; toi aussi !");
-			
+			$newsMessage->addLine("Bons Èpisodes, &agrave; trËs bient&ocirc;t pour les 6 OAV supplÈmentaires Potemayo... et un petit bonjour &agrave; toi aussi !");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+
 			$news = new News();
-			$news->setTitle("Potemayo - S&eacute;rie compl&egrave;te enti&eacute;rement refaite");
-			$news->setTimestamp(strtotime("08 May 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
-			$news->setCommentId(261);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !");
+			$news->setTitle("Kujibiki Unbalance 2 - SÈrie complËte entiÈrement refaite");
+			$news->setTimestamp(strtotime("02 May 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(260);
+			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Kujibiki Unbalance 2 serie complete chez Zero Fansub !");
+			$news->addReleasing(Project::getProject('kujibiki'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new AutoFloatImage("images/news/kujiend.jpg", "Kujibiki Unbalance 2"));
+			$newsMessage->addLine("La s&eacute;rie Kujibiki Unbalance 2 a enti&eacute;rement &eacute;t&eacute; refaite !");
+			$newsMessage->addLine("Les polices illisibles ont &eacute;t&eacute; chang&eacute;es, les panneaux stylis&eacute;s ont &eacute;t&eacute; refait, la traduction a &eacute;t&eacute; revue, bref, une jolie s&eacute;rie compl&egrave;te vous attend !");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Pour t&eacute;l&eacute;charger les &eacute;pisodes, c'est comme d'habitude :");
+			$newsMessage->addLine("- Page projet, liens DDL,");
+			$newsMessage->addLine("- Sur notre tracker Torrent (restez en seed !)");
+			$newsMessage->addLine("- Sur le XDCC de notre chan irc (profitez-en pour nous dire bonjour :D)");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Petite info importante :");
+			$newsMessage->addLine("Cette s&eacute;rie est comp&eacute;tement ind&eacute;pendante, n'a rien a voir avec la premi&eacute;re saison de Kujibiki Unbalance ni avec la s&eacute;rie Genshiken et il n'est pas n&eacute;cessaire d'avoir vu celles-ci pour appr&eacute;cier cette petite s&eacute;rie.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Si vous avez aim&eacute; la s&eacute;rie, si vous avez des remarques &agrave; nous faire ou autre, n'h&eacute;sitez pas &agrave; nous en faire part ! (Commentaires, Forum, Mail, IRC, ...)");
+			$newsMessage->addLine();
+			$newsMessage->addLine("&Agrave; tr&eacute;s bient&ocirc;t pour Potemayo !");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+
+			$news = new News();
+			$news->setTitle("Kodomo no Natsu Jikan");
+			$news->setTimestamp(strtotime("11 April 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(259);
+			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Kodomo no Natsu Jikan chez Zero fansub !");
+			$news->addReleasing(Project::getProject('kodomonatsu'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/news/kodomonatsu1.jpg", "Kujibiki Unbalance 2"));
+			$newsMessage->addLine("Rin, Kuro et Mimi sont de retour dans un OAV Sp&eacute;cial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'&eacute;t&eacute;, en vacances avec Aoki et Houin.");
+			$newsMessage->addLine();
+			$newsMessage->addLine(new Image("images/news/kodomonatsu2.jpg", "Kujibiki Unbalance 2"));
+			$newsMessage->addLine(new Image("images/news/kodomonatsu3.jpg", "Kujibiki Unbalance 2"));
+			$newsMessage->addLine(new Image("images/news/kodomonatsu4.jpg", "Kujibiki Unbalance 2"));
+			$newsMessage->addLine(new Image("images/news/kodomonatsu5.jpg", "Kujibiki Unbalance 2"));
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+
+			$news = new News();
+			$news->setTitle("Licence de L&#039;entrainement avec Hinako + Sortie de Akina To Onsen et Faisons l'amour ensemble &eacute;pisode 05");
+			$news->setTimestamp(strtotime("08 March 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setCommentId(252);
+			$news->setTwitterUrl("http://twitter.com/home?status=Deux hentai : Akina To Onsen et Issho ni H shiyo chez Zero fansub !");
+			$news->addReleasing(Project::getProject('akinahshiyo'));
+			$news->addReleasing(Release::getRelease('hshiyo', 'ep5'));
+			$news->addLicensing(Project::getProject('training'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new AutoFloatImage("images/news/issho5.jpg", "Akina To Onsen De H Shiyo"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("Dans la suite de notre reprise tant attendue, on ne rel&#226;che pas le rythme ! Apr&#232;s la sortie d'un genre classique chez Z&#233;ro, on poursuit avec l'une de nos sp&#233;cialit&#233;s : <i>Faisons l'amour ensemble</i> revient en force avec un nouvel &#233;pisode (de quoi combler les d&#233;&#231;us du 4e opus) et un &#233;pisode bonus !");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Tout d'abord, ce 5e &#233;pisode nous sort le grand jeu : la petite s&#339;ur est dans la place ! Apr&#232;s plusieurs ann&#233;es sans nouvelles de son grand fr&#232;re, voil&#224; qu'elle a bien grandi et d&#233;cide donc de taper l'incruste. Voil&#224; une bonne occasion de faire le m&#233;nage (les filles sont dou&#233;es pour &#231;a {^.^}~). &#192; la suite de quoi une bonne douche s'impose... Et si on la prenait ensemble comme au bon vieux temps, <i>oniichan</i> ?");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Pour ceux qui auraient encore des r&#233;serves (faut dire qu'on vous a donn&#233; le temps pour {^_^}), un &#233;pisode bonus aux sources chaudes vous attend ! Akina, cette jeune demoiselle du premier &#233;pisode, revient nous saluer avec son charme g&#233;n&#233;reux et son c&#244;t&#233; ivre toujours aussi mignon. Vous en d&#233;gusterez bien un morceau apr&#232;s le bain, non ?");
+			$newsMessage->addLine();
+			$newsMessage->addLine(new Image("images/series/akinahshiyo.jpg", "Akina To Onsen De H Shiyo"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("db0 dit : Et pour finir, une nouvelle assez inattendue : La licence de L'entra&#238;nement avec Hinako chez Kaze. On vous tiendra au courant quand le DVD sortira.");
+			$newsMessage->addLine();
+			$newsMessage->addLine(new Image("images/news/training.gif", "Isshoni Training"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("En parlant de Kaze, j'ai re&#231;u hier par la poste le Blu-ray de Canaan chez Kaze. Vous avez aim&#233; la s&#233;rie ? Faites comme moi, achetez-le !");
+			$newsMessage->addLine();
+			$newsMessage->addLine(new Image("images/news/canaanli.jpg", "DVD canaan buy kaze"));
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+
+			$news = new News();
+			$news->setTitle("Issho Ni H Shiyo OAV 04 - Fin !");
+			$news->setTimestamp(strtotime("13 July 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setCommentId(237);
+			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Issho Ni H Shiyo OAV 04 - Fin ! http://zerofansub.net/");
+			$news->addReleasing(Release::getRelease('hshiyo', 'ep4'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new AutoFloatImage("images/news/hshiyonew.png", "Issho ni H Shiyo oav  4 fin de la serie interdit aux moins de 18 ans."));
+			$newsMessage->addLine();
+			$newsMessage->addLine("D√©ception intense ! Apr√®s de jolis √©pisodes, c'est avec regret que je vous annonce la sortie de ce quatri√®me et dernier opus, qui retombe dans de banals st√©r√©otypes H sans une once d'originalit√© ni de qualit√© graphique : gros seins surr√©alistes, personnages pr√©visibles √† souhaits, et comble du comble un final √† la \"je jouis mais faisons pour que √ßa n'en ait pas l'air\" ! Alors que les √©pisodes pr√©c√©dents nous offraient de somptueux ralentis et des mouvements de corps langoureux pour un plaisir savour√© jusqu'√† la derni√®re goutte, ce dernier √©pisode nous marquera (h√©las) par sa simplicit√© grotesque et son manque de plaisir √©vident.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Mais r√©jouissez-vous ! La s√©rie √©tant finie, nous n'aurons plus l'occasion d'assister √† une autre erreur mettant en doute la qualit√© de cette derni√®re : les plus pointilleux pourront sauvagement se dess√©cher sur les pr√©c√©dents √©pisodes sans jamais voir le dernier, alors que ceux qui auront piti√© de notre travail pourront gaspiller leur bande passante √† t√©l√©charger le torchon qui sert de final √† cette s√©rie qui ne le m√©rite pourtant pas.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Merci √† tous de nous avoir suivi sur cette s√©rie, et je vous souhaite tout le plaisir du monde √† sauvegarder votre temps en revisionnant un des √©pisodes pr√©c√©dents plut√¥t que celui-ci {^_^}.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+
+			$news = new News();
+			$news->setTitle("KissXsis 03");
+			$news->setTimestamp(strtotime("24 June 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(233);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep3'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/news/kissxsis3news.jpg", "KissXsis kiss x sis DVD Blu-Ray Jaquette"));
+			$newsMessage->addLine("On peut dire qu'il s'est fait attendre cet √©pisode...");
+			$newsMessage->addLine("Mais le voil√† enfin, et c'est tout ce qui compte.");
+			$newsMessage->addLine("Vous devez vous demander ce qu'il advient de notre annonce de sortie une semaine/un √©pisode pour kissxsis.");
+			$newsMessage->addLine("Vous avez remarqu√© que c'est un echec. Pourquoi ? Les √©pisodes s'av√®rent bien plus longs √† r√©aliser que pr√©vu si on souhaite continuer √† vous fournir la meilleure qualit√© possible. De plus, j'√©tais dans ma p√©riode de fin d'ann√©e scolaire et j'ai d√ª mettre de c√¥t√© nos ch√®res soeurs jumelles pour √™tre s√ªre de passer en ann√©e sup√©rieure...!");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Une nouvelle qui ne vous fera peut-√™tre pas plaisir, mais qui j'√©sp√®re ne vous d√©couragera pas de mater les soeurettes un peu plus tard : Nous avons l'intention d'attendre la sortie des Blu-Ray des autres √©pisodes avant de continuer KissXsis. La qualit√© des vid√©os sera meilleure, il y aura moins de censure, plus de d√©tails, bref, plus de plaisir !<br />
+Le premier Blu-Ray contenant les 3 premiers √©pisodes vient tout juste de sortir et nous sortirons bient√¥t des nouvelles versions de ces trois premiers. Croyez-moi, √ßa en vaut la peine. Vous ne me croyiez pas ? <a href='http://www.sankakucomplex.com/2010/06/24/kissxsis-erotic-climax-dvd-ero-upgrades-highly-salacious/' target='_blank'>Petit lien</a>.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Et pour ne pas parler que de KissXsis, sachez qu'une petite surprise que je vous ai personnellement concoct√© devrait bient√¥t sortir...<br />
+En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian en attendant les Blu-Ray de KissXsis et boucler certains vieux projets comme Sketchbook, Kodomo no Jikan (le film) ou Tayutama.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("En ce qui concerne l'√©cole du fansub, elle va tr√®s bien et le nombre d'√©l√®ve augmente chaque jour, les exercices et les cours aussi ! Si vous √™tes int√©r√©ss√©s, vous savez o√π nous trouver : sur le forum Z√©ro fansub.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Bonne chance √† ceux qui sont en examens, et que ceux qui sont en vacances en profite bien. Moi, je suis en vacances :p");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+
+			$news = new News();
+			$news->setTitle("Mitsudomoe, Bande-Annonce");
+			$news->setTimestamp(strtotime("15 June 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(231);
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep0'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine('<object width="550" height="309"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=12592506&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ffffff&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=12592506&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ffffff&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="550" height="309"></embed></object>');
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+
+			$news = new News();
+			$news->setTitle("Kiss X Sis TV 02");
+			$news->setTimestamp(strtotime("04 May 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(228);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep2'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/news/kissxsis2.jpg"));
+			$newsMessage->addLine("Ako et Riko ne laisseront pas Keita rater ses examens ! Ako dÈcident donc de donner des cours particulier ‡ Keita.");
+			$newsMessage->addLine("Ils y resteront trËs sages et se contenteront d'apprendre sagement l'anglais, l'histoire et les maths. C'est tout.");
+			$newsMessage->addLine("Vous vous attendiez ‡ autre chose, peut-Ítre ?");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+
+			$news = new News();
+			$news->setTitle("Kiss X Sis TV 01");
+			$news->setTimestamp(strtotime("17 April 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(225);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep1'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new Image("images/news/newskissxsis1.jpg"));
+			$newsMessage->addLine("Yo !");
+			$newsMessage->addLine("Ako et Riko sont ENFIN de retour, cette fois-ci dans une sÈrie complËte.");
+			$newsMessage->addLine("Il y aura donc plus de scÈnario, mais toujours autant de ecchi.");
+			$newsMessage->addLine("C'est bien une suite des OAV, mais il n'est pas nÈcÈssaire des les avoir vus pour suivre la sÈrie.");
+			$newsMessage->addLine("J'ai essayÈ de faire des jolis karaokÈs, alors chantez !! (Et envoyez les vidÈos)");
+			$newsMessage->addLine("¿ trËs vite pour l'Èpisode 2.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+
+			$news = new News();
+			$news->setTitle("S'endormir avec Hinako (Issho ni Sleeping) OAV");
+			$news->setTimestamp(strtotime("08 March 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(209);
+			$news->addReleasing(Project::getProject('sleeping'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new AutoFloatImage("images/news/pcover1.gif"));
+			$newsMessage->addLine("Salut toi, c'est Hinako !<br />
+Tu m'as tellement manquer depuis notre entraÓnement, tout les deux...<br />
+Tu te souviens ? Flexions, extensions ! Une, deux, une deux !<br />
+Gr‚ce ‡ toi, j'ai perdu du poids, et toi aussi, non ?<br />
+Tu sais, cette nuit, je dors toute seule, chez moi, et Áa me rend triste...<br />
+Quoi ? C'est vrai ? Tu veux bien dormir avec moi !?<br />
+Oh merci ! Je savais que je pouvais compter sur toi.<br />
+Alors, ‡ tout ‡ l'heure, quand tu auras tÈlÈcharger l'Èpisode ;)");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+
+			$news = new News();
+			$news->setTitle("KissXsis 02");
+			$news->setTimestamp(strtotime("06 December 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(153);
+			$news->addReleasing(Release::getRelease('kissxsisoav', 'ep2'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src='images/news/kiss2.png' /><br />
+Ah, elles nous font bien attendre, les deux jolies jumelles... Des mois pour sortir les OAV ! Mais au final, Áa en vaut la peine, donc on ne peut pas leur en vouloir. C'est bientÙt NoÎl, donc pour l'occasion, elles ont sortis des cosplays trËs mignons des \"soeurs de NoÎl\". Elles sont de plus en plus ecchi avec leur frËre. Finira-t-il par craquer !? La premiËre version sort ce soir, les autres versions de plus haute qualitÈ sortieront dans la nuit et demain. J'ÈspËre que cet OAV vous plaira ! Une sÈrie est annoncÈe en plus des OAV. Info ou Intox ? Dans tout les cas, ZÈro sera de la partie, donc suivez aussi la sÈrie avec nous !");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 	}
 		
 		return News::$allNews;
+	}
+	
+	public static function getAllReleasingNews() {
+		$array = array();
+		foreach(News::getAllNews() as $news) {
+			if ($news->isReleasing()) {
+				$array[] = $news;
+			}
+		}
+		return $array;
 	}
 }
 ?>

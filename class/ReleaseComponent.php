@@ -26,13 +26,9 @@ class ReleaseComponent extends SimpleBlockComponent {
 			
 			$previewImage = null;
 			if ($release->getPreviewUrl() !== null) {
-				$previewImage = new Image($release->getPreviewUrl());
-				$previewImage->setClass("previewImage");
 				try {
-					$description = getimagesize($release->getPreviewUrl());
-					if ($description[0] < $description[1]) {
-						$previewImage->setStyle("float : right;");
-					}
+					$previewImage = new AutoFloatImage($release->getPreviewUrl());
+					$previewImage->setClass("previewImage");
 				} catch(ErrorException $ex) {
 					$previewImage = Debug::createWarningTag("Preview introuvable");
 				}

@@ -1,606 +1,20 @@
-<h3>Zéro fansub</h3>
+<?php
+	$page = PageContent::getInstance();
+	$page->setTitle("Zéro fansub");
+	$page->addComponent(new Archives());
 
-<h2>Archives</h2>
-<p style="align: center;"><a href="index.php?page=home">Dernières news</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hsorties">Sorties</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hteam">Infos team</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hpartenaires">Partenaires</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hdb0c">db0 company</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hbonus">Bonus</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=havert" style="color: #FF3399;" id="plus">Hentaï</a>
-</p>
+	foreach(News::getAllReleasingNews() as $news) {
+		$page->addComponent($news);
+	}
 
-<h2>[Zero] BlogBang</h2>
-<h4>00/00/00 par db0</h4>
-<div class="p"><script src="http://www.blogbang.com/demo/js/blogbang_ad.php?id=6ee3436cd7"
-type="text/javascript"></script>
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t64.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=64" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Toradora! SOS - S&eacute;rie compl&egrave;te 4 OAV</h2>
-<h4>26/07/2011 par praia</h4>
-<div class="p">
-  <img src="images/series/toradorasos.jpg" alt="Toradora SOS" />
-  <br /><br />
-4 mini OAV d&eacute;lirants sur la bouffe, avec les personnages en taille r&eacute;duite.<br />
-C'est de la superproduction ^_^ 
-  <br /><br />
-  <span>~ <a href="http://commentaires.zerofansub.net/t268.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=268" target="_blank">Ajouter un commentaire</a> ~<br />
-    ~ <a href="http://twitter.com/home?status=Sortie de Toradora! SOS chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko</h2>
-<h4>23/07/2011 par praia</h4>
-<div class="p">
-  <img src="images/news/bath.jpg" alt="Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko" />
-  <br /><br />
-  Nous avons appris qu'Ankama va diffuser &agrave; partir de la rentr&eacute;e de septembre 2011 :<br />
-  Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc &eacute;t&eacute; retir&eacute;s.<br />
-  On vous invite &agrave; cesser la diffusion de nos liens et &agrave; aller regarder la s&eacute;rie sur leur site.<br />
-  <br />
-  Sorties d'Isshoni Training Ofuro : Bathtime with Hinako & Hiyoko<br />
-  <br />
-  3e volet des "isshoni", on apprend comment les Japonaises prennent leur bain, tr&egrave;s int&eacute;ressant...<br />
-  Avec en bonus, une petite s&eacute;ance de stretching...<br />
-  <br />
-  Je ne sais pas s'il y aura une suite, mais si oui, je devine un peu le genre ^_^
-  <br /><br />
-  <span>~ <a href="http://commentaires.zerofansub.net/t267.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=267" target="_blank">Ajouter un commentaire</a> ~<br />
-    ~ <a href="http://twitter.com/home?status=Sortie de Isshoni Training Ofuro chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kannagi - S&eacute;rie compl&egrave;te</h2>
-<h4>19/06/2011 par db0</h4>
-<div class="p">
-  <a href="http://zerofansub.net/galerie/gal/Zero_fansub/Images/Kannagi/%5BZero%5DKannagi_Image63.jpg" target="_blank"><img src="images/news/kannagi.jpg" alt="Kannagi" /></a>
-  <br /><br />
-  Bonjour les amis !<br />
-  La s&eacute;rie Kannagi est termin&eacute;e !<br />
-  J&#039;&eacute;sp&egrave;re qu&#039;elle vous plaira.<br />
-  N&#039;h&eacute;sitez pas &agrave; nous dire ce que vous en pensez dans les commentaires. C&#039;est en apprenant de ses erreurs qu&#039;on avance, apr&egrave;s tout ;)<br />
-  <br />
-  P.S.: Les karaok&eacute;s sont nuls. D&eacute;sol&eacute;e !
-  <br /><br />
-  <span>~ <a href="http://commentaires.zerofansub.net/t264.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=264" target="_blank">Ajouter un commentaire</a> ~<br />
-    ~ <a href="http://twitter.com/home?status=Sortie de Kannagi serie complete chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Mitsudomoe 01 + 02</h2>
-<h4>27/05/2011 par db0</h4>
-<div class="p">
-  <img src="images/news/mitsu0102.jpg" alt="Mitsudomoe" />
-  <br /><br />
-  Bonjour les amis !<br />
-  Apr&egrave;s des mois d'attente, les premiers &eacute;pisodes de Mitsudomoe sont enfin disponibles !<br />
-  Quelques petits changements dans notre fa&ccedil;on de faire habituelle, on attend vos retours avec impatience ;)
-  <br /><br />
-  <span>~ <a href="http://commentaires.zerofansub.net/t263.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=263" target="_blank">Ajouter un commentaire</a> ~<br />
-    ~ <a href="http://twitter.com/home?status=Sortie de Mitsudomoe 01 + 02 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Tayutama ~ Kiss on my Deity ~ Pure my Heart ~ - S&eacute;rie compl&egrave;te 6 OAV</h2>
-<h4>15/05/2011 par db0</h4>
-<div class="p">
-  <img src="images/news/tayutamapure.jpg" alt="Tayutama ~ Kiss on my Deity ~ Pure my Heart ~" />
-  <br /><br />
-  On continue dans les s&eacute;ries compl&egrave;tes avec cette fois-ci la petite s&eacute;rie de 6 OAV qui fait suite &agrave; la s&eacute;rie Tayutama ~ Kiss on my Deity : les 'Pure my Heart'. Ils sont assez courts mais plut&ocirc;t dr&ocirc;le alors amusez-vous bien !
-  <br /><br />
-  <span>~ <a href="http://commentaires.zerofansub.net/t262.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=262" target="_blank">Ajouter un commentaire</a> ~<br />
-    ~ <a href="http://twitter.com/home?status=Sortie de Tayutama Kiss on my Deity Pure my Heart serie complete chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Potemayo OAV - S&eacute;rie compl&egrave;te</h2>
-<h4>11/05/2011 par db0</h4>
-<div class="p">
-  <img src="images/series/potemayooav.jpg" alt="Potemayo" />
-  <br /><br />
-  Petit bonjour !<br />
-  Dans la suite de la s&eacute;rie Potemayo, voici la petite s&eacute;rie d'OAV. Au nombre de 6, ils sont disponibles en versions basses qialit&eacute; uniquement puisqu'ils ne sont pas sortis dans un autre format. D&eacute;sol&eacute;e !<br />
-  Amusez-vous bien !
-  <br /><br />
-  <span>~ <a href="http://commentaires.zerofansub.net/t261.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=261" target="_blank">Ajouter un commentaire</a> ~<br />
-    ~ <a href="http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Potemayo - S&eacute;rie compl&egrave;te enti&eacute;rement refaite</h2>
-<h4>08/05/2011 par db0</h4>
-<div class="p">
-  <img src="images/series/potemayo.jpg" alt="Potemayo" />
-  <br /><br />
-  Bonjour le monde !<br /><br />
-  Tout comme pour Kujibiki Unbalance 2, nous avons enti&egrave;rement refait la s&eacute;rie Potemayo. Pour ceux qui suivaient la s&eacute;rie, seule les versions avi en petit format &eacute;taient disponible puisque c&#039;etait le format qu&#039;utilisait Kirei no Tsubasa, l&#039;&eacute;quipe qui nous a l&eacute;gu&eacute; le projet.<br /><br />
-  Du coup, la s&eacute;rie compl&egrave;te a &eacute;t&eacute; r&eacute;envod&eacute;e et on en a profit&eacute; pour ajouter quelques am&eacute;liorations.<br /><br />
-  Rendez-vous page 'Projet' sur le site pour t&eacute;l&eacute;charger les 12 &eacute;pisodes !<br /><br />
-  Et n&#039;oubliez pas : si vous avez une remarque, une question ou quoi que ce soit &agrave; nous dire, utilisez le syst&egrave;me de commentaires ! Nous vous r&eacute;pondrons avec plaisir.<br /><br />
-  Bons &eacute;pisodes, &agrave; tr&egrave;s bient&ocirc;t pour les 6 OAV suppl&eacute;mentaires Potemayo... et un petit bonjour &agrave; toi aussi !
-  <br /><br />
-  <span>~ <a href="http://commentaires.zerofansub.net/t261.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=261" target="_blank">Ajouter un commentaire</a> ~<br />
-    ~ <a href="http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-
-<h2>Kujibiki Unbalance 2 - S&eacute;rie compl&egrave;te enti&eacute;rement refaite</h2>
-<h4>02/05/2011 par db0</h4>
-<div class="p">
-  <img src="images/news/kujiend.jpg" alt="Kujibiki Unbalance 2"  style="float: right;" /><br />
-  La s&eacute;rie Kujibiki Unbalance 2 a enti&eacute;rement &eacute;t&eacute; refaite !<br />
-  Les polices illisibles ont &eacute;t&eacute; chang&eacute;es, les panneaux stylis&eacute;s ont &eacute;t&eacute; refait, la traduction a &eacute;t&eacute; revue, bref, une jolie s&eacute;rie compl&egrave;te vous attend !<br /><br />
-  Pour t&eacute;l&eacute;charger les &eacute;pisodes, c'est comme d'habitude :<br />
-  - Page projet, liens DDL,<br />
-  - Sur notre tracker Torrent (restez en seed !)<br />
-  - Sur le XDCC de notre chan irc (profitez-en pour nous dire bonjour :D)<br />
-  <br />
-  Petite info importante :<br />
-  Cette s&eacute;rie est comp&eacute;tement ind&eacute;pendante, n'a rien a voir avec la premi&eacute;re saison de Kujibiki Unbalance ni avec la s&eacute;rie Genshiken et il n'est pas n&eacute;cessaire d'avoir vu celles-ci pour appr&eacute;cier cette petite s&eacute;rie.<br /><br />
-  Si vous avez aim&eacute; la s&eacute;rie, si vous avez des remarques &agrave; nous faire ou autre, n'h&eacute;sitez pas &agrave; nous en faire part ! (Commentaires, Forum, Mail, IRC, ...)<br /><br />
-  &Agrave; tr&eacute;s bient&ocirc;t pour Potemayo !
-  .<br /><br />
-  <span>~ <a href="http://commentaires.zerofansub.net/t260.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=260" target="_blank">Ajouter un commentaire</a> ~<br />
-    ~ <a href="http://twitter.com/home?status=Sortie de Kujibiki Unbalance 2 serie complete chez Zero Fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-
-<h2>Kodomo no Natsu Jikan</h2>
-<h4>11/04/2011 par db0</h4>
-<div class="p">
-  <img src="images/news/kodomonatsu1.jpg" alt="Kodomo no Natsu Jikan" /><br />
-  Rin, Kuro et Mimi sont de retour dans un OAV Sp&eacute;cial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'&eacute;t&eacute;, en vacances avec Aoki et Houin.<br /><br />
-  <img src="images/news/kodomonatsu2.jpg" alt="Kodomo no Natsu Jikan" /><br />
-  <img src="images/news/kodomonatsu3.jpg" alt="Kodomo no Natsu Jikan" /><br />
-  <img src="images/news/kodomonatsu4.jpg" alt="Kodomo no Natsu Jikan" /><br />
-  <img src="images/news/kodomonatsu5.jpg" alt="Kodomo no Natsu Jikan" /><br />
-  <span>~ <a href="http://commentaires.zerofansub.net/t259.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=259" target="_blank">Ajouter un commentaire</a> ~<br />
-    ~ <a href="http://twitter.com/home?status=Sortie de Kodomo no Natsu Jikan chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 13 - FIN</h2>
-<h4>29/03/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kana131.jpg" alt="Kanamemo" /><br /><br />
-<img src="images/news/kana132.jpg" alt="Kanamemo" />
-<br /><br />
-Eh oui, c'est dÃ©jÃ  la fin de Kanamemo, j'espÃ¨re que cette petite sÃ©rie fort sympathique vous aura plus autant qu'Ã  nous.<br />
-C'est pour nous une bonne nouvelle, on diminue ainsi le nombre de nos projets en cours/futurs, on espÃ¨re pouvoir faire de mÃªme avec d'autres sÃ©ries prochainement...<br />
-<img src="images/news/kana133.jpg" alt="Kanamemo" /><br /><br />
-On vous annonce dÃ©jÃ  que Kujibiki Unbalance II et Potemayo seront entiÃ¨rement refaits ! Pas mal de choses ont Ã©tÃ© revues, j'espÃ¨re que vous apprÃ©cierez nos efforts.<br />
-Kodomo no Jikan OAV 4 ne devrait plus tarder...<br />
-Merci de nous avoir suivis et Ã  bientÃ´t pour d'autres Ã©pisodes ^_^<br /><br />
-<img src="images/news/kana134.jpg" alt="Kanamemo" /><br /><br />
-<img src="images/news/kana135.jpg" alt="Kanamemo" /><br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t256.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=256" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie du dernier episode de Kanamemo 13 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 12</h2>
-<h4>20/03/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kana12.jpg" alt="Kanamemo" />
-<br /><br />
-Bonjour !<br />
-Sortie de l'&eacute;pisode 12 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t255.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=255" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 12 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 11</h2>
-<h4>14/03/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kana11.jpg" alt="Kanamemo" />
-<br /><br />
-Bonjour !<br />
-Sortie de l'&eacute;pisode 11 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !<br /><br />
-Rappel, nos releases sont t&eacute;l&eacute;chargeable sur :<br />
-<ul>
-<li>Sur <a href="http://zerofansub.net/">le site zerofansub.net</a> en DDL (cliquez sur projet dans le menu &agrave; gauche)</li>
-<li>Sur <a href="http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro">notre tracker torrent BT-Anime</a> en torrent peer2peer (Notre &eacute;quipe de seeder vous garantie du seed !)</li>
-<li>Sur <a href="irc://irc.fansub-irc.eu/zero">notre chan IRC</a> en XDCC (<a href="http://zerofansub.net/index.php?page=xdcc">liste des paquets</a>)</li>
-<li>Sur <a href="http://www.anime-ultime.net/part/Site-93">Anime-Ultime</a> en DDL (Mais en fait, c'est les m&ecirc;mes fichiers que sur Z&eacute;ro, c'est juste des liens symboliques ^^)</li>
-</ul>
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t254.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=254" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 11 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 10</h2>
-<h4>10/03/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kana10.jpg" style="float: left;" alt="Kanamemo" />
-<br /><br />
-Bonjour !<br />
-Sortie de l'episode 10 de Kanamemo ! Youhouh ! C'est la fete !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t253.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=253" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 10 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Licence de L&#039;entrainement avec Hinako + Sortie de Akina To Onsen et Faisons l'amour ensemble &eacute;pisode 05</h2>
-<h4>08/03/2011 par Sazaju</h4>
-<div class="p">
-<img src="images/news/issho5.jpg" style="float: right;" alt="Akina To Onsen De H Shiyo" />
-<br /><br />
-<p>Dans la suite de notre reprise tant attendue, on ne rel&#226;che pas le rythme ! Apr&#232;s la sortie d'un genre classique chez Z&#233;ro, on poursuit avec l'une de nos sp&#233;cialit&#233;s : <i>Faisons l'amour ensemble</i> revient en force avec un nouvel &#233;pisode (de quoi combler les d&#233;&#231;us du 4e opus) et un &#233;pisode bonus !
-<br /><br />
-Tout d'abord, ce 5e &#233;pisode nous sort le grand jeu : la petite s&#339;ur est dans la place ! Apr&#232;s plusieurs ann&#233;es sans nouvelles de son grand fr&#232;re, voil&#224; qu'elle a bien grandi et d&#233;cide donc de taper l'incruste. Voil&#224; une bonne occasion de faire le m&#233;nage (les filles sont dou&#233;es pour &#231;a {^.^}~). &#192; la suite de quoi une bonne douche s'impose... Et si on la prenait ensemble comme au bon vieux temps, <i>oniichan</i> ?
-<br /><br />
-Pour ceux qui auraient encore des r&#233;serves (faut dire qu'on vous a donn&#233; le temps pour {^_^}), un &#233;pisode bonus aux sources chaudes vous attend ! Akina, cette jeune demoiselle du premier &#233;pisode, revient nous saluer avec son charme g&#233;n&#233;reux et son c&#244;t&#233; ivre toujours aussi mignon. Vous en d&#233;gusterez bien un morceau apr&#232;s le bain, non ?
-<br /><br /><br /><img src="images/series/akinahshiyo.jpg" alt="Akina To Onsen De H Shiyo" /></p>
-<p>db0 dit : Et pour finir, une nouvelle assez inattendue : La licence de L'entra&#238;nement avec Hinako chez Kaze. On vous tiendra au courant quand le DVD sortira.
-<br /><br />
-<img src="images/news/training.gif" alt="Isshoni Training" />
-<br /><br />
- En parlant de Kaze, j'ai re&#231;u hier par la poste le Blu-ray de Canaan chez Kaze. Vous avez aim&#233; la s&#233;rie ? Faites comme moi, achetez-le !<br /><br />
-<img src="images/news/canaanli.jpg" alt="DVD canaan buy kaze" />
-
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t252.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=252" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Deux hentai : Akina To Onsen et Issho ni H shiyo chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 7, 8 et 9</h2>
-<h4>23/02/2011 par Praia</h4>
-<div class="p">
-<img src="images/news/kanamemo7.jpg" alt="Kanamemo" />
-<br /><br />
-VoilÃ  qui met un terme Ã  cette longue pÃ©riode d'inactivitÃ© : Kanamemo 7, 8 et 9, enfin !<br />
-Tout comme l'Ã©pisode 5, l'Ã©pisode 7 Ã©tait inutilement censurÃ©, donc on s'est orientÃ©s vers les DVD. En version HD uniquement, la LD n'est plus trÃ¨s en vogue, faut dire ^^<br />
-D'autres projets reprennent du service, encore un peu de patience...<br />
-Je vous dis Ã  bientÃ´t pour d'autres Ã©pisodes ^_^
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t251.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=251" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 7 8 et 9 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kujibiki Unbalance Ã©pisode 09</h2>
-<h4>18/08/2010 par db0</h4>
-<div class="p">
-<img src="images/news/kujian9news.jpg" alt="Kujibiki Unbalance Ã©pisode 09 - Yamada montre sa culotte Renko" /><br /><br />
-Chihiro, Tokino, Koyuki, Yamada et Renko sont de retour pour la suite de leurs aventures pour devenir les membres du conseil des Ã©lÃ¨ves de Rikkyouin ! Retrouvez les dans cet Ã©pisode 09 oÃ¹ Yamada ne sera pas dans son Ã©tat normal...<br />
-Comme d'habitude, l'Ã©pisode est tÃ©lÃ©chargeable sur la page de la sÃ©rie partie "Projets" en tÃ©lÃ©chargement direct uniquement et plus tard en torrent, XDCC, etc.<br />
-<br />
-<img src="images/news/news_dons_k-on.gif" alt="Merci pour le don a Herve ! K-On money money" /><br /><br />
-Un grand <strong>merci</strong> Ã  HÃ©rvÃ© pour son don de 10 euros qui va nous aider Ã  payer nos serveurs !<br />
-<br />
-A bientot !<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t243.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=243" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kujibiki Unbalance episode 09 chez Zero ! http://zerofansub.net/" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net/"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo Chapitre 01</h2>
-<h4>02/08/2010 par db0</h4>
-<div class="p">
-<img src="images/news/kanac1.jpg" alt="Kanamemo Chapitre 01" /><br /><br />
-Sortie du chapitre 01 de Kanamemo qui ouvre le retour du scantrad chez ZÃ©ro !<br />
-Depuis pas mal de temps, nous l'avions laissÃ© Ã  l'abandon mais avec l'Ã©cole du fansub, nous avons pu nous y remettre.<br />
-Sont prÃ©vus les scantrad de Kanamemo, Sketchbook et Maria+Holic. Quelques doujins devraient aussi arriver.<br />
-Pour toutes nos autres sÃ©ries dont les versions manga existent, vous pouvez les trouver en tÃ©lÃ©chargement sur les pages des sÃ©ries comme Hitohira, Kannagi, Kimikiss et KissXsis.
-<br />
-A bientot !<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t241.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=241" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kanamemo Chapitre 01 http://zerofansub.net/" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net/"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Issho Ni H Shiyo OAV 04 - Fin !</h2>
-<h4>13/07/2010 par Sazaju</h4>
-<div class="p">
-<img src="images/news/hshiyonew.png" alt="Issho ni H Shiyo oav  4 fin de la serie interdit aux moins de 18 ans." style="float: right;" />
-DÃ©ception intense ! AprÃ¨s de jolis Ã©pisodes, c'est avec regret que je vous annonce la sortie de ce quatriÃ¨me et dernier opus, qui retombe dans de banals stÃ©rÃ©otypes H sans une once d'originalitÃ© ni de qualitÃ© graphique : gros seins surrÃ©alistes, personnages prÃ©visibles Ã  souhaits, et comble du comble un final Ã  la "je jouis mais faisons pour que Ã§a n'en ait pas l'air" ! Alors que les Ã©pisodes prÃ©cÃ©dents nous offraient de somptueux ralentis et des mouvements de corps langoureux pour un plaisir savourÃ© jusqu'Ã  la derniÃ¨re goutte, ce dernier Ã©pisode nous marquera (hÃ©las) par sa simplicitÃ© grotesque et son manque de plaisir Ã©vident.<br />
-<br />
-Mais rÃ©jouissez-vous ! La sÃ©rie Ã©tant finie, nous n'aurons plus l'occasion d'assister Ã  une autre erreur mettant en doute la qualitÃ© de cette derniÃ¨re : les plus pointilleux pourront sauvagement se dessÃ©cher sur les prÃ©cÃ©dents Ã©pisodes sans jamais voir le dernier, alors que ceux qui auront pitiÃ© de notre travail pourront gaspiller leur bande passante Ã  tÃ©lÃ©charger le torchon qui sert de final Ã  cette sÃ©rie qui ne le mÃ©rite pourtant pas.<br />
-<br />
-Merci Ã  tous de nous avoir suivi sur cette sÃ©rie, et je vous souhaite tout le plaisir du monde Ã  sauvegarder votre temps en revisionnant un des Ã©pisodes prÃ©cÃ©dents plutÃ´t que celui-ci {^_^}.<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t237.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=237" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Issho Ni H Shiyo OAV 04 - Fin ! http://zerofansub.net/" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net/"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Sketchbook ~ full color's  ~ Picture Drama sÃ©rie complÃ¨te (01 Ã  06)</h2>
-<h4>26/06/2010 par db0</h4>
-<div class="p">
-<img src="images/news/sketchdrama.png" alt="Sketchbook ~ full color's ~ Picture Drama" /><br />
-Pour fÃªter les vacances qui arrivent, Sora et ses amies vous emmenent avec elles Ã  la mer !<br />
-C'est une petite sÃ©rie de 6 Ã©pisodes de moins de 10 minutes chacun qui Ã©taient en Bonus sur les DVDs de Sketchbook ~ full color's ~. Ils ont Ã©tÃ© rÃ©alisÃ© Ã  partir du Drama CD de la sÃ©rie et l'animation est minime. Dans la mÃªme douceur que la sÃ©rie, ils sont parfait pour se reposer en pensant aux vacances qui arrivent.
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t234.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=234" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>KissXsis 03</h2>
-<h4>24/06/2010 par db0</h4>
-<div class="p">
-<img src="images/news/kissxsis3news.jpg" alt="KissXsis kiss x sis DVD Blu-Ray Jaquette" /><br />
-On peut dire qu'il s'est fait attendre cet Ã©pisode...<br />
-Mais le voilÃ  enfin, et c'est tout ce qui compte.<br />
-Vous devez vous demander ce qu'il advient de notre annonce de sortie une semaine/un Ã©pisode pour kissxsis.<br />
-Vous avez remarquÃ© que c'est un echec. Pourquoi ? Les Ã©pisodes s'avÃ¨rent bien plus longs Ã  rÃ©aliser que prÃ©vu si on souhaite continuer Ã  vous fournir la meilleure qualitÃ© possible. De plus, j'Ã©tais dans ma pÃ©riode de fin d'annÃ©e scolaire et j'ai dÃ» mettre de cÃ´tÃ© nos chÃ¨res soeurs jumelles pour Ãªtre sÃ»re de passer en annÃ©e supÃ©rieure...!<br />
-<br />
-Une nouvelle qui ne vous fera peut-Ãªtre pas plaisir, mais qui j'Ã©spÃ¨re ne vous dÃ©couragera pas de mater les soeurettes un peu plus tard : Nous avons l'intention d'attendre la sortie des Blu-Ray des autres Ã©pisodes avant de continuer KissXsis. La qualitÃ© des vidÃ©os sera meilleure, il y aura moins de censure, plus de dÃ©tails, bref, plus de plaisir !<br />
-Le premier Blu-Ray contenant les 3 premiers Ã©pisodes vient tout juste de sortir et nous sortirons bientÃ´t des nouvelles versions de ces trois premiers. Croyez-moi, Ã§a en vaut la peine. Vous ne me croyiez pas ? <a href="http://www.sankakucomplex.com/2010/06/24/kissxsis-erotic-climax-dvd-ero-upgrades-highly-salacious/" target="_blank">Petit lien</a>.<br />
-<br />
-Et pour ne pas parler que de KissXsis, sachez qu'une petite surprise que je vous ai personnellement concoctÃ© devrait bientÃ´t sortir...<br />
-En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian en attendant les Blu-Ray de KissXsis et boucler certains vieux projets comme Sketchbook, Kodomo no Jikan (le film) ou Tayutama.<br />
-<br />
-En ce qui concerne l'Ã©cole du fansub, elle va trÃ¨s bien et le nombre d'Ã©lÃ¨ve augmente chaque jour, les exercices et les cours aussi ! Si vous Ãªtes intÃ©rÃ©ssÃ©s, vous savez oÃ¹ nous trouver : sur le forum ZÃ©ro fansub.<br />
-<br />
-Bonne chance Ã  ceux qui sont en examens, et que ceux qui sont en vacances en profite bien. Moi, je suis en vacances :p
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t233.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=233" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-
-<h2>Mitsudomoe, Bande-Annonce</h2>
-<h4>15/06/2010 par db0</h4>
-<div class="p">
-<object width="550" height="309"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=12592506&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ffffff&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=12592506&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ffffff&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="550" height="309"></embed></object>
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t231.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=231" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Kiss X Sis TV 02</h2>
-<h4>04/05/2010 par db0</h4>
-<div class="p">
-<img src="images/news/kissxsis2.jpg" /><br />
-Ako et Riko ne laisseront pas Keita rater ses examens ! Ako décident donc de donner des cours particulier à Keita.<br />
-Ils y resteront très sages et se contenteront d'apprendre sagement l'anglais, l'histoire et les maths. C'est tout.<br />
-Vous vous attendiez à autre chose, peut-être ?
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t228.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=228" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Kiss X Sis TV 01</h2>
-<h4>17/04/2010 par db0</h4>
-<div class="p">
-<img src="images/news/newskissxsis1.jpg" /><br />
-Yo !<br />
-Ako et Riko sont ENFIN de retour, cette fois-ci dans une série complète.<br />
-Il y aura donc plus de scénario, mais toujours autant de ecchi.<br />
-C'est bien une suite des OAV, mais il n'est pas nécéssaire des les avoir vus pour suivre la série.<br />
-J'ai essayé de faire des jolis karaokés, alors chantez !! (Et envoyez les vidéos)<br />
-À très vite pour l'épisode 2.
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t225.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=225" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 06</h2>
-<h4>16/04/2010 par db0</h4>
-<div class="p">
-<img src="images/news/newskana6.jpg" /><br />
-Hé !<br />
-Mais c'est qu'on arrive à la moitié de la série.<br />
-Le 6éme épisode de Kanamemo est disponible.
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t224.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=224" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Kujibiki Unbalance 2 episode 08</h2>
-<h4>03/04/2010 par db0</h4>
-<div class="p">
-<img src="images/news/newskuji8.png" /><br />
-Comment attirer l'oeil des fans d'animes de chez Zero ?<br />
-Avec une paire de seins, evidemment !<br />
-Episode 8 de Kujibiki Unbalance 2 en exclusivite total gratuit pas cher promo solde !<br />
-Un episode qui m'a beaucoup plu, tres tendre et qui revele des elements cles de l'histoire.<br />
-En reponse au precedent sondage, il n'est ABSOLUMENT PAS NECESSAIRE D'AVOIR VU GENSHIKEN OU LA PREMIERE SAISON de Kujibiki Unbalance pour regarder celle-ci. Les histoires ont quelques liens mais sont completement independantes les unes des autres. C'est une serie a part.<br />
-Bon episode a tous et a tres bientot !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t220.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=220" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 4 + 5</h2>
-<h4>19/03/2010 par db0</h4>
-<div class="p">
-<a href="http://yotsuba.imouto.org/image/b943e76cbe684f3d4c4cf3b748d7d878/moe%2099353%20amano_saki%20fixed%20kanamemo%20kujiin_mika%20nakamachi_kana%20neko%20pantsu%20seifuku.jpg" target="_blank"><img src="images/news/newskana5.jpg" /><br />
-(Image en plus grand clique ici)</a><br />
-Coucou, nous revoilou !<br />
-La suite de Kanamemo avec deux épisodes : le 4 et le 5.<br />
-Dans les deux, on voit des filles dans l'eau... Toute nues, aux bains, et en maillot de bain à la "piscine" !
-<br />Les deux sont en version non-censurée.
-<br />Pour voir la différence entre les deux versions : <a href ="http://www.sankakucomplex.com/2009/11/10/kanamemo-dvd-loli-bathing-steamier-than-ever/" target="_blank">LIEN</a>.<br />
-En bonus, un petit AMV de l'épisode 05 (passé à la TV, nous le l'avons pas fait nous-même).<br />
-À bientôt !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t212.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=212" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>S'endormir avec Hinako (Issho ni Sleeping) OAV</h2>
-<h4>08/03/2010 par Hinako</h4>
-<div class="p">
-<img src="images/news/pcover1.gif" style="float:right;" /><br />
-Salut toi, c'est Hinako !<br />
-Tu m'as tellement manquer depuis notre entraînement, tout les deux...<br />
-Tu te souviens ? Flexions, extensions ! Une, deux, une deux !<br />
-Grâce à toi, j'ai perdu du poids, et toi aussi, non ?<br />
-Tu sais, cette nuit, je dors toute seule, chez moi, et ça me rend triste...<br />
-Quoi ? C'est vrai ? Tu veux bien dormir avec moi !?<br />
-Oh merci ! Je savais que je pouvais compter sur toi.<br />
-Alors, à tout à l'heure, quand tu auras télécharger l'épisode ;)
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t209.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=209" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Potemayo [08] 15 + 16</h2>
-<h4>01/03/2010 par db0</h4>
-<div class="p">
-<img src="images/news/pote8.jpg" /><br />
-Anyaa~~<br />
-Potemayo, épisode 8, youhou ! Et très bientôt, Kanamemo, Isshoni H shiyo et Isshoni sleeping ! Enjoy, Potemayo !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t207.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=207" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Potemayo [07] 13 + 14</h2>
-<h4>30/01/2010 par Tarf</h4>
-<div class="p">
-<img src="images/news/moepote1.jpg"><br />
-Revenons à nos charmants allumés dans un PotemaYo que j'ai particulièrement aimé.<br />
-<br />
-Deux épisodes : La fin de l'été, et La nuit du Festival<br />
-<br />
-Encore, encore un épisode totalement déjanté, où on va devoir faire du nettoyage... et prier. Puis on va manger de la glace à base de lait avec un type fou, fou, fou ^^<br />
-Hé, vous voulez savoir comment on fait cuir plus vite des ramens ?<br />
-<br />
-Moi ça m'éclate comment Potemayo sait dépenser son argent<br />
-ENJOY IT !<br />
-<img src="images/news/moepote2.jpg"><br />
-db0 dit : Les screens ci-dessus n'ont rien à voir avec l'épisode :) Ce sont des extraits de Moetan, l'épisode 11. J'en profite donc pour faire une petite pub à notre partenaire <a href="http://kanaii.com" target="_blank">Kanaii</a> grâce à qui on peut regarder Moetan avec des sous-titres d'excellente qualité.
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t191.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=191" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin</h2>
-<h4>19/01/2010 par db0</h4>
-<div class="p">
-
-<img src="images/news/newkodomo1.jpg" alt="Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin" /><br /><br />
-
-Vous l'avez attendu longtemps, celui-là ! Il faut dire qu'il est quand même sorti en aout. Alors pourquoi le sortir si tard ? Surtout qu'il faut savoir qu'il était prêt en septembre. C'est simple : Pour toujours rester dans l'optique de la qualité de nos animes, nous attendions que les paroles officielles du nouvel ending sortent. Malheuresement, elle ne sont toujours pas sorties à l'heure actuelle. Nous pensons donc que les chances qu'elles sortent maintenant sont minimes et avons à contre-coeur décidé de sortir l'OAV maintenant et sans le karaoké. Cependant, sachez que s'il s'avère que les paroles finissent par sortir, même tardivement, nous sortirons une nouvelle version de celui-ci avec le karaoké !<br />
-Merci à DC pour avoir encodé cet épisode et Maboroshi, avec nous en coproduction sur cette série.<br />
-C'est avec ce dernier épisode que nous marquons la fin de Kodomo no Jikan ! C'est ma série préférée et je pense que c'est aussi la préférée de beaucoup de membres de chez Zéro et sa communauté.<br />
-Nous avons passé du bon temps aux côtés de Rin et ses deux amies et nous éspérons que c'est aussi votre cas.<br /><br />
-
-<img src="images/news/newkodomo2.jpg" alt="Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin" /><br /><br />
-
-<img src="images/news/newkodomo3.jpg" alt="Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin" />
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t185.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=185" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Tayutama ~Kiss on my deity~ 12 - Fin</h2>
-<h4>12/01/2010 par db0</h4>
-<div class="p">
-C'est aujourd'hui la fin de Tayutama. Le douzième et dernier épisode toujours en coproduction avec nos amis de chez Maboroshi. Nous éspérons que vous avez passé un bon moment avec nous pour cette merveilleuse série ! Et maintenant, it's scrolling time !<br /><br />
-<img src="images/news/tayufin1.jpg" /><br />
-<img src="images/news/tayufin2.jpg" /><br />
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t176.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=176" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>KissXsis 02</h2>
-<h4>06/12/09 par db0</h4>
-<div class="p"><img src="images/news/kiss2.png" /><br />
-Ah, elles nous font bien attendre, les deux jolies jumelles... Des mois pour sortir les OAV ! Mais au final, ça en vaut la peine, donc on ne peut pas leur en vouloir. C'est bientôt Noël, donc pour l'occasion, elles ont sortis des cosplays très mignons des "soeurs de Noël". Elles sont de plus en plus ecchi avec leur frère. Finira-t-il par craquer !? La première version sort ce soir, les autres versions de plus haute qualité sortieront dans la nuit et demain. J'éspère que cet OAV vous plaira ! Une série est annoncée en plus des OAV. Info ou Intox ? Dans tout les cas, Zéro sera de la partie, donc suivez aussi la série avec nous !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t153.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=153" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Tayutama - Kiss on my Deity - 11</h2>
-<h4>04/12/09 par TchO</h4>
-<div class="p"><img src="images/news/mashinoel.jpg" /><br />
-Tayu 11, la Bataille Décisive !!<br /><br />
-
-Pour calmer la colère du dragon, la grande prêtresse Mashiro tente...<br />
-Hé !!!!! Mais que se passe-t-il ????? C't'une surprise !!!<br /><br />
-
-Pour la Bataille Décisive, on a droit à un cosplay de Dieu !!<br />
-Si c'est comme ça que Mashiro espère gagner la partie !<br /><br />
-
-Tenez bon ! La fin se précise, et elle est belle à regarder !<br /><br />
-
-Coproduction Zero+Maboroshi !<br />
-TchO_°
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t152.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=152" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 03</h2>
-<h4>26/11/09 par db0</h4>
-<div class="p"><img src="images/news/kana3.jpg" /><br />
-BANZAIII !! Kanamemo épisode 03, ouais, trop bien ! Je mets du temps à sortir les épisodes ces derniers temps, mais derrnière le rideau, ne vous inquiétez pas, ça bosse ! Oui, c'est encore de ma faute, avant la piscine, maintenant printf, je suis débordée... (Mais de quoi elle parle !? o__O) Bref. Bon épisode !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t150.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=150" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Tayutama - Kiss on my Deity - 10</h2>
-<h4>17/11/09 par TchO</h4>
-<div class="p"><img src="images/news/tayu10.jpg" /><br />
-L'Horoscope d'aujourd'hui :<br />
-Humains : Ecrasé par l'émotion, sachez éviter les coups de marteau !<br /><br />
-
-Portée par le rêve de la coexistence, Yumina-chan danse.<br /!!
-Quant à Ameri, elle est la proie de ses mauvais rêves...<br /><br />
-
-Même romantique, la passion peut être tellement furieuse !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t149.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=149" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Hitohira 05 + 06</h2>
-<h4>10/11/09 par db0</h4>
-<div class="p"><img src="images/news/hito5.jpg" /><br />
-Mugi-choco ! Tu nous as tellement manqué... Et tu reviens en maillot de bain, à la plage ! Yahou ! Mugi-Mugi-choco !!
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t142.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=142" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Tayutama - Kiss on my Deity - 09</h2>
-<h4>05/11/09 par TchO</h4>
-<div class="p"><img src="images/news/tayuu9.jpg" /><br />
-Mashiro découvre que la moto est un souci pour aller aux sources d'eau chaudes.<br /><br />
-
-Hé, on va tous faire un karaoké ?<br />
-C'est le moment de s'amuser !<br />
-Entre deux entraînements, une balade à la tour de Tokyo.<br />
-
-Les sentiments de Mashiro n'échappent à personne, ni à Ameri, ni à...<br /><br />
-
-Une Zero + Maboroshi coprod<br /><br />
-
-TchO_°<br />
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t141.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=141" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Tayutama - Kiss on my Deity - 08</h2>
-<h4>05/11/09 par TchO</h4>
-<div class="p"><img src="images/news/tayuuu.jpg" /><br />
-Tayutama !!!!!!<br />
-Tayutama, c'est pour ce soir l'épisode 08, toujours coproduit avec la Maboroshi.<br />
-Un épisode qui nous livre, dans une exceptionnelle interprétation, un remake de "j'assortis mon foulard avec ma jupe".<br />
-Et puis, on allait pas louper la tronche de Yuuri pour une fois ^^<br />
-(Ca veut dire quoi, au fait, Tayutama ?)<br />
-Profitez-en bien, c'est toujours aussi délire !!<br />
-db0 dit :<br />
-J'en profite en coup de vent pour vous annoncer que la deuxième session de Konshinkai à Lyon arrive en fin du mois, et pour ça, un forum a fait son ouverture ainsi qu'un nouveau site et un chan irc. Venez nombreux ! <a href="http://konshinkai.c.la" target="_blank">+ d'infos, clique.</a>
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t140.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=140" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Tayutama - Kiss on my Deity - 06 + 07 + Kanamemo 02</h2>
-<h4>05/11/09 par db0, praia et Tarf</h4>
-<div class="p"><img src="images/news/tayuu.jpg" /><br />
-Bonjour tout le monde !<br />
-Je me suis dit que c'était toujours moi qui rédigait les news, et qu'il serait temps que ça change. Donc j'ai demandé à quelques membres de l'équipe de le faire. J'ai trouvé le résultat assez marrant, donc je vous donne leurs petites idées de news :<br /><br />
-Praia dit :<br />
-"On abandonne tout et on recommence : Tayutama 6 et 7 en copro avec la Maboroshi.<br />
-Bon leech ! Version MP4 disponible uniquement.<br />
-Kanamemo, c'est quoi ? C'est la série des petits pervers... non, vous voyez, suis pas fait pour faire des news, moi... ^_^
-Dommage que Sunao ne soit pas là... Il nous aurait pondu une brique > <"
-<br /><br />
-Tarf dit :<br />
-"Hein ? J'ai pas signé pour ça moi ! Et puis je suis juste un petit trad qui fait un peu de time à ses heures perdus, donc je fais le début de chaîne. C'est aux gens en bout de chaîne de faire ça non ? Va donc voir le joli post "staff" que tu as pondu sur toutes les séries, et choppe le dernier nom ^^.<br />
-
-Bon, une petite news : "J'ai pu rencontrer samedi 31 octobre, à l'occasion du Konshinkai trois personnes parfois intéressantes. J'ai ainsi parlé IRL mon idole Ryokku, qui travail en tant qu'admin pour anime ultime, qui est à mon avis un des meilleurs sites français d'anime. Après une interview exclusive de ce monument vivant de l'animation, il m'a confié qu'il désespérait de la saison en cours d'anime, et qu'aucun ne trouvait grâce à ses yeux. N'ayant pas les mêmes goûts que lui, je ne suis pas d'accord, mais moi tout le monde s'en fout. Pour ceux que ça interesse, il est gentil, jeune et dynamique ! Avis aux jeunes filles, jetez vous dessus !"<br />
-
-Tayutama Kiss on my deity, épisode 6 et 7 enfin sortis en corproduction avec la Maboroshi no Fansub ! La suite des aventures plus ou moins osée de l'avatar fort mignon d'une déesse dans le monde réel. Vous y retrouverez l'amie d'enfance jalouse, la Tsundere et la naïve à forte poitrine. La version MP4 est disponible immédiatement sur le site, la version AVI étant abandonnée."<br /><br />
-db0 dit :<br />
-J'en profite en coup de vent pour vous annoncer que la deuxième session de Konshinkai à Lyon arrive en fin du mois, et pour ça, un forum a fait son ouverture ainsi qu'un nouveau site et un chan irc. Venez nombreux ! <a href="http://konshinkai.c.la" target="_blank">+ d'infos, clique.</a><br /><br />
-
+	// rewrite the archive header as a footer
+	$page->addComponent(new Archives());
+	
+	// TODO remove after all the news are integrated
+	$page->writeNow();
+	$page->clear();
+?>
+-------------------------
 <h2>Canaan 13 ~ Fin !</h2>
 <h4>6/10/09 par db0</h4>
 <div class="p"><img src="images/news/canaanfin.png" /><br />
@@ -1073,13 +487,353 @@ Toradora! 15 et Chibi JE Sud 20/02/09 par db0 <img src="http://zerofansub.net/im
 <p><img src="http://zerofansub.net/images/news/img_shinobu.gif" border="0" /><br><span style="font-weight: bold">Nouveau XDCC, Radio, Scantrad et Toradora! 06</span><br>20/11/08 par db0<br><br>Bonjour tout le monde !<br>J'ai aujourd'hui plusieurs bonnes nouvelles à vous annoncer :<br>La V3 avance bien, et je viens de mettre à jour les pages pour le scantrad, car comme vous le savez, nous commençons grâce à François et notre nouvelle recrue Merry-Aime notre premier projet scantrad : Kodomo no Jikan.<br>J'ai aussi installée la radio tant attendue et mis sur le site quelques OST.<br>Nous avons aussi, grâce à Ryocu, un nouveau XDCC. Vous aviez sans doute remarquer que nous ne pouvions pas mettre à jour le précédent. Celui-ci sera mis à jour à chaque nouvelle sortie.<br>Et enfin, notre dernière sortie : Toradora! 06. Toujours en co-production avec<a href="http://japanslash.free.fr/" target="_blank" class="postlink">Maboroshi</a>.<br>Enjoy  <img src="http://img1.xooimage.com/files/w/i/wink-1627.gif" alt="Wink" border="0" class="xooit-smileimg" /> <br>//<a href="http://db0.fr/" target="_blank" class="postlink">db0</a><br><br>~ <a href="http://commentaires.zerofansub.net/t7-Nouveau-XDCC-Radio-Scantrad-et-Toradora-06.htm" target="_blank" class="postlink">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&amp;t=7" target="_blank" class="postlink">Ajouter un commentaire</a> ~</p>
 
 <p><span style="font-weight: bold">Quelques mises à jour</span><br><br>12/10/08 par db0<br><br><img src="http://zerofansub.net/images/sorties/lasthitohira2.png" border="0" /><br><br>Cela faisait pas mal de temps que Zéro n'avait rien sorti !<br>Je pense vous faire plaisir en vous annonçant quelques nouvelles :<br>- 4 épisodes sont prêts et attendent juste d'être encodés.<br>- 2 Nouvelles séries sont à paraître :<br>-- Sketchbook ~full color's~ <br>-- Toradora!<br>- Bientôt une v3 du site !<br><br>On profite de cette news pour mettre fin à certaines rumeurs :<br>- Non ! Nous ne faisons pas de Hentaï<br>- Non ! Nous n'avons pas tous 13 ans ! <br>- Nous n'avons rien contre la Genesis. Au contraire, si ça pouvait s'arranger, je préfererais. Nous ne comprenons toujours pas le pourquoi du comment de cette histoire, mais soyez sûr que nous ne répondrons jamais à leurs éventuelles provocations, insultes ou agressions.<br>Merci à tous et Bon download !</p>
+-------------------------
+<h2>[Zero] BlogBang</h2>
+<h4>00/00/00 par db0</h4>
+<div class="p"><script src="http://www.blogbang.com/demo/js/blogbang_ad.php?id=6ee3436cd7"
+type="text/javascript"></script>
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t64.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=64" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
 
-<h2>Archives</h2>
-<p style="align: center;"><a href="index.php?page=home">Dernières news</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hsorties">Sorties</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hteam">Infos team</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hpartenaires">Partenaires</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hdb0c">db0 company</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hbonus">Bonus</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=havert" style="color: #FF3399;" id="plus">Hentaï</a>
-</p>
+<h2>Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko</h2>
+<h4>23/07/2011 par praia</h4>
+<div class="p">
+  <img src="images/news/bath.jpg" alt="Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko" />
+  <br /><br />
+  Nous avons appris qu'Ankama va diffuser &agrave; partir de la rentr&eacute;e de septembre 2011 :<br />
+  Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc &eacute;t&eacute; retir&eacute;s.<br />
+  On vous invite &agrave; cesser la diffusion de nos liens et &agrave; aller regarder la s&eacute;rie sur leur site.<br />
+  <br />
+  Sorties d'Isshoni Training Ofuro : Bathtime with Hinako & Hiyoko<br />
+  <br />
+  3e volet des "isshoni", on apprend comment les Japonaises prennent leur bain, tr&egrave;s int&eacute;ressant...<br />
+  Avec en bonus, une petite s&eacute;ance de stretching...<br />
+  <br />
+  Je ne sais pas s'il y aura une suite, mais si oui, je devine un peu le genre ^_^
+  <br /><br />
+  <span>~ <a href="http://commentaires.zerofansub.net/t267.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=267" target="_blank">Ajouter un commentaire</a> ~<br />
+    ~ <a href="http://twitter.com/home?status=Sortie de Isshoni Training Ofuro chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
+    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
+<p></p>
+
+<h2>Kanamemo 13 - FIN</h2>
+<h4>29/03/2011 par db0</h4>
+<div class="p">
+<img src="images/news/kana131.jpg" alt="Kanamemo" /><br /><br />
+<img src="images/news/kana132.jpg" alt="Kanamemo" />
+<br /><br />
+Eh oui, c'est dÃ©jÃ  la fin de Kanamemo, j'espÃ¨re que cette petite sÃ©rie fort sympathique vous aura plus autant qu'Ã  nous.<br />
+C'est pour nous une bonne nouvelle, on diminue ainsi le nombre de nos projets en cours/futurs, on espÃ¨re pouvoir faire de mÃªme avec d'autres sÃ©ries prochainement...<br />
+<img src="images/news/kana133.jpg" alt="Kanamemo" /><br /><br />
+On vous annonce dÃ©jÃ  que Kujibiki Unbalance II et Potemayo seront entiÃ¨rement refaits ! Pas mal de choses ont Ã©tÃ© revues, j'espÃ¨re que vous apprÃ©cierez nos efforts.<br />
+Kodomo no Jikan OAV 4 ne devrait plus tarder...<br />
+Merci de nous avoir suivis et Ã  bientÃ´t pour d'autres Ã©pisodes ^_^<br /><br />
+<img src="images/news/kana134.jpg" alt="Kanamemo" /><br /><br />
+<img src="images/news/kana135.jpg" alt="Kanamemo" /><br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t256.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=256" target="_blank">Ajouter un commentaire</a> ~<br />
+~ <a href="http://twitter.com/home?status=Sortie du dernier episode de Kanamemo 13 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
+<p></p>
+
+<h2>Kanamemo 12</h2>
+<h4>20/03/2011 par db0</h4>
+<div class="p">
+<img src="images/news/kana12.jpg" alt="Kanamemo" />
+<br /><br />
+Bonjour !<br />
+Sortie de l'&eacute;pisode 12 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t255.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=255" target="_blank">Ajouter un commentaire</a> ~<br />
+~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 12 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
+<p></p>
+
+<h2>Kanamemo 11</h2>
+<h4>14/03/2011 par db0</h4>
+<div class="p">
+<img src="images/news/kana11.jpg" alt="Kanamemo" />
+<br /><br />
+Bonjour !<br />
+Sortie de l'&eacute;pisode 11 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !<br /><br />
+Rappel, nos releases sont t&eacute;l&eacute;chargeable sur :<br />
+<ul>
+<li>Sur <a href="http://zerofansub.net/">le site zerofansub.net</a> en DDL (cliquez sur projet dans le menu &agrave; gauche)</li>
+<li>Sur <a href="http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro">notre tracker torrent BT-Anime</a> en torrent peer2peer (Notre &eacute;quipe de seeder vous garantie du seed !)</li>
+<li>Sur <a href="irc://irc.fansub-irc.eu/zero">notre chan IRC</a> en XDCC (<a href="http://zerofansub.net/index.php?page=xdcc">liste des paquets</a>)</li>
+<li>Sur <a href="http://www.anime-ultime.net/part/Site-93">Anime-Ultime</a> en DDL (Mais en fait, c'est les m&ecirc;mes fichiers que sur Z&eacute;ro, c'est juste des liens symboliques ^^)</li>
+</ul>
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t254.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=254" target="_blank">Ajouter un commentaire</a> ~<br />
+~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 11 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
+<p></p>
+
+<h2>Kanamemo 10</h2>
+<h4>10/03/2011 par db0</h4>
+<div class="p">
+<img src="images/news/kana10.jpg" style="float: left;" alt="Kanamemo" />
+<br /><br />
+Bonjour !<br />
+Sortie de l'episode 10 de Kanamemo ! Youhouh ! C'est la fete !
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t253.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=253" target="_blank">Ajouter un commentaire</a> ~<br />
+~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 10 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
+<p></p>
+
+<h2>Kanamemo 7, 8 et 9</h2>
+<h4>23/02/2011 par Praia</h4>
+<div class="p">
+<img src="images/news/kanamemo7.jpg" alt="Kanamemo" />
+<br /><br />
+VoilÃ  qui met un terme Ã  cette longue pÃ©riode d'inactivitÃ© : Kanamemo 7, 8 et 9, enfin !<br />
+Tout comme l'Ã©pisode 5, l'Ã©pisode 7 Ã©tait inutilement censurÃ©, donc on s'est orientÃ©s vers les DVD. En version HD uniquement, la LD n'est plus trÃ¨s en vogue, faut dire ^^<br />
+D'autres projets reprennent du service, encore un peu de patience...<br />
+Je vous dis Ã  bientÃ´t pour d'autres Ã©pisodes ^_^
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t251.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=251" target="_blank">Ajouter un commentaire</a> ~<br />
+~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 7 8 et 9 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
+<p></p>
+
+<h2>Kujibiki Unbalance Ã©pisode 09</h2>
+<h4>18/08/2010 par db0</h4>
+<div class="p">
+<img src="images/news/kujian9news.jpg" alt="Kujibiki Unbalance Ã©pisode 09 - Yamada montre sa culotte Renko" /><br /><br />
+Chihiro, Tokino, Koyuki, Yamada et Renko sont de retour pour la suite de leurs aventures pour devenir les membres du conseil des Ã©lÃ¨ves de Rikkyouin ! Retrouvez les dans cet Ã©pisode 09 oÃ¹ Yamada ne sera pas dans son Ã©tat normal...<br />
+Comme d'habitude, l'Ã©pisode est tÃ©lÃ©chargeable sur la page de la sÃ©rie partie "Projets" en tÃ©lÃ©chargement direct uniquement et plus tard en torrent, XDCC, etc.<br />
+<br />
+<img src="images/news/news_dons_k-on.gif" alt="Merci pour le don a Herve ! K-On money money" /><br /><br />
+Un grand <strong>merci</strong> Ã  HÃ©rvÃ© pour son don de 10 euros qui va nous aider Ã  payer nos serveurs !<br />
+<br />
+A bientot !<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t243.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=243" target="_blank">Ajouter un commentaire</a> ~<br />
+~ <a href="http://twitter.com/home?status=Sortie de Kujibiki Unbalance episode 09 chez Zero ! http://zerofansub.net/" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net/"></a>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
+<p></p>
+
+<h2>Kanamemo Chapitre 01</h2>
+<h4>02/08/2010 par db0</h4>
+<div class="p">
+<img src="images/news/kanac1.jpg" alt="Kanamemo Chapitre 01" /><br /><br />
+Sortie du chapitre 01 de Kanamemo qui ouvre le retour du scantrad chez ZÃ©ro !<br />
+Depuis pas mal de temps, nous l'avions laissÃ© Ã  l'abandon mais avec l'Ã©cole du fansub, nous avons pu nous y remettre.<br />
+Sont prÃ©vus les scantrad de Kanamemo, Sketchbook et Maria+Holic. Quelques doujins devraient aussi arriver.<br />
+Pour toutes nos autres sÃ©ries dont les versions manga existent, vous pouvez les trouver en tÃ©lÃ©chargement sur les pages des sÃ©ries comme Hitohira, Kannagi, Kimikiss et KissXsis.
+<br />
+A bientot !<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t241.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=241" target="_blank">Ajouter un commentaire</a> ~<br />
+~ <a href="http://twitter.com/home?status=Sortie de Kanamemo Chapitre 01 http://zerofansub.net/" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net/"></a>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
+<p></p>
+
+<h2>Sketchbook ~ full color's  ~ Picture Drama sÃ©rie complÃ¨te (01 Ã  06)</h2>
+<h4>26/06/2010 par db0</h4>
+<div class="p">
+<img src="images/news/sketchdrama.png" alt="Sketchbook ~ full color's ~ Picture Drama" /><br />
+Pour fÃªter les vacances qui arrivent, Sora et ses amies vous emmenent avec elles Ã  la mer !<br />
+C'est une petite sÃ©rie de 6 Ã©pisodes de moins de 10 minutes chacun qui Ã©taient en Bonus sur les DVDs de Sketchbook ~ full color's ~. Ils ont Ã©tÃ© rÃ©alisÃ© Ã  partir du Drama CD de la sÃ©rie et l'animation est minime. Dans la mÃªme douceur que la sÃ©rie, ils sont parfait pour se reposer en pensant aux vacances qui arrivent.
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t234.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=234" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Kanamemo 06</h2>
+<h4>16/04/2010 par db0</h4>
+<div class="p">
+<img src="images/news/newskana6.jpg" /><br />
+Hé !<br />
+Mais c'est qu'on arrive à la moitié de la série.<br />
+Le 6éme épisode de Kanamemo est disponible.
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t224.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=224" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Kujibiki Unbalance 2 episode 08</h2>
+<h4>03/04/2010 par db0</h4>
+<div class="p">
+<img src="images/news/newskuji8.png" /><br />
+Comment attirer l'oeil des fans d'animes de chez Zero ?<br />
+Avec une paire de seins, evidemment !<br />
+Episode 8 de Kujibiki Unbalance 2 en exclusivite total gratuit pas cher promo solde !<br />
+Un episode qui m'a beaucoup plu, tres tendre et qui revele des elements cles de l'histoire.<br />
+En reponse au precedent sondage, il n'est ABSOLUMENT PAS NECESSAIRE D'AVOIR VU GENSHIKEN OU LA PREMIERE SAISON de Kujibiki Unbalance pour regarder celle-ci. Les histoires ont quelques liens mais sont completement independantes les unes des autres. C'est une serie a part.<br />
+Bon episode a tous et a tres bientot !
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t220.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=220" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Kanamemo 4 + 5</h2>
+<h4>19/03/2010 par db0</h4>
+<div class="p">
+<a href="http://yotsuba.imouto.org/image/b943e76cbe684f3d4c4cf3b748d7d878/moe%2099353%20amano_saki%20fixed%20kanamemo%20kujiin_mika%20nakamachi_kana%20neko%20pantsu%20seifuku.jpg" target="_blank"><img src="images/news/newskana5.jpg" /><br />
+(Image en plus grand clique ici)</a><br />
+Coucou, nous revoilou !<br />
+La suite de Kanamemo avec deux épisodes : le 4 et le 5.<br />
+Dans les deux, on voit des filles dans l'eau... Toute nues, aux bains, et en maillot de bain à la "piscine" !
+<br />Les deux sont en version non-censurée.
+<br />Pour voir la différence entre les deux versions : <a href ="http://www.sankakucomplex.com/2009/11/10/kanamemo-dvd-loli-bathing-steamier-than-ever/" target="_blank">LIEN</a>.<br />
+En bonus, un petit AMV de l'épisode 05 (passé à la TV, nous le l'avons pas fait nous-même).<br />
+À bientôt !
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t212.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=212" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Potemayo [08] 15 + 16</h2>
+<h4>01/03/2010 par db0</h4>
+<div class="p">
+<img src="images/news/pote8.jpg" /><br />
+Anyaa~~<br />
+Potemayo, épisode 8, youhou ! Et très bientôt, Kanamemo, Isshoni H shiyo et Isshoni sleeping ! Enjoy, Potemayo !
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t207.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=207" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Potemayo [07] 13 + 14</h2>
+<h4>30/01/2010 par Tarf</h4>
+<div class="p">
+<img src="images/news/moepote1.jpg"><br />
+Revenons à nos charmants allumés dans un PotemaYo que j'ai particulièrement aimé.<br />
+<br />
+Deux épisodes : La fin de l'été, et La nuit du Festival<br />
+<br />
+Encore, encore un épisode totalement déjanté, où on va devoir faire du nettoyage... et prier. Puis on va manger de la glace à base de lait avec un type fou, fou, fou ^^<br />
+Hé, vous voulez savoir comment on fait cuir plus vite des ramens ?<br />
+<br />
+Moi ça m'éclate comment Potemayo sait dépenser son argent<br />
+ENJOY IT !<br />
+<img src="images/news/moepote2.jpg"><br />
+db0 dit : Les screens ci-dessus n'ont rien à voir avec l'épisode :) Ce sont des extraits de Moetan, l'épisode 11. J'en profite donc pour faire une petite pub à notre partenaire <a href="http://kanaii.com" target="_blank">Kanaii</a> grâce à qui on peut regarder Moetan avec des sous-titres d'excellente qualité.
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t191.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=191" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin</h2>
+<h4>19/01/2010 par db0</h4>
+<div class="p">
+
+<img src="images/news/newkodomo1.jpg" alt="Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin" /><br /><br />
+
+Vous l'avez attendu longtemps, celui-là ! Il faut dire qu'il est quand même sorti en aout. Alors pourquoi le sortir si tard ? Surtout qu'il faut savoir qu'il était prêt en septembre. C'est simple : Pour toujours rester dans l'optique de la qualité de nos animes, nous attendions que les paroles officielles du nouvel ending sortent. Malheuresement, elle ne sont toujours pas sorties à l'heure actuelle. Nous pensons donc que les chances qu'elles sortent maintenant sont minimes et avons à contre-coeur décidé de sortir l'OAV maintenant et sans le karaoké. Cependant, sachez que s'il s'avère que les paroles finissent par sortir, même tardivement, nous sortirons une nouvelle version de celui-ci avec le karaoké !<br />
+Merci à DC pour avoir encodé cet épisode et Maboroshi, avec nous en coproduction sur cette série.<br />
+C'est avec ce dernier épisode que nous marquons la fin de Kodomo no Jikan ! C'est ma série préférée et je pense que c'est aussi la préférée de beaucoup de membres de chez Zéro et sa communauté.<br />
+Nous avons passé du bon temps aux côtés de Rin et ses deux amies et nous éspérons que c'est aussi votre cas.<br /><br />
+
+<img src="images/news/newkodomo2.jpg" alt="Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin" /><br /><br />
+
+<img src="images/news/newkodomo3.jpg" alt="Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin" />
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t185.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=185" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Tayutama ~Kiss on my deity~ 12 - Fin</h2>
+<h4>12/01/2010 par db0</h4>
+<div class="p">
+C'est aujourd'hui la fin de Tayutama. Le douzième et dernier épisode toujours en coproduction avec nos amis de chez Maboroshi. Nous éspérons que vous avez passé un bon moment avec nous pour cette merveilleuse série ! Et maintenant, it's scrolling time !<br /><br />
+<img src="images/news/tayufin1.jpg" /><br />
+<img src="images/news/tayufin2.jpg" /><br />
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t176.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=176" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Tayutama - Kiss on my Deity - 11</h2>
+<h4>04/12/09 par TchO</h4>
+<div class="p"><img src="images/news/mashinoel.jpg" /><br />
+Tayu 11, la Bataille Décisive !!<br /><br />
+
+Pour calmer la colère du dragon, la grande prêtresse Mashiro tente...<br />
+Hé !!!!! Mais que se passe-t-il ????? C't'une surprise !!!<br /><br />
+
+Pour la Bataille Décisive, on a droit à un cosplay de Dieu !!<br />
+Si c'est comme ça que Mashiro espère gagner la partie !<br /><br />
+
+Tenez bon ! La fin se précise, et elle est belle à regarder !<br /><br />
+
+Coproduction Zero+Maboroshi !<br />
+TchO_°
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t152.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=152" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Kanamemo 03</h2>
+<h4>26/11/09 par db0</h4>
+<div class="p"><img src="images/news/kana3.jpg" /><br />
+BANZAIII !! Kanamemo épisode 03, ouais, trop bien ! Je mets du temps à sortir les épisodes ces derniers temps, mais derrnière le rideau, ne vous inquiétez pas, ça bosse ! Oui, c'est encore de ma faute, avant la piscine, maintenant printf, je suis débordée... (Mais de quoi elle parle !? o__O) Bref. Bon épisode !
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t150.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=150" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Tayutama - Kiss on my Deity - 10</h2>
+<h4>17/11/09 par TchO</h4>
+<div class="p"><img src="images/news/tayu10.jpg" /><br />
+L'Horoscope d'aujourd'hui :<br />
+Humains : Ecrasé par l'émotion, sachez éviter les coups de marteau !<br /><br />
+
+Portée par le rêve de la coexistence, Yumina-chan danse.<br /!!
+Quant à Ameri, elle est la proie de ses mauvais rêves...<br /><br />
+
+Même romantique, la passion peut être tellement furieuse !
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t149.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=149" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Hitohira 05 + 06</h2>
+<h4>10/11/09 par db0</h4>
+<div class="p"><img src="images/news/hito5.jpg" /><br />
+Mugi-choco ! Tu nous as tellement manqué... Et tu reviens en maillot de bain, à la plage ! Yahou ! Mugi-Mugi-choco !!
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t142.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=142" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Tayutama - Kiss on my Deity - 09</h2>
+<h4>05/11/09 par TchO</h4>
+<div class="p"><img src="images/news/tayuu9.jpg" /><br />
+Mashiro découvre que la moto est un souci pour aller aux sources d'eau chaudes.<br /><br />
+
+Hé, on va tous faire un karaoké ?<br />
+C'est le moment de s'amuser !<br />
+Entre deux entraînements, une balade à la tour de Tokyo.<br />
+
+Les sentiments de Mashiro n'échappent à personne, ni à Ameri, ni à...<br /><br />
+
+Une Zero + Maboroshi coprod<br /><br />
+
+TchO_°<br />
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t141.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=141" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Tayutama - Kiss on my Deity - 08</h2>
+<h4>05/11/09 par TchO</h4>
+<div class="p"><img src="images/news/tayuuu.jpg" /><br />
+Tayutama !!!!!!<br />
+Tayutama, c'est pour ce soir l'épisode 08, toujours coproduit avec la Maboroshi.<br />
+Un épisode qui nous livre, dans une exceptionnelle interprétation, un remake de "j'assortis mon foulard avec ma jupe".<br />
+Et puis, on allait pas louper la tronche de Yuuri pour une fois ^^<br />
+(Ca veut dire quoi, au fait, Tayutama ?)<br />
+Profitez-en bien, c'est toujours aussi délire !!<br />
+db0 dit :<br />
+J'en profite en coup de vent pour vous annoncer que la deuxième session de Konshinkai à Lyon arrive en fin du mois, et pour ça, un forum a fait son ouverture ainsi qu'un nouveau site et un chan irc. Venez nombreux ! <a href="http://konshinkai.c.la" target="_blank">+ d'infos, clique.</a>
+<br /><br />
+<span>~ <a href="http://commentaires.zerofansub.net/t140.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=140" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
+<p></p>
+
+<h2>Tayutama - Kiss on my Deity - 06 + 07 + Kanamemo 02</h2>
+<h4>05/11/09 par db0, praia et Tarf</h4>
+<div class="p"><img src="images/news/tayuu.jpg" /><br />
+Bonjour tout le monde !<br />
+Je me suis dit que c'était toujours moi qui rédigait les news, et qu'il serait temps que ça change. Donc j'ai demandé à quelques membres de l'équipe de le faire. J'ai trouvé le résultat assez marrant, donc je vous donne leurs petites idées de news :<br /><br />
+Praia dit :<br />
+"On abandonne tout et on recommence : Tayutama 6 et 7 en copro avec la Maboroshi.<br />
+Bon leech ! Version MP4 disponible uniquement.<br />
+Kanamemo, c'est quoi ? C'est la série des petits pervers... non, vous voyez, suis pas fait pour faire des news, moi... ^_^
+Dommage que Sunao ne soit pas là... Il nous aurait pondu une brique > <"
+<br /><br />
+Tarf dit :<br />
+"Hein ? J'ai pas signé pour ça moi ! Et puis je suis juste un petit trad qui fait un peu de time à ses heures perdus, donc je fais le début de chaîne. C'est aux gens en bout de chaîne de faire ça non ? Va donc voir le joli post "staff" que tu as pondu sur toutes les séries, et choppe le dernier nom ^^.<br />
+
+Bon, une petite news : "J'ai pu rencontrer samedi 31 octobre, à l'occasion du Konshinkai trois personnes parfois intéressantes. J'ai ainsi parlé IRL mon idole Ryokku, qui travail en tant qu'admin pour anime ultime, qui est à mon avis un des meilleurs sites français d'anime. Après une interview exclusive de ce monument vivant de l'animation, il m'a confié qu'il désespérait de la saison en cours d'anime, et qu'aucun ne trouvait grâce à ses yeux. N'ayant pas les mêmes goûts que lui, je ne suis pas d'accord, mais moi tout le monde s'en fout. Pour ceux que ça interesse, il est gentil, jeune et dynamique ! Avis aux jeunes filles, jetez vous dessus !"<br />
+
+Tayutama Kiss on my deity, épisode 6 et 7 enfin sortis en corproduction avec la Maboroshi no Fansub ! La suite des aventures plus ou moins osée de l'avatar fort mignon d'une déesse dans le monde réel. Vous y retrouverez l'amie d'enfance jalouse, la Tsundere et la naïve à forte poitrine. La version MP4 est disponible immédiatement sur le site, la version AVI étant abandonnée."<br /><br />
+db0 dit :<br />
+J'en profite en coup de vent pour vous annoncer que la deuxième session de Konshinkai à Lyon arrive en fin du mois, et pour ça, un forum a fait son ouverture ainsi qu'un nouveau site et un chan irc. Venez nombreux ! <a href="http://konshinkai.c.la" target="_blank">+ d'infos, clique.</a><br /><br />
+

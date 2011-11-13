@@ -2025,7 +2025,8 @@ class Release {
 				return $release;
 			}
 		}
-		return null;
+		$project = Project::getProject($projectId);
+		throw new Exception($releaseId." is not a known release ID for ".$project->getName().".");
 	}
 }
 
