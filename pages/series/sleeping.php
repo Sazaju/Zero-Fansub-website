@@ -14,16 +14,21 @@
 <p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p>
 <h2>Épisodes</h2>
 
-<h5>S'endormir avec Hinako (Isshoni Sleping) OAV</h5>
+<?php
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
 
-<div style="float : right; display:block; margin-right: 20px;">
-	<img src="images/episodes/sleeping.jpg" border="0">
-</div>
-<p><b>Staff Zéro</b> Traduction : Benjee | Adapt : db0 | Time : db0 | Edition : db0 | QC : Praia | Enco : DC<br />
- 
-<b>Téléchargements</b><br />
-   Licenci&eacute; !
-</p>
+	$releases = Release::getAllReleasesForProject('sleeping');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
+?>
 
 <p></p>
 <h2>Voir aussi</h2>

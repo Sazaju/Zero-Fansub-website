@@ -14,16 +14,21 @@
 
 <p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p><h2>Épisodes</h2>
 
-<h5>L'entraînement avec Hinako (Isshoni Training) OAV</h5>
+<?php
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
 
-<div style="float : right; display:block; margin-right: 20px;">
-	<img src="images/episodes/training.jpg" border="0">
-</div>
-<p><b>Staff Zéro</b> Tout : db0 + QC Praia + Enco DC<br />
- 
-<b>Téléchargements</b><br />
-Licenci&eacute; !
-</p>
+	$releases = Release::getAllReleasesForProject('training');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
+?>
 
 <p></p>
 <h2>Voir aussi</h2>

@@ -10,12 +10,14 @@ class Release {
 	private $headerImage = null;
 	private $files = array();
 	private $bonuses = array();
+	private $licenseSafeBonuses = array();
 	private $streamings = array();
 	private $synopsis = null;
 	private $comment = null;
 	private $originalName = null;
 	private $localizedName = null;
 	private $releasingTime = null;
+	private $license = null;
 	private $staff = array();
 	
 	public function __construct(Project $project, $id = null) {
@@ -25,6 +27,22 @@ class Release {
 	
 	public function getProject() {
 		return $this->project;
+	}
+	
+	public function setLicense(License $license) {
+		$this->license = $license;
+	}
+	
+	public function getLicense() {
+		$license = $this->license;
+		if ($license == null && $this->getProject()->isLicensed()) {
+			 $license = $this->getProject()->getLicense();
+		}
+		return $license;
+	}
+	
+	public function isLicensed() {
+		return $this->getLicense() != null;
 	}
 	
 	public function setProject(Project $project) {
@@ -152,8 +170,15 @@ class Release {
 		return $this->bonuses;
 	}
 	
-	public function addBonus(Link $link) {
+	public function getLicenseSafeBonuses() {
+		return $this->licenseSafeBonuses;
+	}
+	
+	public function addBonus(Link $link, $licenseSafe = false) {
 		$this->bonuses[] = $link;
+		if ($licenseSafe) {
+			$this->licenseSafeBonuses[] = $link;
+		}
 	}
 	
 	public function getStreamings() {
@@ -1353,6 +1378,614 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setComment("Version Italienne sous-titrée français.");
 			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep1');
+			$release->setName("01");
+			$release->setLocalizedTitle("Shangai pourpre");
+			$release->setPreviewUrl("images/episodes/canaan1.jpg");
+			$release->addStaff(TeamMember::getMemberByPseudo("Ryocu"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep2');
+			$release->setName("02");
+			$release->setPreviewUrl("images/episodes/canaan2.jpg");
+			$release->setLocalizedTitle("Un jeu cruel");
+			$release->addStaff(TeamMember::getMemberByPseudo("Ryocu"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->addBonus(new NewWindowLink("images/news/%5bZero%5dCanaan_02_Photo_negatif_1.jpg", "1"), true);
+			$release->addBonus(new NewWindowLink("images/news/%5bZero%5dCanaan_02_Photo_negatif_2.jpg", "2"), true);
+			$release->addBonus(new NewWindowLink("images/news/%5bZero%5dCanaan_02_Photo_negatif_3.jpg", "3"), true);
+			$release->addBonus(new NewWindowLink("images/news/%5bZero%5dCanaan_02_Photo_negatif_4.jpg", "4"), true);
+			$release->addBonus(new NewWindowLink("images/news/%5bZero%5dCanaan_02_Photo_negatif_5.jpg", "5"), true);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep3');
+			$release->setName("03");
+			$release->setPreviewUrl("images/episodes/canaan3.jpg");
+			$release->setLocalizedTitle("Rien d'important");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep4');
+			$release->setName("04");
+			$release->setPreviewUrl("images/episodes/canaan4.jpg");
+			$release->setLocalizedTitle("Obscuritée Grandissante");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep5');
+			$release->setName("05");
+			$release->setPreviewUrl("images/episodes/canaan5.jpg");
+			$release->setLocalizedTitle("Amies");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep6');
+			$release->setName("06");
+			$release->setPreviewUrl("images/episodes/canaan6.jpg");
+			$release->setLocalizedTitle("Love and Piece");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep7');
+			$release->setName("07");
+			$release->setPreviewUrl("images/episodes/canaan7.jpg");
+			$release->setLocalizedTitle("Pierre tombale");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Ryocu"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep8');
+			$release->setName("08");
+			$release->setPreviewUrl("images/episodes/canaan8.jpg");
+			$release->setLocalizedTitle("Requête");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep9');
+			$release->setName("09");
+			$release->setPreviewUrl("images/episodes/canaan9.jpg");
+			$release->setLocalizedTitle("Fleurs du passé");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep10');
+			$release->setName("10");
+			$release->setPreviewUrl("images/episodes/canaan10.jpg");
+			$release->setLocalizedTitle("Fleurs du passé");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep11');
+			$release->setName("11");
+			$release->setPreviewUrl("images/episodes/canaan11.jpg");
+			$release->setLocalizedTitle("Pensées");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep12');
+			$release->setName("12");
+			$release->setPreviewUrl("images/episodes/canaan12.jpg");
+			$release->setLocalizedTitle("Train Saisonnier");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->addBonus(new NewWindowLink("ddl/[Zero]Canaan_12[Screenshots].zip", "Pack de Screenshots"), true);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('canaan'), 'ep13');
+			$release->setName("13");
+			$release->setPreviewUrl("images/episodes/canaan13.jpg");
+			$release->setLocalizedTitle("Terre d'espoir");
+			$release->addStaff(TeamMember::getMemberByPseudo("Pyra"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep1');
+			$release->setName("01");
+			$release->setPreviewUrl("images/episodes/hyakko1.jpg");
+			$release->setLocalizedTitle("Rencontre avec un tigre");
+			$release->setOriginalTitle("Aimamieru Torako");
+			$release->setSynopsis("Ayumu est à la recherche de sa salle de classe. Elle rencontre sur son chemin Tatsuki. en cherchant toutes les deux, elle voient Torako et Suzume sautant du deuxième étage d'une fenêtre. Après avoir rejoint le groupe, elles se dirige vers la salle de classe.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_01[H264-AAC][186B44E7].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep2');
+			$release->setName("02");
+			$release->setPreviewUrl("images/episodes/hyakko2.jpg");
+			$release->setLocalizedTitle("Qui ne risque rien n'a rien");
+			$release->setOriginalTitle("Koketsu ni Irazunba Koji o EZU");
+			$release->setSynopsis("Ayumu, Tatsuki, Torako et Suzume sont à la recherche d'un club. Elles essayent plusieurs clubs de sport ensemble.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_02[H264-AAC][D5479335].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep3');
+			$release->setName("03");
+			$release->setPreviewUrl("images/episodes/hyakko3.jpg");
+			$release->setLocalizedTitle("Un tigre à l'entrée, un tigre à l'arrière");
+			$release->setOriginalTitle("Zenmon pas mo Tora Tora Komon / Hariko pas Tora");
+			$release->setSynopsis("Torako et Suzume rencontrent Nene sur leur chemin. Elle leur annonce que Torako est chargée de la discipline ! Elle doit donc dès le lendemain vérifier les uniformes des élèves. Dans la deuxième partie de l'épisode, Torako et Suzume découvrent un robot grotesque fait par Chie, membre du club de robotique. Plus tard, Torako et ses amis sont invitées à la salle du club robotique et Chie leur annonce qu'elle veut devenir ingénieure en robotique.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_03[H264-AAC][33D9EAEC].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep4');
+			$release->setName("04");
+			$release->setPreviewUrl("images/episodes/hyakko4.jpg");
+			$release->setLocalizedTitle("Le tigre se remplit la panse");
+			$release->setOriginalTitle("Torashoku Bashoku Gyuin / Tora wa Torazure");
+			$release->setSynopsis("Torako et ses amis vont à la cafétéria de l'école ensemble. Sur le chemin, Torako explique à Ayumu le «Combo» : le moyen d'obtenir une portion supplémentaire de repas. Dans la deuxième partie de l'épisode, Torako et ses amis sont en classe d'art où les élèves apprennent à se dessiner les uns les autres.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_04[H264-AAC][84D4054B].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep5');
+			$release->setName("05");
+			$release->setPreviewUrl("images/episodes/hyakko5.jpg");
+			$release->setLocalizedTitle("Relation étrange / Combats un tigre et tu verras");
+			$release->setOriginalTitle("Aien Koen / Hito ni wa soute miyo Tora à wa Tatakatte miyo");
+			$release->setSynopsis("Un nouveau personnage : Yanagi. Tout comme Koma, elle fait des profits de la vente de photographies des élèves. Lorsque Shishimaru regarde la photographie de Ayumu par hasard, il est instantanément épris de la photographie. Sur son chemin, il la Ayumu et confesse son amour pour elle. Dans la deuxième partie de l'épisode, Torako et Ushio sèchent les cours et passent leur temps ensemble dans le centre-ville.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_05[H264-AAC][8D75C502].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep6');
+			$release->setName("06");
+			$release->setPreviewUrl("images/episodes/hyakko6.jpg");
+			$release->setLocalizedTitle("Encerclée par des tigres");
+			$release->setOriginalTitle("Sangen mukou Ryogawa ni Tora");
+			$release->setSynopsis("Torako, Suzume, et Ayumu vont chez Tatsuki sans la prévenir.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_06[H264-AAC][975D17BE].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep7');
+			$release->setName("07");
+			$release->setPreviewUrl("images/episodes/hyakko7.jpg");
+			$release->setLocalizedTitle("Finallement, le tigre et le renard se rencontrent / Le renard provoque la colère du tigre");
+			$release->setOriginalTitle("Koko de Atta ga Hyakunenme / Tora no o Ikari Kitsune Kau");
+			$release->setSynopsis("Koma et Yanagi se cachent dans les buissons pour prendre des photos d'élèves en secret. Kitsuna décide de les aider et tire la jupe d'Ayumi pour Koma et Yanagi la prenne en photo. Dans la deuxième partie de l'épisode, Torako se plaint à ses amis de tous les mauvais souvenirs qu'elle avait avec son frère dans le passé. Kitsune décide de faire une blague à Torako en mettant des épices dans ses ramens.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_07[H264-AAC][73F88F50].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep8');
+			$release->setName("08");
+			$release->setPreviewUrl("images/episodes/hyakko8.jpg");
+			$release->setLocalizedTitle("Une flèche atteint le tigre / J'ai bousculé un tigre, mais c'était en fait un chat");
+			$release->setOriginalTitle("Tora ni Tatsu Ya / Tora o Egai te Neko ni Ruisuru");
+			$release->setSynopsis("Inori est en détresse de ne pas pouvoir se faire des amis car elle a du mal à parler à haute voix et son visage couvert par ses cheveux longs effraie les autres étudiants. Torako décide alors de l'aider en demandant à ses amis de la recoiffer.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_08[H264-AAC][E7333F69].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep9');
+			$release->setName("09");
+			$release->setPreviewUrl("images/episodes/hyakko9.jpg");
+			$release->setLocalizedTitle("La compassion ne profite qu'aux autres / J'ai bousculé un tigre, mais c'était en fait un chat");
+			$release->setOriginalTitle("zu na Suzume, yo Ataeraren Saraba Nasake");
+			$release->setSynopsis("Minato a perdu sa pièce pour acheter une canette. Elle se met à pleurer, et Torako Ayumi arrivent. Torako lui achète une canette de boisson pour qu'elle cesse de pleurer. Depuis, Minato veut absolument lui rendre la pareille en l'aidant tout le temps.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_09[H264-AAC][8136764D].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep10');
+			$release->setName("10");
+			$release->setPreviewUrl("images/episodes/hyakko10.jpg");
+			$release->setLocalizedTitle("Un tigre avec des ailes");
+			$release->setOriginalTitle("Tora ni Tsubasa");
+			$release->setSynopsis("Toma passe son temps sur le dessus du bâtiment scolaire. Torako s'approche d'elle et essaie de lui parler. Toma la rejette. Plus tard, Toma rencontre les amies de Torako à l'école et elle décide avec certitude que chacune d'entre elle a quelque chose d'étrange, d'une manière ou d'une autre.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_10[H264-AAC][3518F5F2].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep11');
+			$release->setName("11");
+			$release->setPreviewUrl("images/episodes/hyakko11.jpg");
+			$release->setLocalizedTitle("Dans la gueule du tigre");
+			$release->setOriginalTitle("Koko o Nogareru");
+			$release->setSynopsis("Une prof est absente car elle doit s'occuper de son fils. À la place du cours d'anglais, ils vont faire du sport.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_11[H264-AAC][323C3503].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep12');
+			$release->setName("12");
+			$release->setPreviewUrl("images/episodes/hyakko12.jpg");
+			$release->setLocalizedTitle("La princesse, le prince et Torako / Le démon tigre");
+			$release->setOriginalTitle("Ichi Hime Ni Taro San Torako / Torako Yue Onigokoro Mayou NI");
+			$release->setSynopsis("Torako est allée dormir chez une amie. Sa grande soeur lui en veut de ne pas l'avoir prévenue.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_12[H264-AAC][49831503].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakko'), 'ep13');
+			$release->setName("13");
+			$release->setPreviewUrl("images/episodes/hyakko13.jpg");
+			$release->setLocalizedTitle("Les quatres forment un tigre");
+			$release->setOriginalTitle("Yonin Tora o Nasu");
+			$release->setSynopsis("Torako et Suzume se sont enfuie de chez elles. C'est le dernier jour de l'école.");
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_13[H264-AAC][8C963DCF].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('training'), 'oav');
+			$release->setName(null);
+			$release->setPreviewUrl("images/episodes/training.jpg");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('sleeping'), 'oav');
+			$release->setName(null);
+			$release->setPreviewUrl("images/episodes/sleeping.jpg");
+			$release->addStaff(TeamMember::getMemberByPseudo("Benjee"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('adapt'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('encod'));
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep1');
+			$release->setName("01");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/01/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/01/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/01/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/01/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep2');
+			$release->setName("02");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/02/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/02/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/02/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/02/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep3');
+			$release->setName("03");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/03/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/03/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/03/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/03/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep4');
+			$release->setName("04");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/04/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/04/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/04/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/04/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep5');
+			$release->setName("05");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/05/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/05/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/05/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/05/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep6');
+			$release->setName("06");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/06/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/06/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/06/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/06/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep7');
+			$release->setName("07");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/07/main.jpg");
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep8');
+			$release->setName("08");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/08/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/08/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/08/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/08/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep9');
+			$release->setName("09");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/09/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/09/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/09/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/09/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep10');
+			$release->setName("10");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/10/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/10/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/10/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/10/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep11');
+			$release->setName("11");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/11/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/11/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/11/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/11/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep12');
+			$release->setName("12");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/12/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/12/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/12/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/12/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep13');
+			$release->setName("13");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/13/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/13/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/13/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/13/04.jpg" border="0" />
+			*/
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kannagi'), 'ep14');
+			$release->setName("14");
+			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/14/01.jpg");
+			/* TODO preview
+<img src="http://www.nagisama-fc.com/anime/oa/image/14/01.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/14/03.jpg" border="0" />
+<img src="http://www.nagisama-fc.com/anime/oa/image/14/04.jpg" border="0" />
+			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 		}

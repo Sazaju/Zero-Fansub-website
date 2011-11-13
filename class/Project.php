@@ -10,7 +10,7 @@ class Project {
 	private $isRunning = false;
 	private $isFinished = false;
 	private $isAbandonned = false;
-	private $isLicensed = false;
+	private $license = null;
 	private $isHentai = false;
 	private $isDoujin = false;
 	
@@ -78,12 +78,16 @@ class Project {
 		return $this->isAbandonned;
 	}
 	
-	public function setIsLicensed($boolean) {
-		$this->isLicensed = $boolean;
+	public function setLicense(License $license) {
+		$this->license = $license;
+	}
+	
+	public function getLicense() {
+		return $this->license;
 	}
 	
 	public function isLicensed() {
-		return $this->isLicensed;
+		return $this->getLicense() != null;
 	}
 	
 	public function setIsHentai($boolean) {
@@ -107,7 +111,7 @@ class Project {
 		if (Project::$allProjects === null) {
 			$project = new Project("canaan", "Canaan");
 			$project->setIsFinished(true);
-			$project->setIsLicensed(true);
+			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("denpa", "Denpa Onna to Seishun Otoko");
@@ -123,7 +127,7 @@ class Project {
 			
 			$project = new Project("hyakko", "Hyakko");
 			$project->setIsFinished(true);
-			$project->setIsLicensed(true);
+			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hyakkooav", "Hyakko OAV");
@@ -132,7 +136,7 @@ class Project {
 			
 			$project = new Project("training", "Isshoni Training - L'entra&icirc;nement avec Hinako");
 			$project->setIsFinished(true);
-			$project->setIsLicensed(true);
+			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("bath", "Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
@@ -141,7 +145,7 @@ class Project {
 			
 			$project = new Project("sleeping", "Isshoni Sleeping - S'endormir avec Hinako");
 			$project->setIsFinished(true);
-			$project->setIsLicensed(true);
+			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kanamemo", "Kanamemo");
@@ -150,7 +154,7 @@ class Project {
 			
 			$project = new Project("kannagi", "Kannagi");
 			$project->setIsFinished(true);
-			$project->setIsLicensed(true);
+			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kissxsis", "KissXsis TV");
@@ -198,7 +202,7 @@ class Project {
 
 			$project = new Project("mermaid", "Mermaid Melody Pichi Pichi Pitch");
 			$project->setIsAbandonned(true);
-			$project->setIsLicensed(true);
+			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mitsudomoe", "Mitsudomoe");
