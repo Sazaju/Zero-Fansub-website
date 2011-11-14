@@ -5,16 +5,19 @@
 
 class ReleaseLink extends IndexLink {
 	private $projectId = null;
-	private $releaseId = null;
+	private $releaseList = array();
 	
-	public function __construct($projectId, $releaseId, $content = null) {
+	public function __construct($projectId, $releaseList, $content = null) {
+		if (!is_array($releaseList)) {
+			$releaseList = array($releaseList);
+		}
+		
 		$this->setProjectId($projectId);
-		$this->setReleaseId($releaseId);
+		$this->setReleaseList($releaseList);
 		
 		if ($content === null) {
-			$release = Release::getRelease($projectId, $releaseId);
-			$content = $release->getName();
-			$content = $release->getProject()->getName().($content == null ? null : " - ".$content);
+			$release = Release::getRelease($projectId, $releaseList[0]);
+			$content = $release->getCompleteName().(count($releaseList) > 1 ? "+" : "");
 		}
 		$this->setContent($content);
 	}
@@ -24,7 +27,18 @@ class ReleaseLink extends IndexLink {
 	}
 	
 	public function updateUrl() {
-		parent::setUrl('page=series/'.$this->projectId.'&show='.$this->releaseId.'#'.$this->releaseId);
+		if (count($this->releaseList) > 0) {
+			$list = "";
+			$first = null;
+			foreach($this->releaseList as $id) {
+				if ($first == null) {
+					$first = $id;
+				}
+				$list .= ",".$id;
+			}
+			$list = substr($list, 1);
+			parent::setUrl('page=series/'.$this->projectId.'&show='.$list.'#'.$first);
+		}
 	}
 	
 	public function setProjectID($id) {
@@ -36,13 +50,16 @@ class ReleaseLink extends IndexLink {
 		return $this->projectId;
 	}
 	
-	public function setReleaseID($id) {
-		$this->releaseId = $id;
+	public function setReleaseList($list) {
+		if (count($list) == 0) {
+			throw new Exception("At least one id should be given.");
+		}
+		$this->releaseList = $list;
 		$this->updateUrl();
 	}
 	
-	public function getReleaseID() {
-		return $this->releaseId;
+	public function getReleaseList() {
+		return $this->releaseList;
 	}
 }
 ?>

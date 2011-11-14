@@ -1,10 +1,10 @@
 <?php
 	
-	class Sortie extends IndexLink {
+	class Sortie extends ReleaseLink {
 		public function __construct(Release $release) {
-			$this->setUrl("page=series/".$release->getProject()->getID());
+			parent::__construct($release->getProject()->getID(), $release->getID());
 			$this->setClass("sortie");
-			$this->addComponent(new Image($release->getHeaderImage(), $release->getProject()->getName()));
+			$this->setContent(new Image($release->getHeaderImage(), $release->getCompleteName()));
 		}
 	}
 	

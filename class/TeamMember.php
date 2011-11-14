@@ -294,40 +294,43 @@ class TeamMember {
 			
 			$member = new TeamMember(21);
 			$member->setPseudo("FinalFan");
-			// TODO specify the original team
 			$member->addRole(Role::getRole("time"));
-			$member->setPonctualMember(true);
+			$member->setPonctualMember(true); // team FinalFanSub
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(22);
 			$member->setPseudo("Sky_Lekas");
 			$member->addRole(Role::getRole("encod"));
-			$member->setPonctualMember(true); // TODO check this point
+			$member->setPonctualMember(true); // team FinalFanSub
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(23);
 			$member->setPseudo("Bkdenice");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->setPonctualMember(true); // autre team
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(24);
 			$member->setPseudo("Kurosaki");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->addRole(Role::getRole('tradEn'));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(25);
 			$member->setPseudo("Kaj");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->addRole(Role::getRole('qc'));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(26);
 			$member->setPseudo("Baka !");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->addRole(Role::getRole('help'));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(27);
 			$member->setPseudo("Vegeta");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->addRole(Role::getRole('check'));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(28);
@@ -337,7 +340,8 @@ class TeamMember {
 			
 			$member = new TeamMember(29);
 			$member->setPseudo("Adeo");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->addRole(Role::getRole('check'));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(30);
@@ -347,12 +351,14 @@ class TeamMember {
 			
 			$member = new TeamMember(30);
 			$member->setPseudo("Thrax");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->setPonctualMember(true); // autre team
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(31);
 			$member->setPseudo("Man-ban");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->addRole(Role::getRole('tradEn'));
+			$member->addRole(Role::getRole('time'));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(32);
@@ -382,32 +388,39 @@ class TeamMember {
 			
 			$member = new TeamMember(37);
 			$member->setPseudo("Suke");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(38);
 			$member->setPseudo("B3rning");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->addRole(Role::getRole('encod'));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(39);
 			$member->setPseudo("Khorx");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->addRole(Role::getRole('time'));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(40);
 			$member->setPseudo("Pyra");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->addRole(Role::getRole('qc'));
+			$member->addRole(Role::getRole('adapt'));
+			$member->addRole(Role::getRole('tradEn'));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(41);
 			$member->setPseudo("Akai_Ritsu");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->addRole(Role::getRole('kara'));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(42);
 			$member->setPseudo("Benjee");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->addRole(Role::getRole('tradEn'));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			// TODO remove this sort, prefer a sort at a lower level

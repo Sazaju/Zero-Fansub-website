@@ -6,11 +6,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 	public function __construct(Release $release) {
 		$this->addComponent(new Anchor($release->getID()));
 		
-		$title = ucfirst($release->getName());
-		if ($release->getProject() !== null) {
-			$title = $release->getProject()->getName().($title == null ? null : " - ".$title);
-		}
-		$link = new Link(null, $title);
+		$link = new Link(null, $release->getCompleteName());
 		$title = new Title($link);
 		$title->setClass("title");
 		$this->addComponent($title);

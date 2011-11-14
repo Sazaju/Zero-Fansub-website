@@ -172,6 +172,29 @@ class News extends SimpleBlockComponent {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$news = new News();
+			$news->setTitle("Mitsudomoe 7+8");
+			$news->setTimestamp(strtotime("14 November 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			// TODO $news->setCommentId(273);
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep7'));
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep8'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("Ah, j'ai des nouvelles pour vous. Vous allez rire {^_^}. Il se trouve que ça fait un moment qu'on a fini les Mitsudomoe 7 & 8... et j'ai oublié de les sortir ! C'est marrant, hein ? {^o^}");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Non ? Vous trouvez pas ? {°.°}?");
+			$newsMessage->addLine();
+			$newsMessage->addLine(new Image("images/news/aMort.png", "À mort !"));
+			$newsMessage->addLine();
+			$newsMessage->addComponent("OK, OK, j'arrête {\">_<}. S'il vous reste des cailloux de la dernière fois, vous pouvez me les jeter. Allez, pour me faire pardonner je vous file un accès rapide : ");
+			$newsMessage->addLine(new ReleaseLink('mitsudomoe', array('ep7', 'ep8'), "Mitsudomoe 7 & 8"));
+			$newsMessage->addLine();
+			$newsMessage->addLine("J'en profite pour vous rappeler que le site est en cours de raffinage, et comme j'en ai fait beaucoup dernièrement (le lien rapide en est un ajout) il est possible que certains bogues me soient passés sous le nez. Aussi n'hésitez pas à me crier dessus si vous en trouvez {'^_^}.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Sur ceux, bon visionnage {^_^}.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("Besoin de timeurs !");
 			$news->setTimestamp(strtotime("11 October 2011"));
 			$news->setAuthor(TeamMember::getMember(5));

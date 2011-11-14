@@ -61,6 +61,21 @@ class Release {
 		return $this->name;
 	}
 	
+	public function getCompleteName() {
+		if ($this->getProject() != null && $this->getName() != null) {
+			return $this->getProject()->getName()." - ".$this->getName();
+		}
+		else if ($this->getName() != null) {
+			return $this->getName();
+		}
+		else if ($this->getProject() != null) {
+			return $this->getProject()->getName();
+		}
+		else {
+			return "?";
+		}
+	}
+	
 	public function setName($name) {
 		$this->name = $name;
 	}
@@ -282,10 +297,6 @@ class Release {
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
-			$release = new Release(Project::getProject("mitsudomoe"), "ep7");
-			$release->setName("épisode 7");
-			Release::$allReleases[] = $release;
-			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep6");
 			$release->setName("épisode 6");
 			$release->setPreviewUrl("images/episodes/mitsudomoe6.jpg");
@@ -298,8 +309,28 @@ class Release {
 			$release->setReleasingTime(strtotime("10 October 2011"));
 			Release::$allReleases[] = $release;
 			
+			$release = new Release(Project::getProject("mitsudomoe"), "ep7");
+			$release->setName("épisode 7");
+			$release->setPreviewUrl("images/episodes/mitsudomoe7.jpg");
+			$release->setHeaderImage("images/sorties/mitsudomoe7.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_07[H264-AAC][ABFFF382].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime("14 November 2011 21:00:00"));
+			Release::$allReleases[] = $release;
+			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep8");
 			$release->setName("épisode 8");
+			$release->setPreviewUrl("images/episodes/mitsudomoe8.jpg");
+			$release->setHeaderImage("images/sorties/mitsudomoe8.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_08[H264-AAC][276A1B90].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime("14 November 2011 21:00:01"));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep9");
