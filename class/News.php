@@ -175,7 +175,7 @@ class News extends SimpleBlockComponent {
 			$news->setTitle("Mitsudomoe 7+8");
 			$news->setTimestamp(strtotime("14 November 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
-			// TODO $news->setCommentId(273);
+			$news->setCommentId(275);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep7'));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep8'));
 			$newsMessage = new SimpleTextComponent();
@@ -189,6 +189,8 @@ class News extends SimpleBlockComponent {
 			$newsMessage->addLine(new ReleaseLink('mitsudomoe', array('ep7', 'ep8'), "Mitsudomoe 7 & 8"));
 			$newsMessage->addLine();
 			$newsMessage->addLine("J'en profite pour vous rappeler que le site est en cours de raffinage, et comme j'en ai fait beaucoup dernièrement (le lien rapide en est un ajout) il est possible que certains bogues me soient passés sous le nez. Aussi n'hésitez pas à me crier dessus si vous en trouvez {'^_^}.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Et si vous voulez nous aider (ou vous essayer au fansub), on cherche des traducteurs Anglais-Francais (ou Japonais pour ceux qui savent {^_^}) !");
 			$newsMessage->addLine();
 			$newsMessage->addLine("Sur ceux, bon visionnage {^_^}.");
 			$news->setMessage($newsMessage);
