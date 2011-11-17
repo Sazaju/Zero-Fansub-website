@@ -31,7 +31,7 @@
 		}
 	}
 
-	$page->addComponent(new Title("Projets futurs", 2));
+	$page->addComponent(new Title("Projets envisagés", 2));
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);

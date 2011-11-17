@@ -115,6 +115,7 @@ class Project {
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("denpa", "Denpa Onna to Seishun Otoko");
+			$project->setIsStarted(true);
 			Project::$allProjects[] = $project;
 
 			$project = new Project("genshiken", "Genshiken 2");
@@ -198,6 +199,7 @@ class Project {
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mayoi", "Mayoi Neko Overrun!");
+			$project->setIsStarted(true);
 			Project::$allProjects[] = $project;
 
 			$project = new Project("mermaid", "Mermaid Melody Pichi Pichi Pitch");
