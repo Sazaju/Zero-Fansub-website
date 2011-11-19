@@ -57,15 +57,15 @@ class News extends SimpleBlockComponent {
 	}
 	
 	public function getTitle() {
-		return $this->title->getContent();
+		return $this->title->getCurrentContent();
 	}
 	
 	public function getDate() {
-		return $this->date->getContent();
+		return $this->date->getCurrentContent();
 	}
 	
 	public function setTimestamp($timestamp) {
-		$this->timestamp = $timestamp;
+		$this->timestamp = intval($timestamp);
 		$this->date->setContent(strftime("%d/%m/%Y", $timestamp));
 	}
 	
@@ -810,6 +810,36 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			$newsMessage->addLine("<img src=\"images/news/noel.jpg\" border=\"0\" /><br>Toute l'équipe Zéro vous souhaite à tous un joyeux noël, un bon réveillon, une bonne dinde, de bons chocolats, de beaux cadeaux et tout ce qui va avec.<br>Nos cadeaux pour vous :<br>- Une galerie d'images de Noël (dans les bonus)<br>- L'OAV de Kiss x sis !<br>Dans la liste de nos projets depuis cet été, initialement prévu en septembre... Au final, il est sorti le 22 décembre, et nous vous l'avons traduit comme cadeau de Noël. C'est entre-autre grâce à cet OAV que nous avons fait la conaissance de la <a href=\"http://kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a>.");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
+			$news->setTimestamp(strtotime("23 July 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
+			$news->setCommentId(267);
+			$news->addReleasing(Project::getProject('bath'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/bath.jpg\" alt=\"Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko\" />
+  <br /><br />
+  Nous avons appris qu'Ankama va diffuser &agrave; partir de la rentr&eacute;e de septembre 2011 :<br />
+  Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc &eacute;t&eacute; retir&eacute;s.<br />
+  On vous invite &agrave; cesser la diffusion de nos liens et &agrave; aller regarder la s&eacute;rie sur leur site.<br />
+  <br />
+  Sorties d'Isshoni Training Ofuro : Bathtime with Hinako & Hiyoko<br />
+  <br />
+  3e volet des \"isshoni\", on apprend comment les Japonaises prennent leur bain, tr&egrave;s int&eacute;ressant...<br />
+  Avec en bonus, une petite s&eacute;ance de stretching...<br />
+  <br />
+  Je ne sais pas s'il y aura une suite, mais si oui, je devine un peu le genre ^_^");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			// TODO remove this sort, prefer a sort at a lower level
+			function sortNews(News $a, News $b) {
+				$ta = $a->getTimestamp();
+				$tb = $b->getTimestamp();
+				return $ta < $tb ? 1 : ($ta > $tb ? -1 : 0);
+			}
+			usort(News::$allNews, 'sortNews');
 		}
 		
 		return News::$allNews;

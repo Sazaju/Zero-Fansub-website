@@ -14,21 +14,21 @@
 
 <p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p><h2>Épisodes</h2>
 
-<h5>Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko OAV</h5>
+<?php
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
 
-<div style="float : right; display:block; margin-right: 20px;">
-	<img src="images/episodes/bath.jpg" border="0">
-</div>
-<p> 
-<b>Fichier</b><br />
-<img src="images/icones/puce.png" /> [Zero]Isshoni_Training_Ofuro_Bathtime_with_Hinako_and_Hiyoko[X264-AAC][5ACD3D35].mp4<br />
- Taille : 285.8 Mo 
- Codecs : H264 AAC MP4<br />
-
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png">
-[ <a href="ddl/[Zero]Isshoni_Training_Ofuro_Bathtime_with_Hinako_and_Hiyoko[X264-AAC][5ACD3D35].mp4">Télécharger</a> ]<br />
-</p>
+	$releases = Release::getAllReleasesForProject('bath');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
+?>
 
 <p></p>
 <h2>Voir aussi</h2>

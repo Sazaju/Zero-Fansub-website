@@ -15,27 +15,6 @@
 	$page->clear();
 ?>
 -------------------------
-<h2>Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko</h2>
-<h4>23/07/2011 par praia</h4>
-<div class="p">
-  <img src="images/news/bath.jpg" alt="Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko" />
-  <br /><br />
-  Nous avons appris qu'Ankama va diffuser &agrave; partir de la rentr&eacute;e de septembre 2011 :<br />
-  Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc &eacute;t&eacute; retir&eacute;s.<br />
-  On vous invite &agrave; cesser la diffusion de nos liens et &agrave; aller regarder la s&eacute;rie sur leur site.<br />
-  <br />
-  Sorties d'Isshoni Training Ofuro : Bathtime with Hinako & Hiyoko<br />
-  <br />
-  3e volet des "isshoni", on apprend comment les Japonaises prennent leur bain, tr&egrave;s int&eacute;ressant...<br />
-  Avec en bonus, une petite s&eacute;ance de stretching...<br />
-  <br />
-  Je ne sais pas s'il y aura une suite, mais si oui, je devine un peu le genre ^_^
-  <br /><br />
-  <span>~ <a href="http://commentaires.zerofansub.net/t267.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=267" target="_blank">Ajouter un commentaire</a> ~<br />
-    ~ <a href="http://twitter.com/home?status=Sortie de Isshoni Training Ofuro chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
 <h2>Kanamemo 13 - FIN</h2>
 <h4>29/03/2011 par db0</h4>
 <div class="p">
