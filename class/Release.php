@@ -636,8 +636,8 @@ class Release {
 			$release->setReleasingTime(strtotime("12 October 2011"));
 			Release::$allReleases[] = $release;
 			
-			$release = new Release(Project::getProject('akinahshiyo'), 'ep1');
-			$release->setName("OAV 01");
+			$release = new Release(Project::getProject('akinahshiyo'), 'oav');
+			$release->setName(null);
 			$release->setPreviewUrl("images/episodes/akina1.jpg");
 			$release->setHeaderImage("images/sorties/lastakinaonsen.png");
 			$release->setLocalizedTitle("Faisons l'amour au Onsen avec Akina");
