@@ -631,7 +631,186 @@ Alors, à tout à l'heure, quand tu auras télécharger l'épisode ;)");
 Ah, elles nous font bien attendre, les deux jolies jumelles... Des mois pour sortir les OAV ! Mais au final, ça en vaut la peine, donc on ne peut pas leur en vouloir. C'est bientôt Noël, donc pour l'occasion, elles ont sortis des cosplays très mignons des \"soeurs de Noël\". Elles sont de plus en plus ecchi avec leur frère. Finira-t-il par craquer !? La première version sort ce soir, les autres versions de plus haute qualité sortieront dans la nuit et demain. J'éspère que cet OAV vous plaira ! Une série est annoncée en plus des OAV. Info ou Intox ? Dans tout les cas, Zéro sera de la partie, donc suivez aussi la série avec nous !");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
-	}
+
+			$news = new News();
+			$news->setTitle("Canaan 13 ~ Fin !");
+			$news->setTimestamp(strtotime("06 October 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(138);
+			$news->addReleasing(Release::getRelease('canaan', 'ep13'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/canaanfin.png\" /><br />
+Ainsi se termine Canaan.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Canaan 12 + Piscine + Partenariats + Maboroshi + Kobato");
+			$news->setTimestamp(strtotime("04 October 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(137);
+			$news->addReleasing(Release::getRelease('canaan', 'ep12'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src='images/news/piscine.jpg' style='float: left;' />
+Tout d'abord, la sortie du <b>12e épisode de Canaan</b>. On change complétement de décor par rapport aux précédents épisodes. Cet épisode est centré sur la relation entre Canaan et Alphard, ainsi que les pouvoirs de Canaan.<br /><br />
+Ensuite, <b>db0 va a la piscine !</b> (Elle a mis son joli maillot de bain, et tout, comme sur l'image) Elle sera donc <b>absente du 5 au 26 octobre inclus</b>. En attendant, l'équipe Zéro va essayer de continuer à faire des sorties quand même, et c'est ryocu qui se chargera de faire les news.<br /><br />
+Puis, deux nouveaux partenaires : <b>Gokuraku-no-fansub</b> et <b>Tanjou-fansub</b>.<br /><br />
+Enfin, une bonne nouvelle. Si certains n'étaient pas au courant, j'annonce : <b>Maboroshi no fansub a réouvert ses portes</b>. L'incident de fermeture était dû à une mauvaise entente entre la personne qui hébergeait le site et le reste de l'équipe. J'ai repris les rênes ! C'est maintenant moi qui gère leur site. Du coup, il n'y a aucun risque de fermeture ou de mauvais entente :). Ils prennent un nouveau départ, et ont décidé de ne pas reprendre leurs anciens projets, sauf Hakushoku to Yousei dûe à la forte demande.<br /><br />
+Pour finir, <b>Kobato</b>, dans la liste de nos projets depuis juin, ne se fera finalement pas. Kaze nous a devancé et a acheté la licence.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Canaan 11");
+			$news->setTimestamp(strtotime("30 September 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(136);
+			$news->addReleasing(Release::getRelease('canaan', 'ep11'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src='images/news/canaan11.jpg'/><br />
+Chose promise, chose due. Et en plus, on a même le droit à un peu de ecchi dans cet épisode ! Avec la tenue sexy de Liang Qi, on peut pas dire le contraire... Et un peu de necrophilie aussi. Ouais, c'est tout de suite moins sexy. (Enfin, chacun son truc, hein) Sankaku Complex en a parlé. Cet épisode est un peu triste, comme le précedent, mais un peu plus violent aussi.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Canaan 10");
+			$news->setTimestamp(strtotime("30 September 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(135);
+			$news->addReleasing(Release::getRelease('canaan', 'ep10'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src='images/news/canaan10.jpg' /><br />
+Vous en rêviez ? Les fans l'ont dessiné... Est-ce que c'est ce qui va se passer dans la suite de l'anime ? Ça semble bien parti... Regardez vite l'épisode 10 pour le savoir ! Et comme on a trop envie de savoir la suite à la fin de cet épisode, je vous promets qu'il ne tardera pas.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Canaan 09 + Canaan Cosplays");
+			$news->setTimestamp(strtotime("25 September 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(130);
+			$news->addReleasing(Release::getRelease('canaan', 'ep9'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src='images/news/canaancos.png' /><br />
+Je comptais sortir tout les épisodes en même temps, mais comme les autres prennent plus de temps que prévu, on va pas vous faire attendre plus longtemps et on vous propose dès maintenant l'épisode 09, prêt depuis longtemps. Comme vous pouvez le constater, l'équipe est très occupée en ce moment, donc entre deux irl, on taffe un peu fansub, mais ça reste pas grand chose.<br />
+Je profite de cette news pour vous poster quelques photos de mon cosplay Canaan. Si vous voulez en savoir plus sur ce cosplay et mes autres, rendez-vous sur mon site perso cosplay : <a href='http://db0.dbcosplay.fr' target='_blank'>http://db0.dbcosplay.fr</a> (et abonnez-vous à la newsletter !)<br />
+<a href='http://www.cosplay.com/photo/2268921/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2268921.jpg'></a> <a href='http://www.cosplay.com/photo/2268922/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2268922.jpg'></a> <a href='http://www.cosplay.com/photo/2268923/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2268923.jpg'></a> <a href='http://www.cosplay.com/photo/2274553/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274553.jpg'></a> <a href='http://www.cosplay.com/photo/2274515/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274515.jpg'></a> <a href='http://www.cosplay.com/photo/2274516/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274516.jpg'></a> <a href='http://www.cosplay.com/photo/2274517/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274517.jpg'></a> <a href='http://www.cosplay.com/photo/2274518/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274518.jpg'></a> <a href='http://www.cosplay.com/photo/2274519/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274519.jpg'></a> <a href='http://www.cosplay.com/photo/2274520/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274520.jpg'></a> <a href='http://www.cosplay.com/photo/2274521/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274521.jpg'></a> <a href='http://www.cosplay.com/photo/2274522/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274522.jpg'></a> <a href='http://www.cosplay.com/photo/2274523/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274523.jpg'></a> <a href='http://www.cosplay.com/photo/2274531/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274531.jpg'></a> <a href='http://www.cosplay.com/photo/2274532/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274532.jpg'></a> <a href='http://www.cosplay.com/photo/2274533/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274533.jpg'></a> <a href='http://www.cosplay.com/photo/2274536/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274536.jpg'></a> <a href='http://www.cosplay.com/photo/2274537/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274537.jpg'></a> <a href='http://www.cosplay.com/photo/2274538/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274538.jpg'></a> <a href='http://www.cosplay.com/photo/2274540/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274540.jpg'></a> <a href='http://www.cosplay.com/photo/2274541/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274541.jpg'></a> <a href='http://www.cosplay.com/photo/2274542/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274542.jpg'></a> <a href='http://www.cosplay.com/photo/2274543/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274543.jpg'></a> <a href='http://www.cosplay.com/photo/2274544/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274544.jpg'></a> <a href='http://www.cosplay.com/photo/2274554/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274554.jpg'></a> <a href='http://www.cosplay.com/photo/2274555/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274555.jpg'></a> <a href='http://www.cosplay.com/photo/2274556/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274556.jpg'></a> <a href='http://www.cosplay.com/photo/2274557/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274557.jpg'></a> <a href='http://www.cosplay.com/photo/2274560/' target='_blank'><img src='http://images.cosplay.com/thumbs/22/2274560.jpg'></a>");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Canaan 08");
+			$news->setTimestamp(strtotime("26 August 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(116);
+			$news->addReleasing(Release::getRelease('canaan', 'ep8'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src='images/news/canaan8.png' style='float: right;' />
+Avec un peu de retard cette semaine, la suite de la trépidante histoire de Canaan, une fille pas comme les autres.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Canaan 06");
+			$news->setTimestamp(strtotime("11 August 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(112);
+			$news->addReleasing(Release::getRelease('canaan', 'ep6'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src='images/news/can6.jpg'><br />
+Comme à son habitude, le petit épisode de Canaan de la semaine fait sa sortie. Et comme prévu, nous n'avons aucune réponse pour le recrutement traducteur T___T pourtant j'aime bien, moi, Mermaid Melody. C'est mignon.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Canaan 04 + 05 + Rythme Toradora!");
+			$news->setTimestamp(strtotime("06 August 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(109);
+			$news->addReleasing(Release::getRelease('canaan', 'ep4'));
+			$news->addReleasing(Release::getRelease('canaan', 'ep5'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src='images/news/can45.jpg' alt='' /><br />
+Des bunny girls, des blondasses, et tout ça qui se fait des câlins ! Si c'est pas mignon, tout ça ! Non, pas tant que ça, si on remet l'image dans le contexte. Je vous laisse découvrir tout ça dans la double sortie du jour. Double sortie, pourquoi ? Bah justement. J'ai bien envie de faire des news longues ses derniers temps, donc je vais vous expliquer ce que j'appelle \"le rythme Toradora!\".<br />
+Pour ceux qui nous ont connus à l'époque Toradora!, à l'\"apogée\" de la carrière de Zéro, vous vous souvenez sans doute du rythme spéctaculaire auquel les sorties s'enchaînaient. C'était de l'ordre de une sortie tout les deux jours, voir tout les jours ! Pour vous, qui attendez sagement derrière vos écrans, c'est tout bénéf'. Mais ce que vous ne savez pas, c'est que ça travaille, derrière la machine. Nous ne sommes pas une équipe de Speedsub, alors comment réaliser un tel exploit sans perdre de la qualité des épisodes ? Non, non, nous ne savons toujours pas ralentir le temps. Quel est notre secret ? Tout d'abord, sachez qu'il faut minimum 20 heures de boulot pour sortir un épisode chez Zéro (traduction-adaptation-correction-edition-time-vérification finale) encodage non compris. Et que généralement, nous répartissons ses heures sur des semaines. Pour suivre le rythme Toradora!, c'est simple : Etaler ses 20 heures minimum (je dis bien minimum parce qu'en fait c'est beaucoup plus long) sur une seule journée. C'est-à-dire sacrifier une journée + une nuit. Pour Toradora!, suivre ce rythme n'était pas trop dur puisque nous étions en coproduction, ce qui nous permettait de faire des pauses de temps en temps dans ces looongues journées de fansub. Mais nous avons décidé de reprendre ce rythme, pour montrer à nos amis leechers que nous n'avons pas vieilli ! C'est pourquoi nous avons choisi un anime qui nous tient à coeur, à Ryocu et moi-même : Canaan. Ici, nous ne sommes pas en coproduction, mais comme nous sommes en vacances, nous pouvons nous permettre de sacrifier deux journées par épisode de Canaan. Oui, deux jours, car il me faut bien faire des pauses, et comme je m'occupe de tout sauf de la vérification finale et que je suis humaine, je ne peux pas me permettre de taffer 24h d'affilée sans faiblir un chouilla.<br />
+Bref, je raconte pas tout ça pour me la péter, mais juste pour vous éxpliquer ce que représente un rythme acceléré pour une équipe de bon sub et pas de speedsub. Je raconte ça aussi parce que j'ai été déçu par des réactions de personnes qui se sont dit rapide = mauvais sub. Je vous prouve ici que nous travaillons dur pour vous !!<br />
+Et là, je finirai sur une question qui vous turlupine depuis tout à l'heure : Comment se fait-il que vous ne nous sortiez ses épisodes que maintenant ? La réponse est simple : J'avais pas internet dans le trou paumé où je suis pour mes vacances :p<br />
+Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord de mer dans une grande maison avec piscine dont nous profitons entre deux Canaan.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Erreur Canaan 03");
+			$news->setTimestamp(strtotime("24 July 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(106);
+			$news->addReleasing(Release::getRelease('canaan', 'ep3'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("Sous la précipitation (train à prendre), j'ai envoyé le mauvais ass à lepims (notre encodeur) pour l'épisode 03 de Canaan, c'est-à-dire celui dont les fautes n'ont pas été corrigés, c'est-à-dire ma traduction telle quelle... Du coup, il a été réencoder, et la nouvelle version est téléchargeable à la place de l'ancienne. Toutes mes excuses !");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Canaan 03 + Recrutement trad Hitohira");
+			$news->setTimestamp(strtotime("22 July 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
+			$news->setCommentId(106);
+			$news->addReleasing(Release::getRelease('canaan', 'ep3'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/hitocry.png\" style=\"float: right;\" />
+Je lance cette bouteille à la mer en espérant que ce message parvienne aux oreilles d’une âme charitable… Nous recherchons désespérément une personne pour reprendre l’une de nos séries, j’ai nommé Hitohira. Nous n'avons rien à offrir, à part notre gratitude. Nous ne nous attendons pas à avoir beaucoup de réponses, voire rien du tout... Si par bonheur, vous êtes intéressé, n’hésitez pas à passer sur le forum, nous vous accueillerons sur un tapis rouge orné de fleurs xD<br /><br /><br /><br /><br /><br />
+<img src=\"images/news/canaan-3.jpg\" border=\"0\" /><br />
+Encore du ecchi dans la série Canaan ! Mais pas que ça, bien sûr. L'épisode 3 est disponible, amusez-vous bien~");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Canaan 02");
+			$news->setTimestamp(strtotime("19 July 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(103);
+			$news->addReleasing(Release::getRelease('canaan', 'ep2'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/oppaicanaan.png\" border=\"0\"><br />
+Bah alors ? Zéro nous fait Canaan ? Mais Zéro, c'est une team de l'ecchi, non ? Bah en voilà un peu d'ecchi, dans cette série de brutes ^^ Alors, heureux ? Oui, très heureux. Snif. Tout ça pour dire que y'a l'épisode 02 prêt à être maté. Et vous savez quoi, les p'tits loulous ? Dans l'épisode 01, on comprenait pas toujours ce qu'il se passait. Dans l'épisode 02, on comprends ce qui s'est passé dans l'épisode 1 ! Hein ? Ça se passe toujours comme ça dans les séries sérieuses...? Ah, naruhodo...");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("KissXsis 01");
+			$news->setTimestamp(strtotime("28 May 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(77);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep1'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/kissx1.jpg\" style=\"float:right;\" border=\"0\">
+On vous l'avait promis, le v'là ! On a mis un peu de temps parce qu'on l'a traduit à moitié du Japonais, et forcément, ça prend plus de temps. J'espère qu'il vous plaira autant que le premier, parce qu'il dépasse les limites de l'ecchi !<br />
+Demain : Epitanime ! J'veux tous vous y voir !");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("L'entraînement avec Hinako (Isshoni Training)");
+			$news->setTimestamp(strtotime("28 April 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(65);
+			$news->addReleasing(Project::getProject('training'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/hinako.jpg\" border=\"0\"><br />L'été arrive à grand pas. C'est donc la saison des régimes ! Et qui dit régime, dit bonne alimentation mais aussi entraînement, musculation ! Mais comment arriver à faire bouger nos chers Otakus de leurs chaises...? Hinako a trouvé la solution ! Un entraînement composé de pompes, d'abdos et de flexions on ne peut plus ECCHI ECCHI ! Lancez-vous donc dans cette aventure un peu perverse et rejoignez Hinako dans sa séance de musculation. Et vous le faites, hein ? Hinako vous regarde ;)");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Joyeux Noël ! - OAV Kiss X Sis");
+			$news->setTimestamp(strtotime("24 December 2008"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(24);
+			$news->addReleasing(Release::getRelease('kissxsisoav', 'ep2'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/noel.jpg\" border=\"0\" /><br>Toute l'équipe Zéro vous souhaite à tous un joyeux noël, un bon réveillon, une bonne dinde, de bons chocolats, de beaux cadeaux et tout ce qui va avec.<br>Nos cadeaux pour vous :<br>- Une galerie d'images de Noël (dans les bonus)<br>- L'OAV de Kiss x sis !<br>Dans la liste de nos projets depuis cet été, initialement prévu en septembre... Au final, il est sorti le 22 décembre, et nous vous l'avons traduit comme cadeau de Noël. C'est entre-autre grâce à cet OAV que nous avons fait la conaissance de la <a href=\"http://kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a>.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+		}
 		
 		return News::$allNews;
 	}
