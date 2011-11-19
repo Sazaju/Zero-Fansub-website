@@ -423,6 +423,11 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
+			$member = new TeamMember(46);
+			$member->setPseudo("Tcho");
+			$member->setPonctualMember(true); // TODO check this point
+			TeamMember::$allMembers[] = $member;
+			
 			// TODO remove this sort, prefer a sort at a lower level
 			function sortMembers(TeamMember $a, TeamMember $b) {
 				return strcasecmp($a->getPseudo(), $b->getPseudo());

@@ -833,6 +833,170 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Kanamemo 13 - FIN");
+			$news->setTimestamp(strtotime("29 March 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(256);
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep13'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/kana131.jpg\" alt=\"Kanamemo\" /><br /><br />
+<img src=\"images/news/kana132.jpg\" alt=\"Kanamemo\" />
+<br /><br />
+Eh oui, c'est d√©j√† la fin de Kanamemo, j'esp√®re que cette petite s√©rie fort sympathique vous aura plus autant qu'√† nous.<br />
+C'est pour nous une bonne nouvelle, on diminue ainsi le nombre de nos projets en cours/futurs, on esp√®re pouvoir faire de m√™me avec d'autres s√©ries prochainement...<br />
+<img src=\"images/news/kana133.jpg\" alt=\"Kanamemo\" /><br /><br />
+On vous annonce d√©j√† que Kujibiki Unbalance II et Potemayo seront enti√®rement refaits ! Pas mal de choses ont √©t√© revues, j'esp√®re que vous appr√©cierez nos efforts.<br />
+Kodomo no Jikan OAV 4 ne devrait plus tarder...<br />
+Merci de nous avoir suivis et √† bient√¥t pour d'autres √©pisodes ^_^<br /><br />
+<img src=\"images/news/kana134.jpg\" alt=\"Kanamemo\" /><br /><br />
+<img src=\"images/news/kana135.jpg\" alt=\"Kanamemo\" />");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kanamemo 12");
+			$news->setTimestamp(strtotime("20 March 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(255);
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep12'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/kana12.jpg\" alt=\"Kanamemo\" />
+<br /><br />
+Bonjour !<br />
+Sortie de l'&eacute;pisode 12 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kanamemo 11");
+			$news->setTimestamp(strtotime("14 March 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(254);
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep11'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/kana11.jpg\" alt=\"Kanamemo\" />
+<br /><br />
+Bonjour !<br />
+Sortie de l'&eacute;pisode 11 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !<br /><br />
+Rappel, nos releases sont t&eacute;l&eacute;chargeable sur :<br />
+<ul>
+<li>Sur <a href=\"http://zerofansub.net/\">le site zerofansub.net</a> en DDL (cliquez sur projet dans le menu &agrave; gauche)</li>
+<li>Sur <a href=\"http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro\">notre tracker torrent BT-Anime</a> en torrent peer2peer (Notre &eacute;quipe de seeder vous garantie du seed !)</li>
+<li>Sur <a href=\"irc://irc.fansub-irc.eu/zero\">notre chan IRC</a> en XDCC (<a href=\"http://zerofansub.net/index.php?page=xdcc\">liste des paquets</a>)</li>
+<li>Sur <a href=\"http://www.anime-ultime.net/part/Site-93\">Anime-Ultime</a> en DDL (Mais en fait, c'est les m&ecirc;mes fichiers que sur Z&eacute;ro, c'est juste des liens symboliques ^^)</li>
+</ul>");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kanamemo 10");
+			$news->setTimestamp(strtotime("10 March 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(253);
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep10'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/kana10.jpg\" style=\"float: left;\" alt=\"Kanamemo\" />
+<br /><br />
+Bonjour !<br />
+Sortie de l'episode 10 de Kanamemo ! Youhouh ! C'est la fete !");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kanamemo 7, 8 et 9");
+			$news->setTimestamp(strtotime("23 February 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
+			$news->setCommentId(251);
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep7'));
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep8'));
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep9'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/kanamemo7.jpg\" alt=\"Kanamemo\" />
+<br /><br />
+Voil√† qui met un terme √† cette longue p√©riode d'inactivit√© : Kanamemo 7, 8 et 9, enfin !<br />
+Tout comme l'√©pisode 5, l'√©pisode 7 √©tait inutilement censur√©, donc on s'est orient√©s vers les DVD. En version HD uniquement, la LD n'est plus tr√®s en vogue, faut dire ^^<br />
+D'autres projets reprennent du service, encore un peu de patience...<br />
+Je vous dis √† bient√¥t pour d'autres √©pisodes ^_^");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kanamemo Chapitre 01");
+			$news->setTimestamp(strtotime("02 August 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(241);
+			$news->addReleasing(Release::getRelease('kanamemobook', 'ch1'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/kanac1.jpg\" alt=\"Kanamemo Chapitre 01\" /><br /><br />
+Sortie du chapitre 01 de Kanamemo qui ouvre le retour du scantrad chez Z√©ro !<br />
+Depuis pas mal de temps, nous l'avions laiss√© √† l'abandon mais avec l'√©cole du fansub, nous avons pu nous y remettre.<br />
+Sont pr√©vus les scantrad de Kanamemo, Sketchbook et Maria+Holic. Quelques doujins devraient aussi arriver.<br />
+Pour toutes nos autres s√©ries dont les versions manga existent, vous pouvez les trouver en t√©l√©chargement sur les pages des s√©ries comme Hitohira, Kannagi, Kimikiss et KissXsis.
+<br />
+A bientot !");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kanamemo 06");
+			$news->setTimestamp(strtotime("16 April 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(224);
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep6'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/newskana6.jpg\" /><br />
+HÈ !<br />
+Mais c'est qu'on arrive ‡ la moitiÈ de la sÈrie.<br />
+Le 6Ème Èpisode de Kanamemo est disponible.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kanamemo 4 + 5");
+			$news->setTimestamp(strtotime("19 March 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(212);
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep4'));
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep5'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<a href=\"http://yotsuba.imouto.org/image/b943e76cbe684f3d4c4cf3b748d7d878/moe%2099353%20amano_saki%20fixed%20kanamemo%20kujiin_mika%20nakamachi_kana%20neko%20pantsu%20seifuku.jpg\" target=\"_blank\"><img src=\"images/news/newskana5.jpg\" /><br />
+(Image en plus grand clique ici)</a><br />
+Coucou, nous revoilou !<br />
+La suite de Kanamemo avec deux Èpisodes : le 4 et le 5.<br />
+Dans les deux, on voit des filles dans l'eau... Toute nues, aux bains, et en maillot de bain ‡ la \"piscine\" !
+<br />Les deux sont en version non-censurÈe.
+<br />Pour voir la diffÈrence entre les deux versions : <a href =\"http://www.sankakucomplex.com/2009/11/10/kanamemo-dvd-loli-bathing-steamier-than-ever/\" target=\"_blank\">LIEN</a>.<br />
+En bonus, un petit AMV de l'Èpisode 05 (passÈ ‡ la TV, nous le l'avons pas fait nous-mÍme).<br />
+¿ bientÙt !");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kanamemo 03");
+			$news->setTimestamp(strtotime("26 November 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(150);
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep3'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/kana3.jpg\" /><br />
+BANZAIII !! Kanamemo Èpisode 03, ouais, trop bien ! Je mets du temps ‡ sortir les Èpisodes ces derniers temps, mais derrniËre le rideau, ne vous inquiÈtez pas, Áa bosse ! Oui, c'est encore de ma faute, avant la piscine, maintenant printf, je suis dÈbordÈe... (Mais de quoi elle parle !? o__O) Bref. Bon Èpisode !");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kanamemo 01");
+			$news->setTimestamp(strtotime("20 August 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(114);
+			$news->addReleasing(Release::getRelease('kanamemo', 'ep1'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("<img src=\"images/news/kana1.jpg\" />
+Bonsoir....<br /><br />
+Kodomo no Jikan touche ‡ sa fin (bouhouh T__T) et on nous a proposÈ un anime sur le forum : Kanamemo. On a tout de suite vu qu'il s'inscrivait directement dans la ligne directe de Kodomo no Jikan, ecchi ~ loli ! RÈtissants au dÈpart ‡ commencer un nouvel anime sans finir nos prÈcÈdents en cours, mais ayant plusieurs personnes de l'Èquipage n'ayant rien ‡ faire, nous avons finalement acceptÈ la proposition. Cet anime est trop mignon~choupi~kawaii, c'est la petite Kana qui perd sa grand-mËre et ses parents et doit se debrouiller toute seule et trouver du travail. Y'a aussi un peu de yuri dedant, donc je pense que tout le monde y trouvera ce qu'il aime !");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
 			// TODO remove this sort, prefer a sort at a lower level
 			function sortNews(News $a, News $b) {
 				$ta = $a->getTimestamp();

@@ -15,85 +15,6 @@
 	$page->clear();
 ?>
 -------------------------
-<h2>Kanamemo 13 - FIN</h2>
-<h4>29/03/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kana131.jpg" alt="Kanamemo" /><br /><br />
-<img src="images/news/kana132.jpg" alt="Kanamemo" />
-<br /><br />
-Eh oui, c'est d√©j√† la fin de Kanamemo, j'esp√®re que cette petite s√©rie fort sympathique vous aura plus autant qu'√† nous.<br />
-C'est pour nous une bonne nouvelle, on diminue ainsi le nombre de nos projets en cours/futurs, on esp√®re pouvoir faire de m√™me avec d'autres s√©ries prochainement...<br />
-<img src="images/news/kana133.jpg" alt="Kanamemo" /><br /><br />
-On vous annonce d√©j√† que Kujibiki Unbalance II et Potemayo seront enti√®rement refaits ! Pas mal de choses ont √©t√© revues, j'esp√®re que vous appr√©cierez nos efforts.<br />
-Kodomo no Jikan OAV 4 ne devrait plus tarder...<br />
-Merci de nous avoir suivis et √† bient√¥t pour d'autres √©pisodes ^_^<br /><br />
-<img src="images/news/kana134.jpg" alt="Kanamemo" /><br /><br />
-<img src="images/news/kana135.jpg" alt="Kanamemo" /><br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t256.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=256" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie du dernier episode de Kanamemo 13 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 12</h2>
-<h4>20/03/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kana12.jpg" alt="Kanamemo" />
-<br /><br />
-Bonjour !<br />
-Sortie de l'&eacute;pisode 12 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t255.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=255" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 12 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 11</h2>
-<h4>14/03/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kana11.jpg" alt="Kanamemo" />
-<br /><br />
-Bonjour !<br />
-Sortie de l'&eacute;pisode 11 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !<br /><br />
-Rappel, nos releases sont t&eacute;l&eacute;chargeable sur :<br />
-<ul>
-<li>Sur <a href="http://zerofansub.net/">le site zerofansub.net</a> en DDL (cliquez sur projet dans le menu &agrave; gauche)</li>
-<li>Sur <a href="http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro">notre tracker torrent BT-Anime</a> en torrent peer2peer (Notre &eacute;quipe de seeder vous garantie du seed !)</li>
-<li>Sur <a href="irc://irc.fansub-irc.eu/zero">notre chan IRC</a> en XDCC (<a href="http://zerofansub.net/index.php?page=xdcc">liste des paquets</a>)</li>
-<li>Sur <a href="http://www.anime-ultime.net/part/Site-93">Anime-Ultime</a> en DDL (Mais en fait, c'est les m&ecirc;mes fichiers que sur Z&eacute;ro, c'est juste des liens symboliques ^^)</li>
-</ul>
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t254.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=254" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 11 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 10</h2>
-<h4>10/03/2011 par db0</h4>
-<div class="p">
-<img src="images/news/kana10.jpg" style="float: left;" alt="Kanamemo" />
-<br /><br />
-Bonjour !<br />
-Sortie de l'episode 10 de Kanamemo ! Youhouh ! C'est la fete !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t253.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=253" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 10 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 7, 8 et 9</h2>
-<h4>23/02/2011 par Praia</h4>
-<div class="p">
-<img src="images/news/kanamemo7.jpg" alt="Kanamemo" />
-<br /><br />
-Voil√† qui met un terme √† cette longue p√©riode d'inactivit√© : Kanamemo 7, 8 et 9, enfin !<br />
-Tout comme l'√©pisode 5, l'√©pisode 7 √©tait inutilement censur√©, donc on s'est orient√©s vers les DVD. En version HD uniquement, la LD n'est plus tr√®s en vogue, faut dire ^^<br />
-D'autres projets reprennent du service, encore un peu de patience...<br />
-Je vous dis √† bient√¥t pour d'autres √©pisodes ^_^
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t251.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=251" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kanamemo 7 8 et 9 chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
 <h2>Kujibiki Unbalance √©pisode 09</h2>
 <h4>18/08/2010 par db0</h4>
 <div class="p">
@@ -110,21 +31,6 @@ A bientot !<br /><br />
 <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
 <p></p>
 
-<h2>Kanamemo Chapitre 01</h2>
-<h4>02/08/2010 par db0</h4>
-<div class="p">
-<img src="images/news/kanac1.jpg" alt="Kanamemo Chapitre 01" /><br /><br />
-Sortie du chapitre 01 de Kanamemo qui ouvre le retour du scantrad chez Z√©ro !<br />
-Depuis pas mal de temps, nous l'avions laiss√© √† l'abandon mais avec l'√©cole du fansub, nous avons pu nous y remettre.<br />
-Sont pr√©vus les scantrad de Kanamemo, Sketchbook et Maria+Holic. Quelques doujins devraient aussi arriver.<br />
-Pour toutes nos autres s√©ries dont les versions manga existent, vous pouvez les trouver en t√©l√©chargement sur les pages des s√©ries comme Hitohira, Kannagi, Kimikiss et KissXsis.
-<br />
-A bientot !<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t241.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=241" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Sortie de Kanamemo Chapitre 01 http://zerofansub.net/" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net/"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
 <h2>Sketchbook ~ full color's  ~ Picture Drama s√©rie compl√®te (01 √† 06)</h2>
 <h4>26/06/2010 par db0</h4>
 <div class="p">
@@ -133,17 +39,6 @@ Pour f√™ter les vacances qui arrivent, Sora et ses amies vous emmenent avec elle
 C'est une petite s√©rie de 6 √©pisodes de moins de 10 minutes chacun qui √©taient en Bonus sur les DVDs de Sketchbook ~ full color's ~. Ils ont √©t√© r√©alis√© √† partir du Drama CD de la s√©rie et l'animation est minime. Dans la m√™me douceur que la s√©rie, ils sont parfait pour se reposer en pensant aux vacances qui arrivent.
 <br /><br />
 <span>~ <a href="http://commentaires.zerofansub.net/t234.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=234" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 06</h2>
-<h4>16/04/2010 par db0</h4>
-<div class="p">
-<img src="images/news/newskana6.jpg" /><br />
-HÈ !<br />
-Mais c'est qu'on arrive ‡ la moitiÈ de la sÈrie.<br />
-Le 6Ème Èpisode de Kanamemo est disponible.
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t224.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=224" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
 <p></p>
 
 <h2>Kujibiki Unbalance 2 episode 08</h2>
@@ -158,22 +53,6 @@ En reponse au precedent sondage, il n'est ABSOLUMENT PAS NECESSAIRE D'AVOIR VU G
 Bon episode a tous et a tres bientot !
 <br /><br />
 <span>~ <a href="http://commentaires.zerofansub.net/t220.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=220" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 4 + 5</h2>
-<h4>19/03/2010 par db0</h4>
-<div class="p">
-<a href="http://yotsuba.imouto.org/image/b943e76cbe684f3d4c4cf3b748d7d878/moe%2099353%20amano_saki%20fixed%20kanamemo%20kujiin_mika%20nakamachi_kana%20neko%20pantsu%20seifuku.jpg" target="_blank"><img src="images/news/newskana5.jpg" /><br />
-(Image en plus grand clique ici)</a><br />
-Coucou, nous revoilou !<br />
-La suite de Kanamemo avec deux Èpisodes : le 4 et le 5.<br />
-Dans les deux, on voit des filles dans l'eau... Toute nues, aux bains, et en maillot de bain ‡ la "piscine" !
-<br />Les deux sont en version non-censurÈe.
-<br />Pour voir la diffÈrence entre les deux versions : <a href ="http://www.sankakucomplex.com/2009/11/10/kanamemo-dvd-loli-bathing-steamier-than-ever/" target="_blank">LIEN</a>.<br />
-En bonus, un petit AMV de l'Èpisode 05 (passÈ ‡ la TV, nous le l'avons pas fait nous-mÍme).<br />
-¿ bientÙt !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t212.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=212" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
 <p></p>
 
 <h2>Potemayo [08] 15 + 16</h2>
@@ -250,14 +129,6 @@ Coproduction Zero+Maboroshi !<br />
 TchO_∞
 <br /><br />
 <span>~ <a href="http://commentaires.zerofansub.net/t152.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=152" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 03</h2>
-<h4>26/11/09 par db0</h4>
-<div class="p"><img src="images/news/kana3.jpg" /><br />
-BANZAIII !! Kanamemo Èpisode 03, ouais, trop bien ! Je mets du temps ‡ sortir les Èpisodes ces derniers temps, mais derrniËre le rideau, ne vous inquiÈtez pas, Áa bosse ! Oui, c'est encore de ma faute, avant la piscine, maintenant printf, je suis dÈbordÈe... (Mais de quoi elle parle !? o__O) Bref. Bon Èpisode !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t150.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=150" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
 <p></p>
 
 <h2>Tayutama - Kiss on my Deity - 10</h2>
@@ -350,15 +221,6 @@ Et ainsi se termine Genshiken, le club d'Ètude de la culture visuelle moderne, a
 Cette sÈrie Ètait si drÙle qu'elle est passÈe bien vite... Eh oui ! DÈj‡ le dernier Èpisode de Maria+Holic ! Ce 12e Èpisode est complÈtement dÈlirant, Kanako fait encore des siennes, et Mariya la suit de prËs. Avec la fin de cette sÈrie se termine aussi une coproduction avec Kanaii, nos partenaires et amis, qui s'est exellement bien passÈe et que nous accepterons avec plaisir de renouveler. Merci ‡ eux et particuliËrement ‡ DC, le maÓtre du projet aux superbes edits AE. Bon dernier Èpisode, et aussi bonne sÈrie ‡ ceux qui attendaient la fin pour commencer la sÈrie complÈte !
 <br /><br />
 <span>~ <a href="http://commentaires.zerofansub.net/t115.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=115" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Kanamemo 01</h2>
-<h4>20/08/09 par db0</h4>
-<div class="p"><img src="images/news/kana1.jpg" />
-Bonsoir....<br /><br />
-Kodomo no Jikan touche ‡ sa fin (bouhouh T__T) et on nous a proposÈ un anime sur le forum : Kanamemo. On a tout de suite vu qu'il s'inscrivait directement dans la ligne directe de Kodomo no Jikan, ecchi ~ loli ! RÈtissants au dÈpart ‡ commencer un nouvel anime sans finir nos prÈcÈdents en cours, mais ayant plusieurs personnes de l'Èquipage n'ayant rien ‡ faire, nous avons finalement acceptÈ la proposition. Cet anime est trop mignon~choupi~kawaii, c'est la petite Kana qui perd sa grand-mËre et ses parents et doit se debrouiller toute seule et trouver du travail. Y'a aussi un peu de yuri dedant, donc je pense que tout le monde y trouvera ce qu'il aime !
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t114.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=114" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
 <p></p>
 
 <h2>Canaan 07 + Maria Holic 11 + Mermaid Melody 02</h2>

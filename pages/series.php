@@ -16,7 +16,7 @@
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
 	foreach(Project::getNonHentaiProjects() as $project) {
-		if ($project->isRunning()) {
+		if ($project->isRunning() && !$project->isDoujin()) {
 			$list->addComponent($project);
 		}
 	}
@@ -26,7 +26,7 @@
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
 	foreach(Project::getNonHentaiProjects() as $project) {
-		if ($project->isFinished()) {
+		if ($project->isFinished() && !$project->isDoujin()) {
 			$list->addComponent($project);
 		}
 	}
@@ -36,7 +36,7 @@
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
 	foreach(Project::getNonHentaiProjects() as $project) {
-		if (!$project->isStarted() && !$project->isLicensed() && !$project->isAbandonned()) {
+		if (!$project->isStarted() && !$project->isLicensed() && !$project->isAbandonned() && !$project->isDoujin()) {
 			$list->addComponent($project);
 		}
 	}
@@ -46,7 +46,7 @@
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
 	foreach(Project::getNonHentaiProjects() as $project) {
-		if ($project->isAbandonned()) {
+		if ($project->isAbandonned() && !$project->isDoujin()) {
 			$list->addComponent($project);
 		}
 	}
@@ -56,7 +56,7 @@
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
 	foreach(Project::getNonHentaiProjects() as $project) {
-		if ($project->isLicensed()) {
+		if ($project->isLicensed() && !$project->isDoujin()) {
 			$list->addComponent($project);
 		}
 	}

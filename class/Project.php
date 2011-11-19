@@ -154,6 +154,12 @@ class Project {
 			$project->setIsFinished(true);
 			Project::$allProjects[] = $project;
 			
+			$project = new Project("kanamemobook", "Kanamemo");
+			$project->setIsStarted(true);
+			$project->setIsRunning(true);
+			$project->setIsDoujin(true);
+			Project::$allProjects[] = $project;
+			
 			$project = new Project("kannagi", "Kannagi");
 			$project->setIsFinished(true);
 			$project->setLicense(License::getDefaultLicense());
