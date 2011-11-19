@@ -16,23 +16,21 @@
 
 <p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p><h2>Épisodes</h2>
 
-<h5>Kodomo no Natsu Jikan</h5>
-<div class="p">
-<div style="float : right; display:block; margin-right: 20px;">
-	<img src="images/episodes/kodomonatsu0.jpg" border="0">
-</div>
-<br />
-<br />
-<br />
-<b>Fichier</b><br />
-<img src="images/icones/puce.png"> [Zero]Kodomo_no_Natsu_Jikan[848x480][3B4038AF].mp4<br />
- Taille : 164 Mo 
- Codecs : x264 AAC mp4<br />
+<?php
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
 
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png">
-[ <a href="ddl/[Zero]Kodomo_no_Natsu_Jikan[848x480][3B4038AF].mp4">T&eacute;l&eacute;charger</a> ]
-</div>
+	$releases = Release::getAllReleasesForProject('kodomonatsu');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
+?>
 <p></p>
 
 <h2>Voir aussi</h2>

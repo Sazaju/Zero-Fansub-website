@@ -2047,6 +2047,28 @@ class Release {
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('bath'), 'oav');
+			$release->setName(null);
+			$release->setPreviewUrl("images/episodes/bath.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Isshoni_Training_Ofuro_Bathtime_with_Hinako_and_Hiyoko[X264-AAC][5ACD3D35].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('kodomonatsu'), 'oav');
+			$release->setName(null);
+			$release->setPreviewUrl("images/episodes/kodomonatsu0.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kodomo_no_Natsu_Jikan[848x480][3B4038AF].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}

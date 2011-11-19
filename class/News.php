@@ -219,8 +219,8 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("10 October 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(272);
-			$news->addReleasing(Project::getProject('kodomooav'));
-			$news->addReleasing(Project::getProject('kodomofilm'));
+			$news->addReleasing(Release::getRelease('kodomooav', 'oav'));
+			$news->addReleasing(Release::getRelease('kodomofilm', 'film'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/news/pedobear.jpg", "Pedobear"));
 			$newsMessage->addLine();
@@ -474,7 +474,7 @@ class News extends SimpleBlockComponent {
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(259);
 			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Kodomo no Natsu Jikan chez Zero fansub !");
-			$news->addReleasing(Project::getProject('kodomonatsu'));
+			$news->addReleasing(Release::getRelease('kodomonatsu', 'oav'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/news/kodomonatsu1.jpg", "Kujibiki Unbalance 2"));
 			$newsMessage->addLine("Rin, Kuro et Mimi sont de retour dans un OAV Sp&eacute;cial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'&eacute;t&eacute;, en vacances avec Aoki et Houin.");
@@ -492,9 +492,9 @@ class News extends SimpleBlockComponent {
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(252);
 			$news->setTwitterUrl("http://twitter.com/home?status=Deux hentai : Akina To Onsen et Issho ni H shiyo chez Zero fansub !");
-			$news->addReleasing(Project::getProject('akinahshiyo'));
+			$news->addReleasing(Release::getRelease('akinahshiyo', 'oav'));
 			$news->addReleasing(Release::getRelease('hshiyo', 'ep5'));
-			$news->addLicensing(Project::getProject('training'));
+			$news->addLicensing(Release::getRelease('training', 'oav'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new AutoFloatImage("images/news/issho5.jpg", "Akina To Onsen De H Shiyo"));
 			$newsMessage->addLine();
@@ -606,7 +606,7 @@ En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian 
 			$news->setTimestamp(strtotime("08 March 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(209);
-			$news->addReleasing(Project::getProject('sleeping'));
+			$news->addReleasing(Release::getRelease('sleeping', 'oav'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new AutoFloatImage("images/news/pcover1.gif"));
 			$newsMessage->addLine("Salut toi, c'est Hinako !<br />
@@ -794,7 +794,7 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			$news->setTimestamp(strtotime("28 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(65);
-			$news->addReleasing(Project::getProject('training'));
+			$news->addReleasing(Release::getRelease('training', 'oav'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine("<img src=\"images/news/hinako.jpg\" border=\"0\"><br />L'été arrive à grand pas. C'est donc la saison des régimes ! Et qui dit régime, dit bonne alimentation mais aussi entraînement, musculation ! Mais comment arriver à faire bouger nos chers Otakus de leurs chaises...? Hinako a trouvé la solution ! Un entraînement composé de pompes, d'abdos et de flexions on ne peut plus ECCHI ECCHI ! Lancez-vous donc dans cette aventure un peu perverse et rejoignez Hinako dans sa séance de musculation. Et vous le faites, hein ? Hinako vous regarde ;)");
 			$news->setMessage($newsMessage);
@@ -816,7 +816,7 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			$news->setTimestamp(strtotime("23 July 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(267);
-			$news->addReleasing(Project::getProject('bath'));
+			$news->addReleasing(Release::getRelease('bath', 'oav'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine("<img src=\"images/news/bath.jpg\" alt=\"Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko\" />
   <br /><br />
