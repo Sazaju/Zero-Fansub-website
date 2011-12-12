@@ -169,7 +169,7 @@ class Project {
 			$project->setIsRunning(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("kissxsisoav", "KissXsis OAV");
+			$project = new Project("kissxsisoav", "KissXsis OAD");
 			$project->setIsRunning(true);
 			Project::$allProjects[] = $project;
 			
