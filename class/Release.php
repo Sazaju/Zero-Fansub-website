@@ -482,6 +482,10 @@ class Release {
 			$release->setName("épisode 6");
 			Release::$allReleases[] = $release;
 			
+			$release = new Release(Project::getProject('kissxsisoav'), 'ep7');
+			$release->setName("épisode 7");
+			Release::$allReleases[] = $release;
+			
 			$release = new Release(Project::getProject('kissxsisoav'), 'ep0');
 			$release->setName("épisode 0");
 			$release->setPreviewUrl("images/episodes/kissxsis0.jpg");
