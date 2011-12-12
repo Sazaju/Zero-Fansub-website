@@ -425,7 +425,7 @@ class TeamMember {
 			
 			$member = new TeamMember(46);
 			$member->setPseudo("Tcho");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
 			// TODO remove this sort, prefer a sort at a lower level
