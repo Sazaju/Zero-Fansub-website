@@ -773,6 +773,24 @@ class Release {
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
+			$release = new Release(Project::getProject('hshiyo'), 'ep6');
+			$release->setName("OAV 06");
+			$release->setPreviewUrl("images/episodes/hshiyo6.jpg");
+			$release->setHeaderImage("images/sorties/hshiyo6.png");
+			// TODO review the following
+			$release->setLocalizedTitle("");
+			$release->setSynopsis("");
+			$release->addStaff(TeamMember::getMemberByPseudo("FinalFan"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("FinalFan"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"), Role::getRole('adapt'));
+			$descriptor = new ReleaseFileDescriptor("*.mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			//$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
 			$release = new Release(Project::getProject('konoe'), 'ep1');
 			$release->setName("01");
 			$release->setPreviewUrl("images/episodes/konoe1.jpg");
