@@ -319,8 +319,10 @@ if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
 					</div>
 					<div class="menu">
 						<ul>
-							<li>Serveur/mois : 173,39 &euro;</li>
-							<li>Dons du mois : 20 &euro;</li>
+							<!-- Hidden because never updated:
+								<li>Serveur/mois : 173,39 &euro;</li>
+								<li>Dons du mois : 20 &euro;</li>
+							-->
 							<li><a  style="font-size: 1.2em;" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mba_06%40hotmail%2efr&item_name=Zero&no_shipping=0&no_note=1&tax=0&currency_code=EUR&lc=FR&bn=PP%2dDonationsBF&charset=UTF%2d8" target="_blank">Faire un don</a></li>
 							<li><a href="http://forum.zerofansub.net/t552.htm#p32300" target="_blank">En savoir +</a></li>
 						</ul>
