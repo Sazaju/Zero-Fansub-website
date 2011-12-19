@@ -2,24 +2,46 @@
 
 <div id="curseur" class="infobulle"></div>
 <h2>Projets Hentaï en cours</h2>
-<p style="text-align: center;">
-<a href="index.php?page=series/alignment"><img src="images/series/alignment.png" border="0" alt="Alignment you! you!"></a><br /><br />
-<a href="?page=series/hshiyo"><img src="images/series/hshiyo.png" border="0"  alt="Faisons l'amour ensemble, Issho ni H shiyo"></a><br /><br />
-<a href="?page=series/akinahshiyo"><img src="images/series/akinahshiyo.png" border="0"  alt="Akina To Onsen De H Shiyo"></a><br /><br />
-<a href="?page=series/konoe"><img src="images/series/konoe.png" border="0"  alt="Konoe no Jikan"></a><br /><br />
-</p>
+<?php
+	$list = new ProjectList();
+	$list->useImage(true);
+	foreach(Project::getHentaiProjects() as $project) {
+		if (!$project->isDoujin()) {
+			$list->addComponent($project);
+		}
+	}
+	$list->writeNow();
+?>
+<p></p>
 
 <h3>Doujins</h3>
 
 <div id="curseur" class="infobulle"></div>
 <h2>Projets Doujins en cours</h2>
+<?php
+	$list = new ProjectList();
+	$list->useImage(true);
+	foreach(Project::getHentaiProjects() as $project) {
+		if ($project->isRunning() && $project->isDoujin()) {
+			$list->addComponent($project);
+		}
+	}
+	$list->writeNow();
+?>
 <p style="text-align: center;">
 </p>
 <h2>Projets Doujins terminés</h2>
-<p style="text-align: center;">
-<a href="?page=series/eriko"><img src="images/series/eriko_.jpg" border="0"  alt="Eriko - Kimikiss pure rouge"></a><br /><br />
-<a href="?page=series/heismymaster"><img src="images/series/heismymaster.png" border="0"  alt="He is my master - Ce sont mes Maids"></a><br /><br />
-</p>
+<?php
+	$list = new ProjectList();
+	$list->useImage(true);
+	foreach(Project::getHentaiProjects() as $project) {
+		if ($project->isFinished() && $project->isDoujin()) {
+			$list->addComponent($project);
+		}
+	}
+	$list->writeNow();
+?>
+<p></p>
 
 <h2>Licence de L&#039;entrainement avec Hinako + Sortie de Akina To Onsen et Faisons l'amour ensemble &eacute;pisode 05</h2>
 <h4>08/03/2011 par Sazaju</h4>

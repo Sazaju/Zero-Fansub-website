@@ -13,6 +13,7 @@ class Project {
 	private $license = null;
 	private $isHentai = false;
 	private $isDoujin = false;
+	private $isHidden = false;
 	
 	public function __construct($id = null, $name = null) {
 		$this->setID($id);
@@ -96,6 +97,14 @@ class Project {
 	
 	public function isHentai() {
 		return $this->isHentai;
+	}
+	
+	public function setIsHidden($boolean) {
+		$this->isHidden = $boolean;
+	}
+	
+	public function isHidden() {
+		return $this->isHidden;
 	}
 	
 	public function setIsDoujin($boolean) {
@@ -271,6 +280,7 @@ class Project {
 			
 			$project = new Project("alignment", "Alignment You ! You ! The Animation");
 			$project->setIsHentai(true);
+			$project->setIsHidden(true);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("konoe", "Konoe no Jikan");
@@ -293,20 +303,20 @@ class Project {
 		return Project::$allProjects;
 	}
 	
-	public static function getNonHentaiProjects() {
+	public static function getNonHentaiProjects($getHiddenProjects = false) {
 		$projects = array();
 		foreach(Project::getAllProjects() as $project) {
-			if (!$project->isHentai()) {
+			if (!$project->isHentai() && (!$project->isHidden() || $getHiddenProjects)) {
 				$projects[] = $project;
 			}
 		}
 		return $projects;
 	}
 	
-	public static function getHentaiProjects() {
+	public static function getHentaiProjects($getHiddenProjects = false) {
 		$projects = array();
 		foreach(Project::getAllProjects() as $project) {
-			if ($project->isHentai()) {
+			if ($project->isHentai() && (!$project->isHidden() || $getHiddenProjects)) {
 				$projects[] = $project;
 			}
 		}
