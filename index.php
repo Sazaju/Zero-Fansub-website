@@ -114,128 +114,6 @@ if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
 				}
 			}
 		</script>
-		<SCRIPT LANGUAGE="JavaScript">
-			var nbimage= 200;
-			var width;
-			var height;
-			var url;
-			var alte;
-			function banniere() {
-				numimage= Math.round(Math.random()*(nbimage-1)+1);
-				if (numimage <= 10) {
-					gotosite = "";
-					url = "images/hautmenu/konata.png";
-					alte = "Konata";
-				}
-				if (numimage > 10 && numimage <= 20) {
-					gotosite = "index.php?page=series/kimikiss";
-					url = "images/hautmenu/futami.png";
-					alte = "Futami";
-				}
-				if (numimage > 20 && numimage <= 30) {
-					gotosite = "index.php?page=series/hitohira";
-					url = "images/hautmenu/mugi.png";
-					alte = "Mugi";
-				}
-				if (numimage > 30 && numimage <= 40) {
-					gotosite = "index.php?page=series/kodomooav";
-					url = "images/hautmenu/rin.png";
-					alte = "Rin";
-				}
-				if (numimage > 40 && numimage <= 50) {
-					gotosite = "index.php?page=series/toradora";
-					url = "images/hautmenu/taiga.png";
-					alte = "Taiga";
-				}
-				if (numimage > 50 && numimage <= 60) {
-					gotosite = "index.php?page=series/genshiken";
-					url = "images/hautmenu/ohno.png";
-					alte = "Ohno";
-				}
-				if (numimage > 60 && numimage <= 70) {
-					gotosite = "index.php?page=series/sketchbook";
-					url = "images/hautmenu/sora.png";
-					alte = "Sora";
-				}
-				if (numimage > 70 && numimage <= 80) {
-					gotosite = "index.php?page=series/kujibiki";
-					url = "images/hautmenu/kujian.png";
-					alte = "Tokino-présidente";
-				}
-				if (numimage > 80 && numimage <= 90) {
-					gotosite = "index.php?page=series/mermaid";
-					url = "images/hautmenu/lucia.png";
-					alte = "Lucia";
-				}
-				if (numimage > 90 && numimage <= 100) {
-					gotosite = "index.php?page=series/kodomoo";
-					url = "images/hautmenu/rin2.png";
-					alte = "Rin";
-				}
-				if (numimage > 100 && numimage <= 110) {
-					gotosite = "index.php?page=series/kissxsis";
-					url = "images/hautmenu/ako.png";
-					alte = "Kiss X Sis";
-				}
-				if (numimage > 110 && numimage <= 120) {
-					gotosite = "index.php?page=series/kodomoo";
-					url = "images/hautmenu/rin.png";
-					alte = "Rin";
-				}
-				if (numimage > 120 && numimage <= 130) {
-					gotosite = "index.php?page=series/kodomo";
-					url = "images/hautmenu/rin.png";
-					alte = "Rin";
-				}
-				if (numimage > 130 && numimage <= 140) {
-					gotosite = "";
-					url = "images/hautmenu/pika.png";
-					alte = "Pikachu";
-				}
-				if (numimage > 140 && numimage <= 150) {
-					gotosite = "index.php?page=series/canaan";
-					url = "images/hautmenu/canaan.png";
-					alte = "Canaan";
-				}
-				if (numimage > 150 && numimage <= 160) {
-					gotosite = "index.php?page=series/training";
-					url = "images/hautmenu/isshoni.png";
-					alte = "L'entrainement avec Hinako";
-				}
-				if (numimage > 160 && numimage <= 170) {
-					gotosite = "index.php?page=series/kanamemo";
-					url = "images/hautmenu/kanamemo.png";
-					alte = "Kanamemo";
-				}
-				if (numimage > 170 && numimage <= 180) {
-					gotosite = "index.php?page=series/kannagi";
-					url = "images/hautmenu/kannagi.png";
-					alte = "Kannagi";
-				}
-				if (numimage > 180 && numimage <= 190) {
-					gotosite = "index.php?page=series/potemayo";
-					url = "images/hautmenu/potemayo.png";
-					alte = "Potemayo";
-				}
-				if (numimage > 190 && numimage <= 200) {
-					gotosite = "index.php?page=series/tayutama";
-					url = "images/hautmenu/tayutama.png";
-					alte = "Tayutama Kiss on my deity";
-				}
-				if (numimage > 200 ) {
-					gotosite = "index.php?page=series/mariaholic";
-					url = "images/hautmenu/mariya.png";
-					alte = "Maria Holic";
-				}
-				if(gotosite != "") {
-					document.write ('<A HREF="' + gotosite + '">');	
-				}
-				document.write('<IMG SRC="' + url + '" ALT="' + alte + '" BORDER=0>')
-				if(gotosite != "") {
-					document.write('</A>')
-				}
-			}
-		</SCRIPT>
 	</head>
 	<body>
 		<?php
@@ -287,7 +165,12 @@ if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
 		</div>
 		<div id="pageleft">
 			<div id="menu">
-				<div id="menutop"><SCRIPT language="JavaScript">banniere();</SCRIPT></div>
+					<?php
+						$corners = CornerImage::getAllImages();
+						$corner = $corners[array_rand($corners)];
+						$corner->setId("menutop");
+						$corner->writeNow();
+					?>
 					<div class="menu">
 						<ul>
 							<li><a href="index.php">Accueil</a></li>
