@@ -82,6 +82,9 @@ class CornerImage extends DefaultHtmlComponent {
 			
 			$corner = new CornerImage("mariya.png", "Mariya", "mariaholic");
 			CornerImage::$allImages[] = $corner;
+			
+			$corner = new CornerImage("fumino.png", "Fumino", "mayoi");
+			CornerImage::$allImages[] = $corner;
 		}
 		
 		return CornerImage::$allImages;
