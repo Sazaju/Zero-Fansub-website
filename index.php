@@ -76,6 +76,14 @@ function __autoload($className) {
 	}
 }
 
+$criticalDataFile = "criticalData.php";
+if (!is_file($criticalDataFile)) {
+	header("Location: criticalConfig.php");
+	exit;
+}
+require_once($criticalDataFile);
+unset($criticalDataFile);
+
 /**********************************\
              DATABASE
 \**********************************/

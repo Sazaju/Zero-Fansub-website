@@ -8,7 +8,6 @@
 	used by default in the persistent components.
 */
 
-require_once("criticalData.php");
 class Database {
 	private static $defaultDatabase = null;
 	private $connection;
