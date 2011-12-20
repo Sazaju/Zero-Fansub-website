@@ -293,7 +293,7 @@ if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
 							<li><a href="index.php">Accueil</a></li>
 							<li><a href="irc://irc.Fansub-IRC.eu/zero" target="_blank">IRC</a></li>	
 							<li><a href="http://forum.zerofansub.net" target="_blank">Forum</a></li>
-							<li><a href="http://twitter.com/db0company" target="_blank">Twitter</a></li>
+							<li><a href="http://twitter.com/zero_fansub" target="_blank">Twitter</a></li>
 							<li><a href="#" onclick="window.open('radio','radio','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=280, height=380, left=200, top=200');return(false)">Radio</a></li>
 							<li><a href="index.php?page=contact">Contact</a></li>
 							<li><a href="index.php?page=about">À propos...</a></li>
