@@ -88,7 +88,7 @@ unset($criticalDataFile);
              DATABASE
 \**********************************/
 
-if (DB_USE){
+if (DB_USE) {
 	Database::createDefaultDatabase(TEST_MODE_ACTIVATED);
 	if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
 		Database::getDefaultDatabase()->clear();
