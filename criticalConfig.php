@@ -35,6 +35,7 @@
 	This file contains critical data and should never be written
 	in git repository (should be in the .ignore file).
 */
+define('DB_USE', 'false');
 define('DB_NAME', 'zero-fansub');
 define('DB_HOST', '127.0.0.1');
 define('DB_USER', 'zero');
