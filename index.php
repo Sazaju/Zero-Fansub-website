@@ -88,12 +88,14 @@ unset($criticalDataFile);
              DATABASE
 \**********************************/
 
-Database::createDefaultDatabase(TEST_MODE_ACTIVATED);
-if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
-	Database::getDefaultDatabase()->clear();
-	$link = new IndexLink();
-	header('Location: '.$link->getUrl());
-	exit();
+if (DB_USE){
+	Database::createDefaultDatabase(TEST_MODE_ACTIVATED);
+	if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
+		Database::getDefaultDatabase()->clear();
+		$link = new IndexLink();
+		header('Location: '.$link->getUrl());
+		exit();
+	}
 }
 ?>
 
