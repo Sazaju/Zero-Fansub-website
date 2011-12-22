@@ -98,7 +98,7 @@ Il convient de noter que, une fois qu'un code HTML est raffiné en code PHP, ce c
 II.2 Classes PHP
 
 La hiérarchie des classes PHP n'est pas encore complètement fixée, cela dit elle vise à s'approcher d'un schéma MVC (Modèle-Vue-Controleur). Ce schéma s'organise comme suit :
-- le modèle définit les données disponibles, qui est grosso modo le contenu de la DB, ce niveau est géré par les classes étendant IDatabaseComponent (ligne d'une table) ou IDatabaseContainer (ensemble de lignes)
+- le modèle définit les données disponibles, qui est grosso modo le contenu de la DB, ce niveau est géré par les classes implémentant IDatabaseComponent (ligne d'une table) ou IDatabaseContainer (ensemble de lignes)
 - la vue correspond au rendu final de ces données (affichage sur le site), ce niveau est géré par les classes implémentant l'interface IHtmlComponent (génère la structure HTML)
 - le controleur est la logique du site, c'est lui qui gère la lecture et l'écriture des données au niveau modèle, selon les besoins du niveau vue, ce niveau est géré par des classes qui n'implémentent pas d'interface commune (chaque objet définit sa propre logique)
 
@@ -110,7 +110,29 @@ CONTROLEUR |    classes spécialisées
     |      |             |
   MODÈLE   |  IDatabaseComponent/Container
 
-Certaines classes ne font pas partie de ce modèle, tout simplement parce qu'elles peuvent être utilisées un peu partout. Ce sont les classes utilitaires du dossier "class/util". Elles offrent par exemple des fonctionnalités pouvant :
+À noter que les interfaces ont leur noms préfixés par I (comme interface), par exemple IHtmlComponent pour un composant HTML, IDatabaseComponent pour un composant de la DB, etc. Cependant ces interfaces ne sont jamais implémentées directement, en effet plusieurs méthodes ont un logique commune quelque soit la classe. Par exemple les composants HTML peuvent tous avoir une des propriétés telles que id, class, style, etc. Aussi le processus de génération du code HTML est toujours le même (une balise englobant le contenu). Ce genre de méthodes communes est implémenté par des classes ayant le même nom que l'interface qu'il implémente, sauf que le préfixe est Default, par exemple DefaultHtmlComponent pour l'interface IHtmlComponent. Pour implémenter un nouveau composant HTML, mieux vaut étendre ces classes par défaut plutôt que de réimplémenter toute l'interface,on peut toujours surcharger certaines méthodes si besoin (mais cela peut traduire une erreur de conception). Normalement, tous les composants HTML de base sont implémentés de cette manière :
+- Image pour la balise img
+- Link pour la balise a
+- SimpleBlockComponent pour la balise div
+- SimpleListComponent pour les balises ol/ul
+- SimpleParagraphComponent pour la balise p
+- SimpleTextComponent pour la balise span
+- Table, TableRow et TableCell pour les balises table, tr et td
+- Title pour les balises h1, h2, etc.
+
+Il est alors possible d'étendre ces classes pour avoir des gestions spécialisées. On a par exemple :
+- Anchor pour les ancres (<a name="#..."></a>)
+- CornerImage pour les images en haut à gauche du site, qui sont en mêem temps un lien vers le projet représenté par l'image
+- IndexLink pour les liens vers des pages du site (accessible depuis l'index)
+- MailLink pour des liens "mailto"
+- NewWindowLink pour des liens ouvrant une nouvelle fenêtre (target="_blank")
+- ProjectLink pour des liens vers des projets complets
+- ReleaseLink pour des liens vers des releases spécifiques
+- ReleaseComponent pour l'affichage d'une release
+- Pin pour aider au positionnement de certains composants
+- ...
+
+Certaines classes ne font pas partie de ce modèle MVC, tout simplement parce qu'elles peuvent être utilisées un peu partout. Ce sont les classes utilitaires du dossier "class/util". Elles offrent par exemple des fonctionnalités pouvant :
 - appliquer des formatages spéciaux,
 - vérifier des données,
 - déboguer,
