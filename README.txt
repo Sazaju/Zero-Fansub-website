@@ -141,6 +141,16 @@ Certaines classes ne font pas partie de ce modèle MVC, tout simplement parce qu'
 II.3 Pages
 
 Le dossier "pages" contient un peu tout et n'importe quoi. Cela dit il est important d'avoir en tête certains points :
+- home.php correspond à la page d'accueil, affichant les news
+- team.php correspond à la page "L'équipe"
+- about.php correspond à la apge "À propos"
+- contact.php correspond à la page "Contact"
+- xdcc.php correspond à la page "XDCC"
+- series.php correspond à la liste des projets
+- hhentai.php correspond à la liste des projets + news hentai, à terme il devrait être redistribué sur la page des news et la liste des projets normaux (avec un filtre pour les hentai)
+- havert.php correspond à l'avertissement pour l'accès à la page hentai
+- le dossier "series" contient les pages de chaque projet
+- le dossier "dossiers" contient les dossiers écrits par la team
 
 TODO décrire les pages disponibles et leur utilisation dans le processus de raffinage
 
