@@ -97,7 +97,24 @@ Il convient de noter que, une fois qu'un code HTML est raffiné en code PHP, ce c
 
 II.2 Classes PHP
 
-TODO décrire la logique des classes implémentées et leur hiérarchie
+La hiérarchie des classes PHP n'est pas encore complètement fixée, cela dit elle vise à s'approcher d'un schéma MVC (Modèle-Vue-Controleur). Ce schéma s'organise comme suit :
+- le modèle définit les données disponibles, qui est grosso modo le contenu de la DB, ce niveau est géré par les classes étendant IDatabaseComponent (ligne d'une table) ou IDatabaseContainer (ensemble de lignes)
+- la vue correspond au rendu final de ces données (affichage sur le site), ce niveau est géré par les classes implémentant l'interface IHtmlComponent (génère la structure HTML)
+- le controleur est la logique du site, c'est lui qui gère la lecture et l'écriture des données au niveau modèle, selon les besoins du niveau vue, ce niveau est géré par des classes qui n'implémentent pas d'interface commune (chaque objet définit sa propre logique)
+
+Pour faire simple, le modèle définit les informations disponibles, le controleur utilise et traite ces informations, puis la vue les formate pour l'affichage final sur le site. Le schéma suivant résume la situation par rapport aux différentes classes PHP :
+
+   VUE     |       IHtmlComponent
+    |      |             |
+CONTROLEUR |    classes spécialisées
+    |      |             |
+  MODÈLE   |  IDatabaseComponent/Container
+
+Certaines classes ne font pas partie de ce modèle, tout simplement parce qu'elles peuvent être utilisées un peu partout. Ce sont les classes utilitaires du dossier "class/util". Elles offrent par exemple des fonctionnalités pouvant :
+- appliquer des formatages spéciaux,
+- vérifier des données,
+- déboguer,
+- ...
 
 II.3 Pages
 
