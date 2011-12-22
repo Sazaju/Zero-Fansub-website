@@ -140,6 +140,8 @@ Certaines classes ne font pas partie de ce modèle MVC, tout simplement parce qu'
 
 II.3 Pages
 
+Le dossier "pages" contient un peu tout et n'importe quoi. Cela dit il est important d'avoir en tête certains points :
+
 TODO décrire les pages disponibles et leur utilisation dans le processus de raffinage
 
 II.4 Episodes et chapitres
@@ -154,8 +156,28 @@ II.6 Styles
 
 TODO décrire les styles disponibles et leur modèle (défaut)
 
-II.7 Divers
+II.7 Conventions de programmation
+
+Le code PHP est écrit en anglais. C'est un langage plus adapté à la programmation (ou plutôt le langage de programmation est adapté à cette langue) et donc mieux vaut rester homogène. Un des avantages est que l'anglais offre pas mal de petits mots très récurrents (set au lieu de assigner, get au lieu de récupérer, ...) ce qui réduit les noms de manière assez importante.
+
+Certains commentaires sont aussi en anglais mais ce n'est pas obligatoire (plutôt une habitude pour certains), aussi ce n'est pas grave si d'autres commentaires sont en français (les autres langues sont cependant à proscrire). Il convient de noter qu'un commentaire n'est pas là pour dire ce que fait le code, le code en lui-même doit être suffisamment parlant. Par exemple :
+
+// on cherche la release X dans la liste des releases
+$r = null;
+foreach($releases as $release) {
+	if ($release->getId() == $id) {
+		$r = $release;
+		break;
+	}
+}
+
+Le commentaire est ici inutile, car le code est assez explicite pour voir qu'on parcoure (boucle foreach) des releases (tableau $releases) et que lorsqu'un ID spécifique est atteint ($release->getId() == $id) on garde en mémoire la release correspondante ($r = $release) et on arrête la recherche (break). Si on estime que le code est trop compliqué pour qu'en le lisant on comprenne ce qu'il fait, alors mieux vaut revoir le code pour le simplifier (le réécrire ou factoriser certaines parties dans des fonctions aux noms explicites) de façon à avoir un code clair. Les commentaires ne sont utiles que pour :
+- les entêtes (décrire le rôle et l'utilisation d'une classe ou de longues fonctions)
+- les subtilités (par exemple on sait dans quel ordre est trié un tableau, donc on le parcours dans un ordre particulier plutôt que de manière naïve)
+- les notifications telles que des TODO (future tâche), FIXME (bogue à corriger), etc.
+
+II.8 Divers
 
 Le dossier "ddl" est sensé contenir les releases de la team. En raison de sa taille, il n'est pas disponible sur le dépôt. De ce fait certaines informations relatives aux releases peuvent être non renseignées sur le site local et sur le site de test, cependant elles doivent apparaître sur le site serveur. Il est possible de rajouter des releases dans ce dossier, dès lors le site correspondant dispose des informations relatives aux releases disponibles.
 
-Le fichier sorties/sortie.php définit la logique d'affichage des dernières sorties, dans le bandeau en haut du site. Ce code devrait finir par être fusionné à l'index, cela dit il reste là tant que le processus de raffinage du site n'arrive pas à l'index.
+L'unique fichier du dossier "sorties" (sortie.php) définit la logique d'affichage des dernières sorties, dans le bandeau en haut du site. Ce code devrait finir par être fusionné à l'index, cela dit il reste là tant que le processus de raffinage du site n'arrive pas à l'index.
