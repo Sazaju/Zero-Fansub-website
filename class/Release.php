@@ -1911,7 +1911,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep1');
 			$release->setName("01");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/01/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi1.jpg");
 			$release->setHeaderImage("images/sorties/lastkannagi.png");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/01/01.jpg" border="0" />
@@ -1923,7 +1923,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep2');
 			$release->setName("02");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/02/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi2.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/02/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/02/03.jpg" border="0" />
@@ -1934,7 +1934,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep3');
 			$release->setName("03");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/03/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi3.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/03/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/03/03.jpg" border="0" />
@@ -1945,7 +1945,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep4');
 			$release->setName("04");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/04/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi4.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/04/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/04/03.jpg" border="0" />
@@ -1956,7 +1956,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep5');
 			$release->setName("05");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/05/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi5.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/05/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/05/03.jpg" border="0" />
@@ -1967,7 +1967,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep6');
 			$release->setName("06");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/06/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi6.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/06/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/06/03.jpg" border="0" />
@@ -1978,13 +1978,13 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep7');
 			$release->setName("07");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/07/main.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi7.jpg");
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep8');
 			$release->setName("08");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/08/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi8.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/08/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/08/03.jpg" border="0" />
@@ -1995,7 +1995,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep9');
 			$release->setName("09");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/09/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi9.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/09/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/09/03.jpg" border="0" />
@@ -2006,7 +2006,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep10');
 			$release->setName("10");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/10/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi10.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/10/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/10/03.jpg" border="0" />
@@ -2017,7 +2017,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep11');
 			$release->setName("11");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/11/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi11.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/11/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/11/03.jpg" border="0" />
@@ -2028,7 +2028,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep12');
 			$release->setName("12");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/12/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi12.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/12/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/12/03.jpg" border="0" />
@@ -2039,7 +2039,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep13');
 			$release->setName("13");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/13/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi13.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/13/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/13/03.jpg" border="0" />
@@ -2050,7 +2050,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep14');
 			$release->setName("14");
-			$release->setPreviewUrl("http://www.nagisama-fc.com/anime/oa/image/14/01.jpg");
+			$release->setPreviewUrl("images/episodes/kannagi14.jpg");
 			/* TODO preview
 <img src="http://www.nagisama-fc.com/anime/oa/image/14/01.jpg" border="0" />
 <img src="http://www.nagisama-fc.com/anime/oa/image/14/03.jpg" border="0" />
