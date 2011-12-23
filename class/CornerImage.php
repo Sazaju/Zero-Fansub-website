@@ -23,9 +23,6 @@ class CornerImage extends DefaultHtmlComponent {
 			$corner = new CornerImage("konata.png", "Konata");
 			CornerImage::$allImages[] = $corner;
 			
-			$corner = new CornerImage("mugi.png", "Mugi", "hitohira");
-			CornerImage::$allImages[] = $corner;
-			
 			$corner = new CornerImage("rin.png", "Rin", "kodomooav");
 			CornerImage::$allImages[] = $corner;
 			
@@ -39,9 +36,6 @@ class CornerImage extends DefaultHtmlComponent {
 			CornerImage::$allImages[] = $corner;
 			
 			$corner = new CornerImage("Genshiken1.png", "Ogiue", "genshiken");
-			CornerImage::$allImages[] = $corner;
-			
-			$corner = new CornerImage("Sketchbook0.png", "Sora", "sketchbook");
 			CornerImage::$allImages[] = $corner;
 			
 			$corner = new CornerImage("Sketchbook1.png", "Kate", "sketchbook");
