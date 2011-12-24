@@ -172,6 +172,29 @@ class News extends SimpleBlockComponent {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$news = new News();
+			$news->setTitle("Recrutement pour le site");
+			$news->setTimestamp(strtotime("24 December 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setCommentId(276);
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("Salut tout le monde ! {^_^}");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Voilà un gros mois sans news, vous devez donc vous dire <i>enfin une sortie !</i> pas vrai ? Ben désolé de casser l'ambiance, mais non pas pour tout de suite {'^_^}.");
+			$newsMessage->addLine();
+			$newsMessage->addLine(new Image("images/news/angry.jpg", "Quoi ?"));
+			$newsMessage->addLine("<small>Non pas taper ! {'>_<}</small>");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Comme certains d'entre-vous le savent, je suis en train de raffiner le site, et cela prends du temps. Si pas mal de choses ont été développées pour l'instant, encore reste-t-il à les appliquer au site, et c'est ça qui est long. C'est donc pour ça que je viens à vous {^_^}.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Je cherche quelqu'un qui s'y connaît un minimum en HTML/CSS/PHP. Inutile d'être un expert, je demande juste d'avoir déjà utilisé un peu ces langages, dire qu'on se comprenne si je parles de style, de balise et de parcourir des tableaux. Si vous avez déjà programmé en objet (PHP, Java, C++ ou autre) c'est un plus. Notez qu'il faut aussi savoir <i>retoucher</i> des images. Ce que j'entends par là est simplement savoir redimensionner, couper, coller, rassembler des images en une seule, ... le b.a.-ba donc. Si des compétences plus avancées sont nécessaires, je peux vous les apprendre avec Gimp. De même si vous avez des questions sur le code, c'est tout à votre honneur {^_^}.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Je tiens quand même à poser une contrainte : je cherche quelqu'un de motivé, qui aime coder. Je ne veux pas dire par là que c'est difficile, mais je veux quelqu'un sur qui je puisse compter sur la longueur. Il ne faut pas être disponible tout le temps, mais je ne veux pas voir quelqu'un qui après une semaine me dise <i>j'ai plus le temps</i>. Ce sont toutes des petites tâches qui peuvent se faire un peu n'importe quand, donc c'est très flexible, mais il faut les faire.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Si vous êtes intéressés, passez dans la section recrutement (lien dans le menu de gauche).");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("Mitsudomoe 7+8");
 			$news->setTimestamp(strtotime("14 November 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
