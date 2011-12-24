@@ -191,6 +191,8 @@ class News extends SimpleBlockComponent {
 			$newsMessage->addLine("Je tiens quand même à poser une contrainte : je cherche quelqu'un de motivé, qui aime coder. Je ne veux pas dire par là que c'est difficile, mais je veux quelqu'un sur qui je puisse compter sur la longueur. Il ne faut pas être disponible tout le temps, mais je ne veux pas voir quelqu'un qui après une semaine me dise <i>j'ai plus le temps</i>. Ce sont toutes des petites tâches qui peuvent se faire un peu n'importe quand, donc c'est très flexible, mais il faut les faire.");
 			$newsMessage->addLine();
 			$newsMessage->addLine("Si vous êtes intéressés, passez dans la section recrutement (lien dans le menu de gauche).");
+			$newsMessage->addLine();
+			$newsMessage->addLine("NB : vous voyez, j'ai même pas le temps de vous faire une news décente en cette veille de Noël, pour vous dire comme j'ai besoin de quelqu'un {;_;}.");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 			
