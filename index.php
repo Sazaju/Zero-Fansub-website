@@ -10,9 +10,6 @@ define('TEST_MODE_ACTIVATED', in_array($_SERVER["SERVER_NAME"], array(
 				'to-do-list.me',
 				'sazaju.dyndns-home.com'
 		), true));
-if (TEST_MODE_ACTIVATED) {
-	define('TESTING_FEATURE', 'Testing mode : <a href="'.$_SERVER['PHP_SELF'].'?clearDB'.'">clear DB</a>');
-}
 
 /**********************************\
            ERROR MANAGING
@@ -96,6 +93,16 @@ if (DB_USE) {
 		header('Location: '.$link->getUrl());
 		exit();
 	}
+}
+
+/**********************************\
+            TEST FEATURES
+\**********************************/
+
+if (TEST_MODE_ACTIVATED) {
+	$clearDB = 'clear DB';
+	$clearDB = DB_USE ? '<a href="'.$_SERVER['PHP_SELF'].'?clearDB'.'">'.$clearDB.'</a>' : '<s>'.$clearDB.'</s>';
+	define('TESTING_FEATURE', 'Testing mode : '.$clearDB);
 }
 ?>
 
