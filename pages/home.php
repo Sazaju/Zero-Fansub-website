@@ -3,7 +3,9 @@
 	$page->addComponent(new Archives());
 
 	foreach(News::getAllNews() as $news) {
-		$page->addComponent($news);
+		if ($news->getTimestamp() <= time()) {
+			$page->addComponent($news);
+		}
 	}
 
 	// rewrite the archive header as a footer
