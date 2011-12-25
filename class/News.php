@@ -172,18 +172,6 @@ class News extends SimpleBlockComponent {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$news = new News();
-			$news->setTitle("Joyeux Noël !");
-			$news->setTimestamp(strtotime("24 December 2011 21:05"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
-			$news->setCommentId(277);
-			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine("Allez pour me faire pardonner de ma dernière news, un petit goût de Noël dans cette mini-news (cliquez sur l'image).");
-			$newsMessage->addLine();
-			$newsMessage->addLine(new Link("images/news/[Zero Fansub]Noel 2011.zip", new Image("images/news/noel3.jpg", "Joyeux Noël !")));
-			$news->setMessage($newsMessage);
-			News::$allNews[] = $news;
-			
-			$news = new News();
 			$news->setTitle("Recrutement pour le site");
 			$news->setTimestamp(strtotime("24 December 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
@@ -1034,16 +1022,26 @@ Kodomo no Jikan touche à sa fin (bouhouh T__T) et on nous a proposé un anime sur
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 			
-			// TODO remove this sort, prefer a sort at a lower level
-			function sortNews(News $a, News $b) {
-				$ta = $a->getTimestamp();
-				$tb = $b->getTimestamp();
-				return $ta < $tb ? 1 : ($ta > $tb ? -1 : 0);
-			}
-			usort(News::$allNews, 'sortNews');
+			$news = new News();
+			$news->setTitle("Joyeux Noël !");
+			$news->setTimestamp(strtotime("24 December 2011 21:05"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setCommentId(277);
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("Allez pour me faire pardonner de ma dernière news, un petit goût de Noël dans cette mini-news (cliquez sur l'image).");
+			$newsMessage->addLine();
+			$newsMessage->addLine(new Link("images/news/[Zero Fansub]Noel 2011.zip", new Image("images/news/noel3.jpg", "Joyeux Noël !")));
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
 		}
 		
 		return News::$allNews;
+	}
+	
+	public static function timestampSorter(News $a, News $b) {
+		$ta = $a->getTimestamp();
+		$tb = $b->getTimestamp();
+		return $ta < $tb ? 1 : ($ta > $tb ? -1 : 0);
 	}
 	
 	public static function getAllReleasingNews() {
