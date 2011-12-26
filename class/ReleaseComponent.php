@@ -11,7 +11,8 @@ class ReleaseComponent extends SimpleBlockComponent {
 		$title->setClass("title");
 		$this->addComponent($title);
 		
-		if ($release->isReleased()) {
+		$forceDisplay = isset($_GET['test']); // TODO extract to the project's level
+		if ($release->isReleased() || $forceDisplay) {
 			$this->setClass("released");
 			$link->setUrl("#");
 			$link->setOnClick("show('".$release->getID()."');return(false)");
