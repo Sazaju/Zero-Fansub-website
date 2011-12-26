@@ -53,7 +53,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$synopsis->setClass("synopsis");
 			if ($release->getSynopsis() !== null) {
 				$synopsis->addComponent(new Title("Synopsis"));
-				$synopsis->addComponent(nl2br($release->getSynopsis()));
+				$synopsis->addComponent(Format::convertTextToHtml($release->getSynopsis()));
 			}
 			$releaseContent->addComponent($synopsis);
 			
