@@ -42,6 +42,7 @@ class Role {
 			Role::$allRoles[] = new Role('edit', 'édition');
 			Role::$allRoles[] = new Role('kara', 'karaoke');
 			Role::$allRoles[] = new Role('check', 'check');
+			Role::$allRoles[] = new Role('checkTrad', 'check traduction');
 			Role::$allRoles[] = new Role('qc', 'QC');
 			Role::$allRoles[] = new Role('verifFinale', 'v&eacute;rif finale');
 			Role::$allRoles[] = new Role('encod', 'encodage');
