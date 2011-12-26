@@ -31,7 +31,7 @@
 }
 #pageContent .released .previewImage {
 	display: block;
-	margin: auto;
+	margin: 1em;
 }
 #pageContent .released .content, #pageContent .notReleased .content {
 	text-indent: 10px;
@@ -46,6 +46,9 @@
 #pageContent .released .synopsis, #pageContent .released ul {
 	margin-top: 0;
 	margin-bottom: 10px;
+}
+#pageContent .released .synopsis {
+	text-align: justify;
 }
 #pageContent .released .comment {
 	font-weight: bold;
