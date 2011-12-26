@@ -408,7 +408,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kissxsistv3.jpg");
 			$release->setLocalizedTitle("Douces sucreries !");
 			$release->setOriginalTitle("Miwaku no Suitsu!");
-			$release->setSynopsis("Keita n'arrive pas à se concentrer car ses soeurs l'embrassent trop souvent. Il d&eacute;cide donc que les baisers sont interdits. Ako et Riko arriveront-elles à le faire changer d'avis ?");
+			$release->setSynopsis("Keita n'arrive pas à se concentrer car ses soeurs l'embrassent trop souvent. Il décide donc que les baisers sont interdits. Ako et Riko arriveront-elles à le faire changer d'avis ?");
 			$release->addStaff(TeamMember::getMember(12), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('adapt'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('time'));
@@ -777,12 +777,16 @@ class Release {
 			$release->setName("OAV 06");
 			$release->setPreviewUrl("images/episodes/hshiyo6.jpg");
 			$release->setHeaderImage("images/sorties/hshiyo6.png");
+			$release->setLocalizedTitle("Chapitre de Hina Natsukawa");
+			$release->setSynopsis("Hina est votre cousine. Vous la retrouvez à la campagne alors que sa grand-mère ne se sent pas bien... mais passons les détails. Elle vous voit vous la couler douce alors qu'il faut aider à préparer le repas. Hina vous emmenera donc au champs ramasser quelques légumes, même si vous serez plutôt focalisés sur les fruits bien mûrs de la jeune fille. À la suite de quoi un petit tour dans la rivière vous permettra de retirer toute la boue... et autres substances collantes.
+			
+			Ah, les joies de la campagne.");
 			// TODO review the following
-			$release->setLocalizedTitle("");
-			$release->setSynopsis("");
 			$release->addStaff(TeamMember::getMemberByPseudo("FinalFan"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("FinalFan"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"), Role::getRole('checkTrad'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"), Role::getRole('adapt'));
+			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$descriptor = new ReleaseFileDescriptor("*.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
