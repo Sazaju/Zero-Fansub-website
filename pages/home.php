@@ -4,6 +4,7 @@
 	
 	$newsList = array();
 	foreach(News::getAllNews() as $news) {
+		// TODO remove the 'test' feature when the refinement will be completed
 		if ($news->getTimestamp() !== null && $news->getTimestamp() <= time() || isset($_GET['test'])) {
 			$newsList[] = $news;
 		}
