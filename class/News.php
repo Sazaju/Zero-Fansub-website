@@ -33,9 +33,8 @@ class News extends SimpleBlockComponent {
 		
 		$this->message = new SimpleTextComponent();
 		$this->message->setClass("message");
+		$this->message->setContentPinned(true);
 		$this->addComponent($this->message);
-		
-		$this->addComponent(new Pin());
 		
 		$this->commentAccess = new SimpleTextComponent();
 		$this->commentAccess->setClass("comment");
@@ -179,9 +178,9 @@ class News extends SimpleBlockComponent {
 			$news->addReleasing(Release::getRelease('hshiyo', 'ep6'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new AutoFloatImage("images/news/hshiyo6.png", "J'ado~re les concombres !"));
-			$newsMessage->addLine("Et voilà un nouvel opus (ou deux nouveaux obus, au choix) de notre H favoris. Enfin je dis favoris mais comme c'est moi qui fait la news, je vais avant tout donner mon avis {^_^}.");
+			$newsMessage->addLine("Et voilà un nouvel opus (ou deux nouveaux obus, au choix) de notre H favori. Enfin je dis favori mais comme c'est moi qui fait la news, je vais avant tout donner mon avis {^_^}.");
 			$newsMessage->addLine();
-			$newsMessage->addLine("Vous avez aimé le 4 (pas le précédent, celui d'avant, que j'avais détruit dans ma news) ? Si oui alors réjouissez-vous, celui-ci est du même acabit. Ceux qui sont du même avis que moi en revanche passez votre chemin. Pour faire court : on se fait une vache à lait à la campagne. Les grosses mamelles sont de la partie, même si ce ne sont pas elles qui donneront le 'lait' de l'épisode.");
+			$newsMessage->addLine("Vous avez aimé le 4 (pas le précédent, celui d'avant, que j'avais détruit dans ma news) ? Si oui alors réjouissez-vous, celui-ci est du même acabit. Ceux qui sont du même avis que moi, en revanche, passez votre chemin. Pour faire court : on se fait une vache à lait à la campagne. Les grosses mamelles sont de la partie, même si ce ne sont pas elles qui donneront le 'lait' de l'épisode.");
 			$news->setMessage($newsMessage);
 			News::$allNews[] = $news;
 			

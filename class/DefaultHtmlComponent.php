@@ -10,6 +10,15 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	private $style = '';
 	private $subcomponents = array();
 	private $html = '';
+	private $isContentPinned = false;
+	
+	public function setContentPinned($boolean) {
+		$this->isContentPinned = $boolean;
+	}
+	
+	public function isContentPinned() {
+		return $this->isContentPinned;
+	}
 	
 	public function setID($id) {
 		$this->id = $id;
@@ -98,6 +107,11 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 			else {
 				throw new Exception("Cannot take the component ".$component);
 			}
+		}
+		
+		if ($this->isContentPinned) {
+			$pin = new Pin();
+			$content .= $pin->getCurrentContent();
 		}
 		
 		$this->html = '<'.$this->getHtmlTag().$this->getOptions().'>'.$content.'</'.$this->getHtmlTag().'>';

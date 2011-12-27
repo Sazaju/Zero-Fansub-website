@@ -760,7 +760,7 @@ class Release {
 			$release->setSynopsis("Votre petite soeur vient vous rendre visite. Comme au bon vieux temps, vous prenez le bain ensemble. Vous en profitez alors pour lui laver les seins et l'entre-jambe. Elle découvre alors qu'elle prend beaucoup de plaisir quand vos doigts sont en elle. En retour, elle nettoiera votre sexe avec sa bouche. Tout deux trés excités aprés ce bain, vous finissez dans un lit.");
 			$release->addStaff(TeamMember::getMember(5), Role::getRole('tradJp'));
 			$release->addStaff(TeamMember::getMember(21), Role::getRole('time'));
-			$release->addStaff(TeamMember::getMember(1), Role::getRole('adapt'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"), Role::getRole('adapt'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('verifFinale'));
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
@@ -778,13 +778,12 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hshiyo6.jpg");
 			$release->setHeaderImage("images/sorties/hshiyo6.png");
 			$release->setLocalizedTitle("Chapitre de Hina Natsukawa");
-			$release->setSynopsis("Hina est votre cousine. Vous la retrouvez à la campagne alors que sa grand-mère ne se sent pas bien... mais passons les détails. Elle vous voit vous la couler douce alors qu'il faut aider à préparer le repas. Hina vous emmenera donc aux champs ramasser quelques légumes, même si vous serez plutôt focalisés sur les fruits bien mûrs de la jeune fille. À la suite de quoi un petit tour dans la rivière vous permettra de retirer toute la boue... et autres substances collantes.
+			$release->setSynopsis("Hina est votre cousine. Vous la retrouvez à la campagne alors que sa grand-mère ne se sent pas bien... mais passons les détails. Elle vous voit vous la couler douce alors qu'il faut aider à préparer le repas. Hina vous emmenera donc ramasser quelques légumes aux champs, même si vous serez plutôt focalisés sur les fruits bien mûrs de la jeune fille. À la suite de quoi un petit tour dans la rivière vous permettra de retirer toute la boue... et autres substances collantes.
 			
 			Ah, les joies de la campagne.");
 			$release->addStaff(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"), Role::getRole('tradJp'));
 			$release->addStaff(TeamMember::getMemberByPseudo("FinalFan"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"), Role::getRole('adapt'));
-			$release->addStaff(TeamMember::getMemberByPseudo("FinalFan"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
