@@ -172,6 +172,20 @@ class News extends SimpleBlockComponent {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$news = new News();
+			$news->setTitle("Issho ni H Shiyo 6");
+			//$news->setTimestamp(strtotime("27 December 2011"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setCommentId(278);
+			$news->addReleasing(Release::getRelease('hshiyo', 'ep6'));
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine(new AutoFloatImage("images/news/hshiyo6.png", "J'ado~re les concombres !"));
+			$newsMessage->addLine("Et voilà un nouvel opus (ou deux nouveaux obus, au choix) de notre H favoris. Enfin je dis favoris mais comme c'est moi qui fait la news, je vais avant tout donner mon avis {^_^}.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Vous avez aimé le 4 (pas le précédent, celui d'avant, que j'avais détruit dans ma news) ? Si oui alors réjouissez-vous, celui-ci est du même acabit. Ceux qui sont du même avis que moi en revanche passez votre chemin. Pour faire court : on se fait une vache à lait à la campagne. Les grosses mamelles sont de la partie, même si ce ne sont pas elles qui donneront le 'lait' de l'épisode.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("Recrutement pour le site");
 			$news->setTimestamp(strtotime("24 December 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
@@ -1041,7 +1055,7 @@ Kodomo no Jikan touche à sa fin (bouhouh T__T) et on nous a proposé un anime sur
 	public static function timestampSorter(News $a, News $b) {
 		$ta = $a->getTimestamp();
 		$tb = $b->getTimestamp();
-		return $ta < $tb ? 1 : ($ta > $tb ? -1 : 0);
+		return $ta === $tb ? 0 : ($ta === null ? -1 : ($tb === null ? 1 : ($ta < $tb ? 1 : ($ta > $tb ? -1 : 0))));
 	}
 	
 	public static function getAllReleasingNews() {

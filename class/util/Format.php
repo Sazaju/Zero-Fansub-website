@@ -2,10 +2,10 @@
 class Format {
 	public static function indentHtml($html) {
 		// remove useless spaces and tabs
-		$html = preg_replace("#( |\t)+#i", " ", $html);
+		$cleanHtml = preg_replace("#( |\t)+#i", " ", $html);
 		
 		// indent lines depending of tag depths
-		$explodedHtml = Format::separateTagsAndText($html);
+		$explodedHtml = Format::separateTagsAndText($cleanHtml);
 		$closingTags = preg_filter("#</(.+)>#iu", "$1", $explodedHtml);
 		$openingTags = preg_filter("#<(".implode("|", $closingTags).")( .*)?(?!/)>#iu", "$1", $explodedHtml);
 		foreach($closingTags as $max => $close) {
@@ -20,7 +20,13 @@ class Format {
 			}
 			
 			if ($min == -1) {
-				throw new Exception("no opening tag find for $close (line $max)");
+				$array = array();
+				//foreach($closingTags as $id => $row) {
+				//foreach($openingTags as $id => $row) {
+				foreach($explodedHtml as $id => $row) {
+					$array[$id] = htmlentities($row);
+				}
+				throw new Exception("no opening tag find for $close (line $max) in <code>".Debug::toString($array)."</code>");
 			}
 			
 			for($line = $min + 1; $line < $max ; $line ++) {
@@ -32,12 +38,12 @@ class Format {
 		if (!empty($openingTags)) {
 			throw new Exception("no closing tag find for : ".var_dump($openingTags));
 		}
-		$html = implode("\n", $explodedHtml);
+		$cleanHtml = implode("\n", $explodedHtml);
 		
 		// strip blank characters
-		$html = trim($html);
+		$cleanHtml = trim($cleanHtml);
 		
-		return $html;
+		return $cleanHtml;
 	}
 
 	public static function truncateText($text, $maxLength) {
@@ -72,10 +78,10 @@ class Format {
 		}
 		*/
 		
-		$html = preg_replace("#\n*#i", "", $html);
-		$html = preg_replace("#>#i", "$0\n", $html);
-		$html = preg_replace("#<#i", "\n$0", $html);
-		$html = preg_replace("#\n+#i", "\n", $html);
+		$html = preg_replace("#\n+#", "", $html);
+		$html = preg_replace("#>#", "$0\n", $html);
+		$html = preg_replace("#<#", "\n$0", $html);
+		$html = preg_replace("#\\s*\n\\s*#", "\n", $html);
 		$html = explode("\n", $html);
 		return $html;
 	}

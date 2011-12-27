@@ -109,7 +109,9 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	}
 	
 	public function writeNow() {
-		echo $this->getCurrentContent();
+		$html = $this->getCurrentContent();
+		//$html = Format::indentHtml($html);
+		echo $html;
 	}
 }
 ?>

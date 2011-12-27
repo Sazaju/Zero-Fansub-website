@@ -93,7 +93,8 @@ margin-top: -15px;
 }
 
 .pin {
-	width: 100%;
 	clear: both;
+	/*
 	visibility: hidden;
+	*/
 }

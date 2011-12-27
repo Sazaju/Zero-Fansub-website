@@ -778,7 +778,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hshiyo6.jpg");
 			$release->setHeaderImage("images/sorties/hshiyo6.png");
 			$release->setLocalizedTitle("Chapitre de Hina Natsukawa");
-			$release->setSynopsis("Hina est votre cousine. Vous la retrouvez à la campagne alors que sa grand-mère ne se sent pas bien... mais passons les détails. Elle vous voit vous la couler douce alors qu'il faut aider à préparer le repas. Hina vous emmenera donc au champs ramasser quelques légumes, même si vous serez plutôt focalisés sur les fruits bien mûrs de la jeune fille. À la suite de quoi un petit tour dans la rivière vous permettra de retirer toute la boue... et autres substances collantes.
+			$release->setSynopsis("Hina est votre cousine. Vous la retrouvez à la campagne alors que sa grand-mère ne se sent pas bien... mais passons les détails. Elle vous voit vous la couler douce alors qu'il faut aider à préparer le repas. Hina vous emmenera donc aux champs ramasser quelques légumes, même si vous serez plutôt focalisés sur les fruits bien mûrs de la jeune fille. À la suite de quoi un petit tour dans la rivière vous permettra de retirer toute la boue... et autres substances collantes.
 			
 			Ah, les joies de la campagne.");
 			$release->addStaff(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"), Role::getRole('tradJp'));
