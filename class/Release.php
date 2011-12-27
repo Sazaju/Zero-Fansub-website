@@ -679,7 +679,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(21), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMember(21), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
-			$release->addStaff(TeamMember::getMember(22), Role::getRole('encod'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
 			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo 1[H264-AAC][C8DFA639].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -701,7 +701,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('verifFinale'));
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
-			$release->addStaff(TeamMember::getMember(21), Role::getRole('encod'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
 			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo 2[H264-AAC][9C9F3B0D].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -722,7 +722,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('verifFinale'));
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
-			$release->addStaff(TeamMember::getMember(21), Role::getRole('encod'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
 			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo 3[H264-AAC][9AD925EF].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -743,7 +743,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('verifFinale'));
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
-			$release->addStaff(TeamMember::getMember(21), Role::getRole('encod'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
 			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo 4[H264-AAC][F49AEB5B].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -764,7 +764,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('verifFinale'));
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
-			$release->addStaff(TeamMember::getMember(22), Role::getRole('encod'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
 			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo 5[H264-AAC][34432851].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -781,18 +781,20 @@ class Release {
 			$release->setSynopsis("Hina est votre cousine. Vous la retrouvez à la campagne alors que sa grand-mère ne se sent pas bien... mais passons les détails. Elle vous voit vous la couler douce alors qu'il faut aider à préparer le repas. Hina vous emmenera donc au champs ramasser quelques légumes, même si vous serez plutôt focalisés sur les fruits bien mûrs de la jeune fille. À la suite de quoi un petit tour dans la rivière vous permettra de retirer toute la boue... et autres substances collantes.
 			
 			Ah, les joies de la campagne.");
-			// TODO review the following
-			$release->addStaff(TeamMember::getMemberByPseudo("FinalFan"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"), Role::getRole('tradJp'));
 			$release->addStaff(TeamMember::getMemberByPseudo("FinalFan"), Role::getRole('time'));
-			$release->addStaff(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"), Role::getRole('checkTrad'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"), Role::getRole('adapt'));
+			$release->addStaff(TeamMember::getMemberByPseudo("FinalFan"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
+			// TODO review the following
 			$descriptor = new ReleaseFileDescriptor("*.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(0);
+			//$release->setReleasingTime(strtotime("14 November 2011 21:00:00"));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('konoe'), 'ep1');
