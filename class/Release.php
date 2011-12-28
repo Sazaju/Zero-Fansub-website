@@ -787,13 +787,12 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
-			// TODO review the following
-			$descriptor = new ReleaseFileDescriptor("*.mp4");
+			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo 6[H264-AAC][F57162FA].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime("14 November 2011 21:00:00"));
+			$release->setReleasingTime(strtotime("28 December 2011 19:17"));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('konoe'), 'ep1');

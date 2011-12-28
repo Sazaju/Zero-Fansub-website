@@ -172,7 +172,7 @@ class News extends SimpleBlockComponent {
 		if (News::$allNews === null) {
 			$news = new News();
 			$news->setTitle("Issho ni H Shiyo 6");
-			//$news->setTimestamp(strtotime("27 December 2011"));
+			$news->setTimestamp(strtotime("28 December 2011 19:17"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(278);
 			$news->addReleasing(Release::getRelease('hshiyo', 'ep6'));
