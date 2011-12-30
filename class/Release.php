@@ -3361,14 +3361,14 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("LeLapinBlanc"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Kanaii-Zero]_Maria+Holic_05_[XVID_704x400].avi");
+			$descriptor = new ReleaseFileDescriptor("[Kanaii-Zero]_Maria+Holic_05v2_[XVID_704x400].avi");
 			$descriptor->setID("704x400");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=E5EBJCI8");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Kanaii-Zero]_Maria+Holic_05_[X264_848x480].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Kanaii-Zero]_Maria+Holic_05v2_[X264_848x480].mkv");
 			$descriptor->setID("848x480");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
