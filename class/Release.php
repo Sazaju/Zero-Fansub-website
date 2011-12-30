@@ -680,7 +680,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(21), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo 1[H264-AAC][C8DFA639].mp4");
+			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo[H264-AAC]/[FFS-Zero]Isshoni H Shiyo 1[H264-AAC][C8DFA639].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -702,7 +702,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo 2[H264-AAC][9C9F3B0D].mp4");
+			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo[H264-AAC]/[FFS-Zero]Isshoni H Shiyo 2[H264-AAC][9C9F3B0D].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -723,7 +723,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo 3[H264-AAC][9AD925EF].mp4");
+			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo[H264-AAC]/[FFS-Zero]Isshoni H Shiyo 3[H264-AAC][9AD925EF].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -744,7 +744,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo 4[H264-AAC][F49AEB5B].mp4");
+			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo[H264-AAC]/[FFS-Zero]Isshoni H Shiyo 4[H264-AAC][F49AEB5B].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -765,7 +765,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sky_Lekas"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo 5[H264-AAC][34432851].mp4");
+			$descriptor = new ReleaseFileDescriptor("[FFS-Zero]Isshoni H Shiyo[H264-AAC]/[FFS-Zero]Isshoni H Shiyo 5[H264-AAC][34432851].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
