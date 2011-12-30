@@ -41,14 +41,6 @@ Alors qu’elle cherche son chemin, elle tombe sous le charme d’une étudiante acco
 	}
 	$list->writeNow();
 ?>
-<?php
-for ($i = 1; $i <= 13; $i++)
-{
-  $file = "episodes/mariaholic" . $i . ".php";
-  if (file_exists($file))
-    require($file);
-}
-?>
 
 <p></p>
 
