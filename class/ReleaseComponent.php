@@ -149,7 +149,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 		foreach($fileDescriptors as $descriptor) {
 			$description = new SimpleTextComponent();
 			
-			$name = $descriptor->getFileName();
+			$name = $descriptor->getFilePath();
 			$description->addLine(basename($name));
 			
 			$url = "ddl/".$name;

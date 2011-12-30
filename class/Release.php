@@ -2857,14 +2857,14 @@ class ReleaseFileDescriptor {
 	private $pageNumber = null;
 	
 	public function __construct($name = null) {
-		$this->setFileName($name);
+		$this->setFilePath($name);
 	}
 	
-	public function getFileName() {
+	public function getFilePath() {
 		return $this->fileName;
 	}
 	
-	public function setFileName($fileName) {
+	public function setFilePath($fileName) {
 		$this->fileName = $fileName;
 	}
 	
