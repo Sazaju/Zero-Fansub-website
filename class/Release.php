@@ -3674,7 +3674,7 @@ class Release {
 			$release = new Release(Project::getProject('potemayooav'), 'ep1');
 			$release->setName("01");
 			$release->setPreviewUrl("images/episodes/potemayooav1.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_01_[XVID_704x400][0509915C].avi");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_[XVID_704x400]/[Zero]Potemayo_Special_01_[XVID_704x400][0509915C].avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
@@ -3685,7 +3685,7 @@ class Release {
 			$release = new Release(Project::getProject('potemayooav'), 'ep2');
 			$release->setName("02");
 			$release->setPreviewUrl("images/episodes/potemayooav2.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_02_[XVID_704x400][9165F220].avi");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_[XVID_704x400]/[Zero]Potemayo_Special_02_[XVID_704x400][9165F220].avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
@@ -3696,7 +3696,7 @@ class Release {
 			$release = new Release(Project::getProject('potemayooav'), 'ep3');
 			$release->setName("03");
 			$release->setPreviewUrl("images/episodes/potemayooav3.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_03_[XVID_704x400][F59FE939].avi");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_[XVID_704x400]/[Zero]Potemayo_Special_03_[XVID_704x400][F59FE939].avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
@@ -3707,7 +3707,7 @@ class Release {
 			$release = new Release(Project::getProject('potemayooav'), 'ep4');
 			$release->setName("04");
 			$release->setPreviewUrl("images/episodes/potemayooav4.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_04_[XVID_704x400][973E804F].avi");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_[XVID_704x400]/[Zero]Potemayo_Special_04_[XVID_704x400][973E804F].avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
@@ -3718,7 +3718,7 @@ class Release {
 			$release = new Release(Project::getProject('potemayooav'), 'ep5');
 			$release->setName("05");
 			$release->setPreviewUrl("images/episodes/potemayooav5.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_05_[XVID_704x400][B119F595].avi");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_[XVID_704x400]/[Zero]Potemayo_Special_05_[XVID_704x400][B119F595].avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
@@ -3729,7 +3729,7 @@ class Release {
 			$release = new Release(Project::getProject('potemayooav'), 'ep6');
 			$release->setName("06");
 			$release->setPreviewUrl("images/episodes/potemayooav6.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_06_[XVID_704x400][2827BF0B].avi");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_Special_[XVID_704x400]/[Zero]Potemayo_Special_06_[XVID_704x400][2827BF0B].avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
