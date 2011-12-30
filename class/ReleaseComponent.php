@@ -142,17 +142,17 @@ class ReleaseComponent extends SimpleBlockComponent {
 		$rapidShareLinks->setClass("rapidShareLinks");
 		$mediaFireLinks = new GroupedLinks(new Image("images/icones/mediafire.jpg", "Mediafire"));
 		$mediaFireLinks->setClass("mediaFireLinks");
-		$torrentLinks = new GroupedLinks(new Link("http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro", new Image("images/icones/torrent.png")));
+		$torrentLinks = new GroupedLinks(new Link($release->getTorrentUrl(), new Image("images/icones/torrent.png")));
 		$torrentLinks->setClass("torrentLink");
 		$fileDescriptors = $release->getFileDescriptors();
 		$index = 1;
 		foreach($fileDescriptors as $descriptor) {
 			$description = new SimpleTextComponent();
 			
-			$name = $descriptor->getFilePath();
-			$description->addLine(basename($name));
+			$path = $descriptor->getFilePath();
+			$description->addLine(basename($path));
 			
-			$url = "ddl/".$name;
+			$url = "ddl/".$path;
 			
 			$size = "Taille : ";
 			try {
@@ -298,6 +298,7 @@ class GroupedLinks extends SimpleTextComponent {
 	}
 	
 	public function addLink(Link $link) {
+		$link->getComponents();
 		$this->addComponent(" [ ");
 		$this->addComponent($link);
 		$this->addComponent(" ]");

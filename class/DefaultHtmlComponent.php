@@ -60,6 +60,14 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		}
 	}
 	
+	public function addComponents($array) {
+		if ($array !== null) {
+			foreach($array as $component) {
+				$this->addComponent($component);
+			}
+		}
+	}
+	
 	public function getComponents() {
 		return $this->subcomponents;
 	}

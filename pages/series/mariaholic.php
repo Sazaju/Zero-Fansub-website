@@ -27,6 +27,21 @@ Alors qu’elle cherche son chemin, elle tombe sous le charme d’une étudiante acco
 <p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p><h2>Épisodes</h2>
 
 <?php
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
+
+	$releases = Release::getAllReleasesForProject('mariaholic');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
+?>
+<?php
 for ($i = 1; $i <= 13; $i++)
 {
   $file = "episodes/mariaholic" . $i . ".php";

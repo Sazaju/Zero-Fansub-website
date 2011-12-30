@@ -1,7 +1,7 @@
-	<h5><a href="#" onClick="show('ep1');return(false)" id="plus">Maria Holic Épisode 01</a></h5>
+	<h5><a href="#" onClick="show('ep1b');return(false)" id="plus">Maria Holic Épisode 01</a></h5>
 
 
-<div id="ep1" style="display:none;">
+<div id="ep1b" style="display:none;">
 <div style="float : right; display:block; margin-right: 20px;">
 	<img src="images/episodes/mariaholic1.jpg" border="0">
 </div>
