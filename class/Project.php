@@ -128,7 +128,7 @@ class Project {
 			$project->setIsRunning(true);
 			Project::$allProjects[] = $project;
 
-			$project = new Project("genshiken", "Genshiken 2");
+			$project = new Project("genshiken", "Genshiken II");
 			$project->setIsFinished(true);
 			Project::$allProjects[] = $project;
 			
