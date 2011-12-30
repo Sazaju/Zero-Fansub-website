@@ -2803,7 +2803,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Suke"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01v2][1280x720][x264-AAC][3CEF704D].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[01v2][1280x720][x264-AAC][3CEF704D].mp4");
 			$descriptor->setCRC("3CEF704D");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2825,7 +2825,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Kyon"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[02v2][1280x720][x264-AAC][C2715892].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[02v2][1280x720][x264-AAC][C2715892].mp4");
 			$descriptor->setCRC("1EC198AC");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2847,7 +2847,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Kyon"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[03][1280x720][x264-AAC][E0FC6D84].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[03][1280x720][x264-AAC][E0FC6D84].mp4");
 			$descriptor->setCRC("E0FC6D84");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2870,7 +2870,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Kyon"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[04][1280x720][x264-AAC][B7CEBC3A].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[04][1280x720][x264-AAC][B7CEBC3A].mp4");
 			$descriptor->setCRC("B7CEBC3A");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2892,7 +2892,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Kyon"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[05v2][1280x720][x264-AAC][BD6877D7].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[05v2][1280x720][x264-AAC][BD6877D7].mp4");
 			$descriptor->setCRC("BD6877D7");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2913,7 +2913,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[06][1280x720][x264-AAC][A1747518].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[06][1280x720][x264-AAC][A1747518].mp4");
 			$descriptor->setCRC("A1747518");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2934,7 +2934,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[07][1280x720][x264-AAC][586104DE].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[07][1280x720][x264-AAC][586104DE].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2954,7 +2954,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[08][1280x720][x264-AAC][DF8A2411].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[08][1280x720][x264-AAC][DF8A2411].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2974,7 +2974,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[09][1280x720][x264-AAC][E65AD8E4].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[09][1280x720][x264-AAC][E65AD8E4].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2994,7 +2994,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[10][1280x720][x264-AAC][9B420C4E].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[10][1280x720][x264-AAC][9B420C4E].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -3014,7 +3014,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[11][1280x720][x264-AAC][D1D99CA3].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[11][1280x720][x264-AAC][D1D99CA3].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -3034,7 +3034,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[12][1280x720][x264-AAC][DCB72C6B].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[12][1280x720][x264-AAC][DCB72C6B].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -3054,7 +3054,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[13][1280x720][x264-AAC][A7CBEAF7].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Sketchbook_full_colorS[01-13][1280x720][x264-AAC]/[Zero]Sketchbook_full_colorS[13][1280x720][x264-AAC][A7CBEAF7].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
