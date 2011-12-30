@@ -20,12 +20,19 @@
 <p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p><h2>Épisodes</h2>
 
 <?php
-for ($i = 1; $i <= 5; $i++)
-{
-  $file = "episodes/toradorasos" . $i . ".php";
-  if (file_exists($file))
-    require_once($file);
-}
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
+
+	$releases = Release::getAllReleasesForProject('toradorasos');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
 ?>
 <p></p>
 <h2>Voir aussi</h2>

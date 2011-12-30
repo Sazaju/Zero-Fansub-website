@@ -2372,6 +2372,54 @@ class Release {
 			$release = new Release(Project::getProject('kanamemobook'), 'ch10');
 			$release->setName("chapitre 10");
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('toradorasos'), 'ep1');
+			$release->setName("01");
+			$release->setPreviewUrl("images/episodes/toradorasos1-1.jpg");
+			// TODO add images/episodes/toradorasos1-2.jpg
+			$descriptor = new ReleaseFileDescriptor("[Zero]Toradora_SOS_01[H264-AAC][1484BBAB].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('toradorasos'), 'ep2');
+			$release->setName("02");
+			$release->setPreviewUrl("images/episodes/toradorasos2-1.jpg");
+			// TODO add images/episodes/toradorasos2-2.jpg
+			$descriptor = new ReleaseFileDescriptor("[Zero]Toradora_SOS_02[H264-AAC][0261E281].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('toradorasos'), 'ep3');
+			$release->setName("03");
+			$release->setPreviewUrl("images/episodes/toradorasos3-1.jpg");
+			// TODO add images/episodes/toradorasos3-2.jpg
+			$descriptor = new ReleaseFileDescriptor("[Zero]Toradora_SOS_03[H264-AAC][5BB08F75].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('toradorasos'), 'ep4');
+			$release->setName("04");
+			$release->setPreviewUrl("images/episodes/toradorasos4-1.jpg");
+			// TODO add images/episodes/toradorasos4-2.jpg
+			$descriptor = new ReleaseFileDescriptor("[Zero]Toradora_SOS_04[H264-AAC][0F2BF1C6].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}
