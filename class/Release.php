@@ -2120,7 +2120,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_01[H264-AAC][4DDB4C51].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_01[H264-AAC][4DDB4C51].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2143,7 +2143,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_02[H264-AAC][74AAC3AD].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_02[H264-AAC][74AAC3AD].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2166,7 +2166,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_03[H264-AAC][5E4DD57A].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_03[H264-AAC][5E4DD57A].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2190,7 +2190,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_04[H264-AAC][B001FA6D].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_04[H264-AAC][B001FA6D].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2214,7 +2214,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_05[H264-AAC][8FA55E90].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_05[H264-AAC][8FA55E90].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2239,7 +2239,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_06[H264-AAC][4EC2362E].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_06[H264-AAC][4EC2362E].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2251,7 +2251,7 @@ class Release {
 			$release->setName("07");
 			$release->setPreviewUrl("images/episodes/kanamemo7.jpg");
 			$release->setLocalizedTitle("Mon premier accueil");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_07[H264-AAC][3B7C6CCC].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_07[H264-AAC][3B7C6CCC].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2263,7 +2263,7 @@ class Release {
 			$release->setName("08");
 			$release->setPreviewUrl("images/episodes/kanamemo8.jpg");
 			$release->setLocalizedTitle("La première fois que je parle du passé");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_08[H264-AAC][480EE696].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_08[H264-AAC][480EE696].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2275,7 +2275,7 @@ class Release {
 			$release->setName("09");
 			$release->setPreviewUrl("images/episodes/kanamemo9.jpg");
 			$release->setLocalizedTitle("Mon premier régime ?");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_09[H264-AAC][B2434A96].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_09[H264-AAC][B2434A96].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2286,7 +2286,7 @@ class Release {
 			$release = new Release(Project::getProject('kanamemo'), 'ep10');
 			$release->setName("10");
 			$release->setPreviewUrl("images/episodes/kanamemo10.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_10[H264-AAC][3497F0E7].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_10[H264-AAC][3497F0E7].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2297,7 +2297,7 @@ class Release {
 			$release = new Release(Project::getProject('kanamemo'), 'ep11');
 			$release->setName("11");
 			$release->setPreviewUrl("images/episodes/kanamemo11.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_11[H264-AAC][7ED476A9].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_11[H264-AAC][7ED476A9].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2308,7 +2308,7 @@ class Release {
 			$release = new Release(Project::getProject('kanamemo'), 'ep12');
 			$release->setName("12");
 			$release->setPreviewUrl("images/episodes/kanamemo12.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_12[H264-AAC][ACAE4B0F].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_12[H264-AAC][ACAE4B0F].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2319,7 +2319,7 @@ class Release {
 			$release = new Release(Project::getProject('kanamemo'), 'ep13');
 			$release->setName("13");
 			$release->setPreviewUrl("images/episodes/kanamemo13.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_13[H264-AAC][A510AC9D].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo[H264-AAC]/[Zero]Kanamemo_13[H264-AAC][A510AC9D].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
