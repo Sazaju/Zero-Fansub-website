@@ -94,8 +94,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			}
 			
 			$releaseContent->addComponent(new Pin());
-			
-			if (!isset($_GET['show']) || preg_match("#(,|^)".preg_quote($release->getID())."(,|$)#", $_GET['show']) == 0) {
+			if (!isset($_GET['show']) || !(strcmp($_GET['show'], "*") == 0 || preg_match("#(,|^)".preg_quote($release->getID())."(,|$)#", $_GET['show']) > 0)) {
 				$releaseContent->addComponent("<script language='javascript'>show('".$release->getID()."');</script>");
 			}
 		}
