@@ -2434,7 +2434,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Suke"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[01v2][H264-AAC][057403CF].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[01v2][H264-AAC][057403CF].mp4");
 			$descriptor->setCRC("D84D9A0E");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2464,7 +2464,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Suke"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[02v2][H264-AAC][9EA036CF].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[02v2][H264-AAC][9EA036CF].mp4");
 			$descriptor->setCRC("4568C0E8");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2494,7 +2494,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Kyon"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[03][x264-AAC][15C18BEA].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[03][x264-AAC][15C18BEA](2).mp4");
 			$descriptor->setCRC("15C18BEA");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2525,7 +2525,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[04][H264-AAC][24BE6A54].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[04][H264-AAC][24BE6A54].mp4");
 			$descriptor->setCRC("24BE6A54");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2559,7 +2559,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[05][H264-AAC][0DF64C0C].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[05][H264-AAC][0DF64C0C].mp4");
 			$descriptor->setCRC("1FE48820");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2592,7 +2592,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("Zetsubo Sensei"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Ryuseiken71"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[06][H264-AAC][224F38D7].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[06][H264-AAC][224F38D7].mp4");
 			$descriptor->setCRC("224F38D7");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2624,7 +2624,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[07][H264-AAC][E02D4D87].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[07][H264-AAC][E02D4D87](2).mp4");
 			$descriptor->setCRC("E02D4D87");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2659,7 +2659,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[08][H264-AAC][98885A46].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[08][H264-AAC][98885A46].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2689,7 +2689,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[09][H264-AAC][A8A94D6A].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[09][H264-AAC][A8A94D6A].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2719,7 +2719,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[10][H264-AAC][7209E37F].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[10][H264-AAC][7209E37F].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2748,7 +2748,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[11][H264-AAC][7B488E84].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[11][H264-AAC][7B488E84].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -2778,7 +2778,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("Pyra"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[12][H264-AAC][85CC1EC3].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[H264-AAC]/[Zero]Genshiken_2[12][H264-AAC][85CC1EC3].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
