@@ -206,7 +206,7 @@ class Project {
 			$project->setIsFinished(true);
 			Project::$allProjects[] = $project;
 
-			$project = new Project("kujibiki", "Kujibiki Unbalance 2");
+			$project = new Project("kujibiki", "Kujibiki Unbalance II");
 			$project->setIsFinished(true);
 			Project::$allProjects[] = $project;
 			
