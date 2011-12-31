@@ -518,6 +518,31 @@ class TeamMember {
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
+			$member = new TeamMember(65);
+			$member->setPseudo("Bzou6");
+			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(66);
+			$member->setPseudo("Kira");
+			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(67);
+			$member->setPseudo("Angel");
+			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(68);
+			$member->setPseudo("captainricard");
+			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(69);
+			$member->setPseudo("Chakko33");
+			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
 			// TODO remove this sort, prefer a sort at a lower level
 			function sortMembers(TeamMember $a, TeamMember $b) {
 				return strcasecmp($a->getPseudo(), $b->getPseudo());
