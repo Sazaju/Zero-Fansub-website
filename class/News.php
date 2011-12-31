@@ -171,6 +171,18 @@ class News extends SimpleBlockComponent {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$news = new News();
+			$news->setTitle("ATTENTION : Raffinage massif !");
+			$news->setTimestamp(strtotime("31 December 2011 02:44"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setCommentId(279);
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("Note importante : beaucoup de raffinage a été fait dernièrement. En particulier la structure des fichiers a été retouché, certains fichiers ont même été remplacés (probablement à cause de quelques problèmes CRC). Quelques-uns ont été vérifié, mais pas tous. Aussi, si vous téléchargez des fichiers qui semblent corrompus, faites-le-moi savoir au plus vite. C'est probablement de ma faute.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Vous pouvez laisser des commentaires, sinon je redonne mon mail : <a href='mailto:sazaju@gmail.com'>sazaju@gmail.com</a>");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("Issho ni H Shiyo 6");
 			$news->setTimestamp(strtotime("28 December 2011 19:17"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
