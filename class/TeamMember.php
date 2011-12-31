@@ -503,6 +503,21 @@ class TeamMember {
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
+			$member = new TeamMember(62);
+			$member->setPseudo("Karta");
+			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(63);
+			$member->setPseudo("Jeanba");
+			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(64);
+			$member->setPseudo("whatake");
+			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
 			// TODO remove this sort, prefer a sort at a lower level
 			function sortMembers(TeamMember $a, TeamMember $b) {
 				return strcasecmp($a->getPseudo(), $b->getPseudo());
@@ -541,3 +556,4 @@ class TeamMember {
 	}
 }
 ?>
+

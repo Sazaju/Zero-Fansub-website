@@ -27,6 +27,12 @@ class ReleaseComponent extends SimpleBlockComponent {
 				try {
 					$previewImage = new AutoFloatImage($release->getPreviewUrl());
 					$previewImage->setClass("previewImage");
+					
+					$description = getimagesize($release->getPreviewUrl());
+					$width = $description[0];
+					if ($width < 150) {
+						$previewImage->makeFloating();
+					}
 				} catch(ErrorException $ex) {
 					$previewImage = Debug::createWarningTag("Preview introuvable");
 				}

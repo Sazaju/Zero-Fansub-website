@@ -10,8 +10,16 @@ class AutoFloatImage extends Image {
 		parent::__construct($source, $title);
 		$description = getimagesize($source);
 		if ($description[0] < $description[1]) {
-			$this->setStyle("float : right;");
+			$this->makeFloating();
 		}
+	}
+	
+	public function makeFloating() {
+			$this->setStyle("float : right;");
+	}
+	
+	public function removeFloating() {
+			$this->setStyle(null);
 	}
 }
 ?>

@@ -25,12 +25,19 @@ Devenir actrice de théâtre en étant pleurnicharde et sans volonté... c'est impos
 <p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p><h2>Épisodes</h2>
 
 <?php
-for ($i = 1; $i <= 13; $i++)
-{
-  $file = "episodes/hitohira" . $i . ".php";
-  if (file_exists($file))
-    require($file);
-}
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
+
+	$releases = Release::getAllReleasesForProject('hitohira');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
 ?>
 
 <p></p>
