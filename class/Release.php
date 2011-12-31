@@ -4317,7 +4317,7 @@ class Release {
 			$release = new Release(Project::getProject('tayutamapure'), 'ep1');
 			$release->setName("01");
 			$release->setPreviewUrl("images/episodes/tayutamapure1.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special_01[H264-AAC][E9A75CE2].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special[H264-AAC]/[Zero]Tayutama_Special_01[H264-AAC][E9A75CE2].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4328,7 +4328,7 @@ class Release {
 			$release = new Release(Project::getProject('tayutamapure'), 'ep2');
 			$release->setName("02");
 			$release->setPreviewUrl("images/episodes/tayutamapure2.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special_02[H264-AAC][0FCEFF3E].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special[H264-AAC]/[Zero]Tayutama_Special_02[H264-AAC][0FCEFF3E].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4339,7 +4339,7 @@ class Release {
 			$release = new Release(Project::getProject('tayutamapure'), 'ep3');
 			$release->setName("03");
 			$release->setPreviewUrl("images/episodes/tayutamapure3.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special_03[H264-AAC][5D184DF7].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special[H264-AAC]/[Zero]Tayutama_Special_03[H264-AAC][5D184DF7].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4350,7 +4350,7 @@ class Release {
 			$release = new Release(Project::getProject('tayutamapure'), 'ep4');
 			$release->setName("04");
 			$release->setPreviewUrl("images/episodes/tayutamapure4.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special_04[H264-AAC][AD60C070].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special[H264-AAC]/[Zero]Tayutama_Special_04[H264-AAC][AD60C070].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4361,7 +4361,7 @@ class Release {
 			$release = new Release(Project::getProject('tayutamapure'), 'ep5');
 			$release->setName("05");
 			$release->setPreviewUrl("images/episodes/tayutamapure5.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special_05[H264-AAC][5BFA8315].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special[H264-AAC]/[Zero]Tayutama_Special_05[H264-AAC][5BFA8315].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4372,7 +4372,7 @@ class Release {
 			$release = new Release(Project::getProject('tayutamapure'), 'ep6');
 			$release->setName("06");
 			$release->setPreviewUrl("images/episodes/tayutamapure6.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special_06[H264-AAC][948823A3].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Tayutama_Special[H264-AAC]/[Zero]Tayutama_Special_06[H264-AAC][948823A3].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
