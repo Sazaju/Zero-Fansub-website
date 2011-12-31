@@ -4066,7 +4066,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_01.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_01.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4084,7 +4084,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_02.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_02.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4102,7 +4102,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_03.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_03.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4120,7 +4120,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_04.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_04.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4138,7 +4138,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_05.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_05.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4162,7 +4162,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_06.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_06.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4186,7 +4186,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_07.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_07.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4210,7 +4210,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_08.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_08.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4234,7 +4234,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_09.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_09.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4258,7 +4258,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_10.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_10.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4282,7 +4282,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_11.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_11.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -4306,7 +4306,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_12.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity/[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_12.mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
