@@ -3736,6 +3736,154 @@ class Release {
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep1');
+			$release->setName("[01] 01 + 02");
+			$release->setPreviewUrl("images/episodes/potemayo1.jpg");
+			$release->setLocalizedTitle("01 : Potemayo / 02 : Invasion ! Créatures mystérieuses !!");
+			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_01_[H264-AAC][5F560FCF].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep2');
+			$release->setName("[02] 03 + 04");
+			$release->setPreviewUrl("images/episodes/potemayo2.jpg");
+			$release->setLocalizedTitle("03 : Aimant cet enfant / 04 : Dimanche");
+			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_02_[H264-AAC][50DA4D18].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep3');
+			$release->setName("[03] 05 + 06");
+			$release->setPreviewUrl("images/episodes/potemayo3.jpg");
+			$release->setLocalizedTitle("05 : Le miracle de la veille de noël / 06 : C'est soudainement le nouvel an");
+			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_03_[H264-AAC][936F924F].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep4');
+			$release->setName("[04] 07 + 08");
+			$release->setPreviewUrl("images/episodes/potemayo4.jpg");
+			$release->setLocalizedTitle("07 : En parlant de février, c'est la veille du printemps / 08 : Un matin atchoum");
+			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_04_[H264-AAC][69FD511B].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep5');
+			$release->setName("[05] 09 + 10");
+			$release->setPreviewUrl("images/episodes/potemayo5.jpg");
+			$release->setLocalizedTitle("09 : Un grand nombre de souvenirs profonds / 10 : Changements de printemps.");
+			$release->setSynopsis("Guchiko découvre la maison de sa chère amie. La maid de cette dernière est sous le charme et veut l'adopter. Un nouvel élève arrive.");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_05_[H264-AAC][5230A764].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep6');
+			$release->setName("[06] 11 + 12");
+			$release->setPreviewUrl("images/episodes/potemayo6.jpg");
+			$release->setLocalizedTitle("11 : une vie merveilleuse / 12 : en parlant de l'été, c'est une piscine.");
+			$release->setSynopsis("Tout le monde part pour la maison de vacances de Nene.");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_06_[H264-AAC][9201895B].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep7');
+			$release->setName("[07] 13 + 14");
+			$release->setPreviewUrl("images/episodes/potemayo7.jpg");
+			$release->setLocalizedTitle("13 : La fin de l'été / 14 : La nuit du festival.");
+			$release->setSynopsis("C'est les vacances, Mikan raconte à sa grand-mère comment elle a rencontré Moriyama pendant que celui-ci va prier sur la tombe de sa mère. Ensuite, c'est le festival ! Et Potemayo va devoir gérer son argent pour la première fois. Que va-t-elle acheter ?");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_07_[H264-AAC][9C46F9AB].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep8');
+			$release->setName("[08] 15 + 16");
+			$release->setPreviewUrl("images/episodes/potemayo8.jpg");
+			$release->setLocalizedTitle("15 : Les courses / 16 : L'hiver est arrivé");
+			$release->setSynopsis("Il reste un peu d'argent à Potemayo qui va apprebndre à faire les courses toute seule. Guchiko a volé des chataîgnes. Il neige ! Potemayo n'a jamais vu ça. Elle ne sait pas que c'est froid.");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_08_[H264-AAC][8840F56E].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep9');
+			$release->setName("[09] 17 + 18");
+			$release->setPreviewUrl("images/episodes/potemayo9.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_09_[H264-AAC][8DABC90D].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep10');
+			$release->setName("[10] 19 + 20");
+			$release->setPreviewUrl("images/episodes/potemayo10.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_10_[H264-AAC][135EA954].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep11');
+			$release->setName("[11] 21 + 22");
+			$release->setPreviewUrl("images/episodes/potemayo11.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_11_[H264-AAC][C363017C].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('potemayo'), 'ep12');
+			$release->setName("[12] 23 + 24");
+			$release->setPreviewUrl("images/episodes/potemayo12.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_12_[H264-AAC][34A6C33D].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}
