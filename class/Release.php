@@ -4593,7 +4593,7 @@ class Release {
 			$descriptor->setFreeUrl("http://dl.free.fr/hTMh2Kcso");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=U186OLCZ");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kodomo_no_Jikan_[01-12][HD][H264-AAC]/[Zero]Kodomo_no_Jikan[02][H264-AAC][HD][B0EF44BC].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kodomo_no_Jikan_[01-12][HD][H264-AAC]/[Zero]Kodomo_no_Jikan[02][H264-AAC][HD][59525201].mp4");
 			$descriptor->setID("HD");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
