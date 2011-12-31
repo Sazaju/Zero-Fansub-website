@@ -26,7 +26,6 @@ class News extends SimpleBlockComponent {
 		$subtitle->setClass("subtitle");
 		$this->date = new SimpleTextComponent();
 		$subtitle->addComponent($this->date);
-		$subtitle->addComponent(" par ");
 		$this->author = new SimpleTextComponent();
 		$subtitle->addComponent($this->author);
 		$this->addComponent($subtitle);
@@ -74,7 +73,7 @@ class News extends SimpleBlockComponent {
 	
 	public function setAuthor($author) {
 		if ($author instanceof TeamMember) {
-			$author = $author->getPseudo();
+			$author = " par ".$author->getPseudo();
 		}
 		$this->author->setContent($author);
 	}
@@ -170,6 +169,18 @@ class News extends SimpleBlockComponent {
 	private static $allNews = null;
 	public static function getAllNews() {
 		if (News::$allNews === null) {
+			$news = new News();
+			$news->setTitle("Bonne année !");
+			$news->setTimestamp(strtotime("1 January 2012"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setCommentId(280);
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("Bonne année à tous ! En espérant que le raffinage du site avance vite pour enfin vous (et nous) fournir un site plus pratique {^_^}°.");
+			$newsMessage->addLine();
+			$newsMessage->addLine(new Image("images/news/newYear2012.jpg", "Bonne année 2012 !"));
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
 			$news = new News();
 			$news->setTitle("ATTENTION : Raffinage massif !");
 			$news->setTimestamp(strtotime("31 December 2011 02:44"));
