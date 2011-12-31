@@ -1926,66 +1926,36 @@ class Release {
 			$release->setName("01");
 			$release->setPreviewUrl("images/episodes/kannagi1.jpg");
 			$release->setHeaderImage("images/sorties/lastkannagi.png");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/01/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/01/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/01/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep2');
 			$release->setName("02");
 			$release->setPreviewUrl("images/episodes/kannagi2.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/02/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/02/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/02/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep3');
 			$release->setName("03");
 			$release->setPreviewUrl("images/episodes/kannagi3.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/03/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/03/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/03/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep4');
 			$release->setName("04");
 			$release->setPreviewUrl("images/episodes/kannagi4.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/04/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/04/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/04/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep5');
 			$release->setName("05");
 			$release->setPreviewUrl("images/episodes/kannagi5.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/05/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/05/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/05/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep6');
 			$release->setName("06");
 			$release->setPreviewUrl("images/episodes/kannagi6.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/06/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/06/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/06/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -1998,77 +1968,42 @@ class Release {
 			$release = new Release(Project::getProject('kannagi'), 'ep8');
 			$release->setName("08");
 			$release->setPreviewUrl("images/episodes/kannagi8.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/08/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/08/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/08/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep9');
 			$release->setName("09");
 			$release->setPreviewUrl("images/episodes/kannagi9.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/09/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/09/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/09/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep10');
 			$release->setName("10");
 			$release->setPreviewUrl("images/episodes/kannagi10.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/10/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/10/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/10/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep11');
 			$release->setName("11");
 			$release->setPreviewUrl("images/episodes/kannagi11.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/11/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/11/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/11/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep12');
 			$release->setName("12");
 			$release->setPreviewUrl("images/episodes/kannagi12.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/12/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/12/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/12/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep13');
 			$release->setName("13");
 			$release->setPreviewUrl("images/episodes/kannagi13.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/13/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/13/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/13/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep14');
 			$release->setName("14");
 			$release->setPreviewUrl("images/episodes/kannagi14.jpg");
-			/* TODO preview
-<img src="http://www.nagisama-fc.com/anime/oa/image/14/01.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/14/03.jpg" border="0" />
-<img src="http://www.nagisama-fc.com/anime/oa/image/14/04.jpg" border="0" />
-			*/
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -2384,8 +2319,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('toradorasos'), 'ep1');
 			$release->setName("01");
-			$release->setPreviewUrl("images/episodes/toradorasos1-1.jpg");
-			// TODO add images/episodes/toradorasos1-2.jpg
+			$release->setPreviewUrl("images/episodes/toradorasos1.jpg");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Toradora_SOS[H264-AAC]/[Zero]Toradora_SOS_01[H264-AAC][1484BBAB].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2396,8 +2330,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('toradorasos'), 'ep2');
 			$release->setName("02");
-			$release->setPreviewUrl("images/episodes/toradorasos2-1.jpg");
-			// TODO add images/episodes/toradorasos2-2.jpg
+			$release->setPreviewUrl("images/episodes/toradorasos2.jpg");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Toradora_SOS[H264-AAC]/[Zero]Toradora_SOS_02[H264-AAC][0261E281].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2408,8 +2341,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('toradorasos'), 'ep3');
 			$release->setName("03");
-			$release->setPreviewUrl("images/episodes/toradorasos3-1.jpg");
-			// TODO add images/episodes/toradorasos3-2.jpg
+			$release->setPreviewUrl("images/episodes/toradorasos3.jpg");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Toradora_SOS[H264-AAC]/[Zero]Toradora_SOS_03[H264-AAC][5BB08F75].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -2420,8 +2352,7 @@ class Release {
 			
 			$release = new Release(Project::getProject('toradorasos'), 'ep4');
 			$release->setName("04");
-			$release->setPreviewUrl("images/episodes/toradorasos4-1.jpg");
-			// TODO add images/episodes/toradorasos4-2.jpg
+			$release->setPreviewUrl("images/episodes/toradorasos4.jpg");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Toradora_SOS[H264-AAC]/[Zero]Toradora_SOS_04[H264-AAC][0F2BF1C6].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
