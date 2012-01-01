@@ -5755,6 +5755,23 @@ class Release {
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('nanami'), 'pv');
+			$release->setPreviewUrl("images/episodes/nanami.jpg");
+			$release->setLocalizedTitle("Windows 7 Nanami Madobe Publicité");
+			$release->setOriginalTitle("Madobe Nanami no Windows 7 de PC Jisaku Ouen Commercial!!");
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Windows_7_Nanami_Madobe_Pub_[F13201B3].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mkv);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}
