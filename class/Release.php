@@ -5031,7 +5031,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=33X53OUK");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_01_vostf_[h264]_[15D5F763].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_01_vostf_[h264]_[15D5F763].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5065,7 +5065,7 @@ class Release {
 			$descriptor->setCRC("F8E560A0");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=UUANUZDD");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_02_vostf_[h264]_[106084CD].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_02_vostf_[h264]_[106084CD].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5097,7 +5097,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=2D6QM8Q0");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_03_vostf_[h264]_[0115309C].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_03_vostf_[h264]_[0115309C].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5129,7 +5129,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=3HYGBB47");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_04_vostf_[h264]_[5CD3D506].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_04_vostf_[h264]_[5CD3D506].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5160,7 +5160,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=BEJJWQ8X");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_05_vostf_[h264][A6417729].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_05_vostf_[h264][A6417729].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5192,7 +5192,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=C4RRSU5C");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_06_vostf_[h264][35571EA2].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_06_vostf_[h264][35571EA2].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5224,7 +5224,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=WZ8NBTAT");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_07_vostf_[h264][67399373].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_07_vostf_[h264][67399373].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5256,7 +5256,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=2HAD2N47");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_08_vostf_[h264][DD294DA5].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_08_vostf_[h264][DD294DA5].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5287,7 +5287,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=GOF5URRI");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_09_vostf_[h264].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_09_vostf_[h264].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5316,7 +5316,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=ZJGHXL2V");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_10_vostf_[h264][0CC85B5D].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_10_vostf_[h264][0CC85B5D].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5345,7 +5345,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=AGSJU7MM");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_11_vostf_[h264][D5902559].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_11_vostf_[h264][D5902559].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5375,7 +5375,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=F5AXYV90");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_12_vostf_[h264][79B79287].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_12_vostf_[h264][79B79287].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5405,7 +5405,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=0VV2KGJX");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_13_vostf_[h264][47D1BF2A].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 1-13/[Maboroshi-Zero]_Toradora!_13_vostf_[h264][47D1BF2A].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5435,7 +5435,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=IPM6344G");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_14_vostf_[h264][4403806F].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_14_vostf_[h264][4403806F].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5465,7 +5465,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=HWLMQ00P");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_15_vostf_[h264][C4E3A395].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_15_vostf_[h264][C4E3A395].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5495,7 +5495,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=9BREQP2M");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_16_vostf_[h264][283599BA].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_16_vostf_[h264][283599BA].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5523,7 +5523,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=33X53OUK");
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_17_vostf_[h264][C61D4E46].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_17_vostf_[h264][C61D4E46].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5552,7 +5552,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_18_vostf_[h264][DA3E6051].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_18_vostf_[h264][DA3E6051].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5578,7 +5578,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_19_v2_vostf_[h264][7F172D9D].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_19_vostf_[h264][7F172D9D].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5604,7 +5604,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_20_vostf_[h264][B92DC19F].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_20_vostf_[h264][B92DC19F].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5630,7 +5630,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_21_vostf_[h264][009466A1].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_21_vostf_[h264][009466A1].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5656,7 +5656,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_22_vostf_[h264][F112412B].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_22_vostf_[h264][F112412B].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5682,7 +5682,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_23_vostf_[h264][4ECE2CEE].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_23_vostf_[h264][4ECE2CEE].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5711,7 +5711,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_24_vostf_[h264][49BFFF38].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_24_vostf_[h264][49BFFF38].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -5740,7 +5740,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_25_vostf_FIN_[h264][4207580C].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_25_vostf_FIN_[h264][4207580C].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
