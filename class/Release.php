@@ -5578,7 +5578,7 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/ [Maboroshi-Zero]_Toradora!_19_vostf_[h264][2DC3B525].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora! 14-FIN/[Maboroshi-Zero]_Toradora!_19_vostf_[h264][2DC3B525].mkv");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
