@@ -19,22 +19,21 @@ B1;2790;0c<h3>Hyakko OAV</h3>
 
 <p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p><h2>Épisodes</h2>
 
-   <h5>Hyakko OAV</h5>
-<center><img src="images/episodes/hyakkooav.jpg" border="0" /></center><br />
-<p><b>Nom de l'épisode FR</b> Hyakko OAV<br />
-<b>Nom original</b> OVA<br />
-<b>Synopsis</b> Torako invite Toma dans un café manger des patisseries.<br />
-<b>Staff Zéro</b> Trad : Praia | Time : Praia | Edits : Praia | Qc : Praia | Kara : Akai_Ritsu | Enco : lepims<br />
-<b>Fichier</b><br />
-<img src="images/icones/puce.png"> [Zero]Hyakko_OVA[H264-AAC][9120515E].mp4<br />
- Taille : 80 Mo
- Codecs : X264 AAC MP4<br />
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png">
-[ <a   href="ddl/[Zero]Hyakko_OVA[H264-AAC][9120515E].mp4">Télécharger</a> ]<br />
+<?php
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
 
-<a href="http://bt.fansub-irc.eu/tracker_team/index.php?id_tracker=26" target="_blank"><img src="images/icones/torrent.png" border="0"></a><br />
-<a href="index.php?page=xdcc"><img src="images/icones/xdcc.png" border="0"></a><br />
+	$releases = Release::getAllReleasesForProject('hyakkooav');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
+?>
 
 <p></p>
 <h2>Voir aussi</h2>

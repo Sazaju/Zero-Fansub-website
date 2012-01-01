@@ -5747,6 +5747,25 @@ class Release {
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('hyakkooav'), 'oav');
+			$release->setPreviewUrl("images/episodes/hyakkooav.jpg");
+			$release->setLocalizedTitle("Hyakko OAV");
+			$release->setOriginalTitle("OVA");
+			$release->setSynopsis("Torako invite Toma dans un café manger des patisseries.");
+			$release->addStaff(TeamMember::getMemberByPseudo("Praia"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Praia"), Role::getRole('time'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Praia"), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Praia"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Akai_Ritsu"), Role::getRole('kara'));
+			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Hyakko_OVA[H264-AAC][9120515E].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(0);
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}
