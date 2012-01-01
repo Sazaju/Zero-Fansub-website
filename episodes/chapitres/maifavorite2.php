@@ -1,1 +1,0 @@
-	<h6>Mai Favorite Chapitre 02 - Non disponible</h6>

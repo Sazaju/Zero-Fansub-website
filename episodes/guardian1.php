@@ -1,1 +1,0 @@
-<h6>Guardian Hearts Power Up ! OAV 01+02 - Non disponible</h6>
