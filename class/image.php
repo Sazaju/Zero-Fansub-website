@@ -4,12 +4,12 @@
 */
 
 class Image extends DefaultHtmlComponent {
-	private $source = '';
+	private $source = null;
 	private $alternative = '';
 	private $title = '';
 	
 	public function __construct($source = '', $title = '') {
-		$this->source = $source;
+		$this->setUrl($source);
 		$this->title = $title;
 		$this->alternative = $title;
 	}
@@ -19,7 +19,7 @@ class Image extends DefaultHtmlComponent {
 	}
 	
 	public function setUrl($url) {
-		$this->source = $url;
+		$this->source = $url == null ? null : new Url($url);
 	}
 	
 	public function getUrl() {
@@ -46,7 +46,7 @@ class Image extends DefaultHtmlComponent {
 		$source = $this->getUrl();
 		$alt = $this->getAlternative();
 		$title = $this->getTitle();
-		$sourcePart = ' src="'.$source.'"';
+		$sourcePart = ' src="'.$source->getUrl().'"';
 		$altPart = !empty($alt) ? ' alt="'.$alt.'"' : '';
 		$titlePart = !empty($title) ? ' title="'.$title.'"' : '';
 		return parent::getOptions().$sourcePart.$titlePart.$altPart;

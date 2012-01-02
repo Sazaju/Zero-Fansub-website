@@ -11,7 +11,7 @@ class MailLink extends Link {
 	}
 	
 	public function getUrl() {
-		return 'mailto:'.$this->mail;
+		return 'mailto:'.$this->mail;// TODO review to use Url class
 	}
 	
 	public function setUrl($url) {

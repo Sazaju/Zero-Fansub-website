@@ -1,6 +1,6 @@
 <?php
 /*
-	A release link is a link to a specific release.
+	A release link is a link to a specific release or set of releases (of a unique project).
 */
 
 class ReleaseLink extends IndexLink {
@@ -26,7 +26,7 @@ class ReleaseLink extends IndexLink {
 		throw new Exception("You cannot change the URL directly, change the project/release ID.");
 	}
 	
-	public function updateUrl() {
+	private function updateUrl() {
 		if (count($this->releaseList) > 0) {
 			$list = "";
 			$first = null;

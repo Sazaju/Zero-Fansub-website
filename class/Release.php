@@ -63,7 +63,7 @@ class Release {
 	}
 	
 	public function setTorrentUrl($url) {
-		$this->torrentUrl = $url;
+		$this->torrentUrl = $url == null ? null : new Url($url);
 	}
 	
 	public function getName() {
@@ -94,7 +94,7 @@ class Release {
 	}
 	
 	public function setPreviewUrl($previewUrl) {
-		$this->previewUrl = $previewUrl;
+		$this->previewUrl = $previewUrl == null ? $previewUrl : new Url($previewUrl);
 	}
 	
 	public function getHeaderImage() {
@@ -6052,7 +6052,7 @@ class ReleaseFileDescriptor {
 	}
 	
 	public function setMegauploadUrl($url) {
-		$this->megauploadUrl = $url;
+		$this->megauploadUrl = $url == null ? null : new Url($url);
 	}
 	
 	public function getFreeUrl() {
@@ -6060,7 +6060,7 @@ class ReleaseFileDescriptor {
 	}
 	
 	public function setFreeUrl($url) {
-		$this->freeUrl = $url;
+		$this->freeUrl = $url == null ? null : new Url($url);
 	}
 	
 	public function getRapidShareUrl() {
@@ -6068,7 +6068,7 @@ class ReleaseFileDescriptor {
 	}
 	
 	public function setRapidShareUrl($url) {
-		$this->rapidShareUrl = $url;
+		$this->rapidShareUrl = $url == null ? null : new Url($url);
 	}
 	
 	public function getMediaFireUrl() {
@@ -6076,7 +6076,7 @@ class ReleaseFileDescriptor {
 	}
 	
 	public function setMediaFireUrl($url) {
-		$this->mediaFireUrl = $url;
+		$this->mediaFireUrl = $url == null ? null : new Url($url);
 	}
 	
 	public function getTorrentUrl() {
@@ -6084,7 +6084,7 @@ class ReleaseFileDescriptor {
 	}
 	
 	public function setTorrentUrl($url) {
-		$this->torrentUrl = $url;
+		$this->torrentUrl = $url == null ? null : new Url($url);
 	}
 	
 	public function getID() {

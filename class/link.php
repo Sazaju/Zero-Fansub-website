@@ -28,7 +28,7 @@ class Link extends DefaultHtmlComponent {
 	}
 	
 	public function setUrl($url) {
-		$this->url = $url;
+		$this->url = $url == null ? null : new Url($url);
 	}
 	
 	public function getUrl() {
@@ -56,7 +56,7 @@ class Link extends DefaultHtmlComponent {
 		$title = $this->getTitle();
 		$onClick = $this->getOnClick();
 		$newWindow = $this->newWindow;
-		$urlPart = $url === null ? '' : ' href="'.$url.'"';
+		$urlPart = $url === null ? '' : ' href="'.$url->getUrl().'"';
 		$titlePart = $title === null ? '' : ' title="'.$title.'"';
 		$onClickPart = $onClick === null ? '' : ' onclick="'.$onClick.'"';
 		$targetPart = $newWindow === true ? ' target="_blank"' : '';

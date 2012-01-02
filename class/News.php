@@ -112,22 +112,6 @@ class News extends SimpleBlockComponent {
 		}
 	}
 	
-	public function setCommentUrl($url) {
-		$this->commentUrl->setUrl($url);
-	}
-	
-	public function getCommentUrl() {
-		return $this->commentUrl->getUrl();
-	}
-	
-	public function setCommentAddUrl($url) {
-		$this->commentAddUrl->setUrl($url);
-	}
-	
-	public function getCommentAddUrl() {
-		return $this->commentAddUrl->getUrl();
-	}
-	
 	public function setTwitterUrl($url) {
 		$this->twitterUrl->setUrl($url);
 	}

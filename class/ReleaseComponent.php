@@ -25,10 +25,11 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$previewImage = null;
 			if ($release->getPreviewUrl() !== null) {
 				try {
-					$previewImage = new AutoFloatImage($release->getPreviewUrl());
+					$pUrl = $release->getPreviewUrl()->getUrl();
+					$previewImage = new AutoFloatImage($pUrl);
 					$previewImage->setClass("previewImage");
 					
-					$description = getimagesize($release->getPreviewUrl());
+					$description = getimagesize($pUrl);
 					$width = $description[0];
 					if ($width < 150) {
 						$previewImage->makeFloating();
@@ -100,7 +101,9 @@ class ReleaseComponent extends SimpleBlockComponent {
 			}
 			
 			$releaseContent->addComponent(new Pin());
-			if (!isset($_GET['show']) || !(strcmp($_GET['show'], "*") == 0 || preg_match("#(,|^)".preg_quote($release->getID())."(,|$)#", $_GET['show']) > 0)) {
+			$url = new Url();
+			$vars = $url->getQueryVars();
+			if (!isset($vars['show']) || !(strcmp($vars['show'], "*") == 0 || preg_match("#(,|^)".preg_quote($release->getID())."(,|$)#", $vars['show']) > 0)) {
 				$releaseContent->addComponent("<script language='javascript'>show('".$release->getID()."');</script>");
 			}
 		}

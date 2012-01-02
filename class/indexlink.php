@@ -7,8 +7,8 @@
 */
 
 class IndexLink extends Link {
-	public function getUrl() {
-		return $_SERVER['SCRIPT_NAME'].'?'.parent::getUrl();
+	public function setUrl($url) {
+		parent::setUrl(Url::getCurrentScriptUrl().'?'.$url);
 	}
 }
 ?>

@@ -8,6 +8,7 @@ class AutoFloatImage extends Image {
 	
 	public function __construct($source = '', $title = '') {
 		parent::__construct($source, $title);
+		$source = Url::completeUrl($source);
 		$description = getimagesize($source);
 		if ($description[0] < $description[1]) {
 			$this->makeFloating();
