@@ -8,7 +8,7 @@
 
 class IndexLink extends Link {
 	public function getUrl() {
-		return $_SERVER['PHP_SELF'].'?'.parent::getUrl();
+		return $_SERVER['SCRIPT_NAME'].'?'.parent::getUrl();
 	}
 }
 ?>
