@@ -177,5 +177,9 @@ class Url {
 		$url->fillRelativeUrl();
 		return $url->getUrl();
 	}
+	
+	public static function indexUrl() {
+		return new Url('index.php');
+	}
 }
 ?>
