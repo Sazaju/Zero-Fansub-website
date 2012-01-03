@@ -2,13 +2,16 @@
 	$page = PageContent::getInstance();
 	$page->setTitle("Séries");
 
-	// TODO manage url in a way we do not have to know what is in to update it.
-	$useImageLists = !isset($_GET['noImage']);
+	$url = new Url();
+	$vars = $url->getQueryVars();
+	$useImageLists = !array_key_exists('noImage', $vars);
 	if ($useImageLists) {
-		$page->addComponent(new IndexLink("page=".$_GET['page']."&noImage", new Title("Voir la liste sans images", 2)));
+		$url->setQueryVar('noImage');
+		$page->addComponent(new Link($url, new Title("Voir la liste sans images", 2)));
 	}
 	else {
-		$page->addComponent(new IndexLink("page=".$_GET['page'], new Title("Voir la liste avec images", 2)));
+		$url->removeQueryVar('noImage');
+		$page->addComponent(new Link($url, new Title("Voir la liste avec images", 2)));
 	}
 
 	$page->addComponent(new Title("Projets en cours", 2));
@@ -60,8 +63,11 @@
 			$list->addComponent($project);
 		}
 	}
-
-	$hentaiLink = new IndexLink("page=havert", "Voir les projets Hentaï");
+	
+	$url = new Url();
+	$url->setQueryVar('page', 'havert');
+	$hentaiLink = new Link($url, "Voir les projets Hentaï");
 	$hentaiLink->setStyle("text-align: center; font-size: 25px;");
 	$page->addComponent($hentaiLink);
 ?>
+

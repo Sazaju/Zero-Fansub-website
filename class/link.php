@@ -9,13 +9,19 @@ class Link extends DefaultHtmlComponent {
 	private $newWindow = null;
 	private $onClick = null;
 	
-	public function __construct($url = '#', $content = null) {
-		$this->setUrl($url);
+	public function __construct($url = null, $content = null) {
+		if ($url == null) {
+			$url = new Url();
+		}
+		if (is_string($url)) {
+			$url = new Url($url);
+		}
+		$this->url = $url;
 		if ($content instanceof IHtmlComponent) {
 			$this->addComponent($content);
 		}
 		else {
-			$this->setContent($content === null ? $url : $content);
+			$this->setContent($content === null ? $url->getUrl() : $content);
 		}
 	}
 	
@@ -27,8 +33,8 @@ class Link extends DefaultHtmlComponent {
 		return 'a';
 	}
 	
-	public function setUrl($url) {
-		$this->url = $url == null ? null : new Url($url);
+	public function setUrl(Url $url) {
+		$this->url = $url;
 	}
 	
 	public function getUrl() {
@@ -52,15 +58,21 @@ class Link extends DefaultHtmlComponent {
 	}
 	
 	public function getOptions() {
-		$url = $this->getUrl();
+		$url = $this->getUrl()->getUrl();
 		$title = $this->getTitle();
 		$onClick = $this->getOnClick();
 		$newWindow = $this->newWindow;
-		$urlPart = $url === null ? '' : ' href="'.$url->getUrl().'"';
+		$urlPart = $url === null ? '' : ' href="'.$url.'"';
 		$titlePart = $title === null ? '' : ' title="'.$title.'"';
 		$onClickPart = $onClick === null ? '' : ' onclick="'.$onClick.'"';
 		$targetPart = $newWindow === true ? ' target="_blank"' : '';
 		return parent::getOptions().$urlPart.$titlePart.$targetPart.$onClickPart;
+	}
+	
+	public static function newWindowLink($url = null, $content = null) {
+		$link = new Link($url, $content);
+		$link->openNewWindow(true);
+		return $link;
 	}
 }
 ?>

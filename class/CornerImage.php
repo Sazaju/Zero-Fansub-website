@@ -7,7 +7,9 @@ class CornerImage extends DefaultHtmlComponent {
 	function __construct($imageName, $name, $serieId = null) {
 		$content = new Image("images/hautmenu/".$imageName, $name);
 		if ($serieId != null) {
-			$content = new IndexLink("page=series/".$serieId, $content);
+			$url = new Url();
+			$url->setQueryVar('page', "series/".$serieId);
+			$content = new Link($url, $content);
 		}
 		$this->setContent($content);
 		$this->setClass("cornerImage");

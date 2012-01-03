@@ -77,7 +77,7 @@ class Url {
 	}
 	
 	public function set($part, $value) {
-		if (isset($this->data[$part])) {
+		if (array_key_exists($part, $this->data)) {
 			$this->data[$part] = $value;
 		}
 		else {
@@ -86,7 +86,7 @@ class Url {
 	}
 	
 	public function get($part) {
-		if (isset($this->data[$part])) {
+		if (array_key_exists($part, $this->data)) {
 			return $this->data[$part];
 		}
 		else {
@@ -112,7 +112,7 @@ class Url {
 	
 	public function setQueryVars($vars) {
 		$query = "";
-		if (count($vars) > 1) {
+		if (count($vars) > 0) {
 			foreach($vars as $name => $value) {
 				$query .= '&'.urlencode($name);
 				if ($value != null) {
@@ -124,7 +124,7 @@ class Url {
 		$this->data[URL_QUERY] = $query;
 	}
 	
-	public function setQueryVar($name, $value) {
+	public function setQueryVar($name, $value = null) {
 		$vars = $this->getQueryVars();
 		$vars[$name] = $value;
 		$this->setQueryVars($vars);

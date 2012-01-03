@@ -40,7 +40,7 @@ class News extends SimpleBlockComponent {
 		$this->addComponent($this->commentAccess);
 
 		$this->addComponent("~ ");
-		$this->twitterUrl = new NewWindowLink(null, "Partager sur <img src='images/autre/logo_twitter.png' border='0' alt='twitter' />");
+		$this->twitterUrl = Link::newWindowLink(new Url(), "Partager sur <img src='images/autre/logo_twitter.png' border='0' alt='twitter' />");
 		$this->twitterUrl->setOnClick("javascript:pageTracker._trackPageview ('/outbound/twitter.com');");
 		$this->addComponent($this->twitterUrl);
 		$this->addComponent(" ou ");
@@ -51,7 +51,7 @@ class News extends SimpleBlockComponent {
 	
 	public function setTitle($title) {
 		$this->title->setContent($title);
-		$this->setTwitterUrl("http://twitter.com/home?status=[Zero] ".$title);
+		$this->setTwitterUrl(new Url("http://twitter.com/home?status=[Zero] ".$title));
 	}
 	
 	public function getTitle() {
@@ -101,9 +101,9 @@ class News extends SimpleBlockComponent {
 		if ($id !== null) {
 			$this->commentAccess->setClass($this->commentClass);
 			$this->commentAccess->addComponent("~ ");
-			$this->commentAccess->addComponent(new NewWindowLink("http://commentaires.zerofansub.net/t$id.htm", "Commentaires"));
+			$this->commentAccess->addComponent(Link::newWindowLink(new Url("http://commentaires.zerofansub.net/t$id.htm"), "Commentaires"));
 			$this->commentAccess->addComponent(" - ");
-			$this->commentAccess->addComponent(new NewWindowLink("http://commentaires.zerofansub.net/posting.php?mode=reply&t=$id", "Ajouter un commentaire"));
+			$this->commentAccess->addComponent(Link::newWindowLink(new Url("http://commentaires.zerofansub.net/posting.php?mode=reply&t=$id"), "Ajouter un commentaire"));
 			$this->commentAccess->addComponent(" ~");
 		}
 		else {
@@ -112,7 +112,7 @@ class News extends SimpleBlockComponent {
 		}
 	}
 	
-	public function setTwitterUrl($url) {
+	public function setTwitterUrl(Url $url) {
 		$this->twitterUrl->setUrl($url);
 	}
 	
@@ -319,7 +319,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("05 August 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(269);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Mitsudomoe 03 chez Z%C3%A9ro fansub !");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Sortie de Mitsudomoe 03 chez Z%C3%A9ro fansub !"));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep3'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/episodes/mitsudomoe3.jpg", "Mitsudomoe"));
@@ -333,7 +333,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("26 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(268);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Toradora! SOS chez Zero fansub !");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Sortie de Toradora! SOS chez Zero fansub !"));
 			$news->addReleasing(Project::getProject('toradorasos'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/series/toradorasos.jpg", "Toradora SOS"));
@@ -348,7 +348,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("23 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(267);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Isshoni Training Ofuro chez Zero fansub !");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Sortie de Isshoni Training Ofuro chez Zero fansub !"));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/news/bath.jpg", "Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko"));
 			$newsMessage->addLine();
@@ -370,7 +370,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("04 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(266);
-			$news->setTwitterUrl("http://twitter.com/home?status=Zero recherche un traducteur");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Zero recherche un traducteur"));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/news/m1.jpg", "Mitsudomoe"));
 			$newsMessage->addLine();
@@ -400,7 +400,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("19 June 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(264);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Kannagi serie complete chez Zero fansub !");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Sortie de Kannagi serie complete chez Zero fansub !"));
 			$news->addReleasing(Project::getProject('kannagi'));
 			$newsMessage = new SimpleTextComponent();
 			$link = new Link("http://zerofansub.net/galerie/gal/Zero_fansub/Images/Kannagi/%5BZero%5DKannagi_Image63.jpg", new Image("images/news/kannagi.jpg", "Kannagi"));
@@ -421,7 +421,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("27 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(263);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Mitsudomoe 01 + 02 chez Zero fansub !");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Sortie de Mitsudomoe 01 + 02 chez Zero fansub !"));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep1'));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep2'));
 			$newsMessage = new SimpleTextComponent();
@@ -438,7 +438,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("15 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(262);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Tayutama Kiss on my Deity Pure my Heart serie complete chez Zero fansub !");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Sortie de Tayutama Kiss on my Deity Pure my Heart serie complete chez Zero fansub !"));
 			$news->addReleasing(Project::getProject('tayutamapure'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/news/tayutamapure.jpg", "Tayutama ~ Kiss on my Deity ~ Pure my Heart ~"));
@@ -452,7 +452,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("11 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(261);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !"));
 			$news->addReleasing(Project::getProject('potemayooav'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/series/potemayooav.jpg", "Potemayo"));
@@ -468,7 +468,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("08 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(261);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Sortie de Potemayo serie complete chez Zero fansub !"));
 			$news->addReleasing(Project::getProject('potemayo'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/series/potemayo.jpg", "Potemayo"));
@@ -492,7 +492,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("02 May 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(260);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Kujibiki Unbalance 2 serie complete chez Zero Fansub !");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Sortie de Kujibiki Unbalance 2 serie complete chez Zero Fansub !"));
 			$news->addReleasing(Project::getProject('kujibiki'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new AutoFloatImage("images/news/kujiend.jpg", "Kujibiki Unbalance 2"));
@@ -518,7 +518,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("11 April 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(259);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Kodomo no Natsu Jikan chez Zero fansub !");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Sortie de Kodomo no Natsu Jikan chez Zero fansub !"));
 			$news->addReleasing(Release::getRelease('kodomonatsu', 'oav'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new Image("images/news/kodomonatsu1.jpg", "Kujibiki Unbalance 2"));
@@ -536,7 +536,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("08 March 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(252);
-			$news->setTwitterUrl("http://twitter.com/home?status=Deux hentai : Akina To Onsen et Issho ni H shiyo chez Zero fansub !");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Deux hentai : Akina To Onsen et Issho ni H shiyo chez Zero fansub !"));
 			$news->addReleasing(Release::getRelease('akinahshiyo', 'oav'));
 			$news->addReleasing(Release::getRelease('hshiyo', 'ep5'));
 			$news->addLicensing(Release::getRelease('training', 'oav'));
@@ -566,7 +566,7 @@ class News extends SimpleBlockComponent {
 			$news->setTimestamp(strtotime("13 July 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(237);
-			$news->setTwitterUrl("http://twitter.com/home?status=Sortie de Issho Ni H Shiyo OAV 04 - Fin ! http://zerofansub.net/");
+			$news->setTwitterUrl(new Url("http://twitter.com/home?status=Sortie de Issho Ni H Shiyo OAV 04 - Fin ! http://zerofansub.net/"));
 			$news->addReleasing(Release::getRelease('hshiyo', 'ep4'));
 			$newsMessage = new SimpleTextComponent();
 			$newsMessage->addLine(new AutoFloatImage("images/news/hshiyonew.png", "Issho ni H Shiyo oav  4 fin de la serie interdit aux moins de 18 ans."));

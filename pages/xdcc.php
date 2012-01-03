@@ -6,7 +6,7 @@
 	$message->setClass("xdcc");
 	$page->addComponent($message);
 	$message->addComponent("Pour t&eacute;l&eacute;charger un fichier, aller sur le chan IRC (");
-	$ircLink = new NewWindowLink("irc://irc.fansub-irc.eu/zero", "Lien du Channel");
+	$ircLink = Link::newWindowLink("irc://irc.fansub-irc.eu/zero", "Lien du Channel");
 	$message->addComponent($ircLink);
 	$message->addLine(") et tapez la commande :");
 	$message->addLine();

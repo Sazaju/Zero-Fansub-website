@@ -124,9 +124,12 @@ class TeamMember {
 		return $this->ponctualMember;
 	}
 	
-	public function setWebsite($address, $name = null) {
-		if ($address !== null) {
-			$this->website = new Link($address, $name);
+	public function setWebsite($url, $name = null) {
+		if (is_string($url)) {
+			$url = new Url($url);
+		}
+		if ($url !== null) {
+			$this->website = new Link($url, $name);
 		}
 		else {
 			$this->website = null;

@@ -32,31 +32,31 @@
 	$content->addComponent(new ProjectLink(Project::getProject("kimikiss")));
 	$content->addComponent(".");
 	$row->addComponent($content);
-	$row->addComponent(new NewWindowLink("http://zero.xooit.fr/index.php?theme=test", "Utiliser cette version"));
+	$row->addComponent(Link::newWindowLink("http://zero.xooit.fr/index.php?theme=test", "Utiliser cette version"));
 	$table->addComponent($row);
 
 	$row = new TableRow();
 	$row->addComponent("<b>2.0</b>");
 	$row->addComponent("On essaye un design plus moderne, et c'est jouli. Enfin, je trouve. Et puis c'est rose !");
-	$row->addComponent(new NewWindowLink("http://zerofansub.net/v2/?s_theme=rose", "Utiliser cette version"));
+	$row->addComponent(Link::newWindowLink("http://zerofansub.net/v2/?s_theme=rose", "Utiliser cette version"));
 	$table->addComponent($row);
 
 	$row = new TableRow();
 	$row->addComponent("2.1");
 	$row->addComponent("On laisse le choix à l'utilisateur, si il préfère le bleu ^^");
-	$row->addComponent(new NewWindowLink("http://zerofansub.net/v2/index.php?s_theme=bleu", "Utiliser cette version"));
+	$row->addComponent(Link::newWindowLink("http://zerofansub.net/v2/index.php?s_theme=bleu", "Utiliser cette version"));
 	$table->addComponent($row);
 
 	$row = new TableRow();
 	$row->addComponent("2.2");
 	$row->addComponent("Et pour les tristes, du noir. Du black !");
-	$row->addComponent(new NewWindowLink("http://zerofansub.net/v2/index.php?s_theme=noir", "Utiliser cette version"));
+	$row->addComponent(Link::newWindowLink("http://zerofansub.net/v2/index.php?s_theme=noir", "Utiliser cette version"));
 	$table->addComponent($row);
 
 	$row = new TableRow();
 	$row->addComponent("<b>3.0</b>");
 	$row->addComponent("Le petit rond de la v2 n'étant pas pratique, on change de systéme pour la v3. De couleurs aussi.");
-	$row->addComponent(new NewWindowLink("index3.0.php", "Utiliser cette version"));
+	$row->addComponent(Link::newWindowLink("index3.0.php", "Utiliser cette version"));
 	$table->addComponent($row);
 
 	$row = new TableRow();

@@ -5,20 +5,28 @@
 class Archives extends SimpleBlockComponent {
 	public function __construct() {
 		$space = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+		$url = new Url("index.php");
 		$archivesLinks = new SimpleBlockComponent();
-		$archivesLinks->addComponent(new IndexLink("page=home", "Derni&egrave;res news"));
+		$url->setQueryVar('page', 'home');
+		$archivesLinks->addComponent(new Link(new Url($url), "Derni&egrave;res news"));
 		$archivesLinks->addComponent($space);
-		$archivesLinks->addComponent(new IndexLink("page=hsorties", "Sorties"));
+		$url->setQueryVar('page', 'hsorties');
+		$archivesLinks->addComponent(new Link(new Url($url), "Sorties"));
 		$archivesLinks->addComponent($space);
-		$archivesLinks->addComponent(new IndexLink("page=hteam", "Infos team"));
+		$url->setQueryVar('page', 'hteam');
+		$archivesLinks->addComponent(new Link(new Url($url), "Infos team"));
 		$archivesLinks->addComponent($space);
-		$archivesLinks->addComponent(new IndexLink("page=hpartenaires", "Partenaires"));
+		$url->setQueryVar('page', 'hpartenaires');
+		$archivesLinks->addComponent(new Link(new Url($url), "Partenaires"));
 		$archivesLinks->addComponent($space);
-		$archivesLinks->addComponent(new IndexLink("page=hdb0c", "db0 company"));
+		$url->setQueryVar('page', 'hdb0c');
+		$archivesLinks->addComponent(new Link(new Url($url), "db0 company"));
 		$archivesLinks->addComponent($space);
-		$archivesLinks->addComponent(new IndexLink("page=hbonus", "Bonus"));
+		$url->setQueryVar('page', 'hbonus');
+		$archivesLinks->addComponent(new Link(new Url($url), "Bonus"));
 		$archivesLinks->addComponent($space);
-		$link = new IndexLink("page=havert", "Henta&icirc;");
+		$url->setQueryVar('page', 'havert');
+		$link = new Link(new Url($url), "Henta&icirc;");
 		$link->setStyle("color: #FF3399;");
 		$link->setID("plus");
 		$archivesLinks->addComponent($link);

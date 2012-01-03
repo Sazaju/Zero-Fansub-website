@@ -3,7 +3,7 @@
 	A release link is a link to a specific release or set of releases (of a unique project).
 */
 
-class ReleaseLink extends IndexLink {
+class ReleaseLink extends Link {
 	private $projectId = null;
 	private $releaseList = array();
 	
@@ -12,6 +12,7 @@ class ReleaseLink extends IndexLink {
 			$releaseList = array($releaseList);
 		}
 		
+		parent::setUrl(new Url());
 		$this->setProjectId($projectId);
 		$this->setReleaseList($releaseList);
 		
@@ -22,7 +23,7 @@ class ReleaseLink extends IndexLink {
 		$this->setContent($content);
 	}
 	
-	public function setUrl($url) {
+	public function setUrl(Url $url) {
 		throw new Exception("You cannot change the URL directly, change the project/release ID.");
 	}
 	
@@ -37,7 +38,10 @@ class ReleaseLink extends IndexLink {
 				$list .= ",".$id;
 			}
 			$list = substr($list, 1);
-			parent::setUrl('page=series/'.$this->projectId.'&show='.$list.'#'.$first);
+			$url = parent::getUrl();
+			$url->setQueryVar('page', 'series/'.$this->projectId);
+			$url->setQueryVar('show', $list);
+			$url->set(URL_FRAGMENT, $first);
 		}
 	}
 	
