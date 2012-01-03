@@ -3,29 +3,31 @@
 	A mail link is a mailto link.
 */
 
-class MailLink extends Link {
+class MailLink extends DefaultHtmlComponent {
 	private $mail = '';
+	
+	public function getHtmlTag() {
+		return 'a';
+	}
 	
 	public function __construct($mail) {
 		$this->setMail($mail);
 	}
 	
-	public function getUrl() {
-		return 'mailto:'.$this->mail;// TODO review to use Url class
-	}
-	
-	public function setUrl($url) {
-		throw new Exception("You cannot change the URL directly, change the mail address.");
-	}
-	
 	public function setMail($mail) {
-		parent::setUrl($mail);
-		parent::setContent($mail);
 		$this->mail = $mail;
+		$this->setContent($mail);
 	}
 	
 	public function getMail() {
 		return $this->mail;
+	}
+	
+	public function getOptions() {
+		$mail = $this->getMail();
+		$mailPart = !empty($mail) ? ' href="mailto:'.$mail.'"' : '';
+		
+		return parent::getOptions().$mailPart;
 	}
 }
 ?>
