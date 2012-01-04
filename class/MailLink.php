@@ -10,13 +10,17 @@ class MailLink extends DefaultHtmlComponent {
 		return 'a';
 	}
 	
-	public function __construct($mail) {
+	public function __construct($mail, $content = null) {
 		$this->setMail($mail);
+		
+		if ($content === null) {
+			$content = $mail;
+		}
+		$this->setContent($content);
 	}
 	
 	public function setMail($mail) {
 		$this->mail = $mail;
-		$this->setContent($mail);
 	}
 	
 	public function getMail() {

@@ -199,6 +199,7 @@ if (TEST_MODE_ACTIVATED) {
 							<li><a href="#" onclick="window.open('radio','radio','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=280, height=380, left=200, top=200');return(false)">Radio</a></li>
 							<li><a href="index.php?page=contact">Contact</a></li>
 							<li><a href="index.php?page=about">À propos...</a></li>
+							<li><a href="index.php?page=bug">Signaler un bug</a></li>
 						</ul>
 					</div>
 					<div class="menu">
