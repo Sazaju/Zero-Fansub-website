@@ -154,6 +154,19 @@ class News extends SimpleBlockComponent {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$news = new News();
+			$news->setTitle("Encore des bugs ?");
+			$news->setTimestamp(strtotime("4 January 2012"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setCommentId(281);
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("Juste une petite news informative. Beaucoup savent déjà que s'il y a un bug, c'est de ma faute. Cela dit, mon mail il faut le trouver (et oui c'est dur d'aller voir dans la page équipe, c'est qu'il faut réfléchir et les leecheurs aiment pas ça). Pour vous simplifier la vie, si vous avez le moindre problème, un lien <i>Signaler un bug</i> est désormais disponible dans le menu de gauche.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("Non seulement je vous demande de me jeter des cailloux, mais en plus je vous dit où viser pour faire mal. C'est pas beau ça ? {^_^}");
+			$newsMessage->addLine(new Image("images/news/working_punch.jpg", "Frappez-moi !"));
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("Bonne année !");
 			$news->setTimestamp(strtotime("1 January 2012"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
