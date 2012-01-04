@@ -107,6 +107,10 @@ if (TEST_MODE_ACTIVATED) {
 	define('TESTING_FEATURE', 'Testing mode : '.$clearDB."<br/>".$commitInfo);
 }
 
+/**********************************\
+          OTHER CONSTANTS
+\**********************************/
+
 define('WEBSITE_VERSION', exec('git tag'));
 ?>
 
