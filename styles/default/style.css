@@ -1,5 +1,6 @@
 @import url(common.css);
 
+@import url(interface.css);
 @import url(about.css);
 @import url(archives.css);
 @import url(team.css);
@@ -26,30 +27,6 @@ background: url('../../images/interface/banniere.png') no-repeat;
 margin: auto;
 width: 1000px;
 } 
-
-#pageright{
-background: url('../../images/interface/logo.png') no-repeat;
-float: right;
-margin: 0;
-width: 203px;
-} 
-#partenaires{
-margin-top: 135px;
-} 
-.partenaires {
-	border: 5px solid rgb(128, 128, 128);
-    -moz-border-radius-topleft: 15px;
-    -moz-border-radius-topright: 15px;
-    -moz-border-radius-bottomright: 15px;
-    -moz-border-radius-bottomleft: 15px;
-	background: rgb(214,214,214);
-	opacity: 0.8;
-	width: 150px;
-	margin-right: 0px;
-	margin-left: 53px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	}
 
 #pageleft{
 margin: 0;
@@ -127,11 +104,6 @@ color: rgb(80,80,80);
 ul a:hover{
 font-weight: bold;
 color: rgb(80,80,80);
-}
-.partenaires li{
-list-style-type : none;
-font-size: 13px;
-margin-left: 0px;
 }
 
 .p { 

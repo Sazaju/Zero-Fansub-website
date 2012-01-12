@@ -3,28 +3,32 @@
 	A menu is a component giving a list of entries in a specific block.
 */
 
-class Menu extends DefaultHtmlComponent {
-	private $ordered = false;
+class Menu {
+	private $title = null;
+	private $entries = array();
 	
-	function __construct() {
-		$this->setClass('menu');
+	public function __construct($title = null) {
+		$this->setTitle($title);
 	}
 	
-	public function getHtmlTag() {
-		return $this->isOrdered() ? 'ol' : 'ul';;
+	public function setTitle($title) {
+		$this->title = $title;
 	}
 	
-	public function setOrdered($bool) {
-		$this->ordered = $bool;
+	public function getTitle() {
+		return $this->title;
 	}
 	
-	public function isOrdered() {
-		return $this->ordered;
+	public function addEntry($entry) {
+		$this->entries[] = $entry;
 	}
 	
-	public function addEntry(Link $link) {
-		$link->generateHtml();
-		$this->setContent($this->getContent().'<li>'.$link->getHtml().'</li>');
+	public function clearEntries() {
+		$this->entries = array();
+	}
+	
+	public function getEntries() {
+		return $this->entries;
 	}
 }
 ?>

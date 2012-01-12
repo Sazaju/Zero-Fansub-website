@@ -141,8 +141,10 @@ define('WEBSITE_VERSION', exec('git tag'));
 		</script>
 	</head>
 	<body>
-		<!-- preloading -->
+		<!-- PRELOADING -->
 		<img src="images/interface/bg.jpg" style="display: none; visibility: hidden;" />
+		
+		<!-- TESTING FEATURES -->
 		<?php
 			if (isset($_GET['phpinfo'])) {
 				phpinfo();
@@ -152,43 +154,44 @@ define('WEBSITE_VERSION', exec('git tag'));
 				echo "<div class='testFeatures'>".TESTING_FEATURE."</div>";
 			}
 		?>
+		
+		<!-- NORMAL CODE -->
 		<div id="main">
 		<div id="header">
-		<div id="pageright">
-			<div id="partenaires">
-				<div class="partenaires">
-					<ul>
-						<li>db0 company</li>
-						<li>
-							<a href="http://www.anime-ultime.net/part/Site-93" target="_blank">
-								<img src="images/partenaires/anime-ultime.jpg" border="0" alt="Anime-ultime" />
-							</a>
-						</li>
-					</ul>
-				</div><!--partenaires-->
-				<div class="partenaires">
-					<ul>
-						<li>Fansub potes</li>
-						<li><a href="http://finalfan51.free.fr/ffs/" target="_blank"><img src="images/partenaires/finalfan.png" border="0" alt="FinalFan sub" /></a></li>
-						<li><a href="http://www.mangas-arigatou.fr/" target="_blank"><img src="images/partenaires/mangas_arigatou.png" border="0" alt="Mangas Arigatou" /></a></li>
-						<li><a href="http://www.kanaii.com" target="_blank"><img src="images/partenaires/kanaii.png" border="0" alt="Kanaii" /></a></li>
-						<li><a href="http://kouhaiscantrad.wordpress.com" target="_blank"><img src="images/partenaires/kouhai.jpg" border="0" alt="Kouhai Scantrad" /></a></li>
-						<li><a href="http://samazamablog.wordpress.com/" target="_blank"><img src="images/partenaires/samazama.gif" border="0" alt="Samazama na Koto" /></a></li>
-						<li><a href="http://www.sky-fansub.com/" target="_blank"><img src="images/partenaires/sky.png" border="0" alt="Sky-fansub" /></a></li>
-					</ul>
-				</div>
-				<div class="partenaires">
-					<ul>
-						<li>Liens</li>
-						<li><a href="http://animeka.com/fansub/teams/zero.html" target="_blank"><img src="images/partenaires/animeka.jpg" border="0" alt="Animeka" /></a></li>
-					</ul>
-				</div>
-				<div class="partenaires">
-					<ul>
-						<li><a href="index.php?page=partenariat">Devenir partenaires</a></li>
-					</ul>
-				</div>
-			</div>
+		<div id="menuRight">
+			<img src="images/interface/logo.png" />
+			<?php
+				$menu = new Menu("db0 company");
+				$menu->addEntry(Link::newWindowLink("http://www.anime-ultime.net/part/Site-93", new Image("images/partenaires/anime-ultime.jpg", "Anime-ultime")));
+				
+				$menu = new MenuComponent($menu);
+				$menu->writeNow();
+			?>
+			<?php
+				$menu = new Menu("Fansub potes");
+				$menu->addEntry(Link::newWindowLink("http://finalfan51.free.fr/ffs/", new Image("images/partenaires/finalfan.png", "FinalFan sub")));
+				$menu->addEntry(Link::newWindowLink("http://www.mangas-arigatou.fr/", new Image("images/partenaires/mangas_arigatou.png", "Mangas Arigatou")));
+				$menu->addEntry(Link::newWindowLink("http://www.kanaii.com", new Image("images/partenaires/kanaii.png", "Kanaii")));
+				$menu->addEntry(Link::newWindowLink("http://kouhaiscantrad.wordpress.com", new Image("images/partenaires/kouhai.jpg", "Kouhai Scantrad")));
+				$menu->addEntry(Link::newWindowLink("http://samazamablog.wordpress.com/", new Image("images/partenaires/samazama.gif", "Samazama na Koto")));
+				$menu->addEntry(Link::newWindowLink("http://www.sky-fansub.com/", new Image("images/partenaires/sky.png", "Sky-fansub")));
+				
+				$menu = new MenuComponent($menu);
+				$menu->writeNow();
+			?>
+			<?php
+				$menu = new Menu("Liens");
+				$menu->addEntry(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", new Image("images/partenaires/animeka.jpg", "Animeka")));
+				
+				$menu = new MenuComponent($menu);
+				$menu->writeNow();
+			?>
+			<?php
+				$menu = new Menu(new Link("index.php?page=partenariat", "Devenir partenaires"));
+				
+				$menu = new MenuComponent($menu);
+				$menu->writeNow();
+			?>
 		</div>
 		<div id="pageleft">
 			<div id="menu">

@@ -1,0 +1,45 @@
+#menuRight {
+float: right;
+margin: 0;
+width: 203px;
+} 
+
+#menuRight .menu {
+	display: block;
+	border: 5px solid rgb(128, 128, 128);
+    -moz-border-radius-topleft: 15px;
+    -moz-border-radius-topright: 15px;
+    -moz-border-radius-bottomright: 15px;
+    -moz-border-radius-bottomleft: 15px;
+	background: rgb(214,214,214);
+	opacity: 0.8;
+	width: 110px;
+	margin: 10px 10px 0 53px;
+	padding: 1em 0 1em 40px;
+}
+
+#menuRight .menu h1, #menuRight .menu ul, #menuRight .menu ul li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+#menuRight .menu h1 {
+	font-weight: normal;
+	font-size: 13px;
+}
+
+#menuRight .menu li {
+	list-style-type : none;
+	font-size: 13px;
+}
+
+#menuRight .menu a{
+	text-decoration: none;
+	color: rgb(80,80,80);
+}
+
+#menuRight .menu a:hover{
+	font-weight: bold;
+	color: rgb(80,80,80);
+}

@@ -4,7 +4,7 @@
 */
 
 class Title extends DefaultHtmlComponent {
-	private $level = 1;
+	private $level = null;
 	
 	public function __construct($content, $level = 1) {
 		$this->setLevel($level);
