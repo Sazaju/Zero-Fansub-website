@@ -12,7 +12,7 @@
 	usort($newsList, array('News', 'timestampSorter'));
 	$remaining = 10;
 	foreach($newsList as $news) {
-		$page->addComponent($news);
+		$page->addComponent(new NewsComponent($news));
 		$remaining --;
 		if ($remaining == 0) {
 			break;

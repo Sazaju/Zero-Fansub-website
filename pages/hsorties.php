@@ -4,7 +4,7 @@
 	$page->addComponent(new Archives());
 
 	foreach(News::getAllReleasingNews() as $news) {
-		$page->addComponent($news);
+		$page->addComponent(new NewsComponent($news));
 	}
 
 	// rewrite the archive header as a footer
