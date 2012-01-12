@@ -5960,6 +5960,18 @@ class Release {
 		$project = Project::getProject($projectId);
 		throw new Exception($releaseId." is not a known release ID for ".$project->getName().".");
 	}
+	
+	public static function releasingSorter(Release $a, Release $b) {
+		if ($a->getHeaderImage() === null) {
+			return 1;
+		}
+		$ta = $a->getReleasingTime();
+		$tb = $b->getReleasingTime();
+		if ($ta == $tb) {
+			return 0;
+		}
+		return ($ta > $tb) ? -1 : 1;
+	}
 }
 
 class Assignment {

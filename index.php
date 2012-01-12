@@ -141,10 +141,13 @@ define('WEBSITE_VERSION', exec('git tag'));
 		</script>
 	</head>
 	<body>
-		<!-- PRELOADING -->
-		<img src="images/interface/bg.jpg" style="display: none; visibility: hidden;" />
-		
-		<!-- TESTING FEATURES -->
+		<?php
+			$images = Image::getPreloadedImages();
+			foreach($images as $image) {
+				$image->setClass("hidden");
+				$image->writeNow();
+			}
+		?>
 		<?php
 			if (isset($_GET['phpinfo'])) {
 				phpinfo();
@@ -154,52 +157,38 @@ define('WEBSITE_VERSION', exec('git tag'));
 				echo "<div class='testFeatures'>".TESTING_FEATURE."</div>";
 			}
 		?>
-		
-		<!-- NORMAL CODE -->
 		<div id="main">
-			<div id="header">
-			<?php require_once("pages/colLeft.php")?>
-			<?php require_once("pages/colRight.php")?>
-			<div id="page">
-				<div id="sortie">
-					<?php
-						if (isset($_GET['sorties'])) {
-							$page = $_GET['sorties'];
-						}
-						else {
-							$page = "sortie";
-						}
-						require("sorties/sortie.php");
-					?>
-				</div>
-				<div id="pageContent"><!-- TODO remove this level when all pages will be translated in object PHP -->
-					<!-- COMCLICK France : 468 x 60 -->
-					<!--<iframe src="http://fl01.ct2.comclick.com/aff_frame.ct2?id_regie=1&num_editeur=14388&num_site=3&num_emplacement=1"
-					WIDTH="468" HEIGHT="60" marginwidth="0" marginheight="0" hspace="0"
-					vspace="0" frameborder="0" scrolling="no" bordercolor="#000000">
-					</iframe>-->
-					<!-- FIN TAG -->
+			<?php require_once("interface/colLeft.php")?>
+			<?php require_once("interface/colRight.php")?>
+			<?php require_once("interface/header.php")?>
+			<div id="page"><!-- TODO remove this level when all pages will be translated in object PHP -->
+				<!-- COMCLICK France : 468 x 60 -->
+				<!--<iframe src="http://fl01.ct2.comclick.com/aff_frame.ct2?id_regie=1&num_editeur=14388&num_site=3&num_emplacement=1"
+				WIDTH="468" HEIGHT="60" marginwidth="0" marginheight="0" hspace="0"
+				vspace="0" frameborder="0" scrolling="no" bordercolor="#000000">
+				</iframe>-->
+				<!-- FIN TAG -->
 
-					<?php
-						if (isset($_GET['page'])) {
-							$page = $_GET['page'];
-						}
-						else {
-							$page = "home";
-						}
-						
-						if (file_exists("pages/$page.php")) {
-							require_once("pages/$page.php");
-						}
-						else {
-							require_once("pages/home.php");
-						}
-						PageContent::getInstance()->writeNow();
-					?>
-				</div>
+				<?php
+					if (isset($_GET['page'])) {
+						$page = $_GET['page'];
+					}
+					else {
+						$page = "home";
+					}
+					
+					if (file_exists("pages/$page.php")) {
+						require_once("pages/$page.php");
+					}
+					else {
+						require_once("pages/home.php");
+					}
+					PageContent::getInstance()->setId(null); // TODO remove when all pages will be translated in object PHP
+					PageContent::getInstance()->writeNow();
+				?>
 			</div>
+			<?php require_once("interface/footer.php")?>
 		</div>
-		<div id="footer"></div>
 		<script type="text/javascript">
 			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

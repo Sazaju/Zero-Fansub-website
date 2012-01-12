@@ -12,10 +12,13 @@ li{
 	text-indent: 0;
 }
 
-#pageContent {
+#page {
 margin: 0;
+width: 647px;
+margin-left: 150px;
+min-height: 800px;
 }
-#pageContent p{ 
+#page p{ 
 text-indent: 10px;
 font-family: Tahoma;
 font-size: 12px;
@@ -25,39 +28,39 @@ margin-left: 40px;
 margin-right: 40px;
 margin-top: 0px;
 }
-#pageContent a {
+#page a {
 font-weight: normal;
 text-decoration: none;
 color: #999999;
 }
-#pageContent a:hover {
+#page a:hover {
 font-weight: bold;
 }
-#pageContent a:active, #pageContent a:focus {
+#page a:active, #page a:focus {
 color: #696969;
 }
-#pageContent a:visited {
+#page a:visited {
 font-decoration: line-through;
 }
-#pageContent p:after{ 
+#page p:after{ 
 content: url('../../images/interface/barre.png');
 width: 100%;
 }
-#pageContent h3 {
+#page h3 {
 margin-left: 150px;
 letter-spacing: 12px;
 font-family: Tahoma;
 font-weight: normal;
 font-size: 18px;
 }
-#pageContent h2 {
+#page h2 {
 color: #000000;
 font-size: 17px;
 margin-left: 60px;
 margin-right: 20px;
 margin-top: 0px;
 }
-#pageContent h4 /* Date, auteur, sous-titre, ect */ {
+#page h4 /* Date, auteur, sous-titre, ect */ {
 color: #999999;
 font-size: 10px;
 margin-left: 80px;
@@ -78,7 +81,7 @@ margin-top: -15px;
 	margin-top: 0px;
 }
 
-#pageContent:after, .teamList .member:after, .teamList:before, .archives:after, .news:after{
+#page:after, .teamList .member:after, .teamList:before, .archives:after, .news:after{
 	content: url('../../images/interface/barre.png');
 }
 

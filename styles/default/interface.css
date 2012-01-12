@@ -1,3 +1,7 @@
+/******************************\
+              MENUS
+\******************************/
+
 #colLeft {
 	margin: 0;
 	width: 150px;
@@ -33,12 +37,6 @@
 	margin-left: 53px;
 }
 
-/* TODO delete this block to have an homogeneous interface */
-#colLeft .menu {
-	padding-top: 13px;
-	padding-bottom: 13px;
-}
-
 .menu h1, .menu ul, .menu li {
 	margin: 0;
 	padding: 0;
@@ -58,4 +56,21 @@
 .menu a:hover{
 	font-weight: bold;
 	color: rgb(80,80,80);
+}
+
+/******************************\
+        HEADER & FOOTER
+\******************************/
+
+#header, #footer {
+	background: url('../../images/interface/banniere.png') no-repeat;
+	text-align: center;
+}
+
+#header img {
+	padding: 18px 25px;
+}
+
+#footer {
+	height: 50px;
 }

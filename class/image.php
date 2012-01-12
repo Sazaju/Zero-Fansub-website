@@ -51,5 +51,14 @@ class Image extends DefaultHtmlComponent {
 		$titlePart = !empty($title) ? ' title="'.$title.'"' : '';
 		return parent::getOptions().$sourcePart.$titlePart.$altPart;
 	}
+	
+	public static function getPreloadedImages() {
+		$images = array();
+		$images[] = new Image("images/interface/bg.jpg");
+		$images[] = new Image("images/interface/bg2.jpg");
+		$images[] = new Image("images/interface/banniere.png");
+		
+		return $images;
+	}
 }
 ?>
