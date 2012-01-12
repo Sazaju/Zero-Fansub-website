@@ -7,7 +7,9 @@ class MenuComponent extends SimpleBlockComponent {
 	function __construct(Menu $menu) {
 		$this->setClass('menu');
 		
-		$this->addComponent(new Title($menu->getTitle()));
+		if ($menu->getTitle() !== null) {
+			$this->addComponent(new Title($menu->getTitle()));
+		}
 		
 		$list = new SimpleListComponent();
 		foreach($menu->getEntries() as $entry) {
