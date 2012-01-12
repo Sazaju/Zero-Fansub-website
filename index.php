@@ -141,6 +141,8 @@ define('WEBSITE_VERSION', exec('git tag'));
 		</script>
 	</head>
 	<body>
+		<!-- preloading -->
+		<img src="images/interface/bg.jpg"/>
 		<?php
 			if (isset($_GET['phpinfo'])) {
 				phpinfo();
