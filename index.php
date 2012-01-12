@@ -157,121 +157,45 @@ define('WEBSITE_VERSION', exec('git tag'));
 		
 		<!-- NORMAL CODE -->
 		<div id="main">
-		<div id="header">
-		<?php
-			$rightCol = new SimpleBlockComponent();
-			$rightCol->setId("menuRight");
-			
-			$rightCol->addComponent(new Image("images/interface/logo.png", "Zéro Fansub"));
-			
-			$menu = new Menu("db0 company");
-			$menu->addEntry(Link::newWindowLink("http://www.anime-ultime.net/part/Site-93", new Image("images/partenaires/anime-ultime.jpg", "Anime-ultime")));
-			$rightCol->addComponent(new MenuComponent($menu));
-			
-			$menu = new Menu("Fansub potes");
-			$menu->addEntry(Link::newWindowLink("http://finalfan51.free.fr/ffs/", new Image("images/partenaires/finalfan.png", "FinalFan sub")));
-			$menu->addEntry(Link::newWindowLink("http://www.mangas-arigatou.fr/", new Image("images/partenaires/mangas_arigatou.png", "Mangas Arigatou")));
-			$menu->addEntry(Link::newWindowLink("http://www.kanaii.com", new Image("images/partenaires/kanaii.png", "Kanaii")));
-			$menu->addEntry(Link::newWindowLink("http://kouhaiscantrad.wordpress.com", new Image("images/partenaires/kouhai.jpg", "Kouhai Scantrad")));
-			$menu->addEntry(Link::newWindowLink("http://samazamablog.wordpress.com/", new Image("images/partenaires/samazama.gif", "Samazama na Koto")));
-			$menu->addEntry(Link::newWindowLink("http://www.sky-fansub.com/", new Image("images/partenaires/sky.png", "Sky-fansub")));
-			$rightCol->addComponent(new MenuComponent($menu));
-			
-			$menu = new Menu("Liens");
-			$menu->addEntry(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", new Image("images/partenaires/animeka.jpg", "Animeka")));
-			$rightCol->addComponent(new MenuComponent($menu));
-			
-			$menu = new Menu(new Link("index.php?page=partenariat", "Devenir partenaires"));
-			$rightCol->addComponent(new MenuComponent($menu));
-			
-			$rightCol->writeNow();
-		?>
-		<div id="pageleft">
-			<div id="menu">
+			<div id="header">
+			<?php require_once("pages/colLeft.php")?>
+			<?php require_once("pages/colRight.php")?>
+			<div id="page">
+				<div id="sortie">
 					<?php
-						$corners = CornerImage::getAllImages();
-						$corner = $corners[array_rand($corners)];
-						$corner->setId("menutop");
-						$corner->writeNow();
+						if (isset($_GET['sorties'])) {
+							$page = $_GET['sorties'];
+						}
+						else {
+							$page = "sortie";
+						}
+						require("sorties/sortie.php");
 					?>
-					<div class="menu">
-						<ul>
-							<li><a href="index.php">Accueil</a></li>
-							<li><a href="irc://irc.Fansub-IRC.eu/zero" target="_blank">IRC</a></li>	
-							<li><a href="http://forum.zerofansub.net" target="_blank">Forum</a></li>
-							<li><a href="http://twitter.com/zero_fansub" target="_blank">Twitter</a></li>
-							<li><a href="#" onclick="window.open('radio','radio','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=280, height=380, left=200, top=200');return(false)">Radio</a></li>
-							<li><a href="index.php?page=contact">Contact</a></li>
-							<li><a href="index.php?page=about">À propos...</a></li>
-							<li><a href="index.php?page=bug">Signaler un bug</a></li>
-						</ul>
-					</div>
-					<div class="menu">
-						<ul>
-							<li><a href="index.php?page=series" style="font-size: 1.5em;">Projets</a></li>
-							<li><a href="index.php?page=series">T&eacute;l&eacute;chargements</a></li>
-							<li><a href="index.php?page=team">L'&eacute;quipe</a></li>
-							<li><a href="http://forum.zerofansub.net/p32750.htm" target="_blank">Avancement</a></li>
-							<li><a href="http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-team-de-fansub.htm" target="_blank">Recrutement</a></li>
-							<li><a href="http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro" target="_blank">Torrent</a></li>
-							<li><a href="index.php?page=xdcc">XDCC</a></li>
-						</ul>
-					</div>	
-					<div class="menu">
-						<ul>
-							<li><a href="index.php?page=dossiers">Dossiers</a></li>
-							<li><a href="galerie/index.php?spgmGal=Zero_fansub/Images" target="_blank">Images</a></li>
-							<li><a href="index.php?page=havert">Hentaï</a></li>
-						</ul>
-					</div>
-					<div class="menu">
-						<ul>
-							<!-- Hidden because never updated:
-								<li>Serveur/mois : 173,39 &euro;</li>
-								<li>Dons du mois : 20 &euro;</li>
-							-->
-							<li><a  style="font-size: 1.2em;" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mba_06%40hotmail%2efr&item_name=Zero&no_shipping=0&no_note=1&tax=0&currency_code=EUR&lc=FR&bn=PP%2dDonationsBF&charset=UTF%2d8" target="_blank">Faire un don</a></li>
-							<li><a href="http://forum.zerofansub.net/t552.htm#p32300" target="_blank">En savoir +</a></li>
-						</ul>
-					</div>
 				</div>
-				<div id="page">
-					<div id="sortie">
-						<?php
-							if (isset($_GET['sorties'])) {
-								$page = $_GET['sorties'];
-							}
-							else {
-								$page = "sortie";
-							}
-							require("sorties/sortie.php");
-						?>
-					</div>
-					<div id="pageContent"><!-- TODO remove this level when all pages will be translated in object PHP -->
-						<!-- COMCLICK France : 468 x 60 -->
-						<!--<iframe src="http://fl01.ct2.comclick.com/aff_frame.ct2?id_regie=1&num_editeur=14388&num_site=3&num_emplacement=1"
-						WIDTH="468" HEIGHT="60" marginwidth="0" marginheight="0" hspace="0"
-						vspace="0" frameborder="0" scrolling="no" bordercolor="#000000">
-						</iframe>-->
-						<!-- FIN TAG -->
+				<div id="pageContent"><!-- TODO remove this level when all pages will be translated in object PHP -->
+					<!-- COMCLICK France : 468 x 60 -->
+					<!--<iframe src="http://fl01.ct2.comclick.com/aff_frame.ct2?id_regie=1&num_editeur=14388&num_site=3&num_emplacement=1"
+					WIDTH="468" HEIGHT="60" marginwidth="0" marginheight="0" hspace="0"
+					vspace="0" frameborder="0" scrolling="no" bordercolor="#000000">
+					</iframe>-->
+					<!-- FIN TAG -->
 
-						<?php
-							if (isset($_GET['page'])) {
-								$page = $_GET['page'];
-							}
-							else {
-								$page = "home";
-							}
-							
-							if (file_exists("pages/$page.php")) {
-								require_once("pages/$page.php");
-							}
-							else {
-								require_once("pages/home.php");
-							}
-							PageContent::getInstance()->writeNow();
-						?>
-					</div>
+					<?php
+						if (isset($_GET['page'])) {
+							$page = $_GET['page'];
+						}
+						else {
+							$page = "home";
+						}
+						
+						if (file_exists("pages/$page.php")) {
+							require_once("pages/$page.php");
+						}
+						else {
+							require_once("pages/home.php");
+						}
+						PageContent::getInstance()->writeNow();
+					?>
 				</div>
 			</div>
 		</div>

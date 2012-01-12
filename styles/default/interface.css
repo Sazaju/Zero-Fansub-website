@@ -1,11 +1,20 @@
-#menuRight {
-float: right;
-margin: 0;
-width: 203px;
+#colLeft {
+	margin: 0;
+	width: 150px;
+	float: left;
 } 
 
-#menuRight .menu {
-	display: block;
+#colRight {
+	float: right;
+	margin: 0;
+	width: 203px;
+} 
+
+#colRight .logo {
+	margin-bottom: 7px;
+}
+
+.menu {
 	border: 5px solid rgb(128, 128, 128);
     -moz-border-radius-topleft: 15px;
     -moz-border-radius-topright: 15px;
@@ -14,32 +23,39 @@ width: 203px;
 	background: rgb(214,214,214);
 	opacity: 0.8;
 	width: 110px;
-	margin: 10px 10px 0 53px;
 	padding: 1em 0 1em 40px;
+	margin: 0;
+	margin-bottom: 10px;
 }
 
-#menuRight .menu h1, #menuRight .menu ul, #menuRight .menu ul li {
-	display: inline;
+/* TODO replace this manual placement by a right alignment */
+#colRight .menu {
+	margin-left: 53px;
+}
+
+/* TODO delete this block to have an homogeneous interface */
+#colLeft .menu {
+	padding-top: 13px;
+	padding-bottom: 13px;
+}
+
+.menu h1, .menu ul, .menu li {
 	margin: 0;
 	padding: 0;
-}
-
-#menuRight .menu h1 {
+	font-size: 13px;
 	font-weight: normal;
-	font-size: 13px;
 }
 
-#menuRight .menu li {
+.menu li {
 	list-style-type : none;
-	font-size: 13px;
 }
 
-#menuRight .menu a{
+.menu a{
 	text-decoration: none;
 	color: rgb(80,80,80);
 }
 
-#menuRight .menu a:hover{
+.menu a:hover{
 	font-weight: bold;
 	color: rgb(80,80,80);
 }
