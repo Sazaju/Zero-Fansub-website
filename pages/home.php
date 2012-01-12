@@ -10,8 +10,13 @@
 		}
 	}
 	usort($newsList, array('News', 'timestampSorter'));
+	$remaining = 10;
 	foreach($newsList as $news) {
 		$page->addComponent($news);
+		$remaining --;
+		if ($remaining == 0) {
+			break;
+		}
 	}
 
 	// rewrite the archive header as a footer
