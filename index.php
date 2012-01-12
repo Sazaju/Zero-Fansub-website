@@ -142,7 +142,7 @@ define('WEBSITE_VERSION', exec('git tag'));
 	</head>
 	<body>
 		<!-- preloading -->
-		<img src="images/interface/bg.jpg"/>
+		<img src="images/interface/bg.jpg" style="display: none; visibility: hidden;" />
 		<?php
 			if (isset($_GET['phpinfo'])) {
 				phpinfo();
