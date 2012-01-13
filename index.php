@@ -89,8 +89,8 @@ if (DB_USE) {
 	Database::createDefaultDatabase(TEST_MODE_ACTIVATED);
 	if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
 		Database::getDefaultDatabase()->clear();
-		$link = new IndexLink();
-		header('Location: '.$link->getUrl());
+		$url = Url::getCurrentScriptUrl();
+		header('Location: '.$url->getUrl());
 		exit();
 	}
 }
@@ -101,8 +101,8 @@ if (DB_USE) {
 
 if (TEST_MODE_ACTIVATED && isset($_GET['gitPull'])) {
 	exec("git pull");
-	$link = new IndexLink();
-	header('Location: '.$link->getUrl());
+	$url = Url::getCurrentScriptUrl();
+	header('Location: '.$url->getUrl());
 	exit();
 }
 
