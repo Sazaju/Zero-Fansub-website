@@ -1,7 +1,7 @@
-#pageContent .released *{
+.released *{
 	text-indent: 0;
 }
-#pageContent .released .title, #pageContent .notReleased .title {
+.released .title, .notReleased .title {
 	display: block;
 	width: 603px;
 	height: 30px;
@@ -11,29 +11,29 @@
 	padding-left: 20px;
 	padding-top: 5px;
 }
-#pageContent .released .title {
+.released .title {
 	background: url('../../images/interface/episodes.png') no-repeat;
 }
-#pageContent .notReleased .title {
+.notReleased .title {
 	background: url('../../images/interface/episodesnd.png') no-repeat;
 }
-#pageContent .released .title a, #pageContent .notReleased .title a {
+.released .title a, .notReleased .title a {
 	display: block;
 	font-size: 16px;
 	font-family: 'Courier New';
 }
-#pageContent .released .title a {
+.released .title a {
 	color: #FFFFFF;
 }
-#pageContent .notReleased .title a {
+.notReleased .title a {
 	color: #999999;
 	font-weight: bold;
 }
-#pageContent .released .previewImage {
+.released .previewImage {
 	display: block;
 	margin: 1em;
 }
-#pageContent .released .content, #pageContent .notReleased .content {
+.released .content, .notReleased .content {
 	text-indent: 10px;
 	font-family: Tahoma;
 	font-size: 12px;
@@ -43,34 +43,34 @@
 	margin-right: 40px;
 	margin-top: 0px;
 }
-#pageContent .released .synopsis, #pageContent .released ul {
+.released .synopsis, .released ul {
 	margin-top: 0;
 	margin-bottom: 10px;
 }
-#pageContent .released .synopsis {
+.released .synopsis {
 	text-align: justify;
 }
-#pageContent .released .comment {
+.released .comment {
 	font-weight: bold;
 }
-#pageContent .linkList, #pageContent .releaseList, #pageContent .licenseList {
+.linkList, .releaseList, .licenseList {
 	list-style: none;
 	padding-left: 0;
 }
-#pageContent .linkList {
+.linkList {
 	padding-left: 10px;
 }
-#pageContent .fileList {
+.fileList {
 	list-style-image: url('../../images/icones/puce.png');
 	padding-left: 15px;
 }
-#pageContent .released h1 {
+.released h1 {
 	display: block;
 	font-size: 1em;
 	margin: 0;
 	margin-top: 10px;
 }
-#pageContent .released .originalName h1, #pageContent .released .localizedName h1, #pageContent .released .size h1, #pageContent .released .codecs h1 {
+.released .originalName h1, .released .localizedName h1, .released .size h1, .released .codecs h1 {
 	display: inline;
 	margin-right: 1em;
 }
