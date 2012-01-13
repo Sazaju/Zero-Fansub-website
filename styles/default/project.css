@@ -22,10 +22,10 @@
 	font-size: 16px;
 	font-family: 'Courier New';
 }
-.released .title a {
+#page .released .title a { /* does not work if #page is not given */
 	color: #FFFFFF;
 }
-.notReleased .title a {
+#page .notReleased .title a { /* does not work if #page is not given */
 	color: #999999;
 	font-weight: bold;
 }
