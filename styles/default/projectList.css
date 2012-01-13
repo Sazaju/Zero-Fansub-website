@@ -1,9 +1,12 @@
-.projectList {
-	text-align: left;
+.projectListImage, .projectListText {
 	list-style: none;
 }
-.projectList img {
-	display: block;
-	margin: auto;
-	margin-bottom: 1.5em;
+
+.projectListImage li {
+	text-align: center;
+	margin-bottom: 1.4em;
+}
+
+.projectListText li {
+	text-align: left;
 }

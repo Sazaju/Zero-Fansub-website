@@ -7,7 +7,7 @@ class ProjectList extends SimpleListComponent {
 	private $useImage = false;
 	
 	public function __construct() {
-		$this->setClass("projectList");
+		$this->updateClass();
 	}
 	
 	public function addComponent($project) {
@@ -31,6 +31,11 @@ class ProjectList extends SimpleListComponent {
 			$projectLink = $listElement->getComponent(0);
 			$projectLink->useImage($this->useImage);
 		}
+		$this->updateClass();
+	}
+	
+	private function updateClass() {
+		$this->setClass("projectList".($this->useImage ? "Image" : "Text"));
 	}
 }
 ?>
