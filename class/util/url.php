@@ -137,7 +137,7 @@ class Url {
 	}
 	
 	public function fillRelativeUrl() {
-		if (substr($this->data[URL_PATH], 0, 1) != "/") {
+		if ($this->data[URL_PROTOCOL] == null && $this->data[URL_SERVER] == null) {
 			$this->data = Url::parseUrl(Url::getCurrentDirUrl().'/'.$this->getUrl());
 		}
 	}
