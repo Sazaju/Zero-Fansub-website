@@ -10,3 +10,19 @@
 .projectListText li {
 	text-align: left;
 }
+#page.series h2 {
+	margin-left: 150px;
+	letter-spacing: 12px;
+	font-family: Tahoma;
+	font-weight: normal;
+	font-size: 18px;
+}
+
+#page.series h3 {
+	color: #000000;
+	font-size: 17px;
+	margin-left: 60px;
+	margin-right: 20px;
+	margin-top: 0px;
+}
+

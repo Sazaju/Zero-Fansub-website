@@ -1,6 +1,7 @@
 <?php
 	$page = PageContent::getInstance();
 	$page->setTitle("Séries");
+	$page->setClass("series");
 
 	$url = new Url();
 	$vars = $url->getQueryVars();
