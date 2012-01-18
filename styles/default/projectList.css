@@ -11,11 +11,14 @@
 	text-align: left;
 }
 .series h2 {
+	color: inherited;
+	font-size: 18px;
 	margin-left: 150px;
+	margin-right: inherited;
+	margin-top: inherited;
 	letter-spacing: 12px;
 	font-family: Tahoma;
 	font-weight: normal;
-	font-size: 18px;
 }
 
 .series h3 {
@@ -24,5 +27,8 @@
 	margin-left: 60px;
 	margin-right: 20px;
 	margin-top: 0px;
+	letter-spacing: inherited;
+	font-family: inherited;
+	font-weight: inherited;
 }
 
