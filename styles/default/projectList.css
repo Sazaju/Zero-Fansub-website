@@ -14,8 +14,8 @@
 	color: inherited;
 	font-size: 18px;
 	margin-left: 150px;
-	margin-right: normal;
-	margin-top: normal;
+	margin-right: 0;
+	margin-top: 0;
 	letter-spacing: 12px;
 	font-family: Tahoma;
 	font-weight: normal;
@@ -26,9 +26,9 @@
 	font-size: 17px;
 	margin-left: 60px;
 	margin-right: 20px;
-	margin-top: 0px;
-	letter-spacing: normal;
-	font-family: normal;
-	font-weight: normal;
+	margin-top: 0;
+	letter-spacing: 0;
+	font-family: Tahoma;
+	font-weight: bold;
 }
 
