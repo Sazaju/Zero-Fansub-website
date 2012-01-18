@@ -17,7 +17,7 @@ class PageContent extends SimpleBlockComponent {
 	public function __construct($title = null) {
 		$this->setID("page");
 		
-		$this->title = new Title($title, 3);
+		$this->title = new Title($title, 1);
 		$this->addComponent($this->title);
 	}
 	
