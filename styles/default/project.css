@@ -1,7 +1,14 @@
-.released *{
+#page .released *{
 	text-indent: 0;
 }
-.released .title, .notReleased .title {
+
+#page .released h1, #page .notReleased h1 {
+	margin-left: 0;
+	letter-spacing: 0;
+	font-weight: bold;
+}
+
+#page .released .title, #page .notReleased .title {
 	display: block;
 	width: 603px;
 	height: 30px;
@@ -11,29 +18,36 @@
 	padding-left: 20px;
 	padding-top: 5px;
 }
-.released .title {
+
+#page .released .title {
 	background: url('../../images/interface/episodes.png') no-repeat;
 }
-.notReleased .title {
+
+#page .notReleased .title {
 	background: url('../../images/interface/episodesnd.png') no-repeat;
 }
-.released .title a, .notReleased .title a {
+
+#page .released .title a, #page .notReleased .title a {
 	display: block;
 	font-size: 16px;
 	font-family: 'Courier New';
 }
-#page .released .title a { /* does not work if #page is not given */
+
+#page .released .title a {
 	color: #FFFFFF;
 }
-#page .notReleased .title a { /* does not work if #page is not given */
+
+#page .notReleased .title a {
 	color: #999999;
 	font-weight: bold;
 }
-.released .previewImage {
+
+#page .released .previewImage {
 	display: block;
 	margin: 1em;
 }
-.released .content, .notReleased .content {
+
+#page .released .content, #page .notReleased .content {
 	text-indent: 10px;
 	font-family: Tahoma;
 	font-size: 12px;
@@ -43,34 +57,42 @@
 	margin-right: 40px;
 	margin-top: 0px;
 }
-.released .synopsis, .released ul {
+
+#page .released .synopsis, #page .released ul {
 	margin-top: 0;
 	margin-bottom: 10px;
 }
-.released .synopsis {
+
+#page .released .synopsis {
 	text-align: justify;
 }
-.released .comment {
+
+#page .released .comment {
 	font-weight: bold;
 }
-.linkList, .releaseList, .licenseList {
+
+#page .linkList, #page .releaseList, #page .licenseList {
 	list-style: none;
 	padding-left: 0;
 }
-.linkList {
+
+#page .linkList {
 	padding-left: 10px;
 }
-.fileList {
+
+#page .fileList {
 	list-style-image: url('../../images/icones/puce.png');
 	padding-left: 15px;
 }
-.released h1 {
+
+#page .released h1 {
 	display: block;
 	font-size: 1em;
 	margin: 0;
 	margin-top: 10px;
 }
-.released .originalName h1, .released .localizedName h1, .released .size h1, .released .codecs h1 {
+
+#page .released .originalName h1, #page .released .localizedName h1, #page .released .size h1, #page .released .codecs h1 {
 	display: inline;
 	margin-right: 1em;
 }
