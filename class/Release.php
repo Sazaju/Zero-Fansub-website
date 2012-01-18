@@ -2048,6 +2048,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=LC72DBO1");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2071,6 +2072,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=49P0VV0K");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2094,6 +2096,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=Y03UZOL6");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2118,6 +2121,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=RQ53MGFL");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2142,6 +2146,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=7BO9ZIZ0");
 			$release->addFileDescriptor($descriptor);
 			$release->addBonus(Link::newWindowLink(new Url('ddl/[Zero]Kanamemo_05_AMV.mp4', 'AMV')));
 			$release->setReleasingTime(0);
@@ -2167,6 +2172,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=E697D5HL");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2266,6 +2272,7 @@ class Release {
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_Chapitre01.zip");
 			$descriptor->setID("HQ");
 			$descriptor->setPageNumber(18);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=5YJOCPDK");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2526,6 +2533,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=ATDKNXJ9");
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[06][XviD-MP3][49858ACF].avi");
 			$descriptor->setCRC("49858ACF");
@@ -2558,7 +2566,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=EYVBQ4IJ");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=BWNXPB2N");
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[07][XviD-MP3][136F5857].avi");
 			$descriptor->setCRC("136F5857");
@@ -2592,6 +2600,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=3915VWK3");
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[08][XviD-MP3][F8EC5319].avi");
 			$descriptor->setVideoCodec($xvid);
@@ -2622,6 +2631,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=V4ZVGINA");
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[09][XviD-MP3][17068A5D].avi");
 			$descriptor->setVideoCodec($xvid);
@@ -2652,6 +2662,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=0AT6YIBW");
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[10][XviD-MP3][62AFA4EB].avi");
 			$descriptor->setVideoCodec($xvid);
@@ -2681,6 +2692,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=AVKG8WXU");
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[11][XviD-MP3][CA8D3795].avi");
 			$descriptor->setVideoCodec($xvid);
@@ -2711,6 +2723,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=I8YUTBCO");
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[12][XviD-MP3][899822B0].avi");
 			$descriptor->setVideoCodec($xvid);
@@ -2737,6 +2750,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=L0ML31UC");
 			$release->addFileDescriptor($descriptor);
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=Q251QKZR"), "Megavideo v1"));
 			$release->setReleasingTime(0);
@@ -2759,6 +2773,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=Y28FIIG0");
 			$release->addFileDescriptor($descriptor);
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=6LA5YJEH"), "Megavideo v1"));
 			$release->setReleasingTime(0);
@@ -2781,7 +2796,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=RKCX08AO");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=7O5EIMRG");
 			$release->addFileDescriptor($descriptor);
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=B7Z2GFPR"), "Megavideo"));
 			$release->setReleasingTime(0);
@@ -2804,7 +2819,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=FLF5ITSS");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=0JYXT3OB");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2826,6 +2841,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=J4ZUIRT8");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2847,6 +2863,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=U6Y01R5H");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2867,6 +2884,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=M97SZZGJ");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2887,6 +2905,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=9QDT35X0");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2907,6 +2926,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=6KBY6CQW");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2927,6 +2947,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=XCJUFGJU");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2947,6 +2968,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=SHNDKVKH");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2967,6 +2989,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=SAAS5XOS");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -2987,6 +3010,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=S4SJE95R");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -3005,6 +3029,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=WJDPM087");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -3023,6 +3048,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=WD5TMMRR");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -3041,6 +3067,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=G05O0ZUM");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -3059,6 +3086,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=DHS4F5HM");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -3077,6 +3105,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=7OZH9MMI");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -3095,6 +3124,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=A8VGLDKR");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -3216,7 +3246,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=KCOLYG5L");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=WSLBJGV2");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
@@ -3258,7 +3288,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=GHRBCQ5H");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=LHD904TC");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
@@ -3300,7 +3330,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=62FCUY58");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=JVM1LQWO");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
@@ -3342,7 +3372,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=0PSTT5I0");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=R8QX2FAY");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
@@ -3384,7 +3414,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=CRQF6K62");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=PMYNTX7C");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
@@ -3425,7 +3455,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=SABWDYSR");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=A1S2BGYE");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
 			$release->addBonus(Link::newWindowLink(new Url("images/autre/moe%2065490%20angel%20cap%20maria_holic%20miyamae_kanako%20wings.png"), "1"));
@@ -3471,6 +3501,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=TJOBJZOT");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
@@ -3510,6 +3541,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=974OG285");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
@@ -3548,6 +3580,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=Q7SJ7FHC");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
@@ -3586,6 +3619,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=0WS0J6VL");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
@@ -3990,6 +4024,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=TTDHHE1P");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4008,6 +4043,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=CFVL5B8O");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4026,6 +4062,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=548JA1UK");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4044,6 +4081,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=PTWNJVF1");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4062,6 +4100,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=IB5TSBZP");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4086,6 +4125,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=8956YDCL");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4110,6 +4150,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=8UNSDSWV");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4134,6 +4175,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=NK4AYOHW");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4158,6 +4200,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=MM0S8WNC");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4182,6 +4225,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=DAKFCOM3");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4206,6 +4250,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=LRAGHXM1");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4230,6 +4275,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=IC8YV1DU");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4551,6 +4597,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("30521E98");
 			$descriptor->setComment("Version non censurée");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=G75EDEWC");
 			$descriptor->setFreeUrl("http://dl.free.fr/hHT80GEmq");
 			$release->addFileDescriptor($descriptor);
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=3GBIUO43"), "Megavideo"));
@@ -4643,6 +4690,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("69E93A46");
 			$descriptor->setComment("Version non censurée");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=0H32RZ5O");
 			$release->addFileDescriptor($descriptor);
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=9Y36JTJR"), "Megavideo"));
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14076-Kodomo_no_Jikan_03"), "Haute Définition"));
@@ -4687,6 +4735,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("76E4E564");
 			$descriptor->setComment("Version non censurée");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=7210FO35");
 			$release->addFileDescriptor($descriptor);
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=5T6VBQFT"), "Megavideo"));
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14091-Kodomo_no_Jikan_04"), "Haute Définition"));
@@ -4730,6 +4779,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("E2A57EF9");
 			$descriptor->setComment("Version non censurée");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=1TO6904U");
 			$release->addFileDescriptor($descriptor);
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=IPIM9VVB"), "Megavideo"));
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14108-Kodomo_no_Jikan_05"), "Haute Définition"));
@@ -4774,6 +4824,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("382FF829");
 			$descriptor->setComment("Version non censurée");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=5PMIUO9A");
 			$release->addFileDescriptor($descriptor);
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=DUPGYTRQ"), "Megavideo"));
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14175-Kodomo_no_Jikan_06"), "Haute Définition"));
@@ -4817,6 +4868,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("C5339115");
 			$descriptor->setComment("Version non censurée");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=PHB4KSN0");
 			$release->addFileDescriptor($descriptor);
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=SIX0WZHV"), "Megavideo"));
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14634-Kodomo_no_Jikan_07"), "Haute Définition"));
@@ -4861,6 +4913,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("D97C888E");
 			$descriptor->setComment("Version non censurée");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=D1Z78M4Z");
 			$release->addFileDescriptor($descriptor);
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=N261U9W4"), "Megavideo"));
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14632-Kodomo_no_Jikan_08"), "Haute Définition"));
@@ -4904,6 +4957,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("D97C888E");
 			$descriptor->setComment("Version non censurée");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=NYL2EXRR");
 			$release->addFileDescriptor($descriptor);
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14640-Kodomo_no_Jikan_09"), "Haute Définition"));
 			$release->setReleasingTime(0);
@@ -4938,6 +4992,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("A429EF38");
 			$descriptor->setComment("Version non censurée");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=651HAQQK");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -4971,6 +5026,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("26AC8B80");
 			$descriptor->setComment("Version non censurée");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=PTB17A96");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5003,6 +5059,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("8CFC6F8D");
 			$descriptor->setComment("Version non censurée");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=FQC3897P");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5488,7 +5545,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=WT93N762");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=IFQ3X6QV");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5516,7 +5573,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=RDU9AWBN");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=619W5NCA");
 			$release->addFileDescriptor($descriptor);
 			$release->addBonus(Link::newWindowLink(new Url("radio/mp3/Toradora_-_Silky_Heart.mp3"), "Opening"));
 			$release->addBonus(Link::newWindowLink(new Url("radio/mp3/Toradora_-_Orange.mp3"), "Ending"));
@@ -5545,6 +5602,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=XN8CVJ46");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5571,6 +5629,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=1360OE5U");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5597,6 +5656,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=6MAZSZWL");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5623,6 +5683,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=XUR8SK74");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5649,6 +5710,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=G3E5YYDF");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5675,6 +5737,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=CSRVR4TC");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5704,6 +5767,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=BIDCG0EU");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5733,6 +5797,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=412AGO6Y");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5752,6 +5817,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=R7JOYZJ3");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5806,6 +5872,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("C3897A46");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=9RM4GUFG");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5837,6 +5904,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("251978A6");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=VHZBEKT6");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5869,6 +5937,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setCRC("260F1BAB");
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=QUQR7JEF");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
@@ -5898,6 +5967,7 @@ class Release {
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
+			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=JVH3QH97");
 			$release->addFileDescriptor($descriptor);
 			$release->addBonus(Link::newWindowLink(new Url("ddl/[Zero-Maboroshi]Kodomo_no_Jikan_Ni_Gakki[OAV_03]_Screenshot.zip"), "Screenshots"));
 			$release->setReleasingTime(0);
