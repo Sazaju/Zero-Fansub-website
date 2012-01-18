@@ -105,6 +105,18 @@ class News {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$news = new News();
+			$news->setTitle("Un peu de repos");
+			$news->setTimestamp(strtotime("18 January 2012 14:26"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setCommentId(282);
+			$newsMessage = new SimpleTextComponent();
+			$newsMessage->addLine("Une petite news pour les autres équipes de fansub et pour nos habitués : étant donné le nombre d'animes licenciés et le nombre d'animes restant non fansubbés, Zéro Fansub ne compte pas ajouter de nouveaux projets à sa liste pour cette saison.");
+			$newsMessage->addLine();
+			$newsMessage->addLine("On en profitera pour avancer correctement nos séries déjà en cours, dont certaines sont sur le feu depuis un moment déjà {'^_^}.");
+			$news->setMessage($newsMessage);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("Encore des bugs ?");
 			$news->setTimestamp(strtotime("4 January 2012"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
