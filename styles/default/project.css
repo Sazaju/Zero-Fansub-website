@@ -1,3 +1,18 @@
+#page .projectTitle {
+}
+
+#page .projectPicture {
+	float: right;
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+#page .deadLinks {
+	display: block;
+	text-align: right;
+}
+
 #page .released *{
 	text-indent: 0;
 }

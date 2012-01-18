@@ -194,7 +194,14 @@ define('WEBSITE_VERSION', exec('git tag'));
 						require_once("pages/$page.php");
 					}
 					else {
-						require_once("pages/home.php");
+						$parts = preg_split("#/#", $page);
+						if (strcmp($parts[0], 'series') === 0) {
+							$project = new ProjectComponent(Project::getProject($parts[1]));
+							$project->writeNow();
+						}
+						else {
+							require_once("pages/home.php");
+						}
 					}
 					PageContent::getInstance()->setId(null); // TODO remove when all pages will be translated in object PHP
 					PageContent::getInstance()->writeNow();

@@ -6,6 +6,10 @@
 class Project {
 	private $id = '';
 	private $name = '';
+	private $originalName = null;
+	private $airingYear = null;
+	private $author = null;
+	private $synopsis = null;
 	private $isStarted = false;
 	private $isRunning = false;
 	private $isFinished = false;
@@ -18,6 +22,38 @@ class Project {
 	public function __construct($id = null, $name = null) {
 		$this->setID($id);
 		$this->setName($name);
+	}
+	
+	public function setAuthor($author) {
+		$this->author = $author;
+	}
+	
+	public function getAuthor() {
+		return $this->author;
+	}
+	
+	public function setAiringYear($year) {
+		$this->airingYear = $year;
+	}
+	
+	public function getAiringYear() {
+		return $this->airingYear;
+	}
+	
+	public function setOriginalName($name) {
+		$this->originalName = $name;
+	}
+	
+	public function getOriginalName() {
+		return $this->originalName;
+	}
+	
+	public function setSynopsis($synopsis) {
+		$this->synopsis = $synopsis;
+	}
+	
+	public function getSynopsis() {
+		return $this->synopsis;
 	}
 	
 	public function setID($id) {
@@ -294,6 +330,10 @@ class Project {
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("heismymaster", "Ce sont mes Maids");
+			$project->setOriginalName("Kore ga Oresama no Maidtachi");
+			$project->setAiringYear(2007);
+			$project->setAuthor("Yukimihonpo");
+			$project->setSynopsis("Parodie hentaï He is my master. Yoshitaka est malade et les médicaments qu'Izumi va lui donner vont le remettre d'aplomb, ainsi que son penis ! Il va tout faire pour avoir Izumi mais va finalement se rattraper sur les deux autres.");
 			$project->setHentai(true);
 			$project->setDoujin(true);
 			$project->setFinished(true);

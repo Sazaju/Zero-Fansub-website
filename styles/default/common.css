@@ -14,8 +14,9 @@ li{
 
 #page {
 	margin: 0;
-	width: 647px;
-	margin-left: 150px;
+	padding: 0;
+	margin-left: 170px;
+	width: 660px; /* TODO review the calculation regarding the menus */
 	min-height: 650px;
 }
 
@@ -64,7 +65,7 @@ li{
 #page h2 {
 	color: #000000;
 	font-size: 17px;
-	margin-left: 60px;
+	margin-left: 20px;
 	margin-right: 20px;
 	margin-top: 0px;
 }
