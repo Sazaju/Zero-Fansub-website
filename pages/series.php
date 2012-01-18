@@ -14,42 +14,56 @@
 		$page->addComponent(new Link($url, new Title("Voir la liste avec images", 2)));
 	}
 
-	$page->addComponent(new Title("Projets en cours", 2));
+	$licensedProjects = array();
+	$notLicensedProjects = array();
+	foreach(Project::getNonHentaiProjects() as $project) {
+		if (!$project->isDoujin()) {
+			if ($project->isLicensed()) {
+				$licensedProjects[] = $project;
+			} else {
+				$notLicensedProjects[] = $project;
+			}
+		}
+	}
+	
+	$page->addComponent(new Title("Non licenciés", 2));
+	
+	$page->addComponent(new Title("Projets en cours", 3));
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	foreach(Project::getNonHentaiProjects() as $project) {
-		if ($project->isRunning() && !$project->isDoujin()) {
+	foreach($notLicensedProjects as $project) {
+		if ($project->isRunning()) {
 			$list->addComponent($project);
 		}
 	}
 	
-	$page->addComponent(new Title("Projets terminés", 2));
+	$page->addComponent(new Title("Projets terminés", 3));
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	foreach(Project::getNonHentaiProjects() as $project) {
-		if ($project->isFinished() && !$project->isDoujin()) {
+	foreach($notLicensedProjects as $project) {
+		if ($project->isFinished()) {
 			$list->addComponent($project);
 		}
 	}
 
-	$page->addComponent(new Title("Projets envisagés", 2));
+	$page->addComponent(new Title("Projets abandonnés", 3));
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	foreach(Project::getNonHentaiProjects() as $project) {
-		if (!$project->isStarted() && !$project->isLicensed() && !$project->isAbandonned() && !$project->isDoujin()) {
+	foreach($notLicensedProjects as $project) {
+		if ($project->isAbandonned()) {
 			$list->addComponent($project);
 		}
 	}
 
-	$page->addComponent(new Title("Projets abandonnés", 2));
+	$page->addComponent(new Title("Projets envisagés", 3));
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	foreach(Project::getNonHentaiProjects() as $project) {
-		if ($project->isAbandonned() && !$project->isDoujin()) {
+	foreach($notLicensedProjects as $project) {
+		if (!$project->isStarted() && !$project->isAbandonned()) {
 			$list->addComponent($project);
 		}
 	}
@@ -58,10 +72,8 @@
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	foreach(Project::getNonHentaiProjects() as $project) {
-		if ($project->isLicensed() && !$project->isDoujin()) {
-			$list->addComponent($project);
-		}
+	foreach($licensedProjects as $project) {
+		$list->addComponent($project);
 	}
 	
 	$url = new Url();
