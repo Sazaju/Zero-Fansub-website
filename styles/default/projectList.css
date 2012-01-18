@@ -10,7 +10,7 @@
 .projectListText li {
 	text-align: left;
 }
-#page.series h2 {
+.series h2 {
 	color: #000000;
 	font-size: 17px;
 	margin-left: 60px;
@@ -18,7 +18,7 @@
 	margin-top: 0px;
 }
 
-#page.series h3 {
+.series h3 {
 	margin-left: 150px;
 	letter-spacing: 12px;
 	font-family: Tahoma;
