@@ -6,6 +6,10 @@
 class Project {
 	private $id = '';
 	private $name = '';
+	private $genre = null;
+	private $studio = null;
+	private $externalSource = null;
+	private $officialWebsite = null;
 	private $originalName = null;
 	private $airingYear = null;
 	private $author = null;
@@ -23,6 +27,46 @@ class Project {
 	public function __construct($id = null, $name = null) {
 		$this->setID($id);
 		$this->setName($name);
+	}
+	
+	public function setGenre($genre) {
+		$this->genre = $genre;
+	}
+	
+	public function getGenre() {
+		return $this->genre;
+	}
+	
+	public function setStudio($studio) {
+		$this->studio = $studio;
+	}
+	
+	public function getStudio() {
+		return $this->studio;
+	}
+	
+	public function setExternalSource($source) {
+		$this->externalSource = $source;
+	}
+	
+	public function getExternalSource() {
+		return $this->externalSource;
+	}
+	
+	public function hasExternalSource() {
+		return $this->externalSource != null;
+	}
+	
+	public function setOfficialWebsite(Link $link) {
+		$this->officialWebsite = $link;
+	}
+	
+	public function getOfficialWebsite() {
+		return $this->officialWebsite;
+	}
+	
+	public function hasOfficialWebsite() {
+		return $this->officialWebsite != null;
 	}
 	
 	public function addLinkedProject(Project $project) {
@@ -270,6 +314,14 @@ class Project {
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mitsudomoe", "Mitsudomoe");
+			$project->setOriginalName("Mitsudomoe");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.mitsudomoe-anime.com/", "Mitsudomoe Anime"));
+			$project->setAiringYear(2010);
+			$project->setStudio("Bridge");
+			$project->setAuthor("Sakurai Norio");
+			$project->setGenre("Comédie Ecchi");
+			$project->setSynopsis("Les triplés raconte l'histoire de 3 filles de primaire un peu perverses qui harcèlent leur prof pas doué.");
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			

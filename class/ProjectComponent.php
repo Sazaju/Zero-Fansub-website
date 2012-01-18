@@ -12,11 +12,24 @@ class ProjectComponent extends SimpleBlockComponent {
 		$infos = new SimpleTextComponent();
 		$infos->setClass('projectInfos');
 		$infos->addLine("<b>Titre Original</b> ".$project->getOriginalName());
+		if ($project->hasOfficialWebsite()) {
+			$text = new SimpleTextComponent("<b>Site officiel</b> ");
+			$text->addComponent($project->getOfficialWebsite());
+			$infos->addLine($text);
+		}
 		$infos->addLine("<b>Année de production</b> ".$project->getAiringYear());
+		if ($project->getStudio() != null) {
+			$infos->addLine("<b>Studio</b> ".$project->getStudio());
+		}
 		$infos->addLine("<b>Auteur</b> ".$project->getAuthor());
-		$infos->addLine("<b>Genre</b> ".($project->isDoujin() ? "Doujin" : "?"));
+		$infos->addLine("<b>Genre</b> ".($project->isDoujin() ? "Doujin" : $project->getGenre()));
 		$infos->addLine("<b>Synopsis</b> ".$project->getSynopsis());
 		$this->addComponent(new Title("Informations générales", 2));
+		if ($project->hasExternalSource()) {
+			$subtitle = new Title("Source : ", 4);
+			$subtitle->addComponent($project->getExternalSource());
+			$this->addComponent($subtitle);
+		}
 		$this->addComponent($infos);
 		
 		$this->addComponent("<p></p>");
