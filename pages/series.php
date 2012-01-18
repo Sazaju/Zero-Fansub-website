@@ -73,7 +73,7 @@
 		}
 	}
 
-	$page->addComponent(new Title("Projets licenciés", 2));
+	$page->addComponent(new Title("Licenciés", 2));
 	$list = new ProjectList();
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
