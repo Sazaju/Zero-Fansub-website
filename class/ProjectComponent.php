@@ -5,8 +5,8 @@ class ProjectComponent extends SimpleBlockComponent {
 		$title->setClass('projectTitle');
 		$this->addComponent($title);
 		
-		$image = new Image('images/series/heismymaster.jpg');
-		$image->setClass("projectPicture");
+		$image = new Image('images/series/'.$project->getID().'.jpg');
+		$image->setClass('projectPicture');
 		$this->addComponent($image);
 		
 		$infos = new SimpleTextComponent();
@@ -20,13 +20,11 @@ class ProjectComponent extends SimpleBlockComponent {
 		$this->addComponent($infos);
 		
 		$this->addComponent("<p></p>");
-		
 		$link = Link::newWindowLink("http://zero.xooit.fr/t471-Liens-morts.htm", "Signaler un lien mort");
 		$link->setClass('deadLinks');
 		$this->addComponent($link);
 		
 		$this->addComponent("<p></p>");
-		
 		$this->addComponent(new Title("Chapitres", 2));
 		
 		$releases = Release::getAllReleasesForProject($project->getID());
@@ -38,6 +36,21 @@ class ProjectComponent extends SimpleBlockComponent {
 			$list->addComponent(new ReleaseComponent($release));
 		}
 		$this->addComponent($list);
+		
+		$linkedProjects = $project->getLinkedProjects();
+		if (!empty($linkedProjects)) {
+			$this->addComponent("<p></p>");
+			$this->addComponent(new Title("Voir aussi", 2));
+			
+			$list = new ProjectList();
+			$list->useImage(true);
+			foreach($linkedProjects as $project) {
+				$list->addComponent($project);
+			}
+			$this->addComponent($list);
+		}
+		
+		
 	}
 	
 	public function sortReleases(Release $a, Release $b) {

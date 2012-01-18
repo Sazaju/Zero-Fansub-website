@@ -10,6 +10,7 @@ class Project {
 	private $airingYear = null;
 	private $author = null;
 	private $synopsis = null;
+	private $linkedProjects = array();
 	private $isStarted = false;
 	private $isRunning = false;
 	private $isFinished = false;
@@ -22,6 +23,14 @@ class Project {
 	public function __construct($id = null, $name = null) {
 		$this->setID($id);
 		$this->setName($name);
+	}
+	
+	public function addLinkedProject(Project $project) {
+		$this->linkedProjects[] = $project;
+	}
+	
+	public function getLinkedProjects() {
+		return $this->linkedProjects;
 	}
 	
 	public function setAuthor($author) {
@@ -218,9 +227,9 @@ class Project {
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("kimikiss", "Kimikiss Pure Rouge");
-			$project->setAbandonned(true);
-			Project::$allProjects[] = $project;
+			$kimikiss = new Project("kimikiss", "Kimikiss Pure Rouge");
+			$kimikiss->setAbandonned(true);
+			Project::$allProjects[] = $kimikiss;
 			
 			$project = new Project("kodomo", "Kodomo no Jikan");
 			$project->setFinished(true);
@@ -324,6 +333,11 @@ class Project {
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("eriko", "ERIKO");
+			$project->setOriginalName("ERIKO");
+			$project->setAiringYear(2007);
+			$project->setAuthor("Gunma Kisaragi");
+			$project->setSynopsis("Parodie hentaï de Kimikiss pure rouge mettant en scène Futami Eriko, l'intello, continuant ses expèriences encore plus profondément avec Kazuki.");
+			$project->addLinkedProject($kimikiss);
 			$project->setHentai(true);
 			$project->setDoujin(true);
 			$project->setFinished(true);
