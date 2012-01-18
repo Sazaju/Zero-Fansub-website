@@ -19,6 +19,7 @@
 	letter-spacing: 12px;
 	font-family: Tahoma;
 	font-weight: normal;
+	border: 1px solid black;
 }
 
 .series h3 {
@@ -30,5 +31,6 @@
 	letter-spacing: 0;
 	font-family: Tahoma;
 	font-weight: bold;
+	border: 1px solid green;
 }
 
