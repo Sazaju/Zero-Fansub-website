@@ -8,11 +8,15 @@
 	$useImageLists = !array_key_exists('noImage', $vars);
 	if ($useImageLists) {
 		$url->setQueryVar('noImage');
-		$page->addComponent(new Link($url, new Title("Voir la liste sans images", 2)));
+		$link = new Link($url, "Voir la liste sans images");
+		$link->setClass('pictureSwitch');
+		$page->addComponent($link);
 	}
 	else {
 		$url->removeQueryVar('noImage');
-		$page->addComponent(new Link($url, new Title("Voir la liste avec images", 2)));
+		$link = new Link($url, "Voir la liste avec images");
+		$link->setClass('pictureSwitch');
+		$page->addComponent($link);
 	}
 
 	$licensedProjects = array();
