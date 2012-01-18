@@ -110,7 +110,7 @@ class News {
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(282);
 			$newsMessage = new SimpleTextComponent();
-			$newsMessage->addLine("Une petite news pour les autres équipes de fansub et pour nos habitués : étant donné le nombre d'animes licenciés et le nombre d'animes restant non fansubbés, Zéro Fansub ne compte pas ajouter de nouveaux projets à sa liste pour cette saison.");
+			$newsMessage->addLine("Une petite news pour les autres équipes de fansub et pour nos habitués : étant donné le nombre d'animes licenciés et le nombre d'animes restant non fansubbés, Zéro Fansub ne prévoit pas d'ajouter de nouveaux projets à sa liste pour cette saison.");
 			$newsMessage->addLine();
 			$newsMessage->addLine("On en profitera pour avancer correctement nos séries déjà en cours, dont certaines sont sur le feu depuis un moment déjà {'^_^}.");
 			$news->setMessage($newsMessage);
