@@ -99,7 +99,7 @@ li{
 	margin-top: 0px;
 }
 
-#page:after, .teamList .member:after, .teamList:before, .archives:after, .news:after{
+#page:after, .archives:after, .news:after{
 	content: url('../../images/interface/barre.png');
 }
 

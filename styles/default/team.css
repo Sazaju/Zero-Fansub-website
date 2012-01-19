@@ -1,6 +1,7 @@
 .teamList, .teamList ul{
 	list-style: none;
 }
+
 .teamList ul img{
 	float: right;
 	display: block;
@@ -9,3 +10,8 @@
 	max-width: 100px;
 	max-height: 100px;
 }
+
+.teamList .member:after, .teamList:before {
+	content: url('../../images/interface/barre.png');
+}
+

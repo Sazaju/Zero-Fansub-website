@@ -24,7 +24,6 @@
 	$projectLink = new Link("index.php?page=series", "Projets");
 	$projectLink->setStyle("font-size: 1.5em;");
 	$menu->addEntry($projectLink);
-	$menu->addEntry(new Link("index.php?page=series", "Téléchargements"));
 	$menu->addEntry(new Link("index.php?page=team", "L'équipe"));
 	$menu->addEntry(Link::newWindowLink("http://forum.zerofansub.net/p32750.htm", "Avancement"));
 	$menu->addEntry(Link::newWindowLink("http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-team-de-fansub.htm", "Recrutement"));
