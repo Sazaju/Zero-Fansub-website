@@ -212,11 +212,6 @@ class Project {
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("denpa", "Denpa Onna to Seishun Otoko");
-			$project->setStarted(true);
-			$project->setRunning(true);
-			Project::$allProjects[] = $project;
-
 			$project = new Project("genshiken", "Genshiken II");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -403,6 +398,18 @@ class Project {
 			$project->setHentai(true);
 			$project->setDoujin(true);
 			$project->setFinished(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("denpa", "Denpa Onna to Seishun Otoko");
+			$project->setOriginalName("Denpa Onna To Seishun Otoko");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.tbs.co.jp/anime/denpa/", "Denpa Onna To Seishun Otoko"));
+			$project->setAiringYear(2011);
+			$project->setStudio("Shaft");
+			$project->setGenre("Fantastique");
+			$project->setSynopsis("Niwa Makoto est un lycéen parti vivre chez sa tante car ses parents sont en voyage d'affaires. Il y rencontre une cousine du même âge, inconnue du reste de sa famille, Towa Erio. Cette cousine étrange porte constamment un futon autour du corps, ne se nourrit pratiquement que de pizzas et pense être un extraterrestre.");
+			$project->setStarted(true);
+			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 		}
 		
