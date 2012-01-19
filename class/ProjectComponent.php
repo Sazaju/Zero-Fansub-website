@@ -21,7 +21,9 @@ class ProjectComponent extends SimpleBlockComponent {
 		if ($project->getStudio() != null) {
 			$infos->addLine("<b>Studio</b> ".$project->getStudio());
 		}
-		$infos->addLine("<b>Auteur</b> ".$project->getAuthor());
+		if ($project->getAuthor() != null) {
+			$infos->addLine("<b>Auteur</b> ".$project->getAuthor());
+		}
 		$infos->addLine("<b>Genre</b> ".($project->isDoujin() ? "Doujin" : $project->getGenre()));
 		$infos->addLine("<b>Synopsis</b> ".$project->getSynopsis());
 		$this->addComponent(new Title("Informations générales", 2));
@@ -38,7 +40,7 @@ class ProjectComponent extends SimpleBlockComponent {
 		$this->addComponent($link);
 		
 		$this->addComponent("<p></p>");
-		$this->addComponent(new Title("Chapitres", 2));
+		$this->addComponent(new Title($project->isDoujin() ? "Chapitres" : "Épisodes", 2));
 		
 		$releases = Release::getAllReleasesForProject($project->getID());
 		usort($releases, array('ProjectComponent', 'sortReleases'));
@@ -50,7 +52,7 @@ class ProjectComponent extends SimpleBlockComponent {
 		}
 		$this->addComponent($list);
 		
-		$linkedProjects = $project->getLinkedProjects();
+		$linkedProjects = Project::getProjectsLinkedTo($project);
 		if (!empty($linkedProjects)) {
 			$this->addComponent("<p></p>");
 			$this->addComponent(new Title("Voir aussi", 2));

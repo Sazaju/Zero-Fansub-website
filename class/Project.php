@@ -14,7 +14,6 @@ class Project {
 	private $airingYear = null;
 	private $author = null;
 	private $synopsis = null;
-	private $linkedProjects = array();
 	private $isStarted = false;
 	private $isRunning = false;
 	private $isFinished = false;
@@ -67,14 +66,6 @@ class Project {
 	
 	public function hasOfficialWebsite() {
 		return $this->officialWebsite != null;
-	}
-	
-	public function addLinkedProject(Project $project) {
-		$this->linkedProjects[] = $project;
-	}
-	
-	public function getLinkedProjects() {
-		return $this->linkedProjects;
 	}
 	
 	public function setAuthor($author) {
@@ -234,15 +225,6 @@ class Project {
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("bath", "Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
-			$project->setFinished(true);
-			Project::$allProjects[] = $project;
-			
-			$project = new Project("sleeping", "Isshoni Sleeping - S'endormir avec Hinako");
-			$project->setFinished(true);
-			$project->setLicense(License::getDefaultLicense());
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("kanamemo", "Kanamemo");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -384,7 +366,6 @@ class Project {
 			$project->setAiringYear(2007);
 			$project->setAuthor("Gunma Kisaragi");
 			$project->setSynopsis("Parodie hentaï de Kimikiss pure rouge mettant en scène Futami Eriko, l'intello, continuant ses expèriences encore plus profondément avec Kazuki.");
-			$project->addLinkedProject($kimikiss);
 			$project->setHentai(true);
 			$project->setDoujin(true);
 			$project->setFinished(true);
@@ -411,6 +392,27 @@ class Project {
 			$project->setStarted(true);
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
+			
+			$project = new Project("sleeping", "Isshoni Sleeping - S'endormir avec Hinako");
+			$project->setOriginalName("Isshoni Sleeping");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setAiringYear(2010);
+			$project->setGenre("Ecchi");
+			$project->setSynopsis("Hinako est de retour ! Après l'effort, le réconfort, et c'est avec elle que vous allez pouvoir vous reposer après les difficiles exercices de musculations du précédent épisode.");
+			$project->setFinished(true);
+			$project->setLicense(License::getDefaultLicense());
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("bath", "Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
+			$project->setOriginalName("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setAiringYear(2011);
+			$project->setStudio("Primaesta");
+			$project->setGenre("Ecchi");
+			$project->setSynopsis("Prendre un bain avec Hinako, &ccedil;a vous dit ? En plus, elle n'est pas seule : Hiyoko, sa copine loli, vient vous rejoindre.");
+			$project->setFinished(true);
+			Project::$allProjects[] = $project;
+			
 		}
 		
 		return Project::$allProjects;
@@ -443,6 +445,66 @@ class Project {
 			}
 		}
 		throw new Exception($id." is not a known project ID.");
+	}
+	
+	private static $allLinks = null;
+	public static function getAllProjectLinks() {
+		if (Project::$allLinks === null) {
+			Project::$allLinks = array();
+			
+			Project::$allLinks[] = array(Project::getProject('eriko'), Project::getProject('kimikiss'));
+			Project::$allLinks[] = array(Project::getProject('kissxsis'), Project::getProject('kissxsisoav'));
+			Project::$allLinks[] = array(Project::getProject('hyakko'), Project::getProject('hyakkooav'));
+			Project::$allLinks[] = array(Project::getProject('toradora'), Project::getProject('toradorasos'));
+			Project::$allLinks[] = array(Project::getProject('tayutama'), Project::getProject('tayutamapure'));
+			Project::$allLinks[] = array(Project::getProject('sketchbook'), Project::getProject('sketchbookdrama'));
+			Project::$allLinks[] = array(Project::getProject('potemayo'), Project::getProject('potemayooav'));
+			Project::$allLinks[] = array(Project::getProject('genshiken'), Project::getProject('kujibiki'));
+			Project::$allLinks[] = array(Project::getProject('bath'), Project::getProject('training'));
+			Project::$allLinks[] = array(Project::getProject('bath'), Project::getProject('sleeping'));
+			Project::$allLinks[] = array(Project::getProject('bath'), Project::getProject('akinahshiyo'));
+			Project::$allLinks[] = array(Project::getProject('bath'), Project::getProject('hshiyo'));
+			Project::$allLinks[] = array(Project::getProject('sleeping'), Project::getProject('training'));
+			Project::$allLinks[] = array(Project::getProject('sleeping'), Project::getProject('hshiyo'));
+			Project::$allLinks[] = array(Project::getProject('sleeping'), Project::getProject('akinahshiyo'));
+			Project::$allLinks[] = array(Project::getProject('akinahshiyo'), Project::getProject('training'));
+			Project::$allLinks[] = array(Project::getProject('akinahshiyo'), Project::getProject('hshiyo'));
+			Project::$allLinks[] = array(Project::getProject('hshiyo'), Project::getProject('training'));
+			Project::$allLinks[] = array(Project::getProject('konoe'), Project::getProject('kodomo'));
+			Project::$allLinks[] = array(Project::getProject('konoe'), Project::getProject('kodomooav'));
+			Project::$allLinks[] = array(Project::getProject('konoe'), Project::getProject('kodomofilm'));
+			Project::$allLinks[] = array(Project::getProject('konoe'), Project::getProject('kodomonatsu'));
+			Project::$allLinks[] = array(Project::getProject('konoe'), Project::getProject('kodomo2'));
+			Project::$allLinks[] = array(Project::getProject('kodomofilm'), Project::getProject('kodomo'));
+			Project::$allLinks[] = array(Project::getProject('kodomofilm'), Project::getProject('kodomooav'));
+			Project::$allLinks[] = array(Project::getProject('kodomofilm'), Project::getProject('kodomonatsu'));
+			Project::$allLinks[] = array(Project::getProject('kodomofilm'), Project::getProject('kodomo2'));
+			Project::$allLinks[] = array(Project::getProject('kodomonatsu'), Project::getProject('kodomo'));
+			Project::$allLinks[] = array(Project::getProject('kodomonatsu'), Project::getProject('kodomooav'));
+			Project::$allLinks[] = array(Project::getProject('kodomonatsu'), Project::getProject('kodomo2'));
+			Project::$allLinks[] = array(Project::getProject('kodomo2'), Project::getProject('kodomo'));
+			Project::$allLinks[] = array(Project::getProject('kodomo2'), Project::getProject('kodomooav'));
+			Project::$allLinks[] = array(Project::getProject('kodomooav'), Project::getProject('kodomo'));
+		}
+		
+		return Project::$allLinks;
+	}
+	
+	public static function getProjectsLinkedTo(Project $project) {
+		$list = array();
+		foreach(Project::getAllProjectLinks() as $link) {
+			if ($link[0] == $project) {
+				$list[] = $link[1];
+			}
+			else if ($link[1] == $project) {
+				$list[] = $link[0];
+			}
+			else {
+				// nothing to do
+			}
+		}
+		
+		return $list;
 	}
 }
 ?>
