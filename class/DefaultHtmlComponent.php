@@ -102,6 +102,9 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 			if (is_string($component)) {
 				$content .= $component;
 			}
+			else if (is_numeric($component)) {
+				$content .= $component;
+			}
 			else if ($component instanceof IHtmlComponent) {
 				if ($component instanceof IPersistentComponent) {
 					if (!$component->isLoaded()) {

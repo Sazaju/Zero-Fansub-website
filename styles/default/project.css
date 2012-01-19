@@ -86,7 +86,7 @@
 	font-weight: bold;
 }
 
-#page .linkList, #page .releaseList, #page .licenseList {
+#page .linkList, #page .releaseList, #page .licenseList, #page .skinList {
 	list-style: none;
 	padding-left: 0;
 }

@@ -9,28 +9,30 @@ class ProjectComponent extends SimpleBlockComponent {
 		$image->setClass('projectPicture');
 		$this->addComponent($image);
 		
-		$infos = new SimpleTextComponent();
-		$infos->setClass('projectInfos');
-		$infos->addLine("<b>Titre Original</b> ".$project->getOriginalName());
-		if ($project->hasOfficialWebsite()) {
-			$text = new SimpleTextComponent("<b>Site officiel</b> ");
-			$text->addComponent($project->getOfficialWebsite());
-			$infos->addLine($text);
-		}
-		$infos->addLine("<b>Année de production</b> ".$project->getAiringYear());
-		if ($project->getStudio() != null) {
-			$infos->addLine("<b>Studio</b> ".$project->getStudio());
-		}
-		if ($project->getAuthor() != null) {
-			$infos->addLine("<b>Auteur</b> ".$project->getAuthor());
-		}
-		$infos->addLine("<b>Genre</b> ".($project->isDoujin() ? "Doujin" : $project->getGenre()));
-		$infos->addLine("<b>Synopsis</b> ".$project->getSynopsis());
 		$this->addComponent(new Title("Informations générales", 2));
 		if ($project->hasExternalSource()) {
 			$subtitle = new Title("Source : ", 4);
 			$subtitle->addComponent($project->getExternalSource());
 			$this->addComponent($subtitle);
+		}
+		
+		$array = array(
+			array("Titre Original", $project->getOriginalName()),
+			array("Site officiel", $project->getOfficialWebsite()),
+			array("Année de production", $project->getAiringYear()),
+			array("Studio", $project->getStudio()),
+			array("Auteur", $project->getAuthor()),
+			array("Genre", $project->getGenre()),
+			array("Synopsis", $project->getSynopsis()),
+		);
+		$infos = new SimpleTextComponent();
+		$infos->setClass('projectInfos');
+		foreach($array as $data) {
+			if ($data[1] !== null) {
+				$text = new SimpleTextComponent("<b>".$data[0]."</b> ");
+				$text->addComponent($data[1]);
+				$infos->addLine($text);
+			}
 		}
 		$this->addComponent($infos);
 		
@@ -59,13 +61,24 @@ class ProjectComponent extends SimpleBlockComponent {
 			
 			$list = new ProjectList();
 			$list->useImage(true);
-			foreach($linkedProjects as $project) {
-				$list->addComponent($project);
+			foreach($linkedProjects as $link) {
+				$list->addComponent($link);
 			}
 			$this->addComponent($list);
 		}
 		
-		
+		$skins = $project->getSkins();
+		if (!empty($skins)) {
+			$this->addComponent("<p></p>");
+			$this->addComponent(new Title("Bonus : Thèmes pour Firefox (Skin Persona)", 2));
+			
+			$list = new SimpleListComponent();
+			$list->setClass('skinList');
+			foreach($skins as $skin) {
+				$list->addComponent($skin);
+			}
+			$this->addComponent($list);
+		}
 	}
 	
 	public function sortReleases(Release $a, Release $b) {

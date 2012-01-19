@@ -22,10 +22,19 @@ class Project {
 	private $isHentai = false;
 	private $isDoujin = false;
 	private $isHidden = false;
+	private $skins = array();
 	
 	public function __construct($id = null, $name = null) {
 		$this->setID($id);
 		$this->setName($name);
+	}
+	
+	public function addSkin($skin) {
+		$this->skins[] = $skin;
+	}
+	
+	public function getSkins() {
+		return $this->skins;
 	}
 	
 	public function setGenre($genre) {
@@ -248,9 +257,9 @@ class Project {
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
-			$kimikiss = new Project("kimikiss", "Kimikiss Pure Rouge");
-			$kimikiss->setAbandonned(true);
-			Project::$allProjects[] = $kimikiss;
+			$project = new Project("kimikiss", "Kimikiss Pure Rouge");
+			$project->setAbandonned(true);
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomo", "Kodomo no Jikan");
 			$project->setFinished(true);
@@ -310,10 +319,6 @@ class Project {
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("potemayooav", "Potemayo OAV");
-			$project->setFinished(true);
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("sketchbook", "Sketchbook ~full colors~");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -365,6 +370,7 @@ class Project {
 			$project->setOriginalName("ERIKO");
 			$project->setAiringYear(2007);
 			$project->setAuthor("Gunma Kisaragi");
+			$project->setGenre("Hentai");
 			$project->setSynopsis("Parodie hentaï de Kimikiss pure rouge mettant en scène Futami Eriko, l'intello, continuant ses expèriences encore plus profondément avec Kazuki.");
 			$project->setHentai(true);
 			$project->setDoujin(true);
@@ -375,6 +381,7 @@ class Project {
 			$project->setOriginalName("Kore ga Oresama no Maidtachi");
 			$project->setAiringYear(2007);
 			$project->setAuthor("Yukimihonpo");
+			$project->setGenre("Hentai");
 			$project->setSynopsis("Parodie hentaï He is my master. Yoshitaka est malade et les médicaments qu'Izumi va lui donner vont le remettre d'aplomb, ainsi que son penis ! Il va tout faire pour avoir Izumi mais va finalement se rattraper sur les deux autres.");
 			$project->setHentai(true);
 			$project->setDoujin(true);
@@ -413,6 +420,17 @@ class Project {
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
+			$project = new Project("potemayooav", "Potemayo OAV");
+			$project->setOriginalName("Potemayo Special");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.potemayo.com/", "Potemayo.com"));
+			$project->setAiringYear(2008);
+			$project->setStudio(Link::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
+			$project->setGenre("Comédie");
+			$project->setSynopsis("De petites aventures arrivent à Potemayo dans ces épisodes bonus de la série Potemayo.");
+			$project->addSkin(Link::newWindowLink("http://www.getpersonas.com/en-US/persona/208619", new Image("http://getpersonas-cdn.mozilla.net/static/1/9/208619/preview.jpg?1273490832", "Potemayo theme skin persona mozilla firefox")));
+			$project->setFinished(true);
+			Project::$allProjects[] = $project;
 		}
 		
 		return Project::$allProjects;
