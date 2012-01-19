@@ -6007,6 +6007,162 @@ class Release {
 			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=L6INSFLM"), "Megavideo"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep1");
+			$release->setName("épisode 01");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep2");
+			$release->setName("épisode 02");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep3");
+			$release->setName("épisode 03");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep4");
+			$release->setName("épisode 04");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep5");
+			$release->setName("épisode 05");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep6");
+			$release->setName("épisode 06");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep7");
+			$release->setName("épisode 07");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep8");
+			$release->setName("épisode 08");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep9");
+			$release->setName("épisode 09");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep10");
+			$release->setName("épisode 10");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep11");
+			$release->setName("épisode 11");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep12");
+			$release->setName("épisode 12");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("denpa"), "ep13");
+			$release->setName("épisode 13");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep1");
+			$release->setName("épisode 01");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep2");
+			$release->setName("épisode 02");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep3");
+			$release->setName("épisode 03");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep4");
+			$release->setName("épisode 04");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep5");
+			$release->setName("épisode 05");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep6");
+			$release->setName("épisode 06");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep7");
+			$release->setName("épisode 07");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep8");
+			$release->setName("épisode 08");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep9");
+			$release->setName("épisode 09");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep10");
+			$release->setName("épisode 10");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep11");
+			$release->setName("épisode 11");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep12");
+			$release->setName("épisode 12");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working"), "ep13");
+			$release->setName("épisode 13");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep1");
+			$release->setName("épisode 01");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep2");
+			$release->setName("épisode 02");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep3");
+			$release->setName("épisode 03");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep4");
+			$release->setName("épisode 04");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep5");
+			$release->setName("épisode 05");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep6");
+			$release->setName("épisode 06");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep7");
+			$release->setName("épisode 07");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep8");
+			$release->setName("épisode 08");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep9");
+			$release->setName("épisode 09");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep10");
+			$release->setName("épisode 10");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep11");
+			$release->setName("épisode 11");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep12");
+			$release->setName("épisode 12");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("working2"), "ep13");
+			$release->setName("épisode 13");
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}

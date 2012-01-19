@@ -21,13 +21,18 @@ e nourrit pratiquement que de pizzas et pense &ecirc;tre un extraterrestre.
 
 
 <?php
-for ($i = 1; $i <= 13; $i++)
-{
-  $file = "episodes/denpa" . $i . ".php";
-  if (file_exists($file))
-    require($file);
-  else
-    echo '<h6>Denpa Onna To Seishun Otoko &Eacute;pisode '.($i < 10 ? '0' : '').$i.' - Non disponible</h6>';
-}
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
+
+	$releases = Release::getAllReleasesForProject('denpa');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
 ?>
 <p></p>

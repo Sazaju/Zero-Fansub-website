@@ -19,13 +19,18 @@
 
 
 <?php
-for ($i = 1; $i <= 13; $i++)
-{
-  $file = "episodes/working2" . $i . ".php";
-  if (file_exists($file))
-    require($file);
-  else
-    echo '<h6>Working!! 2 &Eacute;pisode '.($i < 10 ? '0' : '').$i.' - Non disponible</h6>';
-}
+	function sortReleases(Release $a, Release $b) {
+		return strnatcmp($a->getID(), $b->getID());
+	}
+
+	$releases = Release::getAllReleasesForProject('working2');
+	usort($releases, 'sortReleases');
+	$list = new SimpleListComponent();
+	$list->setClass("releaseList");
+	foreach($releases as $release)
+	{
+		$list->addComponent(new ReleaseComponent($release));
+	}
+	$list->writeNow();
 ?>
 <p></p>
