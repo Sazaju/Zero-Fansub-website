@@ -82,7 +82,13 @@ class ProjectComponent extends SimpleBlockComponent {
 		}
 		
 		$this->addComponent("<p></p>");
-		$this->addComponent(Link::newWindowLink("http://zero.xooit.fr/posting.php?mode=reply&t=120", new Image("images/interface/avis.png", "Donne ton avis sur le forum !")));
+		$url = $project->getDiscussionUrl();
+		if ($url == null) {
+			$url = new Url("http://zero.xooit.fr/posting.php?mode=reply&t=120");
+		}
+		$link = Link::newWindowLink($url, new Image("images/interface/avis.png", "Donne ton avis sur le forum !"));
+		$link->setClass('discussionLink');
+		$this->addComponent($link);
 	}
 	
 	public function sortReleases(Release $a, Release $b) {

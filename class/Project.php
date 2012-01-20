@@ -23,7 +23,7 @@ class Project {
 	private $isDoujin = false;
 	private $isHidden = false;
 	private $skins = array();
-	private $forumID = null;
+	private $discussionUrl = null;
 	private $vosta = null;
 	
 	public function __construct($id = null, $name = null) {
@@ -39,12 +39,12 @@ class Project {
 		return $this->vosta;
 	}
 	
-	public function setForumID($id) {
-		$this->forumID = $id;
+	public function setDiscussionUrl($url) {
+		$this->discussionUrl = new Url($url);
 	}
 	
-	public function getForumID() {
-		return $this->forumID;
+	public function getDiscussionUrl() {
+		return $this->discussionUrl;
 	}
 	
 	public function addSkin($skin) {
@@ -306,11 +306,6 @@ class Project {
 			$project->setStarted(true);
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
-
-			$project = new Project("mermaid", "Mermaid Melody Pichi Pichi Pitch");
-			$project->setAbandonned(true);
-			$project->setLicense(License::getDefaultLicense());
-			Project::$allProjects[] = $project;
 			
 			$project = new Project("mitsudomoe", "Mitsudomoe");
 			$project->setOriginalName("Mitsudomoe");
@@ -489,6 +484,21 @@ class Project {
 			$project->setGenre("Hentai");
 			$project->setSynopsis("Vous avez aimez L'entraînement avec Hinako ? Vous aimerez sûrement sa parodie Hentaï, \"faisons l'amour ensemble\" ! Aujourd'hui, c'est avec vous que notre jolie héroïne fait l'amour... Vous, et vous seul ! Profitez-en ;)");
 			$project->setHentai(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("mermaid", "Mermaid Melody Pichi Pichi Pitch");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Mermaid Melody Pichi Pichi Pitch");
+			$project->setOfficialWebsite(Link::newWindowLink("http://p-hanamori.cool.ne.jp/", "Lips"));
+			$project->setAiringYear(2003);
+			$project->setStudio(Link::newWindowLink("http://www.tokyu-agc.co.jp/", "Tokyo Agency"));
+			$project->setGenre("Comédie - Magical Girl - Ecchi");
+			$project->setAuthor("Pink Hanamori");
+			$project->setSynopsis("Luchia, une jeune sirène, a sauvé dans son enfance un garçon du même âge qu'elle qui était en train de se noyer et lui a mis au cou un médaillon. Quelques années plus tard, elle gagne la terre ferme dans l'espoir de retrouver celui qu'elle a toujours aimé. Le jeune collégien en question qui est devenu un surfer participant à des concours invite Luchia et sa copine Hanon pour la revoir lors de sa prochaine compétition, mais les Forces du Mal aquatiques vont venir semer le trouble...");
+			$project->setVosta("Lunar anime");
+			$project->setDiscussionUrl("http://zero.xooit.fr/t148-Ton-avis-sur-Mermaid-Melody-Pichi-Pichi-Pich-la-serie-en-general.htm");
+			$project->setAbandonned(true);
+			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 		}
 		

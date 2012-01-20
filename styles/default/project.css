@@ -111,3 +111,10 @@
 	display: inline;
 	margin-right: 1em;
 }
+
+#page .discussionLink {
+	display:block;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
