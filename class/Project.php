@@ -356,9 +356,6 @@ class Project {
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("working2", "Working!! 2");
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("hshiyo", "Faisons l'amour ensemble !");
 			$project->setHentai(true);
 			Project::$allProjects[] = $project;
@@ -478,6 +475,16 @@ class Project {
 			$project->setGenre("Comédie");
 			$project->setSynopsis("Takanashi Souta est un lycéen qui a une passion pour les petites choses mignonnes. Quand une fille, Taneshima Popla, l'aborde dans la rue et lui demande si il cherche un travail à mi-temps, il la trouve mignonne car elle ressemble à une collégienne, peut-être même une écolière. Mais il se rend compte quelle a un an de plus que lui. Passant par dessus ce détail, il accepte le travail à mi-temps car elle est toute petite et craquante à souhait. Il commence donc à travailler dans un restaurant familial, mais on peut dire que le personnel est unique ici !");
 			Project::$allProjects[] = $project;
+			
+			$project = new Project("working2", "Working!! 2");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Working!! 2");
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.wagnaria.com/", "Wagnaria.com"));
+			$project->setAiringYear(2011);
+			$project->setStudio("A-1 Pictures Inc");
+			$project->setGenre("Comédie");
+			$project->setSynopsis("Takanashi Souta est un lycéen qui a une passion pour les petites choses mignonnes. Quand une fille, Taneshima Popla, l'aborde dans la rue et lui demande si il cherche un travail à mi-temps, il la trouve mignonne car elle ressemble à une collégienne, peut-être même une écolière. Mais il se rend compte quelle a un an de plus que lui. Passant par dessus ce détail, il accepte le travail à mi-temps car elle est toute petite et craquante à souhait. Il commence donc à travailler dans un restaurant familial, mais on peut dire que le personnel est unique ici !");
+			Project::$allProjects[] = $project;
 		}
 		
 		return Project::$allProjects;
@@ -518,6 +525,7 @@ class Project {
 			Project::$allLinks = array();
 			
 			Project::$allLinks[] = array(Project::getProject('eriko'), Project::getProject('kimikiss'));
+			Project::$allLinks[] = array(Project::getProject('working'), Project::getProject('working2'));
 			Project::$allLinks[] = array(Project::getProject('kissxsis'), Project::getProject('kissxsisoav'));
 			Project::$allLinks[] = array(Project::getProject('hyakko'), Project::getProject('hyakkooav'));
 			Project::$allLinks[] = array(Project::getProject('toradora'), Project::getProject('toradorasos'));
