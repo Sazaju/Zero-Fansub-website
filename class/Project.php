@@ -356,10 +356,6 @@ class Project {
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("hshiyo", "Faisons l'amour ensemble !");
-			$project->setHentai(true);
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("eriko", "ERIKO");
 			$project->setOriginalName("ERIKO");
 			$project->setAiringYear(2007);
@@ -484,6 +480,15 @@ class Project {
 			$project->setStudio("A-1 Pictures Inc");
 			$project->setGenre("Comédie");
 			$project->setSynopsis("Takanashi Souta est un lycéen qui a une passion pour les petites choses mignonnes. Quand une fille, Taneshima Popla, l'aborde dans la rue et lui demande si il cherche un travail à mi-temps, il la trouve mignonne car elle ressemble à une collégienne, peut-être même une écolière. Mais il se rend compte quelle a un an de plus que lui. Passant par dessus ce détail, il accepte le travail à mi-temps car elle est toute petite et craquante à souhait. Il commence donc à travailler dans un restaurant familial, mais on peut dire que le personnel est unique ici !");
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("hshiyo", "Faisons l'amour ensemble !");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Issho ni H shiyo");
+			$project->setAiringYear(2009);
+			$project->setGenre("Hentai");
+			$project->setSynopsis("Vous avez aimez L'entraînement avec Hinako ? Vous aimerez sûrement sa parodie Hentaï, \"faisons l'amour ensemble\" ! Aujourd'hui, c'est avec vous que notre jolie héroïne fait l'amour... Vous, et vous seul ! Profitez-en ;)");
+			$project->setHentai(true);
 			Project::$allProjects[] = $project;
 		}
 		
