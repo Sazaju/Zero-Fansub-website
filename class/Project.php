@@ -247,11 +247,6 @@ class Project {
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("training", "Isshoni Training - L'entra&icirc;nement avec Hinako");
-			$project->setFinished(true);
-			$project->setLicense(License::getDefaultLicense());
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("kanamemo", "Kanamemo");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -464,6 +459,17 @@ class Project {
 			$project->setVosta(Link::newWindowLink("http://www.killer-maid.net", "Killer maid"));
 			$project->setHentai(true);
 			$project->setHidden(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("training", "Isshoni Training - L'entra&icirc;nement avec Hinako");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Isshoni Training");
+			$project->setAiringYear(2009);
+			$project->setGenre("Ecchi");
+			$project->setSynopsis("Hinako est aspirée dans le monde des mangas alors qu'elle en regardait un à la télévision. C'est ainsi que commence sa vie en tant que personnage d'anime, tandis que le spectateur est sans cesse sollicité pour des exercices physiques de remise en forme, avec une caméra à la première personne.");
+			$project->setVosta("Boobz");
+			$project->setFinished(true);
+			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 		}
 		
