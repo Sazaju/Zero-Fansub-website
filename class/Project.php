@@ -23,10 +23,28 @@ class Project {
 	private $isDoujin = false;
 	private $isHidden = false;
 	private $skins = array();
+	private $forumID = null;
+	private $vosta = null;
 	
 	public function __construct($id = null, $name = null) {
 		$this->setID($id);
 		$this->setName($name);
+	}
+	
+	public function setVosta($vosta) {
+		$this->vosta = $vosta;
+	}
+	
+	public function getVosta() {
+		return $this->vosta;
+	}
+	
+	public function setForumID($id) {
+		$this->forumID = $id;
+	}
+	
+	public function getForumID() {
+		return $this->forumID;
 	}
 	
 	public function addSkin($skin) {
@@ -349,20 +367,7 @@ class Project {
 			$project = new Project("working2", "Working!! 2");
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("akinahshiyo", "Akina To Onsen De H Shiyo !");
-			$project->setHentai(true);
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("hshiyo", "Faisons l'amour ensemble !");
-			$project->setHentai(true);
-			Project::$allProjects[] = $project;
-			
-			$project = new Project("alignment", "Alignment You ! You ! The Animation");
-			$project->setHentai(true);
-			$project->setHidden(true);
-			Project::$allProjects[] = $project;
-			
-			$project = new Project("konoe", "Konoe no Jikan");
 			$project->setHentai(true);
 			Project::$allProjects[] = $project;
 			
@@ -430,6 +435,35 @@ class Project {
 			$project->setSynopsis("De petites aventures arrivent à Potemayo dans ces épisodes bonus de la série Potemayo.");
 			$project->addSkin(Link::newWindowLink("http://www.getpersonas.com/en-US/persona/208619", new Image("http://getpersonas-cdn.mozilla.net/static/1/9/208619/preview.jpg?1273490832", "Potemayo theme skin persona mozilla firefox")));
 			$project->setFinished(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("konoe", "Konoe no Jikan");
+			$project->setOriginalName("Konoe no Jikan");
+			$project->setAiringYear(2008);
+			$project->setGenre("Porno");
+			$project->setSynopsis("Parodie pornographique de Kodomo no Jikan.");
+			$project->setHentai(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("akinahshiyo", "Akina To Onsen De H Shiyo !");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Akina To Onsen De H Shiyo");
+			$project->setAiringYear(2011);
+			$project->setGenre("Hentai");
+			$project->setHentai(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("alignment", "Alignment You ! You ! The Animation");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Alignment You ! You ! The Animation");
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.pinkpineapple.co.jp/web/alignment/", "Pinkpineapple.co.jp"));
+			$project->setAiringYear(2008);
+			$project->setStudio(Link::newWindowLink("http://www.pinkpineapple.co.jp/", "Pinkpineapple"));
+			$project->setGenre("Hentai");
+			$project->setSynopsis("Takahashi, jeune lycéenne, se masturbe furieusement dans la salle de cours devant l'homme qu'elle aime, Oohara. Mais personne ne remarque la lubrique jeune femme ! Et pour cause : elle est déjà morte...");
+			$project->setVosta(Link::newWindowLink("http://www.killer-maid.net", "Killer maid"));
+			$project->setHentai(true);
+			$project->setHidden(true);
 			Project::$allProjects[] = $project;
 		}
 		

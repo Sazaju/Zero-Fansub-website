@@ -24,6 +24,7 @@ class ProjectComponent extends SimpleBlockComponent {
 			array("Auteur", $project->getAuthor()),
 			array("Genre", $project->getGenre()),
 			array("Synopsis", $project->getSynopsis()),
+			array("Vosta", $project->getVosta()),
 		);
 		$infos = new SimpleTextComponent();
 		$infos->setClass('projectInfos');
@@ -79,6 +80,9 @@ class ProjectComponent extends SimpleBlockComponent {
 			}
 			$this->addComponent($list);
 		}
+		
+		$this->addComponent("<p></p>");
+		$this->addComponent(Link::newWindowLink("http://zero.xooit.fr/posting.php?mode=reply&t=120", new Image("images/interface/avis.png", "Donne ton avis sur le forum !")));
 	}
 	
 	public function sortReleases(Release $a, Release $b) {
