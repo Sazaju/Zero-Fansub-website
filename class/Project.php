@@ -322,10 +322,6 @@ class Project {
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("tayutamapure", "Tayutama - Kiss on my Deity - Pure My Heart");
-			$project->setFinished(true);
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("toradora", "Toradora!");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -546,6 +542,26 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a target="_blank" href="http://www.getpersonas.com/en-US/persona/233236"><img src="http://getpersonas-cdn.mozilla.net/static/3/6/233236/preview.jpg?1277047781" border="0" alt="Mayoi Neko Overrun! theme skin persona mozilla firefox" /></a>'));
 			$project->setStarted(true);
 			$project->setRunning(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("tayutamapure", "Tayutama - Kiss on my Deity - Pure My Heart");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Tayutama -Kiss on my Deity- Pure My Heart");
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.tayutama.com/", "Tayutama.com"));
+			$project->setAiringYear(2009);
+			$project->setStudio("Silver Link");
+			$project->setGenre("Amour et Amitié");
+			$project->setSynopsis("Les épisodes Bonus DVD de la série Tayutama -Kiss on my Deity-.");
+			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
+<p>
+	<a href="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Cover.jpg" target="_blank">
+	<img src="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Cover.png" alt="Jaquette DVD" border="0" width="200" /></a> 
+	<a href="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Label.jpg" target="_blank">
+	<img src="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Label.png" alt="Jaquette DVD" border="0" width="200" /></a> 
+</p>'));
+			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/236444"><img src="http://getpersonas-cdn.mozilla.net/static/4/4/236444/preview.jpg?1277397610" border="0" alt="Tayutama Kiss on my Deity theme skin persona mozilla firefox" /></a> 
+<a target="_blank" href="http://www.getpersonas.com/en-US/persona/260878"><img src="http://getpersonas-cdn.mozilla.net/static/7/8/260878/preview.jpg?1279817830" border="0" alt="Tayutama Kiss on my Deity theme skin persona mozilla firefox" /></a>'));
+			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 		}
 		
