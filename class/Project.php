@@ -24,7 +24,7 @@ class Project {
 	private $isHidden = false;
 	private $discussionUrl = null;
 	private $vosta = null;
-	private $bonuses = null;
+	private $bonuses = array();
 	
 	public function __construct($id = null, $name = null) {
 		$this->setID($id);
@@ -241,10 +241,6 @@ class Project {
 			$project = new Project("hyakko", "Hyakko");
 			$project->setFinished(true);
 			$project->setLicense(new License("Wakanim"));
-			Project::$allProjects[] = $project;
-			
-			$project = new Project("hyakkooav", "Hyakko OAV");
-			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kanamemo", "Kanamemo");
@@ -521,6 +517,23 @@ Comme s'il n'avait rien vu de spécial celui-ci ferme la porte sans porter plus d
 Et c'est dès lors qu'à se moment, les gags et situations humoristiques apparaissent !");
 			$project->setVosta("<a href=\"http://fansubs.anime-share.net/\" target=\"_blank\">Anime-Share fansub</a> et Anoymous");
 			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", Link::newWindowLink("http://www.getpersonas.com/en-US/persona/208619", new Image("http://getpersonas-cdn.mozilla.net/static/1/9/208619/preview.jpg?1273490832", "Potemayo theme skin persona mozilla firefox"))));
+			$project->setFinished(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("hyakkooav", "Hyakko OAV");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Hyakko Extra");
+			$project->setOfficialWebsite(Link::newWindowLink("http://hyakko.jp/", "Hyakko.jp"));
+			$project->setAiringYear(2009);
+			$project->setStudio("Nippon Animation");
+			$project->setGenre("Comédie");
+			$project->setAuthor("Katoh Aruaki");
+			$project->setSynopsis("Torako invite Toma dans un café manger des patisseries.");
+			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
+Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
+<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20Original%20Soundtrack.zip.torrent">[Nipponsei] Hyakko Original Soundtrack.zip</a><br />
+<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20OP%20Single%20-%20Suppin%20Rock%20%5BOgawa%20Mana%5D.zip.torrent">[Nipponsei] Hyakko OP Single - Suppin Rock [Ogawa Mana].zip</a><br />
+<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20ED%20Single%20-%20Namida%20Namida%20Namida%20%5BHirano%20Aya%5D.zip.torrent">[Nipponsei] Hyakko ED Single - Namida Namida Namida [Hirano Aya].zip</a>'));
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 		}
