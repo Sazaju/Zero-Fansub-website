@@ -68,19 +68,6 @@ class ProjectComponent extends SimpleBlockComponent {
 			$this->addComponent($list);
 		}
 		
-		$skins = $project->getSkins();
-		if (!empty($skins)) {
-			$this->addComponent("<p></p>");
-			$this->addComponent(new Title("Bonus : Thèmes pour Firefox (Skin Persona)", 2));
-			
-			$list = new SimpleListComponent();
-			$list->setClass('skinList');
-			foreach($skins as $skin) {
-				$list->addComponent($skin);
-			}
-			$this->addComponent($list);
-		}
-		
 		foreach($project->getBonuses() as $bonus) {
 			$this->addComponent("<p></p>");
 			$this->addComponent(new Title("Bonus : ".$bonus->getTitle(), 2));

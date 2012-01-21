@@ -1,6 +1,6 @@
 <?php
 /*
-	A project is a complete presentation of a specific projet of the team.
+	A project is a set of data concerning a specific project (set of releases).
 */
 
 class Project {
@@ -22,7 +22,6 @@ class Project {
 	private $isHentai = false;
 	private $isDoujin = false;
 	private $isHidden = false;
-	private $skins = array();
 	private $discussionUrl = null;
 	private $vosta = null;
 	private $bonuses = null;
@@ -54,14 +53,6 @@ class Project {
 	
 	public function getDiscussionUrl() {
 		return $this->discussionUrl;
-	}
-	
-	public function addSkin($skin) {
-		$this->skins[] = $skin;
-	}
-	
-	public function getSkins() {
-		return $this->skins;
 	}
 	
 	public function setGenre($genre) {
@@ -328,10 +319,6 @@ class Project {
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("potemayo", "Potemayo");
-			$project->setFinished(true);
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("sketchbook", "Sketchbook ~full colors~");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -418,7 +405,7 @@ class Project {
 			$project->setStudio(Link::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
 			$project->setGenre("Comédie");
 			$project->setSynopsis("De petites aventures arrivent à Potemayo dans ces épisodes bonus de la série Potemayo.");
-			$project->addSkin(Link::newWindowLink("http://www.getpersonas.com/en-US/persona/208619", new Image("http://getpersonas-cdn.mozilla.net/static/1/9/208619/preview.jpg?1273490832", "Potemayo theme skin persona mozilla firefox")));
+			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", Link::newWindowLink("http://www.getpersonas.com/en-US/persona/208619", new Image("http://getpersonas-cdn.mozilla.net/static/1/9/208619/preview.jpg?1273490832", "Potemayo theme skin persona mozilla firefox"))));
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -519,6 +506,21 @@ class Project {
 <img src='http://zerofansub.net/images/news/theme_nanami.png' border='0' alt='Themepack Thème Windows 7 de Nanami Madobe à télécharger download gratuit' />
 </a>"));
 			$project->addBonus(new ProjectBonus("Pack d'images", Link::newWindowLink("http://zerofansub.net/galerie/index.php?spgmGal=Zero_fansub/Images/Nanami%20Madobe", new Image("http://zerofansub.net/images/news/galerie_nanami.png", "Galerie d'images Nanami Madobe"))));
+			$project->setFinished(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("potemayo", "Potemayo");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Potemayo");
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.potemayo.com/", "Potemayo.com"));
+			$project->setAiringYear(2007);
+			$project->setStudio(Link::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
+			$project->setGenre("Comédie");
+			$project->setSynopsis("Sunao Moriyama, se préparant à partir à l'école, ouvre la porte de son frigo afin de déjeuner, hors celui-ci tombe nez à nez avec une drôle de créature plus ou moins semblable à un \"bébé\".
+Comme s'il n'avait rien vu de spécial celui-ci ferme la porte sans porter plus d'attention à la créature en ayant au préalable saisi son déjeuné, celui-ci portant le nom de \"Potemayo\", il surnommera la créature \"Potemayo\".
+Et c'est dès lors qu'à se moment, les gags et situations humoristiques apparaissent !");
+			$project->setVosta("<a href=\"http://fansubs.anime-share.net/\" target=\"_blank\">Anime-Share fansub</a> et Anoymous");
+			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", Link::newWindowLink("http://www.getpersonas.com/en-US/persona/208619", new Image("http://getpersonas-cdn.mozilla.net/static/1/9/208619/preview.jpg?1273490832", "Potemayo theme skin persona mozilla firefox"))));
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 		}
