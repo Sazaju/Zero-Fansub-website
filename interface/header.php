@@ -7,7 +7,12 @@ class Sortie extends ReleaseLink {
 	}
 }
 
-$completeList = Release::getAllReleases();
+$completeList = null;
+if ($_SESSION[MODE_H]) {
+	$completeList = Release::getHentaiReleases();
+} else {
+	$completeList = Release::getNotHentaiReleases();
+}
 usort($completeList, array('Release', 'releasingSorter'));
 
 $list = new SimpleListComponent();

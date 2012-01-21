@@ -16,7 +16,7 @@
 	$okLink->setContent("Montrer les machins dégoutants");
 	$url = $okLink->getUrl();
 	$url->removeQueryVar(DISPLAY_H_AVERT);
-	$url->setQueryVar(DISPLAY_H, true);
+	$url->setQueryVar(MODE_H, true);
 	$content->addComponent($okLink);
 	
 	$cancelLink = new Link(Url::indexUrl(), "Garder mon écran propre");

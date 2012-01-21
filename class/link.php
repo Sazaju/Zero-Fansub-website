@@ -78,11 +78,11 @@ class Link extends DefaultHtmlComponent {
 	public static function CreateHentaiAccessLink($toHentaiString = "Hentaï", $toEveryoneString = "Tout public") {
 		$hentaiLink = new Link();
 		$url = $hentaiLink->getUrl();
-		if ($_SESSION[DISPLAY_H] == false) {
+		if ($_SESSION[MODE_H] == false) {
 			$url->setQueryVar(DISPLAY_H_AVERT);
 			$hentaiLink->setContent($toHentaiString);
 		} else {
-			$url->setQueryVar(DISPLAY_H, false);
+			$url->setQueryVar(MODE_H, false);
 			$hentaiLink->setContent($toEveryoneString);
 		}
 		return $hentaiLink;

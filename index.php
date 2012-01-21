@@ -125,7 +125,7 @@ if (TEST_MODE_ACTIVATED) {
 \**********************************/
 
 define('WEBSITE_VERSION', exec('git tag'));
-define('DISPLAY_H', 'displayH');
+define('MODE_H', 'modeH');
 define('DISPLAY_H_AVERT', 'displayHavert');
 
 /**********************************\
@@ -134,14 +134,14 @@ define('DISPLAY_H_AVERT', 'displayHavert');
 
 session_start();
 
-if (isset($_GET[DISPLAY_H])) {
-	$_SESSION[DISPLAY_H] = $_GET[DISPLAY_H];
+if (isset($_GET[MODE_H])) {
+	$_SESSION[MODE_H] = $_GET[MODE_H];
 	$url = Url::getCurrentUrl();
-	$url->removeQueryVar(DISPLAY_H);
+	$url->removeQueryVar(MODE_H);
 	header('Location: '.$url->toString());
 	exit();
-} else if (!isset($_SESSION[DISPLAY_H])) {
-	$_SESSION[DISPLAY_H] = false;
+} else if (!isset($_SESSION[MODE_H])) {
+	$_SESSION[MODE_H] = false;
 } else {
 	// let the state as is
 }
@@ -223,7 +223,7 @@ if (isset($_GET[DISPLAY_H])) {
 						if (strcmp($parts[0], 'series') === 0) {
 							$project = Project::getProject($parts[1]);
 							
-							if ($project->isHentai() && $_SESSION[DISPLAY_H] == false) {
+							if ($project->isHentai() && $_SESSION[MODE_H] == false) {
 								require_once("pages/havert.php");
 							}
 							else {

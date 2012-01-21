@@ -6177,6 +6177,26 @@ class Release {
 		return $list;
 	}
 	
+	public static function getHentaiReleases() {
+		$list = array();
+		foreach(Release::getAllReleases() as $release) {
+			if ($release->getProject()->isHentai()) {
+				$list[] = $release;
+			}
+		}
+		return $list;
+	}
+	
+	public static function getNotHentaiReleases() {
+		$list = array();
+		foreach(Release::getAllReleases() as $release) {
+			if (!$release->getProject()->isHentai()) {
+				$list[] = $release;
+			}
+		}
+		return $list;
+	}
+	
 	public static function getRelease($projectId, $releaseId) {
 		foreach(Release::getAllReleasesForProject($projectId) as $release) {
 			if ($release->getID() === $releaseId) {
