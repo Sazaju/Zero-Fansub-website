@@ -4,25 +4,41 @@
 */
 
 class ProjectList extends SimpleListComponent {
+	private $projects = array();
+	
+	public function addProject(Project $project) {
+		$this->projects[] = $project;
+	}
+	
+	public function getProjects() {
+		return $this->projects;
+	}
+	
+	public function sortByNames() {
+		usort($this->projects, array('Project', 'nameSorter'));
+	}
+}
+
+class ProjectListComponent extends SimpleListComponent {
 	private $useImage = false;
 	
-	public function __construct() {
+	public function __construct(ProjectList $list = null) {
 		$this->updateClass();
+		if ($list !== null) {
+			foreach($list->getProjects() as $project) {
+				$this->addComponent(new ProjectLink($project));
+			}
+		}
 	}
 	
 	public function addComponent($project) {
 		if ($project instanceof ProjectLink) {
-			// nothing to do
-		}
-		else if ($project instanceof Project) {
-			$project = new ProjectLink($project);
+			$project->useImage($this->useImage);
+			parent::addComponent($project);
 		}
 		else {
-			throw new Exception("Cannot take components other than projects and project links.");
+			throw new Exception("Cannot take components other than project links.");
 		}
-		
-		$project->useImage($this->useImage);
-		parent::addComponent($project);
 	}
 	
 	public function useImage($boolean) {

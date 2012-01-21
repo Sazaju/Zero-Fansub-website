@@ -1446,6 +1446,12 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
 		
 		return $list;
 	}
+	
+	public static function nameSorter(Project $a, Project $b) {
+		$na = $a->getName();
+		$nb = $b->getName();
+		return strcmp($na, $nb);
+	}
 }
 
 class ProjectBonus {

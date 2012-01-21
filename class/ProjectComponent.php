@@ -64,12 +64,15 @@ class ProjectComponent extends SimpleBlockComponent {
 		
 		$linkedProjects = Project::getProjectsLinkedTo($project);
 		if (!empty($linkedProjects)) {
-			
+			$this->addComponent("<p></p>");
+			$this->addComponent(new Title("Voir aussi", 2));
 			$list = new ProjectList();
-			$list->useImage(true);
 			foreach($linkedProjects as $link) {
-				$list->addComponent($link);
+				$list->addProject($link);
 			}
+			$list->sortByNames();
+			$list = new ProjectListComponent($list);
+			$list->useImage(true);
 			$this->addComponent($list);
 		}
 		

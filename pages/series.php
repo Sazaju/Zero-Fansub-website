@@ -35,51 +35,61 @@
 	
 	$page->addComponent(new Title("Projets en cours", 3));
 	$list = new ProjectList();
-	$list->useImage($useImageLists);
-	$page->addComponent($list);
 	foreach($notLicensedProjects as $project) {
 		if ($project->isRunning()) {
-			$list->addComponent($project);
+			$list->addProject($project);
 		}
 	}
+	$list->sortByNames();
+	$list = new ProjectListComponent($list);
+	$list->useImage($useImageLists);
+	$page->addComponent($list);
 	
 	$page->addComponent(new Title("Projets terminés", 3));
 	$list = new ProjectList();
-	$list->useImage($useImageLists);
-	$page->addComponent($list);
 	foreach($notLicensedProjects as $project) {
 		if ($project->isFinished()) {
-			$list->addComponent($project);
+			$list->addProject($project);
 		}
 	}
+	$list->sortByNames();
+	$list = new ProjectListComponent($list);
+	$list->useImage($useImageLists);
+	$page->addComponent($list);
 
 	$page->addComponent(new Title("Projets abandonnés", 3));
 	$list = new ProjectList();
-	$list->useImage($useImageLists);
-	$page->addComponent($list);
 	foreach($notLicensedProjects as $project) {
 		if ($project->isAbandonned()) {
-			$list->addComponent($project);
+			$list->addProject($project);
 		}
 	}
+	$list->sortByNames();
+	$list = new ProjectListComponent($list);
+	$list->useImage($useImageLists);
+	$page->addComponent($list);
 
 	$page->addComponent(new Title("Projets envisagés", 3));
 	$list = new ProjectList();
-	$list->useImage($useImageLists);
-	$page->addComponent($list);
 	foreach($notLicensedProjects as $project) {
 		if (!$project->isStarted() && !$project->isAbandonned()) {
-			$list->addComponent($project);
+			$list->addProject($project);
 		}
 	}
+	$list->sortByNames();
+	$list = new ProjectListComponent($list);
+	$list->useImage($useImageLists);
+	$page->addComponent($list);
 
 	$page->addComponent(new Title("Licenciés", 2));
 	$list = new ProjectList();
+	foreach($licensedProjects as $project) {
+		$list->addProject($project);
+	}
+	$list->sortByNames();
+	$list = new ProjectListComponent($list);
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	foreach($licensedProjects as $project) {
-		$list->addComponent($project);
-	}
 	
 	$url = new Url();
 	$url->setQueryVar('page', 'havert');
