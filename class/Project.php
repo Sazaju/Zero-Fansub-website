@@ -25,10 +25,19 @@ class Project {
 	private $skins = array();
 	private $discussionUrl = null;
 	private $vosta = null;
+	private $bonuses = null;
 	
 	public function __construct($id = null, $name = null) {
 		$this->setID($id);
 		$this->setName($name);
+	}
+	
+	public function addBonus(ProjectBonus $bonus) {
+		$this->bonuses[] = $bonus;
+	}
+	
+	public function getBonuses() {
+		return $this->bonuses;
 	}
 	
 	public function setVosta($vosta) {
@@ -319,10 +328,6 @@ class Project {
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("nanami", "Nanami Madobe Windows 7 Publicit&eacute;");
-			$project->setFinished(true);
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("potemayo", "Potemayo");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -500,6 +505,22 @@ class Project {
 			$project->setAbandonned(true);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
+			
+			$project = new Project("nanami", "Nanami Madobe Windows 7 Publicit&eacute;");
+			$project->setOriginalName("Madobe Nanami Windows7 Comercial");
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.windows7-mania.jp/", "Windows7 Mania"));
+			$project->setAiringYear(2010);
+			$project->setStudio("Microsoft");
+			$project->setGenre("Publicité");
+			$project->setSynopsis("Nanami Madobe te présente Windows 7 et te donne des conseils pour mieux l'utiliser. Elle te montre aussi comment monter ton propre ordinateur.");
+			$project->setVosta(Link::newWindowLink("http://bssubs.net/", "BSS"));
+			$project->addBonus(new ProjectBonus("ThemePack", "Le thème de Nanami Madobe pour Windows 7 ! Pour l'installer, vous devez avoir Windows 7. Téléchargez le fichier puis double-cliquez dessus pour l'ouvrir. Le thème s'installera tout seul et Nanami vous dira \"Konichiwa ! Nanami desu.\".<br/>
+<a href='ddl/[Zero]_Windows_7_Nanami_Madobe_ThemePack.themepack' target='_blank'>
+<img src='http://zerofansub.net/images/news/theme_nanami.png' border='0' alt='Themepack Thème Windows 7 de Nanami Madobe à télécharger download gratuit' />
+</a>"));
+			$project->addBonus(new ProjectBonus("Pack d'images", Link::newWindowLink("http://zerofansub.net/galerie/index.php?spgmGal=Zero_fansub/Images/Nanami%20Madobe", new Image("http://zerofansub.net/images/news/galerie_nanami.png", "Galerie d'images Nanami Madobe"))));
+			$project->setFinished(true);
+			Project::$allProjects[] = $project;
 		}
 		
 		return Project::$allProjects;
@@ -593,6 +614,24 @@ class Project {
 		}
 		
 		return $list;
+	}
+}
+
+class ProjectBonus {
+	private $title = null;
+	private $content = null;
+	
+	public function __construct($title, $content) {
+		$this->title = $title;
+		$this->content = $content;
+	}
+	
+	public function getTitle() {
+		return $this->title;
+	}
+	
+	public function getContent() {
+		return $this->content;
 	}
 }
 ?>

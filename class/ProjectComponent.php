@@ -81,6 +81,12 @@ class ProjectComponent extends SimpleBlockComponent {
 			$this->addComponent($list);
 		}
 		
+		foreach($project->getBonuses() as $bonus) {
+			$this->addComponent("<p></p>");
+			$this->addComponent(new Title("Bonus : ".$bonus->getTitle(), 2));
+			$this->addComponent($bonus->getContent());
+		}
+		
 		$this->addComponent("<p></p>");
 		$url = $project->getDiscussionUrl();
 		if ($url == null) {
