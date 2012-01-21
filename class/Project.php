@@ -2,7 +2,7 @@
 /*
 	A project is a set of data concerning a specific project (set of releases).
 */
-
+// TODO add features to find identical/similar contents, in order to plan factoring
 class Project {
 	private $id = '';
 	private $name = '';
