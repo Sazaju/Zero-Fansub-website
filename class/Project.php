@@ -305,10 +305,6 @@ class Project {
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("sketchbook", "Sketchbook ~full colors~");
-			$project->setFinished(true);
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("toradora", "Toradora!");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -604,6 +600,25 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 </p>'));
 			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/236444"><img src="http://getpersonas-cdn.mozilla.net/static/4/4/236444/preview.jpg?1277397610" border="0" alt="Tayutama Kiss on my Deity theme skin persona mozilla firefox" /></a> 
 <a target="_blank" href="http://www.getpersonas.com/en-US/persona/260878"><img src="http://getpersonas-cdn.mozilla.net/static/7/8/260878/preview.jpg?1279817830" border="0" alt="Tayutama Kiss on my Deity theme skin persona mozilla firefox" /></a>'));
+			$project->setFinished(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("sketchbook", "Sketchbook ~full colors~");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Sketchbook - full color's");
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.sketch-full.net/", "Sketch-full.net"));
+			$project->setAiringYear(2007);
+			$project->setStudio(Link::newWindowLink("http://www.hal-film.co.jp/", "Hal film maker"));
+			$project->setGenre("Comédie");
+			$project->setAuthor("Kobako Totan");
+			$project->setSynopsis("Nous suivons la vie de Sora, une jeune adolescente très timide et qui, en raison de cela ne parle pas beaucoup. Donnant l’impression de vivre dans sa bulle, cette dernière a une passion pour le dessin. Ce penchant pour l’art l’entraîna à faire partie du club de dessin de son école où elle s’est fait plusieurs amies. Une des particularités de Sora est qu’elle ne quitte jamais son sketchbook afin de pouvoir retranscrire à n’importe quel moment sur papier, un évènement qui l’émerveille. Malheureusement, elle rencontre toujours le même problème, celui de ne jamais pouvoir terminer les dessins qu’elle fait sur des scènes éphémères (chat qui se lèche, feu d’artifice…). Légèrement déprimée à cause de cela, elle retrouve cependant très vite le sourire grâce à des petites choses qui paraissent insignifiantes, nous faisant ainsi partager son univers à la fois poétique et touchant.");
+			$project->setVosta('Spoonmoon');
+			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
+Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur la radio.<br />
+<a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20colors~%20sound%20sketch%20book.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full colors~ sound sketch book.zip	11-21 01:28	130.02 MB</a><br />
+<a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20OP%20Single%20-%20Kaze%20Sagashi%20%5BKiyoura%20Natsumi%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ OP Single - Kaze Sagashi [Kiyoura Natsumi].zip	10-24 01:52	43.88 MB</a><br />
+<a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20ED%20Single%20-%20Sketchbook%20wo%20Motta%20Mama%20%5BMakino%20Yui%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ ED Single - Sketchbook wo Motta Mama [Makino Yui].zip	10-24 01:52	47.75 MB</a>'));
+			$project->setDiscussionUrl('http://zero.xooit.fr/t359-Ton-avis-sur-Sketchbook-full-color-s.htm');
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 		}
