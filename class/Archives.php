@@ -26,10 +26,6 @@ class Archives extends SimpleBlockComponent {
 		$archivesLinks->addComponent(new Link(new Url($url), "Bonus"));
 		$archivesLinks->addComponent($space);
 		$url->setQueryVar('page', 'havert');
-		$link = new Link(new Url($url), "Henta&icirc;");
-		$link->setStyle("color: #FF3399;");
-		$link->setID("plus");
-		$archivesLinks->addComponent($link);
 		
 		$this->setClass("archives");
 		$this->addComponent("<h2>Archives</h2>");
