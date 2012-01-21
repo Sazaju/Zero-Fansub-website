@@ -24,6 +24,7 @@ class ProjectComponent extends SimpleBlockComponent {
 			array("Auteur", $project->getAuthor()),
 			array("Genre", $project->getGenre()),
 			array("Synopsis", $project->getSynopsis()),
+			array("Coproduction", $project->getCoproduction()),
 			array("Vosta", $project->getVosta()),
 		);
 		$infos = new SimpleTextComponent();
