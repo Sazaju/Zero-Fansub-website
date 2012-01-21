@@ -298,11 +298,6 @@ class Project {
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("mayoi", "Mayoi Neko Overrun!");
-			$project->setStarted(true);
-			$project->setRunning(true);
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("mitsudomoe", "Mitsudomoe");
 			$project->setOriginalName("Mitsudomoe");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
@@ -535,6 +530,22 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20OP%20Single%20-%20Suppin%20Rock%20%5BOgawa%20Mana%5D.zip.torrent">[Nipponsei] Hyakko OP Single - Suppin Rock [Ogawa Mana].zip</a><br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20ED%20Single%20-%20Namida%20Namida%20Namida%20%5BHirano%20Aya%5D.zip.torrent">[Nipponsei] Hyakko ED Single - Namida Namida Namida [Hirano Aya].zip</a>'));
 			$project->setFinished(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("mayoi", "Mayoi Neko Overrun!");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Mayoi Neko Overrun!");
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.patisserie-straycats.com/", "Patisserie Stray Cats"));
+			$project->setAiringYear(2010);
+			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
+			$project->setAuthor("Matsu Tomohiro");
+			$project->setGenre("Comédie Ecchi");
+			$project->setSynopsis("Takumi Tsuzuki vit avec sa grande “soeur” Otome bien qu’ils ne soient pas liés par le sang. Otome gère une vieille pâtisserie appelée Stray Cats où y travaille également une amie d’enfance de Takumi, Fumino Serisawa. C’est alors qu’un jour, Nozomi Kiriya, une jeune fille mystérieuse imitant un chat, apparaît…");
+			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/209338"><img src="http://getpersonas-cdn.mozilla.net/static/3/8/209338/preview.jpg?1273561667" border="0" alt="Mayoi Neko Overrun! theme skin persona mozilla firefox" /></a> 
+<a target="_blank" href="http://www.getpersonas.com/en-US/persona/210030"><img src="http://getpersonas-cdn.mozilla.net/static/3/0/210030/preview.jpg?1273648101" border="0" alt="Mayoi Neko Overrun! theme skin persona mozilla firefox" /></a> 
+<a target="_blank" href="http://www.getpersonas.com/en-US/persona/233236"><img src="http://getpersonas-cdn.mozilla.net/static/3/6/233236/preview.jpg?1277047781" border="0" alt="Mayoi Neko Overrun! theme skin persona mozilla firefox" /></a>'));
+			$project->setStarted(true);
+			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 		}
 		
