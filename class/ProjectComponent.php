@@ -38,6 +38,12 @@ class ProjectComponent extends SimpleBlockComponent {
 		}
 		$this->addComponent($infos);
 		
+		if ($project->getComment() !== null) {
+			$this->addComponent("<p></p>");
+			$this->addComponent(new Title("Commentaire", 2));
+			$this->addComponent($project->getComment());
+		}
+		
 		$this->addComponent("<p></p>");
 		$link = Link::newWindowLink("http://zero.xooit.fr/t471-Liens-morts.htm", "Signaler un lien mort");
 		$link->setClass('deadLinks');
@@ -58,8 +64,6 @@ class ProjectComponent extends SimpleBlockComponent {
 		
 		$linkedProjects = Project::getProjectsLinkedTo($project);
 		if (!empty($linkedProjects)) {
-			$this->addComponent("<p></p>");
-			$this->addComponent(new Title("Voir aussi", 2));
 			
 			$list = new ProjectList();
 			$list->useImage(true);
@@ -73,6 +77,15 @@ class ProjectComponent extends SimpleBlockComponent {
 			$this->addComponent("<p></p>");
 			$this->addComponent(new Title("Bonus : ".$bonus->getTitle(), 2));
 			$this->addComponent($bonus->getContent());
+		}
+		
+		$groups = ProjectGroup::getGroupsForProject($project);
+		foreach($groups as $group) {
+			foreach($group->getBonuses() as $bonus) {
+				$this->addComponent("<p></p>");
+				$this->addComponent(new Title("Bonus : ".$bonus->getTitle(), 2));
+				$this->addComponent($bonus->getContent());
+			}
 		}
 		
 		$this->addComponent("<p></p>");

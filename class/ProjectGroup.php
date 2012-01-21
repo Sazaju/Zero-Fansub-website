@@ -1,64 +1,83 @@
-
-
-
-
-
-<h3>Kodomo no Jikan OAV</h3>
-
-
-<div style="float : right; display:block; margin-right: 20px;">
-	<img src="images/series/kodomooav.jpg" border="0">
-</div>
-<h2>Informations générales</h2>
-<h4>Source : <a href="http://animeka.com/fansub/teams/zero.html" target="_blank">Animeka</a></h4>
-
-<p>
-<b>Titre Original</b> Kodomo no Jikan OVA<br />
-<b>Site officiel</b> <a href="http://www.kojika-anime.com/" target="_blank">Kojika-anime.com</a><br />
-<b>Année de production</b> 2007<br />
-<b>Studio</b> <a href="http://www.stbarcelona.com/" target="_blank">Studio Barcelona</a><br />
-<b>Genre</b> Comédie - Ecchi<br />
-<b>Auteur</b> Watashiya Kaworu<br />
-<b>Synopsis</b> Rin, Kuro et Mimi sont trois adorables petites filles de 10 ans qui découvrent le monde des adultes... C'est l'anniversaire de Aoki, leur professeur mais aussi l'amoureux secret de Rin. Celle-ci tentent donc de le séduire en lui offrant un cadeau...original ^^   <br />
-<b>Vosta</b> <a href="http://www.genjo-subs.net/" target="_blank">Genjo Subs</a>
-</p>
-
-<h2>Conseil</h2>
-<p>Si vous souhaitez regarder l'OAV mais aussi la série, il est conseillé de regarder l'OAV entre l'épisode 5 et 6.
-Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le regarder sans voir la série. Mais c'est quand même mieux de regarder la série, évidemment ^^
-
-<p style="text-align: right;"><a href="http://zero.xooit.fr/t471-Liens-morts.htm" target="_blank">Signaler un lien mort</a></p><h2>Épisodes</h2>
-
 <?php
-	function sortReleases(Release $a, Release $b) {
-		return strnatcmp($a->getID(), $b->getID());
+/*
+	A project group is a group of projects. One project can be in several groups.
+*/
+
+class ProjectGroup {
+	private $id = null;
+	private $name = null;
+	private $projects = array();
+	private $bonuses = array();
+	
+	public function __construct($id = null, $name = null) {
+		$this->setID($id);
+		$this->setName($name);
 	}
-
-	$releases = Release::getAllReleasesForProject('kodomooav');
-	usort($releases, 'sortReleases');
-	$list = new SimpleListComponent();
-	$list->setClass("releaseList");
-	foreach($releases as $release)
-	{
-		$list->addComponent(new ReleaseComponent($release));
+	
+	public function setID($id) {
+		$this->id = $id;
 	}
-	$list->writeNow();
-?>
-<p></p>
-<h2>Voir aussi</h2>
-<p>
-<a href="index.php?page=series/kodomonatsu"><img src="images/series/kodomonatsu.png" border="0" alt="Kodomo no Natsu Jikan"></a><br /><br /> 
-<a href ="index.php?page=series/kodomo"><img src="images/series/kodomo.png" border="0" alt="Kodomo no Jikan"></a><br /><br /> 
-<a href ="index.php?page=series/kodomofilm"><img src="images/series/kodomofilm.png" border="0" alt="Kodomo no Jikan Le Film"></a><br /><br /> 
-<a href="index.php?page=series/kodomonatsu"><img src="images/series/kodomonatsu.png" border="0" alt="Kodomo no Natsu Jikan"></a><br /><br /> 
-<a href="index.php?page=series/kodomoo"><img src="images/series/kodomo2.png" border="0" alt="Kodomo no Jikan ~ Ni Gakki"></a><br /><br /> 
-<a href="?page=havert"><img src="images/series/konoe.png" border="0"  alt="Konoe no Jikan"></a><br /><br /> 
-</p>
-
-
-<h2>OST</h2>
-
-<div style="float : left; display:block; margin-left: 20px;">
+	
+	public function getID() {
+		return $this->id;
+	}
+	
+	public function setName($name) {
+		$this->name = $name;
+	}
+	
+	public function getName() {
+		return $this->name;
+	}
+	
+	public function addProject($project) {
+		if (is_string($project)) {
+			$project = Project::getProject($project);
+		}
+		
+		if ($project instanceof Project) {
+			$this->projects[] = $project;
+		}else {
+			throw new Exception($project." is not a project");
+		}
+	}
+	
+	public function getProjects() {
+		return $this->projects;
+	}
+	
+	public function contains($project) {
+		if (is_string($project)) {
+			$project = Project::getProject($project);
+		}
+		
+		foreach($this->projects as $p) {
+			if ($p == $project) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public function addBonus(ProjectBonus $bonus) {
+		$this->bonuses[] = $bonus;
+	}
+	
+	public function getBonuses() {
+		return $this->bonuses;
+	}
+	
+	private static $allGroups = null;
+	public static function getAllGroups() {
+		if (ProjectGroup::$allGroups === null) {
+			
+			$group = new ProjectGroup("kodomo", "Kodomo no Jikan");
+			$group->addProject('kodomo');
+			$group->addProject('kodomooav');
+			$group->addProject('kodomo2');
+			$group->addProject('kodomonatsu');
+			$group->addProject('kodomofilm');
+			$group->addBonus(new ProjectBonus("OST", '<div style="float : left; display:block; margin-left: 20px;">
 	<img src="ost/[Zero] Kodomo no Jikan TV & OVA OP Single - Rettsu! Ohime-sama Dakko.jpg" border="0">
 </div>
 <p><b>Nom</b> [Zero] Kodomo no Jikan TV & OVA OP Single - Rettsu! Ohime-sama Dakko<br />
@@ -71,7 +90,7 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 <b>Taille totale</b> 41 Mo.<br />
 <br />
 <b>Téléchargements</b><br />
-<img src="images/icones/ddl.png">		[ <a href="ost/[Zero] Kodomo no Jikan TV & OVA OP Single - Rettsu! Ohime-sama Dakko.zip">Télécharger l'archive .ZIP</a> ]<br />
+<img src="images/icones/ddl.png">		[ <a href="ost/[Zero] Kodomo no Jikan TV & OVA OP Single - Rettsu! Ohime-sama Dakko.zip">Télécharger l\'archive .ZIP</a> ]<br />
 
 <img src="images/icones/torrent.png"> 		[ <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%20TV%20%26%20OVA%20OP%20Single%20-%20Rettsu!%20Ohime-sama%20Dakko%20%5BVarious%5D.zip.torrent">Torrent (Nipponsei)</a> ]<br /></p>
 
@@ -88,13 +107,10 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 <b>Taille totale</b> 38 Mo.<br />
 <br />
 <b>Téléchargements</b><br />
-<img src="images/icones/ddl.png">		[ <a href="ost/[Zero] Kodomo no Jikan TV & OVA ED Single - Hana Maru Sensation - Little Non.zip">Télécharger l'archive .ZIP</a> ]<br />
+<img src="images/icones/ddl.png">		[ <a href="ost/[Zero] Kodomo no Jikan TV & OVA ED Single - Hana Maru Sensation - Little Non.zip">Télécharger l\'archive .ZIP</a> ]<br />
 
-<img src="images/icones/torrent.png"> 		[ <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%20TV%20%26%20OVA%20ED%20Single%20-%20Hana%20Maru%20Sensation%20%5BLittle%20Non%5D.zip.torrent">Torrent (Nipponsei)</a> ]<br /></p>
-
-<h2>OST</h2>
-<p>
-Ces OST vous sont proposées par Nipponsei.<br />
+<img src="images/icones/torrent.png"> 		[ <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%20TV%20%26%20OVA%20ED%20Single%20-%20Hana%20Maru%20Sensation%20%5BLittle%20Non%5D.zip.torrent">Torrent (Nipponsei)</a> ]<br /></p>'));
+			$group->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Phantom%20-Requiem%20for%20the%20Phantom-%20OP2%20Single%20-%20Senritsu%20no%20Kodomo%20Tachi%20%5BALI%20PROJECT%5D.zip.torrent">[Nipponsei] Phantom -Requiem for the Phantom- OP2 Single - Senritsu no Kodomo Tachi [ALI PROJECT].zip</a><br /> 
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%202%20Gakki%20ED%20Single%20-%201%2C%202%2C%203%20Day%20%5BLittle%20Non%5D.zip.torrent">[Nipponsei] Kodomo no Jikan 2 Gakki ED Single - 1, 2, 3 Day [Little Non].zip</a><br /> 
@@ -105,31 +121,20 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%20Character%20Song%20CD2%20-%20Kuro%20Kagami%20%5BShindou%20Kei%5D.zip.torrent">[Nipponsei] Kodomo no Jikan Character Song CD2 - Kuro Kagami [Shindou Kei].zip</a><br /> 
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%20Character%20Song%20CD1%20-%20Kokonoe%20Rin%20%5BKitamura%20Eri%5D.zip.torrent">[Nipponsei] Kodomo no Jikan Character Song CD1 - Kokonoe Rin [Kitamura Eri].zip</a><br /> 
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%20TV%20%26%20OVA%20OP%20Single%20-%20Rettsu%21%20Ohime-sama%20Dakko%20%5BVarious%5D.zip.torrent">[Nipponsei] Kodomo no Jikan TV &amp; OVA OP Single - Rettsu! Ohime-sama Dakko [Various].zip</a><br /> 
-<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%20TV%20%26%20OVA%20ED%20Single%20-%20Hana%20Maru%20Sensation%20%5BLittle%20Non%5D.zip.torrent">[Nipponsei] Kodomo no Jikan TV &amp; OVA ED Single - Hana Maru Sensation [Little Non].zip</a><br /> 
-</p>
-
-<h2>Bonus : Jaquette(s) DVD</h2>
-<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
+<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%20TV%20%26%20OVA%20ED%20Single%20-%20Hana%20Maru%20Sensation%20%5BLittle%20Non%5D.zip.torrent">[Nipponsei] Kodomo no Jikan TV &amp; OVA ED Single - Hana Maru Sensation [Little Non].zip</a><br />'));
+			$group->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
 <p>
 <a href="images/cover/[Zero]Kodomo_no_Jikan_Cover.jpg" target="_blank">
 	<img src="images/cover/[Zero]Kodomo_no_Jikan_Cover.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-</p>
-
-<h2>Bonus : Thèmes pour Firefox (Skin Persona)</h2>
-<p>
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/210669"><img src="http://getpersonas-cdn.mozilla.net/static/6/9/210669/preview.jpg?1277535561" border="0" alt="Kodomo no Jikan theme skin persona mozilla firefox" /></a> 
+</p>'));
+			$group->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/210669"><img src="http://getpersonas-cdn.mozilla.net/static/6/9/210669/preview.jpg?1277535561" border="0" alt="Kodomo no Jikan theme skin persona mozilla firefox" /></a> 
 <a target="_blank" href="http://www.getpersonas.com/en-US/persona/211529"><img src="http://getpersonas-cdn.mozilla.net/static/2/9/211529/preview.jpg?1277534969" border="0" alt="Kodomo no Jikan theme skin persona mozilla firefox" /></a> 
 <a target="_blank" href="http://www.getpersonas.com/en-US/persona/215378"><img src="http://getpersonas-cdn.mozilla.net/static/7/8/215378/preview.jpg?1277535488" border="0" alt="Kodomo no Jikan theme skin persona mozilla firefox" /></a> 
 <a target="_blank" href="http://www.getpersonas.com/en-US/persona/215385"><img src="http://getpersonas-cdn.mozilla.net/static/8/5/215385/preview.jpg?1277535394" border="0" alt="Kodomo no Jikan theme skin persona mozilla firefox" /></a> 
 <a target="_blank" href="http://www.getpersonas.com/en-US/persona/215383"><img src="http://getpersonas-cdn.mozilla.net/static/8/3/215383/preview.jpg?1277535469" border="0" alt="Kodomo no Jikan theme skin persona mozilla firefox" /></a> 
 <a target="_blank" href="http://www.getpersonas.com/en-US/persona/215388"><img src="http://getpersonas-cdn.mozilla.net/static/8/8/215388/preview.jpg?1277535551" border="0" alt="Kodomo no Jikan theme skin persona mozilla firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/233572"><img src="http://getpersonas-cdn.mozilla.net/static/7/2/233572/preview.jpg?1277535407" border="0" alt="Kodomo no Jikan theme skin persona mozilla firefox" /></a> 
-</p>
-
-
-<h2>Images & Wallpaper</h2>
-<p>
-<a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kodomo%20no%20Jikan&amp;spgmPic=0#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kodomo%20no%20Jikan/_thb_[Zero]Kodomo_no_Jikan_Image01.jpg" alt="gal/Zero_fansub/Images/Kodomo no Jikan/_thb_[Zero]Kodomo_no_Jikan_Image01.jpg" class="img-thumbnail" width="150" height="150"></a>
+<a target="_blank" href="http://www.getpersonas.com/en-US/persona/233572"><img src="http://getpersonas-cdn.mozilla.net/static/7/2/233572/preview.jpg?1277535407" border="0" alt="Kodomo no Jikan theme skin persona mozilla firefox" /></a>'));
+			$group->addBonus(new ProjectBonus("Images & Wallpaper", '<a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kodomo%20no%20Jikan&amp;spgmPic=0#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kodomo%20no%20Jikan/_thb_[Zero]Kodomo_no_Jikan_Image01.jpg" alt="gal/Zero_fansub/Images/Kodomo no Jikan/_thb_[Zero]Kodomo_no_Jikan_Image01.jpg" class="img-thumbnail" width="150" height="150"></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kodomo%20no%20Jikan&amp;spgmPic=1#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kodomo%20no%20Jikan/_thb_[Zero]Kodomo_no_Jikan_Image02.jpg" alt="gal/Zero_fansub/Images/Kodomo no Jikan/_thb_[Zero]Kodomo_no_Jikan_Image02.jpg" class="img-thumbnail" width="150" height="150"></a> 
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kodomo%20no%20Jikan&amp;spgmPic=2#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kodomo%20no%20Jikan/_thb_[Zero]Kodomo_no_Jikan_Image03.jpg" alt="gal/Zero_fansub/Images/Kodomo no Jikan/_thb_[Zero]Kodomo_no_Jikan_Image03.jpg" class="img-thumbnail" width="150" height="150"></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kodomo%20no%20Jikan&amp;spgmPic=3#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kodomo%20no%20Jikan/_thb_[Zero]Kodomo_no_Jikan_Image04.jpg" alt="gal/Zero_fansub/Images/Kodomo no Jikan/_thb_[Zero]Kodomo_no_Jikan_Image04.jpg" class="img-thumbnail" width="150" height="150"></a>
@@ -185,16 +190,21 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kodomo%20no%20Jikan&amp;spgmPic=53#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kodomo%20no%20Jikan/_thb_[Zero]Kodomo_no_Jikan_Image54.jpg" alt="gal/Zero_fansub/Images/Kodomo no Jikan/_thb_[Zero]Kodomo_no_Jikan_Image54.jpg" class="img-thumbnail" width="150" height="150"></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kodomo%20no%20Jikan&amp;spgmPic=54#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kodomo%20no%20Jikan/_thb_[Zero]Kodomo_no_Jikan_Image55.jpg" alt="gal/Zero_fansub/Images/Kodomo no Jikan/_thb_[Zero]Kodomo_no_Jikan_Image55.jpg" class="img-thumbnail" width="150" height="150"></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kodomo%20no%20Jikan&amp;spgmPic=55#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kodomo%20no%20Jikan/_thb_[Zero]Kodomo_no_Jikan_Image56.jpg" alt="gal/Zero_fansub/Images/Kodomo no Jikan/_thb_[Zero]Kodomo_no_Jikan_Image56.jpg" class="img-thumbnail" width="150" height="150"></a> 
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kodomo%20no%20Jikan&amp;spgmPic=56#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kodomo%20no%20Jikan/_thb_[Zero]Kodomo_no_Jikan_Image57.jpg" alt="gal/Zero_fansub/Images/Kodomo no Jikan/_thb_[Zero]Kodomo_no_Jikan_Image57.jpg" class="img-thumbnail" width="150" height="150"></a>
-</p>
-
-
-<div class="p"><a href="http://zero.xooit.fr/t251-Ton-avis-sur----Kodomo-no-Jikan-OAV.htm" target="_blank"><img src="images/interface/avis.png" border="0"></a></div><br /><br/>
-
-
-
-
-
-
-
-
+    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kodomo%20no%20Jikan&amp;spgmPic=56#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kodomo%20no%20Jikan/_thb_[Zero]Kodomo_no_Jikan_Image57.jpg" alt="gal/Zero_fansub/Images/Kodomo no Jikan/_thb_[Zero]Kodomo_no_Jikan_Image57.jpg" class="img-thumbnail" width="150" height="150"></a>'));
+			ProjectGroup::$allGroups[] = $group;
+		}
+		
+		return ProjectGroup::$allGroups;
+	}
+	
+	public static function getGroupsForProject($project) {
+		$groups = array();
+		foreach(ProjectGroup::getAllGroups() as $group) {
+			if ($group->contains($project)) {
+				$groups[] = $group;
+			}
+		}
+		return $groups;
+	}
+}
+?>
