@@ -11,6 +11,7 @@
 	$page->addComponent(new Archives());
 	
 	// TODO remove after all the news are integrated
+	$page->setStyle("margin-left:0;");
 	$page->writeNow();
 	$page->clear();
 ?>

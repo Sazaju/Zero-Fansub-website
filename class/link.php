@@ -21,7 +21,7 @@ class Link extends DefaultHtmlComponent {
 			$this->addComponent($content);
 		}
 		else {
-			$this->setContent($content === null ? $url->getUrl() : $content);
+			$this->setContent($content === null ? $url->toString() : $content);
 		}
 	}
 	
@@ -58,7 +58,7 @@ class Link extends DefaultHtmlComponent {
 	}
 	
 	public function getOptions() {
-		$url = $this->getUrl()->getUrl();
+		$url = $this->getUrl()->toString();
 		$title = $this->getTitle();
 		$onClick = $this->getOnClick();
 		$newWindow = $this->newWindow;
@@ -73,6 +73,19 @@ class Link extends DefaultHtmlComponent {
 		$link = new Link($url, $content);
 		$link->openNewWindow(true);
 		return $link;
+	}
+	
+	public static function CreateHentaiAccessLink($toHentaiString = "Hentaï", $toEveryoneString = "Tout public") {
+		$hentaiLink = new Link();
+		$url = $hentaiLink->getUrl();
+		if ($_SESSION[DISPLAY_H] == false) {
+			$url->setQueryVar(DISPLAY_H_AVERT);
+			$hentaiLink->setContent($toHentaiString);
+		} else {
+			$url->setQueryVar(DISPLAY_H, false);
+			$hentaiLink->setContent($toEveryoneString);
+		}
+		return $hentaiLink;
 	}
 }
 ?>

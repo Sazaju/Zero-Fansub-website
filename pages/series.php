@@ -21,8 +21,14 @@
 
 	$licensedProjects = array();
 	$notLicensedProjects = array();
-	foreach(Project::getNonHentaiProjects() as $project) {
-		if (!$project->isDoujin()) {
+	$allProjects = null;
+	if ($_SESSION[DISPLAY_H] == true) {
+		$allProjects = Project::getHentaiProjects();
+	} else {
+		$allProjects = Project::getNonHentaiProjects();
+	}
+	foreach($allProjects as $project) {
+		if (!$project->isDoujin() && !$project->isHidden()) {
 			if ($project->isLicensed()) {
 				$licensedProjects[] = $project;
 			} else {
@@ -90,11 +96,5 @@
 	$list = new ProjectListComponent($list);
 	$list->useImage($useImageLists);
 	$page->addComponent($list);
-	
-	$url = new Url();
-	$url->setQueryVar('page', 'havert');
-	$hentaiLink = new Link($url, "Voir les projets Hentaï");
-	$hentaiLink->setStyle("text-align: center; font-size: 25px;");
-	$page->addComponent($hentaiLink);
 ?>
 

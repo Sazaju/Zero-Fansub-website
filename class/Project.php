@@ -399,6 +399,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setGenre("Porno");
 			$project->setSynopsis("Parodie pornographique de Kodomo no Jikan.");
 			$project->setHentai(true);
+			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("akinahshiyo", "Akina To Onsen De H Shiyo !");
@@ -407,6 +408,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAiringYear(2011);
 			$project->setGenre("Hentai");
 			$project->setHentai(true);
+			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("alignment", "Alignment You ! You ! The Animation");
@@ -460,6 +462,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setGenre("Hentai");
 			$project->setSynopsis("Vous avez aimez L'entraînement avec Hinako ? Vous aimerez sûrement sa parodie Hentaï, \"faisons l'amour ensemble\" ! Aujourd'hui, c'est avec vous que notre jolie héroïne fait l'amour... Vous, et vous seul ! Profitez-en ;)");
 			$project->setHentai(true);
+			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mermaid", "Mermaid Melody Pichi Pichi Pitch");

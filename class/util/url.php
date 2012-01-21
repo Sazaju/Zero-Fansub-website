@@ -42,7 +42,7 @@ class Url {
 		$this->data = Url::parseUrl($url);
 	}
 	
-	public function getUrl() {
+	public function toString() {
 		$url = $this->data[URL_PATH];
 		
 		if ($this->data[URL_QUERY] != null) {
@@ -110,6 +110,16 @@ class Url {
 		return $vars;
 	}
 	
+	public function getQueryVar($name) {
+		$vars = $this->getQueryVars();
+		if (isset($vars[$name])) {
+			return $vars[$name];
+		}
+		else {
+			throw new Exception($name." is not in the query vars.");
+		}
+	}
+	
 	public function setQueryVars($vars) {
 		$query = "";
 		if (count($vars) > 0) {
@@ -138,23 +148,27 @@ class Url {
 	
 	public function fillRelativeUrl() {
 		if ($this->data[URL_PROTOCOL] == null && $this->data[URL_SERVER] == null) {
-			$this->data = Url::parseUrl(Url::getCurrentDirUrl().'/'.$this->getUrl());
+			$this->data = Url::parseUrl(Url::getCurrentDirUrl().'/'.$this->toString());
 		}
 	}
 	
 	public static function getCurrentUrl() {
-		return "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+		return new Url("http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
 	}
 	
 	public static function getCurrentScriptUrl() {
-		return "http://".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"];
+		return new Url("http://".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"]);
 	}
 	
 	public static function getCurrentDirUrl() {
-		return dirname(Url::getCurrentScriptUrl());
+		return dirname(Url::getCurrentScriptUrl()->toString());
 	}
 	
 	public static function parseUrl($url) {
+		if ($url instanceof Url) {
+			$url = $url->toString();
+		}
+		
 		$data = array();
 		$data[URL_PROTOCOL] = parse_url($url, PHP_URL_SCHEME);
 		$data[URL_USER] = parse_url($url, PHP_URL_USER);
@@ -175,7 +189,7 @@ class Url {
 	public static function completeUrl($url) {
 		$url = new Url($url, false);
 		$url->fillRelativeUrl();
-		return $url->getUrl();
+		return $url->toString();
 	}
 	
 	public static function indexUrl() {

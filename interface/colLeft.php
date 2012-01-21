@@ -34,7 +34,7 @@
 	$menu = new Menu();
 	$menu->addEntry(new Link("index.php?page=dossiers", "Dossiers"));
 	$menu->addEntry(Link::newWindowLink("galerie/index.php?spgmGal=Zero_fansub/Images", "Images"));
-	$menu->addEntry(new Link("index.php?page=havert", "Hentaï"));
+	$menu->addEntry(Link::createHentaiAccessLink());
 	$leftCol->addComponent(new MenuComponent($menu));
 	
 	$menu = new Menu();

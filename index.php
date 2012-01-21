@@ -125,6 +125,27 @@ if (TEST_MODE_ACTIVATED) {
 \**********************************/
 
 define('WEBSITE_VERSION', exec('git tag'));
+define('DISPLAY_H', 'displayH');
+define('DISPLAY_H_AVERT', 'displayHavert');
+
+/**********************************\
+         SESSION MANAGEMENT
+\**********************************/
+
+session_start();
+
+if (isset($_GET[DISPLAY_H])) {
+	$_SESSION[DISPLAY_H] = $_GET[DISPLAY_H];
+	$url = Url::getCurrentUrl();
+	$url->removeQueryVar(DISPLAY_H);
+	header('Location: '.$url->toString());
+	exit();
+} else if (!isset($_SESSION[DISPLAY_H])) {
+	$_SESSION[DISPLAY_H] = false;
+} else {
+	// let the state as is
+}
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -190,14 +211,25 @@ define('WEBSITE_VERSION', exec('git tag'));
 						$page = "home";
 					}
 					
+					if (isset($_GET[DISPLAY_H_AVERT])) {
+						$page = "havert";
+					}
+					
 					if (file_exists("pages/$page.php")) {
 						require_once("pages/$page.php");
 					}
 					else {
 						$parts = preg_split("#/#", $page);
 						if (strcmp($parts[0], 'series') === 0) {
-							$project = new ProjectComponent(Project::getProject($parts[1]));
-							$project->writeNow();
+							$project = Project::getProject($parts[1]);
+							
+							if ($project->isHentai() && $_SESSION[DISPLAY_H] == false) {
+								require_once("pages/havert.php");
+							}
+							else {
+								$project = new ProjectComponent($project);
+								$project->writeNow();
+							}
 						}
 						else {
 							require_once("pages/home.php");
