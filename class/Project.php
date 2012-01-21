@@ -238,11 +238,6 @@ class Project {
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("hyakko", "Hyakko");
-			$project->setFinished(true);
-			$project->setLicense(new License("Wakanim"));
-			Project::$allProjects[] = $project;
-			
 			$project = new Project("kanamemo", "Kanamemo");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -576,6 +571,23 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20ED%20Single%20-%20Sketchbook%20wo%20Motta%20Mama%20%5BMakino%20Yui%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ ED Single - Sketchbook wo Motta Mama [Makino Yui].zip	10-24 01:52	47.75 MB</a>'));
 			$project->setDiscussionUrl("http://zero.xooit.fr/t359-Ton-avis-sur-Sketchbook-full-color-s.htm");
 			$project->setFinished(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("hyakko", "Hyakko");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Hyakko");
+			$project->setOfficialWebsite(Link::newWindowLink("http://hyakko.jp/", "Hyakko.jp"));
+			$project->setAiringYear(2008);
+			$project->setStudio("Nippon Animation");
+			$project->setGenre("Comédie");
+			$project->setSynopsis("L’école privée Kamizono est un établissement qui possède la particularité d’accueillir en son sein des élèves allant du primaire jusqu’au lycée. De ce fait, son immense structure donne du mal aux nouveaux arrivants pour s’y retrouver. Nonomura Ayumi, jeune étudiante au caractère réservé, arrive à se perdre dés le premier jour de la rentrée. Cherchant désespérément son chemin, elle fini par tomber sur une de ses camarades de classe Lizuda Tatsuki qui se trouve être, sans vouloir l’admettre, dans la même situation qu’elle. Après un long moment de marche, toutes les deux voient incrédules deux élèves sautaient du deuxième étage d’un bâtiment. C’est ainsi qu’elles font la rencontre de Torako et Suzu, également perdues mais ayant un moyen infaillible pour atteindre rapidement leur salle de classe : aller de l’avant quelque soit l’obstacle rencontré. Commence alors pour ce nouveau quatuor formé, une année scolaire placée sous le signe de l’amitié et de l’humour.");
+			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
+Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
+<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20Original%20Soundtrack.zip.torrent">[Nipponsei] Hyakko Original Soundtrack.zip</a><br />
+<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20OP%20Single%20-%20Suppin%20Rock%20%5BOgawa%20Mana%5D.zip.torrent">[Nipponsei] Hyakko OP Single - Suppin Rock [Ogawa Mana].zip</a><br />
+<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20ED%20Single%20-%20Namida%20Namida%20Namida%20%5BHirano%20Aya%5D.zip.torrent">[Nipponsei] Hyakko ED Single - Namida Namida Namida [Hirano Aya].zip</a>'));
+			$project->setFinished(true);
+			$project->setLicense(new License("Wakanim"));
 			Project::$allProjects[] = $project;
 		}
 		
