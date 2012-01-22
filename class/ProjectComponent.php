@@ -1,10 +1,6 @@
 <?php
 class ProjectComponent extends SimpleBlockComponent {
 	public function __construct(Project $project) {
-		$title = new Title($project->getName(), 3);
-		$title->setClass('projectTitle');
-		$this->addComponent($title);
-		
 		$image = new Image('images/series/'.$project->getID().'.jpg');
 		$image->setClass('projectPicture');
 		$this->addComponent($image);

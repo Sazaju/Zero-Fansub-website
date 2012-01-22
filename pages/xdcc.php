@@ -1,6 +1,6 @@
 <?php
 	$page = PageContent::getInstance();
-	$page->setTitle("XDCC");
+	$page->addComponent(new Title("XDCC", 1));
 	
 	$message = new SimpleTextComponent();
 	$message->setClass("xdcc");

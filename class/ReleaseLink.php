@@ -39,7 +39,8 @@ class ReleaseLink extends Link {
 			}
 			$list = substr($list, 1);
 			$url = parent::getUrl();
-			$url->setQueryVar('page', 'series/'.$this->projectId);
+			$url->setQueryVar('page', 'project');
+			$url->setQueryVar('id', $this->projectId);
 			$url->setQueryVar('show', $list);
 			$url->set(URL_FRAGMENT, $first);
 		}

@@ -1,8 +1,9 @@
 <?php
 	$page = PageContent::getInstance();
-	$page->setTitle("Séries");
 	$page->setClass("series");
-
+	
+	$page->addComponent(new Title("Séries", 1));
+	
 	$url = new Url();
 	$vars = $url->getQueryVars();
 	$useImageLists = !array_key_exists('noImage', $vars);

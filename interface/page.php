@@ -1,44 +1,69 @@
-<div id="page"><!-- TODO remove this level when all pages will be translated in object PHP -->
-	<!-- COMCLICK France : 468 x 60 -->
-	<!--<iframe src="http://fl01.ct2.comclick.com/aff_frame.ct2?id_regie=1&num_editeur=14388&num_site=3&num_emplacement=1"
-	WIDTH="468" HEIGHT="60" marginwidth="0" marginheight="0" hspace="0"
-	vspace="0" frameborder="0" scrolling="no" bordercolor="#000000">
-	</iframe>-->
-	<!-- FIN TAG -->
-
-	<?php
-		if (isset($_GET['page'])) {
-			$page = $_GET['page'];
-		}
-		else {
-			$page = "home";
+<?php
+	try {
+		$url = new Url();
+		
+		/***************************************\
+		         READ GENERIC QUERY VARS
+		\***************************************/
+		$page = 'home';
+		if ($url->hasQueryVar('page')) {
+			$page = $url->getQueryVar('page');
 		}
 		
-		if (isset($_GET[DISPLAY_H_AVERT])) {
+		$id = null;
+		if ($url->hasQueryVar('id')) {
+			$id = $url->getQueryVar('id');
+		}
+		
+		/***************************************\
+		           SPECIAL FEATURES
+		\***************************************/
+		if ($url->hasQueryVar(DISPLAY_H_AVERT)) {
 			$page = "havert";
 		}
 		
-		if (file_exists("pages/$page.php")) {
+		// compatibility for obsolete links
+		// TODO remove when the website will be completely refined
+		if (preg_match("#^series/#", $page)) {
+			$page = 'project';
+			$parts = preg_split("#/#", $page);
+			$id = $parts[1];
+		}
+		
+		/***************************************\
+		              PAGE LOADING
+		\***************************************/
+		// refined pages
+		if (in_array($page, array('project', 'home', 'about', 'contact', 'bug', 'series', 'team', 'xdcc', 'havert'))) {
 			require_once("pages/$page.php");
 		}
-		else {
-			$parts = preg_split("#/#", $page);
-			if (strcmp($parts[0], 'series') === 0) {
-				$project = Project::getProject($parts[1]);
-				
-				if ($project->isHentai() && $_SESSION[MODE_H] == false) {
-					require_once("pages/havert.php");
-				}
-				else {
-					$project = new ProjectComponent($project);
-					$project->writeNow();
-				}
-			}
-			else {
-				require_once("pages/home.php");
-			}
+		
+		// not refined pages
+		// TODO remove all when the website will be completely refined
+		$pageContent = PageContent::getInstance();
+		if (count($pageContent->getComponents()) > 0) {
+			$pageContent->writeNow();
 		}
-		PageContent::getInstance()->setId(null); // TODO remove when all pages will be translated in object PHP
-		PageContent::getInstance()->writeNow();
-	?>
-</div>
+		else if (file_exists("pages/$page.php")) {
+			echo '<div id="page">';
+			require_once("pages/$page.php");
+			echo '</div>';
+		}
+		else {
+			throw new Exception("Invalid URL");
+		}
+	} catch(Exception $e) {
+		if (TEST_MODE_ACTIVATED) {
+			echo '<div id="page">';
+			echo 'Invalid URL, the bug page should be displayed in not testing mode.<br/><br/>';
+			echo $e->__toString();
+			echo '</div>';
+		}
+		else {
+			$pageContent = PageContent::getInstance();
+			$pagecontent->clear();
+			require_once("pages/bug.php");
+			$pageContent->writeNow();
+		}
+	}
+?>

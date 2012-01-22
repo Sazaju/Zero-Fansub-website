@@ -16,7 +16,7 @@
 	text-align: left;
 }
 
-#page .series h2 {
+#page.series h2 {
 	text-align: center;
 	margin: 2em auto 1em auto;
 	width: 75%;
@@ -28,7 +28,7 @@
 	border: 1px solid gray;
 }
 
-#page .series h3 {
+#page.series h3 {
 	color: black;
 	font-size: 17px;
 	margin-left: 60px;
@@ -38,7 +38,7 @@
 	font-weight: bold;
 }
 
-#page .series .pictureSwitch {
+#page.series .pictureSwitch {
 	color: black;
 	font-size: 17px;
 	margin-left: 60px;

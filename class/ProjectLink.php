@@ -12,7 +12,8 @@ class ProjectLink extends Link {
 	public function setProject(Project $project) {
 		$this->project = $project;
 		$url = parent::getUrl();
-		$url->setQueryVar('page', "series/".$project->getID());
+		$url->setQueryVar('page', 'project');
+		$url->setQueryVar('id', $project->getID());
 		$this->setContent($project->getName());
 	}
 	

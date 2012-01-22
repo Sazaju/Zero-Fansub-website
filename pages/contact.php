@@ -1,6 +1,6 @@
 <?php
 	$page = PageContent::getInstance();
-	$page->setTitle("Contact");
+	$page->addComponent(new Title("Contact", 1));
 	
 	$contact = new SimpleTextComponent();
 	$contact->setClass("contact");

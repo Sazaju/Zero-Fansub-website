@@ -1,6 +1,6 @@
 <?php
 	$page = PageContent::getInstance();
-	$page->setTitle("Avertissement");
+	$page->addComponent(new Title("Avertissement", 1));
 	
 	$page->addComponent(new Archives());
 	

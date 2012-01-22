@@ -1,6 +1,6 @@
 <?php
 	$page = PageContent::getInstance();
-	$page->setTitle("La Team de fansub");
+	$page->addComponent(new Title("La Team de fansub", 1));
 
 	$page->addComponent(new Title("Administrateurs", 2));
 

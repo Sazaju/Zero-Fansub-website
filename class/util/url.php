@@ -110,6 +110,10 @@ class Url {
 		return $vars;
 	}
 	
+	public function hasQueryVar($name) {
+		return array_key_exists($name, $this->getQueryVars());
+	}
+	
 	public function getQueryVar($name) {
 		$vars = $this->getQueryVars();
 		if (isset($vars[$name])) {

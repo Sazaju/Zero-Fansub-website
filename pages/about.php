@@ -1,6 +1,6 @@
 <?php
 	$page = PageContent::getInstance();
-	$page->setTitle("À propos...");
+	$page->addComponent(new Title("À propos...", 1));
 
 	$page->addComponent(new Title("Historique des versions", 2));
 	
