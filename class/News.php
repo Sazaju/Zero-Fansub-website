@@ -1375,7 +1375,6 @@ On est decidé, on va avancer nos projets ! L'un de nos plus vieux, Hitohira, rev
 			$news->setMessage("<img src=\"images/news/akirin.jpg\" border=\"0\" /> <br> Petite v2 qu'on attendait depuis pas mal de temps : L'épisode 03 de Kodomo no Jikan LD qui avait quelques petits soucis d'encodage. <a href=\"http://zerofansub.net/ddl/%5BZero%5DKodomo_no_Jikan%5B03v2%5D%5BXVID-MP3%5D%5BLD%5D%5B499E9C85%5D.avi\" target=\"_blank\" class=\"postlink\">DDL</a><br> <br>On en profite pour faire un petit point sur nos séries actuellement.<br> - <span style=\"font-weight: bold\">Alignment you you</span> En cours de traduction, mais on prend notre temps.<br> - <span style=\"font-weight: bold\">Genshiken 2</span> L'épisode 07 est en cours d'adapt-edit.<br> - <span style=\"font-weight: bold\">Guardian Hearts</span> En pause pour le moment.<br> - <span style=\"font-weight: bold\">Hitohira</span> En cours de traduction.<br> - <span style=\"font-weight: bold\">Kimikiss pure rouge</span> En pause pour le moment.<br> - <span style=\"font-weight: bold\">Kodomo no Jikan</span> L'épisode 10, 11, 12 sont prêt. La saison 2 arrive bientôt. Heuresement, avec la fin de la saison 1 qui s'approche...<br> - <span style=\"font-weight: bold\">Kujibiki Unbalance</span> Je vais m'y mettre...<br> - <span style=\"font-weight: bold\">Kurokami</span> En attente de Karamakeur.<br> - <span style=\"font-weight: bold\">Maria Holic</span> Très bientôt <img src=\"http://img1.xooimage.com/files/w/i/wink-1627.gif\" alt=\"Wink\" border=\"0\" class=\"xooit-smileimg\" /><br> - <span style=\"font-weight: bold\">Mermaid Melody</span> Notre annonce a fonctionnée, LeChat, notre traducteur IT-FR prend la suite en charge.<br> - <span style=\"font-weight: bold\">Sketchbook full color's</span> Des V2 des épisodes 1 et 5 ainsi que l'épisode 6 sont en cours d'encodage par Ajira.<br> - <span style=\"font-weight: bold\">Toradora!</span> Le 10 arrive !");
 			$news->setCommentId(32);
 			$news->addReleasing(Release::getRelease('kodomo', 'ep3'));
-			$news->addReleasing(Release::getRelease('kodomo2', 'ep0'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			News::$allNews[] = $news;
@@ -1706,6 +1705,315 @@ Ce Week-End, Mangazur à Toulon. Une petite convention très sympa ^^ J'y serais, 
 			$news->setMessage("<img src=\"images/news/sida.png\" border=\"0\" /><br>Ciao !<br>Sortie de Kujibiki Unbalance, l'épisode 04 ! Je tiens à remercier DC, qui, par pitié peut-être ^^, nous a encodé cet épisode.<br><br>Oui ! Comme vous l'avez compris, nous recrutons de manière urgente un encodeur !<br>N'hésitez pas à vous proposer <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /> &gt; <a href=\"index.php?page=recrutement\" target=\"_blank\" class=\"postlink\">Lien</a>.<br><br>Aujourd'hui, 1er décembre, journée internationale du Sida. Nous vous rappelons que les dons et les clicks sur les pubs sont reversés à l'association medecin du monde. Nous avons besoin de vous !<br><a href=\"index.php?page=dons\" target=\"_blank\" class=\"postlink\">En savoir plus sur le fonctionnement des dons sur le site</a><br><a href=\"http://zerofansub.net/#\" target=\"_blank\" class=\"postlink\">En savoir plus sur l'action de l'association</a><br><br>Sinon, Man-Ban nous a fait une jolie fanfic que vous pouvez lire dans la partie Scantrad <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /><br>Merci à tous et à bientôt !<br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a>");
 			$news->setCommentId(16);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep4'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Fin de la série Sketchbook ~full color's~");
+			$news->setTimestamp(strtotime("30 June 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/sketchend.jpg\"><br />
+Nous avons temporairement repris de nos activités pour finir la série Sketchbook full color's. Sortie aujourd'hui de 5 épisodes d'un coup : 09, 10, 11, 12 et 13 :) Profitez bien de ctte magnifique série, et à dans deux jours à Japan Expo !");
+			$news->setCommentId(98);
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep9'));
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep10'));
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep11'));
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep12'));
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep13'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Sketchbook ~ full color's ~ 08");
+			$news->setTimestamp(strtotime("15 May 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/sketch8.png\" border=\"0\"><br />V'là déjà la suite de Sketchbook full colors ! L'épisode 08 est disponible, et à peine 2 jours après l'épisode 07 ! Si c'est pas beau, ça ? Allez, détendez-vous un peu en regardant ce joli épisode. <a href=\"index.php?page=series/sketchbook\" target=\"_blank\">En téléchargement ici !</a>");
+			$news->setCommentId(72);
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep8'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Sketchbook ~ full color's ~ 07");
+			$news->setTimestamp(strtotime("12 May 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/sketch7.jpg\" style=\"float:right;\" border=\"0\">
+On avance un peu dans Sketchbook aussi, épisode 07 aujourd'hui ! Apparition d'un nouveau personnage : une étudiante transferée. Cet épisode est plutôt drôle. <a href=\"index.php?page=series/sketchbook\" target=\"_blank\">Et téléchargeable ici !</a>");
+			$news->setCommentId(72);
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep7'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Sketchbook ~full color's~ 06 + 01v2 + 02v2 + 05v2");
+			$news->setTimestamp(strtotime("23 April 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/sketchh.jpg\" border=\"0\">
+Une avalanche de Sketchbook ! Ou plutôt, une avalanche de fleurs ^^ Avec la sortie longtemps attendue de la suite de Sketchbook épisode 06 et de 3 v2 (tout ça pour améliorer la qualité de nos releases) Enjoy !");
+			$news->setCommentId(62);
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep6'));
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep1'));
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep2'));
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep5'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Sketchbook ~full color's 04~ ; Kanaii DDL et Sky-fansub");
+			$news->setTimestamp(strtotime("05 December 2008"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/moka.jpg\" border=\"0\" /><br>Bouonjòu !<br>L'épisode 04 de Sketchbook est sorti ! <a href=\"index.php?page=series/sketchbook\" target=\"_blank\" class=\"postlink\">Lien</a> Les sorties se font attendre, étant donné qu'on a plus vraiment d'encodeur officiel ^^ Merci à Kyon qui nous a encodé c'lui-ci.<br>Beaucoup nous demandaient où il fallait télécharger nos releases. Probléme réglé, j'ai fait une page qui résume tout. <a href=\"index.php?page=dl\" target=\"_blank\" class=\"postlink\">Lien</a><br>J'offre aussi du DDL à notre partenaire : la team Kanaii. Allez télécharger leurs animes, ils sont très bons ! <a href=\"index.php?page=kanaiiddl\" target=\"_blank\" class=\"postlink\">Lien</a><br>Nous avons aussi un nouveau partenaire : La team Sky-fansub. <a href=\"http://www.sky-fansub.com/\" target=\"_blank\" class=\"postlink\">Lien</a><br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a><br>PS : &quot;Bouonjòu&quot; c'est du niçois <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /><br><br>Les dernières sorties de la <a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi</a> :<br>- Neo Angelique Abyss 2nd Age 07<br>- Akane Iro Ni Somaru Saka 07");
+			$news->setCommentId(17);
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep4'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Sketchbook ~full color's 03~");
+			$news->setTimestamp(strtotime("22 November 2008"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("Bonjour, bonjour !<br>Sortie de l'épisode 03 de Sketchbook full color's !<br>Et c'est tout. Je sais pas quoi dire d'autre. Bonne journée, mes amis. <br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a>");
+			$news->setCommentId(13);
+			$news->addReleasing(Release::getRelease('sketchbook', 'ep3'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kodomo no Jikan ~ Ni Gakki OAV 02");
+			$news->setTimestamp(strtotime("10 May 2009 01:00"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/knjng2.png\" border=\"0\"><br />La suite tant attendue des aventures de Rin, Kuro et Mimi ! Un épisode riche en émotion qui se déroule pendant la fête du sport où toutes les trois font de leur mieux pour que leur classe, la CM1-1, remporte la victoire ! Toujours en coproduction avec <a href=\"http://www.maboroshinofansub.fr/\" target=\"_blank\">Maboroshi</a>. Cet épisode a été traduit du Japonais par Sazaju car la vosta se faisait attendre, puis \"améliorée\" par Shana. C'est triste, hein ? Plus qu'un et c'est la fin... <a href=\"index.php?page=series/kodomo2\">Ici, ici !</a>");
+			$news->setCommentId(69);
+			$news->addReleasing(Release::getRelease('kodomo2', 'ep2'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kodomo no Jikan ~ Ni Gakki OAV 01");
+			$news->setTimestamp(strtotime("13 April 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/knjoav1.png\" border=\"0\">
+C'est maintenant que la saison 2 de Kodomo no Jikan commence vraiment ! Profitez bien de cette épisode ^^ Toujours en coproduction avec <a href=\"http://maboroshinofansub.fr\" target=\"_blank\">Maboroshi no fansub</a>, chez qui vous pourrez télecharger l'épisode en XDCC. Chez nous, c'est comme toujours en DDL. Nous vous rappelons que les torrents sont disponibles peu de temps après, et que tout nos épisodes sont disponibles en Streaming HD sur <a href=\"http://www.anime-ultime.net/part/Site-93\" target=\"_blank\">Anime-Ultime</a>.");
+			$news->setCommentId(58);
+			$news->addReleasing(Release::getRelease('kodomo2', 'ep1'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kodomo no Jikan ~ Ni Gakki OAV Spécial");
+			$news->setTimestamp(strtotime("01 April 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/nigakki0.jpg\" border=\"0\">
+Vous l'attendiez TOUS ! (Si, si, même toi) Il est arrivé ! Le premier OAV de la saison 2 de Kodomo no Jikan. Cet OAV est consacré à Kuro-chan et Shirai-sensei. Amateurs de notre petite goth-loli-neko, vous allez être servis ! Elle est encore plus kawaii que d'habitude ^^ La saison 2 se fait en coproduction avec <a href=\"http://maboroshinofansub.fr\" target=\"_blank\">Maboroshi</a> et avec l'aide du grand (ô grand) DC.");
+			$news->setCommentId(55);
+			$news->addReleasing(Release::getRelease('kodomo2', 'ep0'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 24 + 25 - FIN");
+			$news->setTimestamp(strtotime("29 March 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<a href=\"images/news/torafin.jpg\" target=\"_blank\"><img src=\"images/news/min_torafin.jpg\" border=\"0\"></a><br /><br />
+C'est ainsi que se termine Toradora! ...");
+			$news->setCommentId(53);
+			$news->addReleasing(Release::getRelease('toradora', 'ep24'));
+			$news->addReleasing(Release::getRelease('toradora', 'ep25'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 23");
+			$news->setTimestamp(strtotime("27 March 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/tora23.png\" border=\"0\">
+La suite de Toradora! avec l'épisode 23. Toujours aussi émouvant, toujours aussi kawaii, toujours aussi Taiga-Ami-Minorin-Ryyuji-ect, toujours aussi dispo sur <a href=\"http://toradora.fr/\" target=\"_blank\">Toradora.fr!</a>, toujours aussi en copro avec <a href=\"http://japanslash.free.fr\" target=\"_blank\">Maboroshi</a>, toujours en DDL sur notre site <a href=\"index.php?page=series/toradora\">\"Lien\"</a>, Bref, toujours aussi génial ! Enjoy ^^<br /><br />Discutons un peu (dans les commentaires) ^^<br />Que penses-tu des Maid ? Tu es fanatique, fétichiste, amateur ou indifférent ?");
+			$news->setCommentId(52);
+			$news->addReleasing(Release::getRelease('toradora', 'ep23'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 22");
+			$news->setTimestamp(strtotime("25 March 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/taiiga.jpg\" border=\"0\">
+Que d'émotion, que d'émotion ! La suite de Toradora!, l'épisode 22. Nous vous rappelons que vous pouvez aussi télécharger les épisodes et en savoir plus sur la série sur <a href=\"http://toradora.fr/\" target=\"_blank\">Toradora.fr!</a>. Sinon, les épisodes sont toujours téléchargeables chez <a href=\"http://japanslash.free.fr\" target=\"_blank\">Maboroshi</a> en torrent et XDCC et chez nous <a href=\"index.php?page=series/toradora\">par ici en DDL.</a> Enjoy ^^");
+			$news->setCommentId(51);
+			$news->addReleasing(Release::getRelease('toradora', 'ep22'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 21");
+			$news->setTimestamp(strtotime("23 March 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/ski.jpg\" border=\"0\"><br /><br />
+Toradora! encore et encore, et bientôt, la fin de la série. Cet épisode est encore une fois bourré d'émotion et de rebondissements... Et de luge, et de neige, et de skis ! <a href=\"index.php?page=series/toradora\">C'est par ici que ça se télécharge !</a><br /><br />Profitions-en pour discutailler ! Alors, toi, lecteur de news de Zéro... Tu es parti en vacances, faire du ski ? Raconte-nous tout ça dans les commentaires ;)");
+			$news->setCommentId(50);
+			$news->addReleasing(Release::getRelease('toradora', 'ep21'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 19");
+			$news->setTimestamp(strtotime("16 March 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/taigahand.jpg\" border=\"0\"><br />
+Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notre travail. Ou plutôt, notre partenaire <a href=\"http://japanslash.free.fr\" target=\"_blank\">Maboroshi</a> nous fait reprendre le travail ^^ Sortie de l'épisode 19 de toradora, avec notre petite Taiga toute kawaii autant sur l'image de cette news que dans l'épisode ! Comme d'hab, DDL sur le site, Torrent bientôt (Merci à Khorx), XDCC bientôt et déjà dispo chez <a href=\"http://japanslash.free.fr\" target=\"_blank\">Maboroshi</a>. <a href=\"index.php?page=series/toradora\">\"Ze veux l'épisodeuh !\"</a>.");
+			$news->setCommentId(46);
+			$news->addReleasing(Release::getRelease('toradora', 'ep19'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 18");
+			$news->setTimestamp(strtotime("05 March 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/noeltora.jpg\" border=\"0\">
+Serait-ce le rythme \"une sortie / un jour\" qui nous prend, à Zéro et <a href=\"http://japanslash.free.fr\" target=\"_blank\">Maboroshi</a> ? Peut-être, peut-être... En tout cas, voici la suite de Toradora!, l'épisode 18 ! <a href=\"index.php?page=series/toradora\">Je DL tisouite !</a>");
+			$news->setCommentId(43);
+			$news->addReleasing(Release::getRelease('toradora', 'ep18'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 16");
+			$news->setTimestamp(strtotime("25 February 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/blond.jpg\" border=\"0\">
+Toradora!, pour changer, en copro avec <a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi no Fansub</a>. Un épisode plein d'émotion, de tendresse et de violence à la fois. À ne pas manquer ! <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">L'épisode en DDL, c'est par ici !</a>");
+			$news->setCommentId(39);
+			$news->addReleasing(Release::getRelease('toradora', 'ep16'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 15 et Chibi JE Sud");
+			$news->setTimestamp(strtotime("20 February 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/chibi.jpg\" border=\"0\" /><br> En pleine chibi Japan Expo Sud, Toradora! continue avec ce soir l'épisode 15 !<br> <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">L'épisode en DDL, c'est par ici !</a><br> Rejoignez nous pour cet évenement : <br> Chibi Japan Expo à Marseille ! J'y serais, Kanaii y sera. Nous serions ravis de vous rencontrer, alors n'hésitez pas à me mailer (Zero.fansub@gmail.com).<br><br> Dernières sortie de nos partenaires :<br> Kyoutsu : Minami-ke Okawari 02 et Ikkitousen OAV 04<br> Kanaii : Kamen no Maid Guy 08<br> Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
+			$news->setCommentId(41);
+			$news->addReleasing(Release::getRelease('toradora', 'ep15'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 12-13-14");
+			$news->setTimestamp(strtotime("17 February 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/dentifrice.jpg\" border=\"0\" /><br> db0 s'excuse pour sa news ultra-courte de la dernière fois pour Maria Holic 3 et en compensasion va raconter sa vie dans celle-ci (Non, pas ça !). C'est aujourd'hui et pour la première fois chez Zéro une triple sortie ! Les épisodes 12, 13 et 14 de Toradora! sont disponibles, toujours en copro avec <a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi</a>.<br> <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">Les épisodes en DDL, c'est par ici !</a><br><br> J'en profite aussi pour vous préciser que les 2 autres versions de Maria 03 sont sorties.<br> Mais surtout, je vous sollicite pour une IRL :<br> Chibi Japan Expo à Marseille ! J'y serais, Kanaii y sera. Nous serions ravis de vous rencontrer, alors n'hésitez pas à me mailer (Zero.fansub@gmail.com).");
+			$news->setCommentId(40);
+			$news->addReleasing(Release::getRelease('toradora', 'ep12'));
+			$news->addReleasing(Release::getRelease('toradora', 'ep13'));
+			$news->addReleasing(Release::getRelease('toradora', 'ep14'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 11");
+			$news->setTimestamp(strtotime("11 February 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"http://japanslash.free.fr/images/news/toradora11.jpg\" border=\"0\" /> <br> La suite, la suite ! Toradora! épisode 11 sortie, en copro avec <a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi no Fansub</a>.<br><br><br> <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">L'épisode en DDL, c'est par ici !</a>");
+			$news->setCommentId(39);
+			$news->addReleasing(Release::getRelease('toradora', 'ep11'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 10");
+			$news->setTimestamp(strtotime("10 February 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/ami.png\" border=\"0\" /> <br> En direct de Nice, et pour ce 10 Février, l'épisode 10 de Toradora! en co-production avec <a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi no Fansub</a>, qui est de retour, comme vous l'avez vu ! (Avec Kannagi 01, Mermaid 11-12-13 et Kimi Ga 4). Pour Toradora!, nous allons rattraper notre retard !<br><br><br> <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">L'épisode en DDL, c'est par ici !</a>");
+			$news->setCommentId(39);
+			$news->addReleasing(Release::getRelease('toradora', 'ep10'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 09");
+			$news->setTimestamp(strtotime("04 December 2008"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/tora.jpg\" border=\"0\" /> <br> L'épisode 09 de Toradora! est terminé ! Nous avons pris du retard car la MNF (en co-production) est actuellement en pause temporaire (Tohru n'a plus internet).<br> <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">Pour télécharger les épisodes en DDL, cliquez ici !</a><br><br>  <span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.sky-fansub.com/\" target=\"_blank\" class=\"postlink\">Sky-fansub</a> :</span><br> Kurozuka 07<br> Mahou Shoujo Lyrical Nanoha Strikers 20<br> <br> <span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://kyoutsu-subs.over-blog.com/\" target=\"_blank\" class=\"postlink\">Kyoutsu</a> :</span><br> Hyakko 05<br> <br> <span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a> :</span><br> Kamen no maid Guy 06<br> Rosario+Vampire Capu2 06");
+			$news->setCommentId(31);
+			$news->addReleasing(Release::getRelease('toradora', 'ep9'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! 07");
+			$news->setTimestamp(strtotime("24 November 2008"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/toradora.png\" border=\"0\" /><br>Ohayo mina !<br>La suite de Toradora est arrivée ! Et toujours en co-production avec la Maboroshi  <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /> <br>Cet épisode se déroule à la piscine, et &quot;Y'a du pelotage dans l'air !&quot; Je n'en dirais pas plus.<br>L'épisode est sorti en DDL en format avi, en XDCC. Comme toujours, il sortira un peu plus tard en H264, torrent, streaming, ect.<br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a>");
+			$news->setCommentId(14);
+			$news->addReleasing(Release::getRelease('toradora', 'ep7'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Nouveau XDCC, Radio, Scantrad et Toradora! 06");
+			$news->setTimestamp(strtotime("20 November 2008"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/img_shinobu.gif\" border=\"0\" /><br>Bonjour tout le monde !<br>J'ai aujourd'hui plusieurs bonnes nouvelles à vous annoncer :<br>La V3 avance bien, et je viens de mettre à jour les pages pour le scantrad, car comme vous le savez, nous commençons grâce à François et notre nouvelle recrue Merry-Aime notre premier projet scantrad : Kodomo no Jikan.<br>J'ai aussi installée la radio tant attendue et mis sur le site quelques OST.<br>Nous avons aussi, grâce à Ryocu, un nouveau XDCC. Vous aviez sans doute remarquer que nous ne pouvions pas mettre à jour le précédent. Celui-ci sera mis à jour à chaque nouvelle sortie.<br>Et enfin, notre dernière sortie : Toradora! 06. Toujours en co-production avec<a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi</a>.<br>Enjoy  <img src=\"http://img1.xooimage.com/files/w/i/wink-1627.gif\" alt=\"Wink\" border=\"0\" class=\"xooit-smileimg\" /> <br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a>");
+			$news->setCommentId(7);
+			$news->addReleasing(Release::getRelease('toradora', 'ep6'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kodomo no Jikan 12 FIN");
+			$news->setTimestamp(strtotime("06 March 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/kodomo12fin.png\" border=\"0\"><br />
+C'est ainsi, en ce 6 mars 2009, que nous fêtons à la fois l'anniversaire de la première release de Zéro (Kodomo no Jikan OAV) et l'achevement de notre première série de 12 épisodes. L'épisode 12 de Kodomo no Jikan sort aujourd'hui pour clore les aventures de nos 3 petites héroïnes : Rin, Mimi et Kuro. Il est dispo en DDL sur <a href=\"http://kojikan.fr\">le site Kojikan.fr</a>. Un pack des 12 épisodes sera bientôt disponible en torrent. <br /><a href=\"http://kojikan.fr/?page=saison1-dl_1\" target=\"_blank\">Télécharger en DDL !</a>");
+			$news->setCommentId(44);
+			$news->addReleasing(Release::getRelease('kodomo', 'ep12'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kojikan 10");
+			$news->setTimestamp(strtotime("03 February 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/kodomo10.jpg\" border=\"0\" /><br> RIIINN est revenue ! Elle nous apporte son dixième épisode. Plus que 2 avant la fin, et la saison 2 par la suite. Une petite surprise arrive bientôt, sans doute pour le onzième épisode. En attendant, retrouvez vite notre petite délurée dans la suite de ses aventures et ses tentatives de séduction de Aoki-sensei...");
+			$news->setCommentId(37);
+			$news->addReleasing(Release::getRelease('kodomo', 'ep10'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kodomo no Jikan 09, Recrutement QC, trad it&gt;fr");
+			$news->setTimestamp(strtotime("13 December 2008"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/kodomo9.jpg\" border=\"0\" /><br>Rin, Kuro et Mimi reviennent enfin vous montrer la suite de leurs aventures ! Sortie aujourd'hui de l'épisode 09, merci à DC qui nous l'a encodé. Les 3 versions habituelles sont dispos en DDL.<br><br>Nous recrutons toujours un QC ! Proposez-vous !<br>Nous avons décider de reprendre le projet Mermaid Melody Pichi Pichi Pitch, mais pour cela nous avons besoin d'un traducteur italien &gt; français. N'hésitez pas à postuler si vous êtes intéressés <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /> Par avance, merci. <a href=\"index.php?page=recrutement\" target=\"_blank\" class=\"postlink\">Lien</a><br><br><span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a> :</span><br>Kanokon pack DVD 06 à 12<br>Rosario + Vampire S2 -05<br><span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.sky-fansub.com/\" target=\"_blank\" class=\"postlink\">Sky-fansub</a> :</span><br>Kurozuka 05 HD<br>Mahou Shoujo Lyrical Nanoha Strikers 17");
+			$news->setCommentId(22);
+			$news->addReleasing(Release::getRelease('kodomo', 'ep9'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			News::$allNews[] = $news;
