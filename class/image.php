@@ -55,7 +55,7 @@ class Image extends DefaultHtmlComponent {
 	public static function getPreloadedImages() {
 		$images = array();
 		$images[] = new Image("images/interface/bg.jpg");
-		$images[] = new Image("images/interface/bg2.jpg");
+		$images[] = new Image("images/interface/bg2.png");
 		$images[] = new Image("images/interface/banniere.png");
 		
 		return $images;
