@@ -6,7 +6,7 @@
 	margin: 0;
 	padding: 0;
 	margin-left: 170px;
-	width: 660px; /* TODO review the calculation regarding the menus */
+	width: 660px;
 	min-height: 650px;
 }
 
@@ -89,7 +89,15 @@
 	margin-left: 827px;
 } 
 
+#colLeft .cornerImage {
+	display: block;
+	height: 250px;
+	text-align: center;
+	margin-bottom: 0px;
+}
+
 #colRight .logo {
+	margin: auto;
 	margin-bottom: 7px;
 }
 

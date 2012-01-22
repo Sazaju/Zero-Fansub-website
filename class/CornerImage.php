@@ -2,30 +2,30 @@
 /*
 	A corner image appear in the top left corner of the website.
 */
-class CornerImage extends DefaultHtmlComponent {
+class CornerImage extends Link {
 	private $project = null;
 	
 	function __construct($imageName, $name, $projectId = null) {
+		$this->setClass("cornerImage");
+		
 		if ($projectId !== null) {
 			$this->project = Project::getProject($projectId);
 		}
 		
 		$content = new Image("images/hautmenu/".$imageName, $name);
+		$this->setContent($content);
+		
 		if ($projectId != null) {
 			$url = new Url();
 			$url->setQueryVar('page', "series/".$projectId);
-			$content = new Link($url, $content);
+			$this->setUrl($url);
+		} else {
+			$this->setUrl(new Url('#'));
 		}
-		$this->setContent($content);
-		$this->setClass("cornerImage");
 	}
 	
 	public function getProject() {
 		return $this->project;
-	}
-	
-	function getHtmlTag() {
-		return 'div';
 	}
 	
 	private static $allImages = null;

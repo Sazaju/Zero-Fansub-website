@@ -9,7 +9,7 @@
 		$corners = CornerImage::getNotHentaiImages();
 	}
 	$corner = $corners[array_rand($corners)];
-	$corner->setId("menutop");
+	$corner->setClass("cornerImage");
 	$leftCol->addComponent($corner);
 	
 	$menu = new Menu();
