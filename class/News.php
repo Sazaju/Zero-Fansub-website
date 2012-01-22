@@ -13,11 +13,29 @@ class News {
 	private $twitterTitle = null;
 	private $releasesOut = array();
 	private $licensesOut = array();
+	private $displayInNormalMode = true;
+	private $displayInHentaiMode = true;
 	
 	public function __construct($title = null, $message = null) {
 		$this->setTitle($title);
 		$this->setMessage($message);
 		$this->setTimestamp(time());
+	}
+	
+	public function setDisplayInHentaiMode($boolean) {
+		$this->displayInHentaiMode = $boolean;
+	}
+	
+	public function displayInHentaiMode() {
+		return $this->displayInHentaiMode;
+	}
+	
+	public function setDisplayInNormalMode($boolean) {
+		$this->displayInNormalMode = $boolean;
+	}
+	
+	public function displayInNormalMode() {
+		return $this->displayInNormalMode;
 	}
 	
 	public function setTitle($title) {
@@ -181,6 +199,7 @@ class News {
 			
 			$news = new News();
 			$news->setTitle("Issho ni H Shiyo 6");
+			$news->setDisplayInNormalMode(false);
 			$news->setTimestamp(strtotime("28 December 2011 19:17"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(278);
@@ -220,6 +239,7 @@ class News {
 			
 			$news = new News();
 			$news->setTitle("Mitsudomoe 7+8");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("14 November 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(275);
@@ -263,6 +283,7 @@ class News {
 			
 			$news = new News();
 			$news->setTitle("Kodomo no Jikan - Du neuf et du moins neuf");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("10 October 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(272);
@@ -282,6 +303,7 @@ class News {
 			
 			$news = new News();
 			$news->setTitle("Nouvelles sorties, nouveaux projets, nouveaux bugs...");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 September 2011"));
 			$news->setAuthor(TeamMember::getMember(5));
 			$news->setCommentId(271);
@@ -303,6 +325,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Hitohira - SÈrie complËte");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("14 August 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(270);
@@ -318,6 +341,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Mitsudomoe 03");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("05 August 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(269);
@@ -332,6 +356,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Toradora! SOS - SÈrie complËte 4 OAV");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(268);
@@ -347,6 +372,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("23 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(267);
@@ -399,6 +425,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Kannagi - SÈrie complËte");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("19 June 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(264);
@@ -420,6 +447,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Mitsudomoe 01 + 02");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("27 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(263);
@@ -437,6 +465,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Tayutama ~ Kiss on my Deity ~ Pure my Heart ~ - SÈrie complËte 6 OAV");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("15 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(262);
@@ -451,6 +480,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Potemayo OAV - SÈrie complËte");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("11 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(261);
@@ -467,6 +497,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Potemayo - SÈrie complËte entiÈrement refaite");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("08 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(261);
@@ -491,6 +522,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Kujibiki Unbalance 2 - SÈrie complËte entiÈrement refaite");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("02 May 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(260);
@@ -517,6 +549,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Kodomo no Natsu Jikan");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("11 April 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(259);
@@ -565,6 +598,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Issho Ni H Shiyo OAV 04 - Fin !");
+			$news->setDisplayInNormalMode(false);
 			$news->setTimestamp(strtotime("13 July 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(237);
@@ -583,6 +617,7 @@ class News {
 
 			$news = new News();
 			$news->setTitle("KissXsis 03");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("24 June 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(233);
@@ -608,6 +643,7 @@ En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian 
 
 			$news = new News();
 			$news->setTitle("Mitsudomoe, Bande-Annonce");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("15 June 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(231);
@@ -619,6 +655,7 @@ En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian 
 
 			$news = new News();
 			$news->setTitle("Kiss X Sis TV 02");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("04 May 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(228);
@@ -633,6 +670,7 @@ En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian 
 
 			$news = new News();
 			$news->setTitle("Kiss X Sis TV 01");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("17 April 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(225);
@@ -650,6 +688,7 @@ En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian 
 
 			$news = new News();
 			$news->setTitle("S'endormir avec Hinako (Issho ni Sleeping) OAV");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("08 March 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(209);
@@ -669,6 +708,7 @@ Alors, ‡ tout ‡ l'heure, quand tu auras tÈlÈcharger l'Èpisode ;)");
 
 			$news = new News();
 			$news->setTitle("KissXsis 02");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("06 December 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(153);
@@ -681,6 +721,7 @@ Ah, elles nous font bien attendre, les deux jolies jumelles... Des mois pour sor
 
 			$news = new News();
 			$news->setTitle("Canaan 13 ~ Fin !");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("06 October 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(138);
@@ -693,6 +734,7 @@ Ainsi se termine Canaan.");
 			
 			$news = new News();
 			$news->setTitle("Canaan 12 + Piscine + Partenariats + Maboroshi + Kobato");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("04 October 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(137);
@@ -709,6 +751,7 @@ Pour finir, <b>Kobato</b>, dans la liste de nos projets depuis juin, ne se fera 
 			
 			$news = new News();
 			$news->setTitle("Canaan 11");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("30 September 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(136);
@@ -721,6 +764,7 @@ Chose promise, chose due. Et en plus, on a mÍme le droit ‡ un peu de ecchi dans 
 			
 			$news = new News();
 			$news->setTitle("Canaan 10");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("30 September 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(135);
@@ -733,6 +777,7 @@ Vous en rÍviez ? Les fans l'ont dessinÈ... Est-ce que c'est ce qui va se passer 
 			
 			$news = new News();
 			$news->setTitle("Canaan 09 + Canaan Cosplays");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("25 September 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(130);
@@ -747,6 +792,7 @@ Je profite de cette news pour vous poster quelques photos de mon cosplay Canaan.
 			
 			$news = new News();
 			$news->setTitle("Canaan 08");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(116);
@@ -759,6 +805,7 @@ Avec un peu de retard cette semaine, la suite de la trÈpidante histoire de Canaa
 			
 			$news = new News();
 			$news->setTitle("Canaan 06");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("11 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(112);
@@ -771,6 +818,7 @@ Comme ‡ son habitude, le petit Èpisode de Canaan de la semaine fait sa sortie. E
 			
 			$news = new News();
 			$news->setTitle("Canaan 04 + 05 + Rythme Toradora!");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("06 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(109);
@@ -788,6 +836,7 @@ Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord
 			
 			$news = new News();
 			$news->setTitle("Erreur Canaan 03");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("24 July 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(106);
@@ -799,6 +848,7 @@ Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord
 			
 			$news = new News();
 			$news->setTitle("Canaan 03 + Recrutement trad Hitohira");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("22 July 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(106);
@@ -813,6 +863,7 @@ Encore du ecchi dans la sÈrie Canaan ! Mais pas que Áa, bien s˚r. L'Èpisode 3 es
 			
 			$news = new News();
 			$news->setTitle("Canaan 02");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("19 July 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(103);
@@ -825,6 +876,7 @@ Bah alors ? ZÈro nous fait Canaan ? Mais ZÈro, c'est une team de l'ecchi, non ? 
 			
 			$news = new News();
 			$news->setTitle("KissXsis 01");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("28 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(77);
@@ -838,6 +890,7 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			
 			$news = new News();
 			$news->setTitle("L'entraÓnement avec Hinako (Isshoni Training)");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("28 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(65);
@@ -849,6 +902,7 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			
 			$news = new News();
 			$news->setTitle("Joyeux NoÎl ! - OAV Kiss X Sis");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("24 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(24);
@@ -860,6 +914,7 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			
 			$news = new News();
 			$news->setTitle("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("23 July 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(267);
@@ -882,6 +937,7 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 13 - FIN");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("29 March 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(256);
@@ -903,6 +959,7 @@ Merci de nous avoir suivis et √† bient√¥t pour d'autres √©pisodes ^_^<br /><br /
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 12");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("20 March 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(255);
@@ -917,6 +974,7 @@ Sortie de l'&eacute;pisode 12 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !");
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 11");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("14 March 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(254);
@@ -938,6 +996,7 @@ Rappel, nos releases sont t&eacute;l&eacute;chargeable sur :<br />
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 10");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("10 March 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(253);
@@ -952,6 +1011,7 @@ Sortie de l'episode 10 de Kanamemo ! Youhouh ! C'est la fete !");
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 7, 8 et 9");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("23 February 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(251);
@@ -970,6 +1030,7 @@ Je vous dis √† bient√¥t pour d'autres √©pisodes ^_^");
 			
 			$news = new News();
 			$news->setTitle("Kanamemo Chapitre 01");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("02 August 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(241);
@@ -987,6 +1048,7 @@ A bientot !");
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 06");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("16 April 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(224);
@@ -1001,6 +1063,7 @@ Le 6Ème Èpisode de Kanamemo est disponible.");
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 4 + 5");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("19 March 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(212);
@@ -1021,6 +1084,7 @@ En bonus, un petit AMV de l'Èpisode 05 (passÈ ‡ la TV, nous le l'avons pas fait 
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 03");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 November 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(150);
@@ -1033,6 +1097,7 @@ BANZAIII !! Kanamemo Èpisode 03, ouais, trop bien ! Je mets du temps ‡ sortir le
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 01");
+			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("20 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(114);
