@@ -16,8 +16,9 @@ class CornerImage extends Link {
 		$this->setContent($content);
 		
 		if ($projectId != null) {
-			$url = new Url();
-			$url->setQueryVar('page', "series/".$projectId);
+			$url = Url::getCurrentScriptUrl();
+			$url->setQueryVar('page', 'project');
+			$url->setQueryVar('id', $projectId);
 			$this->setUrl($url);
 		} else {
 			$this->setUrl(new Url('#'));

@@ -144,6 +144,21 @@ if (isset($_GET[MODE_H])) {
 	// let the state as is
 }
 
+/**********************************\
+         RETRO COMPATIBILITY
+\**********************************/
+// TODO remove when the website will be completely refined
+$url = Url::getCurrentUrl();
+if ($url->hasQueryVar('page')) {
+	$page = $url->getQueryVar('page');
+	if (preg_match("#^series/#", $page)) {
+		$url->setQueryVar('page', 'project');
+		$parts = preg_split("#/#", $page);
+		$url->setQueryVar('id', $parts[1]);
+		header('Location: '.$url->toString());
+		exit();
+	}
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

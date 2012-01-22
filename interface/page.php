@@ -22,14 +22,6 @@
 			$page = "havert";
 		}
 		
-		// compatibility for obsolete links
-		// TODO remove when the website will be completely refined
-		if (preg_match("#^series/#", $page)) {
-			$page = 'project';
-			$parts = preg_split("#/#", $page);
-			$id = $parts[1];
-		}
-		
 		/***************************************\
 		              PAGE LOADING
 		\***************************************/
