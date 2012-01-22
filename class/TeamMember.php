@@ -30,7 +30,7 @@ class TeamMember {
 		return $this->isAdmin;
 	}
 	
-	public function setHasGone($boolean) {
+	public function setGone($boolean) {
 		$this->hasGone = $boolean;
 	}
 	
@@ -262,31 +262,31 @@ class TeamMember {
 			$member = new TeamMember(15);
 			$member->setPseudo("Merry-Aime");
 			$member->addRole(Role::getRole("tradEn"));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(16);
 			$member->setPseudo("Lyf");
 			$member->addRole(Role::getRole("check"));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(17);
 			$member->setPseudo("Nixy'Z");
 			$member->addRole(Role::getRole("qc"));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(18);
 			$member->setPseudo("Bk");
 			$member->addRole(Role::getRole("encod"));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(19);
 			$member->setPseudo("Klick");
 			$member->addRole(Role::getRole("help"));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(20);
@@ -315,25 +315,25 @@ class TeamMember {
 			$member = new TeamMember(24);
 			$member->setPseudo("Kurosaki");
 			$member->addRole(Role::getRole('tradEn'));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(25);
 			$member->setPseudo("Kaj");
 			$member->addRole(Role::getRole('qc'));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(26);
 			$member->setPseudo("Baka !");
 			$member->addRole(Role::getRole('help'));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(27);
 			$member->setPseudo("Vegeta");
 			$member->addRole(Role::getRole('check'));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(28);
@@ -344,7 +344,7 @@ class TeamMember {
 			$member = new TeamMember(29);
 			$member->setPseudo("Adeo");
 			$member->addRole(Role::getRole('check'));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(30);
@@ -361,7 +361,7 @@ class TeamMember {
 			$member->setPseudo("Man-ban");
 			$member->addRole(Role::getRole('tradEn'));
 			$member->addRole(Role::getRole('time'));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(32);
@@ -397,13 +397,13 @@ class TeamMember {
 			$member = new TeamMember(38);
 			$member->setPseudo("B3rning");
 			$member->addRole(Role::getRole('encod'));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(39);
 			$member->setPseudo("Khorx");
 			$member->addRole(Role::getRole('time'));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(40);
@@ -411,19 +411,19 @@ class TeamMember {
 			$member->addRole(Role::getRole('qc'));
 			$member->addRole(Role::getRole('adapt'));
 			$member->addRole(Role::getRole('tradEn'));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(41);
 			$member->setPseudo("Akai_Ritsu");
 			$member->addRole(Role::getRole('kara'));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(42);
 			$member->setPseudo("Benjee");
 			$member->addRole(Role::getRole('tradEn'));
-			$member->setHasGone(true);
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(46);
@@ -559,6 +559,11 @@ class TeamMember {
 			$member = new TeamMember(72);
 			$member->setPseudo("Aniki");
 			$member->setPonctualMember(true);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(73);
+			$member->setPseudo("Tarf");
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			// TODO remove this sort, prefer a sort at a lower level
