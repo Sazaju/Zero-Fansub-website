@@ -1,17 +1,92 @@
 /******************************\
+              PAGE
+\******************************/
+
+#page {
+	margin: 0;
+	padding: 0;
+	margin-left: 170px;
+	width: 660px; /* TODO review the calculation regarding the menus */
+	min-height: 650px;
+}
+
+#page p{ 
+	text-indent: 10px;
+	font-family: Tahoma;
+	font-size: 12px;
+	font-size: 12px;
+	color: #666666;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 0px;
+}
+
+#page a {
+	font-weight: normal;
+	text-decoration: none;
+	color: #999999;
+}
+
+#page a:hover {
+	font-weight: bold;
+}
+
+#page a:active, #page a:focus {
+	color: #696969;
+}
+
+#page a:visited {
+	font-decoration: line-through;
+}
+
+#page p:after{ 
+	content: url('../../images/interface/barre.png');
+	width: 100%;
+}
+
+#page h1 {
+	margin-left: 150px;
+	letter-spacing: 12px;
+	font-family: Tahoma;
+	font-weight: normal;
+	font-size: 18px;
+}
+
+#page h2 {
+	color: #000000;
+	font-size: 17px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 0px;
+}
+
+#page h3 {
+	margin-left: 150px;
+	letter-spacing: 12px;
+	font-family: Tahoma;
+	font-weight: normal;
+	font-size: 18px;
+}
+
+#page h4 /* Date, auteur, sous-titre, ect */ {
+	color: #999999;
+	font-size: 10px;
+	margin-left: 80px;
+	margin-right: 20px;
+	font-weight: normal;
+	margin-top: -15px;
+}
+
+/******************************\
               MENUS
 \******************************/
 
-#colLeft {
-	margin: 0;
-	width: 150px;
-	float: left;
+#colLeft, #colRight {
+	position: absolute;
 } 
 
 #colRight {
-	float: right;
-	margin: 0;
-	width: 203px;
+	margin-left: 827px;
 } 
 
 #colRight .logo {
@@ -28,13 +103,9 @@
 	opacity: 0.8;
 	width: 110px;
 	padding: 1em 0 1em 40px;
-	margin: 0;
+	margin: auto;
 	margin-bottom: 10px;
-}
-
-/* TODO replace this manual placement by a right alignment */
-#colRight .menu {
-	margin-left: 53px;
+	text-align: left;
 }
 
 .menu h1, .menu ul, .menu li {
