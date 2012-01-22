@@ -114,10 +114,8 @@ if (TEST_MODE_ACTIVATED) {
 	$clearDB = 'clear DB';
 	$clearDB = DB_USE ? '<a href="'.$_SERVER['PHP_SELF'].'?clearDB'.'">'.$clearDB.'</a>' : '<s>'.$clearDB.'</s>';
 	
-	$gitPull = '<a href="'.$_SERVER['PHP_SELF'].'?gitPull'.'">git pull</a>';
-	
 	$commitInfo = exec('git log -1 --pretty=format:"%h - %s"');
-	define('TESTING_FEATURE', 'Testing mode : '.$clearDB." - ".$gitPull."<br/>".$commitInfo);
+	define('TESTING_FEATURE', 'Testing mode : '.$clearDB."<br/>".$commitInfo);
 }
 
 /**********************************\
