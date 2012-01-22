@@ -22,7 +22,7 @@
 	$licensedProjects = array();
 	$notLicensedProjects = array();
 	$allProjects = null;
-	if ($_SESSION[DISPLAY_H] == true) {
+	if ($_SESSION[MODE_H] == true) {
 		$allProjects = Project::getHentaiProjects();
 	} else {
 		$allProjects = Project::getNonHentaiProjects();

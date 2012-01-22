@@ -2,7 +2,12 @@
 	$leftCol = new SimpleBlockComponent();
 	$leftCol->setId("colLeft");
 	
-	$corners = CornerImage::getAllImages();
+	$corners = null;
+	if ($_SESSION[MODE_H]) {
+		$corners = CornerImage::getHentaiImages();
+	} else {
+		$corners = CornerImage::getNotHentaiImages();
+	}
 	$corner = $corners[array_rand($corners)];
 	$corner->setId("menutop");
 	$leftCol->addComponent($corner);
