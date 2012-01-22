@@ -1,205 +1,32 @@
-<h3>Zéro fansub</h3>
-
-<h2>Archives</h2>
-<p style="align: center;"><a href="index.php?page=home">Dernières news</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hsorties">Sorties</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hteam">Infos team</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hpartenaires">Partenaires</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hdb0c">db0 company</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hbonus">Bonus</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=havert" style="color: #FF3399;" id="plus">Hentaï</a>
-</p>
-
-<h2>[Zero] BlogBang</h2>
-<h4>00/00/00 par db0</h4>
-<div class="p"><script src="http://www.blogbang.com/demo/js/blogbang_ad.php?id=6ee3436cd7"
-type="text/javascript"></script>
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t64.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=64" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Recrutement traducteur</h2>
-<h4>04/07/2011 par praia</h4>
-<div class="p">
-  <img src="images/news/m1.jpg" alt="Mitsudomoe" />
-  <br /><br />
-  Nous avons urgemment besoin d'un trad pour Mitsudomoe !!<br />
-  S'il vous pla&icirc;t, piti&eacute; xD<br />
-  Notre edit s'impatiente et ne peux continuer la s&eacute;rie, alors aidez-nous ^_^<br />
-  C'est pas souvent qu'on demande du renfort, mais l&agrave;, c'est devenu indispensable...<br />
-  Nous avons perdu un trad r&eacute;cemment, il ne nous en reste plus qu'un... et comble de malheur,  il n'a pas accroch&eacute; &agrave; la s&eacute;rie,
-  mais je le remercie pour avoir quand m&ecirc;me traduit deux &eacute;pisodes pour nous d&eacute;panner.<br />
-  Des petits cours sont dispos ici : <a href="http://forum.zerofansub.net/f221-Cours-br.htm" target="_blank">Lien</a>.
-  <br /><br />
-  Pour postuler, faites une candidatures &agrave; l'&eacute;cole : <a href="http://ecole.zerofansub.net/?page=postuler" target="_blank">Lien</a>.
-  <br /><br />
-  <img src="images/news/m2.jpg" alt="Mitsudomoe" />
-  <br /><br />
-  <span>~ <a href="http://commentaires.zerofansub.net/t266.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=266" target="_blank">Ajouter un commentaire</a> ~<br />
-    ~ <a href="http://twitter.com/home?status=Zero recherche un traducteur" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Joyeuses f&ecirc;tes !</h2>
-<h4>26/12/2010 par Sazaju HITOKAGE</h4>
-<div class="p">
-<img src="images/news/noel0.jpg" alt="merry christmas ore no imouto" />
-<br /><br />
-Une autre annÃ©e se termine, mais ne vous en faite pas, nous on continue ! MÃªme si on semble Ãªtre au point mort, Ã§a s'active dans les coulisses. Ne perdez pas espoir, vos commentaires ne sont pas tombÃ©s aux oubliettes !<br />
-<br />
-Toute l'Ã©quipe de ZÃ©ro Fansub vous souhaite de joyeuses fÃªtes de fin d'annÃ©e et espÃ¨re vous retrouver l'annÃ©e prochaine pour de nouvelles sÃ©ries ! N'hÃ©sitez pas Ã  passer sur le forum pour nous soutenir !<br />
-<br /><br />
-<img src="images/news/noel1.jpg" alt="merry christmas ore no imouto" />
-<br /><br />
-<img src="images/news/noel2.jpg" alt="merry christmas ore no imouto" />
-<br /><br />
-PS : Le projet Canaan est licenci&eacute; par Kaze. Le dvd de l'integrale est d&eacute;jÃ  disponible en prÃ©-order !
-<br /><br />
-<img src="images/news/dvdcanaan.jpg" alt="DVD canaan buy pre-order kaze" />
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t250.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=250" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Toute l'equipe Zero fansub vous souhaitent de joyeuses fetes !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Licence de L&#039;entrainement avec Hinako + Sortie de Akina To Onsen et Faisons l'amour ensemble &eacute;pisode 05</h2>
-<h4>08/03/2011 par Sazaju</h4>
-<div class="p">
-<img src="images/news/issho5.jpg" style="float: right;" alt="Akina To Onsen De H Shiyo" />
-<br /><br />
-<p>Dans la suite de notre reprise tant attendue, on ne rel&#226;che pas le rythme ! Apr&#232;s la sortie d'un genre classique chez Z&#233;ro, on poursuit avec l'une de nos sp&#233;cialit&#233;s : <i>Faisons l'amour ensemble</i> revient en force avec un nouvel &#233;pisode (de quoi combler les d&#233;&#231;us du 4e opus) et un &#233;pisode bonus !
-<br /><br />
-Tout d'abord, ce 5e &#233;pisode nous sort le grand jeu : la petite s&#339;ur est dans la place ! Apr&#232;s plusieurs ann&#233;es sans nouvelles de son grand fr&#232;re, voil&#224; qu'elle a bien grandi et d&#233;cide donc de taper l'incruste. Voil&#224; une bonne occasion de faire le m&#233;nage (les filles sont dou&#233;es pour &#231;a {^.^}~). &#192; la suite de quoi une bonne douche s'impose... Et si on la prenait ensemble comme au bon vieux temps, <i>oniichan</i> ?
-<br /><br />
-Pour ceux qui auraient encore des r&#233;serves (faut dire qu'on vous a donn&#233; le temps pour {^_^}), un &#233;pisode bonus aux sources chaudes vous attend ! Akina, cette jeune demoiselle du premier &#233;pisode, revient nous saluer avec son charme g&#233;n&#233;reux et son c&#244;t&#233; ivre toujours aussi mignon. Vous en d&#233;gusterez bien un morceau apr&#232;s le bain, non ?
-<br /><br /><br /><img src="images/series/akinahshiyo.jpg" alt="Akina To Onsen De H Shiyo" /></p>
-<p>db0 dit : Et pour finir, une nouvelle assez inattendue : La licence de L'entra&#238;nement avec Hinako chez Kaze. On vous tiendra au courant quand le DVD sortira.
-<br /><br />
-<img src="images/news/training.gif" alt="Isshoni Training" />
-<br /><br />
- En parlant de Kaze, j'ai re&#231;u hier par la poste le Blu-ray de Canaan chez Kaze. Vous avez aim&#233; la s&#233;rie ? Faites comme moi, achetez-le !<br /><br />
-<img src="images/news/canaanli.jpg" alt="DVD canaan buy kaze" />
-
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t252.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=252" target="_blank">Ajouter un commentaire</a> ~<br />
-~ <a href="http://twitter.com/home?status=Deux hentai : Akina To Onsen et Issho ni H shiyo chez Zero fansub !" target="_blank" onclick="javascript:pageTracker._trackPageview ('/outbound/twitter.com');">Partager sur <img src="images/autre/logo_twitter.png" border="0" alt="twitter" /></a> ou <a name="fb_share" type="button" share_url="http://zerofansub.net"></a>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>~</span><br /><br /></div>
-<p></p>
-
-<h2>Newsletter</h2>
-<h4>30/06/2010 par db0</h4>
-<div class="p">
-Pour ceux qui ne seraient pas au courant, 
-il est possible de recevoir un mail Ã  chaque fois q'une "news" (sorties ou autre) apparait sur le site.<br />
-Pour bÃ©nÃ©ficier de ce service et Ãªtre les premier au courant, il suffit de vous inscrire sur le forum :<br />
-<a href="http://forum.zerofansub.net/profile.php?mode=register&agreed=true" target="_blank">S'inscrire !</a><br />
-<br />
-<div class="left">
-<ul>
-<li>Vous n'Ãªtes pas obligÃ©s d'Ãªtre un membre actif du forum pour la recevoir.</li>
-<li>Nous ne divulgons votre adresse e-mail Ã  personne.</li>
-<li>Ã€ tout moment, vous pouvez arrÃªter votre abonnement (lien en bas des newsletter).</li>
-<li>Nous ne vous envoyons rien de plus que nos news : pas de spams, de pubs, etc.</li>
-</ul>
-</div>
-<br />
-Pour les habituÃ©s des flux RSS, vous pouvez aussi suivre nos news :<br />
-<a href="http://zerofansub.feedxs.com/zero.rss" target="_blank">Flux RSS</a><br /><br />
-<img src="images/news/newsletters.jpg" alt="Newsletter ZÃ©ro fansub" /><br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t235.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=235" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Nouvelle série : Mitsudomoe</h2>
-<h4>11/06/2010 par Jembé (école du fansub)</h4>
-<div class="p">
-<img src="images/news/mitsunews.png" /><br />
-La team est heureuse de vous présenter son nouveau projet, Mitsudomoe.<br />
-<br />
-Dessiné par Norio Sakurai depuis 2006, Mitsudomoe est enfin adapté en animé. Certains connaissent peut-être ce manga sous le nom "Les triplées", car il est (pour une fois) édité en France par Doki-Doki <a href="http://www.doki-doki.fr/catalogue/les-triplees-volume-1-doki-doki-158.html" target="_blank">(par ici pour plus d'infos)</a>.<br />
-<br />
-Et bien sûr, Zéro est là pour suivre et vous faire découvrir ce nouveau venu dans l'univers des animés ! Enfin, si la série en vaut le coup... Et si c'est le cas, ce sera notre traducteur jap maison, à savoir le valeureux Sazaju, qui sera aux premières loges pour vous faire vivre ces épisodes au plus près de l'actualité nippone !<br />
-<br />
-Donc, à très bientôt pour suivre avec nous les joyeuses fanfaronnades de Futaba, Hitoha et Mitsuba à travers leur élucubrations, avec pour seuls objectifs le rire et le délire ! Humour corrosif et parodie cinglante des animés trop kawaii sont au menu ! En espérant que la mayonnaise prenne bien et que les ingrédients ne tournent pas...
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t231.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=231" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>L'école du fansub + Mayoi Neko Overrun!</h2>
-<h4>22/04/2010 par db0</h4>
-<div class="p">
-<img src="images/news/ecolelogo.png" /><br /><br />
-Suite au succès inattendu de la précédente news, nous avons décider d'ouvrir une séction spéciale dans Zéro fansub : L'école du fansub.<br /><br />
-<div style="text-align: left"><b>Le Concept</b><br />
-Donner les moyens à des personnes motivées mais n'ayant aucune éxpérience en fansub d'entrer dans une équipe en les formant depuis la base.<br />
-<br />
-<b>Comment ça marche ?</b><br />
-Parce que la pratique vaut mieux que la simple théorie, on vous demandera d'effectuer des exercices et activités concrètes qui seront tout de suite utilisés pour l'équipe. Il y aura des tâches à faire avec des dates de rendus (assez flexibles) et vous ne serez jamais seuls puisqu'une section "salle des profs" vous permet de poser toutes les questions que vous voulez aux membres de l'équipe.<br />
-<br />
-<b>Quelles sont les qualités requises ?</b><br />
-- Être très motivé<br />
-- Être disponible<br />
-- Être patient<br />
-- Avoir envie de découvrir les coulisses du fansub<br />
-- Avoir la soif d'apprendre<br />
-- Être prêt à effectuer des taches pas très amusantes pour commencer<br />
-- N'avoir pas ou peu d'éxpérience en fansub<br />
-<br />
-<b>Comment vais-je évoluer ?</b><br />
-À chaque exercice rendu, le prof de la matière vous donnera une note basée sur des critères précis avec des bonus et des malus ainsi qu'un commentaire. Vous saurez ainsi apprendre de vos erreurs pour progresser.<br />
-<br />
-<b>Quelles sont les matières enseignées et par qui ?</b><br />
-Actuellement, nous enseignons dans notre école :<br />
-<ul>
-<li>Utilisation du logiciel Aegisub pour le timing, l'édition, ect - db0</li>
-<li>Apprentissage du langage ASS pour l'édition, le karaoké, ect - db0</li>
-<li>Programmation orientée web, XHTML/CSS/PHP - db0, Sazaju</li>
-<li>Programmation en tout genre - db0, Sazaju</li>
-<li>Cours de langue, Japonais écrit et oral - Sazaju</li>
-<li>Cours de langue, Anglais - TchO, praia</li>
-<li>Français écrit, grammaire orthographe - TchO, praia</li>
-<li>Scantraduction, photoshop & co - db0</li>
-</ul><br />
-Par la suite seront enseignés l'encodage vidéo et l'utilisation du logiciel After Effect pour les effets vidéos.<br />
-<br />
-<b>Comment y entrer ?</b><br /></div>
-Déjà 11 personnes qui ont postulée pour entrer à l'école du fansub, dont 7 qui y sont entrées.<br/>Et vous ?<br/>
-<span>~ <a href="http://forum.zerofansub.net/t981-Comment-entrer-dans-l-ecole-du-fansub.htm" target="_blank">Postuler</a> ~</span><br /><br />
-
-À l'occasion de l'ouverture de cette école pas comme les autres, nous commencons une série :<br />
-Mayoi Neko Overrun!<br />
-qui sera entièrement fansubbée par les élèves de l'école du fansub épaulés par leurs professeurs.<br /><br />
-<img src="images/news/newsmayoi.jpg" />
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t226.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=226" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
-<h2>Recrutement novice</h2>
-<h4>19/04/2010 par db0</h4>
-<div class="p">
-<img src="images/news/newsrecru.png" /><br />
-Bonjour tout le monde !<br />
-Actuellement, nous recherchons quelqu'un qui n'a aucune conaissance ni éxpérience en fansub pour rejoindre nos rangs.<br />
-Au départ, pour effectuer des tâches très simples qui nous permettrons d'aller plus vite dans nos sorties, et petit à petit d'apprendre les différents domaines du fansub à nos côtés.<br />
-Vous devez pour ça être très motivé, avoir envie de découvrir les coulisses du fansub, être présent et actif parmi nous, avoir la soif d'apprendre et être prêt à faire des tâches pas forcément très amusantes pour commencer.<br />
-Fiche à remplir :<br /><br />
-[b]Rôle[/b] Novice<br />
-[b]Prénom[/b] REMPLIR<br />
-[b]Âge[/b] REMPLIR<br />
-[b]Lieu[/b] REMPLIR<br />
-[b]Motivation[/b] REMPLIR<br />
-[b]Expérience fansub[/b] REMPLIR<br />
-[b]Expérience hors fansub[/b] REMPLIR<br />
-[b]CDI ou CDD (durée) ? [/b] CDI<br />
-[b]Disponibilités[/b] REMPLIR<br />
-[b]Déjà membres d'autre équipe ?[/b] REMPLIR<br />
-[b]Si oui, lesquelles ?[/b] REMPLIR<br />
-[b]Connexion internet[/b] REMPLIR<br />
-[b]Systéme d'exploitation[/b] REMPLIR<br />
-[b]Autre chose à dire ?[/b] REMPLIR
-<br /><br />
-</div>
-<p></p>
-
+<?php
+	$page = PageContent::getInstance();
+	$page->addComponent(new Title("Zéro fansub", 1));
+	$page->addComponent(new Archives());
+	
+	$newsList = array();
+	foreach(News::getAllTeamNews() as $news) {
+		// TODO remove the 'test' feature when the refinement will be completed
+		if ($news->getTimestamp() !== null && $news->getTimestamp() <= time() || isset($_GET['test'])) {
+			$hMode = $_SESSION[MODE_H];
+			if (!$hMode && $news->displayInNormalMode() || $hMode && $news->displayInHentaiMode()) {
+				$newsList[] = $news;
+			}
+		}
+	}
+	usort($newsList, array('News', 'timestampSorter'));
+	foreach($newsList as $news) {
+		$page->addComponent(new NewsComponent($news));
+	}
+	
+	// rewrite the archive header as a footer
+	$page->addComponent(new Archives());
+	
+	// TODO remove when all the news will be refined
+	$page->setStyle("margin-left:0;");
+	$page->writeNow();
+	$page->clear();
+?>
+---------------------------
 <h2>Sondage : Vos séries préférées, les résultats</h2>
 <h4>31/03/2010 par db0</h4>
 <div class="p">

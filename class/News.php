@@ -13,13 +13,22 @@ class News {
 	private $twitterTitle = null;
 	private $releasesOut = array();
 	private $licensesOut = array();
-	private $displayInNormalMode = true;
-	private $displayInHentaiMode = true;
+	private $displayInNormalMode = null;
+	private $displayInHentaiMode = null;
+	private $isInfosTeam = null;
 	
 	public function __construct($title = null, $message = null) {
 		$this->setTitle($title);
 		$this->setMessage($message);
 		$this->setTimestamp(time());
+	}
+	
+	public function setInfosTeamNews($boolean) {
+		$this->isInfosTeam = $boolean;
+	}
+	
+	public function isInfosTeam() {
+		return $this->isInfosTeam;
 	}
 	
 	public function setDisplayInHentaiMode($boolean) {
@@ -127,6 +136,7 @@ class News {
 			$news->setTimestamp(strtotime("21 January 2012 20:26"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(999);// TODO
+			$news->setInfosTeamNews(true);
 			$message = new SimpleTextComponent();
 			$message->addLine("Ces derniers jours, le raffinage du site a pas mal avancé, et on en est désormais à la version 3.3 du site.");
 			$message->addLine();
@@ -146,6 +156,8 @@ class News {
 			$message->addLine();
 			$message->addLine("Il me semble que c'est à peu près tout... Ah oui, si vous avez des soucis sur certaines pages du site, c'est toujours moi qu'il faut venir engueuler {^_^}. Regardez du côté du lien <i>Signaler un bug</i> dans le menu de gauche. Sur ce, bon leech.");
 			$news->setMessage($message);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -153,11 +165,14 @@ class News {
 			$news->setTimestamp(strtotime("18 January 2012 14:26"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(282);
+			$news->setInfosTeamNews(true);
 			$message = new SimpleTextComponent();
 			$message->addLine("Une petite news pour les autres équipes de fansub et pour nos habitués : étant donné le nombre d'animes licenciés et le nombre d'animes restant non fansubbés, Zéro Fansub ne prévoit pas d'ajouter de nouveaux projets à sa liste pour cette saison.");
 			$message->addLine();
 			$message->addLine("On en profitera pour avancer correctement nos séries déjà en cours, dont certaines sont sur le feu depuis un moment déjà {'^_^}.");
 			$news->setMessage($message);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -165,16 +180,20 @@ class News {
 			$news->setTimestamp(strtotime("4 January 2012"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(281);
+			$news->setInfosTeamNews(true);
 			$message = new SimpleTextComponent();
 			$message->addLine("Juste une petite news informative. Beaucoup savent déjà que s'il y a un bug, c'est de ma faute. Cela dit, mon mail il faut le trouver (et oui c'est dur d'aller voir dans la page équipe, c'est qu'il faut réfléchir et les leecheurs aiment pas ça). Pour vous simplifier la vie, si vous avez le moindre problème, un lien <i>Signaler un bug</i> est désormais disponible dans le menu de gauche.");
 			$message->addLine();
 			$message->addLine("Non seulement je vous demande de me jeter des cailloux, mais en plus je vous dit où viser pour faire mal. C'est pas beau ça ? {^_^}");
 			$message->addLine(new Image("images/news/working_punch.jpg", "Frappez-moi !"));
 			$news->setMessage($message);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
 			News::$allNews[] = $news;
 			
 			$news = new News();
 			$news->setTitle("Bonne année !");
+			$news->setInfosTeamNews(false);
 			$news->setTimestamp(strtotime("1 January 2012"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(280);
@@ -183,10 +202,13 @@ class News {
 			$message->addLine();
 			$message->addLine(new Image("images/news/newYear2012.jpg", "Bonne année 2012 !"));
 			$news->setMessage($message);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
 			News::$allNews[] = $news;
 			
 			$news = new News();
 			$news->setTitle("ATTENTION : Raffinage massif !");
+			$news->setInfosTeamNews(true);
 			$news->setTimestamp(strtotime("31 December 2011 02:44"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(279);
@@ -195,14 +217,18 @@ class News {
 			$message->addLine();
 			$message->addLine("Vous pouvez laisser des commentaires, sinon je redonne mon mail : <a href='mailto:sazaju@gmail.com'>sazaju@gmail.com</a>");
 			$news->setMessage($message);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
 			News::$allNews[] = $news;
 			
 			$news = new News();
 			$news->setTitle("Issho ni H Shiyo 6");
+			$news->setDisplayInHentaiMode(true);
 			$news->setDisplayInNormalMode(false);
 			$news->setTimestamp(strtotime("28 December 2011 19:17"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(278);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('hshiyo', 'ep6'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new AutoFloatImage("images/news/hshiyo6.png", "J'ado~re les concombres !"));
@@ -217,6 +243,7 @@ class News {
 			$news->setTimestamp(strtotime("24 December 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(276);
+			$news->setInfosTeamNews(true);
 			$message = new SimpleTextComponent();
 			$message->addLine("Salut tout le monde ! {^_^}");
 			$message->addLine();
@@ -235,14 +262,18 @@ class News {
 			$message->addLine();
 			$message->addLine("NB : vous voyez, j'ai même pas le temps de vous faire une news décente en cette veille de Noël, pour vous dire comme j'ai besoin de quelqu'un {;_;}.");
 			$news->setMessage($message);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
 			News::$allNews[] = $news;
 			
 			$news = new News();
 			$news->setTitle("Mitsudomoe 7+8");
 			$news->setDisplayInHentaiMode(false);
+			$news->setDisplayInNormalMode(true);
 			$news->setTimestamp(strtotime("14 November 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(275);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep7'));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep8'));
 			$message = new SimpleTextComponent();
@@ -268,6 +299,7 @@ class News {
 			$news->setTimestamp(strtotime("11 October 2011"));
 			$news->setAuthor(TeamMember::getMember(5));
 			$news->setCommentId(273);
+			$news->setInfosTeamNews(true);
 			$message = new SimpleTextComponent();
 			$message->addLine("Allez on enchaîne les news, la motivation est là... Mais elle va peut-être pas durer...");
 			$message->addLine();
@@ -279,14 +311,18 @@ class News {
 			$message->addLine();
 			$message->addLine("Si vous êtes interessés, les candidatures sont ouvertes (cliquez sur <b>Recrutement</b> dans le menu à gauche) ! Si vous êtes soucieux du détail au point d'en faire chier vos amis, c'est un plus ! Oui on est des vrai SM à la Zéro {>.<}.");
 			$news->setMessage($message);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
 			News::$allNews[] = $news;
 			
 			$news = new News();
 			$news->setTitle("Kodomo no Jikan - Du neuf et du moins neuf");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("10 October 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(272);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomooav', 'oav'));
 			$news->addReleasing(Release::getRelease('kodomofilm', 'film'));
 			$message = new SimpleTextComponent();
@@ -303,10 +339,12 @@ class News {
 			
 			$news = new News();
 			$news->setTitle("Nouvelles sorties, nouveaux projets, nouveaux bugs...");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 September 2011"));
 			$news->setAuthor(TeamMember::getMember(5));
 			$news->setCommentId(271);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep4'));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep5'));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep6'));
@@ -325,10 +363,12 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Hitohira - Série complète");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("14 August 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(270);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Project::getProject('hitohira'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/news/hito1.jpg", "Hitohira"));
@@ -341,11 +381,13 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Mitsudomoe 03");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("05 August 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(269);
 			$news->setTwitterTitle("Sortie de Mitsudomoe 03 chez Z%C3%A9ro fansub !");
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep3'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/episodes/mitsudomoe3.jpg", "Mitsudomoe"));
@@ -356,11 +398,13 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Toradora! SOS - Série complète 4 OAV");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(268);
 			$news->setTwitterTitle("Sortie de Toradora! SOS chez Zero fansub !");
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Project::getProject('toradorasos'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/series/toradorasos.jpg", "Toradora SOS"));
@@ -372,17 +416,20 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("23 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(267);
+			$news->setInfosTeamNews(true);
+			$news->addReleasing(Release::GetRelease('bath', 'oav'));
 			$news->setTwitterTitle("Sortie de Isshoni Training Ofuro chez Zero fansub !");
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/news/bath.jpg", "Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko"));
 			$message->addLine();
-			$message->addLine("Nous avons appris qu'Ankama va diffuser &agrave; partir de la rentrée de septembre 2011 :");
+			$message->addLine("Nous avons appris qu'Ankama va diffuser à partir de la rentrée de septembre 2011 :");
 			$message->addLine("Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc été retirés.");
-			$message->addLine("On vous invite &agrave; cesser la diffusion de nos liens et &agrave; aller regarder la série sur leur site.");
+			$message->addLine("On vous invite à cesser la diffusion de nos liens et à aller regarder la série sur leur site.");
 			$message->addLine();
 			$message->addLine("Sorties d'Isshoni Training Ofuro : Bathtime with Hinako & Hiyoko");
 			$message->addLine();
@@ -398,6 +445,7 @@ class News {
 			$news->setTimestamp(strtotime("04 July 2011"));
 			$news->setAuthor(TeamMember::getMember(8));
 			$news->setCommentId(266);
+			$news->setInfosTeamNews(true);
 			$news->setTwitterTitle("Zero recherche un traducteur");
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/news/m1.jpg", "Mitsudomoe"));
@@ -405,15 +453,15 @@ class News {
 			$message->addLine("Nous avons urgemment besoin d'un trad pour Mitsudomoe !!");
 			$message->addLine("S'il vous pla&icirc;t, pitié xD");
 			$message->addLine("Notre edit s'impatiente et ne peux continuer la série, alors aidez-nous ^_^");
-			$message->addLine("C'est pas souvent qu'on demande du renfort, mais l&agrave;, c'est devenu indispensable...");
-			$message->addLine("Nous avons perdu un trad récemment, il ne nous en reste plus qu'un... et comble de malheur,  il n'a pas accroché &agrave; la série, mais je le remercie pour avoir quand m&ecirc;me traduit deux épisodes pour nous dépanner.");
+			$message->addLine("C'est pas souvent qu'on demande du renfort, mais là, c'est devenu indispensable...");
+			$message->addLine("Nous avons perdu un trad récemment, il ne nous en reste plus qu'un... et comble de malheur,  il n'a pas accroché à la série, mais je le remercie pour avoir quand même traduit deux épisodes pour nous dépanner.");
 			$message->addComponent("Des petits cours sont dispos ici : ");
 			$link = new Link("http://forum.zerofansub.net/f221-Cours-br.htm", "Lien");
 			$link->openNewWindow(true);
 			$message->addComponent($link);
 			$message->addLine(".");
 			$message->addLine();
-			$message->addComponent("Pour postuler, faites une candidatures &agrave; l'école : ");
+			$message->addComponent("Pour postuler, faites une candidatures à l'école : ");
 			$link = new Link("http://ecole.zerofansub.net/?page=postuler", "Lien");
 			$link->openNewWindow(true);
 			$message->addComponent($link);
@@ -421,15 +469,19 @@ class News {
 			$message->addLine();
 			$message->addLine(new Image("images/news/m2.jpg", "Mitsudomoe"));
 			$news->setMessage($message);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
 			News::$allNews[] = $news;
 
 			$news = new News();
 			$news->setTitle("Kannagi - Série complète");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("19 June 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(264);
 			$news->setTwitterTitle("Sortie de Kannagi serie complete chez Zero fansub !");
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Project::getProject('kannagi'));
 			$message = new SimpleTextComponent();
 			$link = new Link("http://zerofansub.net/galerie/gal/Zero_fansub/Images/Kannagi/%5BZero%5DKannagi_Image63.jpg", new Image("images/news/kannagi.jpg", "Kannagi"));
@@ -438,8 +490,8 @@ class News {
 			$message->addLine();
 			$message->addLine("Bonjour les amis !");
 			$message->addLine("La série Kannagi est terminée !");
-			$message->addLine("J&#039;éspère qu&#039;elle vous plaira.");
-			$message->addLine("N&#039;hésitez pas &agrave; nous dire ce que vous en pensez dans les commentaires. C&#039;est en apprenant de ses erreurs qu&#039;on avance, après tout ;)");
+			$message->addLine("J'éspère qu'elle vous plaira.");
+			$message->addLine("N'hésitez pas à nous dire ce que vous en pensez dans les commentaires. C'est en apprenant de ses erreurs qu'on avance, après tout ;)");
 			$message->addLine();
 			$message->addLine("P.S.: Les karaokés sont nuls. Désolée !");
 			$news->setMessage($message);
@@ -447,11 +499,13 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Mitsudomoe 01 + 02");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("27 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(263);
 			$news->setTwitterTitle("Sortie de Mitsudomoe 01 + 02 chez Zero fansub !");
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep1'));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep2'));
 			$message = new SimpleTextComponent();
@@ -459,32 +513,36 @@ class News {
 			$message->addLine();
 			$message->addLine("Bonjour les amis !");
 			$message->addLine("Après des mois d'attente, les premiers épisodes de Mitsudomoe sont enfin disponibles !");
-			$message->addLine("Quelques petits changements dans notre fa&ccedil;on de faire habituelle, on attend vos retours avec impatience ;)");
+			$message->addLine("Quelques petits changements dans notre façon de faire habituelle, on attend vos retours avec impatience ;)");
 			$news->setMessage($message);
 			News::$allNews[] = $news;
 
 			$news = new News();
 			$news->setTitle("Tayutama ~ Kiss on my Deity ~ Pure my Heart ~ - Série complète 6 OAV");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("15 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(262);
 			$news->setTwitterTitle("Sortie de Tayutama Kiss on my Deity Pure my Heart serie complete chez Zero fansub !");
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Project::getProject('tayutamapure'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/news/tayutamapure.jpg", "Tayutama ~ Kiss on my Deity ~ Pure my Heart ~"));
 			$message->addLine();
-			$message->addLine("On continue dans les séries complètes avec cette fois-ci la petite série de 6 OAV qui fait suite &agrave; la série Tayutama ~ Kiss on my Deity : les 'Pure my Heart'. Ils sont assez courts mais plut&ocirc;t dr&ocirc;le alors amusez-vous bien !");
+			$message->addLine("On continue dans les séries complètes avec cette fois-ci la petite série de 6 OAV qui fait suite à la série Tayutama ~ Kiss on my Deity : les 'Pure my Heart'. Ils sont assez courts mais plutôt drôle alors amusez-vous bien !");
 			$news->setMessage($message);
 			News::$allNews[] = $news;
 
 			$news = new News();
 			$news->setTitle("Potemayo OAV - Série complète");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("11 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(261);
 			$news->setTwitterTitle("Sortie de Potemayo serie complete chez Zero fansub !");
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Project::getProject('potemayooav'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/series/potemayooav.jpg", "Potemayo"));
@@ -497,67 +555,73 @@ class News {
 
 			$news = new News();
 			$news->setTitle("Potemayo - Série complète entiérement refaite");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("08 May 2011"));
 			$news->setAuthor(TeamMember::getMember(1));
 			$news->setCommentId(261);
 			$news->setTwitterTitle("Sortie de Potemayo serie complete chez Zero fansub !");
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Project::getProject('potemayo'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/series/potemayo.jpg", "Potemayo"));
 			$message->addLine();
 			$message->addLine("Bonjour le monde !");
 			$message->addLine();
-			$message->addLine("Tout comme pour Kujibiki Unbalance 2, nous avons entièrement refait la série Potemayo. Pour ceux qui suivaient la série, seule les versions avi en petit format étaient disponible puisque c&#039;etait le format qu&#039;utilisait Kirei no Tsubasa, l&#039;équipe qui nous a légué le projet.");
+			$message->addLine("Tout comme pour Kujibiki Unbalance 2, nous avons entièrement refait la série Potemayo. Pour ceux qui suivaient la série, seule les versions avi en petit format étaient disponible puisque c'etait le format qu'utilisait Kirei no Tsubasa, l'équipe qui nous a légué le projet.");
 			$message->addLine();
 			$message->addLine("Du coup, la série complète a été réenvodée et on en a profité pour ajouter quelques améliorations.");
 			$message->addLine();
 			$message->addLine("Rendez-vous page 'Projet' sur le site pour télécharger les 12 épisodes !");
 			$message->addLine();
-			$message->addLine("Et n&#039;oubliez pas : si vous avez une remarque, une question ou quoi que ce soit &agrave; nous dire, utilisez le système de commentaires ! Nous vous répondrons avec plaisir.");
+			$message->addLine("Et n'oubliez pas : si vous avez une remarque, une question ou quoi que ce soit à nous dire, utilisez le système de commentaires ! Nous vous répondrons avec plaisir.");
 			$message->addLine();
-			$message->addLine("Bons épisodes, &agrave; très bient&ocirc;t pour les 6 OAV supplémentaires Potemayo... et un petit bonjour &agrave; toi aussi !");
+			$message->addLine("Bons épisodes, à très bientôt pour les 6 OAV supplémentaires Potemayo... et un petit bonjour à toi aussi !");
 			$news->setMessage($message);
 			News::$allNews[] = $news;
 
 			$news = new News();
 			$news->setTitle("Kujibiki Unbalance 2 - Série complète entiérement refaite");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("02 May 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(260);
 			$news->setTwitterTitle("Sortie de Kujibiki Unbalance 2 serie complete chez Zero Fansub !");
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Project::getProject('kujibiki'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new AutoFloatImage("images/news/kujiend.jpg", "Kujibiki Unbalance 2"));
-			$message->addLine("La s&eacute;rie Kujibiki Unbalance 2 a enti&eacute;rement &eacute;t&eacute; refaite !");
-			$message->addLine("Les polices illisibles ont &eacute;t&eacute; chang&eacute;es, les panneaux stylis&eacute;s ont &eacute;t&eacute; refait, la traduction a &eacute;t&eacute; revue, bref, une jolie s&eacute;rie compl&egrave;te vous attend !");
+			$message->addLine("La série Kujibiki Unbalance 2 a entiérement été refaite !");
+			$message->addLine("Les polices illisibles ont été changées, les panneaux stylisés ont été refait, la traduction a été revue, bref, une jolie série complète vous attend !");
 			$message->addLine();
-			$message->addLine("Pour t&eacute;l&eacute;charger les &eacute;pisodes, c'est comme d'habitude :");
+			$message->addLine("Pour télécharger les épisodes, c'est comme d'habitude :");
 			$message->addLine("- Page projet, liens DDL,");
 			$message->addLine("- Sur notre tracker Torrent (restez en seed !)");
 			$message->addLine("- Sur le XDCC de notre chan irc (profitez-en pour nous dire bonjour :D)");
 			$message->addLine();
 			$message->addLine("Petite info importante :");
-			$message->addLine("Cette s&eacute;rie est comp&eacute;tement ind&eacute;pendante, n'a rien a voir avec la premi&eacute;re saison de Kujibiki Unbalance ni avec la s&eacute;rie Genshiken et il n'est pas n&eacute;cessaire d'avoir vu celles-ci pour appr&eacute;cier cette petite s&eacute;rie.");
+			$message->addLine("Cette série est compétement indépendante, n'a rien a voir avec la premiére saison de Kujibiki Unbalance ni avec la série Genshiken et il n'est pas nécessaire d'avoir vu celles-ci pour apprécier cette petite série.");
 			$message->addLine();
-			$message->addLine("Si vous avez aim&eacute; la s&eacute;rie, si vous avez des remarques &agrave; nous faire ou autre, n'h&eacute;sitez pas &agrave; nous en faire part ! (Commentaires, Forum, Mail, IRC, ...)");
+			$message->addLine("Si vous avez aimé la série, si vous avez des remarques à nous faire ou autre, n'hésitez pas à nous en faire part ! (Commentaires, Forum, Mail, IRC, ...)");
 			$message->addLine();
-			$message->addLine("&Agrave; tr&eacute;s bient&ocirc;t pour Potemayo !");
+			$message->addLine("à trés bientôt pour Potemayo !");
 			$news->setMessage($message);
 			News::$allNews[] = $news;
 
 			$news = new News();
 			$news->setTitle("Kodomo no Natsu Jikan");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("11 April 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(259);
 			$news->setTwitterTitle("Sortie de Kodomo no Natsu Jikan chez Zero fansub !");
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomonatsu', 'oav'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/news/kodomonatsu1.jpg", "Kujibiki Unbalance 2"));
-			$message->addLine("Rin, Kuro et Mimi sont de retour dans un OAV Sp&eacute;cial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'&eacute;t&eacute;, en vacances avec Aoki et Houin.");
+			$message->addLine("Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'été, en vacances avec Aoki et Houin.");
 			$message->addLine();
 			$message->addLine(new Image("images/news/kodomonatsu2.jpg", "Kujibiki Unbalance 2"));
 			$message->addLine(new Image("images/news/kodomonatsu3.jpg", "Kujibiki Unbalance 2"));
@@ -567,42 +631,47 @@ class News {
 			News::$allNews[] = $news;
 
 			$news = new News();
-			$news->setTitle("Licence de L&#039;entrainement avec Hinako + Sortie de Akina To Onsen et Faisons l'amour ensemble &eacute;pisode 05");
+			$news->setTitle("Licence de L'entrainement avec Hinako + Sortie de Akina To Onsen et Faisons l'amour ensemble épisode 05");
 			$news->setTimestamp(strtotime("08 March 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(252);
 			$news->setTwitterTitle("Deux hentai : Akina To Onsen et Issho ni H shiyo chez Zero fansub !");
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('akinahshiyo', 'oav'));
 			$news->addReleasing(Release::getRelease('hshiyo', 'ep5'));
 			$news->addLicensing(Release::getRelease('training', 'oav'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new AutoFloatImage("images/news/issho5.jpg", "Akina To Onsen De H Shiyo"));
 			$message->addLine();
-			$message->addLine("Dans la suite de notre reprise tant attendue, on ne rel&#226;che pas le rythme ! Apr&#232;s la sortie d'un genre classique chez Z&#233;ro, on poursuit avec l'une de nos sp&#233;cialit&#233;s : <i>Faisons l'amour ensemble</i> revient en force avec un nouvel &#233;pisode (de quoi combler les d&#233;&#231;us du 4e opus) et un &#233;pisode bonus !");
+			$message->addLine("Dans la suite de notre reprise tant attendue, on ne relâche pas le rythme ! Après la sortie d'un genre classique chez Zéro, on poursuit avec l'une de nos spécialités : <i>Faisons l'amour ensemble</i> revient en force avec un nouvel épisode (de quoi combler les déçus du 4e opus) et un épisode bonus !");
 			$message->addLine();
-			$message->addLine("Tout d'abord, ce 5e &#233;pisode nous sort le grand jeu : la petite s&#339;ur est dans la place ! Apr&#232;s plusieurs ann&#233;es sans nouvelles de son grand fr&#232;re, voil&#224; qu'elle a bien grandi et d&#233;cide donc de taper l'incruste. Voil&#224; une bonne occasion de faire le m&#233;nage (les filles sont dou&#233;es pour &#231;a {^.^}~). &#192; la suite de quoi une bonne douche s'impose... Et si on la prenait ensemble comme au bon vieux temps, <i>oniichan</i> ?");
+			$message->addLine("Tout d'abord, ce 5e épisode nous sort le grand jeu : la petite s&#339;ur est dans la place ! Après plusieurs années sans nouvelles de son grand frère, voilà qu'elle a bien grandi et décide donc de taper l'incruste. Voilà une bonne occasion de faire le ménage (les filles sont douées pour ça {^.^}~). À la suite de quoi une bonne douche s'impose... Et si on la prenait ensemble comme au bon vieux temps, <i>oniichan</i> ?");
 			$message->addLine();
-			$message->addLine("Pour ceux qui auraient encore des r&#233;serves (faut dire qu'on vous a donn&#233; le temps pour {^_^}), un &#233;pisode bonus aux sources chaudes vous attend ! Akina, cette jeune demoiselle du premier &#233;pisode, revient nous saluer avec son charme g&#233;n&#233;reux et son c&#244;t&#233; ivre toujours aussi mignon. Vous en d&#233;gusterez bien un morceau apr&#232;s le bain, non ?");
+			$message->addLine("Pour ceux qui auraient encore des réserves (faut dire qu'on vous a donné le temps pour {^_^}), un épisode bonus aux sources chaudes vous attend ! Akina, cette jeune demoiselle du premier épisode, revient nous saluer avec son charme généreux et son côté ivre toujours aussi mignon. Vous en dégusterez bien un morceau après le bain, non ?");
 			$message->addLine();
 			$message->addLine(new Image("images/series/akinahshiyo.jpg", "Akina To Onsen De H Shiyo"));
 			$message->addLine();
-			$message->addLine("db0 dit : Et pour finir, une nouvelle assez inattendue : La licence de L'entra&#238;nement avec Hinako chez Kaze. On vous tiendra au courant quand le DVD sortira.");
+			$message->addLine("db0 dit : Et pour finir, une nouvelle assez inattendue : La licence de L'entraînement avec Hinako chez Kaze. On vous tiendra au courant quand le DVD sortira.");
 			$message->addLine();
 			$message->addLine(new Image("images/news/training.gif", "Isshoni Training"));
 			$message->addLine();
-			$message->addLine("En parlant de Kaze, j'ai re&#231;u hier par la poste le Blu-ray de Canaan chez Kaze. Vous avez aim&#233; la s&#233;rie ? Faites comme moi, achetez-le !");
+			$message->addLine("En parlant de Kaze, j'ai reçu hier par la poste le Blu-ray de Canaan chez Kaze. Vous avez aimé la série ? Faites comme moi, achetez-le !");
 			$message->addLine();
 			$message->addLine(new Image("images/news/canaanli.jpg", "DVD canaan buy kaze"));
 			$news->setMessage($message);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
 			News::$allNews[] = $news;
 
 			$news = new News();
 			$news->setTitle("Issho Ni H Shiyo OAV 04 - Fin !");
 			$news->setDisplayInNormalMode(false);
+			$news->setDisplayInHentaiMode(true);
 			$news->setTimestamp(strtotime("13 July 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(237);
 			$news->setTwitterTitle("Sortie de Issho Ni H Shiyo OAV 04 - Fin ! http://zerofansub.net/");
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('hshiyo', 'ep4'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new AutoFloatImage("images/news/hshiyonew.png", "Issho ni H Shiyo oav  4 fin de la serie interdit aux moins de 18 ans."));
@@ -617,10 +686,12 @@ class News {
 
 			$news = new News();
 			$news->setTitle("KissXsis 03");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("24 June 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(233);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep3'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/news/kissxsis3news.jpg", "KissXsis kiss x sis DVD Blu-Ray Jaquette"));
@@ -643,10 +714,12 @@ En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian 
 
 			$news = new News();
 			$news->setTitle("Mitsudomoe, Bande-Annonce");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("15 June 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(231);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep0'));
 			$message = new SimpleTextComponent();
 			$message->addLine('<object width="550" height="309"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=12592506&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ffffff&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=12592506&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ffffff&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="550" height="309"></embed></object>');
@@ -655,10 +728,12 @@ En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian 
 
 			$news = new News();
 			$news->setTitle("Kiss X Sis TV 02");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("04 May 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(228);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep2'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/news/kissxsis2.jpg"));
@@ -670,10 +745,12 @@ En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian 
 
 			$news = new News();
 			$news->setTitle("Kiss X Sis TV 01");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("17 April 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(225);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep1'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new Image("images/news/newskissxsis1.jpg"));
@@ -688,10 +765,12 @@ En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian 
 
 			$news = new News();
 			$news->setTitle("S'endormir avec Hinako (Issho ni Sleeping) OAV");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("08 March 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(209);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('sleeping', 'oav'));
 			$message = new SimpleTextComponent();
 			$message->addLine(new AutoFloatImage("images/news/pcover1.gif"));
@@ -708,10 +787,12 @@ Alors, à tout à l'heure, quand tu auras télécharger l'épisode ;)");
 
 			$news = new News();
 			$news->setTitle("KissXsis 02");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("06 December 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(153);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kissxsisoav', 'ep2'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src='images/news/kiss2.png' /><br />
@@ -721,10 +802,12 @@ Ah, elles nous font bien attendre, les deux jolies jumelles... Des mois pour sor
 
 			$news = new News();
 			$news->setTitle("Canaan 13 ~ Fin !");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("06 October 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(138);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep13'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/canaanfin.png\" /><br />
@@ -734,10 +817,12 @@ Ainsi se termine Canaan.");
 			
 			$news = new News();
 			$news->setTitle("Canaan 12 + Piscine + Partenariats + Maboroshi + Kobato");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("04 October 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(137);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('canaan', 'ep12'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src='images/news/piscine.jpg' style='float: left;' />
@@ -751,10 +836,12 @@ Pour finir, <b>Kobato</b>, dans la liste de nos projets depuis juin, ne se fera 
 			
 			$news = new News();
 			$news->setTitle("Canaan 11");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("30 September 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(136);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep11'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src='images/news/canaan11.jpg'/><br />
@@ -764,10 +851,12 @@ Chose promise, chose due. Et en plus, on a même le droit à un peu de ecchi dans 
 			
 			$news = new News();
 			$news->setTitle("Canaan 10");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("30 September 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(135);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep10'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src='images/news/canaan10.jpg' /><br />
@@ -777,10 +866,12 @@ Vous en rêviez ? Les fans l'ont dessiné... Est-ce que c'est ce qui va se passer 
 			
 			$news = new News();
 			$news->setTitle("Canaan 09 + Canaan Cosplays");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("25 September 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(130);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep9'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src='images/news/canaancos.jpg' /><br />
@@ -792,10 +883,12 @@ Je profite de cette news pour vous poster quelques photos de mon cosplay Canaan.
 			
 			$news = new News();
 			$news->setTitle("Canaan 08");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(116);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep8'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src='images/news/canaan8.png' style='float: right;' />
@@ -805,10 +898,12 @@ Avec un peu de retard cette semaine, la suite de la trépidante histoire de Canaa
 			
 			$news = new News();
 			$news->setTitle("Canaan 06");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("11 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(112);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep6'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src='images/news/can6.jpg'><br />
@@ -818,10 +913,12 @@ Comme à son habitude, le petit épisode de Canaan de la semaine fait sa sortie. E
 			
 			$news = new News();
 			$news->setTitle("Canaan 04 + 05 + Rythme Toradora!");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("06 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(109);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('canaan', 'ep4'));
 			$news->addReleasing(Release::getRelease('canaan', 'ep5'));
 			$message = new SimpleTextComponent();
@@ -836,10 +933,12 @@ Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord
 			
 			$news = new News();
 			$news->setTitle("Erreur Canaan 03");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("24 July 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(106);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep3'));
 			$message = new SimpleTextComponent();
 			$message->addLine("Sous la précipitation (train à prendre), j'ai envoyé le mauvais ass à lepims (notre encodeur) pour l'épisode 03 de Canaan, c'est-à-dire celui dont les fautes n'ont pas été corrigés, c'est-à-dire ma traduction telle quelle... Du coup, il a été réencoder, et la nouvelle version est téléchargeable à la place de l'ancienne. Toutes mes excuses !");
@@ -848,10 +947,12 @@ Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord
 			
 			$news = new News();
 			$news->setTitle("Canaan 03 + Recrutement trad Hitohira");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("22 July 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(106);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('canaan', 'ep3'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/hitocry.png\" style=\"float: right;\" />
@@ -863,10 +964,12 @@ Encore du ecchi dans la série Canaan ! Mais pas que ça, bien sûr. L'épisode 3 es
 			
 			$news = new News();
 			$news->setTitle("Canaan 02");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("19 July 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(103);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep2'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/oppaicanaan.png\" border=\"0\"><br />
@@ -876,10 +979,12 @@ Bah alors ? Zéro nous fait Canaan ? Mais Zéro, c'est une team de l'ecchi, non ? 
 			
 			$news = new News();
 			$news->setTitle("KissXsis 01");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("28 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(77);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep1'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/kissx1.jpg\" style=\"float:right;\" border=\"0\">
@@ -890,10 +995,12 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			
 			$news = new News();
 			$news->setTitle("L'entraînement avec Hinako (Isshoni Training)");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("28 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(65);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('training', 'oav'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/hinako.jpg\" border=\"0\"><br />L'été arrive à grand pas. C'est donc la saison des régimes ! Et qui dit régime, dit bonne alimentation mais aussi entraînement, musculation ! Mais comment arriver à faire bouger nos chers Otakus de leurs chaises...? Hinako a trouvé la solution ! Un entraînement composé de pompes, d'abdos et de flexions on ne peut plus ECCHI ECCHI ! Lancez-vous donc dans cette aventure un peu perverse et rejoignez Hinako dans sa séance de musculation. Et vous le faites, hein ? Hinako vous regarde ;)");
@@ -902,10 +1009,12 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			
 			$news = new News();
 			$news->setTitle("Joyeux Noël ! - OAV Kiss X Sis");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("24 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(24);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('kissxsisoav', 'ep2'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/noel.jpg\" border=\"0\" /><br>Toute l'équipe Zéro vous souhaite à tous un joyeux noël, un bon réveillon, une bonne dinde, de bons chocolats, de beaux cadeaux et tout ce qui va avec.<br>Nos cadeaux pour vous :<br>- Une galerie d'images de Noël (dans les bonus)<br>- L'OAV de Kiss x sis !<br>Dans la liste de nos projets depuis cet été, initialement prévu en septembre... Au final, il est sorti le 22 décembre, et nous vous l'avons traduit comme cadeau de Noël. C'est entre-autre grâce à cet OAV que nous avons fait la conaissance de la <a href=\"http://kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a>.");
@@ -914,22 +1023,24 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			
 			$news = new News();
 			$news->setTitle("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("23 July 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(267);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('bath', 'oav'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/bath.jpg\" alt=\"Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko\" />
   <br /><br />
-  Nous avons appris qu'Ankama va diffuser &agrave; partir de la rentr&eacute;e de septembre 2011 :<br />
-  Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc &eacute;t&eacute; retir&eacute;s.<br />
-  On vous invite &agrave; cesser la diffusion de nos liens et &agrave; aller regarder la s&eacute;rie sur leur site.<br />
+  Nous avons appris qu'Ankama va diffuser à partir de la rentrée de septembre 2011 :<br />
+  Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc été retirés.<br />
+  On vous invite à cesser la diffusion de nos liens et à aller regarder la série sur leur site.<br />
   <br />
   Sorties d'Isshoni Training Ofuro : Bathtime with Hinako & Hiyoko<br />
   <br />
-  3e volet des \"isshoni\", on apprend comment les Japonaises prennent leur bain, tr&egrave;s int&eacute;ressant...<br />
-  Avec en bonus, une petite s&eacute;ance de stretching...<br />
+  3e volet des \"isshoni\", on apprend comment les Japonaises prennent leur bain, très intéressant...<br />
+  Avec en bonus, une petite séance de stretching...<br />
   <br />
   Je ne sais pas s'il y aura une suite, mais si oui, je devine un peu le genre ^_^");
 			$news->setMessage($message);
@@ -937,10 +1048,12 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 13 - FIN");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("29 March 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(256);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep13'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/kana131.jpg\" alt=\"Kanamemo\" /><br /><br />
@@ -959,47 +1072,53 @@ Merci de nous avoir suivis et à bientôt pour d'autres épisodes ^_^<br /><br />
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 12");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("20 March 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(255);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep12'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/kana12.jpg\" alt=\"Kanamemo\" />
 <br /><br />
 Bonjour !<br />
-Sortie de l'&eacute;pisode 12 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !");
+Sortie de l'épisode 12 de Kanamemo ! Youhouh ! C'est la fête !");
 			$news->setMessage($message);
 			News::$allNews[] = $news;
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 11");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("14 March 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(254);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep11'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/kana11.jpg\" alt=\"Kanamemo\" />
 <br /><br />
 Bonjour !<br />
-Sortie de l'&eacute;pisode 11 de Kanamemo ! Youhouh ! C'est la f&ecirc;te !<br /><br />
-Rappel, nos releases sont t&eacute;l&eacute;chargeable sur :<br />
+Sortie de l'épisode 11 de Kanamemo ! Youhouh ! C'est la fête !<br /><br />
+Rappel, nos releases sont téléchargeable sur :<br />
 <ul>
-<li>Sur <a href=\"http://zerofansub.net/\">le site zerofansub.net</a> en DDL (cliquez sur projet dans le menu &agrave; gauche)</li>
-<li>Sur <a href=\"http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro\">notre tracker torrent BT-Anime</a> en torrent peer2peer (Notre &eacute;quipe de seeder vous garantie du seed !)</li>
+<li>Sur <a href=\"http://zerofansub.net/\">le site zerofansub.net</a> en DDL (cliquez sur projet dans le menu à gauche)</li>
+<li>Sur <a href=\"http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro\">notre tracker torrent BT-Anime</a> en torrent peer2peer (Notre équipe de seeder vous garantie du seed !)</li>
 <li>Sur <a href=\"irc://irc.fansub-irc.eu/zero\">notre chan IRC</a> en XDCC (<a href=\"http://zerofansub.net/index.php?page=xdcc\">liste des paquets</a>)</li>
-<li>Sur <a href=\"http://www.anime-ultime.net/part/Site-93\">Anime-Ultime</a> en DDL (Mais en fait, c'est les m&ecirc;mes fichiers que sur Z&eacute;ro, c'est juste des liens symboliques ^^)</li>
+<li>Sur <a href=\"http://www.anime-ultime.net/part/Site-93\">Anime-Ultime</a> en DDL (Mais en fait, c'est les mêmes fichiers que sur Zéro, c'est juste des liens symboliques ^^)</li>
 </ul>");
 			$news->setMessage($message);
 			News::$allNews[] = $news;
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 10");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("10 March 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(253);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep10'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/kana10.jpg\" style=\"float: left;\" alt=\"Kanamemo\" />
@@ -1011,10 +1130,12 @@ Sortie de l'episode 10 de Kanamemo ! Youhouh ! C'est la fete !");
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 7, 8 et 9");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("23 February 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(251);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep7'));
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep8'));
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep9'));
@@ -1030,10 +1151,12 @@ Je vous dis à bientôt pour d'autres épisodes ^_^");
 			
 			$news = new News();
 			$news->setTitle("Kanamemo Chapitre 01");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("02 August 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(241);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('kanamemobook', 'ch1'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/kanac1.jpg\" alt=\"Kanamemo Chapitre 01\" /><br /><br />
@@ -1048,10 +1171,12 @@ A bientot !");
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 06");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("16 April 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(224);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep6'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/newskana6.jpg\" /><br />
@@ -1063,10 +1188,12 @@ Le 6éme épisode de Kanamemo est disponible.");
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 4 + 5");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("19 March 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(212);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep4'));
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep5'));
 			$message = new SimpleTextComponent();
@@ -1084,10 +1211,12 @@ En bonus, un petit AMV de l'épisode 05 (passé à la TV, nous le l'avons pas fait 
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 03");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 November 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(150);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep3'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/kana3.jpg\" /><br />
@@ -1097,10 +1226,12 @@ BANZAIII !! Kanamemo épisode 03, ouais, trop bien ! Je mets du temps à sortir le
 			
 			$news = new News();
 			$news->setTitle("Kanamemo 01");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("20 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(114);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep1'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/kana1.jpg\" />
@@ -1114,19 +1245,24 @@ Kodomo no Jikan touche à sa fin (bouhouh T__T) et on nous a proposé un anime sur
 			$news->setTimestamp(strtotime("24 December 2011 21:05"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(277);
+			$news->setInfosTeamNews(false);
 			$message = new SimpleTextComponent();
 			$message->addLine("Allez pour me faire pardonner de ma dernière news, un petit goût de Noël dans cette mini-news (cliquez sur l'image).");
 			$message->addLine();
 			$message->addLine(new Link("images/news/[Zero Fansub]Noel 2011.zip", new Image("images/news/noel3.jpg", "Joyeux Noël !")));
 			$news->setMessage($message);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
 			News::$allNews[] = $news;
 			
 			$news = new News();
 			$news->setTitle("Kujibiki Unbalance épisode 09");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("18 August 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(243);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep9'));
 			$message = new SimpleTextComponent();
 			$message->addLine("<img src=\"images/news/kujian9news.jpg\" alt=\"Kujibiki Unbalance épisode 09 - Yamada montre sa culotte Renko\" /><br /><br />
@@ -1143,6 +1279,7 @@ A bientot !<br /><br />");
 			
 			$news = new News();
 			$news->setTitle("Sketchbook ~ full color's  ~ Picture Drama série complète (01 à 06)");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 June 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
@@ -1150,11 +1287,13 @@ A bientot !<br /><br />");
 Pour fêter les vacances qui arrivent, Sora et ses amies vous emmenent avec elles à la mer !<br />
 C'est une petite série de 6 épisodes de moins de 10 minutes chacun qui étaient en Bonus sur les DVDs de Sketchbook ~ full color's ~. Ils ont été réalisé à partir du Drama CD de la série et l'animation est minime. Dans la même douceur que la série, ils sont parfait pour se reposer en pensant aux vacances qui arrivent.");
 			$news->setCommentId(234);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Project::getProject('sketchbookdrama'));
 			News::$allNews[] = $news;
 			
 			$news = new News();
 			$news->setTitle("Kujibiki Unbalance 2 episode 08");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("03 April 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
@@ -1166,6 +1305,7 @@ Un episode qui m'a beaucoup plu, tres tendre et qui revele des elements cles de 
 En reponse au precedent sondage, il n'est ABSOLUMENT PAS NECESSAIRE D'AVOIR VU GENSHIKEN OU LA PREMIERE SAISON de Kujibiki Unbalance pour regarder celle-ci. Les histoires ont quelques liens mais sont completement independantes les unes des autres. C'est une serie a part.<br />
 Bon episode a tous et a tres bientot !");
 			$news->setCommentId(220);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep8'));
 			News::$allNews[] = $news;
 			
@@ -1178,11 +1318,15 @@ Bon episode a tous et a tres bientot !");
 Anyaa~~<br />
 Potemayo, épisode 8, youhou ! Et très bientôt, Kanamemo, Isshoni H shiyo et Isshoni sleeping ! Enjoy, Potemayo !');
 			$news->setCommentId(207);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('potemayo', 'ep8'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
 			News::$allNews[] = $news;
 			
 			$news = new News();
 			$news->setTitle("Potemayo [07] 13 + 14");
+			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("30 January 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Tarf"));
@@ -1199,6 +1343,7 @@ ENJOY IT !<br />
 <img src="images/news/moepote2.jpg"><br />
 db0 dit : Les screens ci-dessus n\'ont rien à voir avec l\'épisode :) Ce sont des extraits de Moetan, l\'épisode 11. J\'en profite donc pour faire une petite pub à notre partenaire <a href="http://kanaii.com" target="_blank">Kanaii</a> grâce à qui on peut regarder Moetan avec des sous-titres d\'excellente qualité.');
 			$news->setCommentId(191);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('potemayo', 'ep7'));
 			News::$allNews[] = $news;
 			
@@ -1214,6 +1359,7 @@ Nous avons passé du bon temps aux côtés de Rin et ses deux amies et nous éspéron
 <img src="images/news/newkodomo2.jpg" alt="Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin" /><br /><br />
 <img src="images/news/newkodomo3.jpg" alt="Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin" />');
 			$news->setCommentId(185);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomo2', 'ep3'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1227,6 +1373,7 @@ Nous avons passé du bon temps aux côtés de Rin et ses deux amies et nous éspéron
 <img src=\"images/news/tayufin1.jpg\" /><br />
 <img src=\"images/news/tayufin2.jpg\" />");
 			$news->setCommentId(176);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep12'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1246,6 +1393,7 @@ Tenez bon ! La fin se précise, et elle est belle à regarder !<br /><br />
 Coproduction Zero+Maboroshi !<br />
 TchO_°");
 			$news->setCommentId(152);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep11'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1262,6 +1410,7 @@ Portée par le rêve de la coexistence, Yumina-chan danse.<br />
 Quant à Ameri, elle est la proie de ses mauvais rêves...<br /><br />
 Même romantique, la passion peut être tellement furieuse !");
 			$news->setCommentId(149);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep10'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1280,6 +1429,7 @@ Les sentiments de Mashiro n'échappent à personne, ni à Ameri, ni à...<br /><br /
 Une Zero + Maboroshi coprod<br /><br />
 TchO_°");
 			$news->setCommentId(141);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep9'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1299,6 +1449,7 @@ Profitez-en bien, c'est toujours aussi délire !!<br />
 db0 dit :<br />
 J'en profite en coup de vent pour vous annoncer que la deuxième session de Konshinkai à Lyon arrive en fin du mois, et pour ça, un forum a fait son ouverture ainsi qu'un nouveau site et un chan irc. Venez nombreux ! <a href=\"http://konshinkai.c.la\" target=\"_blank\">+ d'infos, clique.</a>");
 			$news->setCommentId(140);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep8'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1323,6 +1474,7 @@ Bon, une petite news : \"J'ai pu rencontrer samedi 31 octobre, à l'occasion du K
 Tayutama Kiss on my deity, épisode 6 et 7 enfin sortis en corproduction avec la Maboroshi no Fansub ! La suite des aventures plus ou moins osée de l'avatar fort mignon d'une déesse dans le monde réel. Vous y retrouverez l'amie d'enfance jalouse, la Tsundere et la naïve à forte poitrine. La version MP4 est disponible immédiatement sur le site, la version AVI étant abandonnée.\"<br /><br />
 db0 dit :<br />
 J'en profite en coup de vent pour vous annoncer que la deuxième session de Konshinkai à Lyon arrive en fin du mois, et pour ça, un forum a fait son ouverture ainsi qu'un nouveau site et un chan irc. Venez nombreux ! <a href=\"http://konshinkai.c.la\" target=\"_blank\">+ d'infos, clique.</a>");
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep6'));
 			$news->addReleasing(Release::getRelease('tayutama', 'ep7'));
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep2'));
@@ -1337,6 +1489,7 @@ J'en profite en coup de vent pour vous annoncer que la deuxième session de Konsh
 			$news->setMessage("<img src=\"images/news/newtayu.jpg\" border=\"0\" /><br />
 On vous l'avait promis : on n'allait pas laisser tomber Maboroshi ! Et voilà, c'est chose faite : l'épisode 06 de Tayutama sort aujourd'hui. J'espère qu'il vous plaira.");
 			$news->setCommentId(105);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep6'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1349,6 +1502,7 @@ On vous l'avait promis : on n'allait pas laisser tomber Maboroshi ! Et voilà, c'
 			$news->setMessage("<img src=\"images/news/hito5.jpg\" /><br />
 Mugi-choco ! Tu nous as tellement manqué... Et tu reviens en maillot de bain, à la plage ! Yahou ! Mugi-Mugi-choco !!");
 			$news->setCommentId(142);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('hitohira', 'ep5'));
 			$news->addReleasing(Release::getRelease('hitohira', 'ep6'));
 			$news->setDisplayInNormalMode(true);
@@ -1362,6 +1516,7 @@ Mugi-choco ! Tu nous as tellement manqué... Et tu reviens en maillot de bain, à 
 			$news->setMessage("<img src=\"images/news/hito4.jpg\" border=\"0\" style=\"float : right; display:block; margin-right: 20px;\">
 On est decidé, on va avancer nos projets ! L'un de nos plus vieux, Hitohira, revient ce soir avec son 4ème épisode.<br />Et les versions LD et HD tant attendues de l'OAV sorti hier sont aussi arrivées. Profitez-en, c'est gratuit, aujourd'hui ! Et tous les autres jours aussi.");
 			$news->setCommentId(55);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('hitohira', 'ep4'));
 			$news->addReleasing(Release::getRelease('kodomo2', 'ep0'));
 			$news->setDisplayInNormalMode(true);
@@ -1374,6 +1529,7 @@ On est decidé, on va avancer nos projets ! L'un de nos plus vieux, Hitohira, rev
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/akirin.jpg\" border=\"0\" /> <br> Petite v2 qu'on attendait depuis pas mal de temps : L'épisode 03 de Kodomo no Jikan LD qui avait quelques petits soucis d'encodage. <a href=\"http://zerofansub.net/ddl/%5BZero%5DKodomo_no_Jikan%5B03v2%5D%5BXVID-MP3%5D%5BLD%5D%5B499E9C85%5D.avi\" target=\"_blank\" class=\"postlink\">DDL</a><br> <br>On en profite pour faire un petit point sur nos séries actuellement.<br> - <span style=\"font-weight: bold\">Alignment you you</span> En cours de traduction, mais on prend notre temps.<br> - <span style=\"font-weight: bold\">Genshiken 2</span> L'épisode 07 est en cours d'adapt-edit.<br> - <span style=\"font-weight: bold\">Guardian Hearts</span> En pause pour le moment.<br> - <span style=\"font-weight: bold\">Hitohira</span> En cours de traduction.<br> - <span style=\"font-weight: bold\">Kimikiss pure rouge</span> En pause pour le moment.<br> - <span style=\"font-weight: bold\">Kodomo no Jikan</span> L'épisode 10, 11, 12 sont prêt. La saison 2 arrive bientôt. Heuresement, avec la fin de la saison 1 qui s'approche...<br> - <span style=\"font-weight: bold\">Kujibiki Unbalance</span> Je vais m'y mettre...<br> - <span style=\"font-weight: bold\">Kurokami</span> En attente de Karamakeur.<br> - <span style=\"font-weight: bold\">Maria Holic</span> Très bientôt <img src=\"http://img1.xooimage.com/files/w/i/wink-1627.gif\" alt=\"Wink\" border=\"0\" class=\"xooit-smileimg\" /><br> - <span style=\"font-weight: bold\">Mermaid Melody</span> Notre annonce a fonctionnée, LeChat, notre traducteur IT-FR prend la suite en charge.<br> - <span style=\"font-weight: bold\">Sketchbook full color's</span> Des V2 des épisodes 1 et 5 ainsi que l'épisode 6 sont en cours d'encodage par Ajira.<br> - <span style=\"font-weight: bold\">Toradora!</span> Le 10 arrive !");
 			$news->setCommentId(32);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('kodomo', 'ep3'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1383,8 +1539,9 @@ On est decidé, on va avancer nos projets ! L'un de nos plus vieux, Hitohira, rev
 			$news->setTitle("Hitohira 03");
 			$news->setTimestamp(strtotime("07 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("<img src=\"images/news/mugi.png\" border=\"0\" /><br>Oh !<br>À cause d'un problème de raws, la série Hitohira est restée en pause pendant trèèès longtemps. Mais grâce à Lyf, le raw-hunter, et bien sûr à Jeanba, notre nouveau traducteur, mais aussi à B3rning14, nouvel encodeur, la série peut continuer. Et c'est donc l'épisode 03 que nous sortons aujourd'hui !<br><br>La Genesis ayant accepté que leurs releases en co-pro avec la Kanaii soient diffusées en DDL chez nous, vous pouvez maintenant retrouver la saison 2 de Rosario+Vampire ainsi que &quot;Kimi ga Aruji de Shitsuji ga Ore de - They are my Noble Masters&quot;. <a href=\"http://zerofansub.net/?page=kanaiiddl\" target=\"_blank\" class=\"postlink\">Lien</a><br>Bon DL !<br><br>Les dernières sorties de la <a href=\"http://www.kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a> :<br>- Kanokon 11<br>- Kanokon 12");
+			$news->setMessage("<img src=\"images/news/mugi.png\" border=\"0\" /><br>Oh !<br>À cause d'un problème de raws, la série Hitohira est restée en pause pendant trèèès longtemps. Mais grâce à Lyf, le raw-hunter, et bien sûr à Jeanba, notre nouveau traducteur, mais aussi à B3rning14, nouvel encodeur, la série peut continuer. Et c'est donc l'épisode 03 que nous sortons aujourd'hui !<br><br>La Genesis ayant accepté que leurs releases en co-pro avec la Kanaii soient diffusées en DDL chez nous, vous pouvez maintenant retrouver la saison 2 de Rosario+Vampire ainsi que 'Kimi ga Aruji de Shitsuji ga Ore de - They are my Noble Masters'. <a href=\"http://zerofansub.net/?page=kanaiiddl\" target=\"_blank\" class=\"postlink\">Lien</a><br>Bon DL !<br><br>Les dernières sorties de la <a href=\"http://www.kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a> :<br>- Kanokon 11<br>- Kanokon 12");
 			$news->setCommentId(18);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('hitohira', 'ep3'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1395,6 +1552,7 @@ On est decidé, on va avancer nos projets ! L'un de nos plus vieux, Hitohira, rev
 			$news->setTimestamp(strtotime("12 October 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/sorties/lasthitohira2.png\" border=\"0\" /><br><br>Cela faisait pas mal de temps que Zéro n'avait rien sorti !<br>Je pense vous faire plaisir en vous annonçant quelques nouvelles :<br>- 4 épisodes sont prêts et attendent juste d'être encodés.<br>- 2 Nouvelles séries sont à paraître :<br>-- Sketchbook ~full color's~ <br>-- Toradora!<br>- Bientôt une v3 du site !<br><br>On profite de cette news pour mettre fin à certaines rumeurs :<br>- Non ! Nous ne faisons pas de Hentaï<br>- Non ! Nous n'avons pas tous 13 ans ! <br>- Nous n'avons rien contre la Genesis. Au contraire, si ça pouvait s'arranger, je préfererais. Nous ne comprenons toujours pas le pourquoi du comment de cette histoire, mais soyez sûr que nous ne répondrons jamais à leurs éventuelles provocations, insultes ou agressions.<br>Merci à tous et Bon download !");
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('hitohira', 'ep2'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1407,6 +1565,7 @@ On est decidé, on va avancer nos projets ! L'un de nos plus vieux, Hitohira, rev
 			$news->setMessage("<img src=\"images/news/ogiue.jpg\" /><br />
 Et ainsi se termine Genshiken, le club d'étude de la culture visuelle moderne, avec un 12e épisode et quelques v2 pour perfectionner. Elle est pas trop mignonne, comme ça, Ogiue ?");
 			$news->setCommentId(133);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep12'));
 			$news->addReleasing(Release::getRelease('genshiken', 'ep1'));
 			$news->addReleasing(Release::getRelease('genshiken', 'ep2'));
@@ -1421,6 +1580,7 @@ Et ainsi se termine Genshiken, le club d'étude de la culture visuelle moderne, a
 			$news->setMessage("<img src=\"images/news/genshiken-11.jpg\" style=\"float: right\" border=\"0\">
 C'est les vacances pour certains membres de chez Zéro donc on a le temps de s'occuper de vous... Du moins, des épisodes que vous attendez avec impatience. (Pour qu'on s'occupe de vous personnellement, appelez le 08XXXXXXXX 0.34€ la minute demandez Sonia) Bref, ce soir sort l'épisode 11 de la saison 2 de Genshiken, c'est-à-dire l'avant dernier de la série. Les deux copines américaines sont toujours là pour vous faire rire, mais partieront à la fin de l'épisode. Profitez bien, c'est bientôt la fin ^^");
 			$news->setCommentId(104);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep11'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1434,6 +1594,7 @@ C'est les vacances pour certains membres de chez Zéro donc on a le temps de s'oc
 Notre petit Week-end d'otaku kanaii-zéro s'est très bien passé, dommage pour ceux qui n'y étaient pas ^^<br />Vous vous en foutez ? Anyaa ~~ Bon, bon, le v'là votre épisode 10 de Genshiken.<br />
 Petite info importante : L'OAV de KissXsis est en cours. Après sa sortie, Zéro se met en \"pause\" temporaire puisque je passe mon bac.");
 			$news->setCommentId(76);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep10'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1446,6 +1607,7 @@ Petite info importante : L'OAV de KissXsis est en cours. Après sa sortie, Zéro s
 			$news->setMessage("<img src=\"images/news/genshi9.jpg\" style=\"float:right;\" border=\"0\">
 Nyaron~ La suite de Genshiken 2 avec l'épisode 09. Bon download, bande d'otaku.");
 			$news->setCommentId(75);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep9'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1458,6 +1620,7 @@ Nyaron~ La suite de Genshiken 2 avec l'épisode 09. Bon download, bande d'otaku."
 			$news->setMessage("<img src=\"http://moe.mabul.org/up/moe/2009/05/10/img-122101gdcpq.png\" border=\"0\"><br />3 sorties en une journée, c'est un cas plutôt rare ! La suite de Genshiken2, c'est <a href=\"index.php?page=series/genshiken\">par là</a> avec l'épisode 08 qui sort aujourd'hui. Plus tar dans la soirée sortieront les versions LD de Kodomo oav2 et md, ld de Maria Holic 08.<br /><br />
 Une petite sortie Kanaii-Zéro est organisée entre Otaku le 23 et 24 mai à Nice ! Les sudistes pourront ainsi se retrouver sur nos plages ensoleillées pour se sentir un peu en vacances. Et les nordistes, n'hésitez pas à descendre nous voir ! Si vous souhaitez être de la partie, n'hésitez pas ! Envoyez-moi un mail (zero.fansub@gmail.com) ou venez vous signaler sur le forum Kanaii : <a href=\"http://www.kanaii.com/e107_plugins/forum/forum_viewtopic.php?46591\" target=\"_blank\">Lien</a>. Venez nombreux !");
 			$news->setCommentId(70);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep8'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1471,6 +1634,7 @@ Une petite sortie Kanaii-Zéro est organisée entre Otaku le 23 et 24 mai à Nice !
 <img style=\"float : left; display:block; margin-right: 20px;\" src=\"images/news/mariagen2.jpg\" border=\"0\">
 Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sortie de Maria+Holic 05 à aujourd'hui. (Nous nous excusons auprès de <a href=\"http://kanaii.com\" target=\"_blank\">Kanaii</a> en coproduction sur cet anime). Genshiken2 07 devait sortir ce soir. Maria 05 est toujours aussi drôle et dans l'épisode 07 de Genshiken, vous trouverez 2 nouveaux karaokés (à vos micros !). Profitez bien de cette double sortie !<br /><br /><a href=\"index.php?page=series/mariaholic\">Maria Holic</a> <a href=\"index.php?page=series/genshiken\">Genshiken2</a>");
 			$news->setCommentId(49);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep7'));
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep5'));
 			$news->setDisplayInNormalMode(true);
@@ -1483,6 +1647,7 @@ Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sor
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/gen6.jpg\" border=\"0\" /> <br> Otaku, otaku, nous revoilà ! Genshiken épisode 06 enfin dans les bacs, en ddl.<br> <a href=\"index.php?page=series/genshiken\" target=\"_blank\" class=\"postlink\">Pour télécharger les épisodes en DDL, cliquez ici !</a><br><br>  <span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.sky-fansub.com/\" target=\"_blank\" class=\"postlink\">Sky-fansub</a> :</span><br> Kurozuka 08<br> Mahou Shoujo Lyrical Nanoha Strikers 21<br> <br> <span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://kyoutsu-subs.over-blog.com/\" target=\"_blank\" class=\"postlink\">Kyoutsu</a> :</span><br> Hyakko 06<br> <br> <span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a> :</span><br> Kamen no maid Guy 01v2<br> Rosario+Vampire Capu2 07v2");
 			$news->setCommentId(31);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep6'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1494,6 +1659,7 @@ Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sor
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/recrut/qc.jpg\" border=\"0\" /><br>3 sorties en une, aujourd'hui ! Les épisodes 5 de Genshiken2, 8 de toradora! et 5 de Sketchbook sont disponibles dans la partie projets en DDL uniquement pour le moment. Les liens torrents, XDCC, Streaming viendront plus tard, ainsi que la version avi de genshiken et H264 de Toradora. Bon épisode !<br><br>Notre unique QC, praia, aimerait bien partager les QC de toutes nos séries avec un autre QC. Si vous êtes exellent en orthographe et que vous avez un oeil de lynx, nous vous solicitons ! Merci de vous présenter au poste de QC ^^ <a href=\"http://zerofansub.net/index.php?page=recrutement\" target=\"_blank\" class=\"postlink\">Lien</a>");
 			$news->setCommentId(21);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep5'));
 			$news->addReleasing(Release::getRelease('toradora', 'ep8'));
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep5'));
@@ -1507,6 +1673,7 @@ Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sor
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Voilà enfin la suite de notre saga otaku préférée, j'ai nommé... GENSHIKEN ! L'épisode 04 est dispo en ddl seulement pour le moment.");
 			$news->setCommentId(19);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep4'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1519,6 +1686,7 @@ Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sor
 			$news->setMessage("<img src=\"images/news/mariafin.png\" style=\"float: right;\" />
 Cette série était si drôle qu'elle est passée bien vite... Eh oui ! Déjà le dernier épisode de Maria+Holic ! Ce 12e épisode est complétement délirant, Kanako fait encore des siennes, et Mariya la suit de près. Avec la fin de cette série se termine aussi une coproduction avec Kanaii, nos partenaires et amis, qui s'est exellement bien passée et que nous accepterons avec plaisir de renouveler. Merci à eux et particulièrement à DC, le maître du projet aux superbes edits AE. Bon dernier épisode, et aussi bonne série à ceux qui attendaient la fin pour commencer la série compléte !");
 			$news->setCommentId(115);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep12'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1535,6 +1703,7 @@ Tout d'abord, l'habituel Canaan de la semaine avec l'épisode 07. Cet épisode éta
 Une deuxième sortie qui est en fait un épisode déjà encodé depuis longtemps mais que nous n'avions pas encore mis sur le site, l'épisode 2 version italienne de Mermaid Melody Pichi Pichi Pitch. Je pense ne décevoir personne, mais je rappelle que nous abandonnons les versions italiennes pour continuer les versions japonaises de chez Maboroshi (nous recrutons pour cela un traducteur ! SVP ! Help us !). Les liens de téléchargement des 13 épisodes par Maboroshi ne sont pas encore tous mis en place mais le seront dans le courant de la journée de demain.<br /><br />
 Et enfin, la suite de Maria Holic que vous attendiez tous ! L'épisode 11 et... avant-dernier épisode. Profitez bien de ce concentré d'humour avant la fin de cette superbe série, toujours en coproduction avec nos chers amis de chez Kanaii. La version avi ne sera disponible que demain.");
 			$news->setCommentId(113);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep11'));
 			$news->addReleasing(Release::getRelease('canaan', 'ep7'));
 			$news->addReleasing(Release::getRelease('mermaid', 'ep54'));
@@ -1549,6 +1718,7 @@ Et enfin, la suite de Maria Holic que vous attendiez tous ! L'épisode 11 et... a
 			$news->setMessage("<img src=\"images/news/canaan.jpg\" border=\"0\"><br />
 Une double sortie ce soir (peut-être pour rattraper vos attentes ?) dont l'épisode 10 tant attendu de Maria Holic avec comme toujours nos potes de chez Kanaii, et une nouvelle série : Canaan. C'est un nouveau projet assez original puisque c'est un genre d'anime qu'on ne fait habituellement chez Zéro. En fait, c'est Ryocu (le chef ultime !) qui s'est motivé à la traduire. J'espère qu'elle vous plaiera ! Bon download !");
 			$news->setCommentId(101);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep10'));
 			$news->addReleasing(Release::getRelease('canaan', 'ep1'));
 			$news->setDisplayInNormalMode(true);
@@ -1562,6 +1732,7 @@ Une double sortie ce soir (peut-être pour rattraper vos attentes ?) dont l'épiso
 			$news->setMessage("<img src=\"images/news/maria9.jpg\" style=\"float:right;\" border=\"0\">
 La team était en \"semi-pause\", maintenant que notre épisode en coproduction est sorti (Maria Holic 09 avec Kanaii), la team est en pause totale et revient en juillet. Bon épisode en attendant.");
 			$news->setCommentId(78);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep9'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1575,6 +1746,7 @@ La team était en \"semi-pause\", maintenant que notre épisode en coproduction es
 Maria Holic épisode 08 pour aujourd'hui, en coproduction avec Kanaii. Un épisode plutôt riche, et toujours aussi drôle. En bonus avec cet épisode, les images des anges \"cosplayés\" pendant l'épisode. <a href=\"index.php?page=series/mariaholic\">C'est par là !</a>
 <br /><br />PARTIE HENTAÏ :<br />Une mise à jour de la partie hentaï du site et la sortie d'un doujin de He is my master <a href=\"index.php?page=project&id=heismymaster\">Par là !</a>");
 			$news->setCommentId(67);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep8'));
 			$news->addReleasing(Project::getProject('heismymaster'));
 			$news->setDisplayInNormalMode(true);
@@ -1588,6 +1760,7 @@ Maria Holic épisode 08 pour aujourd'hui, en coproduction avec Kanaii. Un épisode
 			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/maria7.jpg\" border=\"0\">
 La suite de Maria+Holic, toujours en coproduction avec nos petits kanailloux. Disponible en DDL pour l'instant, et un peu plus tard en torrent et MU. J'en profite pour vous informer que nous risquons de ralentir le rythme puisque je suis en vacances, mais que dès la rentrée, tout reviendra dans l'ordre.");
 			$news->setCommentId(63);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep7'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1601,6 +1774,7 @@ La suite de Maria+Holic, toujours en coproduction avec nos petits kanailloux. Di
 Maria+Holic, la suite plutôt attendue ! L'épisode 06, en coproduction avec la Kanaii. Et notre DC et ses edits. Un épisode particulierement important pour la série : On y apprend une information ca-pi-tale ! À ne pas manquer !<br /><br />Sinon, HS, je suis un peu déçue de voir que le nombre de visite diminue de façon exponentielle depuis la fin de Toradora!... Anya >.< 
 <br /><br />EDIT : Sorties des deux autres versions.");
 			$news->setCommentId(56);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep6'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1612,6 +1786,7 @@ Maria+Holic, la suite plutôt attendue ! L'épisode 06, en coproduction avec la Ka
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Maria Holic 03, en copro avec <a href=\"http://kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a>. <a href=\"index.php?page=series/mariaholic\" target=\"_blank\" class=\"postlink\">L'épisode en DDL, c'est par ici !</a>");
 			$news->setCommentId(39);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep3'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1623,6 +1798,7 @@ Maria+Holic, la suite plutôt attendue ! L'épisode 06, en coproduction avec la Ka
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/mariaholic2.jpg\" border=\"0\" /> <br> En direct de Lyon, je vous sors le deuxième épisode de Maria+Holic en co-production avec <a href=\"http://kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a>.<br>Les mésaventures de Kanako continuent, ne les manquez pas !<br> <a href=\"index.php?page=series/mariaholic\" target=\"_blank\" class=\"postlink\">L'épisode en DDL, c'est par ici !</a><br><br> PS : Maboroshi est de retour !!");
 			$news->setCommentId(38);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep2'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1634,6 +1810,7 @@ Maria+Holic, la suite plutôt attendue ! L'épisode 06, en coproduction avec la Ka
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/kanako.png\" border=\"0\" /> <br> Nouvelle série que l'on avait pas annoncé officiellement pour le moment : Maria+Holic. Mais ce n'est pas tout : Nouvelle co-production aussi, non pas avec MNF, mais cette fois-ci avec l'un de nos <a href=\"http://zerofansub.net/index.php?page=dakko\" target=\"_blank\" class=\"postlink\">partenaires dakkô</a> a qui l'on offre du DDL et qui nous laisse poster sur leur site quelques news.... <a href=\"http://www.kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii !</a><br> Trèves de paroles inutiles : Voici donc l'épisode 01, disponible en DDL chez nous et torrent MU chez eux.<br> <a href=\"ddl/%5bKanaii-Zero%5d_Maria+Holic_01_%5bX264_1280x720%5d.mkv\" target=\"_blank\" class=\"postlink\">DDL</a>");
 			$news->setCommentId(33);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep1'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1646,6 +1823,7 @@ Maria+Holic, la suite plutôt attendue ! L'épisode 06, en coproduction avec la Ka
 			$news->setMessage("<img src=\"images/news/pote.jpg\" /><br />
 Le sondage de la semaine dernière était un peu foireux parce ce qu'on pouvait pas voter en fait donc euh les commentaires seront pris en compte finalement. Merci pour vos réponses. Nous continueront of course à poster moultes actualités concernant autre chose que le fansub. Ce sont les vacances, donc nous en profitons bien, mais nous ne chômons pas quand même et vous proposons donc quelques petits épisodes à regarder entre 2 séries de bronzage ou de baignade ou que sais-je encore de randonnées, de visites au musée, pourquoi pas de job d'été, ect. M'enfin, bref, je m'étale inutilement (comment ça, comme d'habitude ?) et vous propose de vous rendre sur le site si vous n'y êtes pas déjà pis d'aller télécharger notre petit potemayo, mignon potemayo, potemayo, potemayo naaassuuu !! (ça veut rien dire, c'est normal, j'ai un peu bu)(bah quoi ? c'est les vacances ou pas ?). Je regretterai sûrement d'avoir écrit une news aussi foncedé demain mais bon vous inquiétez pas je l'étais pas quand je taffais sur cet épisode, hein. J'vous l'jure, m'sieur l'agent. J'suis sobre, moi, j'bois pas. Jamais, jamais. J'vais jamais en soirée ou quoi, non, non. Moi, je fais du fan-sub ! Du fan-sub ! Sinon, vous avez vu, l'image de sortie, au dessus ? Elle est pourrie, hein ? C'est parce que je sais pas me servir de Gimp et que j'ai internet qu'avec ubuntu parce que j'ai fait ça avec un téléphone portable, en fait. C'est ça, marrez-vous. M'enf, j'apprendrais à utiliser Gimp !! Bon, bon. Et l'image du mois, elle vous plaît ? Ouais, c'est des nichons, tout ça, là, ça vous plaît, ce genre de trucs. Moi, ça me plaît bien en tout cas. Je kiffe ma race, même, je dirais. Et moi, je fais du cosplay !! Si, si. Fin.");
 			$news->setCommentId(108);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('potemayo', 'ep6'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1658,6 +1836,7 @@ Le sondage de la semaine dernière était un peu foireux parce ce qu'on pouvait pa
 			$news->setMessage("<img src=\"images/news/pote5.jpg\" style=\"float:right;\" border=\"0\">
 Si c'est pas trop Kawaii, ça ? Bah oui, c'est Potemayo ! Comme vous le savez, notre partenaire, Kirei no Tsubasa, a déposé le bilan récemment. Histoire de ne pas laisser leurs projets tomber à l'eau, nous avons accepté de reprendre le projet Potemayo. Nous continuons là où ils se sont arrêté et sortons l'épisode 05. Les épisodes 01 à 04 sont aussi disponibles sur le site. Honi Honi ~");
 			$news->setCommentId(74);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('potemayo', 'ep5'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1670,6 +1849,7 @@ Si c'est pas trop Kawaii, ça ? Bah oui, c'est Potemayo ! Comme vous le savez, no
 			$news->setMessage("<img src=\"images/news/kuji.jpg\" style=\"float:right;\" border=\"0\">
 Kujibiki Unbalance est de retour avec l'épisode 7 qui sort aujourd'hui. Il est riche en émotion pour nos héros et particulièrement pour Tokino. Un nouveau personnage apparaît et on découvre des informations sur les personnages. Je vous laisse découvrir tout ça...");
 			$news->setCommentId(102);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep7'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1683,6 +1863,7 @@ Kujibiki Unbalance est de retour avec l'épisode 7 qui sort aujourd'hui. Il est r
 Après une longue attente sans Kujibiki, la série continue avec l'épisode 06 (Zéro n'abbandonne jamais !). Merci à Zetsubo Sensei qui prend le relais pour la traduction.<br /><br />
 Ce Week-End, Mangazur à Toulon. Une petite convention très sympa ^^ J'y serais, n'hésitez pas à me contacter (zero.fansub@gmail.com). Et venez nombreux pour cet événement.");
 			$news->setCommentId(59);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep6'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1692,7 +1873,8 @@ Ce Week-End, Mangazur à Toulon. Une petite convention très sympa ^^ J'y serais, 
 			$news->setTitle("Joyeux Anniversaire ! Zéro a un an aujourd'hui. + Kujibiki Unbalance 05");
 			$news->setTimestamp(strtotime("18 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("<img src=\"images/news/unan.png\" border=\"0\" /><br>Zéro fête aujourd'hui son anniversaire ! Cela fait maintenant un an que le site Zéro existe. Crée le 18 décembre 2007, il était au départ un site de DDL. Ce n'est que le 6 janvier que le site deviens une team de fansub ^^ Pour voir les premières versions, allez sur la page &quot;À propos...&quot;. Merci à tous pour votre soutien, c'est grâce à vous que nous en sommes arrivés là !<br><br>Comme petit cadeau d'anniversaire, voici l'épisode 05 de Kujibiki Unbalance, en éspérant qu'il vous plaira.<br><br><span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.sky-fansub.com/\" target=\"_blank\" class=\"postlink\">Sky-fansub</a> :</span><br>Kurozuka 06 HD<br>Mahou Shoujo Lyrical Nanoha Strikers 18");
+			$news->setMessage("<img src=\"images/news/unan.png\" border=\"0\" /><br>Zéro fête aujourd'hui son anniversaire ! Cela fait maintenant un an que le site Zéro existe. Crée le 18 décembre 2007, il était au départ un site de DDL. Ce n'est que le 6 janvier que le site deviens une team de fansub ^^ Pour voir les premières versions, allez sur la page 'À propos...'. Merci à tous pour votre soutien, c'est grâce à vous que nous en sommes arrivés là !<br><br>Comme petit cadeau d'anniversaire, voici l'épisode 05 de Kujibiki Unbalance, en éspérant qu'il vous plaira.<br><br><span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.sky-fansub.com/\" target=\"_blank\" class=\"postlink\">Sky-fansub</a> :</span><br>Kurozuka 06 HD<br>Mahou Shoujo Lyrical Nanoha Strikers 18");
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep5'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1704,6 +1886,7 @@ Ce Week-End, Mangazur à Toulon. Une petite convention très sympa ^^ J'y serais, 
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/sida.png\" border=\"0\" /><br>Ciao !<br>Sortie de Kujibiki Unbalance, l'épisode 04 ! Je tiens à remercier DC, qui, par pitié peut-être ^^, nous a encodé cet épisode.<br><br>Oui ! Comme vous l'avez compris, nous recrutons de manière urgente un encodeur !<br>N'hésitez pas à vous proposer <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /> &gt; <a href=\"index.php?page=recrutement\" target=\"_blank\" class=\"postlink\">Lien</a>.<br><br>Aujourd'hui, 1er décembre, journée internationale du Sida. Nous vous rappelons que les dons et les clicks sur les pubs sont reversés à l'association medecin du monde. Nous avons besoin de vous !<br><a href=\"index.php?page=dons\" target=\"_blank\" class=\"postlink\">En savoir plus sur le fonctionnement des dons sur le site</a><br><a href=\"http://zerofansub.net/#\" target=\"_blank\" class=\"postlink\">En savoir plus sur l'action de l'association</a><br><br>Sinon, Man-Ban nous a fait une jolie fanfic que vous pouvez lire dans la partie Scantrad <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /><br>Merci à tous et à bientôt !<br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a>");
 			$news->setCommentId(16);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep4'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1716,6 +1899,7 @@ Ce Week-End, Mangazur à Toulon. Une petite convention très sympa ^^ J'y serais, 
 			$news->setMessage("<img src=\"images/news/sketchend.jpg\"><br />
 Nous avons temporairement repris de nos activités pour finir la série Sketchbook full color's. Sortie aujourd'hui de 5 épisodes d'un coup : 09, 10, 11, 12 et 13 :) Profitez bien de ctte magnifique série, et à dans deux jours à Japan Expo !");
 			$news->setCommentId(98);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep9'));
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep10'));
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep11'));
@@ -1731,6 +1915,7 @@ Nous avons temporairement repris de nos activités pour finir la série Sketchbook
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/sketch8.png\" border=\"0\"><br />V'là déjà la suite de Sketchbook full colors ! L'épisode 08 est disponible, et à peine 2 jours après l'épisode 07 ! Si c'est pas beau, ça ? Allez, détendez-vous un peu en regardant ce joli épisode. <a href=\"index.php?page=series/sketchbook\" target=\"_blank\">En téléchargement ici !</a>");
 			$news->setCommentId(72);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep8'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1743,6 +1928,7 @@ Nous avons temporairement repris de nos activités pour finir la série Sketchbook
 			$news->setMessage("<img src=\"images/news/sketch7.jpg\" style=\"float:right;\" border=\"0\">
 On avance un peu dans Sketchbook aussi, épisode 07 aujourd'hui ! Apparition d'un nouveau personnage : une étudiante transferée. Cet épisode est plutôt drôle. <a href=\"index.php?page=series/sketchbook\" target=\"_blank\">Et téléchargeable ici !</a>");
 			$news->setCommentId(72);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep7'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1755,6 +1941,7 @@ On avance un peu dans Sketchbook aussi, épisode 07 aujourd'hui ! Apparition d'un
 			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/sketchh.jpg\" border=\"0\">
 Une avalanche de Sketchbook ! Ou plutôt, une avalanche de fleurs ^^ Avec la sortie longtemps attendue de la suite de Sketchbook épisode 06 et de 3 v2 (tout ça pour améliorer la qualité de nos releases) Enjoy !");
 			$news->setCommentId(62);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep6'));
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep1'));
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep2'));
@@ -1767,8 +1954,9 @@ Une avalanche de Sketchbook ! Ou plutôt, une avalanche de fleurs ^^ Avec la sort
 			$news->setTitle("Sketchbook ~full color's 04~ ; Kanaii DDL et Sky-fansub");
 			$news->setTimestamp(strtotime("05 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("<img src=\"images/news/moka.jpg\" border=\"0\" /><br>Bouonjòu !<br>L'épisode 04 de Sketchbook est sorti ! <a href=\"index.php?page=series/sketchbook\" target=\"_blank\" class=\"postlink\">Lien</a> Les sorties se font attendre, étant donné qu'on a plus vraiment d'encodeur officiel ^^ Merci à Kyon qui nous a encodé c'lui-ci.<br>Beaucoup nous demandaient où il fallait télécharger nos releases. Probléme réglé, j'ai fait une page qui résume tout. <a href=\"index.php?page=dl\" target=\"_blank\" class=\"postlink\">Lien</a><br>J'offre aussi du DDL à notre partenaire : la team Kanaii. Allez télécharger leurs animes, ils sont très bons ! <a href=\"index.php?page=kanaiiddl\" target=\"_blank\" class=\"postlink\">Lien</a><br>Nous avons aussi un nouveau partenaire : La team Sky-fansub. <a href=\"http://www.sky-fansub.com/\" target=\"_blank\" class=\"postlink\">Lien</a><br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a><br>PS : &quot;Bouonjòu&quot; c'est du niçois <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /><br><br>Les dernières sorties de la <a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi</a> :<br>- Neo Angelique Abyss 2nd Age 07<br>- Akane Iro Ni Somaru Saka 07");
+			$news->setMessage("<img src=\"images/news/moka.jpg\" border=\"0\" /><br>Bouonjòu !<br>L'épisode 04 de Sketchbook est sorti ! <a href=\"index.php?page=series/sketchbook\" target=\"_blank\" class=\"postlink\">Lien</a> Les sorties se font attendre, étant donné qu'on a plus vraiment d'encodeur officiel ^^ Merci à Kyon qui nous a encodé c'lui-ci.<br>Beaucoup nous demandaient où il fallait télécharger nos releases. Probléme réglé, j'ai fait une page qui résume tout. <a href=\"index.php?page=dl\" target=\"_blank\" class=\"postlink\">Lien</a><br>J'offre aussi du DDL à notre partenaire : la team Kanaii. Allez télécharger leurs animes, ils sont très bons ! <a href=\"index.php?page=kanaiiddl\" target=\"_blank\" class=\"postlink\">Lien</a><br>Nous avons aussi un nouveau partenaire : La team Sky-fansub. <a href=\"http://www.sky-fansub.com/\" target=\"_blank\" class=\"postlink\">Lien</a><br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a><br>PS : 'Bouonjòu' c'est du niçois <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /><br><br>Les dernières sorties de la <a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi</a> :<br>- Neo Angelique Abyss 2nd Age 07<br>- Akane Iro Ni Somaru Saka 07");
 			$news->setCommentId(17);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep4'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1780,6 +1968,7 @@ Une avalanche de Sketchbook ! Ou plutôt, une avalanche de fleurs ^^ Avec la sort
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Bonjour, bonjour !<br>Sortie de l'épisode 03 de Sketchbook full color's !<br>Et c'est tout. Je sais pas quoi dire d'autre. Bonne journée, mes amis. <br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a>");
 			$news->setCommentId(13);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep3'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1791,6 +1980,7 @@ Une avalanche de Sketchbook ! Ou plutôt, une avalanche de fleurs ^^ Avec la sort
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/knjng2.png\" border=\"0\"><br />La suite tant attendue des aventures de Rin, Kuro et Mimi ! Un épisode riche en émotion qui se déroule pendant la fête du sport où toutes les trois font de leur mieux pour que leur classe, la CM1-1, remporte la victoire ! Toujours en coproduction avec <a href=\"http://www.maboroshinofansub.fr/\" target=\"_blank\">Maboroshi</a>. Cet épisode a été traduit du Japonais par Sazaju car la vosta se faisait attendre, puis \"améliorée\" par Shana. C'est triste, hein ? Plus qu'un et c'est la fin... <a href=\"index.php?page=series/kodomo2\">Ici, ici !</a>");
 			$news->setCommentId(69);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomo2', 'ep2'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1803,6 +1993,7 @@ Une avalanche de Sketchbook ! Ou plutôt, une avalanche de fleurs ^^ Avec la sort
 			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/knjoav1.png\" border=\"0\">
 C'est maintenant que la saison 2 de Kodomo no Jikan commence vraiment ! Profitez bien de cette épisode ^^ Toujours en coproduction avec <a href=\"http://maboroshinofansub.fr\" target=\"_blank\">Maboroshi no fansub</a>, chez qui vous pourrez télecharger l'épisode en XDCC. Chez nous, c'est comme toujours en DDL. Nous vous rappelons que les torrents sont disponibles peu de temps après, et que tout nos épisodes sont disponibles en Streaming HD sur <a href=\"http://www.anime-ultime.net/part/Site-93\" target=\"_blank\">Anime-Ultime</a>.");
 			$news->setCommentId(58);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomo2', 'ep1'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1815,6 +2006,7 @@ C'est maintenant que la saison 2 de Kodomo no Jikan commence vraiment ! Profitez
 			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/nigakki0.jpg\" border=\"0\">
 Vous l'attendiez TOUS ! (Si, si, même toi) Il est arrivé ! Le premier OAV de la saison 2 de Kodomo no Jikan. Cet OAV est consacré à Kuro-chan et Shirai-sensei. Amateurs de notre petite goth-loli-neko, vous allez être servis ! Elle est encore plus kawaii que d'habitude ^^ La saison 2 se fait en coproduction avec <a href=\"http://maboroshinofansub.fr\" target=\"_blank\">Maboroshi</a> et avec l'aide du grand (ô grand) DC.");
 			$news->setCommentId(55);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomo2', 'ep0'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1827,6 +2019,7 @@ Vous l'attendiez TOUS ! (Si, si, même toi) Il est arrivé ! Le premier OAV de la 
 			$news->setMessage("<a href=\"images/news/torafin.jpg\" target=\"_blank\"><img src=\"images/news/min_torafin.jpg\" border=\"0\"></a><br /><br />
 C'est ainsi que se termine Toradora! ...");
 			$news->setCommentId(53);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep24'));
 			$news->addReleasing(Release::getRelease('toradora', 'ep25'));
 			$news->setDisplayInNormalMode(true);
@@ -1840,6 +2033,7 @@ C'est ainsi que se termine Toradora! ...");
 			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/tora23.png\" border=\"0\">
 La suite de Toradora! avec l'épisode 23. Toujours aussi émouvant, toujours aussi kawaii, toujours aussi Taiga-Ami-Minorin-Ryyuji-ect, toujours aussi dispo sur <a href=\"http://toradora.fr/\" target=\"_blank\">Toradora.fr!</a>, toujours aussi en copro avec <a href=\"http://japanslash.free.fr\" target=\"_blank\">Maboroshi</a>, toujours en DDL sur notre site <a href=\"index.php?page=series/toradora\">\"Lien\"</a>, Bref, toujours aussi génial ! Enjoy ^^<br /><br />Discutons un peu (dans les commentaires) ^^<br />Que penses-tu des Maid ? Tu es fanatique, fétichiste, amateur ou indifférent ?");
 			$news->setCommentId(52);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep23'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1852,6 +2046,7 @@ La suite de Toradora! avec l'épisode 23. Toujours aussi émouvant, toujours aussi
 			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/taiiga.jpg\" border=\"0\">
 Que d'émotion, que d'émotion ! La suite de Toradora!, l'épisode 22. Nous vous rappelons que vous pouvez aussi télécharger les épisodes et en savoir plus sur la série sur <a href=\"http://toradora.fr/\" target=\"_blank\">Toradora.fr!</a>. Sinon, les épisodes sont toujours téléchargeables chez <a href=\"http://japanslash.free.fr\" target=\"_blank\">Maboroshi</a> en torrent et XDCC et chez nous <a href=\"index.php?page=series/toradora\">par ici en DDL.</a> Enjoy ^^");
 			$news->setCommentId(51);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep22'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1864,6 +2059,7 @@ Que d'émotion, que d'émotion ! La suite de Toradora!, l'épisode 22. Nous vous ra
 			$news->setMessage("<img src=\"images/news/ski.jpg\" border=\"0\"><br /><br />
 Toradora! encore et encore, et bientôt, la fin de la série. Cet épisode est encore une fois bourré d'émotion et de rebondissements... Et de luge, et de neige, et de skis ! <a href=\"index.php?page=series/toradora\">C'est par ici que ça se télécharge !</a><br /><br />Profitions-en pour discutailler ! Alors, toi, lecteur de news de Zéro... Tu es parti en vacances, faire du ski ? Raconte-nous tout ça dans les commentaires ;)");
 			$news->setCommentId(50);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep21'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1876,6 +2072,7 @@ Toradora! encore et encore, et bientôt, la fin de la série. Cet épisode est enco
 			$news->setMessage("<img src=\"images/news/taigahand.jpg\" border=\"0\"><br />
 Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notre travail. Ou plutôt, notre partenaire <a href=\"http://japanslash.free.fr\" target=\"_blank\">Maboroshi</a> nous fait reprendre le travail ^^ Sortie de l'épisode 19 de toradora, avec notre petite Taiga toute kawaii autant sur l'image de cette news que dans l'épisode ! Comme d'hab, DDL sur le site, Torrent bientôt (Merci à Khorx), XDCC bientôt et déjà dispo chez <a href=\"http://japanslash.free.fr\" target=\"_blank\">Maboroshi</a>. <a href=\"index.php?page=series/toradora\">\"Ze veux l'épisodeuh !\"</a>.");
 			$news->setCommentId(46);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep19'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1888,6 +2085,7 @@ Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notr
 			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/noeltora.jpg\" border=\"0\">
 Serait-ce le rythme \"une sortie / un jour\" qui nous prend, à Zéro et <a href=\"http://japanslash.free.fr\" target=\"_blank\">Maboroshi</a> ? Peut-être, peut-être... En tout cas, voici la suite de Toradora!, l'épisode 18 ! <a href=\"index.php?page=series/toradora\">Je DL tisouite !</a>");
 			$news->setCommentId(43);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep18'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1900,6 +2098,7 @@ Serait-ce le rythme \"une sortie / un jour\" qui nous prend, à Zéro et <a href=\
 			$news->setMessage("<img style=\"float : right; display:block; margin-right: 20px;\" src=\"images/news/blond.jpg\" border=\"0\">
 Toradora!, pour changer, en copro avec <a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi no Fansub</a>. Un épisode plein d'émotion, de tendresse et de violence à la fois. À ne pas manquer ! <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">L'épisode en DDL, c'est par ici !</a>");
 			$news->setCommentId(39);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep16'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1911,6 +2110,7 @@ Toradora!, pour changer, en copro avec <a href=\"http://japanslash.free.fr/\" ta
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/chibi.jpg\" border=\"0\" /><br> En pleine chibi Japan Expo Sud, Toradora! continue avec ce soir l'épisode 15 !<br> <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">L'épisode en DDL, c'est par ici !</a><br> Rejoignez nous pour cet évenement : <br> Chibi Japan Expo à Marseille ! J'y serais, Kanaii y sera. Nous serions ravis de vous rencontrer, alors n'hésitez pas à me mailer (Zero.fansub@gmail.com).<br><br> Dernières sortie de nos partenaires :<br> Kyoutsu : Minami-ke Okawari 02 et Ikkitousen OAV 04<br> Kanaii : Kamen no Maid Guy 08<br> Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
 			$news->setCommentId(41);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('toradora', 'ep15'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1922,6 +2122,7 @@ Toradora!, pour changer, en copro avec <a href=\"http://japanslash.free.fr/\" ta
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/dentifrice.jpg\" border=\"0\" /><br> db0 s'excuse pour sa news ultra-courte de la dernière fois pour Maria Holic 3 et en compensasion va raconter sa vie dans celle-ci (Non, pas ça !). C'est aujourd'hui et pour la première fois chez Zéro une triple sortie ! Les épisodes 12, 13 et 14 de Toradora! sont disponibles, toujours en copro avec <a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi</a>.<br> <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">Les épisodes en DDL, c'est par ici !</a><br><br> J'en profite aussi pour vous préciser que les 2 autres versions de Maria 03 sont sorties.<br> Mais surtout, je vous sollicite pour une IRL :<br> Chibi Japan Expo à Marseille ! J'y serais, Kanaii y sera. Nous serions ravis de vous rencontrer, alors n'hésitez pas à me mailer (Zero.fansub@gmail.com).");
 			$news->setCommentId(40);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('toradora', 'ep12'));
 			$news->addReleasing(Release::getRelease('toradora', 'ep13'));
 			$news->addReleasing(Release::getRelease('toradora', 'ep14'));
@@ -1935,6 +2136,7 @@ Toradora!, pour changer, en copro avec <a href=\"http://japanslash.free.fr/\" ta
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"http://japanslash.free.fr/images/news/toradora11.jpg\" border=\"0\" /> <br> La suite, la suite ! Toradora! épisode 11 sortie, en copro avec <a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi no Fansub</a>.<br><br><br> <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">L'épisode en DDL, c'est par ici !</a>");
 			$news->setCommentId(39);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep11'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1946,6 +2148,7 @@ Toradora!, pour changer, en copro avec <a href=\"http://japanslash.free.fr/\" ta
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/ami.png\" border=\"0\" /> <br> En direct de Nice, et pour ce 10 Février, l'épisode 10 de Toradora! en co-production avec <a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi no Fansub</a>, qui est de retour, comme vous l'avez vu ! (Avec Kannagi 01, Mermaid 11-12-13 et Kimi Ga 4). Pour Toradora!, nous allons rattraper notre retard !<br><br><br> <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">L'épisode en DDL, c'est par ici !</a>");
 			$news->setCommentId(39);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep10'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1957,6 +2160,7 @@ Toradora!, pour changer, en copro avec <a href=\"http://japanslash.free.fr/\" ta
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/tora.jpg\" border=\"0\" /> <br> L'épisode 09 de Toradora! est terminé ! Nous avons pris du retard car la MNF (en co-production) est actuellement en pause temporaire (Tohru n'a plus internet).<br> <a href=\"index.php?page=series/toradora\" target=\"_blank\" class=\"postlink\">Pour télécharger les épisodes en DDL, cliquez ici !</a><br><br>  <span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.sky-fansub.com/\" target=\"_blank\" class=\"postlink\">Sky-fansub</a> :</span><br> Kurozuka 07<br> Mahou Shoujo Lyrical Nanoha Strikers 20<br> <br> <span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://kyoutsu-subs.over-blog.com/\" target=\"_blank\" class=\"postlink\">Kyoutsu</a> :</span><br> Hyakko 05<br> <br> <span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a> :</span><br> Kamen no maid Guy 06<br> Rosario+Vampire Capu2 06");
 			$news->setCommentId(31);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep9'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1966,8 +2170,9 @@ Toradora!, pour changer, en copro avec <a href=\"http://japanslash.free.fr/\" ta
 			$news->setTitle("Toradora! 07");
 			$news->setTimestamp(strtotime("24 November 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("<img src=\"images/news/toradora.png\" border=\"0\" /><br>Ohayo mina !<br>La suite de Toradora est arrivée ! Et toujours en co-production avec la Maboroshi  <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /> <br>Cet épisode se déroule à la piscine, et &quot;Y'a du pelotage dans l'air !&quot; Je n'en dirais pas plus.<br>L'épisode est sorti en DDL en format avi, en XDCC. Comme toujours, il sortira un peu plus tard en H264, torrent, streaming, ect.<br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a>");
+			$news->setMessage("<img src=\"images/news/toradora.png\" border=\"0\" /><br>Ohayo mina !<br>La suite de Toradora est arrivée ! Et toujours en co-production avec la Maboroshi  <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /> <br>Cet épisode se déroule à la piscine, et 'Y'a du pelotage dans l'air !' Je n'en dirais pas plus.<br>L'épisode est sorti en DDL en format avi, en XDCC. Comme toujours, il sortira un peu plus tard en H264, torrent, streaming, ect.<br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a>");
 			$news->setCommentId(14);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep7'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1979,6 +2184,7 @@ Toradora!, pour changer, en copro avec <a href=\"http://japanslash.free.fr/\" ta
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/img_shinobu.gif\" border=\"0\" /><br>Bonjour tout le monde !<br>J'ai aujourd'hui plusieurs bonnes nouvelles à vous annoncer :<br>La V3 avance bien, et je viens de mettre à jour les pages pour le scantrad, car comme vous le savez, nous commençons grâce à François et notre nouvelle recrue Merry-Aime notre premier projet scantrad : Kodomo no Jikan.<br>J'ai aussi installée la radio tant attendue et mis sur le site quelques OST.<br>Nous avons aussi, grâce à Ryocu, un nouveau XDCC. Vous aviez sans doute remarquer que nous ne pouvions pas mettre à jour le précédent. Celui-ci sera mis à jour à chaque nouvelle sortie.<br>Et enfin, notre dernière sortie : Toradora! 06. Toujours en co-production avec<a href=\"http://japanslash.free.fr/\" target=\"_blank\" class=\"postlink\">Maboroshi</a>.<br>Enjoy  <img src=\"http://img1.xooimage.com/files/w/i/wink-1627.gif\" alt=\"Wink\" border=\"0\" class=\"xooit-smileimg\" /> <br>//<a href=\"http://db0.fr/\" target=\"_blank\" class=\"postlink\">db0</a>");
 			$news->setCommentId(7);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('toradora', 'ep6'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -1991,6 +2197,7 @@ Toradora!, pour changer, en copro avec <a href=\"http://japanslash.free.fr/\" ta
 			$news->setMessage("<img src=\"images/news/kodomo12fin.png\" border=\"0\"><br />
 C'est ainsi, en ce 6 mars 2009, que nous fêtons à la fois l'anniversaire de la première release de Zéro (Kodomo no Jikan OAV) et l'achevement de notre première série de 12 épisodes. L'épisode 12 de Kodomo no Jikan sort aujourd'hui pour clore les aventures de nos 3 petites héroïnes : Rin, Mimi et Kuro. Il est dispo en DDL sur <a href=\"http://kojikan.fr\">le site Kojikan.fr</a>. Un pack des 12 épisodes sera bientôt disponible en torrent. <br /><a href=\"http://kojikan.fr/?page=saison1-dl_1\" target=\"_blank\">Télécharger en DDL !</a>");
 			$news->setCommentId(44);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomo', 'ep12'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -2002,6 +2209,7 @@ C'est ainsi, en ce 6 mars 2009, que nous fêtons à la fois l'anniversaire de la p
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/kodomo10.jpg\" border=\"0\" /><br> RIIINN est revenue ! Elle nous apporte son dixième épisode. Plus que 2 avant la fin, et la saison 2 par la suite. Une petite surprise arrive bientôt, sans doute pour le onzième épisode. En attendant, retrouvez vite notre petite délurée dans la suite de ses aventures et ses tentatives de séduction de Aoki-sensei...");
 			$news->setCommentId(37);
+			$news->setInfosTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomo', 'ep10'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -2013,9 +2221,136 @@ C'est ainsi, en ce 6 mars 2009, que nous fêtons à la fois l'anniversaire de la p
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("<img src=\"images/news/kodomo9.jpg\" border=\"0\" /><br>Rin, Kuro et Mimi reviennent enfin vous montrer la suite de leurs aventures ! Sortie aujourd'hui de l'épisode 09, merci à DC qui nous l'a encodé. Les 3 versions habituelles sont dispos en DDL.<br><br>Nous recrutons toujours un QC ! Proposez-vous !<br>Nous avons décider de reprendre le projet Mermaid Melody Pichi Pichi Pitch, mais pour cela nous avons besoin d'un traducteur italien &gt; français. N'hésitez pas à postuler si vous êtes intéressés <img src=\"http://img1.xooimage.com/files/s/m/smile-1624.gif\" alt=\"Smile\" border=\"0\" class=\"xooit-smileimg\" /> Par avance, merci. <a href=\"index.php?page=recrutement\" target=\"_blank\" class=\"postlink\">Lien</a><br><br><span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.kanaii.com/\" target=\"_blank\" class=\"postlink\">Kanaii</a> :</span><br>Kanokon pack DVD 06 à 12<br>Rosario + Vampire S2 -05<br><span style=\"font-weight: bold\">Les dernières sorties de la <a href=\"http://www.sky-fansub.com/\" target=\"_blank\" class=\"postlink\">Sky-fansub</a> :</span><br>Kurozuka 05 HD<br>Mahou Shoujo Lyrical Nanoha Strikers 17");
 			$news->setCommentId(22);
+			$news->setInfosTeamNews(true);
 			$news->addReleasing(Release::getRelease('kodomo', 'ep9'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Joyeuses fêtes !");
+			$news->setTimestamp(strtotime("26 December 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setMessage("<img src=\"images/news/noel0.jpg\" alt=\"merry christmas ore no imouto\" /><br /><br />
+Une autre année se termine, mais ne vous en faite pas, nous on continue ! Même si on semble être au point mort, ça s'active dans les coulisses. Ne perdez pas espoir, vos commentaires ne sont pas tombés aux oubliettes !<br /><br />
+Toute l'équipe de Zéro Fansub vous souhaite de joyeuses fêtes de fin d'année et espère vous retrouver l'année prochaine pour de nouvelles séries ! N'hésitez pas à passer sur le forum pour nous soutenir !<br /><br /><br />
+<img src=\"images/news/noel1.jpg\" alt=\"merry christmas ore no imouto\" /><br /><br />
+<img src=\"images/news/noel2.jpg\" alt=\"merry christmas ore no imouto\" /><br /><br />
+PS : Le projet Canaan est licencié par Kaze. Le dvd de l'integrale est déjà disponible en pré-order !<br /><br />
+<img src=\"images/news/dvdcanaan.jpg\" alt=\"DVD canaan buy pre-order kaze\" />");
+			$news->setCommentId(250);
+			$news->setInfosTeamNews(true);
+			$news->setTwitterTitle("Toute l'equipe Zero fansub vous souhaitent de joyeuses fetes !");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Newsletter");
+			$news->setTimestamp(strtotime("30 June 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("Pour ceux qui ne seraient pas au courant, 
+il est possible de recevoir un mail à chaque fois q'une \"news\" (sorties ou autre) apparait sur le site.<br />
+Pour bénéficier de ce service et être les premier au courant, il suffit de vous inscrire sur le forum :<br />
+<a href=\"http://forum.zerofansub.net/profile.php?mode=register&agreed=true\" target=\"_blank\">S'inscrire !</a><br />
+<br />
+<div class=\"left\">
+<ul>
+<li>Vous n'êtes pas obligés d'être un membre actif du forum pour la recevoir.</li>
+<li>Nous ne divulgons votre adresse e-mail à personne.</li>
+<li>À tout moment, vous pouvez arrêter votre abonnement (lien en bas des newsletter).</li>
+<li>Nous ne vous envoyons rien de plus que nos news : pas de spams, de pubs, etc.</li>
+</ul>
+</div>
+<br />
+Pour les habitués des flux RSS, vous pouvez aussi suivre nos news :<br />
+<a href=\"http://zerofansub.feedxs.com/zero.rss\" target=\"_blank\">Flux RSS</a><br /><br />
+<img src=\"images/news/newsletters.jpg\" alt=\"Newsletter Zéro fansub\" />");
+			$news->setCommentId(235);
+			$news->setInfosTeamNews(true);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("L'école du fansub + Mayoi Neko Overrun!");
+			$news->setTimestamp(strtotime("22 April 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/ecolelogo.png\" /><br /><br />
+Suite au succès inattendu de la précédente news, nous avons décider d'ouvrir une séction spéciale dans Zéro fansub : L'école du fansub.<br /><br />
+<div style=\"text-align: left\"><b>Le Concept</b><br />
+Donner les moyens à des personnes motivées mais n'ayant aucune éxpérience en fansub d'entrer dans une équipe en les formant depuis la base.<br />
+<br />
+<b>Comment ça marche ?</b><br />
+Parce que la pratique vaut mieux que la simple théorie, on vous demandera d'effectuer des exercices et activités concrètes qui seront tout de suite utilisés pour l'équipe. Il y aura des tâches à faire avec des dates de rendus (assez flexibles) et vous ne serez jamais seuls puisqu'une section \"salle des profs\" vous permet de poser toutes les questions que vous voulez aux membres de l'équipe.<br />
+<br />
+<b>Quelles sont les qualités requises ?</b><br />
+- Être très motivé<br />
+- Être disponible<br />
+- Être patient<br />
+- Avoir envie de découvrir les coulisses du fansub<br />
+- Avoir la soif d'apprendre<br />
+- Être prêt à effectuer des taches pas très amusantes pour commencer<br />
+- N'avoir pas ou peu d'éxpérience en fansub<br />
+<br />
+<b>Comment vais-je évoluer ?</b><br />
+À chaque exercice rendu, le prof de la matière vous donnera une note basée sur des critères précis avec des bonus et des malus ainsi qu'un commentaire. Vous saurez ainsi apprendre de vos erreurs pour progresser.<br />
+<br />
+<b>Quelles sont les matières enseignées et par qui ?</b><br />
+Actuellement, nous enseignons dans notre école :<br />
+<ul>
+<li>Utilisation du logiciel Aegisub pour le timing, l'édition, ect - db0</li>
+<li>Apprentissage du langage ASS pour l'édition, le karaoké, ect - db0</li>
+<li>Programmation orientée web, XHTML/CSS/PHP - db0, Sazaju</li>
+<li>Programmation en tout genre - db0, Sazaju</li>
+<li>Cours de langue, Japonais écrit et oral - Sazaju</li>
+<li>Cours de langue, Anglais - TchO, praia</li>
+<li>Français écrit, grammaire orthographe - TchO, praia</li>
+<li>Scantraduction, photoshop & co - db0</li>
+</ul><br />
+Par la suite seront enseignés l'encodage vidéo et l'utilisation du logiciel After Effect pour les effets vidéos.<br />
+<br />
+<b>Comment y entrer ?</b><br /></div>
+Déjà 11 personnes qui ont postulée pour entrer à l'école du fansub, dont 7 qui y sont entrées.<br/>Et vous ?<br/>
+<span>~ <a href=\"http://forum.zerofansub.net/t981-Comment-entrer-dans-l-ecole-du-fansub.htm\" target=\"_blank\">Postuler</a> ~</span><br /><br />
+
+À l'occasion de l'ouverture de cette école pas comme les autres, nous commencons une série :<br />
+Mayoi Neko Overrun!<br />
+qui sera entièrement fansubbée par les élèves de l'école du fansub épaulés par leurs professeurs.<br /><br />
+<img src=\"images/news/newsmayoi.jpg\" />");
+			$news->setCommentId(226);
+			$news->setInfosTeamNews(true);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement novice");
+			$news->setTimestamp(strtotime("19 April 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("<img src=\"images/news/newsrecru.png\" /><br />
+Bonjour tout le monde !<br />
+Actuellement, nous recherchons quelqu'un qui n'a aucune conaissance ni éxpérience en fansub pour rejoindre nos rangs.<br />
+Au départ, pour effectuer des tâches très simples qui nous permettrons d'aller plus vite dans nos sorties, et petit à petit d'apprendre les différents domaines du fansub à nos côtés.<br />
+Vous devez pour ça être très motivé, avoir envie de découvrir les coulisses du fansub, être présent et actif parmi nous, avoir la soif d'apprendre et être prêt à faire des tâches pas forcément très amusantes pour commencer.<br />
+Fiche à remplir :<br /><br />
+[b]Rôle[/b] Novice<br />
+[b]Prénom[/b] REMPLIR<br />
+[b]Âge[/b] REMPLIR<br />
+[b]Lieu[/b] REMPLIR<br />
+[b]Motivation[/b] REMPLIR<br />
+[b]Expérience fansub[/b] REMPLIR<br />
+[b]Expérience hors fansub[/b] REMPLIR<br />
+[b]CDI ou CDD (durée) ? [/b] CDI<br />
+[b]Disponibilités[/b] REMPLIR<br />
+[b]Déjà membres d'autre équipe ?[/b] REMPLIR<br />
+[b]Si oui, lesquelles ?[/b] REMPLIR<br />
+[b]Connexion internet[/b] REMPLIR<br />
+[b]Systéme d'exploitation[/b] REMPLIR<br />
+[b]Autre chose à dire ?[/b] REMPLIR");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setInfosTeamNews(true);
 			News::$allNews[] = $news;
 		}
 		
@@ -2032,6 +2367,16 @@ C'est ainsi, en ce 6 mars 2009, que nous fêtons à la fois l'anniversaire de la p
 		$array = array();
 		foreach(News::getAllNews() as $news) {
 			if ($news->isReleasing()) {
+				$array[] = $news;
+			}
+		}
+		return $array;
+	}
+	
+	public static function getAllTeamNews() {
+		$array = array();
+		foreach(News::getAllNews() as $news) {
+			if (!$news->isReleasing()) {
 				$array[] = $news;
 			}
 		}
