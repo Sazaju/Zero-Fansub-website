@@ -141,6 +141,25 @@ class News {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$news = new News();
+			$news->setTitle("MegaUpload hors service");
+			$news->setTimestamp(strtotime("23 January 2012 13:29"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setCommentId(284);
+			$news->setTeamNews(true);
+			$message = new SimpleTextComponent();
+			$message->addLine("Pour ceux qui utilisent nos liens MegaUpload, ces derniers jours vous avez surement du avoir du mal, voire vous etes tombes sur une image comme celle-ci :");
+			$message->addLine(new Image("images/news/fbi.jpg", "Avertissement FBI"));
+			$message->addLine();
+			$message->addLine("En effet MegaUpload est sous le joug d'une enquete gouvernementale (en Amerique), du coup la majorite de leurs liens (si ce n'est tous) sont hors service, et cela pour une duree indeterminee.");
+			$message->addLine();
+			$message->addLine("Pour telecharger nos episodes il vous faudra donc vous retrancher sur le DDL, les torrents ou autres solutions (si disponibles).");
+			$news->setMessage($message);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setPartnerNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("V3.3 du site !");
 			$news->setTimestamp(strtotime("23 January 2012 01:48"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
