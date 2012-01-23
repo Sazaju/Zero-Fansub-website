@@ -1,23 +1,31 @@
-<h3>Zéro fansub</h3>
-
-<h2>Archives</h2>
-<p style="align: center;"><a href="index.php?page=home">Dernières news</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hsorties">Sorties</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hteam">Infos team</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hpartenaires">Partenaires</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hdb0c">db0 company</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hbonus">Bonus</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=havert" style="color: #FF3399;" id="plus">Hentaï</a>
-</p>
-
-<h2>[Zero] BlogBang</h2>
-<h4>00/00/00 par db0</h4>
-<div class="p"><script src="http://www.blogbang.com/demo/js/blogbang_ad.php?id=6ee3436cd7"
-type="text/javascript"></script>
-<br /><br />
-<span>~ <a href="http://commentaires.zerofansub.net/t64.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t=64" target="_blank">Ajouter un commentaire</a> ~</span><br /><br /></div>
-<p></p>
-
+<?php
+	$page = PageContent::getInstance();
+	$page->addComponent(new Title("Zéro fansub", 1));
+	$page->addComponent(new Archives());
+	
+	$newsList = array();
+	foreach(News::getAllPartnerNews() as $news) {
+		// TODO remove the 'test' feature when the refinement will be completed
+		if ($news->getTimestamp() !== null && $news->getTimestamp() <= time() || isset($_GET['test'])) {
+			$hMode = $_SESSION[MODE_H];
+			if (!$hMode && $news->displayInNormalMode() || $hMode && $news->displayInHentaiMode()) {
+				$newsList[] = $news;
+			}
+		}
+	}
+	usort($newsList, array('News', 'timestampSorter'));
+	foreach($newsList as $news) {
+		$page->addComponent(new NewsComponent($news));
+	}
+	
+	// rewrite the archive header as a footer
+	$page->addComponent(new Archives());
+	
+	// TODO remove when all the news will be refined
+	$page->setStyle("margin-left:0;");
+	$page->writeNow();
+	$page->clear();
+?>
 <h2>Kouhai Scantrad, les chapitres de KissXsis</h2>
 <h4>26/08/2010 par db0</h4>
 <div class="p">
@@ -143,24 +151,4 @@ Côté hentaï, l'épisode 02 de Konoe no Jikan (parodie X de Kodomo no jikan).
 
 <p>[KfS] Minami-ke Okawari 13/01/09 par db0 <br> 	<img src="http://zerofansub.net/images/news/kyoutsu.jpg" border="0" /> <br> Notre partenaire-dakkô Kyoutsu commence une nouvelle série... Minami-ke Okawari ! Vous pouvez dès maintenant télécharger l'épisode 01 en DDL :<br> <a href="http://zerofansub.net/ddl/kyoutsu/%5bKfS%5d1280x720_Minami-Ke_Okawari_001_vostfr.mkv" target="_blank" class="postlink">DDL Minami-ke Okawari 01</a><br> Mais aussi en torrent, Megaupload sur leur site : <a href="http://kyoutsu-subs.over-blog.com/" target="_blank" class="postlink">Lien</a>.<br> <br><br>  ~ <a href="http://kyoutsu-subs.over-blog.com/article-26782727-6.html#anchorComment" target="_blank" class="postlink">Commentaires</a> - <a href="http://ann.over-blog.com/ajout-commentaire.php?ref=1365792&amp;ref_article=26782727" target="_blank" class="postlink">Ajouter un commentaire</a> ~</p>
 
-<p>Genshiken 06 13/01/09 par db0 <br> 	<img src="http://zerofansub.net/images/news/gen6.jpg" border="0" /> <br> Otaku, otaku, nous revoilà ! Genshiken épisode 06 enfin dans les bacs, en ddl.<br> <a href="http://zerofansub.net/index.php?page=series/genshiken" target="_blank" class="postlink">Pour télécharger les épisodes en DDL, cliquez ici !</a><br><br>  <span style="font-weight: bold">Les dernières sorties de la <a href="http://www.sky-fansub.com/" target="_blank" class="postlink">Sky-fansub</a> :</span><br> Kurozuka 08<br> Mahou Shoujo Lyrical Nanoha Strikers 21<br> <br> <span style="font-weight: bold">Les dernières sorties de la <a href="http://kyoutsu-subs.over-blog.com/" target="_blank" class="postlink">Kyoutsu</a> :</span><br> Hyakko 06<br> <br> <span style="font-weight: bold">Les dernières sorties de la <a href="http://www.kanaii.com/" target="_blank" class="postlink">Kanaii</a> :</span><br> Kamen no maid Guy 01v2<br> Rosario+Vampire Capu2 07v2<br> <br><br>    ~ <a href="http://commentaires.zerofansub.net/t31-Toradora-09.htm" target="_blank" class="postlink">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&amp;t=31" target="_blank" class="postlink">Ajouter un commentaire</a> ~</p>
-
 <p>[MnF] Akane 08 12/01/09 par db0   <a href="http://ranka.imouto.org/image/85ba4e0864c9ee58520eee540d4cebcb/moe%2053546%20bikini%20cleavage%20katagiri_yuuhi%20kiryu_tsukasa%20nagase_minato%20nekomimi%20no_bra%20open_shirt%20pantsu%20seifuku%20shiina_mitsuki%20shiraishi_nagomi%20swimsuits.jpg" target="_blank" class="postlink"><img src="http://japanslash.free.fr/images/news/akane8.jpg" border="0" /></a><br> Maboroshi nous sort aujourd'hui l'épisode 08 de Akane !<br>Contrairement à ce qui a été dit, cet épisode n'a pas été réalisé en co-pro avec Zéro.<br> <a href="http://japanslash.free.fr/" target="_blank" class="postlink">Pour télécharger l'épisode sur MU, cliquez ici !</a></p>
-
-<p>>Joyeux Anniversaire ! Zéro a un an aujourd'hui. + Kujibiki Unbalance 0518/12/08 par db0<br><img src="http://zerofansub.net/images/news/unan.png" border="0" /><br>Zéro fête aujourd'hui son anniversaire ! Cela fait maintenant un an que le site Zéro existe. Crée le 18 décembre 2007, il était au départ un site de DDL. Ce n'est que le 6 janvier que le site deviens une team de fansub ^^ Pour voir les premières versions, allez sur la page &quot;À propos...&quot;. Merci à tous pour votre soutien, c'est grâce à vous que nous en sommes arrivés là !<br><br>Comme petit cadeau d'anniversaire, voici l'épisode 05 de Kujibiki Unbalance, en éspérant qu'il vous plaira.<br><br><span style="font-weight: bold">Les dernières sorties de la <a href="http://www.sky-fansub.com/" target="_blank" class="postlink">Sky-fansub</a> :</span><br>Kurozuka 06 HD<br>Mahou Shoujo Lyrical Nanoha Strikers 18</p>
-
-<p>>Kodomo no Jikan 09, Recrutement QC, trad it&gt;fr13/12/08 par db0<br><img src="http://zerofansub.net/images/news/kodomo9.jpg" border="0" /><br>Rin, Kuro et Mimi reviennent enfin vous montrer la suite de leurs aventures ! Sortie aujourd'hui de l'épisode 09, merci à DC qui nous l'a encodé. Les 3 versions habituelles sont dispos en DDL.<br><br>Nous recrutons toujours un QC ! Proposez-vous !<br>Nous avons décider de reprendre le projet Mermaid Melody Pichi Pichi Pitch, mais pour cela nous avons besoin d'un traducteur italien &gt; français. N'hésitez pas à postuler si vous êtes intéressés <img src="http://img1.xooimage.com/files/s/m/smile-1624.gif" alt="Smile" border="0" class="xooit-smileimg" /> Par avance, merci. <a href="http://zerofansub.net/index.php?page=recrutement" target="_blank" class="postlink">Lien</a><br><br><span style="font-weight: bold">Les dernières sorties de la <a href="http://www.kanaii.com/" target="_blank" class="postlink">Kanaii</a> :</span><br>Kanokon pack DVD 06 à 12<br>Rosario + Vampire S2 -05<br><span style="font-weight: bold">Les dernières sorties de la <a href="http://www.sky-fansub.com/" target="_blank" class="postlink">Sky-fansub</a> :</span><br>Kurozuka 05 HD<br>Mahou Shoujo Lyrical Nanoha Strikers 17<br><br>~ <a href="http://commentaires.zerofansub.net/t22-Kodomo-no-Jikan-09-Recrutement-QC-trad-it-fr.htm" target="_blank" class="postlink">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&amp;t=22" target="_blank" class="postlink">Ajouter un commentaire</a> ~</p>
-
-<p>Hitohira 0307/12/08 par db0<br><img src="http://zerofansub.net/images/news/mugi.png" border="0" /><br>Oh !<br>À cause d'un problème de raws, la série Hitohira est restée en pause pendant trèèès longtemps. Mais grâce à Lyf, le raw-hunter, et bien sûr à Jeanba, notre nouveau traducteur, mais aussi à B3rning14, nouvel encodeur, la série peut continuer. Et c'est donc l'épisode 03 que nous sortons aujourd'hui !<br><br>La Genesis ayant accepté que leurs releases en co-pro avec la Kanaii soient diffusées en DDL chez nous, vous pouvez maintenant retrouver la saison 2 de Rosario+Vampire ainsi que &quot;Kimi ga Aruji de Shitsuji ga Ore de - They are my Noble Masters&quot;. <a href="http://zerofansub.net/?page=kanaiiddl" target="_blank" class="postlink">Lien</a><br>Bon DL !<br><br>Les dernières sorties de la <a href="http://www.kanaii.com/" target="_blank" class="postlink">Kanaii</a> :<br>- Kanokon 11<br>- Kanokon 12<br><br><br>~ <a href="http://commentaires.zerofansub.net/t18-Hitohira-03.htm" target="_blank" class="postlink">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&amp;t=18" target="_blank" class="postlink">Ajouter un commentaire</a> ~</p>
-
-<p>Sketchbook ~full color's 04~ ; Kanaii DDL et Sky-fansub05/12/08 par db0<br><img src="http://zerofansub.net/images/news/moka.jpg" border="0" /><br>Bouonjòu !<br>L'épisode 04 de Sketchbook est sorti ! <a href="http://zerofansub.net/index.php?page=series/sketchbook" target="_blank" class="postlink">Lien</a> Les sorties se font attendre, étant donné qu'on a plus vraiment d'encodeur officiel ^^ Merci à Kyon qui nous a encodé c'lui-ci.<br>Beaucoup nous demandaient où il fallait télécharger nos releases. Probléme réglé, j'ai fait une page qui résume tout. <a href="http://zerofansub.net/index.php?page=dl" target="_blank" class="postlink">Lien</a><br>J'offre aussi du DDL à notre partenaire : la team Kanaii. Allez télécharger leurs animes, ils sont très bons ! <a href="http://zerofansub.net/index.php?page=kanaiiddl" target="_blank" class="postlink">Lien</a><br>Nous avons aussi un nouveau partenaire : La team Sky-fansub. <a href="http://www.sky-fansub.com/" target="_blank" class="postlink">Lien</a><br>//<a href="http://db0.fr/" target="_blank" class="postlink">db0</a><br>PS : &quot;Bouonjòu&quot; c'est du niçois <img src="http://img1.xooimage.com/files/s/m/smile-1624.gif" alt="Smile" border="0" class="xooit-smileimg" /><br><br>Les dernières sorties de la <a href="http://japanslash.free.fr/" target="_blank" class="postlink">Maboroshi</a> :<br>- Neo Angelique Abyss 2nd Age 07<br>- Akane Iro Ni Somaru Saka 07<br><br><br>~ <a href="http://commentaires.zerofansub.net/t17-Sketchbook-full-color-s-04-Kanaii-DDL-et-Sky-fansub.htm" target="_blank" class="postlink">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&amp;t=17" target="_blank" class="postlink">Ajouter un commentaire</a> ~</p>
-
-<h2>Archives</h2>
-<p style="align: center;"><a href="index.php?page=home">Dernières news</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hsorties">Sorties</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hteam">Infos team</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hpartenaires">Partenaires</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hdb0c">db0 company</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=hbonus">Bonus</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="index.php?page=havert" style="color: #FF3399;" id="plus">Hentaï</a>
-</p>
