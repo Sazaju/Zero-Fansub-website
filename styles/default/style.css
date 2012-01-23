@@ -65,9 +65,6 @@ content: url('../../images/interface/quote1.jpg');
 .quote:after {
 content: url('../../images/interface/quote2.jpg');
 }
-.p:after{
-	content: url('../../images/interface/barre.png');
-}
 
 #page h5 /* épisodes */ {
 color: #FFFFFF;

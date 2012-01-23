@@ -39,7 +39,7 @@
 	font-decoration: line-through;
 }
 
-#page p:after{ 
+#page p:after { 
 	content: url('../../images/interface/barre.png');
 	width: 100%;
 }
