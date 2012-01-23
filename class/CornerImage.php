@@ -32,6 +32,7 @@ class CornerImage extends Link {
 	private static $allImages = null;
 	static function getAllImages() {
 		if (CornerImage::$allImages === null) {
+			// CornerImage::$allImages[] = new CornerImage("BokuTomo1.png", "?"); // TODO link to the corresponding project
 			CornerImage::$allImages[] = new CornerImage("konata.png", "Konata");
 			CornerImage::$allImages[] = new CornerImage("rin.png", "Rin", "kodomooav");
 			CornerImage::$allImages[] = new CornerImage("Toradora0.png", "Taiga", "toradora");
@@ -41,7 +42,6 @@ class CornerImage extends Link {
 			CornerImage::$allImages[] = new CornerImage("Sketchbook1.png", "Kate", "sketchbook");
 			CornerImage::$allImages[] = new CornerImage("kujian.png", "Présidente & Tokino", "kujibiki");
 			CornerImage::$allImages[] = new CornerImage("rin.png", "Rin", "kodomo2");
-			//CornerImage::$allImages[] = new CornerImage("BokuTomo1.png", "?"); // TODO link to the corresponding project
 			CornerImage::$allImages[] = new CornerImage("Working1.png", "? & ?", "working");
 			CornerImage::$allImages[] = new CornerImage("Working1.png", "? & ?", "working2");
 			CornerImage::$allImages[] = new CornerImage("KissXSis1.png", "Riko & Ako", "kissxsis");
@@ -74,6 +74,13 @@ class CornerImage extends Link {
 			CornerImage::$allImages[] = new CornerImage("hshiyo5.png", "Suzuran", "hshiyo");
 			CornerImage::$allImages[] = new CornerImage("hshiyo6.png", "Suzuran", "hshiyo");
 			CornerImage::$allImages[] = new CornerImage("hshiyo7.png", "Aoi", "hshiyo");
+			CornerImage::$allImages[] = new CornerImage("mitsudomoe.png", "Airi", "mitsudomoe");
+			CornerImage::$allImages[] = new CornerImage("mitsudomoe2.png", "Shiori", "mitsudomoe");
+			CornerImage::$allImages[] = new CornerImage("mitsudomoe3.png", "Miku", "mitsudomoe");
+			CornerImage::$allImages[] = new CornerImage("mitsudomoe4.png", "Mitsuba", "mitsudomoe");
+			CornerImage::$allImages[] = new CornerImage("mitsudomoe5.png", "Futaba", "mitsudomoe");
+			CornerImage::$allImages[] = new CornerImage("mitsudomoe6.png", "Hitoha", "mitsudomoe");
+			CornerImage::$allImages[] = new CornerImage("mitsudomoe7.png", "Sakiko", "mitsudomoe");
 		}
 		
 		return CornerImage::$allImages;
