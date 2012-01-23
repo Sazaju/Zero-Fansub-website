@@ -147,12 +147,13 @@ class News {
 			$news->setCommentId(284);
 			$news->setTeamNews(true);
 			$message = new SimpleTextComponent();
-			$message->addLine("Pour ceux qui utilisent nos liens MegaUpload, ces derniers jours vous avez surement du avoir du mal, voire vous etes tombes sur une image comme celle-ci :");
+			$message->addLine("Pour ceux qui utilisent nos liens MegaUpload, ces derniers jours vous avez sûrement dû avoir du mal, voire vous êtes tombés sur une image comme celle-ci :");
+			$message->addLine();
 			$message->addLine(new Image("images/news/fbi.jpg", "Avertissement FBI"));
 			$message->addLine();
-			$message->addLine("En effet MegaUpload est sous le joug d'une enquete gouvernementale (en Amerique), du coup la majorite de leurs liens (si ce n'est tous) sont hors service, et cela pour une duree indeterminee.");
+			$message->addLine("En effet MegaUpload est sous le joug d'une enquête gouvernementale (en Amérique), du coup la majorité de leurs liens (si ce n'est tous) sont hors service, et cela pour une durée indeterminée.");
 			$message->addLine();
-			$message->addLine("Pour telecharger nos episodes il vous faudra donc vous retrancher sur le DDL, les torrents ou autres solutions (si disponibles).");
+			$message->addLine("Pour télécharger nos épisodes il vous faudra donc vous retrancher sur le DDL, les torrents et autres solutions disponibles.");
 			$news->setMessage($message);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
