@@ -144,7 +144,7 @@ class News {
 			$news->setTitle("V3.3 du site !");
 			$news->setTimestamp(strtotime("23 January 2012 01:48"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
-			$news->setCommentId(999);// TODO
+			$news->setCommentId(283);
 			$news->setTeamNews(true);
 			$message = new SimpleTextComponent();
 			$message->addLine("Ces derniers jours, le raffinage du site a pas mal avancé, et on en est désormais à la version 3.3+ du site. '+' parce que la version 3.3 s'est faite Samedi et que depuis j'ai encore raffiné une quantité assez phénoménale de données (j'y ai passé tout mon weekend). Du coup la version 3.4 ne devrait pas trop tarder à voir le jour (mais je ne donne pas de date, vu que de toute façon je n'ai aucune raison de la respecter {^.^}~). En bref, le raffinage est quasiment terminé.");
