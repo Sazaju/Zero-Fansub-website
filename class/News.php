@@ -141,6 +141,28 @@ class News {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$news = new News();
+			$news->setTitle("Recrutement Boku Tomo");
+			$news->setTimestamp(strtotime("25 January 2012 15:02"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
+			$news->setMessage("Le trad et l'adapt qui auraient dû s'occuper de Boku wa tomodachi ga Sukunai
+ne sont plus disponibles, devant affronter les aléas de la vie...
+
+On cherche donc avec une certaine urgence un trad, un adapt et un timeur pour cette série...
+
+Oui, un timeur aussi, car celle qui devait s'en occuper n'a plus le temps.
+
+expérience requise pour le time, non pas parce qu'on ne forme pas,
+vu qu'on forme, mais parce que ça commence à être chiant de passer
+plus de temps à former des gens qui ne timent pas grand-chose au final
+que de timer soi-même lol");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setCommentId(285);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("MegaUpload hors service");
 			$news->setTimestamp(strtotime("23 January 2012 13:29"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
