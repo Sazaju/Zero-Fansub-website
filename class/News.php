@@ -21,7 +21,6 @@ class News {
 	public function __construct($title = null, $message = null) {
 		$this->setTitle($title);
 		$this->setMessage($message);
-		$this->setTimestamp(time());
 	}
 	
 	public function setPartnerNews($boolean) {
@@ -140,6 +139,25 @@ class News {
 	private static $allNews = null;
 	public static function getAllNews() {
 		if (News::$allNews === null) {
+			$news = new News();
+			$news->setTitle("Mayoi Neko Spéciaux");
+			//$news->setTimestamp(strtotime("26 January 2012 02:26"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$message = new SimpleTextComponent();
+			$message->addLine("Histoire de décrisper ceux qui se disent qu'on meurt à petit feu (faut dire que la dernière sortie date de mi-novembre), voilà un petit truc à vous mettre sous la dent {^_^}. C'est tout chaud et c'est du produit bien de chez Zéro ! Les anémiques, prévoyez les poches de sang, on sait jamais.");
+			$message->addLine();
+			$message->addLine(new ReleaseLink('mayoisp', Release::getAllReleasesIDForProject('mayoisp'), new Image("images/news/mayoisp.png", "MNO Spéciaux")));
+			$message->addLine();
+			$message->addLine("Profitez bien des bonus, bande de cochons {^_°}.");
+			$news->setMessage($message);
+			$news->addReleasing(Project::getProject('mayoisp'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setCommentId(286);
+			News::$allNews[] = $news;
+			
 			$news = new News();
 			$news->setTitle("Recrutement Boku Tomo");
 			$news->setTimestamp(strtotime("25 January 2012 15:02"));

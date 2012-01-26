@@ -6163,6 +6163,100 @@ class Release {
 			$release = new Release(Project::getProject("working2"), "ep13");
 			$release->setName("épisode 13");
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mayoisp"), "ep1");
+			$release->setName("01");
+			$release->setPreviewUrl("images/episodes/mayoisp1.png");
+			$release->setHeaderImage("images/sorties/mayoisp.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun-Specials_[H264-AAC]/[Zero]Mayoi_Neko_Overrun-Special_01_[H264-AAC][B8F0871A].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-1-avatar.gif", "avatar sexy"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-1.gif", "grand format"));
+			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mayoisp"), "ep2");
+			$release->setName("02");
+			$release->setPreviewUrl("images/episodes/mayoisp2.png");
+			$release->setHeaderImage("images/sorties/mayoisp.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun-Specials_[H264-AAC]/[Zero]Mayoi_Neko_Overrun-Special_02_[H264-AAC][3E23DF8E].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-2-avatar.gif", "avatar sexy"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-2.gif", "grand format"));
+			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mayoisp"), "ep3");
+			$release->setName("03");
+			$release->setPreviewUrl("images/episodes/mayoisp3.png");
+			$release->setHeaderImage("images/sorties/mayoisp.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun-Specials_[H264-AAC]/[Zero]Mayoi_Neko_Overrun-Special_03_[H264-AAC][37312ABA].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-3.1-avatar.gif", "avatar sexy 1"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-3.2-avatar.gif", "2"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-3.1.gif", "grand format 1"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-3.2.gif", "2"));
+			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mayoisp"), "ep4");
+			$release->setName("04");
+			$release->setPreviewUrl("images/episodes/mayoisp4.png");
+			$release->setHeaderImage("images/sorties/mayoisp.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun-Specials_[H264-AAC]/[Zero]Mayoi_Neko_Overrun-Special_04_[H264-AAC][499CE5E0].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.1-avatar.gif", "avatar sexy 1"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.2-avatar.gif", "2"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.3-avatar.gif", "3"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.1.gif", "grand format 1"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.2.gif", "2"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.3.gif", "3"));
+			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mayoisp"), "ep5");
+			$release->setName("05");
+			$release->setPreviewUrl("images/episodes/mayoisp5.png");
+			$release->setHeaderImage("images/sorties/mayoisp.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun-Specials_[H264-AAC]/[Zero]Mayoi_Neko_Overrun-Special_05_[H264-AAC][12F89228].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-5-avatar.gif", "avatar sexy"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-5.gif", "grand format"));
+			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mayoisp"), "ep6");
+			$release->setName("06");
+			$release->setPreviewUrl("images/episodes/mayoisp6.png");
+			$release->setHeaderImage("images/sorties/mayoisp.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun-Specials_[H264-AAC]/[Zero]Mayoi_Neko_Overrun-Special_06_[H264-AAC][37088491].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.1-avatar.gif", "avatar sexy 1"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.2-avatar.gif", "2"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.3-avatar.gif", "3"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.1.gif", "grand format 1"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.2.gif", "2"));
+			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.3.gif", "3"));
+			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}
@@ -6173,6 +6267,14 @@ class Release {
 			if ($release->getProject()->getID() === $id) {
 				$list[] = $release;
 			}
+		}
+		return $list;
+	}
+	
+	public static function getAllReleasesIDForProject($id) {
+		$list = array();
+		foreach(Release::getAllReleasesForProject($id) as $release) {
+			$list[] = $release->getId();
 		}
 		return $list;
 	}
@@ -6208,13 +6310,10 @@ class Release {
 	}
 	
 	public static function releasingSorter(Release $a, Release $b) {
-		if ($a->getHeaderImage() === null) {
-			return 1;
-		}
 		$ta = $a->getReleasingTime();
 		$tb = $b->getReleasingTime();
 		if ($ta == $tb) {
-			return 0;
+			return strnatcmp($a->getName(), $b->getName());
 		}
 		return ($ta > $tb) ? -1 : 1;
 	}

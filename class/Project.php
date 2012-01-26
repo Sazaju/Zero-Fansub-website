@@ -544,6 +544,17 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
+			$project = new Project("mayoisp", "Mayoi Neko Overrun! - Spéciaux");
+			$project->setOriginalName("Mayoi Neko Overrun! Specials");
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.patisserie-straycats.com/", "Patisserie Stray Cats"));
+			$project->setAiringYear(2010);
+			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
+			$project->setAuthor("Matsu Tomohiro");
+			$project->setGenre("Comédie Ecchi");
+			$project->setSynopsis("Ces épisodes sont de petites scènes indépendantes de l'histoire. Pour ceux qui ont le nez fragile, préparez les mouchoirs : saignements de nez au programme.");
+			$project->setRunning(true);
+			Project::$allProjects[] = $project;
+			
 			$project = new Project("tayutamapure", "Tayutama - Kiss on my Deity - Pure My Heart");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Tayutama -Kiss on my Deity- Pure My Heart");
@@ -1403,6 +1414,7 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
 			Project::$allLinks[] = array(Project::getProject('potemayo'), Project::getProject('potemayooav'));
 			Project::$allLinks[] = array(Project::getProject('genshiken'), Project::getProject('kujibiki'));
 			Project::$allLinks[] = array(Project::getProject('kanamemo'), Project::getProject('kanamemobook'));
+			Project::$allLinks[] = array(Project::getProject('mayoi'), Project::getProject('mayoisp'));
 			Project::$allLinks[] = array(Project::getProject('bath'), Project::getProject('training'));
 			Project::$allLinks[] = array(Project::getProject('bath'), Project::getProject('sleeping'));
 			Project::$allLinks[] = array(Project::getProject('bath'), Project::getProject('akinahshiyo'));

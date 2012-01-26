@@ -159,7 +159,11 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$description = new SimpleTextComponent();
 			
 			$path = $descriptor->getFilePath();
-			$description->addLine(basename($path));
+			$name = basename($path);
+			if (empty($name)) {
+				$name = Debug::createWarningTag("aucun fichier renseigné");
+			}
+			$description->addLine($name);
 			
 			$url = "ddl/".$path;
 			
