@@ -552,7 +552,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setAuthor("Matsu Tomohiro");
 			$project->setGenre("Comédie Ecchi");
 			$project->setSynopsis("Ces épisodes sont de petites scènes indépendantes de l'histoire. Pour ceux qui ont le nez fragile, préparez les mouchoirs : saignements de nez au programme.");
-			$project->setRunning(true);
+			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("tayutamapure", "Tayutama - Kiss on my Deity - Pure My Heart");

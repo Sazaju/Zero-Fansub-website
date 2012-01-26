@@ -141,7 +141,7 @@ class News {
 		if (News::$allNews === null) {
 			$news = new News();
 			$news->setTitle("Mayoi Neko Spéciaux");
-			//$news->setTimestamp(strtotime("26 January 2012 02:26"));
+			$news->setTimestamp(strtotime("26 January 2012 16:18"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$message = new SimpleTextComponent();
 			$message->addLine("Histoire de décrisper ceux qui se disent qu'on meurt à petit feu (faut dire que la dernière sortie date de mi-novembre), voilà un petit truc à vous mettre sous la dent {^_^}. C'est tout chaud et c'est du produit bien de chez Zéro ! Les anémiques, prévoyez les poches de sang, on sait jamais.");

@@ -6175,7 +6175,7 @@ class Release {
 			$release->addFileDescriptor($descriptor);
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-1-avatar.gif", "avatar sexy"));
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-1.gif", "grand format"));
-			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mayoisp"), "ep2");
@@ -6189,7 +6189,7 @@ class Release {
 			$release->addFileDescriptor($descriptor);
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-2-avatar.gif", "avatar sexy"));
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-2.gif", "grand format"));
-			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mayoisp"), "ep3");
@@ -6205,7 +6205,7 @@ class Release {
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-3.2-avatar.gif", "2"));
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-3.1.gif", "grand format 1"));
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-3.2.gif", "2"));
-			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mayoisp"), "ep4");
@@ -6223,7 +6223,7 @@ class Release {
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.1.gif", "grand format 1"));
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.2.gif", "2"));
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.3.gif", "3"));
-			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mayoisp"), "ep5");
@@ -6237,7 +6237,7 @@ class Release {
 			$release->addFileDescriptor($descriptor);
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-5-avatar.gif", "avatar sexy"));
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-5.gif", "grand format"));
-			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mayoisp"), "ep6");
@@ -6255,7 +6255,7 @@ class Release {
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.1.gif", "grand format 1"));
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.2.gif", "2"));
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.3.gif", "3"));
-			// $release->setReleasingTime(strtotime('26 January 2012 00:22'));
+			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
