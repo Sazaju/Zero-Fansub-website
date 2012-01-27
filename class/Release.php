@@ -666,7 +666,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->setReleasingTime(0);
+			$release->setReleasingTime(2);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('alignment'), 'ep1');
@@ -779,7 +779,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->setReleasingTime(0);
+			$release->setReleasingTime(1);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('hshiyo'), 'ep6');
