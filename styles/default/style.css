@@ -17,7 +17,7 @@
 */
 
 #main {
-background: url('../../images/interface/bg2.png') repeat-y;
+background: url('images/bg2.png') repeat-y;
 margin: auto;
 width: 1000px;
 } 
@@ -59,16 +59,16 @@ margin-right: 40px;
 }
 
 .quote:before {
-content: url('../../images/interface/quote1.jpg');
+content: url('images/quote1.jpg');
 }
 
 .quote:after {
-content: url('../../images/interface/quote2.jpg');
+content: url('images/quote2.jpg');
 }
 
 #page h5 /* épisodes */ {
 color: #FFFFFF;
-background: url('../../images/interface/episodes.png') no-repeat;
+background: url('images/episodes.png') no-repeat;
 width: 603px;
 height: 30px;
 margin-top: 0px;
@@ -81,11 +81,11 @@ font-family: 'Courier New';
 }
 #page h5 a /* épisodes */ {
 color: #FFFFFF;
-background: url('../../images/interface/episodes.png') no-repeat;
+background: url('images/episodes.png') no-repeat;
 font-size: 16px;
 }
 #page h6 /* épisodes ND */{
-background: url('../../images/interface/episodesnd.png') no-repeat;
+background: url('images/episodesnd.png') no-repeat;
 width: 603px;
 height: 30px;
 margin-top: 0px;

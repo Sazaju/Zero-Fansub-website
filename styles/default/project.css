@@ -32,11 +32,11 @@
 }
 
 #page .released .title {
-	background: url('../../images/interface/episodes.png') no-repeat;
+	background: url('images/episodes.png') no-repeat;
 }
 
 #page .notReleased .title {
-	background: url('../../images/interface/episodesnd.png') no-repeat;
+	background: url('images/episodesnd.png') no-repeat;
 }
 
 #page .released .title a, #page .notReleased .title a {
@@ -93,7 +93,7 @@
 }
 
 #page .fileList {
-	list-style-image: url('../../images/icones/puce.png');
+	list-style-image: url('images/puce.png');
 	padding-left: 15px;
 }
 

@@ -1,5 +1,5 @@
 body {
-	background: url('../../images/interface/bg.jpg');
+	background: url('images/bg.jpg');
 	font-family: Tahoma;
 	margin: auto;
 	margin-top:0;
@@ -25,7 +25,7 @@ li{
 }
 
 #page:after, .archives:after, .news:after, .teamList .member:after, .teamList:before, .p:after {
-	content: url('../../images/interface/barre.png');
+	content: url('images/barre.png');
 }
 
 .warning {

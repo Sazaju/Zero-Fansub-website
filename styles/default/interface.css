@@ -40,7 +40,7 @@
 }
 
 #page p:after { 
-	content: url('../../images/interface/barre.png');
+	content: url('images/barre.png');
 	width: 100%;
 }
 
@@ -142,7 +142,7 @@
 \******************************/
 
 #header, #footer {
-	background: url('../../images/interface/banniere.png') no-repeat;
+	background: url('images/banniere.png') no-repeat;
 	text-align: center;
 }
 
