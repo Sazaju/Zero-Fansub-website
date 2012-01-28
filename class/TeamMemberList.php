@@ -52,6 +52,14 @@ class TeamMemberList extends SimpleListComponent {
 		
 		$age = $member->getAge();
 		if ($age !== null) {
+			if (is_numeric($age)) {
+				if ($age > 1000) {
+					$age = time() - $age;
+					$age /= 60*60*24*365.25;
+					$age = floor($age);
+				}
+				$age = $age." ans";
+			}
 			$list->addComponent("<b>&Acirc;ge</b> ".$age);
 		}
 		

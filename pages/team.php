@@ -2,11 +2,14 @@
 	$page = PageContent::getInstance();
 	$page->addComponent(new Title("La Team de fansub", 1));
 
+	$members = TeamMember::getAllCurrentMembers();
+	usort($members, array('TeamMember', 'nameSorter'));
+	
 	$page->addComponent(new Title("Administrateurs", 2));
 
 	$list = new TeamMemberList();
 	$page->addComponent($list);
-	foreach(TeamMember::getAllCurrentMembers() as $member) {
+	foreach($members as $member) {
 		if ($member->isAdmin()) {
 			$list->addComponent($member);
 		}
@@ -16,7 +19,7 @@
 
 	$list = new TeamMemberList();
 	$page->addComponent($list);
-	foreach(TeamMember::getAllCurrentMembers() as $member) {
+	foreach($members as $member) {
 		if (!$member->isAdmin()) {
 			$list->addComponent($member);
 		}

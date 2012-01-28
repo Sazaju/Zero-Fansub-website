@@ -7,7 +7,6 @@ class TeamMember {
 	private $image = null;
 	private $pseudo = null;
 	private $roles = array();
-	// TODO replace age by birthDate and calculate age
 	private $age = null;
 	private $location = null;
 	private $mail = null;
@@ -150,7 +149,7 @@ class TeamMember {
 			$member->setIsAdmin(true);
 			$member->addRole(Role::getRole("admin"));
 			$member->setImage("db0.png");
-			$member->setAge("19 ans");
+			$member->setAge(19);
 			$member->setLocation("Le Kremlin-Bicetre (94)");
 			$member->setMail("db0company@gmail.com");
 			$member->setWebsite("http://db0.fr/", "db0.fr");
@@ -190,7 +189,7 @@ class TeamMember {
 			$member->setPseudo("lepims");
 			$member->addRole(Role::getRole("encod"));
 			$member->setFirstName("Lepims");
-			$member->setAge("25 ans");
+			$member->setAge(25);
 			$member->setImage("lepims.gif");
 			$member->setLocation("Clermont-Ferrand");
 			TeamMember::$allMembers[] = $member;
@@ -200,7 +199,7 @@ class TeamMember {
 			$member->setImage("dc.jpg");
 			$member->addRole(Role::getRole("encod"));
 			$member->setFirstName("Denis");
-			$member->setAge("24 ans");
+			$member->setAge(24);
 			$member->setLocation("Lyon");
 			TeamMember::$allMembers[] = $member;
 			
@@ -212,7 +211,7 @@ class TeamMember {
 			$member->addRole(Role::getRole("forumadmin"));
 			$member->setIsAdmin(true);
 			$member->setFirstName("Piet");
-			$member->setAge("30 ans");
+			$member->setAge(30);
 			$member->setLocation("Belgique");
 			$member->setMail("raiapietro_dam22@hotmail.com");
 			TeamMember::$allMembers[] = $member;
@@ -222,7 +221,7 @@ class TeamMember {
 			$member->setImage("personne.jpg");
 			$member->addRole(Role::getRole("edit"));
 			$member->addRole(Role::getRole("kara"));
-			$member->setAge("23 ans");
+			$member->setAge(23);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(10);
@@ -236,7 +235,7 @@ class TeamMember {
 			$member->setImage("zack.jpg");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setFirstName("Zack");
-			$member->setAge("22 ans");
+			$member->setAge(22);
 			$member->setLocation("Marseille");
 			TeamMember::$allMembers[] = $member;
 			
@@ -338,7 +337,7 @@ class TeamMember {
 			
 			$member = new TeamMember(28);
 			$member->setPseudo("Zorro25");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(29);
@@ -366,27 +365,27 @@ class TeamMember {
 			
 			$member = new TeamMember(32);
 			$member->setPseudo("Thibou");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(33);
 			$member->setPseudo("Ryuku");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(34);
 			$member->setPseudo("Ed3");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(35);
 			$member->setPseudo("Jet9009");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(36);
 			$member->setPseudo("Shibo");
-			$member->setPonctualMember(true); // TODO check this point
+			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(37);
@@ -565,14 +564,12 @@ class TeamMember {
 			$member->setPseudo("Tarf");
 			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
-			
-			// TODO remove this sort, prefer a sort at a lower level
-			function sortMembers(TeamMember $a, TeamMember $b) {
-				return strcasecmp($a->getPseudo(), $b->getPseudo());
-			}
-			usort(TeamMember::$allMembers, 'sortMembers');
 		}
 		return TeamMember::$allMembers;
+	}
+	
+	public static function nameSorter(TeamMember $a, TeamMember $b) {
+		return strcasecmp($a->getPseudo(), $b->getPseudo());
 	}
 	
 	public static function getMember($id) {

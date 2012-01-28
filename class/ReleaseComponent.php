@@ -3,7 +3,7 @@
 	A release component is an HTML element displaying a single release.
 */
 class ReleaseComponent extends SimpleBlockComponent {
-	public function __construct(Release $release) {
+	public function __construct(Release $release, $forceDisplay = false) {
 		$this->addComponent(new Anchor($release->getID()));
 		
 		$link = new Link(null, $release->getCompleteName());
@@ -11,7 +11,6 @@ class ReleaseComponent extends SimpleBlockComponent {
 		$title->setClass("title");
 		$this->addComponent($title);
 		
-		$forceDisplay = isset($_GET['test']); // TODO extract to the project's level
 		if ($release->isReleased() || $forceDisplay) {
 			$this->setClass("released");
 			$link->setUrl(new Url());

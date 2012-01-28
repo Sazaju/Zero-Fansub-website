@@ -2148,7 +2148,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=7BO9ZIZ0");
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink(new Url('ddl/[Zero]Kanamemo_05_AMV.mp4', 'AMV')));
+			$release->addBonus(Link::newWindowLink(new Url('ddl/[Zero]Kanamemo_05_AMV.mp4'), 'AMV'));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -6316,6 +6316,10 @@ class Release {
 			return strnatcmp($a->getName(), $b->getName());
 		}
 		return ($ta > $tb) ? -1 : 1;
+	}
+	
+	public static function idSorter(Release $a, Release $b) {
+		return strnatcmp($a->getId(), $b->getId());
 	}
 }
 

@@ -49,12 +49,13 @@ class ProjectComponent extends SimpleBlockComponent {
 		$this->addComponent(new Title($project->isDoujin() ? "Chapitres" : "Épisodes", 2));
 		
 		$releases = Release::getAllReleasesForProject($project->getID());
-		usort($releases, array('ProjectComponent', 'sortReleases'));
+		usort($releases, array('Release', 'idSorter'));
 		$list = new SimpleListComponent();
 		$list->setClass("releaseList");
+		$forceDisplay = Url::getCurrentUrl()->hasQueryVar('test');
 		foreach($releases as $release)
 		{
-			$list->addComponent(new ReleaseComponent($release));
+			$list->addComponent(new ReleaseComponent($release, $forceDisplay));
 		}
 		$this->addComponent($list);
 		
@@ -95,10 +96,6 @@ class ProjectComponent extends SimpleBlockComponent {
 		$link = Link::newWindowLink($url, new Image("images/interface/avis.png", "Donne ton avis sur le forum !"));
 		$link->setClass('discussionLink');
 		$this->addComponent($link);
-	}
-	
-	public function sortReleases(Release $a, Release $b) {
-		return strnatcmp($a->getID(), $b->getID());
 	}
 }
 ?>
