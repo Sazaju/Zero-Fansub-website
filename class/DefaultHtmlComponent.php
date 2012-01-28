@@ -125,8 +125,17 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 			$content .= $pin->getCurrentContent();
 		}
 		
-		$this->html = '<'.$this->getHtmlTag().$this->getOptions().'>'.$content.'</'.$this->getHtmlTag().'>';
-		//TODO $this->html = Format::parseBBCode($this->html);
+		$this->html = $this->getOpenTag().$content.$this->getCloseTag();
+		$this->html = str_replace("\n", '<br/>', $this->html); // TODO extract at a higher level
+		$this->html = Format::parseBBCode($this->html); // TODO extract at a higher level
+	}
+	
+	public function getOpenTag() {
+		return '<'.$this->getHtmlTag().$this->getOptions().'>';
+	}
+	
+	public function getCloseTag() {
+		return '</'.$this->getHtmlTag().'>';
 	}
 	
 	public function getHtml() {

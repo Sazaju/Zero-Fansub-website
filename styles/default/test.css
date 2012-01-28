@@ -3,3 +3,7 @@
 	border: 1px solid red;
 	background-color: white;
 }
+
+.xdebug-var-dump {
+	padding-left: 200px;
+}

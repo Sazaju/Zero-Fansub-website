@@ -109,37 +109,60 @@ class Format {
 		return substr($string, strlen($separator));
 	}
 	
-	private static $BBHandler = null;
+	public static function trimAndCleanArray($array) {
+		$array = array_map(function($s){return trim($s);}, $array);
+		$array = array_filter($array, function($s){return !empty($s);});
+		return $array;
+	}
+	
+	private static $BBCodeParser = null;
 	public static function parseBBCode($text) {
-		if (Format::$BBHandler === null) {
-			$arrayBBCode = array(
-				'b'		=> array(
-								'type'			=> BBCODE_TYPE_NOARG,
-								'open_tag'		=> '<b>',
-								'close_tag'		=> '</b>',
-							),
-				'i'		=> array(
-								'type'			=> BBCODE_TYPE_NOARG,
-								'open_tag'		=> '<i>',
-								'close_tag'		=> '</i>',
-								//'childs'		=> 'b',
-							),
-				'url'	=> array(
-								'type'			=> BBCODE_TYPE_OPTARG,
-								'open_tag'		=> '<a href="{PARAM}">',
-								'close_tag'		=> '</a>',
-								'default_arg'	=> '{CONTENT}',
-								//'childs'		=> 'b,i,img',
-							),
-				'img'	=> array(
-								'type'			=> BBCODE_TYPE_NOARG,
-								'open_tag'		=> '<img src="',
-								'close_tag'		=> '" />',
-							),
-			);
-			Format::$BBHandler = bbcode_create($arrayBBCode);
+		if (Format::$BBCodeParser === null) {
+			Format::$BBCodeParser = new BBCodeParser();
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("b", array('Format', 'simpleOpenTag'), array('Format', 'simpleCloseTag')));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("i", array('Format', 'simpleOpenTag'), array('Format', 'simpleCloseTag')));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("u", array('Format', 'simpleOpenTag'), array('Format', 'simpleCloseTag')));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img", array('Format', 'imageOpenTag'), array('Format', 'simpleCloseTag'), null));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("url", array('Format', 'linkOpenTag'), array('Format', 'linkCloseTag')));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("release", array('Format', 'releaseOpenTag'), array('Format', 'releaseCloseTag')));
 		}
-		return bbcode_parse(Format::$BBHandler, $text);
+		return Format::$BBCodeParser->translate($text);
+	}
+	
+	public static function simpleOpenTag($tag, $parameter, $content) {
+		return "<$tag>";
+	}
+	
+	public static function simpleCloseTag($tag, $parameter, $content) {
+		return "</$tag>";
+	}
+	
+	public static function imageOpenTag($tag, $parameter, $content) {
+		$image = new Image($parameter, $content);
+		return $image->getOpenTag();
+	}
+	
+	public static function linkOpenTag($tag, $parameter, $content) {
+		return "<a href='$parameter'>";
+	}
+	
+	public static function linkCloseTag($tag, $parameter, $content) {
+		return "</a>";
+	}
+	
+	public static function releaseOpenTag($tag, $parameter, $content) {
+		$parameter = preg_split('#\\|#', $parameter);
+		if ($parameter[1] === '*') {
+			$parameter[1] = Release::getAllReleasesIDForProject($parameter[0]);
+		} else {
+			$parameter[1] = Format::trimAndCleanArray(preg_split('#,#', $parameter[1]));
+		}
+		$link = new ReleaseLink($parameter[0], $parameter[1], null);
+		return $link->getOpenTag();
+	}
+	
+	public static function releaseCloseTag($tag, $parameter, $content) {
+		return "</a>";
 	}
 }
 

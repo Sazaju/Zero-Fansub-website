@@ -143,13 +143,11 @@ class News {
 			$news->setTitle("Mayoi Neko Spéciaux");
 			$news->setTimestamp(strtotime("26 January 2012 16:18"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
-			$message = new SimpleTextComponent();
-			$message->addLine("Histoire de décrisper ceux qui se disent qu'on meurt à petit feu (faut dire que la dernière sortie date de mi-novembre), voilà un petit truc à vous mettre sous la dent {^_^}. C'est tout chaud et c'est du produit bien de chez Zéro ! Les anémiques, prévoyez les poches de sang, on sait jamais.");
-			$message->addLine();
-			$message->addLine(new ReleaseLink('mayoisp', Release::getAllReleasesIDForProject('mayoisp'), new Image("images/news/mayoisp.png", "MNO Spéciaux")));
-			$message->addLine();
-			$message->addLine("Profitez bien des bonus, bande de cochons {^_°}.");
-			$news->setMessage($message);
+			$news->setMessage("Histoire de décrisper ceux qui se disent qu'on meurt à petit feu (faut dire que la dernière sortie date de mi-novembre), voilà un petit truc à vous mettre sous la dent {^_^}. C'est tout chaud et c'est du produit bien de chez Zéro ! Les anémiques, prévoyez les poches de sang, on sait jamais.
+
+[release=mayoisp|*][img=images/news/mayoisp.png]MNO Spéciaux[/img][/release]
+
+Profitez bien des bonus, bande de cochons {^_°}.");
 			$news->addReleasing(Project::getProject('mayoisp'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
