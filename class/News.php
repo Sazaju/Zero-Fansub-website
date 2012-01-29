@@ -17,10 +17,19 @@ class News {
 	private $displayInHentaiMode = null;
 	private $isTeamNews = null;
 	private $isPartnerNews = null;
+	private $isDb0CompanyNews = null;
 	
 	public function __construct($title = null, $message = null) {
 		$this->setTitle($title);
 		$this->setMessage($message);
+	}
+	
+	public function setDb0CompanyNews($boolean) {
+		$this->isDb0CompanyNews = $boolean;
+	}
+	
+	public function isDb0CompanyNews() {
+		return $this->isDb0CompanyNews;
 	}
 	
 	public function setPartnerNews($boolean) {
@@ -154,6 +163,7 @@ Profitez bien des bonus, bande de cochons {^_°}.");
 			$news->setTeamNews(false);
 			$news->setPartnerNews(false);
 			$news->setCommentId(286);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -176,6 +186,7 @@ que de timer soi-même lol");
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
 			$news->setCommentId(285);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -194,6 +205,7 @@ Pour télécharger nos épisodes il vous faudra donc vous retrancher sur le DDL, le
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -224,6 +236,7 @@ Il me semble que c'est à peu près tout... Ah oui, si vous avez des soucis sur ce
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -238,6 +251,7 @@ On en profitera pour avancer correctement nos séries déjà en cours, dont certain
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -253,6 +267,7 @@ Non seulement je vous demande de me jeter des cailloux, mais en plus je vous dit
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -267,6 +282,7 @@ Non seulement je vous demande de me jeter des cailloux, mais en plus je vous dit
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -281,6 +297,7 @@ Vous pouvez laisser des commentaires, sinon je redonne mon mail : [mail]sazaju@g
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -297,6 +314,7 @@ Et voilà un nouvel opus (ou deux nouveaux obus, au choix) de notre H favori. Enf
 
 Vous avez aimé le 4 (pas le précédent, celui d'avant, que j'avais détruit dans ma news) ? Si oui alors réjouissez-vous, celui-ci est du même acabit. Ceux qui sont du même avis que moi, en revanche, passez votre chemin. Pour faire court : on se fait une vache à lait à la campagne. Les grosses mamelles sont de la partie, même si ce ne sont pas elles qui donneront le 'lait' de l'épisode.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -324,6 +342,7 @@ NB : vous voyez, j'ai même pas le temps de vous faire une news décente en cette 
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -350,6 +369,7 @@ Et si vous voulez nous aider (ou vous essayer au fansub), on cherche des traduct
 
 Sur ceux, bon visionnage {^_^}.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -370,6 +390,7 @@ Si vous êtes interessés, les candidatures sont ouvertes (cliquez sur [b]Recrutem
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -391,6 +412,7 @@ Et le film Kodomo no Jikan, qu'on n'a pas abandonné, non, non... Même si l'envie
 
 Bon matage et à bientôt pour la suite de Mitsudomoe.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -414,6 +436,7 @@ Allez, mangez doucement, ça se déguste les animes (purée j'ai la dalle maintenan
 
 Pour terminer, un petit mot sur notre charte qualité. Nous avons décidé de ne plus sortir de releases issues d'une version TV, mais de ne faire que des Blu-Ray. Bien entendu, on fera toujours attention aux petites connexions : nos encodeurs travaillent d'arrache pied pour vous fournir la meilleure vidéo dans le plus petit fichier. J'espère donc que vous apprécierez la qualité de nos futurs épisodes {^_^} (et que vous n'aurez pas trop de pages boguées {'-.-}).");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -431,6 +454,7 @@ Sortie de Hitohira, la série complète, 12 épisodes d'un coup !
 
 [img=images/news/hito2.jpg]Hitohira[/img]");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -447,6 +471,7 @@ Sortie de Hitohira, la série complète, 12 épisodes d'un coup !
 
 Sortie de l'épisode 03 de Mitsudomoe.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -464,6 +489,7 @@ Sortie de l'épisode 03 de Mitsudomoe.");
 4 mini OAV délirants sur la bouffe, avec les personnages en taille réduite.
 C'est de la superproduction ^_^");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -488,6 +514,7 @@ Pour postuler, faites une candidatures à l'école : [ext=http://ecole.zerofansub.
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -509,6 +536,7 @@ N'hésitez pas à nous dire ce que vous en pensez dans les commentaires. C'est en 
 
 P.S.: Les karaokés sont nuls. Désolée !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -528,6 +556,7 @@ Bonjour les amis !
 Après des mois d'attente, les premiers épisodes de Mitsudomoe sont enfin disponibles !
 Quelques petits changements dans notre façon de faire habituelle, on attend vos retours avec impatience ;)");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -544,6 +573,7 @@ Quelques petits changements dans notre façon de faire habituelle, on attend vos 
 
 On continue dans les séries complètes avec cette fois-ci la petite série de 6 OAV qui fait suite à la série Tayutama ~ Kiss on my Deity : les 'Pure my Heart'. Ils sont assez courts mais plutôt drôle alors amusez-vous bien !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -562,6 +592,7 @@ Petit bonjour !
 Dans la suite de la série Potemayo, voici la petite série d'OAV. Au nombre de 6, ils sont disponibles en versions basses qialité uniquement puisqu'ils ne sont pas sortis dans un autre format. Désolée !
 Amusez-vous bien !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -588,6 +619,7 @@ Et n'oubliez pas : si vous avez une remarque, une question ou quoi que ce soit à
 
 Bons épisodes, à très bientôt pour les 6 OAV supplémentaires Potemayo... et un petit bonjour à toi aussi !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -616,6 +648,7 @@ Si vous avez aimé la série, si vous avez des remarques à nous faire ou autre, n'
 
 à trés bientôt pour Potemayo !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -636,6 +669,7 @@ Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo
 [img=images/news/kodomonatsu4.jpg]Kodomo no Natsu Jikan[/img]
 [img=images/news/kodomonatsu5.jpg]Kodomo no Natsu Jikan[/img]");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -668,6 +702,7 @@ En parlant de Kaze, j'ai reçu hier par la poste le Blu-ray de Canaan chez Kaze. 
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -688,6 +723,7 @@ Mais réjouissez-vous ! La série étant finie, nous n'aurons plus l'occasion d'ass
 
 Merci à tous de nous avoir suivi sur cette série, et je vous souhaite tout le plaisir du monde à sauvegarder votre temps en revisionnant un des épisodes précédents plutôt que celui-ci {^_^}.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -715,6 +751,7 @@ En ce qui concerne l'école du fansub, elle va très bien et le nombre d'élève aug
 
 Bonne chance à ceux qui sont en examens, et que ceux qui sont en vacances en profite bien. Moi, je suis en vacances :p");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -726,8 +763,9 @@ Bonne chance à ceux qui sont en examens, et que ceux qui sont en vacances en pro
 			$news->setCommentId(231);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep0'));
-			$news->setMessage("[video]http://vimeo.com/moogaloop.swf?clip_id=12592506&server=vimeo.com&show_title=0&show_byline=0&show_portrait=0&color=ffffff&fullscreen=1[/video]");
+			$news->setMessage("[video=width:550|height:309]http://vimeo.com/moogaloop.swf?clip_id=12592506&server=vimeo.com&show_title=0&show_byline=0&show_portrait=0&color=ffffff&fullscreen=1[/video]");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -744,6 +782,7 @@ Ako et Riko ne laisseront pas Keita rater ses examens ! Ako décident donc de don
 Ils y resteront très sages et se contenteront d'apprendre sagement l'anglais, l'histoire et les maths. C'est tout.
 Vous vous attendiez à autre chose, peut-être ?");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -763,6 +802,7 @@ C'est bien une suite des OAV, mais il n'est pas nécéssaire des les avoir vus pou
 J'ai essayé de faire des jolis karaokés, alors chantez !! (Et envoyez les vidéos)
 À très vite pour l'épisode 2.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -784,6 +824,7 @@ J'ai essayé de faire des jolis karaokés, alors chantez !! (Et envoyez les vidéos
 			Oh merci ! Je savais que je pouvais compter sur toi.
 			Alors, à tout à l'heure, quand tu auras télécharger l'épisode ;)");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -798,6 +839,7 @@ J'ai essayé de faire des jolis karaokés, alors chantez !! (Et envoyez les vidéos
 			$news->setMessage("[img]images/news/kiss2.png[/img]
 Ah, elles nous font bien attendre, les deux jolies jumelles... Des mois pour sortir les OAV ! Mais au final, ça en vaut la peine, donc on ne peut pas leur en vouloir. C'est bientôt Noël, donc pour l'occasion, elles ont sortis des cosplays très mignons des \"soeurs de Noël\". Elles sont de plus en plus ecchi avec leur frère. Finira-t-il par craquer !? La première version sort ce soir, les autres versions de plus haute qualité sortieront dans la nuit et demain. J'éspère que cet OAV vous plaira ! Une série est annoncée en plus des OAV. Info ou Intox ? Dans tout les cas, Zéro sera de la partie, donc suivez aussi la série avec nous !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
@@ -812,6 +854,7 @@ Ah, elles nous font bien attendre, les deux jolies jumelles... Des mois pour sor
 			$news->setMessage("[img]images/news/canaanfin.png[/img]
 Ainsi se termine Canaan.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -834,6 +877,7 @@ Enfin, une bonne nouvelle. Si certains n'étaient pas au courant, j'annonce : [b]
 
 Pour finir, [b]Kobato[/b], dans la liste de nos projets depuis juin, ne se fera finalement pas. Kaze nous a devancé et a acheté la licence.");
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -848,6 +892,7 @@ Pour finir, [b]Kobato[/b], dans la liste de nos projets depuis juin, ne se fera 
 			$news->setMessage("[img]images/news/canaan11.jpg[/img]
 Chose promise, chose due. Et en plus, on a même le droit à un peu de ecchi dans cet épisode ! Avec la tenue sexy de Liang Qi, on peut pas dire le contraire... Et un peu de necrophilie aussi. Ouais, c'est tout de suite moins sexy. (Enfin, chacun son truc, hein) Sankaku Complex en a parlé. Cet épisode est un peu triste, comme le précedent, mais un peu plus violent aussi.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -862,6 +907,7 @@ Chose promise, chose due. Et en plus, on a même le droit à un peu de ecchi dans 
 			$news->setMessage("[img]images/news/canaan10.jpg[/img]
 Vous en rêviez ? Les fans l'ont dessiné... Est-ce que c'est ce qui va se passer dans la suite de l'anime ? Ça semble bien parti... Regardez vite l'épisode 10 pour le savoir ! Et comme on a trop envie de savoir la suite à la fin de cet épisode, je vous promets qu'il ne tardera pas.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -879,6 +925,7 @@ Je profite de cette news pour vous poster quelques photos de mon cosplay Canaan.
 [url]http://db0.dbcosplay.fr[/url] (et abonnez-vous à la newsletter !)
 [url=http://www.cosplay.com/photo/2268921/][img]http://images.cosplay.com/thumbs/22/2268921.jpg[/img][/url] [url=http://www.cosplay.com/photo/2268922/][img]http://images.cosplay.com/thumbs/22/2268922.jpg[/img][/url] [url=http://www.cosplay.com/photo/2268923/][img]http://images.cosplay.com/thumbs/22/2268923.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274553/][img]http://images.cosplay.com/thumbs/22/2274553.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274515/][img]http://images.cosplay.com/thumbs/22/2274515.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274516/][img]http://images.cosplay.com/thumbs/22/2274516.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274517/][img]http://images.cosplay.com/thumbs/22/2274517.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274518/][img]http://images.cosplay.com/thumbs/22/2274518.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274519/][img]http://images.cosplay.com/thumbs/22/2274519.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274520/][img]http://images.cosplay.com/thumbs/22/2274520.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274521/][img]http://images.cosplay.com/thumbs/22/2274521.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274522/][img]http://images.cosplay.com/thumbs/22/2274522.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274523/][img]http://images.cosplay.com/thumbs/22/2274523.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274531/][img]http://images.cosplay.com/thumbs/22/2274531.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274532/][img]http://images.cosplay.com/thumbs/22/2274532.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274533/][img]http://images.cosplay.com/thumbs/22/2274533.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274536/][img]http://images.cosplay.com/thumbs/22/2274536.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274537/][img]http://images.cosplay.com/thumbs/22/2274537.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274538/][img]http://images.cosplay.com/thumbs/22/2274538.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274540/][img]http://images.cosplay.com/thumbs/22/2274540.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274541/][img]http://images.cosplay.com/thumbs/22/2274541.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274542/][img]http://images.cosplay.com/thumbs/22/2274542.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274543/][img]http://images.cosplay.com/thumbs/22/2274543.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274544/][img]http://images.cosplay.com/thumbs/22/2274544.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274554/][img]http://images.cosplay.com/thumbs/22/2274554.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274555/][img]http://images.cosplay.com/thumbs/22/2274555.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274556/][img]http://images.cosplay.com/thumbs/22/2274556.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274557/][img]http://images.cosplay.com/thumbs/22/2274557.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274560/][img]http://images.cosplay.com/thumbs/22/2274560.jpg[/img][/url]");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -893,6 +940,7 @@ Je profite de cette news pour vous poster quelques photos de mon cosplay Canaan.
 			$news->setMessage("[imgr]images/news/canaan8.png[/imgr]
 Avec un peu de retard cette semaine, la suite de la trépidante histoire de Canaan, une fille pas comme les autres.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -907,6 +955,7 @@ Avec un peu de retard cette semaine, la suite de la trépidante histoire de Canaa
 			$news->setMessage("[img]images/news/can6.jpg[/img]
 Comme à son habitude, le petit épisode de Canaan de la semaine fait sa sortie. Et comme prévu, nous n'avons aucune réponse pour le recrutement traducteur T___T pourtant j'aime bien, moi, Mermaid Melody. C'est mignon.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -926,6 +975,7 @@ Bref, je raconte pas tout ça pour me la péter, mais juste pour vous éxpliquer ce
 Et là, je finirai sur une question qui vous turlupine depuis tout à l'heure : Comment se fait-il que vous ne nous sortiez ses épisodes que maintenant ? La réponse est simple : J'avais pas internet dans le trou paumé où je suis pour mes vacances :p
 Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord de mer dans une grande maison avec piscine dont nous profitons entre deux Canaan.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -939,6 +989,7 @@ Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord
 			$news->addReleasing(Release::getRelease('canaan', 'ep3'));
 			$news->setMessage("Sous la précipitation (train à prendre), j'ai envoyé le mauvais ass à lepims (notre encodeur) pour l'épisode 03 de Canaan, c'est-à-dire celui dont les fautes n'ont pas été corrigés, c'est-à-dire ma traduction telle quelle... Du coup, il a été réencoder, et la nouvelle version est téléchargeable à la place de l'ancienne. Toutes mes excuses !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -956,6 +1007,7 @@ Je lance cette bouteille à la mer en espérant que ce message parvienne aux oreil
 [img]images/news/canaan-3.jpg[/img]
 Encore du ecchi dans la série Canaan ! Mais pas que ça, bien sûr. L'épisode 3 est disponible, amusez-vous bien~");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -970,6 +1022,7 @@ Encore du ecchi dans la série Canaan ! Mais pas que ça, bien sûr. L'épisode 3 es
 			$news->setMessage("[img]images/news/oppaicanaan.png[/img]
 Bah alors ? Zéro nous fait Canaan ? Mais Zéro, c'est une team de l'ecchi, non ? Bah en voilà un peu d'ecchi, dans cette série de brutes ^^ Alors, heureux ? Oui, très heureux. Snif. Tout ça pour dire que y'a l'épisode 02 prêt à être maté. Et vous savez quoi, les p'tits loulous ? Dans l'épisode 01, on comprenait pas toujours ce qu'il se passait. Dans l'épisode 02, on comprends ce qui s'est passé dans l'épisode 1 ! Hein ? Ça se passe toujours comme ça dans les séries sérieuses...? Ah, naruhodo...");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -985,6 +1038,7 @@ Bah alors ? Zéro nous fait Canaan ? Mais Zéro, c'est une team de l'ecchi, non ? 
 On vous l'avait promis, le v'là ! On a mis un peu de temps parce qu'on l'a traduit à moitié du Japonais, et forcément, ça prend plus de temps. J'espère qu'il vous plaira autant que le premier, parce qu'il dépasse les limites de l'ecchi !
 Demain : Epitanime ! J'veux tous vous y voir !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -999,6 +1053,7 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			$news->setMessage("[img]images/news/hinako.jpg[/img]
 L'été arrive à grand pas. C'est donc la saison des régimes ! Et qui dit régime, dit bonne alimentation mais aussi entraînement, musculation ! Mais comment arriver à faire bouger nos chers Otakus de leurs chaises...? Hinako a trouvé la solution ! Un entraînement composé de pompes, d'abdos et de flexions on ne peut plus ECCHI ECCHI ! Lancez-vous donc dans cette aventure un peu perverse et rejoignez Hinako dans sa séance de musculation. Et vous le faites, hein ? Hinako vous regarde ;)");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1017,6 +1072,7 @@ Nos cadeaux pour vous :
 - L'OAV de Kiss x sis !
 Dans la liste de nos projets depuis cet été, initialement prévu en septembre... Au final, il est sorti le 22 décembre, et nous vous l'avons traduit comme cadeau de Noël. C'est entre-autre grâce à cet OAV que nous avons fait la conaissance de la [url=http://kanaii.com/]Kanaii[/url].");
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1042,6 +1098,7 @@ Dans la liste de nos projets depuis cet été, initialement prévu en septembre... 
   
   Je ne sais pas s'il y aura une suite, mais si oui, je devine un peu le genre ^_^");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1070,6 +1127,7 @@ Merci de nous avoir suivis et à bientôt pour d'autres épisodes ^_^
 
 [img=images/news/kana135.jpg]Kanamemo[/img]");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1087,6 +1145,7 @@ Merci de nous avoir suivis et à bientôt pour d'autres épisodes ^_^
 Bonjour !
 Sortie de l'épisode 12 de Kanamemo ! Youhouh ! C'est la fête !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1112,6 +1171,7 @@ Rappel, nos releases sont téléchargeable sur :
 [item]Sur [url=http://www.anime-ultime.net/part/Site-93]Anime-Ultime[/url] en DDL (Mais en fait, c'est les mêmes fichiers que sur Zéro, c'est juste des liens symboliques ^^)[/item]
 [/list][/left]");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1129,6 +1189,7 @@ Rappel, nos releases sont téléchargeable sur :
 Bonjour !
 Sortie de l'episode 10 de Kanamemo ! Youhouh ! C'est la fete !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1150,6 +1211,7 @@ Tout comme l'épisode 5, l'épisode 7 était inutilement censuré, donc on s'est ori
 D'autres projets reprennent du service, encore un peu de patience...
 Je vous dis à bientôt pour d'autres épisodes ^_^");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1170,6 +1232,7 @@ Pour toutes nos autres séries dont les versions manga existent, vous pouvez les 
 
 A bientot !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1186,6 +1249,7 @@ Hé !
 Mais c'est qu'on arrive à la moitié de la série.
 Le 6éme épisode de Kanamemo est disponible.");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1208,6 +1272,7 @@ Pour voir la différence entre les deux versions : [url=http://www.sankakucomplex
 En bonus, un petit AMV de l'épisode 05 (passé à la TV, nous le l'avons pas fait nous-même).
 À bientôt !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1222,6 +1287,7 @@ En bonus, un petit AMV de l'épisode 05 (passé à la TV, nous le l'avons pas fait 
 			$news->setMessage("[img]images/news/kana3.jpg[/img]
 BANZAIII !! Kanamemo épisode 03, ouais, trop bien ! Je mets du temps à sortir les épisodes ces derniers temps, mais derrnière le rideau, ne vous inquiétez pas, ça bosse ! Oui, c'est encore de ma faute, avant la piscine, maintenant printf, je suis débordée... (Mais de quoi elle parle !? o__O) Bref. Bon épisode !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1238,6 +1304,7 @@ Bonsoir....
 
 Kodomo no Jikan touche à sa fin (bouhouh T__T) et on nous a proposé un anime sur le forum : Kanamemo. On a tout de suite vu qu'il s'inscrivait directement dans la ligne directe de Kodomo no Jikan, ecchi ~ loli ! Rétissants au départ à commencer un nouvel anime sans finir nos précédents en cours, mais ayant plusieurs personnes de l'équipage n'ayant rien à faire, nous avons finalement accepté la proposition. Cet anime est trop mignon~choupi~kawaii, c'est la petite Kana qui perd sa grand-mère et ses parents et doit se debrouiller toute seule et trouver du travail. Y'a aussi un peu de yuri dedant, donc je pense que tout le monde y trouvera ce qu'il aime !");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1252,6 +1319,7 @@ Kodomo no Jikan touche à sa fin (bouhouh T__T) et on nous a proposé un anime sur
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1277,6 +1345,7 @@ A bientot !
 ");
 			$news->setTwitterTitle("Sortie de Kujibiki Unbalance episode 09 chez Zero ! http://zerofansub.net/");
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1292,6 +1361,7 @@ C'est une petite série de 6 épisodes de moins de 10 minutes chacun qui étaient e
 			$news->setTeamNews(false);
 			$news->addReleasing(Project::getProject('sketchbookdrama'));
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1311,6 +1381,7 @@ Bon episode a tous et a tres bientot !");
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep8'));
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1327,6 +1398,7 @@ Potemayo, épisode 8, youhou ! Et très bientôt, Kanamemo, Isshoni H shiyo et Issh
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1351,6 +1423,7 @@ db0 dit : Les screens ci-dessus n\'ont rien à voir avec l\'épisode :) Ce sont de
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('potemayo', 'ep7'));
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1373,6 +1446,7 @@ Nous avons passé du bon temps aux côtés de Rin et ses deux amies et nous éspéron
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1389,6 +1463,7 @@ Nous avons passé du bon temps aux côtés de Rin et ses deux amies et nous éspéron
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1414,6 +1489,7 @@ TchO_°");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1434,6 +1510,7 @@ Même romantique, la passion peut être tellement furieuse !");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1457,6 +1534,7 @@ TchO_°");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1478,6 +1556,7 @@ J'en profite en coup de vent pour vous annoncer que la deuxième session de Konsh
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1509,6 +1588,7 @@ J'en profite en coup de vent pour vous annoncer que la deuxième session de Konsh
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1523,6 +1603,7 @@ On vous l'avait promis : on n'allait pas laisser tomber Maboroshi ! Et voilà, c'
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1538,6 +1619,7 @@ Mugi-choco ! Tu nous as tellement manqué... Et tu reviens en maillot de bain, à 
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1554,6 +1636,7 @@ Et les versions LD et HD tant attendues de l'OAV sorti hier sont aussi arrivées.
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1582,6 +1665,7 @@ On en profite pour faire un petit point sur nos séries actuellement.
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1604,6 +1688,7 @@ Les dernières sorties de la [url=http://www.kanaii.com/]Kanaii[/url] :
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1630,6 +1715,7 @@ Merci à tous et Bon download !");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1646,6 +1732,7 @@ Et ainsi se termine Genshiken, le club d'étude de la culture visuelle moderne, a
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1660,6 +1747,7 @@ C'est les vacances pour certains membres de chez Zéro donc on a le temps de s'oc
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1676,6 +1764,7 @@ Petite info importante : L'OAV de KissXsis est en cours. Après sa sortie, Zéro s
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1690,6 +1779,7 @@ Nyaron~ La suite de Genshiken 2 avec l'épisode 09. Bon download, bande d'otaku."
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1706,6 +1796,7 @@ Une petite sortie Kanaii-Zéro est organisée entre Otaku le 23 et 24 mai à Nice !
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1724,6 +1815,7 @@ Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sor
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1750,6 +1842,7 @@ Rosario+Vampire Capu2 07v2");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1768,6 +1861,7 @@ Notre unique QC, praia, aimerait bien partager les QC de toutes nos séries avec 
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1781,6 +1875,7 @@ Notre unique QC, praia, aimerait bien partager les QC de toutes nos séries avec 
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1795,6 +1890,7 @@ Cette série était si drôle qu'elle est passée bien vite... Eh oui ! Déjà le dern
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1818,6 +1914,7 @@ Et enfin, la suite de Maria Holic que vous attendiez tous ! L'épisode 11 et... a
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1833,6 +1930,7 @@ Une double sortie ce soir (peut-être pour rattraper vos attentes ?) dont l'épiso
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1847,6 +1945,7 @@ La team était en \"semi-pause\", maintenant que notre épisode en coproduction es
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1866,6 +1965,7 @@ Une mise à jour de la partie hentaï du site et la sortie d'un doujin de He is my
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1880,6 +1980,7 @@ La suite de Maria+Holic, toujours en coproduction avec nos petits kanailloux. Di
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1899,6 +2000,7 @@ EDIT : Sorties des deux autres versions.");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1913,6 +2015,7 @@ EDIT : Sorties des deux autres versions.");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1931,6 +2034,7 @@ Les mésaventures de Kanako continuent, ne les manquez pas !
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1947,6 +2051,7 @@ Trèves de paroles inutiles : Voici donc l'épisode 01, disponible en DDL chez nou
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1961,6 +2066,7 @@ Le sondage de la semaine dernière était un peu foireux parce ce qu'on pouvait pa
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1975,6 +2081,7 @@ Si c'est pas trop Kawaii, ça ? Bah oui, c'est Potemayo ! Comme vous le savez, no
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -1989,6 +2096,7 @@ Kujibiki Unbalance est de retour avec l'épisode 7 qui sort aujourd'hui. Il est r
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2005,6 +2113,7 @@ Ce Week-End, Mangazur à Toulon. Une petite convention très sympa ^^ J'y serais, 
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2024,6 +2133,7 @@ Mahou Shoujo Lyrical Nanoha Strikers 18");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2050,6 +2160,7 @@ Merci à tous et à bientôt !
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2068,6 +2179,7 @@ Nous avons temporairement repris de nos activités pour finir la série Sketchbook
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2083,6 +2195,7 @@ V'là déjà la suite de Sketchbook full colors ! L'épisode 08 est disponible, et à
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2097,6 +2210,7 @@ On avance un peu dans Sketchbook aussi, épisode 07 aujourd'hui ! Apparition d'un
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2114,6 +2228,7 @@ Une avalanche de Sketchbook ! Ou plutôt, une avalanche de fleurs ^^ Avec la sort
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2138,6 +2253,7 @@ Les dernières sorties de la [url=http://japanslash.free.fr/]Maboroshi[/url] :
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2154,6 +2270,7 @@ Et c'est tout. Je sais pas quoi dire d'autre. Bonne journée, mes amis.
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2168,6 +2285,7 @@ La suite tant attendue des aventures de Rin, Kuro et Mimi ! Un épisode riche en 
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2182,6 +2300,7 @@ C'est maintenant que la saison 2 de Kodomo no Jikan commence vraiment ! Profitez
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2196,6 +2315,7 @@ Vous l'attendiez TOUS ! (Si, si, même toi) Il est arrivé ! Le premier OAV de la 
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2212,6 +2332,7 @@ C'est ainsi que se termine Toradora! ...");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2229,6 +2350,7 @@ Que penses-tu des Maid ? Tu es fanatique, fétichiste, amateur ou indifférent ?")
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2243,6 +2365,7 @@ Que d'émotion, que d'émotion ! La suite de Toradora!, l'épisode 22. Nous vous ra
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2260,6 +2383,7 @@ Profitions-en pour discutailler ! Alors, toi, lecteur de news de Zéro... Tu es p
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2274,6 +2398,7 @@ Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notr
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2288,6 +2413,7 @@ Serait-ce le rythme \"une sortie / un jour\" qui nous prend, à Zéro et [url=http
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2302,6 +2428,7 @@ Toradora!, pour changer, en copro avec [url=http://japanslash.free.fr/]Maboroshi
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2324,6 +2451,7 @@ Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2345,6 +2473,7 @@ Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2362,6 +2491,7 @@ Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2379,6 +2509,7 @@ En direct de Nice, et pour ce 10 Février, l'épisode 10 de Toradora! en co-produc
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2405,6 +2536,7 @@ Rosario+Vampire Capu2 06");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2423,6 +2555,7 @@ L'épisode est sorti en DDL en format avi, en XDCC. Comme toujours, il sortira un
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2444,6 +2577,7 @@ Enjoy  [img=http://img1.xooimage.com/files/w/i/wink-1627.gif]Wink[/img]
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2459,6 +2593,7 @@ C'est ainsi, en ce 6 mars 2009, que nous fêtons à la fois l'anniversaire de la p
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2473,6 +2608,7 @@ RIIINN est revenue ! Elle nous apporte son dixième épisode. Plus que 2 avant la 
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2497,6 +2633,7 @@ Mahou Shoujo Lyrical Nanoha Strikers 17");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2523,6 +2660,7 @@ PS : Le projet Canaan est licencié par Kaze. Le dvd de l'integrale est déjà disp
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2550,6 +2688,7 @@ Pour les habitués des flux RSS, vous pouvez aussi suivre nos news :
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2608,6 +2747,7 @@ qui sera entièrement fansubbée par les élèves de l'école du fansub épaulés par l
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2639,6 +2779,7 @@ Fiche à remplir :
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2673,6 +2814,7 @@ Encore merci à tous d'avoir voté ! À bientôt pour les sorties très prochaines de
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2710,6 +2852,7 @@ J'éspère que vous serez nombreux à nous donner votre avis !
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2727,6 +2870,7 @@ Si vous êtes interessé pour devenir seeder de la team, cliquez sur le lien de po
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2754,6 +2898,7 @@ Venez nombreux, parlez en autours de vous !
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2776,6 +2921,7 @@ Et Bon Anniversaire Zéro !
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2811,6 +2957,7 @@ J'éspère que vous serez nombreux à répondre à notre demande ! Merci à tous de su
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2837,6 +2984,7 @@ P.S. : Nous vous serions très reconaissant de faire part de cette évenement auto
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2852,6 +3000,7 @@ L'équipe de fansub n'est actuellement pas en mesure de vous proposer des sorties
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2867,6 +3016,7 @@ Nous recherchons quelqu'un de motivé qui aime les animes magical girl pour conti
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2884,6 +3034,7 @@ Ne vous affolez pas : Attendez la fin de votre premier téléchargement. Il peut a
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2906,6 +3057,7 @@ Rappel : La team est toujours en pause jusqu'à Juillet !");
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2925,6 +3077,7 @@ Vous ne trouvez pas ? Oui, je sais, c'est très difficile. Pour voir qui c'était,
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2938,6 +3091,7 @@ Date à retenir : 29-30-31 mai 2009 ! Durant ses trois jours se dérouleront un év
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2953,6 +3107,7 @@ Faites comme Mario, mettez à jour vos favoris !");
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2968,6 +3123,7 @@ Vous ne le savez peut-être pas, mais Zéro envoie à chaque news une newsletter ! 
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -2992,6 +3148,7 @@ Ces sommes ne nous permettent certes pas de nous sortir de nos problèmes d'argen
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3004,6 +3161,7 @@ Ces sommes ne nous permettent certes pas de nous sortir de nos problèmes d'argen
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3019,6 +3177,7 @@ Je ne vois vraiment pas de quoi vous parlez !");
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3032,6 +3191,7 @@ Triste nouvelle que je vous apporte aujourd'hui ! La première licence d'une de n
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3047,6 +3207,7 @@ Cette limite n'est pas très sévère, soyez compréhensifs. Profitez bien de la fin
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3071,6 +3232,7 @@ Venez nombreux ! Nous avons besoin de vous !");
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3089,6 +3251,7 @@ Allez donc visiter leur site pour lire les chapitres et les remercier pour leur 
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3118,6 +3281,7 @@ A bientot !");
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3133,6 +3297,7 @@ Bon courage à Black Box !");
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
 			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3149,6 +3314,7 @@ Allez donc lire quelques-uns de leurs chapitres et revenez nous en dire des nouv
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3182,6 +3348,7 @@ Allz visiter leur site au plus vite !!");
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3194,6 +3361,7 @@ Chez Maboroshi, ça ne chôme pas, et on ne vous l'annonce que maintenant, mais mi
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3206,6 +3374,7 @@ On vous l'avait promis ! Sky-fansub, c'est du sérieux, et malgré la difficulté d
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3221,6 +3390,7 @@ Côté hentaï, l'épisode 02 de Konoe no Jikan (parodie X de Kodomo no jikan).");
 			$news->setTeamNews(false);
 			$news->setPartnerNews(true);
 			$news->addReleasing(Release::getRelease('konoe', 'ep2'));
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3235,6 +3405,7 @@ Notre très proche partenaire Sky-fansub commence une nouvelle série, et pas une 
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3249,6 +3420,7 @@ Mais aussi en torrent, Megaupload sur leur site : [url=http://kyoutsu-subs.over-
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
@@ -3263,6 +3435,105 @@ Contrairement à ce qui a été dit, cet épisode n'a pas été réalisé en co-pro avec
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
 			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("db0 vs Flander's Company");
+			$news->setTimestamp(strtotime("20 January 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[url=http://www.cosplay.com/photo/2277002/][img]http://images.cosplay.com/thumbs/22/2277002.jpg[/img] [/url][url=http://www.cosplay.com/photo/2277008/][img]http://images.cosplay.com/thumbs/22/2277008.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277009/][img]http://images.cosplay.com/thumbs/22/2277009.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277010/][img]http://images.cosplay.com/thumbs/22/2277010.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277011/][img]http://images.cosplay.com/thumbs/22/2277011.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277012/][img]http://images.cosplay.com/thumbs/22/2277012.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277013/][img]http://images.cosplay.com/thumbs/22/2277013.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277014/][img]http://images.cosplay.com/thumbs/22/2277014.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277015/][img]http://images.cosplay.com/thumbs/22/2277015.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277016/][img]http://images.cosplay.com/thumbs/22/2277016.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277017/][img]http://images.cosplay.com/thumbs/22/2277017.jpg[/img][/url] 
+
+Eh non, vous ne rêvez pas, j'ai bel et bien affronté la Flander's Company !
+La Flander's Company, qu'est-ce que c'est ? Ce n'est pas un rival de la db0 company, mais une société qui recrute des supers vilains pour que les supers hérios aient des défouloirs et surtout des raisons d'exister.
+J'ai fait appel aux services de la Flander's pour que mes petits camarades, le blond-boulet et le brun-tenebreux, et moi, l'hystérique-raleuse au cheveux roses (...?) ayons un super vilain à combattre.
+
+Vous l'aurez compris, j'incarne donc Sakura de la mondialement connue série Naruto dans cet épisode 3, saison 3 de la Flander's Company.
+Je vous laisse juger de notre performence au combat :P
+
+[video=width:480|height:272]http://www.dailymotion.com/swf/xbgkly&related=0[/video]");
+			$news->setCommentId(186);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("C'est la crise !");
+			$news->setTimestamp(strtotime("01 May 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("C'est la crise pour tout le monde, et même pour nous. Nous n'arrivons plus à payer nos serveurs... On ajoute des publicités et on vous sollicite pour des dons, mais rien ne s'améliore. Depuis le début de Zéro, et sur tout les sites de la db0 company, nous n'avons reçu que 14 € de dons et 75 € de publicités. Sachant qu'il nous a fallut environ 80 € (en tout depuis que Zéro existe) pour l'association humanitaire que Zéro soutient et que nos serveurs de la db0 company coûte environ 250 € /mois, le calcul n'est pas long, nous sommes dans le négatif. Et pauvres petits étudiants que nous sommes, à découvert tout les mois... C'est un appel à l'aide que je lance aujourd'hui, à ceux de Zéro, de la db0 company, à ceux qui aiment les animes que nous sous-titrons et qui respectent notre travail. Par avance, merci.");
+			$news->setCommentId(66);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Stream-Anime.org");
+			$news->setTimestamp(strtotime("15 March 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("Pour les fans d'animes trop pressés ou qui préférent les VOSTA'z, Ryocu, hébergeur de Zéro fansub et fondateur d'[url=http://www.anime-ultime.net/part/Site-93]anime-ultime[/url], avec ma petite participation, a créer [url=http://www.stream-anime.org/]Stream-Anime.org[/url] ! Ce site propose toutes les dernières sorties d'animes en VOSTA en streaming de très haute qualité. Actuellement, vous pouvez visionner plus de 5000 vidéos, et c'est loin d'être fini. Bientôt, le site proposera les sous-titres dans toutes les langues.
+[url=http://www.stream-anime.org/][img]images/news/stream.png[/img][/url]
+Malheuresement, tout ceci n'est pas gratuit. Une petite aide par des dons, clicks sur les pubs ou allopass sur anime-ultime sont les bienvenus. Vos commentaires aussi, sur cette news, pour améliorer le site.");
+			$news->setCommentId(45);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora.fr!");
+			$news->setTimestamp(strtotime("26 February 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[url=http://toradora.fr][img=http://toradora.fr/images/partenaires/ban1.png]toradora.fr[/img][/url]
+Après Kojikan.fr, ouvrez grand vos bras au nouveau site de la db0 company : Toradora.fr !");
+			$news->setCommentId(42);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("[Kojikan.fr] Ouverture du site Kodomo no Jikan France ! + épisode 11");
+			$news->setTimestamp(strtotime("13 February 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[url=http://kojikan.fr/][img]http://zerofansub.net/images/news/kojikanfrance.png[/img][/url]
+Pour la sortie de l'épisode 11 de Kodomo no Jikan, comme promis, la petite surprise ! Quoi de mieux qu'un vendredi 13 pour l'ouverture du site officiel français Kodomo no Jikan ?
+
+
+[url=http://kojikan.fr/]Le site officiel Kodomo no Jikan France, c'est par ici ![/url]");
+			$news->setCommentId(36);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(true);
+			$news->addReleasing(Release::getRelease('kodomo', 'ep11'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("The db0 company");
+			$news->setTimestamp(strtotime("28 January 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("Rien de bien important, pas de nouvelle sortie (désolée), juste un nouveau petit site à moi. [url=http://db0.fr/]db0.fr[/url] existe depuis longtemps, je viens juste de le remettre en forme, et maintenant c'est une version très simple qui présente simplement mes petits travaux. J'éspère qu'il vous plaira, n'hésitez pas à donner votre avis. [img=http://img1.xooimage.com/files/w/i/wink-1627.gif]Wink[/img]
+
+[url=http://db0.fr/][img]db0/images/interface/logo.png[/img][/url]");
+			$news->setCommentId(35);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(true);
+			$news->addReleasing(Release::getRelease('kodomo', 'ep11'));
 			News::$allNews[] = $news;
 		}
 		
@@ -3305,6 +3576,16 @@ Contrairement à ce qui a été dit, cet épisode n'a pas été réalisé en co-pro avec
 		$array = array();
 		foreach(News::getAllNews() as $news) {
 			if ($news->isPartnerNews()) {
+				$array[] = $news;
+			}
+		}
+		return $array;
+	}
+	
+	public static function getAllDb0CompanyNews() {
+		$array = array();
+		foreach(News::getAllNews() as $news) {
+			if ($news->isDb0CompanyNews()) {
 				$array[] = $news;
 			}
 		}

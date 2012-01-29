@@ -343,11 +343,36 @@ class Format {
 			/**********************************\
 			              VIDEOS
 			\**********************************/
+			function parseVideoParameter($parameter) {
+				$parameter = preg_split('#\\|#', $parameter);
+				$result = array();
+				foreach($parameter as $row) {
+					$row = preg_split('#:#', $row);
+					if (in_array($row[0], array('width', 'height'))) {
+						$result[$row[0]] = $row[1];
+					} else {
+						throw new Exception($row[0]." is not managed");
+					}
+				}
+				if (!isset($result['width']) || $result['width'] <= 0) {
+					throw new Exception("The width of the video is not well defined");
+				}
+				if ($result['height'] <= 0) {
+					throw new Exception("The height of the video is not well defined");
+				}
+				return $result;
+			};
 			$videoOpenTag = function($tag, $parameter, $content) {
-				return "<object width='550' height='309'><param name='allowfullscreen' value='true' /><param name='allowscriptaccess' value='always' /><param name='movie' value='$content' />";
+				$parameter = parseVideoParameter($parameter);
+				$width = $parameter['width'];
+				$height = $parameter['height'];
+				return "<object width='$width' height='$height'><param name='allowfullscreen' value='true' /><param name='allowscriptaccess' value='always' /><param name='movie' value='$content' />";
 			};
 			$videoContent = function($tag, $parameter, $content) {
-				return "<embed src='$content' type='application/x-shockwave-flash' allowfullscreen='true' allowscriptaccess='always' width='550' height='309'></embed>";
+				$parameter = parseVideoParameter($parameter);
+				$width = $parameter['width'];
+				$height = $parameter['height'];
+				return "<embed src='$content' type='application/x-shockwave-flash' allowfullscreen='true' allowscriptaccess='always' width='$width' height='$height'></embed>";
 			};
 			$videoCloseTag = function($tag, $parameter, $content) {
 				return "</object>";
