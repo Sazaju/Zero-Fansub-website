@@ -3072,6 +3072,198 @@ Venez nombreux ! Nous avons besoin de vous !");
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
 			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kouhai Scantrad, les chapitres de KissXsis");
+			$news->setTimestamp(strtotime("26 August 2010 00:01"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setCommentId(247);
+			$news->setTwitterTitle("Vous conaissez Kouhai Scantrad ? Ils proposent les chapitres de KissXsis ! http://kouhaiscantrad.wordpress.com/");
+			$news->setMessage("[url=http://kouhaiscantrad.wordpress.com/][img=http://kouhaiscantrad.files.wordpress.com/2010/08/sans-titre-1.png]Kouhai Scantrad[/img][/url]
+
+Un nouveau partenaire a rejoint la grande famille des amis de Zero : Kouhai Scantrad.
+Comme vous le savez, Zero aime vous proposer en plus de vos series preferees tout ce qui tourne autours de celles-ci : Wallpaper, OST, jaquettes DVD et pleins d'autres surprises, mais surtout les mangas d'ou sont tires les series.
+C'est pourquoi nous avions fait un partennariat avec l'equipe Ecchi-no-chikara qui vous proposait les chapitres du manga original de KissXsis. Aujourd'hui, cette equipe a fermee, mais heuresement pour vous, fans des deux jumelles, l'equipe Kouhai Scantrad a decide de reprendre le flambeau !
+Allez donc visiter leur site pour lire les chapitres et les remercier pour leur travail.");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Samazama no Koto recrute !");
+			$news->setTimestamp(strtotime("26 August 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[imgl=images/news/samazama.jpg]Samazama no Koto recrute finger pointed loli[/imgl]
+
+La fin de l'été arrive à grand pas, et qui dit rentrée dit manque de disponibilités ! C'est ce qui arrive à nos petits potes de chez Samazama no Koto : ils manquent d'effectifs.
+
+C'est pourquoi ils font appel à [b]vous[/b]. Oui, vous, là, qui êtes en train de me lire !
+
+Vous avez plus de 16 ans ? Vous aimez les mangas ecchi/hentais ? Vous avez envie de connaitre le monde qui se cachent derrière la réalisation de ces chapitres alléchants ?
+
+N'attendez plus ! Tentez votre chance pour rejoindre cette talentueuse équipe de Scantrad !
+
+[imgr=images/news/mercidons2.png]Merci Alain pour son don de 20 euros ! Touhou Projet money money[/imgr]
+Vous devez être disponible et très motivé. Aucune compétence n'est requise. Les postes disponibles sont : traducteurs, éditeurs, checkeurs, webmasters, designers, xdcc-makers.
+
+
+Un grand [b]merci[/b] à Alain pour son don de 20 euros qui va nous aider à payer nos serveurs !
+
+A bientot !");
+			$news->setCommentId(245);
+			$news->setTwitterTitle("Samazama no Koto recrute trad, edit, check, etc http://samazamablog.wordpress.com/");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Licence de Rosario+Vampire");
+			$news->setTimestamp(strtotime("04 May 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("La Mite en Pullover"));
+			$news->setMessage("[img]images/news/licencerv.jpg[/img]
+Black Box a acquis les droits des deux séries, aussi je vous demande de ne plus distribuer, sur n'importe quel réseau ou système de téléchargement que ce soit, nos fansubs. Si la série vous a plu, soutenez l'éditeur en achetant ses DVD (ou allumez un cierge pour d'éventuels Bluray).
+J'en appelle à tous les sites partenaires de téléchargement, à tous les blogs sérieux et à ceux de kikoololz : stoppez tout, effacez vos liens, supprimez les épisodes de vos comptes.
+Rien ne vous empêche de harceler Black Box pour avoir du boobies en haute définition !
+Bon courage à Black Box !");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Nouveau partenaire : Samazama na Koto");
+			$news->setTimestamp(strtotime("24 April 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[url=http://samazamablog.wordpress.com][img]images/news/sama1.jpg[/img][/url]
+Un nouveau petit pote partenaire viens s'ajouter aux petits potes de Zéro :
+[url=http://samazamablog.wordpress.com]Samazama na Koto[/url] est une équipe de Fanscan, Scantrad aux penchants Ecchi et Hentaï qui nous propose du contenu d'une certaine qualité que nous apprécions.
+Allez donc lire quelques-uns de leurs chapitres et revenez nous en dire des nouvelles !
+[url=http://samazamablog.wordpress.com][img]images/news/sama2.jpg[/img][/url]");
+			$news->setCommentId(227);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Nouveau partenaire : Mangas Arigatou");
+			$news->setTimestamp(strtotime("24 March 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[img]images/news/newsarigatou2.jpg[/img]
+Bonjour tout le monde !
+Un nouveau partenaire se joint aujourd'hui à l'équipe Zéro :
+Mangas Arigatou !
+Un très bon état d'esprit, un petit grain de folie et que de sympathie... Que demander de plus ?
+Justement, ils vont bien plus loin...
+C'est à la fois une équipe de fansub et in distribuants !
+Attention, pas n'importe quelle équipe de fansub : une équipe de dramas. Une grande première parmi les partenaires de chez Zéro, mais vous le savez, nous sommes ouverts à toute la jap'culture.
+Et pas non plus un banal distribuant qui prend bêtement le premier épisode sortis sans se soucier de prendre différentes équipes... Non, non ! Mangas-Arigatou recherche la qualité et nous a choisi pour la plupart de nos animes (oh arrêtez je vais rougir...). Nos épisodes sont disponibles chez eux pour les séries suivantes :
+Canaan
+Genshiken 2
+Issho ni Training
+Kanamemo
+KissXsis
+Kodomo no  Jikan
+Kodomo no Jikan Ni Gakki
+Maria+Holic
+Potemayo
+Sketchbook Full Color's
+Tayutama
+Toradora
+Allz visiter leur site au plus vite !!");
+			$news->setCommentId(215);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("[MnF] K-On! et Tayutama Kiss on my Deity");
+			$news->setTimestamp(strtotime("08 May 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[imgr]images/news/tamakon.jpg[/imgr]
+Chez Maboroshi, ça ne chôme pas, et on ne vous l'annonce que maintenant, mais mieux vaut tard que jamais. La petite équipe est actuellement sur 2 nouveaux projets : K-on!, où elle en est déjà à l'épisode 05 et Tayutama Kiss on my deity à l'épisode 04. N'attendez plus, et allez mater ces deux exellentes séries : [url=http://www.maboroshinofansub.fr/]Le site Maboroshi[/url].");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("[SkY] Lucky Star 03");
+			$news->setTimestamp(strtotime("04 May 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[imgr]images/news/lucky3.jpg[/imgr]
+On vous l'avait promis ! Sky-fansub, c'est du sérieux, et malgré la difficulté de la série, les revoilà déjà avec l'épisode 03... Si c'est pas beau, ça ? Allez, va le télécharger, mon petit otaku : [url=http://www.sky-fansub.com/]Le site Sky-fansub[/url].");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Konoe no Jikan 02 + [SkY] Lucky Star 02");
+			$news->setTimestamp(strtotime("15 April 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[imgr]images/news/lucky2.jpg[/imgr]
+Sky-Anime nous apporte comme promis les aventures déjantés de Konata et ses amies. L'épisode 02 est déjà disponible sur leur site.
+
+Côté hentaï, l'épisode 02 de Konoe no Jikan (parodie X de Kodomo no jikan).");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(true);
+			$news->addReleasing(Release::getRelease('konoe', 'ep2'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("[SkY] Lucky Star !");
+			$news->setTimestamp(strtotime("07 April 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[imgr]images/news/lucky.png[/imgr]
+Notre très proche partenaire Sky-fansub commence une nouvelle série, et pas une petite série, attention... Lucky Star ! C'est sûr, c'est pas récent comme anime, mais malheuresement, niveau fansub, c'est pas au top (Aucune team n'est arrivé au bout de la série). La différence, c'est que cette team-là, mes amis, n'a rien à voir avec les autres ! En plus de nous faire de la qualité, elle est sérieuse et assidue. Que demandez de plus ? Profitez déjà du premier épisode ^o^
+
+[url=http://www.sky-fansub.com/]Sky-fansub, c'est par là ![/url]");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("[KfS] Minami-ke Okawari");
+			$news->setTimestamp(strtotime("13 January 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[img=images/news/kyoutsu.jpg][/img]
+Notre partenaire-dakkô Kyoutsu commence une nouvelle série... Minami-ke Okawari ! Vous pouvez dès maintenant télécharger l'épisode 01 en DDL :
+[url=ddl/kyoutsu/%5bKfS%5d1280x720_Minami-Ke_Okawari_001_vostfr.mkv]DDL Minami-ke Okawari 01[/url]
+Mais aussi en torrent, Megaupload sur leur site : [url=http://kyoutsu-subs.over-blog.com/]Lien[/url].");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(true);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("[MnF] Akane 08");
+			$news->setTimestamp(strtotime("12 January 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[url=http://ranka.imouto.org/image/85ba4e0864c9ee58520eee540d4cebcb/moe%2053546%20bikini%20cleavage%20katagiri_yuuhi%20kiryu_tsukasa%20nagase_minato%20nekomimi%20no_bra%20open_shirt%20pantsu%20seifuku%20shiina_mitsuki%20shiraishi_nagomi%20swimsuits.jpg][img]http://japanslash.free.fr/images/news/akane8.jpg[/img][/url]
+Maboroshi nous sort aujourd'hui l'épisode 08 de Akane !
+Contrairement à ce qui a été dit, cet épisode n'a pas été réalisé en co-pro avec Zéro.
+[url=http://japanslash.free.fr/]Pour télécharger l'épisode sur MU, cliquez ici ![/url]");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(true);
+			News::$allNews[] = $news;
 		}
 		
 		foreach(News::$allNews as $news) {

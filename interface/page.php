@@ -26,7 +26,7 @@
 		              PAGE LOADING
 		\***************************************/
 		// refined pages
-		if (in_array($page, array('project', 'home', 'about', 'contact', 'bug', 'series', 'team', 'xdcc', 'havert', 'hsorties', 'hteam'))) {
+		if (in_array($page, array('project', 'home', 'about', 'contact', 'bug', 'series', 'team', 'xdcc', 'havert', 'hsorties', 'hteam', 'hpartenaires'))) {
 			require_once("pages/$page.php");
 		}
 		
