@@ -3722,12 +3722,6 @@ db0 à gauche et Angel à droite.");
 			News::$allNews[] = $news;
 		}
 		
-		foreach(News::$allNews as $news) {
-			if ($news->isPartnerNews() === null) {
-				throw new Exception($news->getCommentId());
-			}
-		}
-		
 		return News::$allNews;
 	}
 	
@@ -3735,66 +3729,6 @@ db0 à gauche et Angel à droite.");
 		$ta = $a->getTimestamp();
 		$tb = $b->getTimestamp();
 		return $ta === $tb ? 0 : ($ta === null ? -1 : ($tb === null ? 1 : ($ta < $tb ? 1 : ($ta > $tb ? -1 : 0))));
-	}
-	
-	public static function getAllReleasingNews() {
-		$array = array();
-		foreach(News::getAllNews() as $news) {
-			if ($news->isReleasing()) {
-				$array[] = $news;
-			}
-		}
-		return $array;
-	}
-	
-	public static function getAllTeamNews() {
-		$array = array();
-		foreach(News::getAllNews() as $news) {
-			if ($news->isTeamNews()) {
-				$array[] = $news;
-			}
-		}
-		return $array;
-	}
-	
-	public static function getAllPartnerNews() {
-		$array = array();
-		foreach(News::getAllNews() as $news) {
-			if ($news->isPartnerNews()) {
-				$array[] = $news;
-			}
-		}
-		return $array;
-	}
-	
-	public static function getAllDb0CompanyNews() {
-		$array = array();
-		foreach(News::getAllNews() as $news) {
-			if ($news->isDb0CompanyNews()) {
-				$array[] = $news;
-			}
-		}
-		return $array;
-	}
-	
-	public static function getAllUnclassableNews() {
-		$array = array();
-		foreach(News::getAllNews() as $news) {
-			if ($news->isReleasing()) {
-				continue;
-			}
-			if ($news->isTeamNews()) {
-				continue;
-			}
-			if ($news->isPartnerNews()) {
-				continue;
-			}
-			if ($news->isDb0CompanyNews()) {
-				continue;
-			}
-			$array[] = $news;
-		}
-		return $array;
 	}
 }
 ?>

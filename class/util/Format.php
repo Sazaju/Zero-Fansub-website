@@ -125,19 +125,17 @@ class Format {
 			/**********************************\
 			          NO CLOSING TAGS
 			\**********************************/
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("separator", function($tag, $parameter, $content) {return "<p></p>";}));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("separator", function($tag, $parameter, $content) {return Separator::getInstance()->getHtml();}));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("pin", function($tag, $parameter, $content) {return Pin::getInstance()->getHtml();}));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("advert", function($tag, $parameter, $content) {return "<script src='http://www.blogbang.com/demo/js/blogbang_ad.php?id=6ee3436cd7' type='text/javascript'></script>";}));
 			
 			/**********************************\
 			         NO PARAMETERED TAGS
 			\**********************************/
 			$simpleOpenTag = function($tag, $parameter, $content) {return "<$tag>";};
 			$simpleCloseTag = function($tag, $parameter, $content) {return "</$tag>";};
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("bold", $simpleOpenTag, $simpleCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("b", $simpleOpenTag, $simpleCloseTag));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("italic", $simpleOpenTag, $simpleCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("i", $simpleOpenTag, $simpleCloseTag));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("underlined", $simpleOpenTag, $simpleCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("u", $simpleOpenTag, $simpleCloseTag));
 			
 			/**********************************\

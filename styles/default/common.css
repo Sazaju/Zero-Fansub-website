@@ -24,10 +24,6 @@ li{
 	margin-top: 0px;
 }
 
-#page:after, .archives:after, .news:after, .teamList .member:after, .teamList:before, .p:after {
-	content: url('images/barre.png');
-}
-
 .warning {
 	color: red;
 	font-weight: bold;
@@ -41,4 +37,13 @@ li{
 .pin {
 	clear: both;
 	visibility: hidden;
+}
+
+.separator {
+	clear: both;
+	border: 0;
+}
+
+#page:after, .views:after, .news:after, .teamList .member:after, .teamList:before, .p:after, .separator {
+	content: url('images/barre.png');
 }

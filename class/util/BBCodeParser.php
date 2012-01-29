@@ -37,7 +37,7 @@ class BBCodeParser {
 		}
 		$array = $exploder->parse($string);
 		
-		while(count($array) > 1) {
+		while(count($array) > 1 || is_array($array[0])) {
 			$closeIndex = -1;
 			foreach($array as $index => $chunk) {
 				if (is_array($chunk) && $chunk[1][0] === '/') {
@@ -226,8 +226,10 @@ class BBCodeDescriptor {
 			foreach($content as $row) {
 				if ($row instanceof BBCodeDescriptor) {
 					$html .= $row->generateHTML();
-				} else {
+				} else if (is_string($row)) {
 					$html .= $row;
+				} else {
+					throw new Exception($row." is not managed");
 				}
 			}
 		} else if ($content instanceof BBCodeDescriptor) {

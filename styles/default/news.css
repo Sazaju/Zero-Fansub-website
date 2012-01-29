@@ -1,3 +1,7 @@
+.views div{
+	text-align: center;
+}
+
 .news .title, .news .subtitle { 
 	text-align: left;
 }
