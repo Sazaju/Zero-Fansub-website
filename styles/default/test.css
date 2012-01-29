@@ -7,3 +7,8 @@
 .xdebug-var-dump {
 	padding-left: 200px;
 }
+
+.xdebug-error {
+	width: 660px;
+	margin: auto;
+}

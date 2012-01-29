@@ -14,5 +14,13 @@ class Pin extends DefaultHtmlComponent {
 	public function getHtmlTag() {
 		return 'hr';
 	}
+	
+	private static $instance = null;
+	public static function getInstance() {
+		if (Pin::$instance === null) {
+			Pin::$instance = new Pin();
+		}
+		return Pin::$instance;
+	}
 }
 ?>

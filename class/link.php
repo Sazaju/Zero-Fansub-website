@@ -69,6 +69,10 @@ class Link extends DefaultHtmlComponent {
 		return parent::getOptions().$urlPart.$titlePart.$targetPart.$onClickPart;
 	}
 	
+	public function isLocalLink() {
+		return $this->getUrl()->isLocalUrl();
+	}
+	
 	public static function newWindowLink($url = null, $content = null) {
 		$link = new Link($url, $content);
 		$link->openNewWindow(true);

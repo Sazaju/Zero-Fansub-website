@@ -19,7 +19,7 @@ class NewsComponent extends SimpleBlockComponent {
 		}
 		$this->addComponent($subtitle);
 		
-		$this->message = new SimpleTextComponent($news->getMessage());
+		$this->message = new SimpleTextComponent(Format::convertTextToHtml($news->getMessage()));
 		$this->message->setClass("message");
 		$this->message->setContentPinned(true);
 		$this->addComponent($this->message);

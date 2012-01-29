@@ -156,6 +156,11 @@ class Url {
 		}
 	}
 	
+	public function isLocalUrl() {
+		$local = Url::getCurrentUrl();
+		return $this->get(URL_SERVER) === $local->get(URL_SERVER);
+	}
+	
 	public static function getCurrentUrl() {
 		return new Url("http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
 	}

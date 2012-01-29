@@ -52,6 +52,14 @@ class Image extends DefaultHtmlComponent {
 		return parent::getOptions().$sourcePart.$titlePart.$altPart;
 	}
 	
+	public function makeRightFloating() {
+		$this->setStyle("float: right; margin-left: 1em;");
+	}
+	
+	public function makeLeftFloating() {
+		$this->setStyle("float: left; margin-right: 1em;");
+	}
+	
 	public static function getPreloadedImages() {
 		$images = array();
 		$images[] = new Image("images/interface/bg.jpg");

@@ -126,8 +126,6 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		}
 		
 		$this->html = $this->getOpenTag().$content.$this->getCloseTag();
-		$this->html = str_replace("\n", '<br/>', $this->html); // TODO extract at a higher level
-		$this->html = Format::parseBBCode($this->html); // TODO extract at a higher level
 	}
 	
 	public function getOpenTag() {
