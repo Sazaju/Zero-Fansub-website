@@ -3533,7 +3533,192 @@ Pour la sortie de l'épisode 11 de Kodomo no Jikan, comme promis, la petite surpr
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(true);
-			$news->addReleasing(Release::getRelease('kodomo', 'ep11'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Jaquettes DVD");
+			$news->setTimestamp(strtotime("20 March 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[img]images/cover/%5BZero%5DKanamemo_Cover.png[/img]
+Des bonus, encore des bonus !
+Sur le site AnimeCoversFan, je suis allée chercher pour vous les covers et labels de nos séries.
+Elles sont téléchargeables sur la page des séries partie Bonus.
+- Canaan
+- Kanamemo
+- Kannagi
+- KissXsis
+- Kujibiki Unbalance 2
+- Kodomo no Jikan
+- Tayutama ~Kiss on my Deity~
+- Toradora!
+Faites-vous de jolis DVD ! Mais ne les gardez pas lorsque la série est licenciée et achetez les vrais DVDs.
+[img]images/cover/%5BZero%5DKissXsis_Cover.png[/img]");
+			$news->setCommentId(213);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Bonne année 2010 !");
+			$news->setTimestamp(strtotime("01 January 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setMessage("[img]images/news/sazanne.jpg[/img]
+[img]images/news/finalanne.jpg[/img]
+[spoiler][img=images/interface/lirelasuite.png]Lire la suite ...[/img]
+[img=images/news/annee1.jpg]Bonne année 2010[/img]
+[img=images/news/annee2.jpg]Bonne année 2010[/img]
+[img=images/news/annee3.jpg]Bonne année 2010[/img]
+[img=images/news/annee4.jpg]Bonne année 2010[/img]
+[img=images/news/annee5.jpg]Bonne année 2010[/img]
+[img=images/news/annee6.jpg]Bonne année 2010[/img]
+[img=images/news/annee7.jpg]Bonne année 2010[/img]
+[img=images/news/annee8.jpg]Bonne année 2010[/img]
+[img=images/news/annee9.jpg]Bonne année 2010[/img]
+[img=images/news/annee10.jpg]Bonne année 2010[/img]
+[img=images/news/annee11.jpg]Bonne année 2010[/img]
+[/spoiler]");
+			$news->setCommentId(157);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Joyeux Noël ! Zéro vous offre pleins de cadeaux");
+			$news->setTimestamp(strtotime("25 December 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[img]images/news/zeronoel09.jpg[/img]
+C'est Noël ! Et au nom de toute l'équipe Zéro fansub et de la db0 company je vous souhaite à tous un joyeux noël, de bonnes fêtes et de passer de bos moments auprès de vos proches. Cette année, vous avez télécharger les animes ecchi-ecchi de chez Zéro, donc vous avez été très coquin et Papa Noël le sais, donc il a demandé à l'équipe Zéro de vous offrir ce petit cadeau :
+
+[url=ddl/%5BZero%5DLa_selection_de_Noel_2009.zip][b]150 images ecchi de Noël ![/b][/url]
+
+Téléchargez donc vite ce pack d'images de tout thèmes : ecchi, loli, kawaii, il y en a pour tout les goûts. Cependant, il y a aussi quelques images hentaï soft, je recommande donc aux moins de 14 ans de ne pas télécharger ces images.
+En plus de ce cadeau, Zéro a aussi mis à jour le design du site et de nouveaux persos aparaissent au dessus du menu aléatoirement, mais aussi et surtout de nouvelles musiques dans la radio ! Allez vite les écouter, lien radio, menu de gauche sur le site. Merci pour vos chaleureux commentaires sur la news anniversaire... Encore une fois, un joyeux noël à tous !
+[img]images/news/noelsaza.png[/img]");
+			$news->setCommentId(156);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Genshiken 2 ~ Pack Bonus");
+			$news->setTimestamp(strtotime("30 September 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[img]images/news/genshikenbonus.jpg[/img]
+Et un petit pack de bonus, un ! Pour marquer la fin de la série, je vous ai concocté un joli mélange de bonus comprenant : Diverses images, des photos de cosplay, les screenshots des épisodes, les musiques de l'opening et de l'ending et une jaquette dvd pour décorer vos dvds gravés. Le pack est disponible sur la page de la série, comme d'habitude.");
+			$news->setCommentId(134);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Bonus Maria Holic");
+			$news->setTimestamp(strtotime("23 September 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[img]images/news/mariabonus.png[/img]
+Déjà 23 longues journées sans que Zéro ne donne de nouvelles... Je suis tellement occupée en ce moment que je m'occupe plus de vous ! Dieu indigne que je suis. Pas de sorties pour aujourd'hui mais juste l'annonce des nombreux bonus sortis chez Kanaii et qu'il fallait sortir chez nous aussi de Maria+Holic.
+Rendez-vous sur la page de la série Maria+Holic pour les découvrir !");
+			$news->setCommentId(128);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Super Nihon Experimental Summer");
+			$news->setTimestamp(strtotime("16 August 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[url=http://snes.ambi-japan.com][img]images/news/snes.jpg[/img][/url]");
+			$news->setCommentId(100);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Dossier Genshiken");
+			$news->setTimestamp(strtotime("24 June 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sunao"));
+			$news->setMessage("[b]Bien le bonsoir la populace.[/b]
+
+
+Afin de bien démarrer, il faut partir d'un postulat: j'en branle pas une.
+Donc quand on s'est demandé s'il fallait diversifier les news du site, j'ai eu le malheur de proposer de faire quelque chose sur Genshiken. Malheureusement, je me suis mangé un «rédige-le» en plein dans les dents. Ouch.
+Qu'à cela ne tienne, je relève le défi.
+
+Let's rock, baby.
+
+
+Comme vous vous en êtes sûrement déjà aperçu: il y a des jours qui comptent plus que d'autres: la sortie d'un nouveau Metal Gear, un concert de Dropkick Murphy's ou bien un diner aux chandelles avec Monica Belluci... Bref c'est évident et je le redis: il y a des jours qui comptent plus que d'autres.
+
+Entre autres, il y a le 11 juin 2009.
+Wesh wesh mon frère, c'est quoi le 11 juin 2009 ?
+Pour certains c'est la perspective d'un examen, pour d'autres c'est la Saint Barnabé (yosh béber), mais pour tout le monde c'est la sortie du neuvième et dernier tome de GENSHIKEN. ( [url]http://www.kurokawa.fr/humour/fiche/1127/genshiken-t9[/url] )
+
+[url=http://www.kurokawa.fr/humour/fiche/1127/genshiken-t9][img]http://img40.xooimage.com/files/f/7/7/tome-9-ec2933.jpg[/img][/url]
+
+[url=index.php?page=dossier/genshiken9][img=images/interface/lirelasuite.png][ Lire la suite . . . ][/img][/url]");
+			$news->setCommentId(97);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Loli Loli ~~ Premier Mai !");
+			$news->setTimestamp(strtotime("01 May 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[img]images/news/lolisummer.jpg[/img]
+À l'occasion du premier Mai, on s'offre du muguet, en rapport avec le printemps. Zéro vous fait donc cadeau d'une jolie Loli printemps !");
+			$news->setCommentId(66);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("[IRL] Mang'azur 2009");
+			$news->setTimestamp(strtotime("21 April 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setMessage("[img]images/news/dokuro.jpg[/img]
+db0 à gauche et Angel à droite.");
+			$news->setCommentId(61);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Bonne année 2009");
+			$news->setTimestamp(strtotime("01 January 2009"));
+			$news->setMessage("[url=images/news/%5BZero%5Dnewyear.jpg][img]images/news/newyear_min.jpg[/img][/url]");
+			$news->setCommentId(28);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 		}
 		
@@ -3588,6 +3773,26 @@ Pour la sortie de l'épisode 11 de Kodomo no Jikan, comme promis, la petite surpr
 			if ($news->isDb0CompanyNews()) {
 				$array[] = $news;
 			}
+		}
+		return $array;
+	}
+	
+	public static function getAllUnclassableNews() {
+		$array = array();
+		foreach(News::getAllNews() as $news) {
+			if ($news->isReleasing()) {
+				continue;
+			}
+			if ($news->isTeamNews()) {
+				continue;
+			}
+			if ($news->isPartnerNews()) {
+				continue;
+			}
+			if ($news->isDb0CompanyNews()) {
+				continue;
+			}
+			$array[] = $news;
 		}
 		return $array;
 	}

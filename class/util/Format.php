@@ -341,6 +341,43 @@ class Format {
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("project", $projectOpenTag, $linkCloseTag, $projectContent));
 			
 			/**********************************\
+			              SPOILER
+			\**********************************/
+			$spoilerOpenTag = function($tag, $parameter, $content) {
+				static $id = 0;
+				$id++;
+				$index = 0;
+				while(empty($parameter)) {
+					$parameter = $content[$index];
+					if (is_string($parameter)) {
+						$parameter = trim($parameter);
+					}
+					$index++;
+				}
+				if ($parameter instanceof BBCodeDescriptor) {
+					$parameter = $parameter->generateHTML();
+				}
+				// TODO show the spoiler if javascript deactivated
+				return "<a href=\"#\" onClick=\"show('spoiler$id');return(false)\">$parameter</a><div id=\"spoiler$id\" style=\"display: none;\">";
+			};
+			$spoilerContent = function($tag, $parameter, $content) {
+				$index = 0;
+				while(empty($parameter)) {
+					$parameter = $content[$index];
+					if (is_string($parameter)) {
+						$parameter = trim($parameter);
+					}
+					$index++;
+				}
+				if ($index > 0) {
+					unset($content[$index-1]);
+				}
+				return BBCodeDescriptor::defaultContentCallback($tag, $parameter, $content);
+			};
+			$spoilerCloseTag = function($tag, $parameter, $content) {return '</div>';};
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("spoiler", $spoilerOpenTag, $spoilerCloseTag, $spoilerContent));
+			
+			/**********************************\
 			              VIDEOS
 			\**********************************/
 			function parseVideoParameter($parameter) {
