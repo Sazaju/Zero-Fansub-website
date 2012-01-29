@@ -87,6 +87,7 @@ class Format {
 	}
 
 	public static function convertTextToHtml($text) {
+		$text = htmlentities($text);
 		$text = Format::parseBBCode($text);
 		$text = str_replace("\n", '<br/>', $text);
 		return $text;

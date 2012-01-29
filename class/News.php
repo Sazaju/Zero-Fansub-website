@@ -310,7 +310,7 @@ Vous avez aimé le 4 (pas le précédent, celui d'avant, que j'avais détruit dans m
 Voilà un gros mois sans news, vous devez donc vous dire [i]enfin une sortie ![/i] pas vrai ? Ben désolé de casser l'ambiance, mais non pas pour tout de suite {'^_^}.
 
 [img=images/news/angry.jpg]Quoi ?[/img]
-[size=0.8]Non pas taper ! {'>_&lt;}[/size]
+[size=0.8]Non pas taper ! {'>_<}[/size]
 
 Comme certains d'entre-vous le savent, je suis en train de raffiner le site, et cela prends du temps. Si pas mal de choses ont été développées pour l'instant, encore reste-t-il à les appliquer au site, et c'est ça qui est long. C'est donc pour ça que je viens à vous {^_^}.
 
@@ -342,7 +342,7 @@ Non ? Vous trouvez pas ? {°.°}?
 
 [img=images/news/aMort.png]À mort ![/img]
 
-OK, OK, j'arrête {\">_&lt;}. S'il vous reste des cailloux de la dernière fois, vous pouvez me les jeter. Allez, pour me faire pardonner je vous file un accès rapide : [release=mitsudomoe|ep7,ep8]Mitsudomoe 7 & 8[/release]
+OK, OK, j'arrête {\">_<}. S'il vous reste des cailloux de la dernière fois, vous pouvez me les jeter. Allez, pour me faire pardonner je vous file un accès rapide : [release=mitsudomoe|ep7,ep8]Mitsudomoe 7 & 8[/release]
 
 J'en profite pour vous rappeler que le site est en cours de raffinage, et comme j'en ai fait beaucoup dernièrement (le lien rapide en est un ajout) il est possible que certains bogues me soient passés sous le nez. Aussi n'hésitez pas à me crier dessus si vous en trouvez {'^_^}.
 
@@ -366,7 +366,7 @@ Sur ceux, bon visionnage {^_^}.");
 
 On embauche des timeurs ! On n'en a pas assez et du coup chacun essaye de faire pour avoir un time à peu près correcte... Mais ce n'est pas la même chose quand quelqu'un s'y met à plein temps. C'est quelque chose qui nous ralentis beaucoup car, même si ce n'est pas difficile, ça demande du temps pour faire quelque chose de bien (en tout cas pour suivre notre charte qualité {^_^}). On a les outils, les connaissances, il ne manque plus que les personnes motivées !
 
-Si vous êtes interessés, les candidatures sont ouvertes (cliquez sur [b]Recrutement[/b] dans le menu à gauche) ! Si vous êtes soucieux du détail au point d'en faire chier vos amis, c'est un plus ! Oui on est des vrai SM à la Zéro {>.&lt;}.");
+Si vous êtes interessés, les candidatures sont ouvertes (cliquez sur [b]Recrutement[/b] dans le menu à gauche) ! Si vous êtes soucieux du détail au point d'en faire chier vos amis, c'est un plus ! Oui on est des vrai SM à la Zéro {>.<}.");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
@@ -410,7 +410,7 @@ Tout d'abord, sachez que le site est actuellement en cours de raffinage. Autreme
 
 Voilà, les mauvaises nouvelles c'est fini ! Passons aux réjoussances : 3 nouveaux épisodes de Mitsudomoe sont terminés (4 à 6). Si vous ne les voyez pas sur la page de la série... c'est encore de ma faute (lapidez-moi si vous voulez {;_;}). Si au contraire vous les voyez, alors profitez-en, ruez-vous dessus, parce que depuis le temps qu'on n'a pas fait de news vous devez avoir faim, non ? {^_°}
 
-Allez, mangez doucement, ça se déguste les animes (purée j'ai la dalle maintenant {'>.&lt;}). Cela dit, si vous en voulez encore, on a un bon dessert tout droit sorti du restau : Working!! fait désormais partie de nos futurs projets ! Certains doivent se dire qu'il y ont déjà goûté ailleurs... Mais non ! Parce que vous aurez droit aux deux saisons {^o^}v. Tout le monde le sait (surtout dans le Sud de la France), quand on a bien mangé, une sieste s'impose. Vous pourrez donc rejoindre la fille aux ondes dans son futon : Denpa Onna to Seishun Otoko vient aussi allonger la liste de nos projets ! On dit même qu'un projet mystère se faufile entre les membres de l'équipe...
+Allez, mangez doucement, ça se déguste les animes (purée j'ai la dalle maintenant {'>.<}). Cela dit, si vous en voulez encore, on a un bon dessert tout droit sorti du restau : Working!! fait désormais partie de nos futurs projets ! Certains doivent se dire qu'il y ont déjà goûté ailleurs... Mais non ! Parce que vous aurez droit aux deux saisons {^o^}v. Tout le monde le sait (surtout dans le Sud de la France), quand on a bien mangé, une sieste s'impose. Vous pourrez donc rejoindre la fille aux ondes dans son futon : Denpa Onna to Seishun Otoko vient aussi allonger la liste de nos projets ! On dit même qu'un projet mystère se faufile entre les membres de l'équipe...
 
 Pour terminer, un petit mot sur notre charte qualité. Nous avons décidé de ne plus sortir de releases issues d'une version TV, mais de ne faire que des Blu-Ray. Bien entendu, on fera toujours attention aux petites connexions : nos encodeurs travaillent d'arrache pied pour vous fournir la meilleure vidéo dans le plus petit fichier. J'espère donc que vous apprécierez la qualité de nos futurs épisodes {^_^} (et que vous n'aurez pas trop de pages boguées {'-.-}).");
 			$news->setPartnerNews(false);
@@ -652,7 +652,7 @@ Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo
 
 Dans la suite de notre reprise tant attendue, on ne relâche pas le rythme ! Après la sortie d'un genre classique chez Zéro, on poursuit avec l'une de nos spécialités : [i]Faisons l'amour ensemble[/i] revient en force avec un nouvel épisode (de quoi combler les déçus du 4e opus) et un épisode bonus !
 
-Tout d'abord, ce 5e épisode nous sort le grand jeu : la petite s&#339;ur est dans la place ! Après plusieurs années sans nouvelles de son grand frère, voilà qu'elle a bien grandi et décide donc de taper l'incruste. Voilà une bonne occasion de faire le ménage (les filles sont douées pour ça {^.^}~). À la suite de quoi une bonne douche s'impose... Et si on la prenait ensemble comme au bon vieux temps, [i]oniichan[/i] ?
+Tout d'abord, ce 5e épisode nous sort le grand jeu : la petite sœur est dans la place ! Après plusieurs années sans nouvelles de son grand frère, voilà qu'elle a bien grandi et décide donc de taper l'incruste. Voilà une bonne occasion de faire le ménage (les filles sont douées pour ça {^.^}~). À la suite de quoi une bonne douche s'impose... Et si on la prenait ensemble comme au bon vieux temps, [i]oniichan[/i] ?
 
 Pour ceux qui auraient encore des réserves (faut dire qu'on vous a donné le temps pour {^_^}), un épisode bonus aux sources chaudes vous attend ! Akina, cette jeune demoiselle du premier épisode, revient nous saluer avec son charme généreux et son côté ivre toujours aussi mignon. Vous en dégusterez bien un morceau après le bain, non ?
 
@@ -726,7 +726,7 @@ Bonne chance à ceux qui sont en examens, et que ceux qui sont en vacances en pro
 			$news->setCommentId(231);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep0'));
-			$news->setMessage("[video]http://vimeo.com/moogaloop.swf?clip_id=12592506&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ffffff&amp;fullscreen=1[/video]");
+			$news->setMessage("[video]http://vimeo.com/moogaloop.swf?clip_id=12592506&server=vimeo.com&show_title=0&show_byline=0&show_portrait=0&color=ffffff&fullscreen=1[/video]");
 			$news->setPartnerNews(false);
 			News::$allNews[] = $news;
 
@@ -1248,7 +1248,7 @@ Kodomo no Jikan touche à sa fin (bouhouh T__T) et on nous a proposé un anime sur
 			$news->setTeamNews(false);
 			$news->setMessage("Allez pour me faire pardonner de ma dernière news, un petit goût de Noël dans cette mini-news (cliquez sur l'image).
 
-[url=images/news/&#91;Zero Fansub&#93;Noel 2011.zip][img=images/news/noel3.jpg]Joyeux Noël ![/img][/url]");
+[url=images/news/%5BZero Fansub%5DNoel 2011.zip][img=images/news/noel3.jpg]Joyeux Noël ![/img][/url]");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
@@ -1492,7 +1492,7 @@ Praia dit :
 \"On abandonne tout et on recommence : Tayutama 6 et 7 en copro avec la Maboroshi.
 Bon leech ! Version MP4 disponible uniquement.
 Kanamemo, c'est quoi ? C'est la série des petits pervers... non, vous voyez, suis pas fait pour faire des news, moi... ^_^
-Dommage que Sunao ne soit pas là... Il nous aurait pondu une brique > &lt;\"
+Dommage que Sunao ne soit pas là... Il nous aurait pondu une brique > <\"
 
 
 Tarf dit :
@@ -2035,7 +2035,7 @@ Ciao !
 Sortie de Kujibiki Unbalance, l'épisode 04 ! Je tiens à remercier DC, qui, par pitié peut-être ^^, nous a encodé cet épisode.
 
 Oui ! Comme vous l'avez compris, nous recrutons de manière urgente un encodeur !
-N'hésitez pas à vous proposer [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] &gt; [url=index.php?page=recrutement]Lien[/url].
+N'hésitez pas à vous proposer [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] > [url=index.php?page=recrutement]Lien[/url].
 
 Aujourd'hui, 1er décembre, journée internationale du Sida. Nous vous rappelons que les dons et les clicks sur les pubs sont reversés à l'association medecin du monde. Nous avons besoin de vous !
 [url=index.php?page=dons]En savoir plus sur le fonctionnement des dons sur le site[/url]
@@ -2267,7 +2267,7 @@ Profitions-en pour discutailler ! Alors, toi, lecteur de news de Zéro... Tu es p
 			$news->setTimestamp(strtotime("16 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/taigahand.jpg[/img]
-Après une semaine d'absence (je passais mon Bac Blanc >.&lt; ), nous reprenons notre travail. Ou plutôt, notre partenaire [url=http://japanslash.free.fr]Maboroshi[/url] nous fait reprendre le travail ^^ Sortie de l'épisode 19 de toradora, avec notre petite Taiga toute kawaii autant sur l'image de cette news que dans l'épisode ! Comme d'hab, DDL sur le site, Torrent bientôt (Merci à Khorx), XDCC bientôt et déjà dispo chez [url=http://japanslash.free.fr]Maboroshi[/url]. [project=toradora]\"Ze veux l'épisodeuh !\"[/project].");
+Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notre travail. Ou plutôt, notre partenaire [url=http://japanslash.free.fr]Maboroshi[/url] nous fait reprendre le travail ^^ Sortie de l'épisode 19 de toradora, avec notre petite Taiga toute kawaii autant sur l'image de cette news que dans l'épisode ! Comme d'hab, DDL sur le site, Torrent bientôt (Merci à Khorx), XDCC bientôt et déjà dispo chez [url=http://japanslash.free.fr]Maboroshi[/url]. [project=toradora]\"Ze veux l'épisodeuh !\"[/project].");
 			$news->setCommentId(46);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep19'));
@@ -2476,14 +2476,14 @@ RIIINN est revenue ! Elle nous apporte son dixième épisode. Plus que 2 avant la 
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Kodomo no Jikan 09, Recrutement QC, trad it&gt;fr");
+			$news->setTitle("Kodomo no Jikan 09, Recrutement QC, trad it>fr");
 			$news->setTimestamp(strtotime("13 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/kodomo9.jpg[/img]
 Rin, Kuro et Mimi reviennent enfin vous montrer la suite de leurs aventures ! Sortie aujourd'hui de l'épisode 09, merci à DC qui nous l'a encodé. Les 3 versions habituelles sont dispos en DDL.
 
 Nous recrutons toujours un QC ! Proposez-vous !
-Nous avons décider de reprendre le projet Mermaid Melody Pichi Pichi Pitch, mais pour cela nous avons besoin d'un traducteur italien &gt; français. N'hésitez pas à postuler si vous êtes intéressés [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] Par avance, merci. [url=index.php?page=recrutement]Lien[/url]
+Nous avons décider de reprendre le projet Mermaid Melody Pichi Pichi Pitch, mais pour cela nous avons besoin d'un traducteur italien > français. N'hésitez pas à postuler si vous êtes intéressés [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] Par avance, merci. [url=index.php?page=recrutement]Lien[/url]
 
 [b]Les dernières sorties de la [url=http://www.kanaii.com/]Kanaii[/url] :[/b]
 Kanokon pack DVD 06 à 12
