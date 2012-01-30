@@ -2,8 +2,6 @@
 	$page = PageContent::getInstance();
 	$page->addComponent(new Title("Avertissement", 1));
 	
-	$page->addComponent(new Archives());
-	
 	$content = new SimpleBlockComponent();
 	$content->setClass("havert");
 	$page->addComponent($content);
