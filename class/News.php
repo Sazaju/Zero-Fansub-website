@@ -3749,7 +3749,7 @@ Enfin bref, vous l'aurez compris, je me suis éclaté ce weekend. Et en plus j'ai 
 [/spoiler]
 
 NB : pour ceux qui ont vu que la section H était hors service, normalement ça a été corrigé.");
-			//$news->setCommentId(999); //TODO
+			$news->setCommentId(287);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(true);
