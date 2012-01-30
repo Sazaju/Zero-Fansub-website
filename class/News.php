@@ -3720,6 +3720,42 @@ db0 à gauche et Angel à droite.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("V3.4 du site !");
+			$news->setTimestamp(strtotime("30 January 2012 00:40"));
+			$news->setMessage("Après avoir bien bossé ce weekend, je reviens vous faire un petit topo sur l'avancement du raffinage {^_^}. Pour éviter de vous agresser les yeux je vous met les détails en spoiler {^_°}. Pour faire bref, les news sont toutes raffinées (c'est ce qui fait ce changement de version) et le BBCode est dispo.
+
+[spoiler=Afficher les détails]
+* [b]Toutes les news[/b] sont désormais raffinées. La gestion a été fusionnée (il y en avait une pour chaque [i]archive[/i]) de manière à ce que tout soit homogène. Au passage ces [i]archives[/i] sont désormais des [i]vues[/i]. Par défaut elles affichent les [b]10 dernières news[/b] pour éviter de surcharger la page (avant elles affichaient la liste complète, seule la page d'accueil étant réduite à 10). Elles sont capables de tout afficher, mais je n'ai pas mis de fonctionnalité pour le faire simplement (il faut rajouter l'élément [i]showAll[/i] à la main dans l'URL). Pour l'instant ça reste comme ça, j'espère implémenter un système de pagination, dire de pouvoir voyager dedans... parce que tout afficher c'est vraiment barbare {'^_^}.
+
+* [b]L'utilisation du BBCode est désormais possible[/b]. Vous me direz ça sert à rien si on peut pas entrer de nouvelles données {'^_^}. Je suis d'accord, mais j'aimerais que certaines fonctionnalités soient déjà implémentées avant que cela ne devienne possible, dire de pas avoir tout à faire en même temps. De plus je me suis amusé à réécrire [u]toutes[/u] les news (164, à la base en HTML ou en objets PHP) en utilisant ce BBCode, de façon à le tester.
+
+Pour ceux qui connaissent les fonctionnalités PHP pour le BBCode, sachez que j'ai tout recodé [b]à partir de zéro[/b]. Non pas que je voulais me faire chier pour rien, mais je voulais simplement avoir quelque chose de plus cohérent et souple. En particulier, les fonctionnalités BBCode de PHP n'étant pas disponibles de base (il faut installer le module) c'est un énorme point noir si un jour on se retrouve sur un serveur où on ne peut pas le mettre. Là on a notre propre parseur... et j'ai déjà plusieurs balises bien sympathiques {^_^}.
+
+Par exemple, pour accéder directement à des projets ou des releases données. [code][release=mitsudomoe|*]lien[/release][/code] donne ce [release=mitsudomoe|*]lien[/release], affichant toutes les releases de Mitsudomoe. C'est ce que j'ai appelé un [i]lien rapide[/i] dans une news précédente, il a désormais son équivalent BBCode. On peut remplacer [code]*[/code] par une liste d'ID d'épisodes pour ne lister que ceux là.
+
+De même ma balise [code]code[/code] (implémentée spécifiquement pour cette news, juste pour vanter les mérites de mon parseur) me permet d'afficher même le BBCode, sans avoir besoin de tricher sur le codage des caractères, ou mettre un caractère spécial pour éviter que ce soit interprété. Mon exemple avec les releases n'est rien d'autre que ce code :
+
+[code][code][release=mitsudomoe|*]lien[/release][/code] donne ce [release=mitsudomoe|*]lien[/release][/code]
+
+De même, un spoiler s'écrit d'habitude comme ça : [code][spoiler=titre]...[/spoiler][/code]. Ainsi, le titre s'affiche d'abord seul, puis il faut cliquer dessus pour ouvrir le spoiler. Cependant, je n'ai jamais vu de spoiler capable de prendre un [b]titre formatté en BBCode[/b], par exemple une image. Ma balise spoiler en revanche en est capable, c'est d'ailleurs le cas dans une vieille news.
+
+[spoiler=Pour les curieux]Si aucun titre n'est donné, le premier élément non vide dans le spoiler est pris comme titre (et n'est bien sûr plus affiché dans le spoiler). Ça évite les conflits lors du parsage du paramètre, qui peut alors rester générique.[/spoiler]
+
+Une autre particularité est que, lorsqu'une balise BBCode génère son code HTML, le contenu [u]préformatté[/u] est donné (une représentation en arbre du contenu) et une simple fonction permet d'obtenir la version parsée (HTML) ou la version originale (BBCode). On peut donc librement travailler sur l'une des trois versions selon le besoin. C'est ce qui me donne le plus de souplesse.
+
+Enfin bref, vous l'aurez compris, je me suis éclaté ce weekend. Et en plus j'ai pu vérifier les 5 karas de MNO, jap + fr, faire mes lessives et mes courses. C'est pas beau tout ça ? {^.^}~
+[/spoiler]
+
+NB : pour ceux qui ont vu que la section H était hors service, normalement ça a été corrigé.");
+			//$news->setCommentId(999); //TODO
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
 		}
 		
 		return News::$allNews;
