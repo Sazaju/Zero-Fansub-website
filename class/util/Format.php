@@ -132,11 +132,15 @@ class Format {
 			/**********************************\
 			         NO PARAMETERED TAGS
 			\**********************************/
+			$notFormattedContent = function($tag, $parameter, $content) {
+				return BBCodeDescriptor::contentToString($content);
+			};
 			$simpleOpenTag = function($tag, $parameter, $content) {return "<$tag>";};
 			$simpleCloseTag = function($tag, $parameter, $content) {return "</$tag>";};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("b", $simpleOpenTag, $simpleCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("i", $simpleOpenTag, $simpleCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("u", $simpleOpenTag, $simpleCloseTag));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("code", $simpleOpenTag, $simpleCloseTag, $notFormattedContent));
 			
 			/**********************************\
 			                SIZE
@@ -174,13 +178,9 @@ class Format {
 				return "</div>";
 			};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("left", $alignOpenTag, $alignCloseTag));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("l", $alignOpenTag, $alignCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("right", $alignOpenTag, $alignCloseTag));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("r", $alignOpenTag, $alignCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("center", $alignOpenTag, $alignCloseTag));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("c", $alignOpenTag, $alignCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("justify", $alignOpenTag, $alignCloseTag));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("j", $alignOpenTag, $alignCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("align", $alignOpenTag, $alignCloseTag));
 			
 			/**********************************\
@@ -285,7 +285,6 @@ class Format {
 			};
 			$linkCloseTag = function($tag, $parameter, $content) {return "</a>";};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("url", $linkOpenTag, $linkCloseTag));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("external", $linkOpenTag, $linkCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("ext", $linkOpenTag, $linkCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("mail", $linkOpenTag, $linkCloseTag));
 			
