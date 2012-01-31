@@ -752,11 +752,8 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("toradorabento", "Toradora! OAD");
-			//$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
-			//$project->setOriginalName("Toradora!");
-			//$project->setOfficialWebsite(Link::newWindowLink("http://www.starchild.co.jp/special/toradora/", "Toradora"));
-			//$project->setAiringYear(2008);
-			//$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
+			$project->setOriginalName("Toradora! Bentou no Gokui");
+			$project->setAiringYear(2011);
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Takemiya Yuyuko");
 			$project->setSynopsis("Faire un bentô peut être compliqué. Ce doit être un repas équilibré, permettant de tenir tout l'après-midi. Ryuuji le sait bien, après tout il met un point d'honneur à ce que ses bentôs soient digne d'un étudiant en pleine croissance... Oui mais voilà, Yuusaku se trouve être secondé par sa grand-mère dans cette tâche. Grand-mère qui, au passage, semble maîtriser fort bien l'art du repas en boîte. Ryuuji tentera dès lors de faire valoir ses capacités de cuisinier... Par tous les moyens.");
