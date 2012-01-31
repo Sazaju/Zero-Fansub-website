@@ -6261,7 +6261,7 @@ class Release {
 			$release = new Release(Project::getProject("toradorabento"), "ep0");
 			$release->setPreviewUrl("images/episodes/toradorabento.png");
 			$release->setHeaderImage("images/sorties/toradorabento.png");
-			$release->setComment("Attention : l'episode est disponible sous deux formats, 8 et 10 bits. Le 8 bits est le format classique, vous pouvez le telecharger et regarder l'episode comme vous en avez l'habitude. Le 10 bits en revanche necessite d'avoir des codecs recents et a jour. Si vous n'arrivez pas a le lire, essayez de voir si une version plus recente de votre lecteur est disponible.");
+			$release->setComment("Attention : l'épisode est disponible sous deux formats, 8 et 10 bits. Le 8 bits est le format classique, vous pouvez le télécharger et regarder l'épisode comme vous en avez l'habitude. Le 10 bits en revanche nécessite d'avoir des codecs récents et à jour. Si vous n'arrivez pas à le lire, essayez de voir si une version plus récente de votre lecteur est disponible.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Toradora_OAD_[8bits-720p][63DBA17D].mp4");
 			$descriptor->setID("8 bits");
 			$descriptor->setVideoCodec($h264);

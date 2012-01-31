@@ -3769,7 +3769,9 @@ Certains l'ont demandé, le voilà tout droit sorti du four.
 
 [img=images/news/toradorabento2.png]Toradora! Bentô[/img]
 
-Encore une news qui m'aura donné la dalle {'-_-}.");
+Encore une news qui m'aura donné la dalle {'-_-}.
+[pin]
+Notez que l'épisode est aussi disponible en 1080p (certains l'ont demandé... et ben on l'a fait aussi). Cela dit on passe par une méthode pas encore passe partout (10 bits). Assurez-vous d'avoir des codecs à jour pour pouvoir le lire.");
 			$news->setCommentId(288);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
