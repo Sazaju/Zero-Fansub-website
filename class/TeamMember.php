@@ -159,12 +159,14 @@ class TeamMember {
 			$member->setPseudo("Jembé");
 			$member->setImage("jembe.png");
 			$member->addRole(Role::getRole("adapt"));
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(3);
 			$member->setPseudo("Ryuuken");
 			$member->setImage("ryuuken.jpeg");
 			$member->addRole(Role::getRole("adapt"));
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(4);
@@ -237,6 +239,7 @@ class TeamMember {
 			$member->setFirstName("Zack");
 			$member->setAge(22);
 			$member->setLocation("Marseille");
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(12);
@@ -256,6 +259,7 @@ class TeamMember {
 			$member->setPseudo("Litinae");
 			$member->setImage("litinae.jpg");
 			$member->addRole(Role::getRole("tradEn"));
+			$member->setGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(15);
