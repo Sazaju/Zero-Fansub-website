@@ -3724,6 +3724,7 @@ db0 à gauche et Angel à droite.");
 			$news = new News();
 			$news->setTitle("V3.4 du site !");
 			$news->setTimestamp(strtotime("30 January 2012 00:40"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Après avoir bien bossé ce weekend, je reviens vous faire un petit topo sur l'avancement du raffinage {^_^}. Pour éviter de vous agresser les yeux je vous met les détails en spoiler {^_°}. Pour faire bref, les news sont toutes raffinées (c'est ce qui fait ce changement de version) et le BBCode est dispo.
 
 [spoiler=Afficher les détails]
@@ -3755,6 +3756,27 @@ NB : pour ceux qui ont vu que la section H était hors service, normalement ça a 
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Toradora! OAD");
+			$news->setTimestamp(strtotime("30 January 2012 20:16"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("[project=toradorabento][imgl=images/news/toradorabento.png]Toradora! Bentô[/imgl][/project]
+Certains l'ont demandé, le voilà tout droit sorti du four.
+
+À consommer sans modération {^_^}.
+
+[img=images/news/toradorabento2.png]Toradora! Bentô[/img]
+
+Encore une news qui m'aura donné la dalle {'-_-}.");
+			$news->setCommentId(288);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Project::getProject('toradorabento'));
 			News::$allNews[] = $news;
 		}
 		

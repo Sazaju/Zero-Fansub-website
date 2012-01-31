@@ -322,7 +322,7 @@ class Format {
 					try {
 						$link = new ProjectLink(Project::getProject($parameter[0]));
 						if (!empty($content)) {
-							$link->setContent($content);
+							$link->setContent(BBCodeDescriptor::contentToHTML($content));
 						}
 					} catch(Exception $e) {
 						$link = new ProjectLink(Project::getProject($content));

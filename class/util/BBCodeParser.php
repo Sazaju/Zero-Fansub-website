@@ -254,5 +254,9 @@ class BBCodeDescriptor {
 		}
 		return $content;
 	}
+	
+	public static function contentToHTML($contentArray) {
+		return BBCodeDescriptor::defaultContentCallback(null, null, $contentArray);
+	}
 }
 ?>

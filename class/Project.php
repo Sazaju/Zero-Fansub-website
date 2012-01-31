@@ -732,72 +732,6 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setAuthor("Takemiya Yuyuko");
 			$project->setSynopsis("Ami, Taiga et Ryuuji décident d'aller chez Jonny's pour y gouter les spaghettis Tarako. Sur place ils retrouvent Minori et la dégustation culinaire vire au duel...");
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
-			$project->addBonus(new ProjectBonus("OST", '<div style="float : right; display:block; margin-right: 20px;">
-	<img src="ost/[Zero] Toradora! OP Single - Pre-Parade.jpg" border="0">
-</div>
-<p>Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
-<b>Nom</b> [Zero] Toradora! OP Single - Pre-Parade<br />
-<b>Pistes audio</b><br />
-01 - Pre-Parade<br />
-02 - Ka Ra Ku Ri<br />
-03 - Pre-Parade (off vocal ver.)<br />
-04 - Ka Ra Ku Ri (off vocal ver.)<br />
-<b>+ 4 images</b><br />
-<b>Taille totale</b> 35 Mo.<br />
-<br />
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png">		[ <a href="ost/[Zero] Toradora! OP Single - Pre-Parade.zip">Télécharger l\'archive .ZIP</a> ]<br />
-
-<img src="images/icones/torrent.png"> 		[ <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Toradora!%20OP%20Single%20-%20Pre-Parade%20%5BVarious%5D.zip.torrent">Torrent (Nipponsei)</a> ]<br />
-	<img src="ost/[Zero] Toradora! ED Single - Vanilla Salt - Horie Yui.jpg" border="0"  style="float : left; display:block; margin-left: 20px;">
-<b>Nom</b> [Zero] Toradora! ED Single - Vanilla Salt - Horie Yui<br />
-<b>Pistes audio</b><br />
-01 - Vanilla Salt<br />
-02 - I my me<br />
-03 - Vanilla Salt (off vocal ver.)<br />
-04 - I my me (off vocal ver.)<br />
-<b>+ 4 images</b><br />
-<b>Taille totale</b> 42 Mo.<br />
-<br />
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png">		[ <a href="ost/[Zero] Toradora! ED Single - Vanilla Salt - Horie Yui.zip">Télécharger l\'archive .ZIP</a> ]<br />
-
-<img src="images/icones/torrent.png"> 		[ <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Toradora!%20ED%20Single%20-%20Vanilla%20Salt%20%5BHorie%20Yui%5D.zip.torrent">Torrent (Nipponsei)</a> ]'));
-			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
-<p>
-	<a href="images/cover/[Zero]Toradora_Cover01.jpg" target="_blank">
-	<img src="images/cover/[Zero]Toradora_Cover01.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-	<a href="images/cover/[Zero]Toradora_Cover02.jpg" target="_blank">
-	<img src="images/cover/[Zero]Toradora_Cover02.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-	<a href="images/cover/[Zero]Toradora_Cover03.jpg" target="_blank">
-	<img src="images/cover/[Zero]Toradora_Cover03.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-	<a href="images/cover/[Zero]Toradora_Cover.jpg" target="_blank">
-	<img src="images/cover/[Zero]Toradora_Cover.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-	<a href="images/cover/[Zero]Toradora_Label.jpg" target="_blank">
-	<img src="images/cover/[Zero]Toradora_Label.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-</p>'));
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/75812"><img src="http://getpersonas-cdn.mozilla.net/static/1/2/75812/preview.jpg?1261355186" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/92100"><img src="http://getpersonas-cdn.mozilla.net/static/0/0/92100/preview.jpg?1264947658" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/97183"><img src="http://getpersonas-cdn.mozilla.net/static/8/3/97183/preview.jpg?1265514870" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/107104"><img src="http://getpersonas-cdn.mozilla.net/static/0/4/107104/preview.jpg?1266634442" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/111779"><img src="http://getpersonas-cdn.mozilla.net/static/7/9/111779/preview.jpg?1267020347" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/123049"><img src="http://getpersonas-cdn.mozilla.net/static/4/9/123049/preview.jpg?1268381765" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/137800"><img src="http://getpersonas-cdn.mozilla.net/static/0/0/137800/preview.jpg?1268916096" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/129800"><img src="http://getpersonas-cdn.mozilla.net/static/0/0/129800/preview.jpg?1268570882" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/145485"><img src="http://getpersonas-cdn.mozilla.net/static/8/5/145485/preview.jpg?1270054918" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/161326"><img src="http://getpersonas-cdn.mozilla.net/static/2/6/161326/preview.jpg?1270042852" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/169796"><img src="http://getpersonas-cdn.mozilla.net/static/9/6/169796/preview.jpg?1270408779" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/190100"><img src="http://getpersonas-cdn.mozilla.net/static/0/0/190100/preview.jpg?1271618180" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/205389"><img src="http://getpersonas-cdn.mozilla.net/static/8/9/205389/preview.jpg?1273098873" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/204714"><img src="http://getpersonas-cdn.mozilla.net/static/1/4/204714/preview.jpg?1273099951" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/221228"><img src="http://getpersonas-cdn.mozilla.net/static/2/8/221228/preview.jpg?1278446057" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/220075"><img src="http://getpersonas-cdn.mozilla.net/static/7/5/220075/preview.jpg?1278446084" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/223130"><img src="http://getpersonas-cdn.mozilla.net/static/3/0/223130/preview.jpg?1275476469" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/223131"><img src="http://getpersonas-cdn.mozilla.net/static/3/1/223131/preview.jpg?1275476559" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/229455"><img src="http://getpersonas-cdn.mozilla.net/static/5/5/229455/preview.jpg?1276434404" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/223134"><img src="http://getpersonas-cdn.mozilla.net/static/3/4/223134/preview.jpg?1275477090" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/246423"><img src="http://getpersonas-cdn.mozilla.net/static/2/3/246423/preview.jpg?1278221246" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/247218"><img src="http://getpersonas-cdn.mozilla.net/static/1/8/247218/preview.jpg?1278329550" border="0" alt="Toradora theme firefox" /></a>'));
 			$project->setDiscussionUrl("http://zero.xooit.fr/t357-Ton-avis-sur-Toradora.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -813,72 +747,19 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setSynopsis("En raison de son regard menaçant hérité de son père, Takasu Ryuuji est un adolescent craint, car considéré comme un délinquant, par les autres élèves de son lycée. Cette image étant à l’opposé de ce qu’il est réellement, ce dernier aimerait s’en séparer définitivement afin de ne plus souffrir des conséquences qui en découlent. Ryuuji ne perd pas espoir d’y arriver grâce notamment à son ami Kitamura qui, en plus d’avoir vu clair dans cette mésentente, lui a permis de rencontrer Kushieda Minori dont il est tombé amoureux. Alors qu’il pense à elle, il bouscule par mégarde Asaika Taiga, une élève de sa classe et amie de Minori dont le mauvais caractère n’a d’égal que sa force. Suite à un concours de circonstances, Ryuuji apprendra que Aisaka est sa nouvelle voisine et que cette dernière est amoureuse de Kitamura. Se développe alors entre les deux une relation ambiguë dans le but de se rapprocher des personnes respectives aimées.");
 			$project->setVosta('<a href="http://www.ggkthx.org/" target="_blank">GG</a>');
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
-			$project->addBonus(new ProjectBonus("OST", '<div style="float : right; display:block; margin-right: 20px;">
-	<img src="ost/[Zero] Toradora! OP Single - Pre-Parade.jpg" border="0">
-</div>
-<p>Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
-<b>Nom</b> [Zero] Toradora! OP Single - Pre-Parade<br />
-<b>Pistes audio</b><br />
-01 - Pre-Parade<br />
-02 - Ka Ra Ku Ri<br />
-03 - Pre-Parade (off vocal ver.)<br />
-04 - Ka Ra Ku Ri (off vocal ver.)<br />
-<b>+ 4 images</b><br />
-<b>Taille totale</b> 35 Mo.<br />
-<br />
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png">		[ <a href="ost/[Zero] Toradora! OP Single - Pre-Parade.zip">Télécharger l\'archive .ZIP</a> ]<br />
-
-<img src="images/icones/torrent.png"> 		[ <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Toradora!%20OP%20Single%20-%20Pre-Parade%20%5BVarious%5D.zip.torrent">Torrent (Nipponsei)</a> ]<br />
-	<img src="ost/[Zero] Toradora! ED Single - Vanilla Salt - Horie Yui.jpg" border="0"  style="float : left; display:block; margin-left: 20px;">
-<b>Nom</b> [Zero] Toradora! ED Single - Vanilla Salt - Horie Yui<br />
-<b>Pistes audio</b><br />
-01 - Vanilla Salt<br />
-02 - I my me<br />
-03 - Vanilla Salt (off vocal ver.)<br />
-04 - I my me (off vocal ver.)<br />
-<b>+ 4 images</b><br />
-<b>Taille totale</b> 42 Mo.<br />
-<br />
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png">		[ <a href="ost/[Zero] Toradora! ED Single - Vanilla Salt - Horie Yui.zip">Télécharger l\'archive .ZIP</a> ]<br />
-
-<img src="images/icones/torrent.png"> 		[ <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Toradora!%20ED%20Single%20-%20Vanilla%20Salt%20%5BHorie%20Yui%5D.zip.torrent">Torrent (Nipponsei)</a> ]'));
-			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
-<p>
-	<a href="images/cover/[Zero]Toradora_Cover01.jpg" target="_blank">
-	<img src="images/cover/[Zero]Toradora_Cover01.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-	<a href="images/cover/[Zero]Toradora_Cover02.jpg" target="_blank">
-	<img src="images/cover/[Zero]Toradora_Cover02.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-	<a href="images/cover/[Zero]Toradora_Cover03.jpg" target="_blank">
-	<img src="images/cover/[Zero]Toradora_Cover03.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-	<a href="images/cover/[Zero]Toradora_Cover.jpg" target="_blank">
-	<img src="images/cover/[Zero]Toradora_Cover.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-	<a href="images/cover/[Zero]Toradora_Label.jpg" target="_blank">
-	<img src="images/cover/[Zero]Toradora_Label.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-</p>'));
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/75812"><img src="http://getpersonas-cdn.mozilla.net/static/1/2/75812/preview.jpg?1261355186" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/92100"><img src="http://getpersonas-cdn.mozilla.net/static/0/0/92100/preview.jpg?1264947658" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/97183"><img src="http://getpersonas-cdn.mozilla.net/static/8/3/97183/preview.jpg?1265514870" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/107104"><img src="http://getpersonas-cdn.mozilla.net/static/0/4/107104/preview.jpg?1266634442" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/111779"><img src="http://getpersonas-cdn.mozilla.net/static/7/9/111779/preview.jpg?1267020347" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/123049"><img src="http://getpersonas-cdn.mozilla.net/static/4/9/123049/preview.jpg?1268381765" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/137800"><img src="http://getpersonas-cdn.mozilla.net/static/0/0/137800/preview.jpg?1268916096" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/129800"><img src="http://getpersonas-cdn.mozilla.net/static/0/0/129800/preview.jpg?1268570882" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/145485"><img src="http://getpersonas-cdn.mozilla.net/static/8/5/145485/preview.jpg?1270054918" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/161326"><img src="http://getpersonas-cdn.mozilla.net/static/2/6/161326/preview.jpg?1270042852" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/169796"><img src="http://getpersonas-cdn.mozilla.net/static/9/6/169796/preview.jpg?1270408779" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/190100"><img src="http://getpersonas-cdn.mozilla.net/static/0/0/190100/preview.jpg?1271618180" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/205389"><img src="http://getpersonas-cdn.mozilla.net/static/8/9/205389/preview.jpg?1273098873" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/204714"><img src="http://getpersonas-cdn.mozilla.net/static/1/4/204714/preview.jpg?1273099951" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/221228"><img src="http://getpersonas-cdn.mozilla.net/static/2/8/221228/preview.jpg?1278446057" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/220075"><img src="http://getpersonas-cdn.mozilla.net/static/7/5/220075/preview.jpg?1278446084" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/223130"><img src="http://getpersonas-cdn.mozilla.net/static/3/0/223130/preview.jpg?1275476469" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/223131"><img src="http://getpersonas-cdn.mozilla.net/static/3/1/223131/preview.jpg?1275476559" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/229455"><img src="http://getpersonas-cdn.mozilla.net/static/5/5/229455/preview.jpg?1276434404" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/223134"><img src="http://getpersonas-cdn.mozilla.net/static/3/4/223134/preview.jpg?1275477090" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/246423"><img src="http://getpersonas-cdn.mozilla.net/static/2/3/246423/preview.jpg?1278221246" border="0" alt="Toradora theme firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/247218"><img src="http://getpersonas-cdn.mozilla.net/static/1/8/247218/preview.jpg?1278329550" border="0" alt="Toradora theme firefox" /></a>'));
+			$project->setDiscussionUrl("http://zero.xooit.fr/t357-Ton-avis-sur-Toradora.htm");
+			$project->setFinished(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("toradorabento", "Toradora! OAD");
+			//$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			//$project->setOriginalName("Toradora!");
+			//$project->setOfficialWebsite(Link::newWindowLink("http://www.starchild.co.jp/special/toradora/", "Toradora"));
+			//$project->setAiringYear(2008);
+			//$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
+			$project->setGenre("Comédie - Amour et Amitié");
+			$project->setAuthor("Takemiya Yuyuko");
+			$project->setSynopsis("Faire un bentô peut être compliqué. Ce doit être un repas équilibré, permettant de tenir tout l'après-midi. Ryuuji le sait bien, après tout il met un point d'honneur à ce que ses bentôs soient digne d'un étudiant en pleine croissance... Oui mais voilà, Yuusaku se trouve être secondé par sa grand-mère dans cette tâche. Grand-mère qui, au passage, semble maîtriser fort bien l'art du repas en boîte. Ryuuji tentera dès lors de faire valoir ses capacités de cuisinier... Par tous les moyens.");
 			$project->setDiscussionUrl("http://zero.xooit.fr/t357-Ton-avis-sur-Toradora.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -1409,6 +1290,8 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
 			Project::$allLinks[] = array(Project::getProject('kissxsis'), Project::getProject('kissxsisoav'));
 			Project::$allLinks[] = array(Project::getProject('hyakko'), Project::getProject('hyakkooav'));
 			Project::$allLinks[] = array(Project::getProject('toradora'), Project::getProject('toradorasos'));
+			Project::$allLinks[] = array(Project::getProject('toradora'), Project::getProject('toradorabento'));
+			Project::$allLinks[] = array(Project::getProject('toradorasos'), Project::getProject('toradorabento'));
 			Project::$allLinks[] = array(Project::getProject('tayutama'), Project::getProject('tayutamapure'));
 			Project::$allLinks[] = array(Project::getProject('sketchbook'), Project::getProject('sketchbookdrama'));
 			Project::$allLinks[] = array(Project::getProject('potemayo'), Project::getProject('potemayooav'));

@@ -6257,6 +6257,25 @@ class Release {
 			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.3.gif", "3"));
 			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("toradorabento"), "ep0");
+			$release->setPreviewUrl("images/episodes/toradorabento.png");
+			$release->setHeaderImage("images/sorties/toradorabento.png");
+			$release->setComment("Attention : l'episode est disponible sous deux formats, 8 et 10 bits. Le 8 bits est le format classique, vous pouvez le telecharger et regarder l'episode comme vous en avez l'habitude. Le 10 bits en revanche necessite d'avoir des codecs recents et a jour. Si vous n'arrivez pas a le lire, essayez de voir si une version plus recente de votre lecteur est disponible.");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Toradora_OAD_[8bits-720p][63DBA17D].mp4");
+			$descriptor->setID("8 bits");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$descriptor = new ReleaseFileDescriptor("[Zero]Toradora_OAD_[10bits-1080p][967DCF40].mp4");
+			$descriptor->setID("10 bits");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('30 January 2012 20:14'));
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}
