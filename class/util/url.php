@@ -179,7 +179,7 @@ class Url {
 	}
 	
 	private function isStrangeScript() {
-		// managed examples of strange scripts :
+		// examples of strange scripts recognized by this code :
 		// index.php/%22onmouseover=prompt(987201)%3E
 		$current = $this->data[URL_PATH];
 		$script = $_SERVER['SCRIPT_NAME'];
@@ -188,7 +188,7 @@ class Url {
 		}
 	}
 	
-	public function removeStrangeParts() {
+	public function cleanStrangeParts() {
 		if ($this->isStrangeScript()) {
 			$this->data[URL_PATH] = $_SERVER['SCRIPT_NAME'];
 		}

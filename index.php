@@ -87,7 +87,7 @@ unset($criticalDataFile);
 
 $url = Url::getCurrentUrl();
 if ($url->isStrangeUrl()) {
-	$url->removeStrangeParts();
+	$url->cleanStrangeParts();
 	header('Location: '.$url->toFullString());
 	exit();
 }
