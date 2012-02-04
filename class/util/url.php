@@ -42,7 +42,7 @@ class Url {
 		$this->data = Url::parseUrl($url);
 	}
 	
-	public function toString() {
+	public function toString($full = false) {
 		$url = $this->data[URL_PATH];
 		
 		if ($this->data[URL_QUERY] != null) {
@@ -54,7 +54,7 @@ class Url {
 		}
 		
 		$currentDir = dirname($_SERVER["SCRIPT_NAME"]).'/';
-		if (strpos($url, $currentDir) === 0) {
+		if (!$full && strpos($url, $currentDir) === 0) {
 			$url = substr($url, strlen($currentDir));
 		} else {
 			if ($this->data[URL_SERVER] != null) {
@@ -79,6 +79,10 @@ class Url {
 		}
 		
 		return $url;
+	}
+	
+	public function toFullString() {
+		return $this->toString(true);
 	}
 	
 	public function set($part, $value) {
@@ -168,6 +172,26 @@ class Url {
 	
 	public function isCurrentDirUrl() {
 		return $this->isLocalUrl() && dirname($this->get(URL_PATH)) === dirname(Url::getCurrentDirUrl()->get(URL_PATH));
+	}
+	
+	public function isStrangeUrl() {
+		return $this->isStrangeScript();
+	}
+	
+	private function isStrangeScript() {
+		// managed examples of strange scripts :
+		// index.php/%22onmouseover=prompt(987201)%3E
+		$current = $this->data[URL_PATH];
+		$script = $_SERVER['SCRIPT_NAME'];
+		if (strpos($current, $script) === 0 && strlen($current) > strlen($script)) {
+			return true;
+		}
+	}
+	
+	public function removeStrangeParts() {
+		if ($this->isStrangeScript()) {
+			$this->data[URL_PATH] = $_SERVER['SCRIPT_NAME'];
+		}
 	}
 	
 	public static function getCurrentUrl() {

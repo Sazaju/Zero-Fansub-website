@@ -82,6 +82,17 @@ require_once($criticalDataFile);
 unset($criticalDataFile);
 
 /**********************************\
+         STRANGE URL CHECK
+\**********************************/
+
+$url = Url::getCurrentUrl();
+if ($url->isStrangeUrl()) {
+	$url->removeStrangeParts();
+	header('Location: '.$url->toFullString());
+	exit();
+}
+
+/**********************************\
              DATABASE
 \**********************************/
 
