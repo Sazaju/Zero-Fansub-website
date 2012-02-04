@@ -38,7 +38,10 @@ function exception_handler($exception) {
 			).".";
 	}
 	else {
-		echo "An error as occured : ".$exception."<br/><br/>".TESTING_FEATURE;
+		echo "An error as occured : ".$exception;
+		if (defined('TESTING_FEATURE')) {
+			echo "<br/><br/>".TESTING_FEATURE;
+		}
 		phpinfo();
 	}
 }
@@ -87,9 +90,18 @@ unset($criticalDataFile);
 
 $url = Url::getCurrentUrl();
 if ($url->isStrangeUrl()) {
+	$currentAddress = $url->toFullString();
 	$url->cleanStrangeParts();
-	header('Location: '.$url->toFullString());
-	exit();
+	$cleanAddress = $url->toFullString();
+	if (TEST_MODE_ACTIVATED) {
+		throw new Exception (Format::convertTextToHtml("Strange url ([url]".$currentAddress."[/url]), maybe expected this one : [url]".$cleanAddress."[/url]? In not testing mode, redirection will be done."));
+	} else if ($url->isStrangeUrl()) {
+		header('Location: '.$_SERVER['SCRIPT_NAME']);
+		exit();
+	} else {
+		header('Location: '.$cleanAddress);
+		exit();
+	}
 }
 
 /**********************************\
@@ -158,7 +170,6 @@ if (isset($_GET[MODE_H])) {
 /**********************************\
          RETRO COMPATIBILITY
 \**********************************/
-// TODO remove when the website will be completely refined
 $url = Url::getCurrentUrl();
 if ($url->hasQueryVar('page')) {
 	$page = $url->getQueryVar('page');
@@ -166,6 +177,7 @@ if ($url->hasQueryVar('page')) {
 		$url->setQueryVar('page', 'project');
 		$parts = preg_split("#/#", $page);
 		$url->setQueryVar('id', $parts[1]);
+		// TODO indicates it is definitively relocated
 		header('Location: '.$url->toString());
 		exit();
 	}

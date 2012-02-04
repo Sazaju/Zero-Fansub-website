@@ -5,7 +5,7 @@
 	uses a builder pattern.
 */
 
-class HtmlBuilder {
+class HTMLBuilder {
 	
 	/* FIELDS */
 	
@@ -93,8 +93,8 @@ class HtmlBuilder {
 	private function generateBody() {
 		$content = '';
 		foreach($this->components as $component) {
-			$component->generateHtml();
-			$content .= $component->getHtml();
+			$component->generateHTML();
+			$content .= $component->getHTML();
 		}
 		$this->body = '<body>'.$content.'</body>';
 	}
@@ -103,14 +103,14 @@ class HtmlBuilder {
 		return $this->body;
 	}
 	
-	public function generateHtml() {
+	public function generateHTML() {
 		$this->generateHead();
 		$this->generateBody();
 		
 		$this->html = $this->doctype.'<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">'.$this->head.$this->body.'</html>';
 	}
 	
-	public function getHtml() {
+	public function getHTML() {
 		return $this->html;
 	}
 }

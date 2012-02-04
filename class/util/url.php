@@ -54,7 +54,7 @@ class Url {
 		}
 		
 		$currentDir = dirname($_SERVER["SCRIPT_NAME"]).'/';
-		if (!$full && strpos($url, $currentDir) === 0) {
+		if (!$full && !Url::getCurrentUrl()->isStrangeUrl() && strpos($url, $currentDir) === 0) {
 			$url = substr($url, strlen($currentDir));
 		} else {
 			if ($this->data[URL_SERVER] != null) {
@@ -175,10 +175,10 @@ class Url {
 	}
 	
 	public function isStrangeUrl() {
-		return $this->isStrangeScript();
+		return $this->hasStrangePath();
 	}
 	
-	private function isStrangeScript() {
+	private function hasStrangePath() {
 		// examples of strange scripts recognized by this code :
 		// index.php/%22onmouseover=prompt(987201)%3E
 		$current = $this->data[URL_PATH];
@@ -189,7 +189,7 @@ class Url {
 	}
 	
 	public function cleanStrangeParts() {
-		if ($this->isStrangeScript()) {
+		if ($this->hasStrangePath()) {
 			$this->data[URL_PATH] = $_SERVER['SCRIPT_NAME'];
 		}
 	}
