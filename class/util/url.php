@@ -53,23 +53,28 @@ class Url {
 			$url .= '#'.$this->data[URL_FRAGMENT];
 		}
 		
-		if ($this->data[URL_SERVER] != null) {
-			$serverPart = $this->data[URL_SERVER];
-			if ($this->data[URL_PORT] != null) {
-				$serverPart .= ':'.$this->data[URL_PORT];
-			}
-			$url = $serverPart.$url;
-			
-			if ($this->data[URL_USER] != null) {
-				$userPart = $this->data[URL_USER];
-				if ($this->data[URL_PASSWORD] != null) {
-					$userPart .= ':'.$this->data[URL_PASSWORD];
+		$currentDir = dirname($_SERVER["SCRIPT_NAME"]).'/';
+		if (strpos($url, $currentDir) === 0) {
+			$url = substr($url, strlen($currentDir));
+		} else {
+			if ($this->data[URL_SERVER] != null) {
+				$serverPart = $this->data[URL_SERVER];
+				if ($this->data[URL_PORT] != null) {
+					$serverPart .= ':'.$this->data[URL_PORT];
 				}
-				$url = $userPart.'@'.$url;
-			}
-		
-			if ($this->data[URL_PROTOCOL] != null) {
-				$url = $this->data[URL_PROTOCOL].'://'.$url;
+				$url = $serverPart.$url;
+				
+				if ($this->data[URL_USER] != null) {
+					$userPart = $this->data[URL_USER];
+					if ($this->data[URL_PASSWORD] != null) {
+						$userPart .= ':'.$this->data[URL_PASSWORD];
+					}
+					$url = $userPart.'@'.$url;
+				}
+			
+				if ($this->data[URL_PROTOCOL] != null) {
+					$url = $this->data[URL_PROTOCOL].'://'.$url;
+				}
 			}
 		}
 		
@@ -152,13 +157,17 @@ class Url {
 	
 	public function fillRelativeUrl() {
 		if ($this->data[URL_PROTOCOL] == null && $this->data[URL_SERVER] == null) {
-			$this->data = Url::parseUrl(Url::getCurrentDirUrl().'/'.$this->toString());
+			$this->data = Url::parseUrl(Url::getCurrentDirUrl()->toString().'/'.$this->toString());
 		}
 	}
 	
 	public function isLocalUrl() {
 		$local = Url::getCurrentUrl();
 		return $this->get(URL_SERVER) === $local->get(URL_SERVER);
+	}
+	
+	public function isCurrentDirUrl() {
+		return $this->isLocalUrl() && dirname($this->get(URL_PATH)) === dirname(Url::getCurrentDirUrl()->get(URL_PATH));
 	}
 	
 	public static function getCurrentUrl() {
@@ -170,7 +179,7 @@ class Url {
 	}
 	
 	public static function getCurrentDirUrl() {
-		return dirname(Url::getCurrentScriptUrl()->toString());
+		return new Url(dirname("http://".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"]));
 	}
 	
 	public static function parseUrl($url) {
