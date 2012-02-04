@@ -3379,7 +3379,7 @@ On vous l'avait promis ! Sky-fansub, c'est du sérieux, et malgré la difficulté d
 			
 			$news = new News();
 			$news->setTitle("Konoe no Jikan 02 + [SkY] Lucky Star 02");
-			$news->setTimestamp(strtotime("15 April 2009"));
+			$news->setTimestamp(strtotime("15 April 2009 00:30"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/lucky2.jpg[/imgr]
 Sky-Anime nous apporte comme promis les aventures déjantés de Konata et ses amies. L'épisode 02 est déjà disponible sur leur site.
@@ -3779,6 +3779,123 @@ Notez que l'épisode est aussi disponible en 1080p (certains l'ont demandé... et 
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			$news->addReleasing(Project::getProject('toradorabento'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Issho ni H Shiyo 03");
+			$news->setTimestamp(strtotime("03 April 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setMessage("[img]images/news/newsisso3.png[/img]
+Yeah !
+La suite d'Issho ni H shiyo avec cette fois-ci une jolie neko-maid qui vient s'occuper de ranger votre appartement, vous faire la cuisine et pleins d'autres choses.
+Toujours en coproduction avec FinalFan sub dont la p'tite bannière est venue rejoindre celles de nos partenaires.
+Attention ! Moins de 18 ans s'abstenir.");
+			$news->setCommentId(219);
+			$news->setDisplayInNormalMode(false);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('hshiyo', 'ep3'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Issho ni H shiyo OAV 02");
+			$news->setTimestamp(strtotime("03 March 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setMessage("[imgr]images/news/issho.png[/imgr]
+La suite de notre nouvel hentaï dans la série des isshoni !
+
+Aujourd'hui, vous êtes le senpai de la jolie Haruka et comme celle-ci vous offre des patisseries, vous la remerciez du mieux que vous pouvez... Vous savez bien comment.
+
+Attention, cet épisode est résérvé aux personnes majeures de plus de 18 ans !
+
+Cet épisode est en coproduction avec l'équipe Finalfan Sub.");
+			$news->setCommentId(208);
+			$news->setDisplayInNormalMode(false);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('hshiyo', 'ep2'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Issho ni H shiyo OAV 01");
+			$news->setTimestamp(strtotime("30 January 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setMessage("[imgr]images/news/isho.jpg[/imgr]Encore un petit épisode de hentaï, mes chers petits pervers !
+Vous vous conaissez, on ne fait pas les choses à moitié.
+Quand on fait Kodomo, on fait Konoe.
+Donc forcément, quand on fait Issho ni Training, on fait Issho ni H siyo !
+C'est une sorte de parodie ou c'est vous, ce soir, qui allez faire l'amour avec Miyazawa.
+Cet épisode est en co-production avec [url=http://finalfan51.free.fr/ffs/]Finalfan Sub[/url].");
+			$news->setCommentId(193);
+			$news->setDisplayInNormalMode(false);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('hshiyo', 'ep1'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Konoe no Jikan 03");
+			$news->setTimestamp(strtotime("28 January 2010"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setMessage("[imgr]images/news/konoee3.jpg[/imgr]Après la fin de Kodomo, vous vous sentez seuls sans Rin ? La voilà de retour ! Non, ce n'est pas la saison 3 de Kodomo no Jikan mais bien la suite de Konoe no Jikan, la parodie porno. L'épisode est disponible dans la partie Hentaï du site. Mais attention, moins de 18 ans s'abstenir... Je vous surveille, ne trichez pas !");
+			$news->setCommentId(189);
+			$news->setDisplayInNormalMode(false);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('konoe', 'ep3'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("He is my master - Ce sont mes Maids DOUJIN");
+			$news->setTimestamp(strtotime("15 April 2009 01:00"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setMessage("[img]images/news/heismymaster.jpg[/img]
+Un nouveau doujin de plus chez Zéro ! Aucun rapport cette fois avec nos séries, mais une série qu'on aime bien : He is my master. [project=heismymaster]Lien pour le doujin[/project]");
+			$news->setCommentId(68);
+			$news->setDisplayInNormalMode(false);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('heismymaster', 'doujin'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Konoe no Jikan 02");
+			$news->setTimestamp(strtotime("15 April 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setMessage("[img]images/news/konoe2.jpg[/img]
+Seto Hinata est de retour dans son rôle de Rin pour l'épisode 02 de Konoe no jikan ! Cette fois-ci, son prof va lui apprendre un cours plutôt interessant... [url=http://www.kojikan.fr/?page=hentai-konoe]Accéder à la page de téléchargement[/url].");
+			$news->setCommentId(60);
+			$news->setDisplayInNormalMode(false);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('konoe', 'ep2'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Konoe no Jikan 01");
+			$news->setTimestamp(strtotime("18 March 2009"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setMessage("[img]images/news/konoe.jpg[/img]
+Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et autres perversités à nos chers amis leechers. Ce temps est révolu ! Zéro sort aujourd'hui son premier épisode \"hentaï\" qui n'en est pas vraiment un puisque c'est un film, avec de vrais gens dedant, et tout, et tout. Konoe no Jikan ! La parodie cinématographique de Kodomo no Jikan. Série en 4 épisodes, traduits généreusement par Sazaju, traumatisé après ça (R.I.P.). Profitez bien de cet épisode, et n'hésitez pas à nous faire part de votre avis pervers dans les commentaires ! [url=http://www.kojikan.fr/?page=konoe]Accéder à la page de téléchargement[/url].");
+			$news->setCommentId(48);
+			$news->setDisplayInNormalMode(false);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('konoe', 'ep1'));
 			News::$allNews[] = $news;
 		}
 		
