@@ -181,6 +181,14 @@ if ($url->hasQueryVar('page')) {
 		header('Location: '.$url->toString());
 		exit();
 	}
+	if (preg_match("#^dossier/#", $page)) {
+		$url->setQueryVar('page', 'dossier');
+		$parts = preg_split("#/#", $page);
+		$url->setQueryVar('id', $parts[1]);
+		// TODO indicates it is definitively relocated
+		header('Location: '.$url->toString());
+		exit();
+	}
 }
 ?>
 

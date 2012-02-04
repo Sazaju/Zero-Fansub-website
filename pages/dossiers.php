@@ -1,7 +1,21 @@
-<h3>Dossiers</h3>
-
-<a href="?page=dossier/genshiken9"><h2>Genshiken - Sortie du tome 9</h2>
-<h4>11/06/09 par Sunao</h4></a>
-
-<a href="?page=dossier/epitanime2009"><h2>[IRL] Epitanime 2009</h2>
-<h4>06/06/09 par db0</h4></a>
+<?php
+	$page = PageContent::getInstance();
+	
+	$page->addComponent(new Title("Dossiers", 3));
+	
+	foreach(Dossier::getAllDossiers() as $dossier) {
+		$title = new SimpleBlockComponent();
+		
+		$title->addComponent(new Title($dossier->getTitle(), 2));
+		
+		$author = $dossier->getAuthor();
+		if ($author instanceof TeamMember) {
+			$author = $author->getPseudo();
+		}
+		$timestamp = strftime("%d/%m/%Y", $dossier->getTimestamp());
+		$subtitle = $timestamp." par ".$author;
+		$title->addComponent(new Title($subtitle, 4));
+		
+		$page->addComponent(new Link("?page=dossier&id=".$dossier->getID(), $title));
+	}
+?>
