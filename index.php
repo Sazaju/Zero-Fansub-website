@@ -4,7 +4,7 @@
 	complete page.
 */
 
-define('TEST_MODE_ACTIVATED', in_array($_SERVER["SERVER_NAME"], array(
+define('TEST_MODE_ACTIVATED', !isset($_GET['noTest']) && in_array($_SERVER["SERVER_NAME"], array(
 				'127.0.0.1',
 				'localhost',
 				'to-do-list.me',
@@ -32,13 +32,13 @@ function exception_handler($exception) {
 		$message = "aze";//$exception->getMessage();
 		$header = "From: noreply@zerofansub.net\r\n";
 		$sent = false;//mail($administrators, $subject, $message, $header);
-		echo "An error as occured, ".(
-			$sent ? "administrators has been noticed by mail"
-				  : "contact the administrators : ".$administrators
+		echo "Une erreur est survenue, ".(
+			$sent ? "les administrateurs en ont été notifiés"
+				  : "contactez les administrateurs : ".$administrators
 			).".";
 	}
 	else {
-		echo "An error as occured : ".$exception;
+		echo "Une erreur est survenue : ".$exception;
 		if (defined('TESTING_FEATURE')) {
 			echo "<br/><br/>".TESTING_FEATURE;
 		}
@@ -153,6 +153,15 @@ if (TEST_MODE_ACTIVATED) {
 		$link->setClass('reverse');
 	} else {
 		$link->getUrl()->setQueryVar('phpinfo');
+	}
+	$features->addComponent($link);
+	
+	$link = new Link(Url::getCurrentUrl(), 'deactivate testing mode');
+	if (Url::getCurrentUrl()->hasQueryVar('noTest')) {
+		$link->getUrl()->removeQueryVar('noTest');
+		$link->setClass('reverse');
+	} else {
+		$link->getUrl()->setQueryVar('noTest');
 	}
 	$features->addComponent($link);
 	
