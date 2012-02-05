@@ -134,11 +134,23 @@ if (TEST_MODE_ACTIVATED && isset($_GET['gitPull'])) {
 \**********************************/
 
 if (TEST_MODE_ACTIVATED) {
-	$clearDB = 'clear DB';
-	$clearDB = DB_USE ? '<a href="'.$_SERVER['PHP_SELF'].'?clearDB'.'">'.$clearDB.'</a>' : '<s>'.$clearDB.'</s>';
+	$features = new SimpleBlockComponent();
+	$features->setClass('testFeatures');
+	$features->addComponent('Testing mode : ');
 	
-	$commitInfo = exec('git log -1 --pretty=format:"%h - %s"');
-	define('TESTING_FEATURE', 'Testing mode : '.$clearDB."<br/>".$commitInfo);
+	$link = new Link(Url::getCurrentUrl(), 'clear DB');
+	if (DB_USE) {
+		$link->getUrl()->setQueryVar('clearDB');
+	} else {
+		$link->getUrl()->setUrl('#');
+		$link->setClass('deactivated');
+	}
+	$features->addComponent($link);
+	
+	$features->addComponent('<br/>');
+	$features->addComponent(exec('git log -1 --pretty=format:"%h - %s"'));
+	
+	define('TESTING_FEATURE', $features->getCurrentContent());
 }
 
 /**********************************\
@@ -232,7 +244,7 @@ if ($url->hasQueryVar('page')) {
 				exit;
 			}
 			if (TEST_MODE_ACTIVATED) {
-				echo "<div class='testFeatures'>".TESTING_FEATURE."</div>";
+				echo TESTING_FEATURE;
 			}
 		?>
 		<div id="main">
@@ -258,7 +270,7 @@ if ($url->hasQueryVar('page')) {
 		</script>
 		<?php
 			if (TEST_MODE_ACTIVATED) {
-				echo "<div class='testFeatures'>".TESTING_FEATURE."</div>";
+				echo TESTING_FEATURE;
 			}
 		?>
 	</body>

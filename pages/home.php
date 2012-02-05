@@ -24,12 +24,12 @@
 	/******************************\
 	       FILTER NEWS : VIEWS
 	\******************************/
-	$view = 'home';
+	$view = 'all';
 	if (Url::getCurrentUrl()->hasQueryVar('view')) {
 		$view = Url::getCurrentUrl()->getQueryVar('view');
 	}
 	
-	if ($view === 'home') {
+	if ($view === 'all') {
 		// keep all news
 	} else if ($view === 'releases') {
 		$newsList = array_filter($newsList, function(News $news) {return $news->isReleasing();});
@@ -52,8 +52,8 @@
 	       FILTER NEWS : H MODE
 	\******************************/
 	$newsList = array_filter($newsList, function(News $news) {
-		// TODO remove the 'test' feature when the refinement will be completed
-		if ($news->getTimestamp() !== null && $news->getTimestamp() <= time() || isset($_GET['test'])) {
+		// TODO 'showPrepared' only for authorized people
+		if ($news->getTimestamp() !== null && $news->getTimestamp() <= time() || Url::getCurrentUrl()->hasQueryVar('showPrepared')) {
 			$hMode = $_SESSION[MODE_H];
 			return !$hMode && $news->displayInNormalMode() || $hMode && $news->displayInHentaiMode();
 		} else {
@@ -64,7 +64,7 @@
 	/******************************\
 	         FINALIZE LIST
 	\******************************/
-	if ($view !== 'home') {
+	if ($view !== 'all') {
 		$advert = new News();
 		$advert->setTitle("[Zero] BlogBang");
 		$advert->setTimestamp(strtotime("now"));
@@ -82,31 +82,24 @@
 	/******************************\
 	       BUILD VIEWS ACCESS
 	\******************************/
-	$space = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-	$url = new Url("index.php");
-	$url->setQueryVar('page', 'home');
+	$viewMap = array(
+		'all' => "Dernières news",
+		'releases' => "Sorties",
+		'team' => "Infos team",
+		'partners' => "Partenaires",
+		'db0company' => "db0 company",
+		'unclassable' => "Bonus",
+	);
+	$url = Url::getCurrentUrl();
 	$viewsLinks = new SimpleBlockComponent();
-	$url->removeQueryVar('view');
-	$viewsLinks->addComponent(new Link(new Url($url), "Derni&egrave;res news"));
-	$viewsLinks->addComponent($space);
-	$url->setQueryVar('view', 'releases');
-	$viewsLinks->addComponent(new Link(new Url($url), "Sorties"));
-	$viewsLinks->addComponent($space);
-	$url->setQueryVar('view', 'team');
-	$viewsLinks->addComponent(new Link(new Url($url), "Infos team"));
-	$viewsLinks->addComponent($space);
-	$url->setQueryVar('view', 'partners');
-	$viewsLinks->addComponent(new Link(new Url($url), "Partenaires"));
-	$viewsLinks->addComponent($space);
-	$url->setQueryVar('view', 'db0company');
-	$viewsLinks->addComponent(new Link(new Url($url), "db0 company"));
-	$viewsLinks->addComponent($space);
-	$url->setQueryVar('view', 'unclassable');
-	$viewsLinks->addComponent(new Link(new Url($url), "Bonus"));
+	foreach($viewMap as $id => $name) {
+		$url->setQueryVar('view', $id);
+		$viewsLinks->addComponent(new Link(new Url($url), $name));
+	}
 	
 	$views = new SimpleBlockComponent();
 	$views->setClass("views");
-	$views->addComponent("<h2>Vues</h2>");
+	$views->addComponent(new Title("Vues", 2));
 	$views->addComponent($viewsLinks);
 	
 	/******************************\
@@ -115,6 +108,31 @@
 	
 	$page = PageContent::getInstance();
 	$page->addComponent(new Title("Zéro fansub", 1));
+	if (TEST_MODE_ACTIVATED) {
+		$options = new SimpleBlockComponent();
+		$options->setClass('testFeatures');
+		$options->addComponent("Options : ");
+		
+		$link = new Link(Url::getCurrentUrl(), "show prepared");
+		if ($link->getUrl()->hasQueryVar('showPrepared')) {
+			$link->getUrl()->removeQueryVar('showPrepared');
+			$link->setClass('reverse');
+		} else {
+			$link->getUrl()->setQueryVar('showPrepared');
+		}
+		$options->addComponent($link);
+		
+		$link = new Link(Url::getCurrentUrl(), "show all");
+		if ($link->getUrl()->hasQueryVar('showAll')) {
+			$link->getUrl()->removeQueryVar('showAll');
+			$link->setClass('reverse');
+		} else {
+			$link->getUrl()->setQueryVar('showAll');
+		}
+		$options->addComponent($link);
+		
+		$page->addComponent($options);
+	}
 	
 	$page->addComponent($views);
 	

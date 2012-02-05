@@ -3900,7 +3900,7 @@ Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et autres
 			
 			$news = new News();
 			$news->setTitle("Raffinage du site");
-			$news->setTimestamp(strtotime("05 February 2012 02:31"));
+			//$news->setTimestamp(strtotime("05 February 2012 02:31"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Voilà encore quelques petites choses de faites. Rien de grandiose (donc pas de changement de version) mais important quand même :
 [left][list]

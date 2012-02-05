@@ -78,6 +78,22 @@
 		return !$project->isHidden() && !$project->isStarted() && !$project->isAbandonned();
 	};
 	
+	if (TEST_MODE_ACTIVATED) {
+		$options = new SimpleBlockComponent();
+		$options->setClass('testFeatures');
+		$options->addComponent("Options : ");
+		
+		$link = new Link(Url::getCurrentUrl(), "show hidden");
+		if ($link->getUrl()->hasQueryVar('showHidden')) {
+			$link->getUrl()->removeQueryVar('showHidden');
+			$link->setClass('reverse');
+		} else {
+			$link->getUrl()->setQueryVar('showHidden');
+		}
+		$options->addComponent($link);
+		
+		$page->addComponent($options);
+	}
 	// TODO limit to authorized access
 	if (Url::getCurrentUrl()->hasQueryVar('showHidden')) {
 		call_user_func($listProcessor, new Title("Projets cachés", 2), $allProjects, $hiddenFilter, $useImageLists);
