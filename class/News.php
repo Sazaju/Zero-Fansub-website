@@ -3904,7 +3904,7 @@ Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et autres
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Voilà encore quelques petites choses de faites. Rien de grandiose (donc pas de changement de version) mais important quand même :
 [left][list]
-[item]Raffinage des dossiers[/item]
+[item]Raffinage des dossiers, des partenaires (les news ont servit de tests) et de la page pour devenir partenaire[/item]
 [item]Complétion des news H (certaines étaient isolées dans un ancien fichier, elles sont maintenant avec toutes les autres)[/item]
 [item]Ajout des sections scantrads (en cours, terminés, abandonnés, envisagés) dans la liste des projets[/item]
 [item]Retrait automatique des sections vides dans la liste des projets[/item]
