@@ -26,7 +26,7 @@
 	$leftCol->addComponent(new MenuComponent($menu));
 	
 	$menu = new Menu();
-	$projectLink = new Link("index.php?page=series", "Projets");
+	$projectLink = new Link("index.php?page=projects", "Projets");
 	$projectLink->setStyle("font-size: 1.5em;");
 	$menu->addEntry($projectLink);
 	$menu->addEntry(new Link("index.php?page=team", "L'équipe"));
