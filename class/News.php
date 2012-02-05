@@ -3902,18 +3902,20 @@ Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et autres
 			$news->setTitle("V3.5 du site");
 			//$news->setTimestamp(strtotime("05 February 2012 02:31"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Voilà encore quelques petites choses de faites. Ce changement de version indique la fin du raffinage des pages accessibles. En voici le résumé :
-[left][list]
-[item]Ajout des sections scantrads (en cours, terminés, abandonnés, envisagés) dans la liste des projets.[/item]
-[item]Retrait automatique des sections vides dans la liste des projets.[/item]
-[item]Affichage de quelques informations dans la page de bug, pour aider le suivi.[/item]
-[item]Complétion d'anciennes informations (certaines étaient isolées dans des fichiers non utilisés, elles sont maintenant avec toutes les autres), cela inclut les news H et les anciens membres.[/item]
-[item]Raffinage des dossiers, de la liste des partenaires et de la page pour devenir partenaire (en bref j'ai fini de raffiner les menus et les pages qu'ils pointent). Les news ont été revues pour servir de tests (certaines ont des liens vers des dossiers ou des partenaires).[/item]
-[item]Raffinage d'anciennes pages non accessibles depuis le menu mais accessibles depuis d'anciennes news (kanaiiddl, recrutement, dakko, dons, dl).[/item]
-[item]Suppression des pages non accessibles (voilà un bon nettoyage de fait {^_^}).[/item]
+			$news->setMessage("Voilà encore quelques petites choses de faites (plus de 40 commits en un weekend quand même). Ce changement de version indique la fin du raffinage des pages.
+
+[spoiler=Afficher le résumé][left][list]
+[item]Ajout des sections scantrads (en cours, terminés, abandonnés, envisagés) + retrait automatique des sections vides dans la [url=?page=projects]liste des projets[/url].[/item]
+[item]Affichage de quelques informations dans la [url=?page=bug]page de bug[/url], pour aider le suivi (si vous en voyez d'autres dîtes-le-moi).[/item]
+[item]Complétion d'anciennes informations (certaines étaient isolées dans des fichiers non utilisés, elles sont maintenant avec toutes les autres). Cela inclut les news H et les anciens membres.[/item]
+[item]Raffinage des [url=?page=dossiers]dossiers[/url], de la liste des partenaires et de la page pour devenir partenaire (menu de droite). En bref j'ai fini de raffiner les menus et les pages qu'ils pointent. Les news ont été revues pour servir de tests (certaines ont des liens vers des dossiers ou des partenaires).[/item]
+[item]Raffinage d'anciennes pages non accessibles depuis les menus mais accessibles depuis d'anciennes news (kanaiiddl, recrutement, dakko, dons, dl).[/item]
+[item]Suppression des pages non accessibles (plus de 20 {^_^}).[/item]
 [item]Gestion d'URL améliorée : du XSS comme 'index.php/%22onmouseover=prompt(987201)%3E' ne devrait pas fonctionner (n'hésitez pas à en chercher d'autres si ça vous amuse {^_^}).[/item]
 [item]Complétion des balises BBCode (relativement aux points précédents).[/item]
-[/list][/left]");
+[/list][/left][/spoiler]
+
+La prochaine étape devrait être la persistence des données je pense. Avec le passage en base de données, on pourra profiter d'un vrai dynamisme. Si ce n'est pas ça ça sera sûrement l'implémentation des comptes. On verra selon les besoins (ou les envies) du moment {^_^}.");
 			//$news->setCommentId(999);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
