@@ -53,7 +53,7 @@
 		}
 		else {
 			$pageContent = PageContent::getInstance();
-			$pagecontent->clear();
+			$pageContent->clear();
 			require_once("pages/bug.php");
 			$pageContent->writeNow();
 		}
