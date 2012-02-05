@@ -128,6 +128,32 @@ class Format {
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("separator", function($tag, $parameter, $content) {return Separator::getInstance()->getHtml();}));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("pin", function($tag, $parameter, $content) {return Pin::getInstance()->getHtml();}));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("advert", function($tag, $parameter, $content) {return "<script src='http://www.blogbang.com/demo/js/blogbang_ad.php?id=6ee3436cd7' type='text/javascript'></script>";}));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("currentUrl", function($tag, $parameter, $content) {
+				$full = false;
+				if ($parameter === 'full') {
+					$full = true;
+				}
+				return Url::getCurrentUrl()->toString($full);
+			}));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("refererUrl", function($tag, $parameter, $content) {
+				$full = false;
+				if ($parameter === 'full') {
+					$full = true;
+				}
+				if (isset($_SERVER['HTTP_REFERER'])) {
+					$url = new Url($_SERVER['HTTP_REFERER']);
+					return $url->toString($full);
+				} else {
+					return "?";
+				}
+			}));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("serverData", function($tag, $parameter, $content) {
+				if (isset($_SERVER[$parameter])) {
+					return $_SERVER[$parameter];
+				} else {
+					return "?";
+				}
+			}));
 			
 			/**********************************\
 			         NO PARAMETERED TAGS
@@ -295,6 +321,9 @@ class Format {
 						$link->openNewWindow(true);
 					}
 				} else if ($tag == 'mail') {
+					if (is_numeric($parameter)) {
+						$parameter = TeamMember::getMember(intval($parameter))->getMail();
+					}
 					$link = new MailLink($parameter, $content);
 				} else {
 					throw new Exception($tag." is not managed");

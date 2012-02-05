@@ -216,8 +216,12 @@ class BBCodeDescriptor {
 			$openTag .= '='.$this->parameter;
 		}
 		
-		$closeTag = '/'.$this->tag;
-		return '['.$openTag.']'.$content.'['.$closeTag.']';
+		$string = '['.$openTag.']';
+		if ($this->hasCloseTag()) {
+			$closeTag = '/'.$this->tag;
+			$string .= $content.'['.$closeTag.']';
+		}
+		return $string;
 	}
 	
 	public static function defaultContentCallback($tag, $parameter, $content) {
