@@ -3908,6 +3908,7 @@ Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et autres
 [item]Complétion des news H (certaines étaient isolées dans un ancien fichier, elles sont maintenant avec toutes les autres)[/item]
 [item]Ajout des sections scantrads (en cours, terminés, abandonnés, envisagés) dans la liste des projets[/item]
 [item]Retrait automatique des sections vides dans la liste des projets[/item]
+[item]Affichage de quelques informations dans la page de bug, pour aider le suivi[/item]
 [item]Gestion d'URL améliorée : du XSS comme 'index.php/%22onmouseover=prompt(987201)%3E' ne devrait pas fonctionner (n'hésitez pas à en chercher d'autres si ça vous amuse {^_^})[/item]
 [/list][/left]");
 			//$news->setCommentId(999);
