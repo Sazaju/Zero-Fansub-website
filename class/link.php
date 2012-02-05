@@ -8,8 +8,9 @@ class Link extends DefaultHtmlComponent {
 	private $title = null;
 	private $newWindow = null;
 	private $onClick = null;
+	private $forceFull = null;
 	
-	public function __construct($url = null, $content = null) {
+	public function __construct($url = null, $content = null, $forceFull = false) {
 		if ($url == null) {
 			$url = new Url();
 		}
@@ -17,16 +18,25 @@ class Link extends DefaultHtmlComponent {
 			$url = new Url($url);
 		}
 		$this->url = $url;
+		$this->forceFull = $forceFull;
 		if ($content instanceof IHtmlComponent) {
 			$this->addComponent($content);
 		}
 		else {
-			$this->setContent($content === null ? $url->toString() : $content);
+			$this->setContent($content === null ? $url->toString($forceFull) : $content);
 		}
 	}
 	
 	public function openNewWindow($boolean) {
 		$this->newWindow = $boolean;
+	}
+	
+	public function forceFull() {
+		return $this->forceFull;
+	}
+	
+	public function setForceFull($boolean) {
+		$this->forceFull = $boolean;
 	}
 	
 	public function getHtmlTag() {
@@ -58,7 +68,7 @@ class Link extends DefaultHtmlComponent {
 	}
 	
 	public function getOptions() {
-		$url = $this->getUrl()->toString();
+		$url = $this->getUrl()->toString($this->forceFull);
 		$title = $this->getTitle();
 		$onClick = $this->getOnClick();
 		$newWindow = $this->newWindow;

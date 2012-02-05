@@ -128,25 +128,6 @@ class Format {
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("separator", function($tag, $parameter, $content) {return Separator::getInstance()->getHtml();}));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("pin", function($tag, $parameter, $content) {return Pin::getInstance()->getHtml();}));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("advert", function($tag, $parameter, $content) {return "<script src='http://www.blogbang.com/demo/js/blogbang_ad.php?id=6ee3436cd7' type='text/javascript'></script>";}));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("currentUrl", function($tag, $parameter, $content) {
-				$full = false;
-				if ($parameter === 'full') {
-					$full = true;
-				}
-				return Url::getCurrentUrl()->toString($full);
-			}));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("refererUrl", function($tag, $parameter, $content) {
-				$full = false;
-				if ($parameter === 'full') {
-					$full = true;
-				}
-				if (isset($_SERVER['HTTP_REFERER'])) {
-					$url = new Url($_SERVER['HTTP_REFERER']);
-					return $url->toString($full);
-				} else {
-					return "?";
-				}
-			}));
 			
 			/**********************************\
 			         NO PARAMETERED TAGS
@@ -298,8 +279,7 @@ class Format {
 			\**********************************/
 			$linkOpenTag = function($tag, $parameter, $content) {
 				if (empty($parameter) && empty($content)) {
-					$parameter = $default;
-					$content = $default;
+					throw new Exception("no data has been given");
 				} else if (empty($content)) {
 					$content = $parameter;
 				} else if (empty($parameter)) {
@@ -313,6 +293,24 @@ class Format {
 					if ($tag == 'ext' || $tag == 'url' && !$link->isLocalLink()) {
 						$link->openNewWindow(true);
 					}
+				} else if ($tag == 'urlk') {
+					$parameter = preg_split('#\\|#', $parameter);
+					$url = null;
+					if (in_array('current', $parameter)) {
+						$url = Url::getCurrentUrl();
+					} else if (in_array('referer', $parameter)) {
+						$url = new Url($_SERVER['HTTP_REFERER']);
+					} else {
+						throw new Exception("no address keyword has been given (like 'current' or 'referer')");
+					}
+					$full = false;
+					if (in_array('full', $parameter)) {
+						$full = true;
+					}
+					$link = new Link($url, $content, $full);
+					if (!$link->isLocalLink()) {
+						$link->openNewWindow(true);
+					}
 				} else if ($tag == 'mail') {
 					if (is_numeric($parameter)) {
 						$parameter = TeamMember::getMember(intval($parameter))->getMail();
@@ -323,10 +321,33 @@ class Format {
 				}
 				return $link->getOpenTag();
 			};
+			$linkContent = function($tag, $parameter, $content) {
+				if ($tag === 'urlk') {
+					if ($content === null) {
+						$parameter = preg_split('#\\|#', $parameter);
+						$url = null;
+						if (in_array('current', $parameter)) {
+							$url = Url::getCurrentUrl();
+						} else if (in_array('referer', $parameter)) {
+							$url = new Url($_SERVER['HTTP_REFERER']);
+						} else {
+							throw new Exception("no address keyword has been given (like 'current' or 'referer')");
+						}
+						$full = false;
+						if (in_array('full', $parameter)) {
+							$full = true;
+						}
+						$content = $url->toString($full);
+					}
+				}
+				
+				return BBCodeDescriptor::contentToHTML($content);
+			};
 			$linkCloseTag = function($tag, $parameter, $content) {return "</a>";};
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("url", $linkOpenTag, $linkCloseTag));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("ext", $linkOpenTag, $linkCloseTag));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("mail", $linkOpenTag, $linkCloseTag));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("url", $linkOpenTag, $linkCloseTag, $linkContent));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("urlk", $linkOpenTag, $linkCloseTag, $linkContent));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("ext", $linkOpenTag, $linkCloseTag, $linkContent));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("mail", $linkOpenTag, $linkCloseTag, $linkContent));
 			
 			/**********************************\
 			          SPECIAL LINKS

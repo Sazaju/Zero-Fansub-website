@@ -23,8 +23,8 @@ Soyez sûrs de donner le maximum de détails, en particulier l'adresse actuelle de
 
 En voici quelques unes, vous pouvez les recopier et les compléter :
 [left][list]
-[item]adresse actuelle : ".Url::getCurrentUrl()->toFullString()."[/item]
-[item]adresse précédente : ".$serverInfo('HTTP_REFERER')."[/item]
+[item]adresse actuelle : [urlk=current|full][/urlk][/item]
+[item]adresse précédente : [urlk=referer|full][/urlk][/item]
 [item]infos navigateur : ".$serverInfo('HTTP_USER_AGENT')."[/item]
 [/list][/left]";
 	
