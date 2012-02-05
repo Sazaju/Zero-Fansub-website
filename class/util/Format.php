@@ -147,13 +147,6 @@ class Format {
 					return "?";
 				}
 			}));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("serverData", function($tag, $parameter, $content) {
-				if (isset($_SERVER[$parameter])) {
-					return $_SERVER[$parameter];
-				} else {
-					return "?";
-				}
-			}));
 			
 			/**********************************\
 			         NO PARAMETERED TAGS
