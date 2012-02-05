@@ -5,8 +5,7 @@
 	$page->addComponent(new Title("Séries", 1));
 	
 	$url = new Url();
-	$vars = $url->getQueryVars();
-	$useImageLists = !array_key_exists('noImage', $vars);
+	$useImageLists = !$url->hasQueryVar('noImage');
 	if ($useImageLists) {
 		$url->setQueryVar('noImage');
 		$link = new Link($url, "Voir la liste sans images");
@@ -20,119 +19,87 @@
 		$page->addComponent($link);
 	}
 
-	$licensedAnimes = array();
 	$notLicensedAnimes = array();
-	$licensedDoujin = array();
 	$notLicensedDoujin = array();
-	$allProjects = null;
+	$allProjects = Project::getAllProjects();
 	if ($_SESSION[MODE_H] == true) {
-		$allProjects = Project::getHentaiProjects();
+		$allProjects = array_filter($allProjects, function(Project $project) {return $project->isHentai();});
 	} else {
-		$allProjects = Project::getNonHentaiProjects();
+		$allProjects = array_filter($allProjects, function(Project $project) {return !$project->isHentai();});
 	}
 	foreach($allProjects as $project) {
-		if (!$project->isHidden()) {
+		if (!$project->isLicensed()) {
 			if ($project->isDoujin()) {
-				if ($project->isLicensed()) {
-					$licensedDoujin[] = $project;
-				} else {
-					$notLicensedDoujin[] = $project;
-				}
+				$notLicensedDoujin[] = $project;
 			} else {
-				if ($project->isLicensed()) {
-					$licensedAnimes[] = $project;
-				} else {
-					$notLicensedAnimes[] = $project;
-				}
+				$notLicensedAnimes[] = $project;
 			}
 		}
 	}
 	
+	$listProcessor = function($title, $projects, $filter, $useImage) {
+		$list = new ProjectList();
+		foreach($projects as $project) {
+			if ($filter === null || call_user_func($filter, $project)) {
+				$list->addProject($project);
+			}
+		}
+		
+		if (!$list->isEmpty()) {
+			$list->sortByNames();
+			$list = new ProjectListComponent($list);
+			$list->useImage($useImage);
+			
+			$page = PageContent::getInstance();
+			if (is_string($title)) {
+				$title = new Title($title, 3);
+			}
+			$page->addComponent($title);
+			$page->addComponent($list);
+		}
+	};
+	
+	$hiddenFilter = function(Project $project) {
+		return $project->isHidden();
+	};
+	$licensedFilter = function(Project $project) {
+		return $project->isLicensed();
+	};
+	$runningFilter = function(Project $project) {
+		return !$project->isHidden() && $project->isRunning();
+	};
+	$finishedFilter = function(Project $project) {
+		return !$project->isHidden() && $project->isFinished();
+	};
+	$abandonnedFilter = function(Project $project) {
+		return !$project->isHidden() && $project->isAbandonned();
+	};
+	$expectedFilter = function(Project $project) {
+		return !$project->isHidden() && !$project->isStarted() && !$project->isAbandonned();
+	};
+	
+	// TODO limit to authorized access
+	if (Url::getCurrentUrl()->hasQueryVar('showHidden')) {
+		call_user_func($listProcessor, new Title("Projets cachés", 2), $allProjects, $hiddenFilter, $useImageLists);
+	}
+	
+	$categoryMap = array(
+		"subs" => $notLicensedAnimes,
+		"scans" => $notLicensedDoujin,
+	);
+	$filterMap = array(
+		"en cours" => $runningFilter,
+		"terminés" => $finishedFilter,
+		"abandonnés" => $abandonnedFilter,
+		"envisagés" => $expectedFilter,
+	);
 	$page->addComponent(new Title("Non licenciés", 2));
+	foreach($categoryMap as $category => $projects) {
+		foreach($filterMap as $desc => $filter) {
+			call_user_func($listProcessor, ucfirst($category)." ".$desc, $projects, $filter, $useImageLists);
+		}
+	}
 	
-	$page->addComponent(new Title("Projets en cours", 3));
-	$list = new ProjectList();
-	foreach($notLicensedAnimes as $project) {
-		if ($project->isRunning()) {
-			$list->addProject($project);
-		}
-	}
-	$list->sortByNames();
-	$list = new ProjectListComponent($list);
-	$list->useImage($useImageLists);
-	$page->addComponent($list);
-	
-	$page->addComponent(new Title("Projets terminés", 3));
-	$list = new ProjectList();
-	foreach($notLicensedAnimes as $project) {
-		if ($project->isFinished()) {
-			$list->addProject($project);
-		}
-	}
-	$list->sortByNames();
-	$list = new ProjectListComponent($list);
-	$list->useImage($useImageLists);
-	$page->addComponent($list);
-
-	$page->addComponent(new Title("Projets abandonnés", 3));
-	$list = new ProjectList();
-	foreach($notLicensedAnimes as $project) {
-		if ($project->isAbandonned()) {
-			$list->addProject($project);
-		}
-	}
-	$list->sortByNames();
-	$list = new ProjectListComponent($list);
-	$list->useImage($useImageLists);
-	$page->addComponent($list);
-
-	$page->addComponent(new Title("Projets envisagés", 3));
-	$list = new ProjectList();
-	foreach($notLicensedAnimes as $project) {
-		if (!$project->isStarted() && !$project->isAbandonned()) {
-			$list->addProject($project);
-		}
-	}
-	$list->sortByNames();
-	$list = new ProjectListComponent($list);
-	$list->useImage($useImageLists);
-	$page->addComponent($list);
-
-	$page->addComponent(new Title("Doujin en cours", 3));
-	$list = new ProjectList();
-	foreach($notLicensedDoujin as $project) {
-		if ($project->isRunning()) {
-			$list->addProject($project);
-		}
-	}
-	$list->sortByNames();
-	$list = new ProjectListComponent($list);
-	$list->useImage($useImageLists);
-	$page->addComponent($list);
-	
-	$page->addComponent(new Title("Doujin terminés", 3));
-	$list = new ProjectList();
-	foreach($notLicensedDoujin as $project) {
-		if ($project->isFinished()) {
-			$list->addProject($project);
-		}
-	}
-	$list->sortByNames();
-	$list = new ProjectListComponent($list);
-	$list->useImage($useImageLists);
-	$page->addComponent($list);
-	
-	$page->addComponent(new Title("Licenciés", 2));
-	$list = new ProjectList();
-	foreach($licensedAnimes as $project) {
-		$list->addProject($project);
-	}
-	foreach($licensedDoujin as $project) {
-		$list->addProject($project);
-	}
-	$list->sortByNames();
-	$list = new ProjectListComponent($list);
-	$list->useImage($useImageLists);
-	$page->addComponent($list);
+	call_user_func($listProcessor, new Title("Licenciés", 2), $allProjects, $licensedFilter, $useImageLists);
 ?>
 

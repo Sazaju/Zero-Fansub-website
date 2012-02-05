@@ -1248,26 +1248,6 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
 		return Project::$allProjects;
 	}
 	
-	public static function getNonHentaiProjects($getHiddenProjects = false) {
-		$projects = array();
-		foreach(Project::getAllProjects() as $project) {
-			if (!$project->isHentai() && (!$project->isHidden() || $getHiddenProjects)) {
-				$projects[] = $project;
-			}
-		}
-		return $projects;
-	}
-	
-	public static function getHentaiProjects($getHiddenProjects = false) {
-		$projects = array();
-		foreach(Project::getAllProjects() as $project) {
-			if ($project->isHentai() && (!$project->isHidden() || $getHiddenProjects)) {
-				$projects[] = $project;
-			}
-		}
-		return $projects;
-	}
-	
 	public static function getProject($id) {
 		foreach(Project::getAllProjects() as $project) {
 			if ($project->getID() === $id) {

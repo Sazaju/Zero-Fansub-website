@@ -14,6 +14,10 @@ class ProjectList {
 		return $this->projects;
 	}
 	
+	public function isEmpty() {
+		return empty($this->projects);
+	}
+	
 	public function sortByNames() {
 		usort($this->projects, array('Project', 'nameSorter'));
 	}
