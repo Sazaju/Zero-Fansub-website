@@ -1,48 +1,51 @@
-<h3>Partenariat</h3>
-<h2><a href="http://forum.zerofansub.net/t552-Les-regles-d-Or-de-chez-Zero.htm#p17057" target="_blank">Conditions, Offres (a lire avant toute demande !)</a></h2>
-<h2>Nos bannières</h2>
-<div class="p">
+<?php
+	$page = PageContent::getInstance();
+	
+	$page->addComponent(new Title("Partenariat", 1));
+	$link = new Link("http://forum.zerofansub.net/t552-Les-regles-d-Or-de-chez-Zero.htm#p17057", "Conditions, Offres (a lire avant toute demande !)");
+	$link->openNewWindow(true);
+	$page->addComponent(new Title($link, 2));
+	$page->addComponent(new Title("Nos bannières", 2));
+	
+	$content = '[center][img=images/partenaires/ourbanner/zero_280x45.png]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_280x45.png" alt="zero"
+border="0"></a>[/code]
 
-<a href="http://zerofansub.net"><img src="http://zerofansub.net/partenaires/zero_280x45.png" alt="zero" border="0"></a><br />
-&lt;a href="http://zerofansub.net"&gt;&lt;img
-src="http://zerofansub.net/partenaires/zero_280x45.png" alt="zero"
-border="0"&gt;&lt;/a&gt;<br /><br />
+[img=images/partenaires/ourbanner/zero_468x60.png]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_468x60.png" alt="zero"
+border="0"></a>[/code]
 
-<a href="http://zerofansub.net"><img src="http://zerofansub.net/partenaires/zero_468x60.png" alt="zero" border="0"></a><br />
-&lt;a href="http://zerofansub.net"&gt;&lt;img
-src="http://zerofansub.net/partenaires/zero_468x60.png" alt="zero"
-border="0"&gt;&lt;/a&gt;<br /><br />
+[img=images/partenaires/ourbanner/zero_500x117.png]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_500x117.png" alt="zero"
+border="0"></a>[/code]
 
-<a href="http://zerofansub.net"><img src="http://zerofansub.net/partenaires/zero_500x117.png" alt="zero" border="0"></a><br />
-&lt;a href="http://zerofansub.net"&gt;&lt;img
-src="http://zerofansub.net/partenaires/zero_500x117.png" alt="zero"
-border="0"&gt;&lt;/a&gt;<br /><br />
+[img=images/partenaires/ourbanner/zero_500x150.png]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_500x150.png" alt="zero"
+border="0"></a>[/code]
 
-<a href="http://zerofansub.net"><img src="http://zerofansub.net/partenaires/zero_500x150.png" alt="zero" border="0"></a><br />
-&lt;a href="http://zerofansub.net"&gt;&lt;img
-src="http://zerofansub.net/partenaires/zero_500x150.png" alt="zero"
-border="0"&gt;&lt;/a&gt;<br /><br />
+[img=images/partenaires/ourbanner/zero_88x31.png]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_88x31.png" alt="zero"
+border="0"></a>[/code]
 
-<a href="http://zerofansub.net"><img src="http://zerofansub.net/partenaires/zero_88x31.png" alt="zero" border="0"></a><br />
-&lt;a href="http://zerofansub.net"&gt;&lt;img
-src="http://zerofansub.net/partenaires/zero_88x31.png" alt="zero"
-border="0"&gt;&lt;/a&gt;<br /><br />
+[img=images/partenaires/ourbanner/zero.jpg]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero.jpg" alt="zero"
+border="0"></a>[/code]
 
-<a href="http://zerofansub.net"><img src="http://zerofansub.net/partenaires/zero.jpg" alt="zero" border="0"></a><br />
-&lt;a href="http://zerofansub.net"&gt;&lt;img
-src="http://zerofansub.net/partenaires/zero.jpg" alt="zero"
-border="0"&gt;&lt;/a&gt;<br /><br />
+[img=images/partenaires/ourbanner/zero_500x117x.jpg]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_500x117x.jpg" alt="zero"
+border="0"></a>[/code]
 
-<a href="http://zerofansub.net"><img src="http://zerofansub.net/partenaires/zero_500x117x.jpg" alt="zero" border="0"></a><br />
-&lt;a href="http://zerofansub.net"&gt;&lt;img
-src="http://zerofansub.net/partenaires/zero_500x117x.jpg" alt="zero"
-border="0"&gt;&lt;/a&gt;<br /><br />
-
-<a href="http://zerofansub.net"><img src="http://zerofansub.net/partenaires/zero_500x117xx.jpg" alt="zero" border="0"></a><br />
-&lt;a href="http://zerofansub.net"&gt;&lt;img
-src="http://zerofansub.net/partenaires/zero_500x117xx.jpg" alt="zero"
-border="0"&gt;&lt;/a&gt;<br /><br />
-
-
-</div>
-<p></p>
+[img=images/partenaires/ourbanner/zero_500x117xx.jpg]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_500x117xx.jpg" alt="zero"
+border="0"></a>[/code][/center]';
+	$content = Format::convertTextToHTML($content);
+	$page->addComponent($content);
+?>
