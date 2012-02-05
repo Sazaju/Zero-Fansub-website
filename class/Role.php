@@ -50,6 +50,7 @@ class Role {
 			Role::$allRoles[] = new Role('torrent', 'tracker BT');
 			Role::$allRoles[] = new Role('xdcc', 'XDCC');
 			Role::$allRoles[] = new Role('help', 'aide');
+			Role::$allRoles[] = new Role('clean', 'clean');
 		}
 		return Role::$allRoles;
 	}

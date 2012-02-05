@@ -1,7 +1,7 @@
 <?php
 $page = PageContent::getInstance();
 $page->setClass('project');
-$project = Project::getProject($id);
+$project = Project::getProject(Url::getCurrentUrl()->getQueryVar('id'));
 
 if ($project->isHentai() && !$_SESSION[MODE_H]) {
 	require_once("pages/havert.php");

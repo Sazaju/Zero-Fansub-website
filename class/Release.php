@@ -1019,7 +1019,6 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("Kurosaki"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Zorro25"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Vegeta"), Role::getRole('verifFinale'));
-			$release->addStaff(TeamMember::getMemberByPseudo("Lyf"), Role::getRole('verifFinale'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Adeo"), Role::getRole('verifFinale'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('verifFinale'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -4351,13 +4350,13 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hitohira1.jpg");
 			$release->setLocalizedTitle("Je ne peux pas le faire...");
 			$release->setSynopsis("Mugi est extrêmement timide et n'arrive plus à parler quand il y a trop de monde. C'est la rentrée et elle et son amie doivent choisir le club dans lequel elles entreront. Le choix de Mugi est plutôt inattendu !");
-			$release->addStaff(TeamMember::getMemberByPseudo("Lyf"), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Adeo"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Vegeta"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Praia"), Role::getRole('qc'));
-			$release->addStaff(TeamMember::getMemberByPseudo("Lyf"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Adeo"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Kaj"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Klick"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Kyon"), Role::getRole('encod'));
@@ -4376,7 +4375,6 @@ class Release {
 			$release->setLocalizedTitle("Une... imitation ?");
 			$release->setOriginalTitle("Magai...mono?");
 			$release->setSynopsis("Mugi va rencontrer Chitose, du club de théâtre. Le conflit entre les deux clubs va tourner autours d'elle.");
-			$release->addStaff(TeamMember::getMemberByPseudo("Lyf"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Adeo"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Karta"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Vegeta"), Role::getRole('check'));
@@ -4384,7 +4382,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Praia"), Role::getRole('qc'));
-			$release->addStaff(TeamMember::getMemberByPseudo("Lyf"), Role::getRole('qc'));
+			$release->addStaff(TeamMember::getMemberByPseudo("Adeo"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Kaj"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Klick"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Kyon"), Role::getRole('encod'));
