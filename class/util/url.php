@@ -55,7 +55,9 @@ class Url {
 		
 		$currentDir = dirname($_SERVER["SCRIPT_NAME"]).'/';
 		if (!$full && !Url::getCurrentUrl()->isStrangeUrl() && strpos($url, $currentDir) === 0) {
-			$url = substr($url, strlen($currentDir));
+			if (strlen($url) > strlen($currentDir)) {
+				$url = substr($url, strlen($currentDir));
+			}
 		} else {
 			if ($this->data[URL_SERVER] != null) {
 				$serverPart = $this->data[URL_SERVER];
@@ -143,7 +145,7 @@ class Url {
 				}
 			}
 		}
-		$query = substr($query, 1);
+		$query = empty($query) ? "" : substr($query, 1);
 		$this->data[URL_QUERY] = $query;
 	}
 	
