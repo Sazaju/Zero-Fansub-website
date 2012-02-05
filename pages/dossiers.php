@@ -1,7 +1,7 @@
 <?php
 	$page = PageContent::getInstance();
 	
-	$page->addComponent(new Title("Dossiers", 3));
+	$page->addComponent(new Title("Dossiers", 1));
 	
 	foreach(Dossier::getAllDossiers() as $dossier) {
 		$title = new SimpleBlockComponent();
