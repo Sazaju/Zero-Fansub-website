@@ -32,7 +32,10 @@
 				PageContent::getInstance()->setClass($id);
 				
 				$page = Page::getPage($id);
-				$content = Format::convertTextToHTML($page->getContent());
+				$content = $page->getContent();
+				if ($page->useBBCode()) {
+					$content = Format::convertTextToHTML($content);
+				}
 				PageContent::getInstance()->addComponent(new SimpleTextComponent($content));
 			} catch(Exception $e) {
 				require_once("pages/$page.php");

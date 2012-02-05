@@ -2,6 +2,7 @@
 class Page {
 	private $id = null;
 	private $content = null;
+	private $useBBCode = null;
 	
 	public function setContent($content) {
 		$this->content = $content;
@@ -9,6 +10,14 @@ class Page {
 	
 	public function getContent() {
 		return $this->content;
+	}
+	
+	public function setUseBBCode($boolean) {
+		$this->useBBCode = $boolean;
+	}
+	
+	public function useBBCode() {
+		return $this->useBBCode;
 	}
 	
 	public function setID($id) {
@@ -39,6 +48,7 @@ Une seule adresse pour contacter la team :
 
 
 [size=25px][mail]zero.fansub@gmail.com[/mail][/size]");
+			$page->setUseBBCode(true);
 			Page::$allPages[] = $page;
 			
 			$page = new Page();
@@ -62,6 +72,54 @@ En voici quelques unes, vous pouvez les recopier et les compléter :
 [item]adresse précédente : [refererUrl=full][/item]
 [item]infos navigateur : [serverData=HTTP_USER_AGENT][/item]
 [/list][/left]");
+			$page->setUseBBCode(true);
+			Page::$allPages[] = $page;
+			
+			$page = new Page();
+			$page->setID('partenariat');
+			$page->setContent('[title]Partenariat[/title]
+[title=2][url=http://forum.zerofansub.net/t552-Les-regles-d-Or-de-chez-Zero.htm#p17057]Conditions, Offres (a lire avant toute demande !)[/url][/title]
+[title=2]Nos bannières[/title]
+[img=images/partenaires/ourbanner/zero_280x45.png]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_280x45.png" alt="zero"
+border="0"></a>[/code]
+
+[img=images/partenaires/ourbanner/zero_468x60.png]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_468x60.png" alt="zero"
+border="0"></a>[/code]
+
+[img=images/partenaires/ourbanner/zero_500x117.png]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_500x117.png" alt="zero"
+border="0"></a>[/code]
+
+[img=images/partenaires/ourbanner/zero_500x150.png]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_500x150.png" alt="zero"
+border="0"></a>[/code]
+
+[img=images/partenaires/ourbanner/zero_88x31.png]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_88x31.png" alt="zero"
+border="0"></a>[/code]
+
+[img=images/partenaires/ourbanner/zero.jpg]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero.jpg" alt="zero"
+border="0"></a>[/code]
+
+[img=images/partenaires/ourbanner/zero_500x117x.jpg]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_500x117x.jpg" alt="zero"
+border="0"></a>[/code]
+
+[img=images/partenaires/ourbanner/zero_500x117xx.jpg]zero[/img]
+[code]<a href="http://zerofansub.net"><img
+src="http://zerofansub.net/images/partenaires/ourbanner/zero_500x117xx.jpg" alt="zero"
+border="0"></a>[/code]');
+			$page->setUseBBCode(true);
 			Page::$allPages[] = $page;
 		}
 		return Page::$allPages;

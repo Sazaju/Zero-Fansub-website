@@ -5,7 +5,6 @@
 	$page->addComponent(new Title("Historique des versions", 2));
 	
 	$table = new Table();
-	$table->setClass("about");
 	$page->addComponent($table);
 
 	$row = new TableRow();

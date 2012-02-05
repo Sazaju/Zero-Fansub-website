@@ -1,4 +1,4 @@
-.about {
+.about table {
 	width: 600px;
 	font-family: Tahoma;
 	font-size: 0.8em;
@@ -7,19 +7,19 @@
 	margin-right: 40px;
 	margin-top: 0px;
 }
-.about, .about td, .about th {
+.about table, .about table td, .about table th {
 	border: 1px solid grey;
 }
-.about td, .about th {
+.about table td, .about table th {
 	margin: 5px;
 	padding: 5px;
 }
-.about .version{
+.about table .version{
 	width: 50px;
 }
-.about .description{
+.about table .description{
 	width: 400px;
 }
-.about .preview{
+.about table .preview{
 	width: 150px;
 }
