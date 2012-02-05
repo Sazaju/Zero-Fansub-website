@@ -10,13 +10,20 @@
 	margin: 0 1em;
 }
 
+.news { 
+	max-width: 550px;
+	margin: auto;
+}
+
 .news .title, .news .subtitle { 
 	text-align: left;
 }
+
 .news .message {
 	display: block;
 	margin-bottom: 2em;
 }
+
 .news .comment {
 	display: block;
 }
