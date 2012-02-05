@@ -7,7 +7,7 @@
 	$page->addComponent(new Title($link, 2));
 	$page->addComponent(new Title("Nos bannières", 2));
 	
-	$content = '[center][img=images/partenaires/ourbanner/zero_280x45.png]zero[/img]
+	$content = '[img=images/partenaires/ourbanner/zero_280x45.png]zero[/img]
 [code]<a href="http://zerofansub.net"><img
 src="http://zerofansub.net/images/partenaires/ourbanner/zero_280x45.png" alt="zero"
 border="0"></a>[/code]
@@ -45,7 +45,7 @@ border="0"></a>[/code]
 [img=images/partenaires/ourbanner/zero_500x117xx.jpg]zero[/img]
 [code]<a href="http://zerofansub.net"><img
 src="http://zerofansub.net/images/partenaires/ourbanner/zero_500x117xx.jpg" alt="zero"
-border="0"></a>[/code][/center]';
+border="0"></a>[/code]';
 	$content = Format::convertTextToHTML($content);
-	$page->addComponent($content);
+	$page->addComponent(new SimpleTextComponent($content));
 ?>

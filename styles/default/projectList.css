@@ -7,12 +7,16 @@
 	padding: 0;
 }
 
-.projectListImage li {
+#page .projectListImage li {
 	text-align: center;
 	margin-bottom: 1.4em;
 }
 
 .projectListText li {
+	text-align: left;
+}
+
+#page.series {
 	text-align: left;
 }
 

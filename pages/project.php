@@ -1,5 +1,6 @@
 <?php
 $page = PageContent::getInstance();
+$page->setClass('project');
 $project = Project::getProject($id);
 
 if ($project->isHentai() && !$_SESSION[MODE_H]) {

@@ -2,6 +2,12 @@
 	list-style: none;
 }
 
+#page .teamList .member, #page .teamList ul{
+	text-align: left;
+	text-indent: 0;
+	margin: 0;
+}
+
 .teamList ul img{
 	float: right;
 	display: block;

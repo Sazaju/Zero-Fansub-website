@@ -3,11 +3,19 @@
 \******************************/
 
 #page {
+	font-size: 12px;
+	color: #666666;
+	font-family: Tahoma;
+	text-align: center;
 	margin: 0;
 	padding: 0;
-	margin-left: 170px;
-	width: 660px;
+	margin-left: 190px;
+	width: 620px;
 	min-height: 650px;
+}
+
+#page li, #page h1, #page h2, #page h3, #page h4{
+	text-align: left;
 }
 
 #page p{ 

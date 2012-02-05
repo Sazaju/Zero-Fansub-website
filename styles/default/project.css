@@ -1,26 +1,30 @@
-#page .projectPicture {
+#page.project {
+	text-align: left;
+}
+
+#page.project .projectPicture {
 	float: right;
 	display: block;
 	margin: 0;
 	padding: 0;
 }
 
-#page .deadLinks {
+#page.project .deadLinks {
 	display: block;
 	text-align: right;
 }
 
-#page .released *{
+#page.project .released *{
 	text-indent: 0;
 }
 
-#page .released h1, #page .notReleased h1 {
+#page.project .released h1, #page.project .notReleased h1 {
 	margin-left: 0;
 	letter-spacing: 0;
 	font-weight: bold;
 }
 
-#page .released .title, #page .notReleased .title {
+#page.project .released .title, #page.project .notReleased .title {
 	display: block;
 	width: 603px;
 	height: 30px;
@@ -31,35 +35,35 @@
 	padding-top: 5px;
 }
 
-#page .released .title {
+#page.project .released .title {
 	background: url('images/episodes.png') no-repeat;
 }
 
-#page .notReleased .title {
+#page.project .notReleased .title {
 	background: url('images/episodesnd.png') no-repeat;
 }
 
-#page .released .title a, #page .notReleased .title a {
+#page.project .released .title a, #page.project .notReleased .title a {
 	display: block;
 	font-size: 16px;
 	font-family: 'Courier New';
 }
 
-#page .released .title a {
+#page.project .released .title a {
 	color: #FFFFFF;
 }
 
-#page .notReleased .title a {
+#page.project .notReleased .title a {
 	color: #999999;
 	font-weight: bold;
 }
 
-#page .released .previewImage {
+#page.project .released .previewImage {
 	display: block;
 	margin: 1em;
 }
 
-#page .released .content, #page .notReleased .content {
+#page.project .released .content, #page.project .notReleased .content {
 	text-indent: 10px;
 	font-family: Tahoma;
 	font-size: 12px;
@@ -70,46 +74,46 @@
 	margin-top: 0px;
 }
 
-#page .released .synopsis, #page .released ul {
+#page.project .released .synopsis, #page.project .released ul {
 	margin-top: 0;
 	margin-bottom: 10px;
 }
 
-#page .released .synopsis {
+#page.project .released .synopsis {
 	text-align: justify;
 }
 
-#page .released .comment {
+#page.project .released .comment {
 	font-weight: bold;
 }
 
-#page .linkList, #page .releaseList, #page .licenseList, #page .skinList {
+#page.project .linkList, #page.project .releaseList, #page.project .licenseList, #page.project .skinList {
 	list-style: none;
 	padding-left: 0;
 }
 
-#page .linkList {
+#page.project .linkList {
 	padding-left: 10px;
 }
 
-#page .fileList {
+#page.project .fileList {
 	list-style-image: url('images/puce.png');
 	padding-left: 15px;
 }
 
-#page .released h1 {
+#page.project .released h1 {
 	display: block;
 	font-size: 1em;
 	margin: 0;
 	margin-top: 10px;
 }
 
-#page .released .originalName h1, #page .released .localizedName h1, #page .released .size h1, #page .released .codecs h1 {
+#page.project .released .originalName h1, #page.project .released .localizedName h1, #page.project .released .size h1, #page.project .released .codecs h1 {
 	display: inline;
 	margin-right: 1em;
 }
 
-#page .discussionLink {
+#page.project .discussionLink {
 	display:block;
 	margin: 0;
 	padding: 0;

@@ -2,6 +2,10 @@
 	text-align: center;
 }
 
+.views h2{
+	text-align: left;
+}
+
 .views a{
 	margin: 0 1em;
 }

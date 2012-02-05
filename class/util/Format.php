@@ -140,7 +140,25 @@ class Format {
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("b", $simpleOpenTag, $simpleCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("i", $simpleOpenTag, $simpleCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("u", $simpleOpenTag, $simpleCloseTag));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("s", $simpleOpenTag, $simpleCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("code", $simpleOpenTag, $simpleCloseTag, $notFormattedContent));
+			
+			/**********************************\
+			                TITLE
+			\**********************************/
+			$titleOpenTag = function($tag, $parameter, $content) {
+				if ($parameter === null) {
+					$parameter = 1;
+				}
+				return "<h".$parameter.">";
+			};
+			$titleCloseTag = function($tag, $parameter, $content) {
+				if ($parameter === null) {
+					$parameter = 1;
+				}
+				return "</h".$parameter.">";
+			};
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("title", $titleOpenTag, $titleCloseTag));
 			
 			/**********************************\
 			                SIZE

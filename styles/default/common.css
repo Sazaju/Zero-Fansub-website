@@ -12,18 +12,6 @@ li{
 	text-indent: 0;
 }
 
-.contact, .news, .xdcc, .havert, .bug{ 
-	display: block;
-	text-align: center;
-	text-indent: 10px;
-	font-family: Tahoma;
-	font-size: 12px;
-	color: #666666;
-	margin-left: 40px;
-	margin-right: 40px;
-	margin-top: 0px;
-}
-
 .warning {
 	color: red;
 	font-weight: bold;
