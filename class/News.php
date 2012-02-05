@@ -3071,7 +3071,7 @@ J'ai participé au concours cosplay le samedi 30 mai à 12 heure. À vous de devine
 [img=images/news/cosplay01.jpg][/img]
 Vous ne trouvez pas ? Oui, je sais, c'est très difficile. Pour voir qui c'était, lisez la suite.
 
-[url=index.php?page=dossier/epitanime2009][img=images/interface/lirelasuite.png][ Lire la suite . . . ][/img][/url]");// TODO refine the link to the dossier
+[url=index.php?page=dossier&id=epitanime2009][img=images/interface/lirelasuite.png][ Lire la suite . . . ][/img][/url]");
 			$news->setCommentId(79);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3672,7 +3672,7 @@ Pour certains c'est la perspective d'un examen, pour d'autres c'est la Saint Bar
 
 [url=http://www.kurokawa.fr/humour/fiche/1127/genshiken-t9][img]http://img40.xooimage.com/files/f/7/7/tome-9-ec2933.jpg[/img][/url]
 
-[url=index.php?page=dossier/genshiken9][img=images/interface/lirelasuite.png][ Lire la suite . . . ][/img][/url]");
+[url=index.php?page=dossier&id=genshiken9][img=images/interface/lirelasuite.png][ Lire la suite . . . ][/img][/url]");
 			$news->setCommentId(97);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
