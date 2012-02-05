@@ -1,13 +1,12 @@
-
-<h3>Recrutement</h3>
-
-
-<p>
-  On ne recrute plus en dehors de l'ecole du fansub.<br />
-  <a href="http://ecole.zerofansub.net/" target="_blank">En savoir +</a>.<br />
-  (Vous pouvez postuler pour l'ecole meme si vous etes experimentes, le tout c'est d'etres motive)
-</p>
-<!--<h2>&Agrave; savoir</h2>
+<?php
+	$content = "[title]Recrutement[/title]
+On ne recrute plus en dehors de l'école du fansub.
+[url=http://ecole.zerofansub.net/]En savoir +[/url].
+(Vous pouvez postuler pour l'école même si vous êtes expérimentés, le tout c'est d'être motivé)";
+	PageContent::getInstance()->addComponent(Format::convertTextToHTML($content));
+	
+	/*
+<h2>&Agrave; savoir</h2>
 
 <p>
 - Le fansub prend du temps, et cela peu importe le r&ocirc;le. <br>
@@ -693,4 +692,6 @@ Puis poster un nouveau topic dans la partie recrutement du forum :<br>
 
 <a href="http://zero.xooit.fr/posting.php?mode=newtopic&amp;f=21" target="_blank"><img src="ketsueki/images/postuler.png" border="0"></a><br>
 <br>
-</div>-->
+</div>
+	*/
+?>

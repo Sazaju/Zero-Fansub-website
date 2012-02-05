@@ -1852,7 +1852,7 @@ Rosario+Vampire Capu2 07v2");
 			$news->setMessage("[img]images/recrut/qc.jpg[/img]
 3 sorties en une, aujourd'hui ! Les épisodes 5 de Genshiken2, 8 de toradora! et 5 de Sketchbook sont disponibles dans la partie projets en DDL uniquement pour le moment. Les liens torrents, XDCC, Streaming viendront plus tard, ainsi que la version avi de genshiken et H264 de Toradora. Bon épisode !
 
-Notre unique QC, praia, aimerait bien partager les QC de toutes nos séries avec un autre QC. Si vous êtes exellent en orthographe et que vous avez un oeil de lynx, nous vous solicitons ! Merci de vous présenter au poste de QC ^^ [url=http://zerofansub.net/index.php?page=recrutement]Lien[/url]");
+Notre unique QC, praia, aimerait bien partager les QC de toutes nos séries avec un autre QC. Si vous êtes exellent en orthographe et que vous avez un oeil de lynx, nous vous solicitons ! Merci de vous présenter au poste de QC ^^ [url=?page=recrutement]Lien[/url]");
 			$news->setCommentId(21);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep5'));
