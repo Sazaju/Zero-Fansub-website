@@ -3752,7 +3752,7 @@ Enfin bref, vous l'aurez compris, je me suis éclaté ce weekend. Et en plus j'ai 
 NB : pour ceux qui ont vu que la section H était hors service, normalement ça a été corrigé.");
 			$news->setCommentId(287);
 			$news->setDisplayInNormalMode(true);
-			$news->setDisplayInHentaiMode(false);
+			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
@@ -3896,6 +3896,26 @@ Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et autres
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			$news->addReleasing(Release::getRelease('konoe', 'ep1'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Raffinage du site");
+			$news->setTimestamp(strtotime("05 February 2012 02:31"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Voilà encore quelques petites choses de faites. Rien de grandiose (donc pas de changement de version) mais important quand même :
+[left][list]
+[item]Raffinage des dossiers[/item]
+[item]Complétion des news H (certaines étaient isolées dans un ancien fichier, elles sont maintenant avec toutes les autres)[/item]
+[item]Ajout des sections scantrads (en cours, terminés, abandonnés, envisagés) dans la liste des projets[/item]
+[item]Retrait automatique des sections vides dans la liste des projets[/item]
+[item]Gestion d'URL améliorée : du XSS comme 'index.php/%22onmouseover=prompt(987201)%3E' ne devrait pas fonctionner (n'hésitez pas à en chercher d'autres si ça vous amuse {^_^})[/item]
+[/list][/left]");
+			//$news->setCommentId(999);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 		}
 		
