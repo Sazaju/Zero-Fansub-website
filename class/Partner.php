@@ -158,6 +158,15 @@ class Partner {
 			$partner->setDb0Company(false);
 			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('db0company');
+			$partner->setName("db0 Company");
+			$partner->setWebsiteUrl('http://db0.fr');
+			$partner->setFansubPartner(false);
+			$partner->setDb0Company(true);
+			$partner->setOver(true);
+			Partner::$allPartners[] = $partner;
 		}
 		return Partner::$allPartners;
 	}

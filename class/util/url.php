@@ -210,7 +210,7 @@ class Url {
 	
 	public static function parseUrl($url) {
 		if ($url instanceof Url) {
-			$url = $url->toString();
+			$url = $url->toFullString();
 		}
 		
 		$data = array();
