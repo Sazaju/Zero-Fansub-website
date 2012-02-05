@@ -6,6 +6,15 @@ class Partner {
 	private $bannerUrl = null;
 	private $isFansubPartner = null;
 	private $isDb0Company = null;
+	private $isOver = null;
+	
+	public function setOver($boolean) {
+		$this->isOver = $boolean;
+	}
+	
+	public function isOver() {
+		return $this->isOver;
+	}
 	
 	public function setDb0Company($boolean) {
 		$this->isDb0Company = $boolean;
@@ -61,7 +70,7 @@ class Partner {
 			Partner::$allPartners = array();
 			
 			$partner = new Partner();
-			$partner->setID('finalfan-sub');
+			$partner->setID('finalfan');
 			$partner->setName("FinalFan sub");
 			$partner->setWebsiteUrl('http://finalfan51.free.fr/ffs/');
 			$partner->setBannerUrl('images/partenaires/finalfan.png');
@@ -88,7 +97,7 @@ class Partner {
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
-			$partner->setID('kouhai-scantrad');
+			$partner->setID('kouhai');
 			$partner->setName("Kouhai Scantrad");
 			$partner->setWebsiteUrl('http://kouhaiscantrad.wordpress.com');
 			$partner->setBannerUrl('images/partenaires/kouhai.jpg');
@@ -97,7 +106,7 @@ class Partner {
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
-			$partner->setID('samazama-na-koto');
+			$partner->setID('samazama');
 			$partner->setName("Samazama na Koto");
 			$partner->setWebsiteUrl('http://samazamablog.wordpress.com/');
 			$partner->setBannerUrl('images/partenaires/samazama.gif');
@@ -131,8 +140,35 @@ class Partner {
 			$partner->setFansubPartner(false);
 			$partner->setDb0Company(false);
 			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('maboroshi');
+			$partner->setName("Maboroshi");
+			$partner->setWebsiteUrl('http://japanslash.free.fr');
+			$partner->setFansubPartner(true);
+			$partner->setDb0Company(false);
+			$partner->setOver(true);
+			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('kyoutsu');
+			$partner->setName("Kyoutsu");
+			$partner->setWebsiteUrl('http://kyoutsu-subs.over-blog.com');
+			$partner->setFansubPartner(true);
+			$partner->setDb0Company(false);
+			$partner->setOver(true);
+			Partner::$allPartners[] = $partner;
 		}
 		return Partner::$allPartners;
+	}
+	
+	public static function getPartner($id) {
+		foreach(Partner::getAllPartners() as $partner) {
+			if ($partner->getID() === $id) {
+				return $partner;
+			}
+		}
+		throw new Exception($id." is not a known partner ID");
 	}
 }
 ?>

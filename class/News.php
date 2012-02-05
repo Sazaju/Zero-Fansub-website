@@ -1070,7 +1070,7 @@ Toute l'équipe Zéro vous souhaite à tous un joyeux noël, un bon réveillon, une b
 Nos cadeaux pour vous :
 - Une galerie d'images de Noël (dans les bonus)
 - L'OAV de Kiss x sis !
-Dans la liste de nos projets depuis cet été, initialement prévu en septembre... Au final, il est sorti le 22 décembre, et nous vous l'avons traduit comme cadeau de Noël. C'est entre-autre grâce à cet OAV que nous avons fait la conaissance de la [url=http://kanaii.com/]Kanaii[/url].");
+Dans la liste de nos projets depuis cet été, initialement prévu en septembre... Au final, il est sorti le 22 décembre, et nous vous l'avons traduit comme cadeau de Noël. C'est entre-autre grâce à cet OAV que nous avons fait la conaissance de la [partner]kanaii[/partner].");
 			$news->setPartnerNews(true);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -1407,18 +1407,18 @@ Potemayo, épisode 8, youhou ! Et très bientôt, Kanamemo, Isshoni H shiyo et Issh
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("30 January 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Tarf"));
-			$news->setMessage('[img]images/news/moepote1.jpg[/img]
-Revenons à nos charmants allumés dans un PotemaYo que j\'ai particulièrement aimé.
+			$news->setMessage("[img]images/news/moepote1.jpg[/img]
+Revenons à nos charmants allumés dans un PotemaYo que j'ai particulièrement aimé.
 
-Deux épisodes : La fin de l\'été, et La nuit du Festival
+Deux épisodes : La fin de l'été, et La nuit du Festival
 
 Encore, encore un épisode totalement déjanté, où on va devoir faire du nettoyage... et prier. Puis on va manger de la glace à base de lait avec un type fou, fou, fou ^^
 Hé, vous voulez savoir comment on fait cuir plus vite des ramens ?
 
-Moi ça m\'éclate comment Potemayo sait dépenser son argent
+Moi ça m'éclate comment Potemayo sait dépenser son argent
 ENJOY IT !
 [img]images/news/moepote2.jpg[/img]
-db0 dit : Les screens ci-dessus n\'ont rien à voir avec l\'épisode :) Ce sont des extraits de Moetan, l\'épisode 11. J\'en profite donc pour faire une petite pub à notre partenaire [url=http://kanaii.com]Kanaii[/url] grâce à qui on peut regarder Moetan avec des sous-titres d\'excellente qualité.');
+db0 dit : Les screens ci-dessus n'ont rien à voir avec l'épisode :) Ce sont des extraits de Moetan, l'épisode 11. J'en profite donc pour faire une petite pub à notre partenaire [partner]kanaii[/partner] grâce à qui on peut regarder Moetan avec des sous-titres d'excellente qualité.");
 			$news->setCommentId(191);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('potemayo', 'ep7'));
@@ -1679,7 +1679,7 @@ Oh !
 La Genesis ayant accepté que leurs releases en co-pro avec la Kanaii soient diffusées en DDL chez nous, vous pouvez maintenant retrouver la saison 2 de Rosario+Vampire ainsi que 'Kimi ga Aruji de Shitsuji ga Ore de - They are my Noble Masters'. [ext=?page=kanaiiddl]Lien[/ext]
 Bon DL !
 
-Les dernières sorties de la [url=http://www.kanaii.com/]Kanaii[/url] :
+Les dernières sorties de la [partner]kanaii[/partner] :
 - Kanokon 11
 - Kanokon 12");
 			$news->setCommentId(18);
@@ -1805,7 +1805,7 @@ Une petite sortie Kanaii-Zéro est organisée entre Otaku le 23 et 24 mai à Nice !
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/mariagen.jpg[/imgr]
 [imgl]images/news/mariagen2.jpg[/imgl]
-Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sortie de Maria+Holic 05 à aujourd'hui. (Nous nous excusons auprès de [url=http://kanaii.com]Kanaii[/url] en coproduction sur cet anime). Genshiken2 07 devait sortir ce soir. Maria 05 est toujours aussi drôle et dans l'épisode 07 de Genshiken, vous trouverez 2 nouveaux karaokés (à vos micros !). Profitez bien de cette double sortie !
+Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sortie de Maria+Holic 05 à aujourd'hui. (Nous nous excusons auprès de [partner]kanaii[/partner] en coproduction sur cet anime). Genshiken2 07 devait sortir ce soir. Maria 05 est toujours aussi drôle et dans l'épisode 07 de Genshiken, vous trouverez 2 nouveaux karaokés (à vos micros !). Profitez bien de cette double sortie !
 [pin]
 [project]mariaholic[/project] [project]genshiken[/project]");
 			$news->setCommentId(49);
@@ -1826,14 +1826,14 @@ Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sor
 Otaku, otaku, nous revoilà ! Genshiken épisode 06 enfin dans les bacs, en ddl.
 [project=genshiken]Pour télécharger les épisodes en DDL, cliquez ici ![/project]
 
-[b]Les dernières sorties de la [url=http://www.sky-fansub.com/]Sky-fansub[/url] :[/b]
+[b]Les dernières sorties de la [partner]sky-fansub[/partner] :[/b]
 Kurozuka 08
 Mahou Shoujo Lyrical Nanoha Strikers 21
 
 [b]Les dernières sorties de la [url=http://kyoutsu-subs.over-blog.com/]Kyoutsu[/url] :[/b]
 Hyakko 06
 
-[b]Les dernières sorties de la [url=http://www.kanaii.com/]Kanaii[/url] :[/b]
+[b]Les dernières sorties de la [partner]kanaii[/partner] :[/b]
 Kamen no maid Guy 01v2
 Rosario+Vampire Capu2 07v2");
 			$news->setCommentId(31);
@@ -2008,7 +2008,7 @@ EDIT : Sorties des deux autres versions.");
 			$news->setTimestamp(strtotime("16 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			// TODO refine partner links when implemented
-			$news->setMessage("Maria Holic 03, en copro avec [url=http://kanaii.com/]Kanaii[/url]. [project=mariaholic]L'épisode en DDL, c'est par ici ![/project]");
+			$news->setMessage("Maria Holic 03, en copro avec [partner]kanaii[/partner]. [project=mariaholic]L'épisode en DDL, c'est par ici ![/project]");
 			$news->setCommentId(39);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep3'));
@@ -2023,7 +2023,7 @@ EDIT : Sorties des deux autres versions.");
 			$news->setTimestamp(strtotime("07 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/mariaholic2.jpg[/img]
-En direct de Lyon, je vous sors le deuxième épisode de Maria+Holic en co-production avec [url=http://kanaii.com/]Kanaii[/url].
+En direct de Lyon, je vous sors le deuxième épisode de Maria+Holic en co-production avec [partner]kanaii[/partner].
 Les mésaventures de Kanako continuent, ne les manquez pas !
 [project=mariaholic]L'épisode en DDL, c'est par ici ![/project]
 
@@ -2042,7 +2042,7 @@ Les mésaventures de Kanako continuent, ne les manquez pas !
 			$news->setTimestamp(strtotime("28 January 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/kanako.png[/img]
-Nouvelle série que l'on avait pas annoncé officiellement pour le moment : Maria+Holic. Mais ce n'est pas tout : Nouvelle co-production aussi, non pas avec MNF, mais cette fois-ci avec l'un de nos [ext=?page=dakko]partenaires dakkô[/ext] a qui l'on offre du DDL et qui nous laisse poster sur leur site quelques news.... [url=http://www.kanaii.com/]Kanaii ![/url]
+Nouvelle série que l'on avait pas annoncé officiellement pour le moment : Maria+Holic. Mais ce n'est pas tout : Nouvelle co-production aussi, non pas avec MNF, mais cette fois-ci avec l'un de nos [ext=?page=dakko]partenaires dakkô[/ext] a qui l'on offre du DDL et qui nous laisse poster sur leur site quelques news.... [partner=kanaii]Kanaii ![/partner]
 Trèves de paroles inutiles : Voici donc l'épisode 01, disponible en DDL chez nous et torrent MU chez eux.
 [url=ddl/%5bKanaii-Zero%5d_Maria+Holic_01_%5bX264_1280x720%5d.mkv]DDL[/url]");
 			$news->setCommentId(33);
@@ -2125,7 +2125,7 @@ Zéro fête aujourd'hui son anniversaire ! Cela fait maintenant un an que le site 
 
 Comme petit cadeau d'anniversaire, voici l'épisode 05 de Kujibiki Unbalance, en éspérant qu'il vous plaira.
 
-[b]Les dernières sorties de la [url=http://www.sky-fansub.com/]Sky-fansub[/url] :[/b]
+[b]Les dernières sorties de la [partner]sky-fansub[/partner] :[/b]
 Kurozuka 06 HD
 Mahou Shoujo Lyrical Nanoha Strikers 18");
 			$news->setTeamNews(true);
@@ -2240,11 +2240,11 @@ Bouonjòu !
 L'épisode 04 de Sketchbook est sorti ! [project=sketchbook]Lien[/project] Les sorties se font attendre, étant donné qu'on a plus vraiment d'encodeur officiel ^^ Merci à Kyon qui nous a encodé c'lui-ci.
 Beaucoup nous demandaient où il fallait télécharger nos releases. Probléme réglé, j'ai fait une page qui résume tout. [ext=index.php?page=dl]Lien[/ext]
 J'offre aussi du DDL à notre partenaire : la team Kanaii. Allez télécharger leurs animes, ils sont très bons ! [ext=index.php?page=kanaiiddl]Lien[/ext]
-Nous avons aussi un nouveau partenaire : La team Sky-fansub. [url=http://www.sky-fansub.com/]Lien[/url]
+Nous avons aussi un nouveau partenaire : La team Sky-fansub. [partner=sky-fansub]Lien[/partner]
 //[url=http://db0.fr/]db0[/url]
 PS : 'Bouonjòu' c'est du niçois [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img]
 
-Les dernières sorties de la [url=http://japanslash.free.fr/]Maboroshi[/url] :
+Les dernières sorties de la [partner=maboroshi]Maboroshi[/partner] :
 - Neo Angelique Abyss 2nd Age 07
 - Akane Iro Ni Somaru Saka 07");
 			$news->setCommentId(17);
@@ -2340,7 +2340,7 @@ C'est ainsi que se termine Toradora! ...");
 			$news->setTimestamp(strtotime("27 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/tora23.png[/imgr]
-La suite de Toradora! avec l'épisode 23. Toujours aussi émouvant, toujours aussi kawaii, toujours aussi Taiga-Ami-Minorin-Ryyuji-ect, toujours aussi dispo sur [url=http://toradora.fr]Toradora.fr![/url], toujours aussi en copro avec [url=http://japanslash.free.fr]Maboroshi[/url], toujours en DDL sur notre site [project=toradora]\"Lien\"[/project], Bref, toujours aussi génial ! Enjoy ^^
+La suite de Toradora! avec l'épisode 23. Toujours aussi émouvant, toujours aussi kawaii, toujours aussi Taiga-Ami-Minorin-Ryyuji-ect, toujours aussi dispo sur [url=http://toradora.fr]Toradora.fr![/url], toujours aussi en copro avec [partner=maboroshi]Maboroshi[/partner], toujours en DDL sur notre site [project=toradora]\"Lien\"[/project], Bref, toujours aussi génial ! Enjoy ^^
 
 Discutons un peu (dans les commentaires) ^^
 Que penses-tu des Maid ? Tu es fanatique, fétichiste, amateur ou indifférent ?");
@@ -2358,7 +2358,7 @@ Que penses-tu des Maid ? Tu es fanatique, fétichiste, amateur ou indifférent ?")
 			$news->setTimestamp(strtotime("25 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/taiiga.jpg[/imgr]
-Que d'émotion, que d'émotion ! La suite de Toradora!, l'épisode 22. Nous vous rappelons que vous pouvez aussi télécharger les épisodes et en savoir plus sur la série sur [url=http://toradora.fr/]Toradora.fr![/url]. Sinon, les épisodes sont toujours téléchargeables chez [url=http://japanslash.free.fr]Maboroshi[/url] en torrent et XDCC et chez nous [project=toradora]par ici en DDL.[/project] Enjoy ^^");
+Que d'émotion, que d'émotion ! La suite de Toradora!, l'épisode 22. Nous vous rappelons que vous pouvez aussi télécharger les épisodes et en savoir plus sur la série sur [url=http://toradora.fr/]Toradora.fr![/url]. Sinon, les épisodes sont toujours téléchargeables chez [partner=maboroshi]Maboroshi[/partner] en torrent et XDCC et chez nous [project=toradora]par ici en DDL.[/project] Enjoy ^^");
 			$news->setCommentId(51);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep22'));
@@ -2391,7 +2391,7 @@ Profitions-en pour discutailler ! Alors, toi, lecteur de news de Zéro... Tu es p
 			$news->setTimestamp(strtotime("16 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/taigahand.jpg[/img]
-Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notre travail. Ou plutôt, notre partenaire [url=http://japanslash.free.fr]Maboroshi[/url] nous fait reprendre le travail ^^ Sortie de l'épisode 19 de toradora, avec notre petite Taiga toute kawaii autant sur l'image de cette news que dans l'épisode ! Comme d'hab, DDL sur le site, Torrent bientôt (Merci à Khorx), XDCC bientôt et déjà dispo chez [url=http://japanslash.free.fr]Maboroshi[/url]. [project=toradora]\"Ze veux l'épisodeuh !\"[/project].");
+Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notre travail. Ou plutôt, notre partenaire [partner=maboroshi]Maboroshi[/partner] nous fait reprendre le travail ^^ Sortie de l'épisode 19 de toradora, avec notre petite Taiga toute kawaii autant sur l'image de cette news que dans l'épisode ! Comme d'hab, DDL sur le site, Torrent bientôt (Merci à Khorx), XDCC bientôt et déjà dispo chez [partner=maboroshi]Maboroshi[/partner]. [project=toradora]\"Ze veux l'épisodeuh !\"[/project].");
 			$news->setCommentId(46);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep19'));
@@ -2406,7 +2406,7 @@ Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notr
 			$news->setTimestamp(strtotime("05 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/noeltora.jpg[/imgr]
-Serait-ce le rythme \"une sortie / un jour\" qui nous prend, à Zéro et [url=http://japanslash.free.fr]Maboroshi[/url] ? Peut-être, peut-être... En tout cas, voici la suite de Toradora!, l'épisode 18 ! [project=toradora]Je DL tisouite ![/project]");
+Serait-ce le rythme \"une sortie / un jour\" qui nous prend, à Zéro et [partner=maboroshi]Maboroshi[/partner] ? Peut-être, peut-être... En tout cas, voici la suite de Toradora!, l'épisode 18 ! [project=toradora]Je DL tisouite ![/project]");
 			$news->setCommentId(43);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep18'));
@@ -2520,14 +2520,14 @@ En direct de Nice, et pour ce 10 Février, l'épisode 10 de Toradora! en co-produc
 L'épisode 09 de Toradora! est terminé ! Nous avons pris du retard car la MNF (en co-production) est actuellement en pause temporaire (Tohru n'a plus internet).
 [project=toradora]Pour télécharger les épisodes en DDL, cliquez ici ![/project]
 
-[b]Les dernières sorties de la [url=http://www.sky-fansub.com/]Sky-fansub[/url] :[/b]
+[b]Les dernières sorties de la [partner]sky-fansub[/partner] :[/b]
 Kurozuka 07
 Mahou Shoujo Lyrical Nanoha Strikers 20
 
-[b]Les dernières sorties de la [url=http://kyoutsu-subs.over-blog.com]Kyoutsu[/url] :[/b]
+[b]Les dernières sorties de la [partner]kyoutsu[/partner] :[/b]
 Hyakko 05
 
-[b]Les dernières sorties de la [url=http://www.kanaii.com/]Kanaii[/url] :[/b]
+[b]Les dernières sorties de la [partner]kanaii[/partner] :[/b]
 Kamen no maid Guy 06
 Rosario+Vampire Capu2 06");
 			$news->setCommentId(31);
@@ -2621,10 +2621,10 @@ Rin, Kuro et Mimi reviennent enfin vous montrer la suite de leurs aventures ! So
 Nous recrutons toujours un QC ! Proposez-vous !
 Nous avons décider de reprendre le projet Mermaid Melody Pichi Pichi Pitch, mais pour cela nous avons besoin d'un traducteur italien > français. N'hésitez pas à postuler si vous êtes intéressés [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] Par avance, merci. [url=index.php?page=recrutement]Lien[/url]
 
-[b]Les dernières sorties de la [url=http://www.kanaii.com/]Kanaii[/url] :[/b]
+[b]Les dernières sorties de la [partner]kanaii[/partner] :[/b]
 Kanokon pack DVD 06 à 12
 Rosario + Vampire S2 -05
-[b]Les dernières sorties de la [url=http://www.sky-fansub.com/]Sky-fansub[/url] :[/b]
+[b]Les dernières sorties de la [partner]sky-fansub[/partner] :[/b]
 Kurozuka 05 HD
 Mahou Shoujo Lyrical Nanoha Strikers 17");
 			$news->setCommentId(22);
@@ -3241,7 +3241,7 @@ Venez nombreux ! Nous avons besoin de vous !");
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(247);
 			$news->setTwitterTitle("Vous conaissez Kouhai Scantrad ? Ils proposent les chapitres de KissXsis ! http://kouhaiscantrad.wordpress.com/");
-			$news->setMessage("[url=http://kouhaiscantrad.wordpress.com/][img=http://kouhaiscantrad.files.wordpress.com/2010/08/sans-titre-1.png]Kouhai Scantrad[/img][/url]
+			$news->setMessage("[partner=image]kouhai[/partner]
 
 Un nouveau partenaire a rejoint la grande famille des amis de Zero : Kouhai Scantrad.
 Comme vous le savez, Zero aime vous proposer en plus de vos series preferees tout ce qui tourne autours de celles-ci : Wallpaper, OST, jaquettes DVD et pleins d'autres surprises, mais surtout les mangas d'ou sont tires les series.
@@ -3304,11 +3304,11 @@ Bon courage à Black Box !");
 			$news->setTitle("Nouveau partenaire : Samazama na Koto");
 			$news->setTimestamp(strtotime("24 April 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("[url=http://samazamablog.wordpress.com][img]images/news/sama1.jpg[/img][/url]
+			$news->setMessage("[partner=samazama][img]images/news/sama1.jpg[/img][/partner]
 Un nouveau petit pote partenaire viens s'ajouter aux petits potes de Zéro :
-[url=http://samazamablog.wordpress.com]Samazama na Koto[/url] est une équipe de Fanscan, Scantrad aux penchants Ecchi et Hentaï qui nous propose du contenu d'une certaine qualité que nous apprécions.
+[partner=samazama]Samazama na Koto[/partner] est une équipe de Fanscan, Scantrad aux penchants Ecchi et Hentaï qui nous propose du contenu d'une certaine qualité que nous apprécions.
 Allez donc lire quelques-uns de leurs chapitres et revenez nous en dire des nouvelles !
-[url=http://samazamablog.wordpress.com][img]images/news/sama2.jpg[/img][/url]");
+[partner=samazama][img]images/news/sama2.jpg[/img][/partner]");
 			$news->setCommentId(227);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3356,7 +3356,7 @@ Allz visiter leur site au plus vite !!");
 			$news->setTimestamp(strtotime("08 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/tamakon.jpg[/imgr]
-Chez Maboroshi, ça ne chôme pas, et on ne vous l'annonce que maintenant, mais mieux vaut tard que jamais. La petite équipe est actuellement sur 2 nouveaux projets : K-on!, où elle en est déjà à l'épisode 05 et Tayutama Kiss on my deity à l'épisode 04. N'attendez plus, et allez mater ces deux exellentes séries : [url=http://www.maboroshinofansub.fr/]Le site Maboroshi[/url].");
+Chez Maboroshi, ça ne chôme pas, et on ne vous l'annonce que maintenant, mais mieux vaut tard que jamais. La petite équipe est actuellement sur 2 nouveaux projets : K-on!, où elle en est déjà à l'épisode 05 et Tayutama Kiss on my deity à l'épisode 04. N'attendez plus, et allez mater ces deux exellentes séries : [partner=maboroshi]Le site Maboroshi[/partner].");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(true);
@@ -3369,7 +3369,7 @@ Chez Maboroshi, ça ne chôme pas, et on ne vous l'annonce que maintenant, mais mi
 			$news->setTimestamp(strtotime("04 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/lucky3.jpg[/imgr]
-On vous l'avait promis ! Sky-fansub, c'est du sérieux, et malgré la difficulté de la série, les revoilà déjà avec l'épisode 03... Si c'est pas beau, ça ? Allez, va le télécharger, mon petit otaku : [url=http://www.sky-fansub.com/]Le site Sky-fansub[/url].");
+On vous l'avait promis ! Sky-fansub, c'est du sérieux, et malgré la difficulté de la série, les revoilà déjà avec l'épisode 03... Si c'est pas beau, ça ? Allez, va le télécharger, mon petit otaku : [partner=sky-fansub]Le site Sky-fansub[/partner].");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
@@ -3400,7 +3400,7 @@ Côté hentaï, l'épisode 02 de Konoe no Jikan (parodie X de Kodomo no jikan).");
 			$news->setMessage("[imgr]images/news/lucky.png[/imgr]
 Notre très proche partenaire Sky-fansub commence une nouvelle série, et pas une petite série, attention... Lucky Star ! C'est sûr, c'est pas récent comme anime, mais malheuresement, niveau fansub, c'est pas au top (Aucune team n'est arrivé au bout de la série). La différence, c'est que cette team-là, mes amis, n'a rien à voir avec les autres ! En plus de nous faire de la qualité, elle est sérieuse et assidue. Que demandez de plus ? Profitez déjà du premier épisode ^o^
 
-[url=http://www.sky-fansub.com/]Sky-fansub, c'est par là ![/url]");
+[partner=sky-fansub]Sky-fansub, c'est par là ![/partner]");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
@@ -3415,7 +3415,7 @@ Notre très proche partenaire Sky-fansub commence une nouvelle série, et pas une 
 			$news->setMessage("[img=images/news/kyoutsu.jpg][/img]
 Notre partenaire-dakkô Kyoutsu commence une nouvelle série... Minami-ke Okawari ! Vous pouvez dès maintenant télécharger l'épisode 01 en DDL :
 [url=ddl/kyoutsu/%5bKfS%5d1280x720_Minami-Ke_Okawari_001_vostfr.mkv]DDL Minami-ke Okawari 01[/url]
-Mais aussi en torrent, Megaupload sur leur site : [url=http://kyoutsu-subs.over-blog.com/]Lien[/url].");
+Mais aussi en torrent, Megaupload sur leur site : [partner=kyoutsu]Lien[/partner].");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
@@ -3430,7 +3430,7 @@ Mais aussi en torrent, Megaupload sur leur site : [url=http://kyoutsu-subs.over-
 			$news->setMessage("[url=http://ranka.imouto.org/image/85ba4e0864c9ee58520eee540d4cebcb/moe%2053546%20bikini%20cleavage%20katagiri_yuuhi%20kiryu_tsukasa%20nagase_minato%20nekomimi%20no_bra%20open_shirt%20pantsu%20seifuku%20shiina_mitsuki%20shiraishi_nagomi%20swimsuits.jpg][img]http://japanslash.free.fr/images/news/akane8.jpg[/img][/url]
 Maboroshi nous sort aujourd'hui l'épisode 08 de Akane !
 Contrairement à ce qui a été dit, cet épisode n'a pas été réalisé en co-pro avec Zéro.
-[url=http://japanslash.free.fr/]Pour télécharger l'épisode sur MU, cliquez ici ![/url]");
+[partner=maboroshi]Pour télécharger l'épisode sur MU, cliquez ici ![/partner]");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
@@ -3829,7 +3829,7 @@ Vous vous conaissez, on ne fait pas les choses à moitié.
 Quand on fait Kodomo, on fait Konoe.
 Donc forcément, quand on fait Issho ni Training, on fait Issho ni H siyo !
 C'est une sorte de parodie ou c'est vous, ce soir, qui allez faire l'amour avec Miyazawa.
-Cet épisode est en co-production avec [url=http://finalfan51.free.fr/ffs/]Finalfan Sub[/url].");
+Cet épisode est en co-production avec [partner=finalfan]Finalfan Sub[/partner].");
 			$news->setCommentId(193);
 			$news->setDisplayInNormalMode(false);
 			$news->setDisplayInHentaiMode(true);

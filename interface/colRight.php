@@ -6,26 +6,35 @@
 	$logo->setClass("logo");
 	$rightCol->addComponent($logo);
 	
+	$partners = Partner::getAllPartners();
+	$partners = array_filter($partners, function(Partner $partner) {return !$partner->isOver();});
+	
 	$menu = new Menu("db0 company");
-	foreach(Partner::getAllPartners() as $partner) {
+	foreach($partners as $partner) {
 		if ($partner->isDb0Company()) {
-			$menu->addEntry(new PartnerLink($partner));
+			$link = new PartnerLink($partner);
+			$link->setUseImage(true);
+			$menu->addEntry($link);
 		}
 	}
 	$rightCol->addComponent(new MenuComponent($menu));
 	
 	$menu = new Menu("Fansub potes");
-	foreach(Partner::getAllPartners() as $partner) {
+	foreach($partners as $partner) {
 		if ($partner->isFansubPartner()) {
-			$menu->addEntry(new PartnerLink($partner));
+			$link = new PartnerLink($partner);
+			$link->setUseImage(true);
+			$menu->addEntry($link);
 		}
 	}
 	$rightCol->addComponent(new MenuComponent($menu));
 	
 	$menu = new Menu("Liens");
-	foreach(Partner::getAllPartners() as $partner) {
+	foreach($partners as $partner) {
 		if (!$partner->isFansubPartner() && !$partner->isDb0Company()) {
-			$menu->addEntry(new PartnerLink($partner));
+			$link = new PartnerLink($partner);
+			$link->setUseImage(true);
+			$menu->addEntry($link);
 		}
 	}
 	$rightCol->addComponent(new MenuComponent($menu));

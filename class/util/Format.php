@@ -301,6 +301,62 @@ class Format {
 				$link = new ReleaseLink($parameter[0], $parameter[1], null);
 				return $link->getOpenTag();
 			};
+			$partnerOpenTag = function($tag, $parameter, $content) {
+				if (empty($parameter)) {
+					$parameter = $content;
+					$content = null;
+				}
+				$parameter = preg_split('#\\|#', $parameter);
+				$partner = null;
+				$useImage = false;
+				foreach($parameter as $param) {
+					try {
+						$partner = Partner::getPartner($param);
+					} catch(Exception $e) {
+						if ($param === 'image') {
+							$useImage = true;
+						}
+					}
+				}
+				if ($partner === null) {
+					$partner = Partner::getPartner($content);
+					$content = null;
+				}
+				$link = new PartnerLink($partner, BBCodeDescriptor::contentToHTML($content));
+				$link->openNewWindow(true);
+				if ($useImage) {
+					$link->setUseImage(true);
+				}
+				return $link->getOpenTag();
+			};
+			$partnerContent = function($tag, $parameter, $content) {
+				if (empty($parameter)) {
+					$parameter = $content;
+					$content = null;
+				}
+				$parameter = preg_split('#\\|#', $parameter);
+				$partner = null;
+				$useImage = false;
+				foreach($parameter as $param) {
+					try {
+						$partner = Partner::getPartner($param);
+					} catch(Exception $e) {
+						if ($param === 'image') {
+							$useImage = true;
+						}
+					}
+				}
+				if ($partner === null) {
+					$partner = Partner::getPartner($content);
+					$content = null;
+				}
+				$link = new PartnerLink($partner, BBCodeDescriptor::contentToHTML($content));
+				$link->openNewWindow(true);
+				if ($useImage) {
+					$link->setUseImage(true);
+				}
+				return $link->getCurrentContent();
+			};
 			$projectOpenTag = function($tag, $parameter, $content) {
 				if (empty($parameter)) {
 					$link = new ProjectLink(Project::getProject($content));
@@ -336,6 +392,7 @@ class Format {
 			};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("release", $releaseOpenTag, $linkCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("project", $projectOpenTag, $linkCloseTag, $projectContent));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("partner", $partnerOpenTag, $linkCloseTag, $partnerContent));
 			
 			/**********************************\
 			              SPOILER
