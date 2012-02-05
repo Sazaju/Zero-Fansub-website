@@ -26,7 +26,7 @@
 		              PAGE LOADING
 		\***************************************/
 		// refined pages
-		if (in_array($page, array('project', 'home', 'about', 'contact', 'bug', 'projects', 'team', 'xdcc', 'havert', 'dossiers', 'dossier', 'partenariat', 'kanaiiddl', 'recrutement', 'dakko', 'dons'))) {
+		if (in_array($page, array('project', 'home', 'about', 'contact', 'bug', 'projects', 'team', 'xdcc', 'havert', 'dossiers', 'dossier', 'partenariat', 'kanaiiddl', 'recrutement', 'dakko', 'dons', 'dl'))) {
 			try {
 				$id = Url::getCurrentUrl()->getQueryVar('page');
 				PageContent::getInstance()->setClass($id);
