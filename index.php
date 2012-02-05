@@ -147,6 +147,15 @@ if (TEST_MODE_ACTIVATED) {
 	}
 	$features->addComponent($link);
 	
+	$link = new Link(Url::getCurrentUrl(), 'PHP info');
+	if (Url::getCurrentUrl()->hasQueryVar('phpinfo')) {
+		$link->getUrl()->removeQueryVar('phpinfo');
+		$link->setClass('reverse');
+	} else {
+		$link->getUrl()->setQueryVar('phpinfo');
+	}
+	$features->addComponent($link);
+	
 	$features->addComponent('<br/>');
 	$features->addComponent(exec('git log -1 --pretty=format:"%h - %s"'));
 	
@@ -239,12 +248,12 @@ if ($url->hasQueryVar('page')) {
 			}
 		?>
 		<?php
-			if (isset($_GET['phpinfo'])) {
-				phpinfo();
-				exit;
-			}
 			if (TEST_MODE_ACTIVATED) {
 				echo TESTING_FEATURE;
+			}
+			if (Url::getCurrentUrl()->hasQueryVar('phpinfo')) {
+				phpinfo();
+				exit;
 			}
 		?>
 		<div id="main">

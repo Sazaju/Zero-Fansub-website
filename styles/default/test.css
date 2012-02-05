@@ -8,6 +8,7 @@
 .testFeatures a {
 	margin: 0 1em;
 	color: black !important;
+	text-decoration: none !important;
 }
 
 .testFeatures a.deactivated {
