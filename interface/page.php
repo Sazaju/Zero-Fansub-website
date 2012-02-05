@@ -27,7 +27,13 @@
 		\***************************************/
 		// refined pages
 		if (in_array($page, array('project', 'home', 'about', 'contact', 'bug', 'projects', 'team', 'xdcc', 'havert', 'dossiers', 'dossier', 'partenariat'))) {
-			require_once("pages/$page.php");
+			try {
+				$page = Page::getPage(Url::getCurrentUrl()->getQueryVar('page'));
+				$content = $page->getContent();
+				PageContent::getInstance()->addComponent(new SimpleTextComponent(Format::convertTextToHTML($content)));
+			} catch(Exception $e) {
+				require_once("pages/$page.php");
+			}
 		}
 		
 		// not refined pages
