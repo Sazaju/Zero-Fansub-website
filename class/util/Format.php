@@ -514,7 +514,7 @@ class Format {
 				if ($useImage) {
 					$link->setUseImage(true);
 				}
-				return $link->getCurrentContent();
+				return $link->getCurrentHTML();
 			};
 			$projectOpenTag = function($tag, $parameter, $content) {
 				if (empty($parameter)) {
@@ -547,7 +547,7 @@ class Format {
 						$link->useImage(true);
 					}
 				}
-				return $link->getCurrentContent();
+				return $link->getCurrentHTML();
 			};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("release", $releaseOpenTag, $linkCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("project", $projectOpenTag, $linkCloseTag, $projectContent));

@@ -168,7 +168,7 @@ if (TEST_MODE_ACTIVATED) {
 	$features->addComponent('<br/>');
 	$features->addComponent(exec('git log -1 --pretty=format:"%h - %s"'));
 	
-	define('TESTING_FEATURE', $features->getCurrentContent());
+	define('TESTING_FEATURE', $features->getCurrentHTML());
 }
 
 /**********************************\

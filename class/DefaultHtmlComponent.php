@@ -49,7 +49,7 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		$this->addComponent($content);
 	}
 	
-	public function getCurrentContent() {
+	public function getCurrentHTML() {
 		$this->generateHtml();
 		return $this->getHtml();
 	}
@@ -122,7 +122,7 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		
 		if ($this->isContentPinned) {
 			$pin = new Pin();
-			$content .= $pin->getCurrentContent();
+			$content .= $pin->getCurrentHTML();
 		}
 		
 		$this->html = $this->getOpenTag().$content.$this->getCloseTag();
@@ -141,7 +141,7 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	}
 	
 	public function writeNow() {
-		$html = $this->getCurrentContent();
+		$html = $this->getCurrentHTML();
 		if (TEST_MODE_ACTIVATED) {
 			$html = Format::indentHTML($html, "    ");
 		}
