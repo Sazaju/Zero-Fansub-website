@@ -28,4 +28,5 @@ class DossierComponent extends SimpleBlockComponent {
 		$comment->setContent('~ <a href="http://commentaires.zerofansub.net/t'.$id.'.htm" target="_blank">Commentaires</a> - <a href="http://commentaires.zerofansub.net/posting.php?mode=reply&t='.$id.'" target="_blank">Ajouter un commentaire</a> ~');
 		$this->addComponent($comment);
 	}
-}?>
+}
+?>

@@ -118,4 +118,3 @@
 	
 	call_user_func($listProcessor, new Title("Licenciés", 2), $allProjects, $licensedFilter, $useImageLists);
 ?>
-
