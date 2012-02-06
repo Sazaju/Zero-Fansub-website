@@ -10,10 +10,10 @@
 	$message->addComponent($ircLink);
 	$message->addLine(") et tapez la commande :");
 	$message->addLine();
-	$message->addLine("<code>/msg Lishiantus xdcc send <i>NUMERO</i></code>");
+	$message->addLine("<code>/msg [Zero]Rin xdcc send <i>NUMERO</i></code>");
 	$message->addLine();
 	$message->addLine("ou <code><i>NUMERO</i></code> doit être remplacé par le numéro du paquet (voir liste ci-dessous).");
 	$message->addLine();
 	$message->addLine();
-	$message->addLine("<iframe src='http://sazaju.dyndns-home.com/zero/lishiantus.txt' width='100%' height='600' frameborder='0'><p>Your browser does not support iframes.</p></iframe>");
+	$message->addLine("<iframe src='iroffer/[Zero]Rin.txt' width='100%' height='600' frameborder='0'><p>Your browser does not support iframes.</p></iframe>");
 ?>
