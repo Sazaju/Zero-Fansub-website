@@ -1,49 +1,147 @@
 <?php
 class Format {
-	public static function indentHtml($html) {
-		// remove useless spaces and tabs
-		$cleanHtml = preg_replace("#( |\t)+#i", " ", $html);
+	private static function introduceRows(&$array, $index, $content) {
+		$exploded = preg_split("#\n#", $content);
+		foreach($exploded as $newRow) {
+			$array[$index] = $newRow;
+			$index += strlen($newRow);
+		}
+	}
+	
+	public static function indentHtml($html, $tab = "\t", $wrapSize = 80) {
+		// remove useless blank characters
+		$html = preg_replace("#\s+#i", " ", $html);
 		
-		// indent lines depending of tag depths
-		$explodedHtml = Format::separateTagsAndText($cleanHtml);
-		$closingTags = preg_filter("#</(.+)>#iu", "$1", $explodedHtml);
-		$openingTags = preg_filter("#<(".implode("|", $closingTags).")( .*)?(?!/)>#iu", "$1", $explodedHtml);
-		foreach($closingTags as $max => $close) {
-			$min = -1;
-			foreach($openingTags as $line => $open) {
-				if ($line > $max) {
-					break;
+		// explode the code
+		$exploder = new StringExploder();
+		$exploder->addDescriptor(new StringExploderDescriptor("#<[^/\s][^>]*>#", true));
+		$exploder->addDescriptor(new StringExploderDescriptor("#</[^>]+>#", false));
+		$array = $exploder->parse($html);
+		
+		// ignore auto closing tags
+		foreach($array as $index => $row) {
+			if (is_array($row) && preg_match("#/>$#", $row[0])) {
+				$array[$index] = $row[0];
+			} else {
+				// do nothing to simple strings
+			}
+		}
+		
+		$diff = null;
+		$refArray = $array;
+		do {
+			// ignore small tags
+			$indexes = null;
+			$concat = "";
+			foreach($array as $index => $row) {
+				if (is_array($row)) {
+					if ($row[1]) {
+						$indexes = array($index);
+						$concat = $row[0];
+					} else if (!empty($indexes)) {
+						$indexes[] = $index;
+						$concat .= $row[0];
+						if (strlen($concat) < $wrapSize) {
+							foreach($indexes as $i) {
+								unset($array[$i]);
+							}
+							$array[$indexes[0]] = $concat;
+						}
+						$indexes = null;
+					} else {
+						// closing tag of a higher level, let as is
+					}
+				} else {
+					if (!empty($indexes)) {
+						$indexes[] = $index;
+						$concat .= $row;
+					}
 				}
-				else if ($open == $close) {
-					$min = $line;
+			}
+			ksort($array);
+			
+			// merge consecutive ignored parts
+			$refIndex = null;
+			foreach($array as $index => $row) {
+				if (is_string($row)) {
+					if ($refIndex !== null) {
+						$array[$refIndex] .= $array[$index];
+						unset($array[$index]);
+					} else {
+						$refIndex = $index;
+					}
+				} else {
+					$refIndex = null;
 				}
 			}
 			
-			if ($min == -1) {
-				$array = array();
-				//foreach($closingTags as $id => $row) {
-				//foreach($openingTags as $id => $row) {
-				foreach($explodedHtml as $id => $row) {
-					$array[$id] = htmlentities($row);
+			$diff = array_diff_assoc($refArray, $array);
+			$refArray = $array;
+		} while(!empty($diff));
+		
+		// force new lines after newline tag followed by content
+		foreach($array as $index => $row) {
+			if (is_string($row)) {
+				Format::introduceRows($array, $index, preg_replace("#<br\s*/?>(\S)#", "<br/>\n$1", $row));
+			} else {
+				// do nothing on array elements
+			}
+		}
+		ksort($array);
+		
+		// wrap too long lines
+		foreach($array as $index => $row) {
+			if (is_string($row)) {
+				if (strlen($row) > $wrapSize) {
+					Format::introduceRows($array, $index, wordwrap($row, $wrapSize, "\n", false));
+				} else {
+					// do nothing to small lines
 				}
-				throw new Exception("no opening tag find for $close (line $max) in <code>".Debug::toString($array)."</code>");
+			} else {
+				// do nothing to array parts
 			}
-			
-			for($line = $min + 1; $line < $max ; $line ++) {
-				$explodedHtml[$line] = "  ".$explodedHtml[$line];
+		}
+		ksort($array);
+		
+		// wrap too long open tags, with preindent
+		foreach($array as $index => $row) {
+			if (is_array($row) && $row[1]) {
+				$content = $row[0];
+				if (strlen($content) > $wrapSize) {
+					$content = preg_replace("#\s*(\S+\s*=\s*\"[^\"]*\")#", "\n$tab$1", $content);
+					$content = preg_replace("#\s*(\S+\s*=\s*'[^']*')#", "\n$tab$1", $content);
+					$content = preg_replace("#\n$tab#", " ", $content, 1);
+					Format::introduceRows($array, $index, $content);
+					$array[$index] = array($array[$index], true);
+				} else {
+					// do nothing to small lines
+				}
+			} else {
+				// do nothing to simple strings and closing tags
 			}
-			$openingTags[$min] = null;
 		}
-		$openingTags = array_filter($openingTags);
-		if (!empty($openingTags)) {
-			throw new Exception("no closing tag find for : ".var_dump($openingTags));
+		ksort($array);
+		
+		// indent lines
+		$indent = "";
+		foreach($array as $index => $row) {
+			if (is_array($row)) {
+				if ($row[1]) {
+					$array[$index] = $indent.$row[0];
+					$indent .= $tab;
+				} else {
+					$indent = substr($indent, strlen($tab));
+					$array[$index] = $indent.$row[0];
+				}
+			} else {
+				$array[$index] = $indent.$row;
+			}
 		}
-		$cleanHtml = implode("\n", $explodedHtml);
 		
-		// strip blank characters
-		$cleanHtml = trim($cleanHtml);
+		// concat all lines
+		$html = implode("\n", $array);
 		
-		return $cleanHtml;
+		return $html;
 	}
 
 	public static function truncateText($text, $maxLength) {
