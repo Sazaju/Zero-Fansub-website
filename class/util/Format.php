@@ -27,6 +27,35 @@ class Format {
 			}
 		}
 		
+		// consistency check
+		$temp = array_filter($array, function($row){return is_array($row);});
+		$indexStack = array();
+		$tagStack = array();
+		// var_dump($temp);
+		foreach($temp as $index => $row) {
+			if ($row[1]) {
+				array_push($indexStack, $index);
+			} else {
+				$openIndex = array_pop($indexStack);
+				$openTag = $temp[$openIndex][0];
+				$closeTag = $row[0];
+				$tag = substr($closeTag, 2, strlen($closeTag) - 3);
+				if (strpos($openTag, '<'.$tag) !== 0) {
+					var_dump($temp);
+					throw new Exception(htmlentities($closeTag)." at $index does not close ".htmlentities($openTag)." at $openIndex.");
+				} else {
+					unset($temp[$openIndex]);
+					unset($temp[$index]);
+				}
+			}
+		}
+		if (!empty($temp)) {
+			var_dump($temp);
+			throw new Exception("Some tags are in conflict.");
+		} else {
+			// all seems consistent, continue
+		}
+		
 		$diff = null;
 		$refArray = $array;
 		do {
@@ -360,17 +389,18 @@ class Format {
 				}
 				return $image->getOpenTag();
 			};
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img", $imageOpenTag, $simpleCloseTag, null));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-right", $imageOpenTag, $simpleCloseTag, null));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imgr", $imageOpenTag, $simpleCloseTag, null));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-left", $imageOpenTag, $simpleCloseTag, null));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imgl", $imageOpenTag, $simpleCloseTag, null));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-auto", $imageOpenTag, $simpleCloseTag, null));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imga", $imageOpenTag, $simpleCloseTag, null));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-auto-left", $imageOpenTag, $simpleCloseTag, null));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imgal", $imageOpenTag, $simpleCloseTag, null));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-auto-right", $imageOpenTag, $simpleCloseTag, null));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imgar", $imageOpenTag, $simpleCloseTag, null));
+			$imageCloseTag = function($tag, $parameter, $content) {return "</img>";};
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img", $imageOpenTag, $imageCloseTag, null));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-right", $imageOpenTag, $imageCloseTag, null));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imgr", $imageOpenTag, $imageCloseTag, null));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-left", $imageOpenTag, $imageCloseTag, null));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imgl", $imageOpenTag, $imageCloseTag, null));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-auto", $imageOpenTag, $imageCloseTag, null));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imga", $imageOpenTag, $imageCloseTag, null));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-auto-left", $imageOpenTag, $imageCloseTag, null));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imgal", $imageOpenTag, $imageCloseTag, null));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-auto-right", $imageOpenTag, $imageCloseTag, null));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imgar", $imageOpenTag, $imageCloseTag, null));
 			
 			/**********************************\
 			          GENERIC LINKS
