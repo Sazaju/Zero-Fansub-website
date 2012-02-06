@@ -3900,7 +3900,7 @@ Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et autres
 			
 			$news = new News();
 			$news->setTitle("V3.5 du site");
-			//$news->setTimestamp(strtotime("05 February 2012 02:31"));
+			$news->setTimestamp(strtotime("06 February 2012 11:21"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Voilà encore quelques petites choses de faites (plus de 40 commits en un weekend quand même). Ce changement de version indique la fin du raffinage des pages.
 
@@ -3916,7 +3916,7 @@ Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et autres
 [/list][/left][/spoiler]
 
 La prochaine étape devrait être la persistence des données je pense. Avec le passage en base de données, on pourra profiter d'un vrai dynamisme. Si ce n'est pas ça ça sera sûrement l'implémentation des comptes. On verra selon les besoins (ou les envies) du moment {^_^}.");
-			//$news->setCommentId(999);
+			$news->setCommentId(289);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
