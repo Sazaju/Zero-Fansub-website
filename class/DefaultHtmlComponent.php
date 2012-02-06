@@ -96,7 +96,7 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		return $idPart.$classPart.$stylePart;
 	}
 	
-	public function generateHtml() {
+	public function getHTMLContent() {
 		$content = '';
 		foreach($this->subcomponents as $component) {
 			if (is_string($component)) {
@@ -125,7 +125,11 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 			$content .= $pin->getCurrentHTML();
 		}
 		
-		$this->html = $this->getOpenTag().$content.$this->getCloseTag();
+		return $content;
+	}
+	
+	public function generateHtml() {
+		$this->html = $this->getOpenTag().$this->getHTMLContent().$this->getCloseTag();
 	}
 	
 	public function getOpenTag() {

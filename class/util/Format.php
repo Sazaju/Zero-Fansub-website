@@ -108,10 +108,18 @@ class Format {
 			$refArray = $array;
 		} while(!empty($diff));
 		
-		// force new lines after newline tag followed by content
+		// force new lines around tags which are naturally displayed as blocks
 		foreach($array as $index => $row) {
 			if (is_string($row)) {
-				Format::introduceRows($array, $index, preg_replace("#<br\s*/?>(\S)#", "<br/>\n$1", $row));
+				$blockTags = "(?:li|ul|ol|div|h\d|hr)";
+				$autoCloseTags = "(?:br|hr)";
+				$attributes = " ?[^>]*";
+				$out = "[^\n]";
+				$row = preg_replace("#($out)(<$blockTags$attributes>)#", "$1\n$2", $row);
+				$row = preg_replace("#(</\s*$blockTags\s*>)(?=$out)#", "$1\n", $row);
+				$row = preg_replace("#(<$autoCloseTags$attributes/>)(?=$out)#", "$1\n", $row);
+				
+				Format::introduceRows($array, $index, $row);
 			} else {
 				// do nothing on array elements
 			}
@@ -170,7 +178,7 @@ class Format {
 		// concat all lines
 		$html = implode("\n", $array);
 		
-		return $html;
+		return "\n$html\n";
 	}
 
 	public static function truncateText($text, $maxLength) {
@@ -544,7 +552,7 @@ class Format {
 				if ($useImage) {
 					$link->setUseImage(true);
 				}
-				return $link->getCurrentHTML();
+				return $link->getHTMLContent();
 			};
 			$projectOpenTag = function($tag, $parameter, $content) {
 				if (empty($parameter)) {
@@ -577,7 +585,7 @@ class Format {
 						$link->useImage(true);
 					}
 				}
-				return $link->getCurrentHTML();
+				return $link->getHTMLContent();
 			};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("release", $releaseOpenTag, $linkCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("project", $projectOpenTag, $linkCloseTag, $projectContent));
