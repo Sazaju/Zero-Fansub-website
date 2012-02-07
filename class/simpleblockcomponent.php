@@ -8,5 +8,9 @@ class SimpleBlockComponent extends DefaultHtmlComponent {
 	public function getHtmlTag() {
 		return 'div';
 	}
+	
+	public function isAutoClose() {
+		return false;
+	}
 }
 ?>

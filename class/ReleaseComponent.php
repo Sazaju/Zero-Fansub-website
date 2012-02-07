@@ -31,7 +31,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 					$description = getimagesize($pUrl);
 					$width = $description[0];
 					if ($width < 150) {
-						$previewImage->makeFloating();
+						$previewImage->makeRightFloating();
 					}
 				} catch(ErrorException $ex) {
 					$previewImage = Debug::createWarningTag("Preview introuvable");

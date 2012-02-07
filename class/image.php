@@ -18,6 +18,10 @@ class Image extends DefaultHtmlComponent {
 		return 'img';
 	}
 	
+	public function isAutoClose() {
+		return true;
+	}
+	
 	public function setUrl($url) {
 		$this->source = $url == null ? null : new Url($url);
 	}

@@ -9,6 +9,10 @@ class SimpleParagraphComponent extends DefaultHtmlComponent {
 		$this->setContent($content);
 	}
 	
+	public function isAutoClose() {
+		return false;
+	}
+	
 	public function getHtmlTag() {
 		return 'p';
 	}

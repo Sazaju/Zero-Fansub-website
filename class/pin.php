@@ -15,6 +15,10 @@ class Pin extends DefaultHtmlComponent {
 		return 'hr';
 	}
 	
+	public function isAutoClose() {
+		return true;
+	}
+	
 	private static $instance = null;
 	public static function getInstance() {
 		if (Pin::$instance === null) {

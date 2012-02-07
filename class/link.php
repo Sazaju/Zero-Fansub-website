@@ -43,6 +43,10 @@ class Link extends DefaultHtmlComponent {
 		return 'a';
 	}
 	
+	public function isAutoClose() {
+		return false;
+	}
+	
 	public function setUrl(Url $url) {
 		$this->url = $url;
 	}

@@ -133,11 +133,11 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	}
 	
 	public function getOpenTag() {
-		return '<'.$this->getHtmlTag().$this->getOptions().'>';
+		return '<'.$this->getHtmlTag().$this->getOptions().($this->isAutoClose() ? '/' : '').'>';
 	}
 	
 	public function getCloseTag() {
-		return '</'.$this->getHtmlTag().'>';
+		return $this->isAutoClose() ? '' : '</'.$this->getHtmlTag().'>';
 	}
 	
 	public function getHtml() {

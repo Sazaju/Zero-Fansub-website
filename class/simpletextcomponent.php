@@ -16,5 +16,9 @@ class SimpleTextComponent extends DefaultHtmlComponent {
 	public function getHtmlTag() {
 		return 'span';
 	}
+	
+	public function isAutoClose() {
+		return false;
+	}
 }
 ?>

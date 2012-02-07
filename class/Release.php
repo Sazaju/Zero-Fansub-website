@@ -4013,7 +4013,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/tayutama1.png");
 			$release->setLocalizedTitle("Tayutai");
 			$release->setOriginalTitle("Tayutai");
-			$release->setComment("<b>Staff Maboroshi</b> <a href='http://www.maboroshinofansub.fr/' target='_blank'><img src='images/partenaires/mnf.png' alt='Maboroshinofansub' border='0'></a>");
+			$release->setComment("<b>Staff Maboroshi</b> <a href='http://www.maboroshinofansub.fr/' target='_blank'><img src='images/partenaires/mnf.png' alt='Maboroshinofansub' border='0'/></a>");
 			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_01.avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
@@ -4032,7 +4032,7 @@ class Release {
 			$release->setName("02");
 			$release->setPreviewUrl("images/episodes/tayutama2.png");
 			$release->setLocalizedTitle("Chez Mashiro");
-			$release->setComment("<b>Staff Maboroshi</b> <a href='http://www.maboroshinofansub.fr/' target='_blank'><img src='images/partenaires/mnf.png' alt='Maboroshinofansub' border='0'></a>");
+			$release->setComment("<b>Staff Maboroshi</b> <a href='http://www.maboroshinofansub.fr/' target='_blank'><img src='images/partenaires/mnf.png' alt='Maboroshinofansub' border='0'/></a>");
 			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_02.avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
@@ -4051,7 +4051,7 @@ class Release {
 			$release->setName("03");
 			$release->setPreviewUrl("images/episodes/tayutama3.png");
 			$release->setLocalizedTitle("Mashiro toute seule");
-			$release->setComment("<b>Staff Maboroshi</b> <a href='http://www.maboroshinofansub.fr/' target='_blank'><img src='images/partenaires/mnf.png' alt='Maboroshinofansub' border='0'></a>");
+			$release->setComment("<b>Staff Maboroshi</b> <a href='http://www.maboroshinofansub.fr/' target='_blank'><img src='images/partenaires/mnf.png' alt='Maboroshinofansub' border='0'/></a>");
 			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_03.avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
@@ -4070,7 +4070,7 @@ class Release {
 			$release->setName("04");
 			$release->setPreviewUrl("images/episodes/tayutama4.png");
 			$release->setLocalizedTitle("Une jeune fille en détresse");
-			$release->setComment("<b>Staff Maboroshi</b> <a href='http://www.maboroshinofansub.fr/' target='_blank'><img src='images/partenaires/mnf.png' alt='Maboroshinofansub' border='0'></a>");
+			$release->setComment("<b>Staff Maboroshi</b> <a href='http://www.maboroshinofansub.fr/' target='_blank'><img src='images/partenaires/mnf.png' alt='Maboroshinofansub' border='0'/></a>");
 			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_04.avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
@@ -4089,7 +4089,7 @@ class Release {
 			$release->setName("05");
 			$release->setPreviewUrl("images/episodes/tayutama5.png");
 			$release->setLocalizedTitle("La pluie qui passe");
-			$release->setComment("<b>Staff Maboroshi</b> <a href='http://www.maboroshinofansub.fr/' target='_blank'><img src='images/partenaires/mnf.png' alt='Maboroshinofansub' border='0'></a>");
+			$release->setComment("<b>Staff Maboroshi</b> <a href='http://www.maboroshinofansub.fr/' target='_blank'><img src='images/partenaires/mnf.png' alt='Maboroshinofansub' border='0'/></a>");
 			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]Tayutama_Kiss_on_my_deity_05.avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);

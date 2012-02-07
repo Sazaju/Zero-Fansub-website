@@ -15,6 +15,10 @@ class Title extends DefaultHtmlComponent {
 		return 'h'.$this->level;
 	}
 	
+	public function isAutoClose() {
+		return false;
+	}
+	
 	public function setLevel($level) {
 		$this->level = $level;
 	}

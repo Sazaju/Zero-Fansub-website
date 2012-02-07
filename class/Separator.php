@@ -13,6 +13,10 @@ class Separator extends DefaultHtmlComponent {
 		return 'hr';
 	}
 	
+	public function isAutoClose() {
+		return false;
+	}
+	
 	private static $instance = null;
 	public static function getInstance() {
 		if (Separator::$instance === null) {

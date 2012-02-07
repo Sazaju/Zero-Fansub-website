@@ -395,9 +395,9 @@ class Format {
 				} else {
 					throw new Exception($tag." is not managed");
 				}
-				return $image->getOpenTag();
+				return $image->getCurrentHTML();
 			};
-			$imageCloseTag = function($tag, $parameter, $content) {return "</img>";};
+			$imageCloseTag = function($tag, $parameter, $content) {return "";};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img", $imageOpenTag, $imageCloseTag, null));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-right", $imageOpenTag, $imageCloseTag, null));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imgr", $imageOpenTag, $imageCloseTag, null));

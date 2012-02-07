@@ -7,6 +7,10 @@ class Table extends DefaultHtmlComponent {
 		return 'table';
 	}
 	
+	public function isAutoClose() {
+		return false;
+	}
+	
 	public function addComponent($component) {
 		if ($component instanceof TableRow) {
 			parent::addComponent($component);
@@ -20,6 +24,10 @@ class Table extends DefaultHtmlComponent {
 class TableRow extends DefaultHtmlComponent {
 	public function getHtmlTag() {
 		return 'tr';
+	}
+	
+	public function isAutoClose() {
+		return false;
 	}
 	
 	public function addComponent($component) {
@@ -38,11 +46,19 @@ class TableCell extends DefaultHtmlComponent {
 	public function getHtmlTag() {
 		return 'td';
 	}
+	
+	public function isAutoClose() {
+		return false;
+	}
 }
 
 class TableHeader extends TableCell {
 	public function getHtmlTag() {
 		return 'th';
+	}
+	
+	public function isAutoClose() {
+		return false;
 	}
 }
 ?>

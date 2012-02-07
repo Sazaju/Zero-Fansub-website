@@ -11,5 +11,6 @@ interface IHtmlComponent {
 	public function generateHtml();
 	public function getHtml();
 	public function getHtmlTag();
+	public function isAutoClose();
 }
 ?>

@@ -15,6 +15,10 @@ class Anchor extends DefaultHtmlComponent {
 		return 'a';
 	}
 	
+	public function isAutoClose() {
+		return false;
+	}
+	
 	public function setName($name) {
 		$this->name = $name;
 	}

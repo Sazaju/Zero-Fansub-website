@@ -13,6 +13,10 @@ class SimpleListComponent extends DefaultHtmlComponent {
 		return $this->isOrdered ? 'ol' : 'ul';
 	}
 	
+	public function isAutoClose() {
+		return false;
+	}
+	
 	public function addComponent($content) {
 		parent::addComponent(new ListElement($content));
 	}
@@ -31,6 +35,10 @@ class ListElement extends DefaultHtmlComponent {
 	
 	public function getHtmlTag() {
 		return 'li';
+	}
+	
+	public function isAutoClose() {
+		return false;
 	}
 }
 ?>

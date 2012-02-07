@@ -10,6 +10,10 @@ class MailLink extends DefaultHtmlComponent {
 		return 'a';
 	}
 	
+	public function isAutoClose() {
+		return false;
+	}
+	
 	public function __construct($mail, $content = null) {
 		$this->setMail($mail);
 		
