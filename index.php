@@ -178,6 +178,7 @@ if (TEST_MODE_ACTIVATED) {
 define('WEBSITE_VERSION', exec('git tag'));
 define('MODE_H', 'modeH');
 define('DISPLAY_H_AVERT', 'displayHavert');
+define('STYLE', 'style');
 
 /**********************************\
          SESSION MANAGEMENT
@@ -196,6 +197,8 @@ if (isset($_GET[MODE_H])) {
 } else {
 	// let the state as is
 }
+
+$_SESSION[STYLE] = "default";
 
 /**********************************\
          RETRO COMPATIBILITY
@@ -232,8 +235,7 @@ if ($url->hasQueryVar('page')) {
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta name="DC.Language" scheme="RFC3066" content="fr" />
 		<?php
-			define('STYLE_DIR', "styles/default/");
-			$styleFile = STYLE_DIR."style".($_SESSION[MODE_H] ? "H" : "").".css";
+			$styleFile = "styles/".$_SESSION[STYLE]."/style".($_SESSION[MODE_H] ? "H" : "").".css";
 		?>
 		<link rel="stylesheet" href="<?php echo $styleFile; ?>" type="text/css" media="screen" title="Normal" />  
 		<link rel="icon" type="image/gif" href="fav.gif" />
@@ -257,7 +259,7 @@ if ($url->hasQueryVar('page')) {
 			$preload = new SimpleBlockComponent();
 			$preload->setID("preload");
 			$preload->setClass("hidden");
-			$dir = STYLE_DIR."images/";
+			$dir = "styles/".$_SESSION[STYLE]."/images/";
 			$descStack = DirectoryManager::getContent($dir, true);
 			$files = array();
 			while(!empty($descStack)) {
