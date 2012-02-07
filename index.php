@@ -231,7 +231,11 @@ if ($url->hasQueryVar('page')) {
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta name="DC.Language" scheme="RFC3066" content="fr" />
-		<link rel="stylesheet" href="styles/default/style<?php echo $_SESSION[MODE_H] ? "H" : ""; ?>.css" type="text/css" media="screen" title="Normal" />  
+		<?php
+			define('STYLE_DIR', "styles/default/");
+			$styleFile = STYLE_DIR."style".($_SESSION[MODE_H] ? "H" : "").".css";
+		?>
+		<link rel="stylesheet" href="<?php echo $styleFile; ?>" type="text/css" media="screen" title="Normal" />  
 		<link rel="icon" type="image/gif" href="fav.gif" />
 		<link rel="shortcut icon" href="fav.ico" />
 		<script type="text/javascript" language="Javascript">
@@ -250,11 +254,29 @@ if ($url->hasQueryVar('page')) {
 	</head>
 	<body>
 		<?php
-			$images = Image::getPreloadedImages();
-			foreach($images as $image) {
-				$image->setClass("hidden");
-				$image->writeNow();
+			$preload = new SimpleBlockComponent();
+			$preload->setID("preload");
+			$preload->setClass("hidden");
+			$dir = STYLE_DIR."images/";
+			$descStack = DirectoryManager::getContent($dir, true);
+			$files = array();
+			while(!empty($descStack)) {
+				$descriptor = array_pop($descStack);
+				if ($descriptor['type'] === 'file') {
+					$files[] = $dir.$descriptor['name'];
+				} else if ($descriptor['type'] === 'directory') {
+					foreach($descriptor['content'] as $sub) {
+						$sub['name'] = $descriptor['name'].'/'.$sub['name'];
+						array_push($descStack, $sub);
+					}
+				} else {
+					// ignore others (not recognized)
+				}
 			}
+			foreach($files as $file) {
+				$preload->addComponent(new Image($file));
+			}
+			$preload->writeNow();
 		?>
 		<?php
 			if (TEST_MODE_ACTIVATED) {
