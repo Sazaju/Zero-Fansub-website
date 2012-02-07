@@ -76,7 +76,6 @@ class DirectoryManager {
         // sorting
         if (!empty($sorting)) {
 			// data formating
-            $sorting = str_split( $sorting );
             $sort_order = array();
             $last_sort = NULL;
             foreach($sorting as $key => $direction) {
