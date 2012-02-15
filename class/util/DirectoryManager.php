@@ -35,7 +35,7 @@ class DirectoryManager {
     
 		// safe formating
 		$lastIndex = strlen($path) - 1;
-        if ($path[$lastIndex] === '/') {
+        if (in_array($path[$lastIndex], array('/', '\\'))) {
             $path[$lastIndex] = '\0';
         }
 
