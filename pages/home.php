@@ -64,19 +64,6 @@
 	/******************************\
 	         FINALIZE LIST
 	\******************************/
-	if ($view !== 'all') {
-		$advert = new News();
-		$advert->setTitle("[Zero] BlogBang");
-		$advert->setTimestamp(strtotime("now"));
-		$advert->setMessage("[advert]");
-		$advert->setCommentId(64);
-		$advert->setDisplayInNormalMode(true);
-		$advert->setDisplayInHentaiMode(true);
-		$advert->setTeamNews(false);
-		$advert->setPartnerNews(false);
-		$advert->setDb0CompanyNews(false);
-		$newsList[] = $advert;
-	}
 	usort($newsList, array('News', 'timestampSorter'));
 	
 	/******************************\
