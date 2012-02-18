@@ -1,4 +1,4 @@
-.teamList, .teamList ul{
+#page .teamList, .teamList ul{
 	list-style: none;
 }
 
@@ -8,7 +8,7 @@
 	margin: 0;
 }
 
-.teamList ul img{
+#page .teamList ul img{
 	float: right;
 	display: block;
 	margin-right: 50px;
