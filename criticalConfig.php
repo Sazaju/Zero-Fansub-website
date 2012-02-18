@@ -11,6 +11,7 @@
 		<link rel="shortcut icon" href="fav.ico" />
 		<style type="text/css">
 			pre.code {
+				text-align: left;
 				border: 1px black solid;
 				padding: 5px;
 			}
