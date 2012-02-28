@@ -690,6 +690,12 @@ class TeamMember {
 			$member->setWebsite("http://enely-fanlation.fansub.ws/", "Enely-Fanlation");
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(80);
+			$member->setImage("sunako.jpg");
+			$member->setPseudo("Sunako");
+			$member->addRole(Role::getRole("tradEn"));
+			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;
 	}
