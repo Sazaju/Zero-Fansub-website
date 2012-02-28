@@ -25,37 +25,26 @@
 		/***************************************\
 		              PAGE LOADING
 		\***************************************/
-		// refined pages
-		if (in_array($page, array('project', 'home', 'about', 'contact', 'bug', 'projects', 'team', 'xdcc', 'havert', 'dossiers', 'dossier', 'partenariat', 'kanaiiddl', 'recrutement', 'dakko', 'dons', 'dl'))) {
-			try {
-				$id = Url::getCurrentUrl()->getQueryVar('page');
-				PageContent::getInstance()->setClass($id);
-				
-				$page = Page::getPage($id);
-				$content = $page->getContent();
-				if ($page->useBBCode()) {
-					$content = Format::convertTextToHTML($content);
-				}
-				PageContent::getInstance()->addComponent(new SimpleTextComponent($content));
-			} catch(Exception $e) {
-				require_once("pages/$page.php");
-			}
+		if (!in_array($page, array('project', 'home', 'about', 'contact', 'bug', 'projects',
+		                           'team', 'xdcc', 'havert', 'dossiers', 'dossier', 'partenariat',
+		                           'kanaiiddl', 'recrutement', 'dakko', 'dons', 'dl'))) {
+			throw new Exception("Inexistant page ".$page);
 		}
 		
-		// not refined pages
-		// TODO remove all when the website will be completely refined
-		$pageContent = PageContent::getInstance();
-		if (count($pageContent->getComponents()) > 0) {
-			$pageContent->writeNow();
-		}
-		else if (file_exists("pages/$page.php")) {
-			echo '<div id="page">';
+		try {
+			$id = Url::getCurrentUrl()->getQueryVar('page');
+			PageContent::getInstance()->setClass($id);
+			
+			$page = Page::getPage($id);
+			$content = $page->getContent();
+			if ($page->useBBCode()) {
+				$content = Format::convertTextToHTML($content);
+			}
+			PageContent::getInstance()->addComponent(new SimpleTextComponent($content));
+		} catch(Exception $e) {
 			require_once("pages/$page.php");
-			echo '</div>';
 		}
-		else {
-			throw new Exception("Invalid URL");
-		}
+		PageContent::getInstance()->writeNow();
 	} catch(Exception $e) {
 		if (TEST_MODE_ACTIVATED) {
 			echo '<div id="page">';
