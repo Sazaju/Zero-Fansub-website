@@ -1,6 +1,6 @@
 <?php
 class ProjectComponent extends SimpleBlockComponent {
-	public function __construct(Project $project) {
+	public function __construct(Project $project, $forceDisplay = false) {
 		$image = new Image('images/series/'.$project->getID().'.jpg');
 		$image->setClass('projectPicture');
 		$this->addComponent($image);
@@ -52,7 +52,6 @@ class ProjectComponent extends SimpleBlockComponent {
 		usort($releases, array('Release', 'idSorter'));
 		$list = new SimpleListComponent();
 		$list->setClass("releaseList");
-		$forceDisplay = Url::getCurrentUrl()->hasQueryVar('test');
 		foreach($releases as $release)
 		{
 			$list->addComponent(new ReleaseComponent($release, $forceDisplay));
