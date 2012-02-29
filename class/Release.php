@@ -907,7 +907,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->setReleasingTime(strtotime('29 February 2012 00:18'));
+			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep2');
