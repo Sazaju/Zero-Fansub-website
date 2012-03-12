@@ -10,7 +10,7 @@
 	margin: 0 1em;
 }
 
-.news { 
+.news {
 	max-width: 550px;
 	margin: auto;
 }
@@ -21,6 +21,14 @@
 
 .news .message {
 	display: block;
+	margin-bottom: 2em;
+}
+
+.news .releases {
+	width: 80%;
+	margin: auto;
+	border: 2px groove #ffe7aa;
+	padding: 1em;
 	margin-bottom: 2em;
 }
 

@@ -7,17 +7,16 @@ class NewsComponent extends SimpleBlockComponent {
 	public function __construct(News $news) {
 		$this->setClass("news");
 		
-		$this->title = new Title($news->getTitle(), 2);
-		$this->title->setClass("title");
-		$this->addComponent($this->title);
+		$title = new Title($news->getTitle(), 2);
+		$title->setClass("title");
+		$this->addComponent($title);
 		
 		$subtitle = new Title(null, 4);
 		$subtitle->setClass("subtitle");
-		$time = $news->getTimestamp();
-		if ($time === null) {
-			$time = "Préparée";
-		} else {
-			$time = strftime("%d/%m/%Y", $time);
+		$time = "Préparée";
+		$timestamp = $news->getTimestamp();
+		if ($timestamp !== null) {
+			$time = strftime("%d/%m/%Y", $timestamp);
 		}
 		$subtitle->addComponent($time);
 		if ($news->getAuthor() != null) {
@@ -25,10 +24,34 @@ class NewsComponent extends SimpleBlockComponent {
 		}
 		$this->addComponent($subtitle);
 		
-		$this->message = new SimpleTextComponent(Format::convertTextToHtml($news->getMessage()));
-		$this->message->setClass("message");
-		$this->message->setContentPinned(true);
-		$this->addComponent($this->message);
+		$message = new SimpleTextComponent(Format::convertTextToHtml($news->getMessage()));
+		$message->setClass("message");
+		$message->setContentPinned(true);
+		$this->addComponent($message);
+		
+		// TODO group releases by projects
+		if (/*$timestamp >= strtotime('12 March 2012 14:47') &&*/ $news->isReleasing()) {
+			$content = '';
+			$releases = array();
+			foreach($news->getReleasing() as $release) {
+				if ($release instanceof Project) {
+					$pid = $release->getID();
+					$content .= '[project='.$pid.']'.$release->getName().'[/project]';
+				} else if ($release instanceof Release) {
+					$pid = $release->getProject()->getID();
+					$id = $release->getID();
+					$content .= '[release='.$pid.'|'.$id.']'.$release->getCompleteName().'[/release]';
+				} else {
+					throw new Exception($release." is not a release nor a project.");
+				}
+				$content .= "\n";
+			}
+			
+			$releasing = new SimpleTextComponent(Format::convertTextToHtml($content));
+			$releasing->setLegend('Sorties');
+			$releasing->setClass("releases");
+			$this->addComponent($releasing);
+		}
 		
 		$commentId = $news->getCommentID();
 		if ($commentId !== null) {
