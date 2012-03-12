@@ -3966,7 +3966,7 @@ Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exacte
 			$news->setTimestamp(strtotime("12 March 2012 14:47"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Petite sortie en vitesse. Il y en a un paquet d'autres qui sont en cours de préparation mais qui devraient arriver la semaine prochaine.");
-			//$news->setCommentId(289);
+			$news->setCommentId(290);
 			$news->addReleasing(Release::getRelease('denpa', 'ep1'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
