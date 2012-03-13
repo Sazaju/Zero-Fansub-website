@@ -243,6 +243,21 @@ class Project {
 	private static $allProjects = null;
 	public static function getAllProjects() {
 		if (Project::$allProjects === null) {
+			$project = new Project("haganai", "Boku ha Tomodachi ga Sukunai");
+			$project->setOriginalName("Boku ha Tomodachi ga Sukunai");
+			$project->setAiringYear(2011);
+			$project->setGenre("Comédie - Ecchi");
+			$project->setSynopsis("C'est bien connu, les otakus n'ont pas d'amis. Mais quand on n'en est pas un, ça ne veut pas dire pour autant qu'on en a. Si vous aussi vous avez du mal avec les autres, peut-être vous reconnaitrez-vous dans cette série. Sinon, vous pourrez toujours en profiter pleinement pour découvrir comment s'amuser quand on n'a pas d'amis... ou tout du moins quand on en est convaincu.");
+			$project->setRunning(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("haganaioav", "Boku ha Tomodachi ga Sukunai OAV");
+			$project->setOriginalName("Boku ha Tomodachi ga Sukunai OAV");
+			$project->setAiringYear(2011);
+			$project->setGenre("Comédie - Ecchi");
+			$project->setSynopsis("Quand on a une bonne bande d'amis, on partage de bons moments ensemble. On organise des pique-niques, chacun ramène son repas, et tout le monde s'amuse avec entrain. Enfin ça, c'est ce qu'on fait quand on a des amis. Mais quand on n'en a pas, que fait-on ? Et bien certains essayent de faire comme-si... et là ça peut tourner au génocide. Attention à la crise de foie.");
+			$project->setRunning(true);
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomo", "Kodomo no Jikan");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
@@ -1300,6 +1315,7 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
 			Project::$allLinks[] = array(Project::getProject('kodomo2'), Project::getProject('kodomo'));
 			Project::$allLinks[] = array(Project::getProject('kodomo2'), Project::getProject('kodomooav'));
 			Project::$allLinks[] = array(Project::getProject('kodomooav'), Project::getProject('kodomo'));
+			Project::$allLinks[] = array(Project::getProject('haganai'), Project::getProject('haganaioav'));
 		}
 		
 		return Project::$allLinks;
