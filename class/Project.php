@@ -457,7 +457,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setGenre("Ecchi");
 			$project->setSynopsis("Hinako est aspirée dans le monde des mangas alors qu'elle en regardait un à la télévision. C'est ainsi que commence sa vie en tant que personnage d'anime, tandis que le spectateur est sans cesse sollicité pour des exercices physiques de remise en forme, avec une caméra à la première personne.");
 			$project->setVosta("Boobz");
-			$project->setDiscussionUrl("http://forum.zerofansub.net/t2060-Ton-avis-sur-Isshoni-Training-L-entrainement-avec-Hinako.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t547-Ton-avis-sur-L-entrainement-avec-Hinako-Isshoni-Training.htm");
 			$project->setFinished(true);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
