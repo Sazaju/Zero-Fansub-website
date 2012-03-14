@@ -72,6 +72,10 @@ function findFile($fileName, $dir) {
 function __autoload($className) {
 	$file = findFile($className.'.php', 'class');
 	if ($file != null) {
+		$chunks = explode("/", $file);
+		if (TEST_MODE_ACTIVATED && in_array("old", $chunks)) {
+			echo Debug::createWarningTag("Old script used: $file");
+		}
 		include $file;
 	}
 }
