@@ -248,6 +248,7 @@ class Project {
 			$project->setAiringYear(2011);
 			$project->setGenre("Comédie - Ecchi");
 			$project->setSynopsis("C'est bien connu, les otakus n'ont pas d'amis. Mais quand on n'en est pas un, ça ne veut pas dire pour autant qu'on en a. Si vous aussi vous avez du mal avec les autres, peut-être vous reconnaitrez-vous dans cette série. Sinon, vous pourrez toujours en profiter pleinement pour découvrir comment s'amuser quand on n'a pas d'amis... ou tout du moins quand on en est convaincu.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
@@ -256,6 +257,7 @@ class Project {
 			$project->setAiringYear(2011);
 			$project->setGenre("Comédie - Ecchi");
 			$project->setSynopsis("Quand on a une bonne bande d'amis, on partage de bons moments ensemble. On organise des pique-niques, chacun ramène son repas, et tout le monde s'amuse avec entrain. Enfin ça, c'est ce qu'on fait quand on a des amis. Mais quand on n'en a pas, que fait-on ? Et bien certains essayent de faire comme-si... et là ça peut tourner au génocide. Attention à la crise de foie.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
@@ -339,6 +341,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAuthor("Sakurai Norio");
 			$project->setGenre("Comédie Ecchi");
 			$project->setSynopsis("Les triplés raconte l'histoire de 3 filles de primaire un peu perverses qui harcèlent leur prof pas doué.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
@@ -348,6 +351,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAuthor("Gunma Kisaragi");
 			$project->setGenre("Hentai");
 			$project->setSynopsis("Parodie hentaï de Kimikiss pure rouge mettant en scène Futami Eriko, l'intello, continuant ses expèriences encore plus profondément avec Kazuki.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2052-Ton-avis-sur-ERIKO.htm");
 			$project->setHentai(true);
 			$project->setDoujin(true);
 			$project->setFinished(true);
@@ -359,6 +363,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAuthor("Yukimihonpo");
 			$project->setGenre("Hentai");
 			$project->setSynopsis("Parodie hentaï He is my master. Yoshitaka est malade et les médicaments qu'Izumi va lui donner vont le remettre d'aplomb, ainsi que son penis ! Il va tout faire pour avoir Izumi mais va finalement se rattraper sur les deux autres.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2054-Ton-avis-sur-Ce-sont-mes-Maids.htm");
 			$project->setHentai(true);
 			$project->setDoujin(true);
 			$project->setFinished(true);
@@ -372,6 +377,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setStudio("Shaft");
 			$project->setGenre("Fantastique");
 			$project->setSynopsis("Niwa Makoto est un lycéen parti vivre chez sa tante car ses parents sont en voyage d'affaires. Il y rencontre une cousine du même âge, inconnue du reste de sa famille, Towa Erio. Cette cousine étrange porte constamment un futon autour du corps, ne se nourrit pratiquement que de pizzas et pense être un extraterrestre.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2046-Ton-avis-sur-Denpa-onna-to-seishun-otoko.htm");
 			$project->setStarted(true);
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
@@ -382,6 +388,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAiringYear(2010);
 			$project->setGenre("Ecchi");
 			$project->setSynopsis("Hinako est de retour ! Après l'effort, le réconfort, et c'est avec elle que vous allez pouvoir vous reposer après les difficiles exercices de musculations du précédent épisode.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2055-Ton-avis-sur-Isshoni-Sleeping-S-endormir-avec-Hinako.htm");
 			$project->setFinished(true);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
@@ -393,6 +400,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setStudio("Primaesta");
 			$project->setGenre("Ecchi");
 			$project->setSynopsis("Prendre un bain avec Hinako, &ccedil;a vous dit ? En plus, elle n'est pas seule : Hiyoko, sa copine loli, vient vous rejoindre.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2056-Ton-avis-sur-Isshoni-Training-Ofuro-Bathtime-with-Hinako-Hiyoko.htm#p50921");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -404,6 +412,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setStudio(Link::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
 			$project->setGenre("Comédie");
 			$project->setSynopsis("De petites aventures arrivent à Potemayo dans ces épisodes bonus de la série Potemayo.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2057-Ton-avis-sur-Potemayo.htm");
 			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", Link::newWindowLink("http://www.getpersonas.com/en-US/persona/208619", new Image("http://getpersonas-cdn.mozilla.net/static/1/9/208619/preview.jpg?1273490832", "Potemayo theme skin persona mozilla firefox"))));
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -413,6 +422,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAiringYear(2008);
 			$project->setGenre("Porno");
 			$project->setSynopsis("Parodie pornographique de Kodomo no Jikan.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2058-Ton-avis-sur-Konoe-no-Jikan.htm");
 			$project->setHentai(true);
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
@@ -422,6 +432,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setOriginalName("Akina To Onsen De H Shiyo");
 			$project->setAiringYear(2011);
 			$project->setGenre("Hentai");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2059-Ton-avis-sur-Akina-To-Onsen-De-H-Shiyo.htm");
 			$project->setHentai(true);
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -439,13 +450,14 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setHidden(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("training", "Isshoni Training - L'entra&icirc;nement avec Hinako");
+			$project = new Project("training", "Isshoni Training - L'entraînement avec Hinako");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Isshoni Training");
 			$project->setAiringYear(2009);
 			$project->setGenre("Ecchi");
 			$project->setSynopsis("Hinako est aspirée dans le monde des mangas alors qu'elle en regardait un à la télévision. C'est ainsi que commence sa vie en tant que personnage d'anime, tandis que le spectateur est sans cesse sollicité pour des exercices physiques de remise en forme, avec une caméra à la première personne.");
 			$project->setVosta("Boobz");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2060-Ton-avis-sur-Isshoni-Training-L-entrainement-avec-Hinako.htm");
 			$project->setFinished(true);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
@@ -458,6 +470,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setStudio("A-1 Pictures Inc");
 			$project->setGenre("Comédie");
 			$project->setSynopsis("Takanashi Souta est un lycéen qui a une passion pour les petites choses mignonnes. Quand une fille, Taneshima Popla, l'aborde dans la rue et lui demande si il cherche un travail à mi-temps, il la trouve mignonne car elle ressemble à une collégienne, peut-être même une écolière. Mais il se rend compte quelle a un an de plus que lui. Passant par dessus ce détail, il accepte le travail à mi-temps car elle est toute petite et craquante à souhait. Il commence donc à travailler dans un restaurant familial, mais on peut dire que le personnel est unique ici !");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2045-Ton-avis-sur-Working.htm");
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
@@ -477,6 +490,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAiringYear(2009);
 			$project->setGenre("Hentai");
 			$project->setSynopsis("Vous avez aimez L'entraînement avec Hinako ? Vous aimerez sûrement sa parodie Hentaï, \"faisons l'amour ensemble\" ! Aujourd'hui, c'est avec vous que notre jolie héroïne fait l'amour... Vous, et vous seul ! Profitez-en ;)");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2061-Ton-avis-sur-Faisons-l-amour-ensemble.htm");
 			$project->setHentai(true);
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
@@ -496,7 +510,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("nanami", "Nanami Madobe Windows 7 Publicit&eacute;");
+			$project = new Project("nanami", "Nanami Madobe Windows 7 Publicité");
 			$project->setOriginalName("Madobe Nanami Windows7 Comercial");
 			$project->setOfficialWebsite(Link::newWindowLink("http://www.windows7-mania.jp/", "Windows7 Mania"));
 			$project->setAiringYear(2010);
@@ -504,6 +518,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setGenre("Publicité");
 			$project->setSynopsis("Nanami Madobe te présente Windows 7 et te donne des conseils pour mieux l'utiliser. Elle te montre aussi comment monter ton propre ordinateur.");
 			$project->setVosta(Link::newWindowLink("http://bssubs.net/", "BSS"));
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2062-Ton-avis-sur-Nanami-Madobe-Windows-7-Publicite.htm");
 			$project->addBonus(new ProjectBonus("ThemePack", "Le thème de Nanami Madobe pour Windows 7 ! Pour l'installer, vous devez avoir Windows 7. Téléchargez le fichier puis double-cliquez dessus pour l'ouvrir. Le thème s'installera tout seul et Nanami vous dira \"Konichiwa ! Nanami desu.\".<br/>
 <a href='ddl/[Zero]_Windows_7_Nanami_Madobe_ThemePack.themepack' target='_blank'>
 <img src='http://zerofansub.net/images/news/theme_nanami.png' border='0' alt='Themepack Thème Windows 7 de Nanami Madobe à télécharger download gratuit' />
@@ -523,6 +538,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 Comme s'il n'avait rien vu de spécial celui-ci ferme la porte sans porter plus d'attention à la créature en ayant au préalable saisi son déjeuné, celui-ci portant le nom de \"Potemayo\", il surnommera la créature \"Potemayo\".
 Et c'est dès lors qu'à se moment, les gags et situations humoristiques apparaissent !");
 			$project->setVosta("<a href=\"http://fansubs.anime-share.net/\" target=\"_blank\">Anime-Share fansub</a> et Anoymous");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2057-Ton-avis-sur-Potemayo.htm");
 			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", Link::newWindowLink("http://www.getpersonas.com/en-US/persona/208619", new Image("http://getpersonas-cdn.mozilla.net/static/1/9/208619/preview.jpg?1273490832", "Potemayo theme skin persona mozilla firefox"))));
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -536,6 +552,7 @@ Et c'est dès lors qu'à se moment, les gags et situations humoristiques apparaiss
 			$project->setGenre("Comédie");
 			$project->setAuthor("Katoh Aruaki");
 			$project->setSynopsis("Torako invite Toma dans un café manger des patisseries.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2049-Ton-avis-sur-Hyakko-OAD.htm");
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20Original%20Soundtrack.zip.torrent">[Nipponsei] Hyakko Original Soundtrack.zip</a><br />
@@ -556,6 +573,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/209338"><img src="http://getpersonas-cdn.mozilla.net/static/3/8/209338/preview.jpg?1273561667" border="0" alt="Mayoi Neko Overrun! theme skin persona mozilla firefox" /></a> 
 <a target="_blank" href="http://www.getpersonas.com/en-US/persona/210030"><img src="http://getpersonas-cdn.mozilla.net/static/3/0/210030/preview.jpg?1273648101" border="0" alt="Mayoi Neko Overrun! theme skin persona mozilla firefox" /></a> 
 <a target="_blank" href="http://www.getpersonas.com/en-US/persona/233236"><img src="http://getpersonas-cdn.mozilla.net/static/3/6/233236/preview.jpg?1277047781" border="0" alt="Mayoi Neko Overrun! theme skin persona mozilla firefox" /></a>'));
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2047-Ton-avis-sur-Mayoi-Neko-Overrun.htm");
 			$project->setStarted(true);
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
@@ -568,6 +586,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setAuthor("Matsu Tomohiro");
 			$project->setGenre("Comédie Ecchi");
 			$project->setSynopsis("Ces épisodes sont de petites scènes indépendantes de l'histoire. Pour ceux qui ont le nez fragile, préparez les mouchoirs : saignements de nez au programme.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2047-Ton-avis-sur-Mayoi-Neko-Overrun.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -579,6 +598,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setStudio("Silver Link");
 			$project->setGenre("Amour et Amitié");
 			$project->setSynopsis("Les épisodes Bonus DVD de la série Tayutama -Kiss on my Deity-.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2063-Ton-avis-sur-Tayutama-Kiss-on-my-Deity.htm");
 			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
 <p>
 	<a href="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Cover.jpg" target="_blank">
@@ -617,6 +637,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setStudio("Nippon Animation");
 			$project->setGenre("Comédie");
 			$project->setSynopsis("L’école privée Kamizono est un établissement qui possède la particularité d’accueillir en son sein des élèves allant du primaire jusqu’au lycée. De ce fait, son immense structure donne du mal aux nouveaux arrivants pour s’y retrouver. Nonomura Ayumi, jeune étudiante au caractère réservé, arrive à se perdre dés le premier jour de la rentrée. Cherchant désespérément son chemin, elle fini par tomber sur une de ses camarades de classe Lizuda Tatsuki qui se trouve être, sans vouloir l’admettre, dans la même situation qu’elle. Après un long moment de marche, toutes les deux voient incrédules deux élèves sautaient du deuxième étage d’un bâtiment. C’est ainsi qu’elles font la rencontre de Torako et Suzu, également perdues mais ayant un moyen infaillible pour atteindre rapidement leur salle de classe : aller de l’avant quelque soit l’obstacle rencontré. Commence alors pour ce nouveau quatuor formé, une année scolaire placée sous le signe de l’amitié et de l’humour.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2064-Ton-avis-sur-Hyakko.htm");
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20Original%20Soundtrack.zip.torrent">[Nipponsei] Hyakko Original Soundtrack.zip</a><br />
@@ -635,6 +656,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setGenre("Amour et Amitié");
 			$project->setSynopsis("L'histoire est centrée sur Yuuri Mito, un étudiant de l'Académie Sousei et le fils unique de l'homme qui dirige le temple Yachimata. À Yachimata, il y a une légende à propos d'une divinité appelée Tayutama-sama qui protégea la région, mais cette divinité et d'autres ainsi nommées \"Tayutai\" ont été oubliées avec le temps. Mito et ses amis découvrent une relique dans le sol de l'école, avec de mystérieux motifs. Dès lors, à la cérémonie d'ouverture de la nouvelle année scolaire, une tout aussi mystérieuse fille appelée Mashiro apparaît devant Mito. Mashiro est d'une certaine manière liée à la relique et à la légende de Tayutama-sama.");
 			$project->setVosta('<a href="http://fansubs.anime-share.net/" target="_blank">Anime-Share fansub</a> et Anoymous');
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2063-Ton-avis-sur-Tayutama-Kiss-on-my-Deity.htm");
 			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
 <p>
 	<a href="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Cover.jpg" target="_blank">
@@ -697,6 +719,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setOriginalName("Kanamemo");
 			$project->setGenre("Comédie - Déjanté - Ecchi");
 			$project->setSynopsis("Kana vient tout juste de perdre sa grand-mère et seule famille, la laissant seule au monde. Après avoir fuit une horde de déménageurs à l'air sournois (du moins pour son petit esprit hermétique à toute réflexion), elle entreprend de chercher un travail, ce qu'elle réussit plus ou moins à trouver au sein d'une petite entreprise de livraison de journaux...");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2065-Ton-avis-sur-Kanamemo-Scans.htm");
 			$project->setStarted(true);
 			$project->setRunning(true);
 			$project->setDoujin(true);
@@ -712,6 +735,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setAuthor("Iwami Shouko");
 			$project->setSynopsis("Kana vient tout juste de perdre sa grand-mère et seule famille, la laissant seule au monde. Après avoir fuit une horde de déménageurs à l'air sournois (du moins pour son petit esprit hermétique à toute réflexion), elle entreprend de chercher un travail, ce qu'elle réussit plus ou moins à trouver au sein d'une petite entreprise de livraison de journaux...");
 			$project->setVosta('Underwater');
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2048-Ton-avis-sur-Kanamemo.htm");
 			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
 <p>
 <a href="images/cover/[Zero]Kanamemo_Cover.jpg" target="_blank">
@@ -888,6 +912,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setStudio("PA Works");
 			$project->setGenre("Enigme et Policier");
 			$project->setSynopsis("Deux journalistes, Mino-san et sa partenaire sont envoyés pour couvrir un évènement culturel dans la ville de Shanghai. En raison de certaines circonstances cette dernière se retrouve seule au milieu de cette manifestation festive. Elle sera alors brutalement mêlée à une situation critique au mauvais endroit, au mauvais moment mais c'est alors que surgit Canaan, une jeune mercenaire victime de guerre.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2066-Ton-avis-sur-Canaan.htm");
 			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
 <p>
 	<a href="images/cover/[Zero]Canaan_Cover01.jpg" target="_blank">
@@ -1125,6 +1150,7 @@ Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 			$project->setStudio("Aniplex - Sony Music ent. Visual Works - A-1 Pictures Inc.");
 			$project->setGenre("Fantastique - Comédie");
 			$project->setSynopsis("Un jeune lycéen voit sa vie basculer le jour où la statue qu'il a sculpté se transforme en une ravissante jeune fille. Le bois de sa sculpture provenait en fait d'un arbre sacré habité par une déesse du nom de Nagi, celle-ci était là dans le but de veiller sur le quartier. Jin devra dorénavant héberger Nagi chez lui, mais la jeune fille n'a pas caractère facile.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2067-Ton-avis-sur-Kannagi.htm");
 			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
 <p>
 <a href="images/cover/[Zero]Kannagi_Cover.jpg" target="_blank">
@@ -1259,6 +1285,12 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
 			$project->setDiscussionUrl("http://zero.xooit.fr/t120-Ton-avis-sur-Kimikiss-pue-rouge-la-serie-en-general.htm");
 			$project->setAbandonned(true);
 			Project::$allProjects[] = $project;
+		}
+		
+		foreach(Project::$allProjects as $project) {
+			if ($project->isStarted() && !$project->isHidden() && $project->getDiscussionUrl() == null) {
+				throw new Exception($project->getID()." has no discussion");
+			}
 		}
 		
 		return Project::$allProjects;
