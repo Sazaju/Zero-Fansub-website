@@ -85,6 +85,7 @@ class CornerImage extends Link {
 			CornerImage::$allImages[] = new CornerImage("BokuTomo3.png", "Kobato", "haganai");
 			CornerImage::$allImages[] = new CornerImage("BokuTomo4.png", "Maria", "haganai");
 			CornerImage::$allImages[] = new CornerImage("BokuTomo5.png", "Yukimura", "haganai");
+			CornerImage::$allImages[] = new CornerImage("BokuTomo6.png", "Yukimura", "haganai");
 		}
 		
 		return CornerImage::$allImages;
