@@ -272,7 +272,7 @@ class Project {
 			$project->setSynopsis("Aoki Daisuke sensei est un tout nouveau professeur en primaire et débute sa carrière dans une classe d’enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d’elle, par de nombreux pièges parfois osés, et rendra sa vie de nouveau professeur très difficile. 
 Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la vie de ses élèves et fera de son mieux pour les aider à surmonter les problèmes, même s’il met parfois en jeu son poste d’éducateur. Reste à voir dans quelles galères il se mettra, surtout avec le trio Kokonoe, Kagami et Usa.");
 			$project->setVosta('<a href="http://www.genjo-subs.net/" target="_blank">Genjo Subs</a> et <a href="http://loli-pop-subs.blogspot.com/" target="_blank">Loli-Pop-Subs</a>');
-			$project->setDiscussionUrl("http://zero.xooit.fr/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -288,7 +288,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setVosta('<a href="http://www.genjo-subs.net/" target="_blank">Genjo Subs</a>');
 			$project->setComment("Si vous souhaitez regarder l'OAV mais aussi la série, il est conseillé de regarder l'OAV entre l'épisode 5 et 6.
 Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le regarder sans voir la série. Mais c'est quand même mieux de regarder la série, évidemment ^^");
-			$project->setDiscussionUrl("http://zero.xooit.fr/t251-Ton-avis-sur----Kodomo-no-Jikan-OAV.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t251-Ton-avis-sur----Kodomo-no-Jikan-OAV.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -301,7 +301,7 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setVosta('<a href="http://loli-pop-subs.blogspot.com/" target="_blank">Loli-Pop-Subs</a>');
-			$project->setDiscussionUrl("http://zero.xooit.fr/t358-Ton-avis-sur-Kodomo-no-Jikan-Saison-2.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t358-Ton-avis-sur-Kodomo-no-Jikan-Saison-2.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -314,7 +314,7 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setSynopsis("Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'été, en vacances avec Aoki et Houin.");
-			$project->setDiscussionUrl("http://zero.xooit.fr/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -328,7 +328,7 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setSynopsis("Aoki Daisuke sensei est un tout nouveau professeur en primaire et débute sa carrière dans une classe d’enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d’elle, par de nombreux pièges parfois osés, et rendra sa vie de nouveau professeur très difficile. 
 Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la vie de ses élèves et fera de son mieux pour les aider à surmonter les problèmes, même s’il met parfois en jeu son poste d’éducateur. Reste à voir dans quelles galères il se mettra, surtout avec le trio Kokonoe, Kagami et Usa.");
-			$project->setDiscussionUrl("http://zero.xooit.fr/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -505,7 +505,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAuthor("Pink Hanamori");
 			$project->setSynopsis("Luchia, une jeune sirène, a sauvé dans son enfance un garçon du même âge qu'elle qui était en train de se noyer et lui a mis au cou un médaillon. Quelques années plus tard, elle gagne la terre ferme dans l'espoir de retrouver celui qu'elle a toujours aimé. Le jeune collégien en question qui est devenu un surfer participant à des concours invite Luchia et sa copine Hanon pour la revoir lors de sa prochaine compétition, mais les Forces du Mal aquatiques vont venir semer le trouble...");
 			$project->setVosta("Lunar anime");
-			$project->setDiscussionUrl("http://zero.xooit.fr/t148-Ton-avis-sur-Mermaid-Melody-Pichi-Pichi-Pich-la-serie-en-general.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t148-Ton-avis-sur-Mermaid-Melody-Pichi-Pichi-Pich-la-serie-en-general.htm");
 			$project->setAbandonned(true);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
@@ -625,7 +625,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20colors~%20sound%20sketch%20book.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full colors~ sound sketch book.zip	11-21 01:28	130.02 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20OP%20Single%20-%20Kaze%20Sagashi%20%5BKiyoura%20Natsumi%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ OP Single - Kaze Sagashi [Kiyoura Natsumi].zip	10-24 01:52	43.88 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20ED%20Single%20-%20Sketchbook%20wo%20Motta%20Mama%20%5BMakino%20Yui%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ ED Single - Sketchbook wo Motta Mama [Makino Yui].zip	10-24 01:52	47.75 MB</a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t359-Ton-avis-sur-Sketchbook-full-color-s.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t359-Ton-avis-sur-Sketchbook-full-color-s.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -684,7 +684,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20colors~%20sound%20sketch%20book.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full colors~ sound sketch book.zip	11-21 01:28	130.02 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20OP%20Single%20-%20Kaze%20Sagashi%20%5BKiyoura%20Natsumi%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ OP Single - Kaze Sagashi [Kiyoura Natsumi].zip	10-24 01:52	43.88 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20ED%20Single%20-%20Sketchbook%20wo%20Motta%20Mama%20%5BMakino%20Yui%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ ED Single - Sketchbook wo Motta Mama [Makino Yui].zip	10-24 01:52	47.75 MB</a>'));
-			$project->setDiscussionUrl('http://zero.xooit.fr/t359-Ton-avis-sur-Sketchbook-full-color-s.htm');
+			$project->setDiscussionUrl('http://forum.zerofansub.net/t359-Ton-avis-sur-Sketchbook-full-color-s.htm');
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -711,7 +711,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <img src="images/icones/bonus.png" alt="Bonus" /> <a href="ddl/%5bKanaii-Zero%5d_HANAJI_Maria+Holic_OP_%5bX264_1280x720%5d.mp4">Clip de l\'Opening Hanaji</a>'));
 			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/126094"><img src="http://getpersonas-cdn.mozilla.net/static/9/4/126094/preview.jpg?1268458756" border="0" alt="Maria Holic theme skin persona mozilla firefox" /></a> 
 <a target="_blank" href="http://www.getpersonas.com/en-US/persona/93715"><img src="http://getpersonas-cdn.mozilla.net/static/1/5/93715/preview.jpg?1265220806" border="0" alt="Maria Holic theme skin persona mozilla firefox" /></a>'));
-			$project->setDiscussionUrl('http://zero.xooit.fr/t476-Ton-avis-sur-Maria-Holic.htm');
+			$project->setDiscussionUrl('http://forum.zerofansub.net/t476-Ton-avis-sur-Maria-Holic.htm');
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -772,7 +772,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setAuthor("Takemiya Yuyuko");
 			$project->setSynopsis("Ami, Taiga et Ryuuji décident d'aller chez Jonny's pour y gouter les spaghettis Tarako. Sur place ils retrouvent Minori et la dégustation culinaire vire au duel...");
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t357-Ton-avis-sur-Toradora.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -787,7 +787,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setSynopsis("En raison de son regard menaçant hérité de son père, Takasu Ryuuji est un adolescent craint, car considéré comme un délinquant, par les autres élèves de son lycée. Cette image étant à l’opposé de ce qu’il est réellement, ce dernier aimerait s’en séparer définitivement afin de ne plus souffrir des conséquences qui en découlent. Ryuuji ne perd pas espoir d’y arriver grâce notamment à son ami Kitamura qui, en plus d’avoir vu clair dans cette mésentente, lui a permis de rencontrer Kushieda Minori dont il est tombé amoureux. Alors qu’il pense à elle, il bouscule par mégarde Asaika Taiga, une élève de sa classe et amie de Minori dont le mauvais caractère n’a d’égal que sa force. Suite à un concours de circonstances, Ryuuji apprendra que Aisaka est sa nouvelle voisine et que cette dernière est amoureuse de Kitamura. Se développe alors entre les deux une relation ambiguë dans le but de se rapprocher des personnes respectives aimées.");
 			$project->setVosta('<a href="http://www.ggkthx.org/" target="_blank">GG</a>');
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t357-Ton-avis-sur-Toradora.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -797,7 +797,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Takemiya Yuyuko");
 			$project->setSynopsis("Faire un bentô peut être compliqué. Ce doit être un repas équilibré, permettant de tenir tout l'après-midi. Ryuuji le sait bien, après tout il met un point d'honneur à ce que ses bentôs soient digne d'un étudiant en pleine croissance... Oui mais voilà, Yuusaku se trouve être secondé par sa grand-mère dans cette tâche. Grand-mère qui, au passage, semble maîtriser fort bien l'art du repas en boîte. Ryuuji tentera dès lors de faire valoir ses capacités de cuisinier... Par tous les moyens.");
-			$project->setDiscussionUrl("http://zero.xooit.fr/t357-Ton-avis-sur-Toradora.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -841,7 +841,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kujibiki%20Unbalance&amp;spgmPic=12#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kujibiki%20Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image13.jpg" alt="gal/Zero_fansub/Images/Kujibiki Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image13.jpg" class="img-thumbnail" width="150" height="150"/></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kujibiki%20Unbalance&amp;spgmPic=13#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kujibiki%20Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image14.jpg" alt="gal/Zero_fansub/Images/Kujibiki Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image14.jpg" class="img-thumbnail" width="150" height="150"/></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kujibiki%20Unbalance&amp;spgmPic=14#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kujibiki%20Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image15.jpg" alt="gal/Zero_fansub/Images/Kujibiki Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image15.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t253-Ton-avis-sur-Kujibiki-Unbalance-2006.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t253-Ton-avis-sur-Kujibiki-Unbalance-2006.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -900,7 +900,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Genshiken%202%20OP%20Single%20-%20disarm%20dreamer%20%5BMisato%20Aki%5D.zip.torrent" target="_blank">[Nipponsei] Genshiken 2 OP Single - disarm dreamer [Misato Aki].zip	10-24 01:51	47.29 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20OVA%20Genshiken%20OP%20Single%20-%20Seishun%20to%20Shite%20%5Bmanzo%5D.zip.torrent" target="_blank">[Nipponsei] OVA Genshiken OP Single - Seishun to Shite [manzo].zip	01-16 06:00	33.03 MB</a>'));
 			$project->addBonus(new ProjectBonus("Images & Wallpaper", '<a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=0#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image01.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image01.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=1#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image02.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image02.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=2#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image03.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image03.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=3#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image04.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image04.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=4#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image05.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image05.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=5#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image06.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image06.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=6#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image07.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image07.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=7#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image08.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image08.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=8#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image09.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image09.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=9#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image10.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image10.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=10#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image11.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image11.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t254-Ton-avis-sur-Genshiken-II.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t254-Ton-avis-sur-Genshiken-II.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -1033,7 +1033,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=25#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image26.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image26.jpg" class="img-thumbnail" width="150" height="150"/></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=26#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image27.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image27.jpg" class="img-thumbnail" width="150" height="150"/></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=27#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image28.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image28.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t384-Ton-avis-sur-Kiss-X-Sis.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
@@ -1104,7 +1104,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=25#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image26.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image26.jpg" class="img-thumbnail" width="150" height="150"/></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=26#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image27.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image27.jpg" class="img-thumbnail" width="150" height="150"/></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=27#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image28.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image28.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t384-Ton-avis-sur-Kiss-X-Sis.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
@@ -1138,7 +1138,7 @@ Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 <a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=18#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image19.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image19.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=19#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image20.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image20.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=20#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image21.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image21.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=21#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image22.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image22.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=22#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image23.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image23.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=23#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image24.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image24.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=24#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image25.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image25.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=25#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image26.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image26.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=26#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image27.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image27.jpg" class="img-thumbnail" width="150" height="150"/></a>
 <a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=27#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image28.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image28.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=28#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image29.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image29.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=29#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image30.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image30.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=30#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image31.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image31.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=31#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image32.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image32.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=32#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image33.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image33.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=33#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image34.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image34.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=34#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image35.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image35.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=35#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image36.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image36.jpg" class="img-thumbnail" width="150" height="150"/></a>
 <a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=36#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image37.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image37.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t145-Ton-avis-sur-Hitohira-la-serie-en-general.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t145-Ton-avis-sur-Hitohira-la-serie-en-general.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -1282,7 +1282,7 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
   <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=55#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image56.jpg" alt="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image56.jpg" class="img-thumbnail" width="150" height="150"/></a>    
    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=56#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image57.jpg" alt="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image57.jpg" class="img-thumbnail" width="150" height="150"/></a>    
    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=57#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image58.jpg" alt="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image58.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t120-Ton-avis-sur-Kimikiss-pue-rouge-la-serie-en-general.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t120-Ton-avis-sur-Kimikiss-pue-rouge-la-serie-en-general.htm");
 			$project->setAbandonned(true);
 			Project::$allProjects[] = $project;
 		}
