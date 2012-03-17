@@ -125,11 +125,15 @@ if ($url->isStrangeUrl()) {
 \**********************************/
 
 if (DB_USE) {
-	Database::createDefaultDatabase();
 	if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
 		Database::getDefaultDatabase()->clear();
 		header('Location: '.Url::getCurrentScriptUrl()->toString());
 		exit();
+	}
+	
+	$db = Database::getDefaultDatabase();
+	if (!$db->isRegisteredUser('anonymous')) {
+		$db->addUser('anonymous', null);
 	}
 }
 

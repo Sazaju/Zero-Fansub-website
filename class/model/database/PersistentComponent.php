@@ -49,8 +49,8 @@ class PersistentComponent {
 		throw new Exception("No key field defined for this ".$this->getClass());
 	}
 	
-	public function save() {
-		Database::getDefaultDatabase()->save($this);
+	public function save($author) {
+		Database::getDefaultDatabase()->save($this, $author);
 	}
 	
 	public function load() {

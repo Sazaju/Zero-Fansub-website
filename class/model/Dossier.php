@@ -419,7 +419,10 @@ C'était Epitanime ! J'espére que ça vous a plu ! À bientôt pour Japan Expo, et u
 				
 				Database::getDefaultDatabase()->saveStructure($dossier);
 				foreach(Dossier::$allDossiers as $dossier) {
-					$dossier->save();
+					// TODO add TeamMember to database
+					// TODO add members to database users
+					// TODO use dossier's author as save's author
+					$dossier->save('anonymous');
 				}
 			}
 		}

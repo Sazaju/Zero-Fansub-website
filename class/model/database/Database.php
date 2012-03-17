@@ -13,18 +13,11 @@ class Database {
 	private $connection = null;
 	private $persistentFields = array();
 	
-	public static function createDefaultDatabase() {
-		Database::$defaultDatabase = new Database();
-	}
-	
 	public static function getDefaultDatabase() {
-		$db = Database::$defaultDatabase;
-		if ($db === null) {
-			throw new Exception('default database not created yet');
+		if (Database::$defaultDatabase === null) {
+			Database::$defaultDatabase = new Database();
 		}
-		else {
-			return $db;
-		}
+		return Database::$defaultDatabase;
 	}
 	
 	public function __construct() {
@@ -77,6 +70,72 @@ class Database {
 				throw $ex;
 			}
 		}
+		
+		try {
+			$this->connection->exec('CREATE TABLE "user" (
+				id       VARCHAR(128) NOT NULL,
+				passhash CHAR(34) NOT NULL,
+				
+				PRIMARY KEY (id)
+			)');
+			$this->addUser('admin', 'admin');
+		} catch(PDOException $ex) {
+			if ($this->connection->errorCode() == 'HY000') {
+				// table already exists, just ignore this part
+			} else {
+				throw $ex;
+			}
+		}
+	}
+	
+	private function initMissingTable($table) {
+		$this->connection->exec('CREATE TABLE IF NOT EXISTS "'.$table->getName().'" (
+			class     VARCHAR(128) NOT NULL,
+			key       INTEGER NOT NULL,
+			field     VARCHAR(128) NOT NULL,
+			timestamp INTEGER NOT NULL,
+			value     '.$table->getColumnType().',
+			author    VARCHAR(128) NOT NULL,
+			
+			PRIMARY KEY (class, field, key, timestamp)
+		)');
+	}
+	
+	public function addUser($id, $password) {
+		$statement = $this->connection->prepare('INSERT INTO "user" (id, passhash) VALUES (?, ?)');
+		$statement->execute(array($id, $this->generateSaltedHash($password, $this->createRandomSalt())));
+	}
+	
+	private function createRandomSalt() {
+		$salt = '';
+		for($i = 0 ; $i < 2 ; $i ++) {
+			$salt .= chr(rand(32, 126));
+		}
+		return $salt;
+	}
+	
+	public function updateUserPassword($id, $newPassword) {
+		$statement = $this->connection->prepare('UPDATE "user" SET passhash = ? WHERE id = ?');
+		$statement->execute(array($this->generateSaltedHash($newPassword, $this->createRandomSalt()), $id));
+	}
+	
+	private function generateSaltedHash($password, $salt) {
+		return $salt.md5($salt.$password);
+	}
+	
+	public function isValidUserPassword($id, $password) {
+		$statement = $this->connection->prepare('SELECT passhash FROM "user" WHERE id = ?');
+		$statement->execute(array($id));
+		$saltedhash = $statement->fetchColumn();
+		$salt = substr($saltedhash, 0, 2);
+		return $this->generateSaltedHash($password, $salt) === $saltedhash;
+	}
+	
+	public function isRegisteredUser($id) {
+		$statement = $this->connection->prepare('SELECT count(*) FROM "user" WHERE id = ?');
+		$statement->execute(array($id));
+		$counter = $statement->fetchColumn();
+		return $counter > 0;
 	}
 	
 	public function getNewKey() {
@@ -212,35 +271,36 @@ class Database {
 		return true;
 	}
 	
-	public function save(PersistentComponent $component) {
+	public function save(PersistentComponent $component, $authorId) {
 		$this->checkStructureIsWellKnown($component);
 		if (!$this->isUnicityConsistent($component)) {
 			throw new Exception("There is unique fields already used for ".$component);
 		} else if (!$this->isMandatoryConsistent($component)) {
 			throw new Exception("There is not specified mandatory fields for ".$component);
-		}
-		
-		$key = $component->getInternalKey();
-		if (empty($key)) {
-			$key = $this->getNewKey();
-			$component->setInternalKey($key);
-		}
-		
-		$class = $component->getClass();
-		$time = time();
-		$this->connection->beginTransaction();
-		foreach($component->getPersistentFields() as $name => $field) {
-			if ($field->hasChanged()) {
-				// TODO add author of modification
-				$translator = $field->getTranslator();
-				$table = $translator->getPersistentTable($field);
-				$statement = $this->connection->prepare('INSERT INTO "'.$table->getName().'" (class, key, field, timestamp, value) VALUES (?, ?, ?, ?, ?)');
-				$statement->execute(array($class, $key, $name, $time, $translator->getPersistentValue($field->get())));
+		} else if (!$this->isRegisteredUser($authorId)) {
+			throw new Exception("There is no user ".$authorId);
+		} else {
+			$key = $component->getInternalKey();
+			if (empty($key)) {
+				$key = $this->getNewKey();
+				$component->setInternalKey($key);
 			}
-		}
-		$this->connection->commit();
-		foreach($component->getPersistentFields() as $name => $field) {
-			$field->setAsSaved();
+			
+			$class = $component->getClass();
+			$time = time();
+			$this->connection->beginTransaction();
+			foreach($component->getPersistentFields() as $name => $field) {
+				if ($field->hasChanged()) {
+					$translator = $field->getTranslator();
+					$table = $translator->getPersistentTable($field);
+					$statement = $this->connection->prepare('INSERT INTO "'.$table->getName().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+					$statement->execute(array($class, $key, $name, $time, $translator->getPersistentValue($field->get()), $authorId));
+				}
+			}
+			$this->connection->commit();
+			foreach($component->getPersistentFields() as $name => $field) {
+				$field->setAsSaved();
+			}
 		}
 	}
 	
@@ -297,18 +357,6 @@ class Database {
 			$loaded[] = $component;
 		}
 		return $loaded;
-	}
-	
-	private function initMissingTable($table) {
-		$this->connection->exec('CREATE TABLE IF NOT EXISTS "'.$table->getName().'" (
-			class     VARCHAR(128) NOT NULL,
-			key       INTEGER NOT NULL,
-			field     VARCHAR(128) NOT NULL,
-			timestamp INTEGER NOT NULL,
-			value     '.$table->getColumnType().',
-			
-			PRIMARY KEY (class, field, key, timestamp)
-		)');
 	}
 	
 	public function addPersistentField(PersistentField $descriptor) {
