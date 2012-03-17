@@ -116,21 +116,24 @@ if (DB_USE) {
 	Database::createDefaultDatabase(TEST_MODE_ACTIVATED);
 	if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
 		Database::getDefaultDatabase()->clear();
-		$url = Url::getCurrentScriptUrl();
-		header('Location: '.$url->getUrl());
+		header('Location: '.Url::getCurrentScriptUrl()->toString());
 		exit();
 	}
-}
-
-/**********************************\
-            GIT UPDATE
-\**********************************/
-
-if (TEST_MODE_ACTIVATED && isset($_GET['gitPull'])) {
-	exec("git pull");
-	$url = Url::getCurrentScriptUrl();
-	header('Location: '.$url->getUrl());
-	exit();
+	
+	if (TEST_MODE_ACTIVATED) {
+		$db = Database::getDefaultDatabase();
+		/*
+		foreach(Dossier::getAllDossiers() as $dossier) {
+			if (!$db->isKnownStructure($dossier)) {
+				$db->saveStructure($dossier);
+			} else if ($db->isUpdatedStructure($dossier)) {
+				$diff = $db->getStructureDifferences($dossier);
+				echo $diff;
+			}
+			//$dossier->save();
+		}
+		*/
+	}
 }
 
 /**********************************\

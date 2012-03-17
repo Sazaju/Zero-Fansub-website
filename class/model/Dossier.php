@@ -2,74 +2,86 @@
 /*
 	A dossier is description of something, made by someone (so potentially subjective).
 */
-class Dossier {
+class Dossier extends PersistentComponent {
 	private $id = null;
 	private $title = null;
 	private $author = null;
 	private $timestamp = null;
 	private $content = null;
+	//private $content2 = null;
 	private $commentID = null;
 	
+	public function __construct() {
+		$this->id = PersistentField::stringField(50)->key()->lock();
+		$this->title = PersistentField::stringField(500)->lock();
+		$this->author = PersistentField::objectField('TeamMember')->translateWith(new DossierTeamMemberPersistentFieldTranslator())->lock();
+		$this->commentID = PersistentField::integerField()->lock();
+		$this->timestamp = PersistentField::integerField()->lock();
+		$this->content = PersistentField::stringField()->lock();
+		$this->content2 = PersistentField::stringField()->lock();
+	}
+	
 	public function setID($id) {
-		$this->id = $id;
+		$this->id->set($id);
 	}
 	
 	public function getID() {
-		return $this->id;
+		return $this->id->get();
 	}
 	
 	public function setCommentID($id) {
-		$this->commentID = $id;
+		$this->commentID->set($id);
 	}
 	
 	public function getCommentID() {
-		return $this->commentID;
+		return $this->commentID->get();
 	}
 	
 	public function setContent($content) {
-		$this->content = $content;
+		$this->content->set($content);
 	}
 	
 	public function getContent() {
-		return $this->content;
+		return $this->content->get();
 	}
 	
 	public function setTimestamp($timestamp) {
-		$this->timestamp = $timestamp;
+		$this->timestamp->set($timestamp);
 	}
 	
 	public function getTimestamp() {
-		return $this->timestamp;
+		return $this->timestamp->get();
 	}
 	
 	public function setAuthor($author) {
-		$this->author = $author;
+		$this->author->set($author);
 	}
 	
 	public function getAuthor() {
-		return $this->author;
+		return $this->author->get();
 	}
 	
 	public function setTitle($title) {
-		$this->title = $title;
+		$this->title->set($title);
 	}
 	
 	public function getTitle() {
-		return $this->title;
+		return $this->title->get();
 	}
 	
 	private static $allDossiers = null;
 	public static function getAllDossiers() {
 		if (Dossier::$allDossiers === null) {
-			Dossier::$allDossiers = array();
-			
-			$dossier = new Dossier();
-			$dossier->setID('genshiken9');
-			$dossier->setTitle("Genshiken - Sortie du tome 9");
-			$dossier->setTimestamp(strtotime('11 June 2009'));
-			$dossier->setAuthor(TeamMember::getMemberByPseudo("Sunao"));
-			$dossier->setCommentID(97);
-			$dossier->setContent("[b]Bien le bonsoir la populace.[/b]
+			if (Database::getDefaultDatabase()->isKnownStructure(new Dossier())) {
+				Dossier::$allDossiers = Database::getDefaultDatabase()->loadAll(get_class(new Dossier()));
+			} else {
+				$dossier = new Dossier();
+				$dossier->setID('genshiken9');
+				$dossier->setTitle("Genshiken - Sortie du tome 9");
+				$dossier->setTimestamp(strtotime('11 June 2009'));
+				$dossier->setAuthor(TeamMember::getMemberByPseudo("Sunao"));
+				$dossier->setCommentID(97);
+				$dossier->setContent("[b]Bien le bonsoir la populace.[/b]
 
 
 Afin de bien démarrer, il faut partir d'un postulat: j'en branle pas une.
@@ -331,15 +343,15 @@ Et bah voilà c'est fini.
 Je vous dis à plus tard sur le prochain épisode de Genshiken, et je laisse à Mr. Kio Shimoku le mot final:
 
 [url=http://forum.zerofansub.net/image/20/8/9/d/image-tome-3-ordi-ec2b12.jpg.htm][img]http://img20.xooimage.com/files/1/4/3/image-tome-3-ordi-ec2b13.jpg[/img][/url]");
-			Dossier::$allDossiers[] = $dossier;
-			
-			$dossier = new Dossier();
-			$dossier->setID('epitanime2009');
-			$dossier->setTitle("[IRL] Epitanime 2009");
-			$dossier->setTimestamp(strtotime('06 June 2009'));
-			$dossier->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$dossier->setCommentID(79);
-			$dossier->setContent("C'était du 29 au 31 mai, et c'était un très grand evenement. Bien malheureux sont ceux qui l'ont ratés ! Et qui, surtout, on raté db-chan ! Oui, il faut le dire, le plus important à Epitanime, c'était elle :P Il fallait être là, car j'avais prévu pour tout les membres de la team Zéro mais aussi toutes les personnes qui viennent régulierement chez Zéro une petite surprise.
+				Dossier::$allDossiers[] = $dossier;
+				
+				$dossier = new Dossier();
+				$dossier->setID('epitanime2009');
+				$dossier->setTitle("[IRL] Epitanime 2009");
+				$dossier->setTimestamp(strtotime('06 June 2009'));
+				$dossier->setAuthor(TeamMember::getMemberByPseudo("db0"));
+				$dossier->setCommentID(79);
+				$dossier->setContent("C'était du 29 au 31 mai, et c'était un très grand evenement. Bien malheureux sont ceux qui l'ont ratés ! Et qui, surtout, on raté db-chan ! Oui, il faut le dire, le plus important à Epitanime, c'était elle :P Il fallait être là, car j'avais prévu pour tout les membres de la team Zéro mais aussi toutes les personnes qui viennent régulierement chez Zéro une petite surprise.
 Ce week-end, j'ai donc croisé Sazaju (notre traducteur), Ryocu, Guguganmo et des tas de copains-cosplayeurs dont je ne vous citerait pas le nom puisque vous ne les connaîtrez sûrement pas.
 
 J'ai participé au concours cosplay le samedi 30 mai à 12 heure. À vous de deviner quel personnage j'incarnait :
@@ -401,7 +413,13 @@ De cette convention j'ai rammené quand même des petits souvenirs, 4 figurines de
 [img]images/news/cosplay05.jpg[/img]
 
 C'était Epitanime ! J'espére que ça vous a plu ! À bientôt pour Japan Expo, et une autre surprise spécial Zéro-Kanaii.");
-			Dossier::$allDossiers[] = $dossier;
+				Dossier::$allDossiers[] = $dossier;
+				
+				Database::getDefaultDatabase()->saveStructure($dossier);
+				foreach(Dossier::$allDossiers as $dossier) {
+					$dossier->save();
+				}
+			}
 		}
 		
 		return Dossier::$allDossiers;
@@ -414,6 +432,28 @@ C'était Epitanime ! J'espére que ça vous a plu ! À bientôt pour Japan Expo, et u
 			}
 		}
 		throw new Exception($id." is not a known dossier ID.");
+	}
+}
+
+class DossierTeamMemberPersistentFieldTranslator implements IPersistentFieldTranslator {
+	public function getPersistentValue($value) {
+		if ($value === null) {
+			return null;
+		} else {
+			return $value->getID();
+		}
+	}
+	
+	public function setPersistentValue(PersistentField $field, $value) {
+		if ($value === null) {
+			$field->set(null);
+		} else {
+			$field->set(TeamMember::getMember(intval($value)));
+		}
+	}
+	
+	public function getPersistentTable(PersistentField $field) {
+		return PersistentTable::defaultIntegerTable();
 	}
 }
 ?>
