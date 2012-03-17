@@ -8,6 +8,7 @@ class Dossier extends PersistentComponent {
 	private $author = null;
 	private $timestamp = null;
 	private $content = null;
+	// TODO manage structure updates with patches
 	//private $content2 = null;
 	private $commentID = null;
 	
