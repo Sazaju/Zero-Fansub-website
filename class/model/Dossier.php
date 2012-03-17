@@ -14,11 +14,12 @@ class Dossier extends PersistentComponent {
 	public function __construct() {
 		$this->id = PersistentField::stringField(50)->key()->lock();
 		$this->title = PersistentField::stringField(500)->lock();
+		// TODO make TeamMember as a PersistentComponent
 		$this->author = PersistentField::objectField('TeamMember')->translateWith(new DossierTeamMemberPersistentFieldTranslator())->lock();
 		$this->commentID = PersistentField::integerField()->lock();
 		$this->timestamp = PersistentField::integerField()->lock();
 		$this->content = PersistentField::stringField()->lock();
-		$this->content2 = PersistentField::stringField()->lock();
+		//$this->content2 = PersistentField::stringField()->lock();
 	}
 	
 	public function setID($id) {
