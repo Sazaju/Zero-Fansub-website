@@ -13,8 +13,8 @@ class Database {
 	private $connection = null;
 	private $persistentFields = array();
 	
-	public static function createDefaultDatabase($testing = false) {
-		Database::$defaultDatabase = new Database($testing);
+	public static function createDefaultDatabase() {
+		Database::$defaultDatabase = new Database();
 	}
 	
 	public static function getDefaultDatabase() {
@@ -27,16 +27,16 @@ class Database {
 		}
 	}
 	
-	public function __construct($testing = false) {
-		if ($testing) {
-			$dbFile = 'test.db';
+	public function __construct() {
+		if (DB_TYPE === 'sqlite') {
+			$dbFile = DB_NAME.'.sqlite';
 			if (!file_exists($dbFile)) {
 				file_put_contents($dbFile, '');
 			}
-			$this->connection = new PDO('sqlite:'.$dbFile);
+			$this->connection = new PDO(DB_TYPE.':'.$dbFile);
 		}
 		else {
-			$this->connection = new PDO('mysql:dbname='.DB_NAME.';host='.DB_HOST, DB_USER, DB_PASS);
+			$this->connection = new PDO(DB_TYPE.':dbname='.DB_NAME.';host='.DB_HOST, DB_USER, DB_PASS);
 		}
 		$this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$this->initDatabase();

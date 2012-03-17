@@ -80,13 +80,25 @@ function __autoload($className) {
 	}
 }
 
+/**********************************\
+         CRITICAL CONFIG
+\**********************************/
+
 $criticalDataFile = "criticalData.php";
-if (!is_file($criticalDataFile)) {
-	header("Location: criticalConfig.php");
-	exit;
+$needConfig = true;
+if (is_file($criticalDataFile)) {
+	require_once($criticalDataFile);
+	if (defined('DB_USE') && defined('DB_TYPE') && defined('DB_NAME') && defined('DB_HOST') && defined('DB_USER') && defined('DB_PASS')) {
+		$needConfig = false;
+	}
 }
-require_once($criticalDataFile);
-unset($criticalDataFile);
+if ($needConfig) {
+	require_once("criticalConfig.php");
+	exit;
+} else {
+	// all green, just continue
+}
+unset($criticalDataFile); // security: we forget the source of critical information
 
 /**********************************\
          STRANGE URL CHECK
@@ -113,26 +125,11 @@ if ($url->isStrangeUrl()) {
 \**********************************/
 
 if (DB_USE) {
-	Database::createDefaultDatabase(TEST_MODE_ACTIVATED);
+	Database::createDefaultDatabase();
 	if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
 		Database::getDefaultDatabase()->clear();
 		header('Location: '.Url::getCurrentScriptUrl()->toString());
 		exit();
-	}
-	
-	if (TEST_MODE_ACTIVATED) {
-		$db = Database::getDefaultDatabase();
-		/*
-		foreach(Dossier::getAllDossiers() as $dossier) {
-			if (!$db->isKnownStructure($dossier)) {
-				$db->saveStructure($dossier);
-			} else if ($db->isUpdatedStructure($dossier)) {
-				$diff = $db->getStructureDifferences($dossier);
-				echo $diff;
-			}
-			//$dossier->save();
-		}
-		*/
 	}
 }
 
