@@ -9,7 +9,7 @@ class Dossier extends PersistentComponent {
 	private $timestamp = null;
 	private $content = null;
 	// TODO manage structure updates with patches
-	//private $content2 = null;
+	private $content2 = null;
 	private $commentID = null;
 	
 	public function __construct() {
@@ -75,6 +75,9 @@ class Dossier extends PersistentComponent {
 	public static function getAllDossiers() {
 		if (Dossier::$allDossiers === null) {
 			if (Database::getDefaultDatabase()->isKnownStructure(new Dossier())) {
+				if (Database::getDefaultDatabase()->isUpdatedStructure(new Dossier())) {
+					Database::getDefaultDatabase()->updateStructure(Database::getDefaultDatabase()->getStructureDiff(new Dossier()), 'admin');
+				}
 				Dossier::$allDossiers = Database::getDefaultDatabase()->loadAll(get_class(new Dossier()));
 			} else {
 				$dossier = new Dossier();
@@ -417,7 +420,8 @@ De cette convention j'ai rammené quand même des petits souvenirs, 4 figurines de
 C'était Epitanime ! J'espére que ça vous a plu ! À bientôt pour Japan Expo, et une autre surprise spécial Zéro-Kanaii.");
 				Dossier::$allDossiers[] = $dossier;
 				
-				Database::getDefaultDatabase()->saveStructure($dossier);
+				$db = Database::getDefaultDatabase();
+				$db->updateStructure($db->getStructureDiff($dossier), 'admin');
 				foreach(Dossier::$allDossiers as $dossier) {
 					// TODO add TeamMember to database
 					// TODO add members to database users

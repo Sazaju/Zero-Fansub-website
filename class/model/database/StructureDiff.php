@@ -2,36 +2,49 @@
 class StructureDiff {
 	private $diffs = array();
 	
-	public function addField($name) {
-		$this->diffs[] = new FieldDiff(FieldDiff::FIELD, null, $name);
+	public function __construct($array = null) {
+		if ($array !== null) {
+			foreach($array as $entry) {
+				if ($entry instanceof FieldDiff) {
+					// ok, continue
+				} else {
+					throw new Exception("It must be an array of FieldDiff, one entry is a ".get_class($entry));
+				}
+			}
+			$this->diffs = $array;
+		}
 	}
 	
-	public function renameField($from, $to) {
-		$this->diffs[] = new FieldDiff(FieldDiff::FIELD, $from, $to);
+	public function addField($class, $field) {
+		$this->diffs[] = new FieldDiff($class, $field, FieldDiff::FIELD, null, $field);
 	}
 	
-	public function deleteField($name) {
-		$this->diffs[] = new FieldDiff(FieldDiff::FIELD, $name, null);
+	public function renameField($class, $from, $to) {
+		$this->diffs[] = new FieldDiff($class, $from, FieldDiff::FIELD, $from, $to);
 	}
 	
-	public function changeTable($field, $from, $to) {
-		$this->diffs[] = new FieldDiff(FieldDiff::TABLE, $from, $to, $field);
+	public function deleteField($class, $field) {
+		$this->diffs[] = new FieldDiff($class, $field, FieldDiff::FIELD, $field, null);
 	}
 	
-	public function changeUnicity($field, $from, $to) {
-		$this->diffs[] = new FieldDiff(FieldDiff::UNICITY, $from, $to, $field);
+	public function changeTable($class, $field, $from, $to) {
+		$this->diffs[] = new FieldDiff($class, $field, FieldDiff::TABLE, $from, $to, $field);
 	}
 	
-	public function changeMandatory($field, $from, $to) {
-		$this->diffs[] = new FieldDiff(FieldDiff::MANDATORY, $from, $to, $field);
+	public function changeUnicity($class, $field, $from, $to) {
+		$this->diffs[] = new FieldDiff($class, $field, FieldDiff::UNICITY, $from, $to, $field);
 	}
 	
-	public function changeKey($field, $from, $to) {
-		$this->diffs[] = new FieldDiff(FieldDiff::KEY, $from, $to, $field);
+	public function changeMandatory($class, $field, $from, $to) {
+		$this->diffs[] = new FieldDiff($class, $field, FieldDiff::MANDATORY, $from, $to, $field);
 	}
 	
-	public function changeTranslator($field, $from, $to) {
-		$this->diffs[] = new FieldDiff(FieldDiff::TRANSLATOR, $from, $to, $field);
+	public function changeKey($class, $field, $from, $to) {
+		$this->diffs[] = new FieldDiff($class, $field, FieldDiff::KEY, $from, $to, $field);
+	}
+	
+	public function changeTranslator($class, $field, $from, $to) {
+		$this->diffs[] = new FieldDiff($class, $field, FieldDiff::TRANSLATOR, $from, $to);
 	}
 	
 	public function toArray() {
@@ -62,16 +75,27 @@ class FieldDiff {
 	const MANDATORY = 3;
 	const KEY = 4;
 	const TRANSLATOR = 5;
+	private $class = null;
+	private $field = null;
 	private $focus = null;
 	private $from = null;
 	private $to = null;
-	private $ref = null;
+	private $patch = null;
 	
-	public function __construct($focus, $from, $to, $ref = null) {
+	public function __construct($class, $field, $focus, $from, $to) {
+		$this->class = $class;
+		$this->field = $field;
 		$this->focus = $focus;
 		$this->from = $from;
 		$this->to = $to;
-		$this->ref = $ref;
+	}
+	
+	public function setPatch($patch) {
+		$this->patch = $patch;
+	}
+	
+	public function getPatch() {
+		return $this->patch;
 	}
 	
 	public function isAddedField() {
@@ -87,68 +111,52 @@ class FieldDiff {
 	}
 	
 	public function isChangedTable() {
-		return $this->focus == FieldDiff::TABLE && !empty($this->from) && !empty($this->to) && !empty($this->ref);
+		return $this->focus == FieldDiff::TABLE;
 	}
 	
 	public function isChangedUnicity() {
-		return $this->focus == FieldDiff::UNICITY && !empty($this->from) && !empty($this->to) && !empty($this->ref);
+		return $this->focus == FieldDiff::UNICITY;
 	}
 	
 	public function isChangedMandatory() {
-		return $this->focus == FieldDiff::MANDATORY && !empty($this->from) && !empty($this->to) && !empty($this->ref);
+		return $this->focus == FieldDiff::MANDATORY;
 	}
 	
 	public function isChangedKey() {
-		return $this->focus == FieldDiff::KEY && !empty($this->from) && !empty($this->to) && !empty($this->ref);
+		return $this->focus == FieldDiff::KEY;
 	}
 	
 	public function isChangedTranslator() {
-		return $this->focus == FieldDiff::TRANSLATOR && !empty($this->from) && !empty($this->to) && !empty($this->ref);
+		return $this->focus == FieldDiff::TRANSLATOR;
 	}
 	
-	public function getOldField() {
-		if ($this->focus == FieldDiff::FIELD) {
-			return $this->from;
-		} else {
-			return $this->ref;
-		}
+	public function getClass() {
+		return $this->class;
 	}
 	
-	public function getNewField() {
-		if ($this->focus == FieldDiff::FIELD) {
-			return $this->to;
-		} else {
-			return $this->ref;
-		}
+	public function getField() {
+		return $this->field;
 	}
 	
 	public function getOldValue() {
-		if ($this->focus == FieldDiff::FIELD) {
-			return null;
-		} else {
-			return $this->from;
-		}
+		return $this->from;
 	}
 	
 	public function getNewValue() {
-		if ($this->focus == FieldDiff::FIELD) {
-			return null;
-		} else {
-			return $this->to;
-		}
+		return $this->to;
 	}
 	
 	public function __toString() {
 		if ($this->isAddedField()) {
-			return '+'.$this->getNewField();
+			return $this->getClass().'+'.$this->getField();
 		} else if ($this->isDeletedField()) {
-			return '-'.$this->getOldField();
+			return $this->getClass().'-'.$this->getField();
 		} else if ($this->isRenamedField()) {
-			return $this->getOldField().'->'.$this->getNewField();
+			return $this->getClass().'.'.$this->getOldValue().'->'.$this->getNewValue();
 		} else {
 			$oldState = $this->toString($this->focus, $this->getOldValue());
 			$newState = $this->toString($this->focus, $this->getNewValue());
-			return $this->getOldField().'['.$oldState.'->'.$newState.']';
+			return $this->getClass().'.'.$this->getField().'['.$oldState.'->'.$newState.']';
 		}
 	}
 	
