@@ -125,9 +125,12 @@ if ($url->isStrangeUrl()) {
 \**********************************/
 
 if (DB_USE) {
-	if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
+	$url = Url::getCurrentUrl();
+	if (TEST_MODE_ACTIVATED && $url->hasQueryVar('clearDB')) {
 		Database::getDefaultDatabase()->clear();
-		header('Location: '.Url::getCurrentScriptUrl()->toString());
+		// TODO move the default loading here
+		$url->removeQueryVar('clearDB');
+		header('Location: '.$url->toString());
 		exit();
 	}
 	
