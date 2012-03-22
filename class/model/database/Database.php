@@ -55,11 +55,16 @@ class Database {
 		
 		try {
 			$this->connection->exec('CREATE TABLE "structure" (
-				class     VARCHAR(128) NOT NULL,
-				field     VARCHAR(128) NOT NULL,
-				tableName VARCHAR(128) NOT NULL,
-				start     INTEGER NOT NULL,
-				stop      INTEGER,
+				class      VARCHAR(128) NOT NULL,
+				field      VARCHAR(128) NOT NULL,
+				type       VARCHAR(128) NOT NULL,
+				unicity    BOOLEAN NOT NULL,
+				mandatory  BOOLEAN NOT NULL,
+				key        BOOLEAN NOT NULL,
+				translator VARCHAR(128) NOT NULL,
+				start      INTEGER NOT NULL,
+				patch      TEXT NOT NULL,
+				stop       INTEGER,
 				
 				PRIMARY KEY (class, field)
 			)');
@@ -151,23 +156,28 @@ class Database {
 	
 	public function clear() {
 		foreach($this->getTableNames() as $name) {
-			$this->connection->exec('DROP TABLE IF EXISTS "'.$name.'"');
+			$this->connection->exec('DROP TABLE "'.$name.'"');
 		}
 	}
 	
 	public function getTableNames() {
-		return array("property", "news", "project");
+		$statement = $this->connection->query('SELECT DISTINCT type FROM "structure"');
+		$tables = array("property", "structure", "user");
+		foreach($statement->fetchAll(PDO::FETCH_COLUMN) as $table) {
+			$tables[] = $table;
+		}
+		return $tables;
 	}
 	
 	public function saveStructure(PersistentComponent $component) {
 		$class = $component->getClass();
 		$time = time();
-		$statement = $this->connection->prepare('INSERT INTO "structure" (class, field, tableName, start, stop) VALUES (?, ?, ?, ?, NULL)');
+		$statement = $this->connection->prepare('INSERT INTO "structure" (class, field, type, unicity, mandatory, key, translator, start, patch, stop) VALUES (?, ?, ?, ?, ?, ?, ?, ?, "", NULL)');
 		$tables = array();
 		foreach($component->getPersistentFields() as $name => $field) {
 			$table = $field->getTranslator()->getPersistentTable($field);
 			$tables[] = $table;
-			$statement->execute(array($class, $name, $table->getName(), $time));
+			$statement->execute(array($class, $name, $table->getName(), $field->isUnique(), $field->isMandatory(), $field->isKey(), get_class($field->getTranslator()), $time));
 		}
 		foreach($tables as $table) {
 			$this->initMissingTable($table);
@@ -175,12 +185,24 @@ class Database {
 	}
 	
 	private function getTablesForClass($class) {
-		$statement = $this->connection->query('SELECT field, tableName FROM "structure" WHERE class = "'.$class.'" AND stop IS NULL');
-		$tables = $statement->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
-		foreach($tables as $field => $array) {
-			$tables[$field] = $array[0];
+		$tables = array();
+		foreach($this->getPropertiesForClass($class) as $field => $array) {
+			$tables[$field] = $array['type'];
 		}
 		return $tables;
+	}
+	
+	private function getPropertiesForClass($class) {
+		$statement = $this->connection->query('SELECT field, type, unicity, mandatory, key, translator, start, patch FROM "structure" WHERE class = "'.$class.'" AND stop IS NULL');
+		$properties = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
+		foreach($properties as $field => $array) {
+			$array = $array[0];
+			settype($array['unicity'], 'boolean');
+			settype($array['mandatory'], 'boolean');
+			settype($array['key'], 'boolean');
+			$properties[$field] = $array;
+		}
+		return $properties;
 	}
 	
 	public function isUpdatedStructure(PersistentComponent $component) {
@@ -189,17 +211,27 @@ class Database {
 	
 	public function getStructureDiff(PersistentComponent $component) {
 		$class = $component->getClass();
-		$tables = $this->getTablesForClass($class);
+		$properties = $this->getPropertiesForClass($class);
 		$diff = new StructureDiff();
 		foreach($component->getPersistentFields() as $name => $field) {
-			if (!array_key_exists($name, $tables)) {
+			if (!array_key_exists($name, $properties)) {
 				$diff->addField($name);
-			} else if ($tables[$name] != $field->getTranslator()->getPersistentTable($field)->getName()) {
-				$diff->changeTable($name, $tables[$name], $field->getTranslator()->getPersistentTable($field)->getName());
+			} else if ($properties[$name]['type'] != $field->getTranslator()->getPersistentTable($field)->getName()) {
+				$diff->changeTable($name, $properties[$name]['type'], $field->getTranslator()->getPersistentTable($field)->getName());
+			} else if ($properties[$name]['unicity'] != $field->isUnique()) {
+				$diff->changeUnicity($name, $properties[$name]['unicity'], $field->isUnique());
+			} else if ($properties[$name]['mandatory'] != $field->isMandatory()) {
+				$diff->changeMandatory($name, $properties[$name]['mandatory'], $field->isMandatory());
+			} else if ($properties[$name]['key'] != $field->isKey()) {
+				$diff->changeKey($name, $properties[$name]['key'], $field->isKey());
+			} else if ($properties[$name]['translator'] != get_class($field->getTranslator())) {
+				$diff->changeTranslator($name, $properties[$name]['translator'], get_class($field->getTranslator()));
+			} else {
+				// no modification, do not add a diff
 			}
-			unset($tables[$name]);
+			unset($properties[$name]);
 		}
-		foreach(array_keys($tables) as $fieldName) {
+		foreach(array_keys($properties) as $name) {
 			$diff->deleteField($name);
 		}
 		return $diff;
@@ -220,7 +252,7 @@ class Database {
 	}
 	
 	private function getPersistentTableNames() {
-		$statement = $this->connection->query('SELECT DISTINCT tableName FROM "structure"');
+		$statement = $this->connection->query('SELECT DISTINCT type FROM "structure"');
 		$tables = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
 		return $tables;
 	}
@@ -341,7 +373,7 @@ class Database {
 		$reflector = new ReflectionClass($class);
 		$this->checkStructureIsWellKnown($reflector->newInstance());
 		
-		$statement = $this->connection->query('SELECT tableName FROM "structure" WHERE class = ?');
+		$statement = $this->connection->query('SELECT type FROM "structure" WHERE class = ?');
 		$statement->execute(array($class));
 		$table = $statement->fetchColumn();
 		

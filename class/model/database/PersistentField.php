@@ -4,11 +4,11 @@ class PersistentField {
 	private $length = null;
 	private $unicity = false;
 	private $mandatory = false;
+	private $translator = null;
 	private $lock = false;
 	private $key = false;
 	private $value = null;
 	private $savedValue = null;
-	private $translator = null;
 	
 	private function __construct($type, $length = null) {
 		$this->translator = new DefaultPersistentFieldTranslator();
