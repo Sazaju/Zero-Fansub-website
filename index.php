@@ -124,20 +124,18 @@ if ($url->isStrangeUrl()) {
              DATABASE
 \**********************************/
 
-if (DB_USE) {
-	$url = Url::getCurrentUrl();
-	if (TEST_MODE_ACTIVATED && $url->hasQueryVar('clearDB')) {
-		Database::getDefaultDatabase()->clear();
-		// TODO move the default loading here
-		$url->removeQueryVar('clearDB');
-		header('Location: '.$url->toString());
-		exit();
-	}
-	
-	$db = Database::getDefaultDatabase();
-	if (!$db->isRegisteredUser('anonymous')) {
-		$db->addUser('anonymous', null);
-	}
+$url = Url::getCurrentUrl();
+if (TEST_MODE_ACTIVATED && $url->hasQueryVar('clearDB')) {
+	Database::getDefaultDatabase()->clear();
+	// TODO move the default loading here
+	$url->removeQueryVar('clearDB');
+	header('Location: '.$url->toString());
+	exit();
+}
+
+$db = Database::getDefaultDatabase();
+if (!$db->isRegisteredUser('anonymous')) {
+	$db->addUser('anonymous', null);
 }
 
 /**********************************\
