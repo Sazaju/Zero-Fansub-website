@@ -6093,18 +6093,18 @@ class Release {
 			$release->setPreviewUrl("images/episodes/denpa1.png");
 			$release->setHeaderImage("images/sorties/denpa1.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_01[8bits-720p][274B8DF2].mp4");
-			$descriptor->setID("8 bits");
+			$descriptor->setID('8 bits');
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_01[10bits-1080p][9D523984].mp4");
-			$descriptor->setID("10 bits");
+			$descriptor->setID('10 bits');
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime('29 February 2012 00:16'));
+			$release->setReleasingTime(strtotime('12 March 2012 14:47'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep2");
@@ -6370,6 +6370,57 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(strtotime('30 January 2012 20:14'));
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep1");
+			$release->setName("01");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep2");
+			$release->setName("02");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep3");
+			$release->setName("03");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep4");
+			$release->setName("04");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep5");
+			$release->setName("05");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep6");
+			$release->setName("06");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep7");
+			$release->setName("07");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep8");
+			$release->setName("08");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep9");
+			$release->setName("09");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep10");
+			$release->setName("10");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep11");
+			$release->setName("11");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganai"), "ep12");
+			$release->setName("12");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganaioav"), "oav");
 			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;

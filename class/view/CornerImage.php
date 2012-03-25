@@ -32,7 +32,6 @@ class CornerImage extends Link {
 	private static $allImages = null;
 	static function getAllImages() {
 		if (CornerImage::$allImages === null) {
-			// CornerImage::$allImages[] = new CornerImage("BokuTomo1.png", "?"); // TODO link to the corresponding project
 			CornerImage::$allImages[] = new CornerImage("konata.png", "Konata");
 			CornerImage::$allImages[] = new CornerImage("rin.png", "Rin", "kodomooav");
 			CornerImage::$allImages[] = new CornerImage("Toradora0.png", "Taiga", "toradora");
@@ -81,6 +80,12 @@ class CornerImage extends Link {
 			CornerImage::$allImages[] = new CornerImage("mitsudomoe5.png", "Futaba", "mitsudomoe");
 			CornerImage::$allImages[] = new CornerImage("mitsudomoe6.png", "Hitoha", "mitsudomoe");
 			CornerImage::$allImages[] = new CornerImage("mitsudomoe7.png", "Sakiko", "mitsudomoe");
+			CornerImage::$allImages[] = new CornerImage("BokuTomo1.png", "?", "haganai");
+			CornerImage::$allImages[] = new CornerImage("BokuTomo2.png", "Kobato", "haganai");
+			CornerImage::$allImages[] = new CornerImage("BokuTomo3.png", "Kobato", "haganai");
+			CornerImage::$allImages[] = new CornerImage("BokuTomo4.png", "Maria", "haganai");
+			CornerImage::$allImages[] = new CornerImage("BokuTomo5.png", "Yukimura", "haganai");
+			CornerImage::$allImages[] = new CornerImage("BokuTomo6.png", "Yukimura", "haganai");
 		}
 		
 		return CornerImage::$allImages;

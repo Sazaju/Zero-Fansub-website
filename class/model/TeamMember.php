@@ -705,6 +705,7 @@ class TeamMember {
 	}
 	
 	public static function getMember($id) {
+		$id = intval($id);
 		foreach(TeamMember::getAllMembers() as $member) {
 			if ($member->getID() === $id) {
 				return $member;

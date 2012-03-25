@@ -243,6 +243,23 @@ class Project {
 	private static $allProjects = null;
 	public static function getAllProjects() {
 		if (Project::$allProjects === null) {
+			$project = new Project("haganai", "Boku ha Tomodachi ga Sukunai");
+			$project->setOriginalName("Boku ha Tomodachi ga Sukunai");
+			$project->setAiringYear(2011);
+			$project->setGenre("Comédie - Ecchi");
+			$project->setSynopsis("C'est bien connu, les otakus n'ont pas d'amis. Mais quand on n'en est pas un, ça ne veut pas dire pour autant qu'on en a. Si vous aussi vous avez du mal avec les autres, peut-être vous reconnaitrez-vous dans cette série. Sinon, vous pourrez toujours en profiter pleinement pour découvrir comment s'amuser quand on n'a pas d'amis... ou tout du moins quand on en est convaincu.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
+			$project->setRunning(true);
+			Project::$allProjects[] = $project;
+			
+			$project = new Project("haganaioav", "Boku ha Tomodachi ga Sukunai OAV");
+			$project->setOriginalName("Boku ha Tomodachi ga Sukunai OAV");
+			$project->setAiringYear(2011);
+			$project->setGenre("Comédie - Ecchi");
+			$project->setSynopsis("Quand on a une bonne bande d'amis, on partage de bons moments ensemble. On organise des pique-niques, chacun ramène son repas, et tout le monde s'amuse avec entrain. Enfin ça, c'est ce qu'on fait quand on a des amis. Mais quand on n'en a pas, que fait-on ? Et bien certains essayent de faire comme-si... et là ça peut tourner au génocide. Attention à la crise de foie.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
+			$project->setRunning(true);
+			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomo", "Kodomo no Jikan");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
@@ -255,7 +272,7 @@ class Project {
 			$project->setSynopsis("Aoki Daisuke sensei est un tout nouveau professeur en primaire et débute sa carrière dans une classe d’enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d’elle, par de nombreux pièges parfois osés, et rendra sa vie de nouveau professeur très difficile. 
 Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la vie de ses élèves et fera de son mieux pour les aider à surmonter les problèmes, même s’il met parfois en jeu son poste d’éducateur. Reste à voir dans quelles galères il se mettra, surtout avec le trio Kokonoe, Kagami et Usa.");
 			$project->setVosta('<a href="http://www.genjo-subs.net/" target="_blank">Genjo Subs</a> et <a href="http://loli-pop-subs.blogspot.com/" target="_blank">Loli-Pop-Subs</a>');
-			$project->setDiscussionUrl("http://zero.xooit.fr/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -271,7 +288,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setVosta('<a href="http://www.genjo-subs.net/" target="_blank">Genjo Subs</a>');
 			$project->setComment("Si vous souhaitez regarder l'OAV mais aussi la série, il est conseillé de regarder l'OAV entre l'épisode 5 et 6.
 Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le regarder sans voir la série. Mais c'est quand même mieux de regarder la série, évidemment ^^");
-			$project->setDiscussionUrl("http://zero.xooit.fr/t251-Ton-avis-sur----Kodomo-no-Jikan-OAV.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t251-Ton-avis-sur----Kodomo-no-Jikan-OAV.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -284,7 +301,7 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setVosta('<a href="http://loli-pop-subs.blogspot.com/" target="_blank">Loli-Pop-Subs</a>');
-			$project->setDiscussionUrl("http://zero.xooit.fr/t358-Ton-avis-sur-Kodomo-no-Jikan-Saison-2.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t358-Ton-avis-sur-Kodomo-no-Jikan-Saison-2.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -297,7 +314,7 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setSynopsis("Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'été, en vacances avec Aoki et Houin.");
-			$project->setDiscussionUrl("http://zero.xooit.fr/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -311,7 +328,7 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setSynopsis("Aoki Daisuke sensei est un tout nouveau professeur en primaire et débute sa carrière dans une classe d’enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d’elle, par de nombreux pièges parfois osés, et rendra sa vie de nouveau professeur très difficile. 
 Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la vie de ses élèves et fera de son mieux pour les aider à surmonter les problèmes, même s’il met parfois en jeu son poste d’éducateur. Reste à voir dans quelles galères il se mettra, surtout avec le trio Kokonoe, Kagami et Usa.");
-			$project->setDiscussionUrl("http://zero.xooit.fr/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -324,6 +341,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAuthor("Sakurai Norio");
 			$project->setGenre("Comédie Ecchi");
 			$project->setSynopsis("Les triplés raconte l'histoire de 3 filles de primaire un peu perverses qui harcèlent leur prof pas doué.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
@@ -333,6 +351,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAuthor("Gunma Kisaragi");
 			$project->setGenre("Hentai");
 			$project->setSynopsis("Parodie hentaï de Kimikiss pure rouge mettant en scène Futami Eriko, l'intello, continuant ses expèriences encore plus profondément avec Kazuki.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2052-Ton-avis-sur-ERIKO.htm");
 			$project->setHentai(true);
 			$project->setDoujin(true);
 			$project->setFinished(true);
@@ -344,6 +363,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAuthor("Yukimihonpo");
 			$project->setGenre("Hentai");
 			$project->setSynopsis("Parodie hentaï He is my master. Yoshitaka est malade et les médicaments qu'Izumi va lui donner vont le remettre d'aplomb, ainsi que son penis ! Il va tout faire pour avoir Izumi mais va finalement se rattraper sur les deux autres.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2054-Ton-avis-sur-Ce-sont-mes-Maids.htm");
 			$project->setHentai(true);
 			$project->setDoujin(true);
 			$project->setFinished(true);
@@ -357,6 +377,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setStudio("Shaft");
 			$project->setGenre("Fantastique");
 			$project->setSynopsis("Niwa Makoto est un lycéen parti vivre chez sa tante car ses parents sont en voyage d'affaires. Il y rencontre une cousine du même âge, inconnue du reste de sa famille, Towa Erio. Cette cousine étrange porte constamment un futon autour du corps, ne se nourrit pratiquement que de pizzas et pense être un extraterrestre.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2046-Ton-avis-sur-Denpa-onna-to-seishun-otoko.htm");
 			$project->setStarted(true);
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
@@ -367,6 +388,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAiringYear(2010);
 			$project->setGenre("Ecchi");
 			$project->setSynopsis("Hinako est de retour ! Après l'effort, le réconfort, et c'est avec elle que vous allez pouvoir vous reposer après les difficiles exercices de musculations du précédent épisode.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2055-Ton-avis-sur-Isshoni-Sleeping-S-endormir-avec-Hinako.htm");
 			$project->setFinished(true);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
@@ -378,6 +400,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setStudio("Primaesta");
 			$project->setGenre("Ecchi");
 			$project->setSynopsis("Prendre un bain avec Hinako, &ccedil;a vous dit ? En plus, elle n'est pas seule : Hiyoko, sa copine loli, vient vous rejoindre.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2056-Ton-avis-sur-Isshoni-Training-Ofuro-Bathtime-with-Hinako-Hiyoko.htm#p50921");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -389,7 +412,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setStudio(Link::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
 			$project->setGenre("Comédie");
 			$project->setSynopsis("De petites aventures arrivent à Potemayo dans ces épisodes bonus de la série Potemayo.");
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", Link::newWindowLink("http://www.getpersonas.com/en-US/persona/208619", new Image("http://getpersonas-cdn.mozilla.net/static/1/9/208619/preview.jpg?1273490832", "Potemayo theme skin persona mozilla firefox"))));
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2057-Ton-avis-sur-Potemayo.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -398,6 +421,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAiringYear(2008);
 			$project->setGenre("Porno");
 			$project->setSynopsis("Parodie pornographique de Kodomo no Jikan.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2058-Ton-avis-sur-Konoe-no-Jikan.htm");
 			$project->setHentai(true);
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
@@ -407,6 +431,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setOriginalName("Akina To Onsen De H Shiyo");
 			$project->setAiringYear(2011);
 			$project->setGenre("Hentai");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2059-Ton-avis-sur-Akina-To-Onsen-De-H-Shiyo.htm");
 			$project->setHentai(true);
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -424,13 +449,14 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setHidden(true);
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("training", "Isshoni Training - L'entra&icirc;nement avec Hinako");
+			$project = new Project("training", "Isshoni Training - L'entraînement avec Hinako");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Isshoni Training");
 			$project->setAiringYear(2009);
 			$project->setGenre("Ecchi");
 			$project->setSynopsis("Hinako est aspirée dans le monde des mangas alors qu'elle en regardait un à la télévision. C'est ainsi que commence sa vie en tant que personnage d'anime, tandis que le spectateur est sans cesse sollicité pour des exercices physiques de remise en forme, avec une caméra à la première personne.");
 			$project->setVosta("Boobz");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t547-Ton-avis-sur-L-entrainement-avec-Hinako-Isshoni-Training.htm");
 			$project->setFinished(true);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
@@ -443,6 +469,8 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setStudio("A-1 Pictures Inc");
 			$project->setGenre("Comédie");
 			$project->setSynopsis("Takanashi Souta est un lycéen qui a une passion pour les petites choses mignonnes. Quand une fille, Taneshima Popla, l'aborde dans la rue et lui demande si il cherche un travail à mi-temps, il la trouve mignonne car elle ressemble à une collégienne, peut-être même une écolière. Mais il se rend compte quelle a un an de plus que lui. Passant par dessus ce détail, il accepte le travail à mi-temps car elle est toute petite et craquante à souhait. Il commence donc à travailler dans un restaurant familial, mais on peut dire que le personnel est unique ici !");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2045-Ton-avis-sur-Working.htm");
+			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("working2", "Working!! 2");
@@ -461,6 +489,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAiringYear(2009);
 			$project->setGenre("Hentai");
 			$project->setSynopsis("Vous avez aimez L'entraînement avec Hinako ? Vous aimerez sûrement sa parodie Hentaï, \"faisons l'amour ensemble\" ! Aujourd'hui, c'est avec vous que notre jolie héroïne fait l'amour... Vous, et vous seul ! Profitez-en ;)");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2061-Ton-avis-sur-Faisons-l-amour-ensemble.htm");
 			$project->setHentai(true);
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
@@ -475,12 +504,12 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setAuthor("Pink Hanamori");
 			$project->setSynopsis("Luchia, une jeune sirène, a sauvé dans son enfance un garçon du même âge qu'elle qui était en train de se noyer et lui a mis au cou un médaillon. Quelques années plus tard, elle gagne la terre ferme dans l'espoir de retrouver celui qu'elle a toujours aimé. Le jeune collégien en question qui est devenu un surfer participant à des concours invite Luchia et sa copine Hanon pour la revoir lors de sa prochaine compétition, mais les Forces du Mal aquatiques vont venir semer le trouble...");
 			$project->setVosta("Lunar anime");
-			$project->setDiscussionUrl("http://zero.xooit.fr/t148-Ton-avis-sur-Mermaid-Melody-Pichi-Pichi-Pich-la-serie-en-general.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t148-Ton-avis-sur-Mermaid-Melody-Pichi-Pichi-Pich-la-serie-en-general.htm");
 			$project->setAbandonned(true);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
-			$project = new Project("nanami", "Nanami Madobe Windows 7 Publicit&eacute;");
+			$project = new Project("nanami", "Nanami Madobe Windows 7 Publicité");
 			$project->setOriginalName("Madobe Nanami Windows7 Comercial");
 			$project->setOfficialWebsite(Link::newWindowLink("http://www.windows7-mania.jp/", "Windows7 Mania"));
 			$project->setAiringYear(2010);
@@ -488,6 +517,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setGenre("Publicité");
 			$project->setSynopsis("Nanami Madobe te présente Windows 7 et te donne des conseils pour mieux l'utiliser. Elle te montre aussi comment monter ton propre ordinateur.");
 			$project->setVosta(Link::newWindowLink("http://bssubs.net/", "BSS"));
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2062-Ton-avis-sur-Nanami-Madobe-Windows-7-Publicite.htm");
 			$project->addBonus(new ProjectBonus("ThemePack", "Le thème de Nanami Madobe pour Windows 7 ! Pour l'installer, vous devez avoir Windows 7. Téléchargez le fichier puis double-cliquez dessus pour l'ouvrir. Le thème s'installera tout seul et Nanami vous dira \"Konichiwa ! Nanami desu.\".<br/>
 <a href='ddl/[Zero]_Windows_7_Nanami_Madobe_ThemePack.themepack' target='_blank'>
 <img src='http://zerofansub.net/images/news/theme_nanami.png' border='0' alt='Themepack Thème Windows 7 de Nanami Madobe à télécharger download gratuit' />
@@ -507,7 +537,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 Comme s'il n'avait rien vu de spécial celui-ci ferme la porte sans porter plus d'attention à la créature en ayant au préalable saisi son déjeuné, celui-ci portant le nom de \"Potemayo\", il surnommera la créature \"Potemayo\".
 Et c'est dès lors qu'à se moment, les gags et situations humoristiques apparaissent !");
 			$project->setVosta("<a href=\"http://fansubs.anime-share.net/\" target=\"_blank\">Anime-Share fansub</a> et Anoymous");
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", Link::newWindowLink("http://www.getpersonas.com/en-US/persona/208619", new Image("http://getpersonas-cdn.mozilla.net/static/1/9/208619/preview.jpg?1273490832", "Potemayo theme skin persona mozilla firefox"))));
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2057-Ton-avis-sur-Potemayo.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -520,6 +550,7 @@ Et c'est dès lors qu'à se moment, les gags et situations humoristiques apparaiss
 			$project->setGenre("Comédie");
 			$project->setAuthor("Katoh Aruaki");
 			$project->setSynopsis("Torako invite Toma dans un café manger des patisseries.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2049-Ton-avis-sur-Hyakko-OAD.htm");
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20Original%20Soundtrack.zip.torrent">[Nipponsei] Hyakko Original Soundtrack.zip</a><br />
@@ -537,9 +568,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setAuthor("Matsu Tomohiro");
 			$project->setGenre("Comédie Ecchi");
 			$project->setSynopsis("Takumi Tsuzuki vit avec sa grande “soeur” Otome bien qu’ils ne soient pas liés par le sang. Otome gère une vieille pâtisserie appelée Stray Cats où y travaille également une amie d’enfance de Takumi, Fumino Serisawa. C’est alors qu’un jour, Nozomi Kiriya, une jeune fille mystérieuse imitant un chat, apparaît…");
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/209338"><img src="http://getpersonas-cdn.mozilla.net/static/3/8/209338/preview.jpg?1273561667" border="0" alt="Mayoi Neko Overrun! theme skin persona mozilla firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/210030"><img src="http://getpersonas-cdn.mozilla.net/static/3/0/210030/preview.jpg?1273648101" border="0" alt="Mayoi Neko Overrun! theme skin persona mozilla firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/233236"><img src="http://getpersonas-cdn.mozilla.net/static/3/6/233236/preview.jpg?1277047781" border="0" alt="Mayoi Neko Overrun! theme skin persona mozilla firefox" /></a>'));
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2047-Ton-avis-sur-Mayoi-Neko-Overrun.htm");
 			$project->setStarted(true);
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
@@ -552,6 +581,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setAuthor("Matsu Tomohiro");
 			$project->setGenre("Comédie Ecchi");
 			$project->setSynopsis("Ces épisodes sont de petites scènes indépendantes de l'histoire. Pour ceux qui ont le nez fragile, préparez les mouchoirs : saignements de nez au programme.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2047-Ton-avis-sur-Mayoi-Neko-Overrun.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -563,15 +593,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setStudio("Silver Link");
 			$project->setGenre("Amour et Amitié");
 			$project->setSynopsis("Les épisodes Bonus DVD de la série Tayutama -Kiss on my Deity-.");
-			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
-<p>
-	<a href="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Cover.jpg" target="_blank">
-	<img src="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Cover.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-	<a href="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Label.jpg" target="_blank">
-	<img src="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Label.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-</p>'));
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/236444"><img src="http://getpersonas-cdn.mozilla.net/static/4/4/236444/preview.jpg?1277397610" border="0" alt="Tayutama Kiss on my Deity theme skin persona mozilla firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/260878"><img src="http://getpersonas-cdn.mozilla.net/static/7/8/260878/preview.jpg?1279817830" border="0" alt="Tayutama Kiss on my Deity theme skin persona mozilla firefox" /></a>'));
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2063-Ton-avis-sur-Tayutama-Kiss-on-my-Deity.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -589,7 +611,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20colors~%20sound%20sketch%20book.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full colors~ sound sketch book.zip	11-21 01:28	130.02 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20OP%20Single%20-%20Kaze%20Sagashi%20%5BKiyoura%20Natsumi%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ OP Single - Kaze Sagashi [Kiyoura Natsumi].zip	10-24 01:52	43.88 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20ED%20Single%20-%20Sketchbook%20wo%20Motta%20Mama%20%5BMakino%20Yui%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ ED Single - Sketchbook wo Motta Mama [Makino Yui].zip	10-24 01:52	47.75 MB</a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t359-Ton-avis-sur-Sketchbook-full-color-s.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t359-Ton-avis-sur-Sketchbook-full-color-s.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -601,6 +623,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setStudio("Nippon Animation");
 			$project->setGenre("Comédie");
 			$project->setSynopsis("L’école privée Kamizono est un établissement qui possède la particularité d’accueillir en son sein des élèves allant du primaire jusqu’au lycée. De ce fait, son immense structure donne du mal aux nouveaux arrivants pour s’y retrouver. Nonomura Ayumi, jeune étudiante au caractère réservé, arrive à se perdre dés le premier jour de la rentrée. Cherchant désespérément son chemin, elle fini par tomber sur une de ses camarades de classe Lizuda Tatsuki qui se trouve être, sans vouloir l’admettre, dans la même situation qu’elle. Après un long moment de marche, toutes les deux voient incrédules deux élèves sautaient du deuxième étage d’un bâtiment. C’est ainsi qu’elles font la rencontre de Torako et Suzu, également perdues mais ayant un moyen infaillible pour atteindre rapidement leur salle de classe : aller de l’avant quelque soit l’obstacle rencontré. Commence alors pour ce nouveau quatuor formé, une année scolaire placée sous le signe de l’amitié et de l’humour.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2064-Ton-avis-sur-Hyakko.htm");
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20Original%20Soundtrack.zip.torrent">[Nipponsei] Hyakko Original Soundtrack.zip</a><br />
@@ -619,15 +642,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setGenre("Amour et Amitié");
 			$project->setSynopsis("L'histoire est centrée sur Yuuri Mito, un étudiant de l'Académie Sousei et le fils unique de l'homme qui dirige le temple Yachimata. À Yachimata, il y a une légende à propos d'une divinité appelée Tayutama-sama qui protégea la région, mais cette divinité et d'autres ainsi nommées \"Tayutai\" ont été oubliées avec le temps. Mito et ses amis découvrent une relique dans le sol de l'école, avec de mystérieux motifs. Dès lors, à la cérémonie d'ouverture de la nouvelle année scolaire, une tout aussi mystérieuse fille appelée Mashiro apparaît devant Mito. Mashiro est d'une certaine manière liée à la relique et à la légende de Tayutama-sama.");
 			$project->setVosta('<a href="http://fansubs.anime-share.net/" target="_blank">Anime-Share fansub</a> et Anoymous');
-			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
-<p>
-	<a href="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Cover.jpg" target="_blank">
-	<img src="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Cover.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-	<a href="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Label.jpg" target="_blank">
-	<img src="images/cover/[Zero]Tayutama_Kiss_on_my_deity_Label.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-</p>'));
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/236444"><img src="http://getpersonas-cdn.mozilla.net/static/4/4/236444/preview.jpg?1277397610" border="0" alt="Tayutama Kiss on my Deity theme skin persona mozilla firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/260878"><img src="http://getpersonas-cdn.mozilla.net/static/7/8/260878/preview.jpg?1279817830" border="0" alt="Tayutama Kiss on my Deity theme skin persona mozilla firefox" /></a>'));
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2063-Ton-avis-sur-Tayutama-Kiss-on-my-Deity.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -646,7 +661,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20colors~%20sound%20sketch%20book.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full colors~ sound sketch book.zip	11-21 01:28	130.02 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20OP%20Single%20-%20Kaze%20Sagashi%20%5BKiyoura%20Natsumi%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ OP Single - Kaze Sagashi [Kiyoura Natsumi].zip	10-24 01:52	43.88 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20ED%20Single%20-%20Sketchbook%20wo%20Motta%20Mama%20%5BMakino%20Yui%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ ED Single - Sketchbook wo Motta Mama [Makino Yui].zip	10-24 01:52	47.75 MB</a>'));
-			$project->setDiscussionUrl('http://zero.xooit.fr/t359-Ton-avis-sur-Sketchbook-full-color-s.htm');
+			$project->setDiscussionUrl('http://forum.zerofansub.net/t359-Ton-avis-sur-Sketchbook-full-color-s.htm');
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -671,9 +686,8 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <img src="images/icones/bonus.png" alt="Bonus" /> <a href="http://www.megaupload.com/?d=NB2ZP0E1">Les jaquettes et images bonus des DVD</a><br />
 <img src="images/icones/bonus.png" alt="Bonus" /> <a href="http://www.megaupload.com/?d=6SV5980U">Les ED Quad (X264)</a><br />
 <img src="images/icones/bonus.png" alt="Bonus" /> <a href="ddl/%5bKanaii-Zero%5d_HANAJI_Maria+Holic_OP_%5bX264_1280x720%5d.mp4">Clip de l\'Opening Hanaji</a>'));
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/126094"><img src="http://getpersonas-cdn.mozilla.net/static/9/4/126094/preview.jpg?1268458756" border="0" alt="Maria Holic theme skin persona mozilla firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/93715"><img src="http://getpersonas-cdn.mozilla.net/static/1/5/93715/preview.jpg?1265220806" border="0" alt="Maria Holic theme skin persona mozilla firefox" /></a>'));
-			$project->setDiscussionUrl('http://zero.xooit.fr/t476-Ton-avis-sur-Maria-Holic.htm');
+			$project->addBonus(new FirefoxPersonaBonus(array(126094, 93715), $project->getName()." theme firefox"));
+			$project->setDiscussionUrl('http://forum.zerofansub.net/t476-Ton-avis-sur-Maria-Holic.htm');
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -681,6 +695,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setOriginalName("Kanamemo");
 			$project->setGenre("Comédie - Déjanté - Ecchi");
 			$project->setSynopsis("Kana vient tout juste de perdre sa grand-mère et seule famille, la laissant seule au monde. Après avoir fuit une horde de déménageurs à l'air sournois (du moins pour son petit esprit hermétique à toute réflexion), elle entreprend de chercher un travail, ce qu'elle réussit plus ou moins à trouver au sein d'une petite entreprise de livraison de journaux...");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2065-Ton-avis-sur-Kanamemo-Scans.htm");
 			$project->setStarted(true);
 			$project->setRunning(true);
 			$project->setDoujin(true);
@@ -696,6 +711,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setAuthor("Iwami Shouko");
 			$project->setSynopsis("Kana vient tout juste de perdre sa grand-mère et seule famille, la laissant seule au monde. Après avoir fuit une horde de déménageurs à l'air sournois (du moins pour son petit esprit hermétique à toute réflexion), elle entreprend de chercher un travail, ce qu'elle réussit plus ou moins à trouver au sein d'une petite entreprise de livraison de journaux...");
 			$project->setVosta('Underwater');
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2048-Ton-avis-sur-Kanamemo.htm");
 			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
 <p>
 <a href="images/cover/[Zero]Kanamemo_Cover.jpg" target="_blank">
@@ -732,7 +748,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setAuthor("Takemiya Yuyuko");
 			$project->setSynopsis("Ami, Taiga et Ryuuji décident d'aller chez Jonny's pour y gouter les spaghettis Tarako. Sur place ils retrouvent Minori et la dégustation culinaire vire au duel...");
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t357-Ton-avis-sur-Toradora.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -747,7 +763,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setSynopsis("En raison de son regard menaçant hérité de son père, Takasu Ryuuji est un adolescent craint, car considéré comme un délinquant, par les autres élèves de son lycée. Cette image étant à l’opposé de ce qu’il est réellement, ce dernier aimerait s’en séparer définitivement afin de ne plus souffrir des conséquences qui en découlent. Ryuuji ne perd pas espoir d’y arriver grâce notamment à son ami Kitamura qui, en plus d’avoir vu clair dans cette mésentente, lui a permis de rencontrer Kushieda Minori dont il est tombé amoureux. Alors qu’il pense à elle, il bouscule par mégarde Asaika Taiga, une élève de sa classe et amie de Minori dont le mauvais caractère n’a d’égal que sa force. Suite à un concours de circonstances, Ryuuji apprendra que Aisaka est sa nouvelle voisine et que cette dernière est amoureuse de Kitamura. Se développe alors entre les deux une relation ambiguë dans le but de se rapprocher des personnes respectives aimées.");
 			$project->setVosta('<a href="http://www.ggkthx.org/" target="_blank">GG</a>');
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t357-Ton-avis-sur-Toradora.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -757,7 +773,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Takemiya Yuyuko");
 			$project->setSynopsis("Faire un bentô peut être compliqué. Ce doit être un repas équilibré, permettant de tenir tout l'après-midi. Ryuuji le sait bien, après tout il met un point d'honneur à ce que ses bentôs soient digne d'un étudiant en pleine croissance... Oui mais voilà, Yuusaku se trouve être secondé par sa grand-mère dans cette tâche. Grand-mère qui, au passage, semble maîtriser fort bien l'art du repas en boîte. Ryuuji tentera dès lors de faire valoir ses capacités de cuisinier... Par tous les moyens.");
-			$project->setDiscussionUrl("http://zero.xooit.fr/t357-Ton-avis-sur-Toradora.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -801,7 +817,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kujibiki%20Unbalance&amp;spgmPic=12#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kujibiki%20Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image13.jpg" alt="gal/Zero_fansub/Images/Kujibiki Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image13.jpg" class="img-thumbnail" width="150" height="150"/></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kujibiki%20Unbalance&amp;spgmPic=13#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kujibiki%20Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image14.jpg" alt="gal/Zero_fansub/Images/Kujibiki Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image14.jpg" class="img-thumbnail" width="150" height="150"/></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kujibiki%20Unbalance&amp;spgmPic=14#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kujibiki%20Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image15.jpg" alt="gal/Zero_fansub/Images/Kujibiki Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image15.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t253-Ton-avis-sur-Kujibiki-Unbalance-2006.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t253-Ton-avis-sur-Kujibiki-Unbalance-2006.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -860,7 +876,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Genshiken%202%20OP%20Single%20-%20disarm%20dreamer%20%5BMisato%20Aki%5D.zip.torrent" target="_blank">[Nipponsei] Genshiken 2 OP Single - disarm dreamer [Misato Aki].zip	10-24 01:51	47.29 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20OVA%20Genshiken%20OP%20Single%20-%20Seishun%20to%20Shite%20%5Bmanzo%5D.zip.torrent" target="_blank">[Nipponsei] OVA Genshiken OP Single - Seishun to Shite [manzo].zip	01-16 06:00	33.03 MB</a>'));
 			$project->addBonus(new ProjectBonus("Images & Wallpaper", '<a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=0#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image01.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image01.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=1#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image02.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image02.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=2#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image03.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image03.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=3#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image04.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image04.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=4#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image05.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image05.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=5#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image06.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image06.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=6#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image07.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image07.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=7#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image08.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image08.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=8#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image09.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image09.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=9#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image10.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image10.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=10#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image11.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image11.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t254-Ton-avis-sur-Genshiken-II.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t254-Ton-avis-sur-Genshiken-II.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -872,6 +888,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setStudio("PA Works");
 			$project->setGenre("Enigme et Policier");
 			$project->setSynopsis("Deux journalistes, Mino-san et sa partenaire sont envoyés pour couvrir un évènement culturel dans la ville de Shanghai. En raison de certaines circonstances cette dernière se retrouve seule au milieu de cette manifestation festive. Elle sera alors brutalement mêlée à une situation critique au mauvais endroit, au mauvais moment mais c'est alors que surgit Canaan, une jeune mercenaire victime de guerre.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2066-Ton-avis-sur-Canaan.htm");
 			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
 <p>
 	<a href="images/cover/[Zero]Canaan_Cover01.jpg" target="_blank">
@@ -888,8 +905,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Canaan%20Inspired%20Album.zip.torrent">[Nipponsei] Canaan Inspired Album.zip</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Canaan%20Insert%20Song%20Single%20-%20China%20Kibun%20de%20High%20Tension%21%20%5BTakagaki%20Ayahi%5D.zip.torrent">[Nipponsei] Canaan Insert Song Single - China Kibun de High Tension! [Takagaki Ayahi].zip</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Canaan%20ED%20Single%20-%20My%20heaven%20%5BAnnabel%5D.zip.torrent">[Nipponsei] Canaan ED Single - My heaven [Annabel].zip</a>'));
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/82036"><img src="http://getpersonas-cdn.mozilla.net/static/3/6/82036/preview.jpg?1264168415" border="0" alt="Canaan theme skin persona mozilla firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/124946"><img src="http://getpersonas-cdn.mozilla.net/static/4/6/124946/preview.jpg?1268429074" border="0" alt="Canaan theme skin persona mozilla firefox" /></a>'));
+			$project->addBonus(new FirefoxPersonaBonus(array(82036, 124946), $project->getName()." theme firefox"));
 			$project->addBonus(new ProjectBonus("Wallpaper & Images", '<a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=0#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image1.jpg" alt="gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image1.jpg" class="img-thumbnail" width="150" height="150"/></a><a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=1#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image10.jpg" alt="gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image10.jpg" class="img-thumbnail" width="150" height="150"/></a> <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=2#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image11.jpg" alt="gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image11.jpg" class="img-thumbnail" width="150" height="150"/></a><a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image12.jpg" alt="gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image12.jpg" class="img-thumbnail" width="150" height="150"/></a>
 <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=4#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image13.jpg" alt="gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image13.jpg" class="img-thumbnail" width="150" height="150"/></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=5#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image14.jpg" alt="gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image14.jpg" class="img-thumbnail" width="150" height="150"/></a>
@@ -934,65 +950,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setAuthor("Ditawa Bow");
 			$project->setSynopsis("Keita a deux grandes demi-soeurs, Ako et Riko, mais puisqu'ils ne sont pas liés par le sang, elles l'aiment d'une façon assez lascive. Après une infortune à l'école, Ako et Riko lui avouent finalement leur amour. Keita n'aime pas la pensée d'être plus que frère et soeur, mais comme il essaye d'entrer à la même école que ses soeurs, il devient lentement attiré par elles.");
 			$project->setVosta("Subdesu");
-			$project->addBonus(new ProjectBonus("Scantrad (Manga)", 'Ces mangas sont traduits par l\'équipe de Scantrad Française <a href="http://www.ecchi-scan.com/" target="_blank">Ecchi-no-chikara <img src="images/partenaires/ecchi.png" /></a> et <a href="http://kouhaiscantrad.wordpress.com" target="_blank">Kouhai Scantrad <img src="images/partenaires/kouhai.jpg" /></a><br />
-Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
-<img src="images/autre/kxstome1.jpg" alt="Kiss X Sis tome 1" style="float:right;"/>
-<a href="http://www.megaupload.com/?d=N0GUHPBW" target="_blank">Chapitre 00</a><br />
-<a href="http://www.megaupload.com/?d=VLK1J43B" target="_blank">Chapitre 01</a><br />
-<a href="http://www.megaupload.com/?d=PR61TD9L" target="_blank">Chapitre 02</a><br />
-<a href="http://www.megaupload.com/?d=C5WX2GE2" target="_blank">Chapitre 03</a><br />
-<a href="http://www.megaupload.com/?d=MGLWWRLN" target="_blank">Chapitre 04</a><br />
-<a href="http://www.mediafire.com/?njzwnmdmmwx" target="_blank">Chapitre 05</a><br />
-<a href="http://www.multiupload.com/QKV5Q4QC9I" target="_blank">Chapitre 06</a><br />
-<a href="http://www.multiupload.com/IE23SC2GST" target="_blank">Tome 01 (Chapitres 01 a 06)</a><br />
-<a href="http://www.multiupload.com/6N9GJIPN5B" target="_blank">Chapitre 07</a><br />
-<a href="http://www.multiupload.com/A9A6UWFB2M" target="_blank">Chapitre 08</a><br />
-<a href="http://www.multiupload.com/C5UAALT969" target="_blank">Chapitre 09</a><br />'));
-			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
-Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
-
-<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20Character%20Song%20%26%20Soundtrack.zip.torrent">[Nipponsei] Kiss X Sis Character Song &amp; Soundtrack.zip</a><br />
-<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20Character%20Song%20Mini%20Album%20-%20Anata%20ni%20kiss.zip.torrent">[Nipponsei] Kiss X Sis Character Song Mini Album - Anata ni kiss.zip</a><br />
-<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20ED%20Single%20-%20Our%20Steady%20Boy%20%5BOgura%20Yui%20%26%20Ishihara%20Kaori%5D.zip.torrent">[Nipponsei] Kiss X Sis ED Single - Our Steady Boy [Ogura Yui &amp; Ishihara Kaori].zip</a><br />
-<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20OP%20Single%20-%20Balance%20KISS%20%5BTaketatsu%20Ayana%20%26%20Tatsumi%20Yuiko%5D.zip.torrent">[Nipponsei] Kiss X Sis OP Single - Balance KISS [Taketatsu Ayana &amp; Tatsumi Yuiko].zip</a><br />
-<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20OAD%20OP%20Single%20-%20Futari%20no%20Honey%20Boy%20%5BTaketatsu%20Ayana%20%26%20Tatsumi%20Yuiko%5D.zip.torrent">[Nipponsei] Kiss X Sis OAD OP Single - Futari no Honey Boy [Taketatsu Ayana &amp; Tatsumi Yuiko].zip</a>'));
-			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
-<p>
-<a href="images/cover/[Zero]KissXsis_Cover.jpg" target="_blank">
-	<img src="images/cover/[Zero]KissXsis_Cover.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-</p>'));
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/206137"><img src="http://getpersonas-cdn.mozilla.net/static/3/7/206137/preview.jpg?1273191168" border="0" alt="KissXsis Kiss X Sis theme skin persona mozilla firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/183962"><img src="http://getpersonas-cdn.mozilla.net/static/6/2/183962/preview.jpg?1271231940" border="0" alt="KissXsis Kiss X Sis theme skin persona mozilla firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/237172"><img src="http://getpersonas-cdn.mozilla.net/static/7/2/237172/preview.jpg?1277448525" border="0" alt="KissXsis Kiss X Sis theme skin persona mozilla firefox" /></a>'));
-			$project->addBonus(new ProjectBonus("Images & Wallpaper", '    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=0#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image01.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image01.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=1#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image02.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image02.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=2#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image03.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image03.jpg" class="img-thumbnail" width="150" height="150"/></a> 
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=3#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image04.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image04.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=4#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image05.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image05.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=5#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image06.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image06.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=6#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image07.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image07.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=7#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image08.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image08.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=8#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image09.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image09.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=9#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image10.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image10.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=10#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image11.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image11.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=11#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image12.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image12.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=12#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image13.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image13.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=13#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image14.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image14.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=14#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image15.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image15.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=15#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image16.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image16.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=16#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image17.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image17.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=17#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image18.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image18.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=18#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image19.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image19.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=19#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image20.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image20.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=20#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image21.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image21.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=21#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image22.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image22.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=22#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image23.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image23.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=23#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image24.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image24.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=24#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image25.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image25.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=25#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image26.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image26.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=26#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image27.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image27.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=27#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image28.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image28.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t384-Ton-avis-sur-Kiss-X-Sis.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
@@ -1005,65 +963,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$project->setAuthor("Ditawa Bow");
 			$project->setSynopsis("Ako et Riko sont deux soeurs jumelles. Toutes les deux sont amoureuses de leur frère par alliance, Keita, avec qui elles n'ont aucun lien de sang.");
 			$project->setVosta("Anonymous et AKFDP");
-			$project->addBonus(new ProjectBonus("Scantrad (Manga)", 'Ces mangas sont traduits par l\'équipe de Scantrad Française <a href="http://www.ecchi-scan.com/" target="_blank">Ecchi-no-chikara <img src="images/partenaires/ecchi.png" /></a> et <a href="http://kouhaiscantrad.wordpress.com" target="_blank">Kouhai Scantrad <img src="images/partenaires/kouhai.jpg" /></a><br />
-Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
-<img src="images/autre/kxstome1.jpg" alt="Kiss X Sis tome 1" style="float:right;"/>
-<a href="http://www.megaupload.com/?d=N0GUHPBW" target="_blank">Chapitre 00</a><br />
-<a href="http://www.megaupload.com/?d=VLK1J43B" target="_blank">Chapitre 01</a><br />
-<a href="http://www.megaupload.com/?d=PR61TD9L" target="_blank">Chapitre 02</a><br />
-<a href="http://www.megaupload.com/?d=C5WX2GE2" target="_blank">Chapitre 03</a><br />
-<a href="http://www.megaupload.com/?d=MGLWWRLN" target="_blank">Chapitre 04</a><br />
-<a href="http://www.mediafire.com/?njzwnmdmmwx" target="_blank">Chapitre 05</a><br />
-<a href="http://www.multiupload.com/QKV5Q4QC9I" target="_blank">Chapitre 06</a><br />
-<a href="http://www.multiupload.com/IE23SC2GST" target="_blank">Tome 01 (Chapitres 01 a 06)</a><br />
-<a href="http://www.multiupload.com/6N9GJIPN5B" target="_blank">Chapitre 07</a><br />
-<a href="http://www.multiupload.com/A9A6UWFB2M" target="_blank">Chapitre 08</a><br />
-<a href="http://www.multiupload.com/C5UAALT969" target="_blank">Chapitre 09</a><br />'));
-			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
-Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
-
-<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20Character%20Song%20%26%20Soundtrack.zip.torrent">[Nipponsei] Kiss X Sis Character Song &amp; Soundtrack.zip</a><br />
-<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20Character%20Song%20Mini%20Album%20-%20Anata%20ni%20kiss.zip.torrent">[Nipponsei] Kiss X Sis Character Song Mini Album - Anata ni kiss.zip</a><br />
-<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20ED%20Single%20-%20Our%20Steady%20Boy%20%5BOgura%20Yui%20%26%20Ishihara%20Kaori%5D.zip.torrent">[Nipponsei] Kiss X Sis ED Single - Our Steady Boy [Ogura Yui &amp; Ishihara Kaori].zip</a><br />
-<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20OP%20Single%20-%20Balance%20KISS%20%5BTaketatsu%20Ayana%20%26%20Tatsumi%20Yuiko%5D.zip.torrent">[Nipponsei] Kiss X Sis OP Single - Balance KISS [Taketatsu Ayana &amp; Tatsumi Yuiko].zip</a><br />
-<a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20OAD%20OP%20Single%20-%20Futari%20no%20Honey%20Boy%20%5BTaketatsu%20Ayana%20%26%20Tatsumi%20Yuiko%5D.zip.torrent">[Nipponsei] Kiss X Sis OAD OP Single - Futari no Honey Boy [Taketatsu Ayana &amp; Tatsumi Yuiko].zip</a>'));
-			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
-<p>
-<a href="images/cover/[Zero]KissXsis_Cover.jpg" target="_blank">
-	<img src="images/cover/[Zero]KissXsis_Cover.png" alt="Jaquette DVD" border="0" width="200" /></a> 
-</p>'));
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/206137"><img src="http://getpersonas-cdn.mozilla.net/static/3/7/206137/preview.jpg?1273191168" border="0" alt="KissXsis Kiss X Sis theme skin persona mozilla firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/183962"><img src="http://getpersonas-cdn.mozilla.net/static/6/2/183962/preview.jpg?1271231940" border="0" alt="KissXsis Kiss X Sis theme skin persona mozilla firefox" /></a> 
-<a target="_blank" href="http://www.getpersonas.com/en-US/persona/237172"><img src="http://getpersonas-cdn.mozilla.net/static/7/2/237172/preview.jpg?1277448525" border="0" alt="KissXsis Kiss X Sis theme skin persona mozilla firefox" /></a>'));
-			$project->addBonus(new ProjectBonus("Images & Wallpaper", '    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=0#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image01.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image01.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=1#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image02.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image02.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=2#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image03.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image03.jpg" class="img-thumbnail" width="150" height="150"/></a> 
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=3#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image04.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image04.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=4#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image05.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image05.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=5#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image06.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image06.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=6#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image07.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image07.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=7#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image08.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image08.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=8#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image09.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image09.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=9#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image10.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image10.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=10#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image11.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image11.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=11#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image12.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image12.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=12#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image13.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image13.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=13#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image14.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image14.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=14#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image15.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image15.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=15#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image16.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image16.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=16#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image17.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image17.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=17#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image18.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image18.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=18#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image19.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image19.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=19#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image20.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image20.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=20#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image21.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image21.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=21#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image22.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image22.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=22#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image23.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image23.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=23#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image24.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image24.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=24#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image25.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image25.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=25#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image26.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image26.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=26#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image27.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image27.jpg" class="img-thumbnail" width="150" height="150"/></a>
-    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kiss%20X%20Sis&amp;spgmPic=27#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kiss%20X%20Sis/_thb_[Zero]Kiss_x_Sis_Image28.jpg" alt="galerie/gal/Zero_fansub/Images/Kiss X Sis/_thb_[Zero]Kiss_x_Sis_Image28.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t384-Ton-avis-sur-Kiss-X-Sis.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
@@ -1092,12 +992,12 @@ Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 <a href="http://download44.mediafire.com/ytcveycxmazg/44znzmcjnor/%5BJ-Garden%5D+hitohira+vol.1+Pr%C3%A9lude.rar">Prélude</a><br />
 <a href="http://www.mediafire.com/?wiuigjmiqnj">Chapitre 01</a><br />
 <a href="http://www.mediafire.com/?k5mtzwizmme">Chapitre 02</a><br />'));
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/219081"><img src="http://getpersonas-cdn.mozilla.net/static/8/1/219081/preview.jpg?1274871556" border="0" alt="Hitohira theme skin persona mozilla firefox" /></a>'));
+			$project->addBonus(new FirefoxPersonaBonus(array(219081), $project->getName()." theme firefox"));
 			$project->addBonus(new ProjectBonus("Images & Wallpaper", '<a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=0#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image01.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image01.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=1#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image02.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image02.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=2#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image03.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image03.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=3#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image04.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image04.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=4#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image05.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image05.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=5#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image06.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image06.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=6#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image07.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image07.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=7#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image08.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image08.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=8#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image09.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image09.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=9#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image10.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image10.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=10#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image11.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image11.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=11#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image12.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image12.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=12#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image13.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image13.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=13#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image14.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image14.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=14#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image15.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image15.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=15#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image16.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image16.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=16#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image17.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image17.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=17#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image18.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image18.jpg" class="img-thumbnail" width="150" height="150"/></a>
 <a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=18#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image19.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image19.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=19#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image20.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image20.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=20#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image21.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image21.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=21#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image22.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image22.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=22#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image23.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image23.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=23#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image24.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image24.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=24#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image25.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image25.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=25#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image26.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image26.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=26#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image27.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image27.jpg" class="img-thumbnail" width="150" height="150"/></a>
 <a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=27#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image28.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image28.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=28#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image29.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image29.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=29#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image30.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image30.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=30#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image31.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image31.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=31#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image32.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image32.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=32#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image33.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image33.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=33#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image34.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image34.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=34#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image35.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image35.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=35#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image36.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image36.jpg" class="img-thumbnail" width="150" height="150"/></a>
 <a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=36#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image37.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image37.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t145-Ton-avis-sur-Hitohira-la-serie-en-general.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t145-Ton-avis-sur-Hitohira-la-serie-en-general.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
@@ -1109,6 +1009,7 @@ Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 			$project->setStudio("Aniplex - Sony Music ent. Visual Works - A-1 Pictures Inc.");
 			$project->setGenre("Fantastique - Comédie");
 			$project->setSynopsis("Un jeune lycéen voit sa vie basculer le jour où la statue qu'il a sculpté se transforme en une ravissante jeune fille. Le bois de sa sculpture provenait en fait d'un arbre sacré habité par une déesse du nom de Nagi, celle-ci était là dans le but de veiller sur le quartier. Jin devra dorénavant héberger Nagi chez lui, mais la jeune fille n'a pas caractère facile.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2067-Ton-avis-sur-Kannagi.htm");
 			$project->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
 <p>
 <a href="images/cover/[Zero]Kannagi_Cover.jpg" target="_blank">
@@ -1188,7 +1089,7 @@ Mizuki 4th KISS : <a href="http://www.mediafire.com/?m1adm1zaeem"><b>Télécharger
 Mizuki 5th KISS : <a href="http://www.mediafire.com/?xrlhgjjnmei"><b>Télécharger</b></a><br />
 Mizuki 6th KISS : <a href="http://www.mediafire.com/download.php?e3jmnrrmnzt"><b>Télécharger</b></a><br />
 Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger</b></a><br />'));
-			$project->addBonus(new ProjectBonus("Thèmes pour Firefox (Skin Persona)", '<a target="_blank" href="http://www.getpersonas.com/en-US/persona/105649"><img src="http://getpersonas-cdn.mozilla.net/static/4/9/105649/preview.jpg?1266550427" border="0" alt="Kimikiss Pure Rouge theme skin persona mozilla firefox" /></a>'));
+			$project->addBonus(new FirefoxPersonaBonus(array(105649), $project->getName()." theme firefox"));
 			$project->addBonus(new ProjectBonus("Images & Wallpaper", '<a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=0#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image01.jpg" alt="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image01.jpg" class="img-thumbnail" width="150" height="150"/></a>
 <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=1#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image02.jpg" alt="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image02.jpg" class="img-thumbnail" width="150" height="150"/></a>
 <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=2#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image03.jpg" alt="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image03.jpg" class="img-thumbnail" width="150" height="150"/></a>
@@ -1240,9 +1141,15 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
   <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=55#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image56.jpg" alt="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image56.jpg" class="img-thumbnail" width="150" height="150"/></a>    
    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=56#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image57.jpg" alt="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image57.jpg" class="img-thumbnail" width="150" height="150"/></a>    
    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=57#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image58.jpg" alt="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image58.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setDiscussionUrl("http://zero.xooit.fr/t120-Ton-avis-sur-Kimikiss-pue-rouge-la-serie-en-general.htm");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t120-Ton-avis-sur-Kimikiss-pue-rouge-la-serie-en-general.htm");
 			$project->setAbandonned(true);
 			Project::$allProjects[] = $project;
+		}
+		
+		foreach(Project::$allProjects as $project) {
+			if ($project->isStarted() && !$project->isHidden() && $project->getDiscussionUrl() == null) {
+				throw new Exception($project->getID()." has no discussion");
+			}
 		}
 		
 		return Project::$allProjects;
@@ -1300,6 +1207,7 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
 			Project::$allLinks[] = array(Project::getProject('kodomo2'), Project::getProject('kodomo'));
 			Project::$allLinks[] = array(Project::getProject('kodomo2'), Project::getProject('kodomooav'));
 			Project::$allLinks[] = array(Project::getProject('kodomooav'), Project::getProject('kodomo'));
+			Project::$allLinks[] = array(Project::getProject('haganai'), Project::getProject('haganaioav'));
 		}
 		
 		return Project::$allLinks;
@@ -1326,24 +1234,6 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
 		$na = $a->getName();
 		$nb = $b->getName();
 		return strcmp($na, $nb);
-	}
-}
-
-class ProjectBonus {
-	private $title = null;
-	private $content = null;
-	
-	public function __construct($title, $content) {
-		$this->title = $title;
-		$this->content = $content;
-	}
-	
-	public function getTitle() {
-		return $this->title;
-	}
-	
-	public function getContent() {
-		return $this->content;
 	}
 }
 ?>

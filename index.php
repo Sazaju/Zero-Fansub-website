@@ -72,17 +72,33 @@ function findFile($fileName, $dir) {
 function __autoload($className) {
 	$file = findFile($className.'.php', 'class');
 	if ($file != null) {
+		$chunks = explode("/", $file);
+		if (TEST_MODE_ACTIVATED && in_array("old", $chunks)) {
+			echo Debug::createWarningTag("Old script used: $file");
+		}
 		include $file;
 	}
 }
 
+/**********************************\
+         CRITICAL CONFIG
+\**********************************/
+
 $criticalDataFile = "criticalData.php";
-if (!is_file($criticalDataFile)) {
-	header("Location: criticalConfig.php");
-	exit;
+$needConfig = true;
+if (is_file($criticalDataFile)) {
+	require_once($criticalDataFile);
+	if (defined('DB_USE') && defined('DB_TYPE') && defined('DB_NAME') && defined('DB_HOST') && defined('DB_USER') && defined('DB_PASS')) {
+		$needConfig = false;
+	}
 }
-require_once($criticalDataFile);
-unset($criticalDataFile);
+if ($needConfig) {
+	require_once("criticalConfig.php");
+	exit;
+} else {
+	// all green, just continue
+}
+unset($criticalDataFile); // security: we forget the source of critical information
 
 /**********************************\
          STRANGE URL CHECK
@@ -109,24 +125,19 @@ if ($url->isStrangeUrl()) {
 \**********************************/
 
 if (DB_USE) {
-	Database::createDefaultDatabase(TEST_MODE_ACTIVATED);
-	if (TEST_MODE_ACTIVATED && isset($_GET['clearDB'])) {
+	$url = Url::getCurrentUrl();
+	if (TEST_MODE_ACTIVATED && $url->hasQueryVar('clearDB')) {
 		Database::getDefaultDatabase()->clear();
-		$url = Url::getCurrentScriptUrl();
-		header('Location: '.$url->getUrl());
+		// TODO move the default loading here
+		$url->removeQueryVar('clearDB');
+		header('Location: '.$url->toString());
 		exit();
 	}
-}
-
-/**********************************\
-            GIT UPDATE
-\**********************************/
-
-if (TEST_MODE_ACTIVATED && isset($_GET['gitPull'])) {
-	exec("git pull");
-	$url = Url::getCurrentScriptUrl();
-	header('Location: '.$url->getUrl());
-	exit();
+	
+	$db = Database::getDefaultDatabase();
+	if (!$db->isRegisteredUser('anonymous')) {
+		$db->addUser('anonymous', null);
+	}
 }
 
 /**********************************\

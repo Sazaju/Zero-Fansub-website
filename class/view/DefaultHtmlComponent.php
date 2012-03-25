@@ -11,6 +11,19 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	private $subcomponents = array();
 	private $html = '';
 	private $isContentPinned = false;
+	private $legend = null;
+	
+	public function setLegend($legend) {
+		$this->legend = $legend;
+	}
+	
+	public function getLegend() {
+		return $this->legend;
+	}
+	
+	public function hasLegend() {
+		return $this->legend !== null;
+	}
 	
 	public function setContentPinned($boolean) {
 		$this->isContentPinned = $boolean;
@@ -133,11 +146,19 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	}
 	
 	public function getOpenTag() {
-		return '<'.$this->getHtmlTag().$this->getOptions().($this->isAutoClose() ? '/' : '').'>';
+		if ($this->hasLegend()) {
+			return '<fieldset'.$this->getOptions().'><legend>'.$this->getLegend().'</legend>';
+		} else {
+			return '<'.$this->getHtmlTag().$this->getOptions().($this->isAutoClose() ? '/' : '').'>';
+		}
 	}
 	
 	public function getCloseTag() {
-		return $this->isAutoClose() ? '' : '</'.$this->getHtmlTag().'>';
+		if ($this->hasLegend()) {
+			return '</fieldset>';
+		} else {
+			return $this->isAutoClose() ? '' : '</'.$this->getHtmlTag().'>';
+		}
 	}
 	
 	public function getHtml() {
