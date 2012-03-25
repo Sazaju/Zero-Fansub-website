@@ -29,20 +29,35 @@ class NewsComponent extends SimpleBlockComponent {
 		$message->setContentPinned(true);
 		$this->addComponent($message);
 		
-		// TODO group releases by projects
 		if (/*$timestamp >= strtotime('12 March 2012 14:47') &&*/ $news->isReleasing()) {
-			$content = '';
 			$releases = array();
 			foreach($news->getReleasing() as $release) {
 				if ($release instanceof Project) {
 					$pid = $release->getID();
-					$content .= '[project='.$pid.']'.$release->getName().'[/project]';
+					if (!array_key_exists($pid, $releases)) {
+						$releases[$pid] = array();
+					} else {
+						// project already listed
+					}
 				} else if ($release instanceof Release) {
 					$pid = $release->getProject()->getID();
-					$id = $release->getID();
-					$content .= '[release='.$pid.'|'.$id.']'.$release->getCompleteName().'[/release]';
+					if (!array_key_exists($pid, $releases)) {
+						$releases[$pid] = array();
+					} else {
+						// array already exists, continue
+					}
+					array_push($releases[$pid], $release->getID());
 				} else {
 					throw new Exception($release." is not a release nor a project.");
+				}
+			}
+			
+			$content = '';
+			foreach($releases as $pid => $ids) {
+				if (empty($ids)) {
+					$content .= '[project='.$pid.'][/project]';
+				} else {
+					$content .= '[release='.$pid.'|'.implode(",", $ids).'][/release]';
 				}
 				$content .= "\n";
 			}

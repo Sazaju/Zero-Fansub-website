@@ -210,9 +210,13 @@ class ReleaseComponent extends SimpleBlockComponent {
 				}
 				$codecs = "";
 				if (!empty($array)) {
-					$codecs = "Codecs : ".Format::arrayToString($array, " ");
+					$codecs = "Codecs : ".implode(" ", $array)." ";
 				}
 				$description->addComponent($codecs);
+			}
+			
+			if ($descriptor->getReleaseSource() !== null) {
+				$description->addComponent("Source : ".$descriptor->getReleaseSource()." ");
 			}
 			
 			if ($descriptor->getID() != null) {
