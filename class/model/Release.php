@@ -902,7 +902,8 @@ class Release {
 			$release->setName("01");
 			$release->setPreviewUrl("images/episodes/mayoi1.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_01_[H264-AAC][2DAC2E1C].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_01_[H264-AAC][BD][2DAC2E1C].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -914,7 +915,8 @@ class Release {
 			$release->setName("02");
 			$release->setPreviewUrl("images/episodes/mayoi2.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_02_[H264-AAC][129752E7].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_02_[H264-AAC][BD][129752E7].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -926,7 +928,8 @@ class Release {
 			$release->setName("03");
 			$release->setPreviewUrl("images/episodes/mayoi3.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_03_[H264-AAC][3D344736].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_03_[H264-AAC][BD][3D344736].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -938,7 +941,8 @@ class Release {
 			$release->setName("04");
 			$release->setPreviewUrl("images/episodes/mayoi4.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_04_[H264-AAC][02B37B51].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_04_[H264-AAC][BD][02B37B51].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -950,7 +954,8 @@ class Release {
 			$release->setName("05");
 			$release->setPreviewUrl("images/episodes/mayoi5.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_05_[H264-AAC][95B320E3].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_05_[H264-AAC][BD][95B320E3].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -962,7 +967,8 @@ class Release {
 			$release->setName("06");
 			$release->setPreviewUrl("images/episodes/mayoi6.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_06_[H264-AAC][0C8CE0AD].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_06_[H264-AAC][BD][0C8CE0AD].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -974,7 +980,8 @@ class Release {
 			$release->setName("07");
 			$release->setPreviewUrl("images/episodes/mayoi7.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_07_[H264-AAC][D66FEE9D].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_07_[H264-AAC][BD][D66FEE9D].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -986,7 +993,8 @@ class Release {
 			$release->setName("08");
 			$release->setPreviewUrl("images/episodes/mayoi8.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_08_[H264-AAC][CC111162].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_08_[H264-AAC][BD][CC111162].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -998,7 +1006,8 @@ class Release {
 			$release->setName("09");
 			$release->setPreviewUrl("images/episodes/mayoi9.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_09_[H264-AAC][5E441726].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_09_[H264-AAC][BD][5E441726].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -1010,7 +1019,8 @@ class Release {
 			$release->setName("10");
 			$release->setPreviewUrl("images/episodes/mayoi10.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_10_[H264-AAC][5A4E44A3].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_10_[H264-AAC][BD][5A4E44A3].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -6528,6 +6538,7 @@ class ReleaseFileDescriptor {
 	private $torrentUrl = null;
 	private $comment = null;
 	private $pageNumber = null;
+	private $releaseSource = null;
 	
 	public function __construct($name = null) {
 		$this->setFilePath($name);
@@ -6635,6 +6646,14 @@ class ReleaseFileDescriptor {
 	
 	public function setPageNumber($pageNumber) {
 		$this->pageNumber = $pageNumber;
+	}
+	
+	public function getReleaseSource() {
+		return $this->releaseSource;
+	}
+	
+	public function setReleaseSource(ReleaseSource $source) {
+		$this->releaseSource = $source;
 	}
 }
 ?>
