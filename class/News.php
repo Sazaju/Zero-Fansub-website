@@ -3938,23 +3938,34 @@ La prochaine étape devrait être la persistence des données je pense. Avec le pas
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Ça fait un moment qu'on n'a rien sorti, pourquoi ? Mine de rien la réponse est assez simple.
 
-[imgr=images/news/stripKobato.png]Dur, dur de se changer sans arrêt ![/imgr]En fait on à tellement peu de monde que certains doivent faire des choses qu'ils ne sont pas sensés faire. Et bien entendu, non seulement ça leur prends du temps supplémentaire, mais en plus c'est moins rapide que quelqu'un qui ne fait que ça. En effet, il faut sans arrêt c, et donc se remettre dans le bain à chaque fois. C'est pas forcément motivant, vu qu'on n'en voit pas le bout.
+[imgr=images/news/stripKobato.png]Dur, dur de changer de veste ![/imgr]En fait on à tellement peu de monde que certains doivent faire des choses qu'ils ne sont pas censés faire. Et bien entendu, non seulement ça leur prend du temps supplémentaire, mais en plus c'est plus lent que quelqu'un qui ne fait que ça. En effet, il faut sans arrêt changer de veste, et donc se remettre dans le bain à chaque fois. C'est pas forcément motivant, vu qu'on n'en voit pas le bout.
 
-On se doute bien que vous avez des trucs à faire, mais nous aussi. Ce qu'on aimerais, c'est des gens qui aient l'esprit fansub, cet esprit partage qui nous anime nous (depuis un paquet d'années déjà). Hélas, depuis un certain temps, on n'en trouve quasiment plus. On n'a plus que des gens qui leechent et postent des 'Merci, continuez, @+'. 
+On se doute bien que vous avez des trucs à faire, mais nous aussi. Ce qu'on aimerait, c'est des gens qui aient l'esprit fansub, cet esprit partage qui nous anime nous (depuis un paquet d'années déjà). Hélas, depuis un certain temps, on n'en trouve quasiment plus. On n'a plus que des gens qui leechent et postent des '[i]Merci, continuez, @+[/i]'. 
 
-Et parmi ces gens la, il y en a un paquet qui ont les qualités requises pour faire du fansub, mais par timidité ou par honte non justifiée ils se retiennent en se disant qu'il y aura bien quelqu'un d'autre qui postulera... S'ils ont raison (on en a de temps en temps qui postulent), ils ne voient hélas que le court terme. Parmi ceux qui entrent beaucoup trop ne restent pas. Et pour les rares qui restent, on se retrouve vite avec des gens démotivés parce qu'on n'est pas assez, et donc tout le monde court de partout.
+Et parmi ces gens-là, il y en a un paquet qui ont les qualités suffisantes pour faire du fansub, mais par timidité ou par honte non justifiée ils se retiennent en se disant qu'il y aura bien quelqu'un d'autre qui postulera... S'ils peuvent avoir raison (on en a de temps en temps qui postulent), ils ne voient hélas que le court terme. Parmi ceux qui entrent beaucoup trop ne restent pas. Et pour les rares qui restent, on se retrouve vite avec des gens démotivés parce qu'on n'est pas assez, et donc tout le monde court de partout.
 
-On n'a pas besoin de gens super compétents, ces gens là on les a déjà. La plupart d'entre-nous ont appris sur le tas, et ça ne les empêche pas de faire du bon boulot. Mais si on n'est pas assez nombreux, la charge de travail est similaire à un boulot classique. Alors ne vous étonnez pas après de ne plus voir grand chose sortir. Beaucoup de teams trés bonnes dans ce qu'elles faisaient ont fermé pour moins que ca. Nous on tiens parce qu'on est des entêtés qui ne veulent pas s'avouer à l'article de la mort. On a des gens trés doués qui sont là pour vous aider à apprendre et vous perfectionner, mais si personne ne nous tend la main ces personnes sont debordées et ne peuvent pas aider les nouveaux arrivants.
+On n'a pas besoin de gens super compétents, ces gens-là on les a déjà. La plupart d'entre nous ont appris sur le tas, et ça ne les empêche pas de faire du bon boulot. Mais si on n'est pas assez nombreux, la charge de travail est similaire à un boulot classique. Alors ne vous étonnez pas après de ne plus voir grand-chose sortir. Beaucoup de teams très bonnes dans ce qu'elles faisaient ont fermé pour moins que ça. Nous on tiens parce qu'on est des entêtés qui ne veulent pas s'avouer à l'article de la mort. On a des gens très doués qui sont là pour vous aider à apprendre et vous perfectionner, mais si personne ne nous tend la main ces personnes sont débordées et ne peuvent pas aider les nouveaux arrivants.
 [img=images/news/study.png]Allez, courage ![/img]
-Plus on est nombreux, mieux c'est pour tout le monde : on ne dilue pas la qualite, on dilue la charge de travail. On a des gens trés competent qui passeront derrière-vous de toute facon pour corriger ce qui ne vas pas et vous dire comment vous améliorer. Alors pourquoi se retenir ? Si vous aimez les animes et que vous avez déjà vu quelques dizaines de séries, vous savez déjà ce que c'est que le fansub. Le reste c'est de la découverte et de la mise en pratique, il suffit d'être curieux.
+Plus on est nombreux, mieux c'est pour tout le monde : on ne dilue pas la qualité, on dilue la charge de travail. On a des gens très compétents qui passeront derrière-vous de toute façon pour corriger ce qui ne va pas et vous dire comment vous améliorer. Alors pourquoi se retenir ? Si vous aimez les animes et que vous avez déjà vu quelques dizaines de séries, vous savez déjà ce que c'est que le fansub. Le reste c'est de la découverte et de la mise en pratique, il suffit d'être curieux.
 
 Pour ceux qui seront arrivés jusque-là, on a tout de même un [spoiler=paquet de nouveautés !]
-[release=denpa|ep1]Denpa Onna to Seishun Otoko 01[/release]
+[release=denpa|ep1][/release]
 
-[release=mayoi|ep1,ep2,ep3,ep4,ep5,ep6,ep7,ep8]Mayoi Neko Overrun 01-08[/release]
+[release=mayoi|ep1,ep2,ep3,ep5,ep7,ep8,ep9,ep10,ep4,ep6][/release]
 
 Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exactement ce que je vous disais plus haut. Les hauts gradés ont tellement de boulot qu'ils repoussent tout à plus tard, moi le premier. Aussi j'espère que vous téléchargerez ces épisodes avec l'envie d'aider.[/spoiler]");
 			//$news->setCommentId(289);
+			$news->addReleasing(Release::getRelease('denpa', 'ep1'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep1'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep2'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep3'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep4'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep5'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep6'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep7'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep8'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep9'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep10'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(true);

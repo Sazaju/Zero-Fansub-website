@@ -498,6 +498,58 @@ class Format {
 				$link = new ReleaseLink($parameter[0], $parameter[1], null);
 				return $link->getOpenTag();
 			};
+			$releaseContent = function($tag, $parameter, $content) {
+				if (empty($content)) {
+					$parameter = preg_split('#\\|#', $parameter);
+					if ($parameter[1] === '*') {
+						$parameter[1] = Release::getAllReleasesIDForProject($parameter[0]);
+					} else {
+						$parameter[1] = Format::trimAndCleanArray(preg_split('#,#', $parameter[1]));
+					}
+					
+					$projectName = Project::getProject($parameter[0])->getName();
+					
+					$numbers = array();
+					$others = array();
+					foreach($parameter[1] as $key => $id) {
+						if (preg_match("#^ep\\d+$#", $id)) {
+							$numbers[] = substr($id, 2);
+						} else {
+							$others[] = $id;
+						}
+					}
+					sort($numbers);
+					
+					$ref = 0;
+					$last = $numbers[0];
+					for($i = 1 ; $i < count($numbers) ; $i ++) {
+						$current = $numbers[$i];
+						if ($current == $last + 1) {
+							$numbers[$i] = null;
+						} else {
+							if ($numbers[$ref] != $last) {
+								$numbers[$ref] .= "-".$last;
+							}
+							$ref = $i;
+						}
+						$last = $current;
+					}
+					if ($numbers[$ref] != $last) {
+						$numbers[$ref] .= "-".$last;
+					}
+					$numbers = array_filter($numbers);
+					$list = implode(", ", $numbers).", ";
+					
+					foreach($others as $id) {
+						$list = Release::getRelease($parameter[0], $id)->getName() . ", ";
+					}
+					$list = substr($list, 0, strlen($list) - 2);
+					
+					return $projectName." ".$list;
+				} else {
+					return BBCodeDescriptor::contentToHTML($content);
+				}
+			};
 			$partnerOpenTag = function($tag, $parameter, $content) {
 				if (empty($parameter)) {
 					$parameter = $content;
@@ -587,7 +639,7 @@ class Format {
 				}
 				return $link->getHTMLContent();
 			};
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("release", $releaseOpenTag, $linkCloseTag));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("release", $releaseOpenTag, $linkCloseTag, $releaseContent));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("project", $projectOpenTag, $linkCloseTag, $projectContent));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("partner", $partnerOpenTag, $linkCloseTag, $partnerContent));
 			

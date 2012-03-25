@@ -901,8 +901,8 @@ class Release {
 			$release = new Release(Project::getProject('mayoi'), 'ep1');
 			$release->setName("01");
 			$release->setPreviewUrl("images/episodes/mayoi1.png");
-			$release->setHeaderImage("images/sorties/mayoi1-8.png");
-			$descriptor = new ReleaseFileDescriptor("*.mp4");
+			$release->setHeaderImage("images/sorties/mayoi1-10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_01_[H264-AAC][2DAC2E1C].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -913,8 +913,8 @@ class Release {
 			$release = new Release(Project::getProject('mayoi'), 'ep2');
 			$release->setName("02");
 			$release->setPreviewUrl("images/episodes/mayoi2.png");
-			$release->setHeaderImage("images/sorties/mayoi1-8.png");
-			$descriptor = new ReleaseFileDescriptor("*.mp4");
+			$release->setHeaderImage("images/sorties/mayoi1-10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_02_[H264-AAC][129752E7].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -925,8 +925,8 @@ class Release {
 			$release = new Release(Project::getProject('mayoi'), 'ep3');
 			$release->setName("03");
 			$release->setPreviewUrl("images/episodes/mayoi3.png");
-			$release->setHeaderImage("images/sorties/mayoi1-8.png");
-			$descriptor = new ReleaseFileDescriptor("*.mp4");
+			$release->setHeaderImage("images/sorties/mayoi1-10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_03_[H264-AAC][3D344736].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -937,8 +937,8 @@ class Release {
 			$release = new Release(Project::getProject('mayoi'), 'ep4');
 			$release->setName("04");
 			$release->setPreviewUrl("images/episodes/mayoi4.png");
-			$release->setHeaderImage("images/sorties/mayoi1-8.png");
-			$descriptor = new ReleaseFileDescriptor("*.mp4");
+			$release->setHeaderImage("images/sorties/mayoi1-10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_04_[H264-AAC][02B37B51].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -949,8 +949,8 @@ class Release {
 			$release = new Release(Project::getProject('mayoi'), 'ep5');
 			$release->setName("05");
 			$release->setPreviewUrl("images/episodes/mayoi5.png");
-			$release->setHeaderImage("images/sorties/mayoi1-8.png");
-			$descriptor = new ReleaseFileDescriptor("*.mp4");
+			$release->setHeaderImage("images/sorties/mayoi1-10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_05_[H264-AAC][95B320E3].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -961,8 +961,8 @@ class Release {
 			$release = new Release(Project::getProject('mayoi'), 'ep6');
 			$release->setName("06");
 			$release->setPreviewUrl("images/episodes/mayoi6.png");
-			$release->setHeaderImage("images/sorties/mayoi1-8.png");
-			$descriptor = new ReleaseFileDescriptor("*.mp4");
+			$release->setHeaderImage("images/sorties/mayoi1-10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_06_[H264-AAC][0C8CE0AD].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -973,8 +973,8 @@ class Release {
 			$release = new Release(Project::getProject('mayoi'), 'ep7');
 			$release->setName("07");
 			$release->setPreviewUrl("images/episodes/mayoi7.png");
-			$release->setHeaderImage("images/sorties/mayoi1-8.png");
-			$descriptor = new ReleaseFileDescriptor("*.mp4");
+			$release->setHeaderImage("images/sorties/mayoi1-10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_07_[H264-AAC][D66FEE9D].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -985,8 +985,8 @@ class Release {
 			$release = new Release(Project::getProject('mayoi'), 'ep8');
 			$release->setName("08");
 			$release->setPreviewUrl("images/episodes/mayoi8.png");
-			$release->setHeaderImage("images/sorties/mayoi1-8.png");
-			$descriptor = new ReleaseFileDescriptor("*.mp4");
+			$release->setHeaderImage("images/sorties/mayoi1-10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_08_[H264-AAC][CC111162].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -996,18 +996,36 @@ class Release {
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep9');
 			$release->setName("09");
+			$release->setPreviewUrl("images/episodes/mayoi9.png");
+			$release->setHeaderImage("images/sorties/mayoi1-10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_09_[H264-AAC][5E441726].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep10');
 			$release->setName("10");
+			$release->setPreviewUrl("images/episodes/mayoi10.png");
+			$release->setHeaderImage("images/sorties/mayoi1-10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_10_[H264-AAC][5A4E44A3].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep11');
 			$release->setName("11");
+			$release->setPreviewUrl("images/episodes/mayoi11.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep12');
 			$release->setName("12");
+			$release->setPreviewUrl("images/episodes/mayoi12.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kimikiss'), 'ep1');
@@ -6074,7 +6092,14 @@ class Release {
 			$release->setName("épisode 01");
 			$release->setPreviewUrl("images/episodes/denpa1.png");
 			$release->setHeaderImage("images/sorties/denpa1.png");
-			$descriptor = new ReleaseFileDescriptor("*.mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_01[8bits-720p][274B8DF2].mp4");
+			$descriptor->setID("8 bits");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_01[10bits-1080p][9D523984].mp4");
+			$descriptor->setID("10 bits");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
