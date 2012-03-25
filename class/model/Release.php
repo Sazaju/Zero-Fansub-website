@@ -907,7 +907,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
+			$release->setReleasingTime(strtotime('25 March 2012 19:01'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep2');
@@ -919,7 +919,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
+			$release->setReleasingTime(strtotime('25 March 2012 19:01'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep3');
@@ -931,7 +931,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
+			$release->setReleasingTime(strtotime('25 March 2012 19:01'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep4');
@@ -943,7 +943,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
+			$release->setReleasingTime(strtotime('25 March 2012 19:01'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep5');
@@ -955,7 +955,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
+			$release->setReleasingTime(strtotime('25 March 2012 19:01'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep6');
@@ -967,7 +967,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
+			$release->setReleasingTime(strtotime('25 March 2012 19:01'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep7');
@@ -979,7 +979,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
+			$release->setReleasingTime(strtotime('25 March 2012 19:01'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep8');
@@ -991,7 +991,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
+			$release->setReleasingTime(strtotime('25 March 2012 19:01'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep9');
@@ -1003,7 +1003,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
+			$release->setReleasingTime(strtotime('25 March 2012 19:01'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep10');
@@ -1015,7 +1015,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime('29 February 2012 00:18'));
+			$release->setReleasingTime(strtotime('25 March 2012 19:01'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep11');
