@@ -88,7 +88,7 @@ $criticalDataFile = "criticalData.php";
 $needConfig = true;
 if (is_file($criticalDataFile)) {
 	require_once($criticalDataFile);
-	if (defined('DB_USE') && defined('DB_TYPE') && defined('DB_NAME') && defined('DB_HOST') && defined('DB_USER') && defined('DB_PASS')) {
+	if (defined('DB_TYPE') && defined('DB_NAME') && defined('DB_HOST') && defined('DB_USER') && defined('DB_PASS')) {
 		$needConfig = false;
 	}
 }
@@ -148,12 +148,7 @@ if (TEST_MODE_ACTIVATED) {
 	$features->addComponent('Testing mode : ');
 	
 	$link = new Link(Url::getCurrentUrl(), 'clear DB');
-	if (DB_USE) {
-		$link->getUrl()->setQueryVar('clearDB');
-	} else {
-		$link->getUrl()->setUrl('#');
-		$link->setClass('deactivated');
-	}
+	$link->getUrl()->setQueryVar('clearDB');
 	$features->addComponent($link);
 	
 	$link = new Link(Url::getCurrentUrl(), 'PHP info');
