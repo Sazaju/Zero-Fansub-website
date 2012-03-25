@@ -3937,7 +3937,7 @@ La prochaine étape devrait être la persistence des données je pense. Avec le pas
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Ça fait un moment qu'on a du mal à sortir des releases, pourquoi ? Mine de rien la réponse est assez simple (malgré le gros pavé qui vous attend).
 
-[imgr=images/news/stripKobato.png]Dur, dur de changer de veste ![/imgr]En fait on à tellement peu de monde que certains doivent faire des choses [b]qu'ils ne sont pas censés faire[/b]. Et bien entendu, non seulement ça leur prend du temps supplémentaire, mais en plus c'est plus lent que quelqu'un qui ne fait que ça. En effet, il faut sans arrêt changer de veste, et donc se remettre dans le bain à chaque fois. C'est pas forcément motivant, vu qu'on n'en voit pas le bout.
+[imgr=images/news/stripKobato.png]Dur, dur de changer de veste ![/imgr]En fait on a tellement peu de monde que certains doivent faire des choses [b]qu'ils ne sont pas censés faire[/b]. Et bien entendu, non seulement ça leur prend du temps supplémentaire, mais en plus c'est plus lent que quelqu'un qui ne fait que ça. En effet, il faut sans arrêt changer de veste, et donc se remettre dans le bain à chaque fois. C'est pas forcément motivant, vu qu'on n'en voit pas le bout.
 
 On se doute bien que vous avez des trucs à faire, [b]mais nous aussi[/b]. Ce qu'on aimerait, c'est des gens qui aient l'esprit fansub, cet esprit partage qui nous anime nous (depuis un paquet d'années déjà). Hélas, depuis un certain temps, on n'en trouve quasiment plus. On n'a plus que des gens qui leechent et postent des '[i]Merci, continuez, @+[/i]'.
 
