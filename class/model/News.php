@@ -3988,7 +3988,7 @@ Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exacte
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Ça se décoince petit à petit. On a eu quelques candidatures et ça allège un peu la charge de travail.
 
-Ajouté à ça, Mitsudomoe 9 dans les bacs. Et en Blu-Ray comme promis {^_^}.");
+Ajouté à ça, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.");
 			$news->setCommentId(292);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep9'));
 			$news->setDisplayInNormalMode(true);
