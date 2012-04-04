@@ -3981,6 +3981,22 @@ Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exacte
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Mitsudomoe 9 BD");
+			$news->setTimestamp(strtotime("4 April 2012 19:41"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Ça se décoince petit à petit. On a eu quelques candidatures et ça allège un peu la charge de travail.
+
+Ajouté à ça, Mitsudomoe 9 dans les bacs. Et en Blu-Ray comme promis {^_^}.");
+			$news->setCommentId(292);
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep9'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
 		}
 		
 		return News::$allNews;
