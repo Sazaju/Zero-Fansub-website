@@ -2100,9 +2100,14 @@ class Release {
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
-			$release = new Release(Project::getProject('kannagi'), 'ep14');
-			$release->setName("14");
+			$release = new Release(Project::getProject('kannagioad'), 'ep0');
+			$release->setName(null);
 			$release->setPreviewUrl("images/episodes/kannagi14.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi_OAD[H264-AAC][F0F543E6].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
