@@ -352,7 +352,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setStudio("Bridge");
 			$project->setAuthor("Sakurai Norio");
 			$project->setGenre("Comédie Ecchi");
-			$project->setSynopsis("14ème épisode de la série Mitsudomoe.");
+			$project->setSynopsis("14e épisode de la série Mitsudomoe.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
@@ -1021,7 +1021,7 @@ Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 			$project->setStudio("Aniplex - Sony Music ent. Visual Works - A-1 Pictures Inc.");
 			$project->setGenre("Fantastique - Comédie");
 			$project->setSynopsis("Un jeune lycéen voit sa vie basculer le jour où la statue qu'il a sculpté se transforme en une ravissante jeune fille. Le bois de sa sculpture provenait en fait d'un arbre sacré habité par une déesse du nom de Nagi, celle-ci était là dans le but de veiller sur le quartier. Jin devra dorénavant héberger Nagi chez lui, mais la jeune fille n'a pas caractère facile.");
-			$project->setComment("Le 14ème épisode (spécial) est disponible [project=kannagioad]ici[/project].");
+			$project->setComment("Le 14e épisode (spécial) est disponible [project=kannagioad]ici[/project].");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2067-Ton-avis-sur-Kannagi.htm");
 			$project->setFinished(true);
 			$project->setLicense(License::getDefaultLicense());
