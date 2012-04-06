@@ -345,6 +345,18 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
+			$project = new Project("mitsudomoeoad", "Mitsudomoe OAD");
+			$project->setOriginalName("Mitsudomoe OAD");
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.mitsudomoe-anime.com/", "Mitsudomoe Anime"));
+			$project->setAiringYear(2010);
+			$project->setStudio("Bridge");
+			$project->setAuthor("Sakurai Norio");
+			$project->setGenre("Comédie Ecchi");
+			$project->setSynopsis("14ème épisode de la série Mitsudomoe.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
+			$project->setRunning(true);
+			Project::$allProjects[] = $project;
+			
 			$project = new Project("eriko", "ERIKO");
 			$project->setOriginalName("ERIKO");
 			$project->setAiringYear(2007);
@@ -1203,6 +1215,7 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
 			Project::$allLinks[] = array(Project::getProject('kodomooav'), Project::getProject('kodomo'));
 			Project::$allLinks[] = array(Project::getProject('haganai'), Project::getProject('haganaioav'));
 			Project::$allLinks[] = array(Project::getProject('kannagi'), Project::getProject('kannagioad'));
+			Project::$allLinks[] = array(Project::getProject('mitsudomoe'), Project::getProject('mitsudomoeoad'));
 		}
 		
 		return Project::$allLinks;

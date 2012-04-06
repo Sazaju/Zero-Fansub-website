@@ -366,6 +366,12 @@ class Release {
 			$release->setName("épisode 10");
 			Release::$allReleases[] = $release;
 			
+			$release = new Release(Project::getProject("mitsudomoeoad"), "oad");
+			$release->setName(null);
+			$release->setPreviewUrl("images/episodes/mitsudomoeoad.jpg");
+			$release->setHeaderImage("images/sorties/mitsudomoeoad.png");
+			Release::$allReleases[] = $release;
+			
 			$release = new Release(Project::getProject('kissxsis'), 'ep1');
 			$release->setName("épisode 1");
 			$release->setPreviewUrl("images/episodes/kissxsistv1.jpg");
