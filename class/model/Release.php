@@ -364,6 +364,14 @@ class Release {
 			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep10");
 			$release->setName("épisode 10");
+			$release->setPreviewUrl("images/episodes/mitsudomoe10.jpg");
+			$release->setHeaderImage("images/sorties/mitsudomoe10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_10[BD][H264-AAC][8C7103DF].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime("8 April 2012 18:38"));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mitsudomoeoad"), "oad");

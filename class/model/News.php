@@ -3999,6 +3999,20 @@ Ajouté à ça, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.");
 			News::$allNews[] = $news;
 			
 			$news = new News();
+			$news->setTitle("Mitsudomoe 10 BD");
+			$news->setTimestamp(strtotime("8 April 2012 18:38"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez, c'est pas fini ! On enchaîne avec l'épisode 10 de Mitsudomoe !");
+			$news->setCommentId(294);
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep10'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("Rerutement exotique !");
 			$news->setTimestamp(strtotime("8 April 2012 12:57"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
