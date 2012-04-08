@@ -4002,9 +4002,9 @@ Ajouté à ça, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.");
 			$news->setTitle("Rerutement exotique !");
 			$news->setTimestamp(strtotime("8 April 2012 12:57"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("[imgr]images/news/kanamemo_p4.png[/imgr]On recrute ! Ouais mais vous me direz que ça fait un moment que vous êtes au courant. Mais le truc, c'est que toutes les candidatures qu'on reçoit (pour le peu qu'on a) sont pour des boulots tels qu'adapt et trad... et c'est tout. Mais à la Zéro, on ne se contente pas de remplir un blog de liens de DL : on maintient un site complet et on essaye de multiplier nos activités.
+			$news->setMessage("[imgr]images/news/kanamemo_p4.png[/imgr]On recrute ! Ouais mais vous me direz que ça fait un moment que vous êtes au courant. Mais le truc, c'est que toutes les candidatures qu'on reçoit (pour le peu qu'on a) sont pour des boulots tels que trad et timeurs... et c'est tout. Mais la Zéro, ce n'est pas qu'un blog de fansubbeurs : on maintient un site complet et on essaye de multiplier nos activités.
 
-Bref, tout ça pour vous dire qu'on recherche aussi [b]un graphiste[/b], qui pourra nous aider à faire les sorties en faisant les preview, les images d'entête et de news, mais aussi nous aider à faire les éditions, proposer de nouveaux styles pour le site, et même faire [i]cleaner[/i] pour nos scantrads. Car oui, je vous le rappelle, on a des projets de [b]scantrad[/b] (dont Kanamemo qui est commencé) ! On recherche donc aussi des gens motivés pour participer à ces projets, car là on n'a plus personne {'^_^}.
+Bref, tout ça pour vous dire qu'on recherche aussi [b]un graphiste[/b], qui pourra nous aider à faire les sorties en faisant les preview, les images d'entête et de news, mais aussi nous aider à faire les éditions, proposer de nouveaux styles pour le site, et même faire [i]cleaner[/i] pour nos scantrads. Car oui, je vous le rappelle, on a un projet [b]scantrad[/b] (Kanamemo) qui est commencé ! On recherche donc aussi des gens motivés pour participer à ce projet, car là on n'a plus personne {'^_^}.
 
 (je rappelle qu'il n'est pas nécessaire d'être super expérimenté)
 
