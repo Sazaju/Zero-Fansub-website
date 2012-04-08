@@ -3997,6 +3997,27 @@ Ajouté à ça, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Rerutement exotique !");
+			$news->setTimestamp(strtotime("8 April 2012 12:57"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("[imgr]images/news/kanamemo_p4.png[/imgr]On recrute ! Ouais mais vous me direz que ça fait un moment que vous êtes au courant. Mais le truc, c'est que toutes les candidatures qu'on reçoit (pour le peu qu'on a) sont pour des boulots tels qu'adapt et trad... et c'est tout. Mais à la Zéro, on ne se contente pas de remplir un blog de liens de DL : on maintient un site complet et on essaye de multiplier nos activités.
+
+Bref, tout ça pour vous dire qu'on recherche aussi [b]un graphiste[/b], qui pourra nous aider à faire les sorties en faisant les preview, les images d'entête et de news, mais aussi nous aider à faire les éditions, proposer de nouveaux styles pour le site, et même faire [i]cleaner[/i] pour nos scantrads. Car oui, je vous le rappelle, on a des projets de [b]scantrad[/b] (dont Kanamemo qui est commencé) ! On recherche donc aussi des gens motivés pour participer à ces projets, car là on n'a plus personne {'^_^}.
+
+(je rappelle qu'il n'est pas nécessaire d'être super expérimenté)
+
+Ayez de l'imagination, ne vous dîtes pas d'emblée \"[i]Ah, le fansub ils font ça, mais moi je vois pas où je pourrais aider donc pas la peine de postuler.[/i]\". Si vous voulez aider mais ne savez pas comment, candidatez en disant ce que vous aimez faire, ce que vous savez faire et ce que vous souhaitez améliorer, on vous dira si ça peut servir. Peut-être que vous passez à côté d'une activité pas bien mise en avant mais super intéressante !
+
+Si vous vous sentez prêt à participer à l'aventure : cliquez sur le lien [i]Recrutement[/i] dans le menu de gauche !");
+			$news->setCommentId(293);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
 		}
 		
 		return News::$allNews;
