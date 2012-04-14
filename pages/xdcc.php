@@ -1,12 +1,12 @@
 <?php
-	$page = PageContent::getInstance();
-	$page->addComponent(new Title("XDCC", 1));
+	$page = PageContentComponent::getInstance();
+	$page->addComponent(new TitleComponent("XDCC", 1));
 	
 	$message = new SimpleTextComponent();
 	$message->setClass("xdcc");
 	$page->addComponent($message);
 	$message->addComponent("Pour télécharger un fichier, aller sur le chan IRC (");
-	$ircLink = Link::newWindowLink("irc://irc.fansub-irc.eu/zero", "Lien du Channel");
+	$ircLink = LinkComponent::newWindowLink("irc://irc.fansub-irc.eu/zero", "Lien du Channel");
 	$message->addComponent($ircLink);
 	$message->addLine(") et tapez la commande :");
 	$message->addLine();

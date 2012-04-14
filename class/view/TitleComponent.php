@@ -3,7 +3,7 @@
 	A title is the equivalent of a hX tag (h1, h2, etc.).
 */
 
-class Title extends DefaultHtmlComponent {
+class TitleComponent extends DefaultHtmlComponent {
 	private $level = null;
 	
 	public function __construct($content, $level = 1) {

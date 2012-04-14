@@ -4,9 +4,9 @@
 	XDCC page.
 */
 
-class XdccLink extends Link {
+class XdccLinkComponent extends LinkComponent {
 	public function __construct() {
-		parent::__construct(null, new Image("images/icones/xdcc.png"));
+		parent::__construct(null, new ImageComponent("images/icones/xdcc.png"));
 		$url = new Url('index.php');
 		$url->setQueryVar("page", "xdcc");
 		parent::setUrl($url);

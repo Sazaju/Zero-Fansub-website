@@ -3,7 +3,7 @@
 On ne recrute plus en dehors de l'école du fansub.
 [url=http://ecole.zerofansub.net/]En savoir +[/url].
 (Vous pouvez postuler pour l'école même si vous êtes expérimentés, le tout c'est d'être motivé)";
-	PageContent::getInstance()->addComponent(Format::convertTextToHTML($content));
+	PageContentComponent::getInstance()->addComponent(Format::convertTextToHTML($content));
 	
 	/*
 <h2>&Agrave; savoir</h2>

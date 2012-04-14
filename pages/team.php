@@ -1,13 +1,13 @@
 <?php
-	$page = PageContent::getInstance();
-	$page->addComponent(new Title("La Team de fansub", 1));
+	$page = PageContentComponent::getInstance();
+	$page->addComponent(new TitleComponent("La Team de fansub", 1));
 
 	$members = TeamMember::getAllCurrentMembers();
 	usort($members, array('TeamMember', 'nameSorter'));
 	
-	$page->addComponent(new Title("Administrateurs", 2));
+	$page->addComponent(new TitleComponent("Administrateurs", 2));
 
-	$list = new TeamMemberList();
+	$list = new TeamMemberListComponent();
 	$page->addComponent($list);
 	foreach($members as $member) {
 		if ($member->isAdmin()) {
@@ -15,9 +15,9 @@
 		}
 	}
 
-	$page->addComponent(new Title("Membres", 2));
+	$page->addComponent(new TitleComponent("Membres", 2));
 
-	$list = new TeamMemberList();
+	$list = new TeamMemberListComponent();
 	$page->addComponent($list);
 	foreach($members as $member) {
 		if (!$member->isAdmin()) {
@@ -25,7 +25,7 @@
 		}
 	}
 
-	$page->addComponent(new Title("Seeders, Uploaders", 2));
+	$page->addComponent(new TitleComponent("Seeders, Uploaders", 2));
 
 	$uploaders = array();
 	$uploaders[] = "Sazaju HITOKAGE";

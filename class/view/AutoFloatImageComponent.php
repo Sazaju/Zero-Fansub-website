@@ -4,7 +4,7 @@
 	its width.
 */
 
-class AutoFloatImage extends Image {
+class AutoFloatImageComponent extends ImageComponent {
 	
 	public function __construct($source = '', $title = '', $onRight = true) {
 		parent::__construct($source, $title);

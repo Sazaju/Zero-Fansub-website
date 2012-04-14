@@ -4,10 +4,10 @@
 */
 class ReleaseComponent extends SimpleBlockComponent {
 	public function __construct(Release $release, $forceDisplay = false) {
-		$this->addComponent(new Anchor($release->getID()));
+		$this->addComponent(new AnchorComponent($release->getID()));
 		
-		$link = new Link(null, $release->getCompleteName());
-		$title = new Title($link);
+		$link = new LinkComponent(null, $release->getCompleteName());
+		$title = new TitleComponent($link);
 		$title->setClass("title");
 		$this->addComponent($title);
 		
@@ -25,7 +25,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			if ($release->getPreviewUrl() !== null) {
 				try {
 					$pUrl = $release->getPreviewUrl()->toString();
-					$previewImage = new AutoFloatImage($pUrl);
+					$previewImage = new AutoFloatImageComponent($pUrl);
 					$previewImage->setClass("previewImage");
 					
 					$description = getimagesize($pUrl);
@@ -42,7 +42,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$localizedName = new SimpleBlockComponent();
 			$localizedName->setClass("localizedName");
 			if ($release->getLocalizedTitle() !== null) {
-				$localizedName->addComponent(new Title("Nom de l'épisode FR"));
+				$localizedName->addComponent(new TitleComponent("Nom de l'épisode FR"));
 				$localizedName->addComponent($release->getLocalizedTitle());
 			}
 			$releaseContent->addComponent($localizedName);
@@ -50,7 +50,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$originalName = new SimpleBlockComponent();
 			$originalName->setClass("originalName");
 			if ($release->getOriginalTitle() !== null) {
-				$originalName->addComponent(new Title("Nom original"));
+				$originalName->addComponent(new TitleComponent("Nom original"));
 				$originalName->addComponent($release->getOriginalTitle());
 			}
 			$releaseContent->addComponent($originalName);
@@ -58,7 +58,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$synopsis = new SimpleBlockComponent();
 			$synopsis->setClass("synopsis");
 			if ($release->getSynopsis() !== null) {
-				$synopsis->addComponent(new Title("Synopsis"));
+				$synopsis->addComponent(new TitleComponent("Synopsis"));
 				$synopsis->addComponent(Format::convertTextToHtml($release->getSynopsis()));
 			}
 			$releaseContent->addComponent($synopsis);
@@ -74,7 +74,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$staff->setClass("staff");
 			$members = $release->getStaffMembers();
 			if (!empty($members)) {
-				$staff->addComponent(new Title("Staff"));
+				$staff->addComponent(new TitleComponent("Staff"));
 				$strings = array();
 				foreach($members as $member) {
 					$string = $member->getPseudo();
@@ -88,7 +88,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 					}
 					$strings[] = $string;
 				}
-				$staff->addComponent(format::arrayToString($strings, " | "));
+				$staff->addComponent(Format::arrayToString($strings, " | "));
 			}
 			$releaseContent->addComponent($staff);
 			
@@ -99,7 +99,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 				$this->fillWithDownloadData($releaseContent, $release);
 			}
 			
-			$releaseContent->addComponent(new Pin());
+			$releaseContent->addComponent(new PinComponent());
 			$url = new Url();
 			$vars = $url->getQueryVars();
 			if (!isset($vars['show']) || !(strcmp($vars['show'], "*") == 0 || preg_match("#(,|^)".preg_quote($release->getID())."(,|$)#", $vars['show']) > 0)) {
@@ -116,7 +116,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 	private function fillWithLicenseData($releaseContent, $release) {
 		$license = $release->getLicense();
 		
-		$releaseContent->addComponent(new title("Licencié"));
+		$releaseContent->addComponent(new TitleComponent("Licencié"));
 		$list = new SimpleListComponent();
 		$list->setClass("licenseList");
 		if ($license->getOwner() != null) {
@@ -126,7 +126,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 		
 		$list = new SimpleListComponent();
 		$list->setClass("linkList");
-		$bonusLinks = new GroupedLinks(new Image("images/icones/bonus.png"));
+		$bonusLinks = new GroupedLinksComponent(new ImageComponent("images/icones/bonus.png"));
 		$bonusLinks->setClass("bonusLinks");
 		foreach($release->getLicenseSafeBonuses() as $link) {
 			$bonusLinks->addLink($link);
@@ -140,17 +140,17 @@ class ReleaseComponent extends SimpleBlockComponent {
 	private function fillWithDownloadData($releaseContent, $release) {
 		$fileList = new SimpleListComponent();
 		$fileList->setClass("fileList");
-		$ddlLinks = new GroupedLinks(new Image("images/icones/ddl.png"));
+		$ddlLinks = new GroupedLinksComponent(new ImageComponent("images/icones/ddl.png"));
 		$ddlLinks->setClass("ddlLinks");
-		$megauploadLinks = new GroupedLinks(new Image("images/icones/megaup.jpg"));
+		$megauploadLinks = new GroupedLinksComponent(new ImageComponent("images/icones/megaup.jpg"));
 		$megauploadLinks->setClass("megauploadLinks");
-		$freeLinks = new GroupedLinks(new Image("images/icones/free.jpg"));
+		$freeLinks = new GroupedLinksComponent(new ImageComponent("images/icones/free.jpg"));
 		$freeLinks->setClass("freeLinks");
-		$rapidShareLinks = new GroupedLinks(new Image("images/icones/rapidshare.jpg"));
+		$rapidShareLinks = new GroupedLinksComponent(new ImageComponent("images/icones/rapidshare.jpg"));
 		$rapidShareLinks->setClass("rapidShareLinks");
-		$mediaFireLinks = new GroupedLinks(new Image("images/icones/mediafire.jpg", "Mediafire"));
+		$mediaFireLinks = new GroupedLinksComponent(new ImageComponent("images/icones/mediafire.jpg", "Mediafire"));
 		$mediaFireLinks->setClass("mediaFireLinks");
-		$torrentLinks = new GroupedLinks(new Link($release->getTorrentUrl(), new Image("images/icones/torrent.png")));
+		$torrentLinks = new GroupedLinksComponent(new LinkComponent($release->getTorrentUrl(), new ImageComponent("images/icones/torrent.png")));
 		$torrentLinks->setClass("torrentLink");
 		$fileDescriptors = $release->getFileDescriptors();
 		$index = 1;
@@ -239,27 +239,27 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$fileList->addcomponent($description);
 			
 			$linkName = count($fileDescriptors) == 1 ? "Télécharger" : $id;
-			$ddlLinks->addLink(new Link($url, $linkName));
+			$ddlLinks->addLink(new LinkComponent($url, $linkName));
 			if ($descriptor->getMegauploadUrl() !== null) {
-				$megauploadLinks->addLink(new Link($descriptor->getMegauploadUrl(), $linkName));
+				$megauploadLinks->addLink(new LinkComponent($descriptor->getMegauploadUrl(), $linkName));
 			}
 			if ($descriptor->getFreeUrl() !== null) {
-				$freeLinks->addLink(new Link($descriptor->getFreeUrl(), $linkName));
+				$freeLinks->addLink(new LinkComponent($descriptor->getFreeUrl(), $linkName));
 			}
 			if ($descriptor->getRapidShareUrl() !== null) {
-				$rapidShareLinks->addLink(new Link($descriptor->getRapidShareUrl(), $linkName));
+				$rapidShareLinks->addLink(new LinkComponent($descriptor->getRapidShareUrl(), $linkName));
 			}
 			if ($descriptor->getMediaFireUrl() !== null) {
-				$mediaFireLinks->addLink(new Link($descriptor->getMediaFireUrl(), $linkName));
+				$mediaFireLinks->addLink(new LinkComponent($descriptor->getMediaFireUrl(), $linkName));
 			}
 			if ($descriptor->getTorrentUrl() !== null) {
-				$torrentLinks->addLink(new Link($descriptor->getTorrentUrl(), $linkName));
+				$torrentLinks->addLink(new LinkComponent($descriptor->getTorrentUrl(), $linkName));
 			}
 		}
-		$releaseContent->addComponent(new title("Fichiers"));
+		$releaseContent->addComponent(new TitleComponent("Fichiers"));
 		$releaseContent->addComponent($fileList);
 		
-		$releaseContent->addComponent(new title("Téléchargements"));
+		$releaseContent->addComponent(new TitleComponent("Téléchargements"));
 		$list = new SimpleListComponent();
 		$list->setClass("linkList");
 		$list->addcomponent($ddlLinks);
@@ -276,8 +276,8 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$list->addComponent($mediaFireLinks);
 		}
 		$list->addComponent($torrentLinks);
-		$list->addComponent(new XdccLink());
-		$streamingsLinks = new GroupedLinks(new Image("images/icones/streaming.png"));
+		$list->addComponent(new XdccLinkComponent());
+		$streamingsLinks = new GroupedLinksComponent(new ImageComponent("images/icones/streaming.png"));
 		$streamingsLinks->setClass("streamingsLinks");
 		foreach($release->getStreamings() as $link) {
 			$streamingsLinks->addLink($link);
@@ -285,7 +285,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 		if (!$streamingsLinks->isEmpty()) {
 			$list->addComponent($streamingsLinks);
 		}
-		$bonusLinks = new GroupedLinks(new Image("images/icones/bonus.png"));
+		$bonusLinks = new GroupedLinksComponent(new ImageComponent("images/icones/bonus.png"));
 		$bonusLinks->setClass("bonusLinks");
 		foreach($release->getBonuses() as $link) {
 			$bonusLinks->addLink($link);
@@ -297,7 +297,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 	}
 }
 
-class GroupedLinks extends SimpleTextComponent {
+class GroupedLinksComponent extends SimpleTextComponent {
 	private $prefix = null;
 	
 	public function __construct($prefix) {
@@ -313,7 +313,7 @@ class GroupedLinks extends SimpleTextComponent {
 		return $this->prefix;
 	}
 	
-	public function addLink(Link $link) {
+	public function addLink(LinkComponent $link) {
 		$link->getComponents();
 		$this->addComponent(" [ ");
 		$this->addComponent($link);

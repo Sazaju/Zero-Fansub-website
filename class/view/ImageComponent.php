@@ -3,7 +3,7 @@
 	An image is a simple picture which can have some attributes.
 */
 
-class Image extends DefaultHtmlComponent {
+class ImageComponent extends DefaultHtmlComponent {
 	private $source = null;
 	private $alternative = '';
 	private $title = '';

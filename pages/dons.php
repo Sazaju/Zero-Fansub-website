@@ -9,5 +9,5 @@ Dans tout les cas, un don n'est jamais perdu : Soit il aide au paiement mensuel 
 L'argent reversé à Medecin du monde ne l'est pas directement, mais db0 paie 10€ par mois pour cette association de sa poche en plus des serveurs. Nous espèrons avoir du soutien auprès de vous pour le site tout comme l'association humanitaire.
 [separator]
 [url=https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mba_06%40hotmail%2efr&item_name=Zero&no_shipping=0&no_note=1&tax=0&currency_code=EUR&lc=FR&bn=PP%2dDonationsBF&charset=UTF%2d8][img]images/interface/dons.png[/img][/url]";
-	PageContent::getInstance()->addComponent(Format::convertTextToHTML($content));
+	PageContentComponent::getInstance()->addComponent(Format::convertTextToHTML($content));
 ?>

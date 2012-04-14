@@ -1,13 +1,13 @@
 <?php
 class ProjectComponent extends SimpleBlockComponent {
 	public function __construct(Project $project, $forceDisplay = false) {
-		$image = new Image('images/series/'.$project->getID().'.jpg');
+		$image = new ImageComponent('images/series/'.$project->getID().'.jpg');
 		$image->setClass('projectPicture');
 		$this->addComponent($image);
 		
-		$this->addComponent(new Title("Informations générales", 2));
+		$this->addComponent(new TitleComponent("Informations générales", 2));
 		if ($project->hasExternalSource()) {
-			$subtitle = new Title("Source : ", 4);
+			$subtitle = new TitleComponent("Source : ", 4);
 			$subtitle->addComponent($project->getExternalSource());
 			$this->addComponent($subtitle);
 		}
@@ -36,17 +36,17 @@ class ProjectComponent extends SimpleBlockComponent {
 		
 		if ($project->getComment() !== null) {
 			$this->addComponent("<p></p>");
-			$this->addComponent(new Title("Commentaire", 2));
+			$this->addComponent(new TitleComponent("Commentaire", 2));
 			$this->addComponent(Format::convertTextToHtml($project->getComment()));
 		}
 		
 		$this->addComponent("<p></p>");
-		$link = Link::newWindowLink("http://zero.xooit.fr/t471-Liens-morts.htm", "Signaler un lien mort");
+		$link = LinkComponent::newWindowLink("http://zero.xooit.fr/t471-Liens-morts.htm", "Signaler un lien mort");
 		$link->setClass('deadLinks');
 		$this->addComponent($link);
 		
 		$this->addComponent("<p></p>");
-		$this->addComponent(new Title($project->isDoujin() ? "Chapitres" : "Épisodes", 2));
+		$this->addComponent(new TitleComponent($project->isDoujin() ? "Chapitres" : "Épisodes", 2));
 		
 		$releases = Release::getAllReleasesForProject($project->getID());
 		usort($releases, array('Release', 'idSorter'));
@@ -61,7 +61,7 @@ class ProjectComponent extends SimpleBlockComponent {
 		$linkedProjects = Project::getProjectsLinkedTo($project);
 		if (!empty($linkedProjects)) {
 			$this->addComponent("<p></p>");
-			$this->addComponent(new Title("Voir aussi", 2));
+			$this->addComponent(new TitleComponent("Voir aussi", 2));
 			$list = new ProjectList();
 			foreach($linkedProjects as $link) {
 				$list->addProject($link);
@@ -74,7 +74,7 @@ class ProjectComponent extends SimpleBlockComponent {
 		
 		foreach($project->getBonuses() as $bonus) {
 			$this->addComponent("<p></p>");
-			$this->addComponent(new Title("Bonus : ".$bonus->getTitle(), 2));
+			$this->addComponent(new TitleComponent("Bonus : ".$bonus->getTitle(), 2));
 			$this->addComponent($bonus->getContent());
 		}
 		
@@ -82,7 +82,7 @@ class ProjectComponent extends SimpleBlockComponent {
 		foreach($groups as $group) {
 			foreach($group->getBonuses() as $bonus) {
 				$this->addComponent("<p></p>");
-				$this->addComponent(new Title("Bonus : ".$bonus->getTitle(), 2));
+				$this->addComponent(new TitleComponent("Bonus : ".$bonus->getTitle(), 2));
 				$this->addComponent($bonus->getContent());
 			}
 		}
@@ -92,7 +92,7 @@ class ProjectComponent extends SimpleBlockComponent {
 		if ($url == null) {
 			$url = new Url("http://zero.xooit.fr/posting.php?mode=reply&t=120");
 		}
-		$link = Link::newWindowLink($url, new Image("images/interface/avis.png", "Donne ton avis sur le forum !"));
+		$link = LinkComponent::newWindowLink($url, new ImageComponent("images/interface/avis.png", "Donne ton avis sur le forum !"));
 		$link->setClass('discussionLink');
 		$this->addComponent($link);
 	}

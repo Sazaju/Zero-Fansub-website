@@ -5,7 +5,7 @@
 	HTML code is already done after the instanciation.
 */
 
-class Pin extends DefaultHtmlComponent {
+class PinComponent extends DefaultHtmlComponent {
 	function __construct() {
 		$this->setClass('pin');
 		$this->generateHtml();
@@ -21,10 +21,10 @@ class Pin extends DefaultHtmlComponent {
 	
 	private static $instance = null;
 	public static function getInstance() {
-		if (Pin::$instance === null) {
-			Pin::$instance = new Pin();
+		if (PinComponent::$instance === null) {
+			PinComponent::$instance = new PinComponent();
 		}
-		return Pin::$instance;
+		return PinComponent::$instance;
 	}
 }
 ?>

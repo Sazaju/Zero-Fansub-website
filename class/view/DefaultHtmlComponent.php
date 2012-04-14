@@ -134,7 +134,7 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		}
 		
 		if ($this->isContentPinned) {
-			$pin = new Pin();
+			$pin = new PinComponent();
 			$content .= $pin->getCurrentHTML();
 		}
 		

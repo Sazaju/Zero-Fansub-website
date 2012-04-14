@@ -1,5 +1,5 @@
 <?php
-$page = PageContent::getInstance();
+$page = PageContentComponent::getInstance();
 $page->setClass('project');
 $project = Project::getProject(Url::getCurrentUrl()->getQueryVar('id'));
 
@@ -12,7 +12,7 @@ else {
 		$options->setClass('testFeatures');
 		$options->addComponent("Options : ");
 		
-		$link = new Link(Url::getCurrentUrl(), "show hidden");
+		$link = new LinkComponent(Url::getCurrentUrl(), "show hidden");
 		if ($link->getUrl()->hasQueryVar('showHidden')) {
 			$link->getUrl()->removeQueryVar('showHidden');
 			$link->setClass('reverse');
@@ -24,7 +24,7 @@ else {
 		$page->addComponent($options);
 	}
 	
-	$page->addComponent(new Title($project->getName(), 1));
+	$page->addComponent(new TitleComponent($project->getName(), 1));
 	$page->addComponent(new ProjectComponent($project, Url::getCurrentUrl()->hasQueryVar('showHidden')));
 }
 ?>

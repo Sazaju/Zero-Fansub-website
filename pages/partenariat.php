@@ -1,11 +1,11 @@
 <?php
-	$page = PageContent::getInstance();
+	$page = PageContentComponent::getInstance();
 	
-	$page->addComponent(new Title("Partenariat", 1));
-	$link = new Link("http://forum.zerofansub.net/t552-Les-regles-d-Or-de-chez-Zero.htm#p17057", "Conditions, Offres (a lire avant toute demande !)");
+	$page->addComponent(new TitleComponent("Partenariat", 1));
+	$link = new LinkComponent("http://forum.zerofansub.net/t552-Les-regles-d-Or-de-chez-Zero.htm#p17057", "Conditions, Offres (a lire avant toute demande !)");
 	$link->openNewWindow(true);
-	$page->addComponent(new Title($link, 2));
-	$page->addComponent(new Title("Nos bannières", 2));
+	$page->addComponent(new TitleComponent($link, 2));
+	$page->addComponent(new TitleComponent("Nos bannières", 2));
 	
 	$content = '[img=images/partenaires/ourbanner/zero_280x45.png]zero[/img]
 [code]<a href="http://zerofansub.net"><img

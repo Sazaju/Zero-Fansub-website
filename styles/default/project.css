@@ -119,3 +119,11 @@
 	padding: 0;
 	text-align: center;
 }
+
+#page.project .bonusGallery a {
+}
+
+#page.project .bonusGallery a img {
+	max-width: 150px;
+	max-height: 150px;
+}

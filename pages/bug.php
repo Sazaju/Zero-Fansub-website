@@ -1,6 +1,6 @@
 <?php
-	$page = PageContent::getInstance();
-	$page->addComponent(new Title("Signaler un bug", 1));
+	$page = PageContentComponent::getInstance();
+	$page->addComponent(new TitleComponent("Signaler un bug", 1));
 	
 	$admin = TeamMember::getMemberByPseudo("sazaju HITOKAGE");
 	

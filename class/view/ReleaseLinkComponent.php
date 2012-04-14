@@ -3,7 +3,7 @@
 	A release link is a link to a specific release or set of releases (of a unique project).
 */
 
-class ReleaseLink extends Link {
+class ReleaseLinkComponent extends LinkComponent {
 	private $projectId = null;
 	private $releaseList = array();
 	

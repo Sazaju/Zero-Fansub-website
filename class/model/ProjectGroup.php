@@ -71,6 +71,13 @@ class ProjectGroup {
 	public static function getAllGroups() {
 		if (ProjectGroup::$allGroups === null) {
 			
+			$group = new ProjectGroup("mitsudomoe", "Mitsudomoe");
+			$group->addProject('mitsudomoe');
+			$group->addProject('mitsudomoe2');
+			$group->addProject('mitsudomoeoad');
+			$group->addBonus(new GalleryBonus(array(1, 2, 3, 4, 5, 6, 7, 8)));
+			ProjectGroup::$allGroups[] = $group;
+			
 			$group = new ProjectGroup("kodomo", "Kodomo no Jikan");
 			$group->addProject('kodomo');
 			$group->addProject('kodomooav');

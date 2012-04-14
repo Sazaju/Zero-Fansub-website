@@ -84,5 +84,5 @@
 [partner=kanaii]Site officiel de la Kanaii[/partner]
 [separator]
 ";
-	PageContent::getInstance()->addComponent(Format::convertTextToHTML($content));
+	PageContentComponent::getInstance()->addComponent(Format::convertTextToHTML($content));
 ?>

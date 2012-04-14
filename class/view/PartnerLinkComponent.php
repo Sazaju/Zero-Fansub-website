@@ -1,5 +1,5 @@
 <?php
-class PartnerLink extends Link {
+class PartnerLinkComponent extends LinkComponent {
 	private $partner = false;
 	private $useImage = false;
 	
@@ -15,7 +15,7 @@ class PartnerLink extends Link {
 	public function setUseImage($boolean) {
 		$this->useImage = $boolean;
 		if ($boolean) {
-			$this->setContent(new Image($this->partner->getBannerUrl(), $this->partner->getName()));
+			$this->setContent(new ImageComponent($this->partner->getBannerUrl(), $this->partner->getName()));
 		} else {
 			$this->setContent($this->partner->getName());
 		}

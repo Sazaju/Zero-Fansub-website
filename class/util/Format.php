@@ -260,8 +260,8 @@ class Format {
 			/**********************************\
 			          NO CLOSING TAGS
 			\**********************************/
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("separator", function($tag, $parameter, $content) {return Separator::getInstance()->getHtml();}));
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("pin", function($tag, $parameter, $content) {return Pin::getInstance()->getHtml();}));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("separator", function($tag, $parameter, $content) {return SeparatorComponent::getInstance()->getHtml();}));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("pin", function($tag, $parameter, $content) {return PinComponent::getInstance()->getHtml();}));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("advert", function($tag, $parameter, $content) {return "<script src='http://www.blogbang.com/demo/js/blogbang_ad.php?id=6ee3436cd7' type='text/javascript'></script>";}));
 			
 			/**********************************\
@@ -379,19 +379,19 @@ class Format {
 				}
 				
 				if ($tag === 'img') {
-					$image = new Image($parameter, $content);
+					$image = new ImageComponent($parameter, $content);
 				} else if (in_array($tag, array('img-left', 'imgl'))) {
-					$image = new Image($parameter, $content);
+					$image = new ImageComponent($parameter, $content);
 					$image->makeLeftFloating();
 				} else if (in_array($tag, array('img-right', 'imgr'))) {
-					$image = new Image($parameter, $content);
+					$image = new ImageComponent($parameter, $content);
 					$image->makeRightFloating();
 				} else if (in_array($tag, array('img-auto', 'imga'))) {
-					$image = new AutoFloatImage($parameter, $content);
+					$image = new AutoFloatImageComponent($parameter, $content);
 				} else if (in_array($tag, array('img-auto-right', 'imgar'))) {
-					$image = new AutoFloatImage($parameter, $content, true);
+					$image = new AutoFloatImageComponent($parameter, $content, true);
 				} else if (in_array($tag, array('img-auto-left', 'imgal'))) {
-					$image = new AutoFloatImage($parameter, $content, false);
+					$image = new AutoFloatImageComponent($parameter, $content, false);
 				} else {
 					throw new Exception($tag." is not managed");
 				}
@@ -425,7 +425,7 @@ class Format {
 				}
 				
 				if (in_array($tag, array('url', 'ext'))) {
-					$link = new Link($parameter, $content);
+					$link = new LinkComponent($parameter, $content);
 					if ($tag == 'ext' || $tag == 'url' && !$link->isLocalLink()) {
 						$link->openNewWindow(true);
 					}
@@ -443,7 +443,7 @@ class Format {
 					if (in_array('full', $parameter)) {
 						$full = true;
 					}
-					$link = new Link($url, $content, $full);
+					$link = new LinkComponent($url, $content, $full);
 					if (!$link->isLocalLink()) {
 						$link->openNewWindow(true);
 					}
@@ -451,7 +451,7 @@ class Format {
 					if (is_numeric($parameter)) {
 						$parameter = TeamMember::getMember(intval($parameter))->getMail();
 					}
-					$link = new MailLink($parameter, $content);
+					$link = new MailLinkComponent($parameter, $content);
 				} else {
 					throw new Exception($tag." is not managed");
 				}
@@ -495,7 +495,7 @@ class Format {
 				} else {
 					$parameter[1] = Format::trimAndCleanArray(preg_split('#,#', $parameter[1]));
 				}
-				$link = new ReleaseLink($parameter[0], $parameter[1], null);
+				$link = new ReleaseLinkComponent($parameter[0], $parameter[1], null);
 				return $link->getOpenTag();
 			};
 			$releaseContent = function($tag, $parameter, $content) {
@@ -520,28 +520,33 @@ class Format {
 					}
 					sort($numbers);
 					
-					$ref = 0;
-					$last = $numbers[0];
-					for($i = 1 ; $i < count($numbers) ; $i ++) {
-						$current = $numbers[$i];
-						if ($current == $last + 1) {
-							$numbers[$i] = null;
-						} else {
-							if ($numbers[$ref] != $last) {
-								$numbers[$ref] .= "-".$last;
+					$list = "";
+					if (!empty($numbers)) {
+						$ref = 0;
+						$last = $numbers[0];
+						for($i = 1 ; $i < count($numbers) ; $i ++) {
+							$current = $numbers[$i];
+							if ($current == $last + 1) {
+								$numbers[$i] = null;
+							} else {
+								if ($numbers[$ref] != $last) {
+									$numbers[$ref] .= "-".$last;
+								}
+								$ref = $i;
 							}
-							$ref = $i;
+							$last = $current;
 						}
-						$last = $current;
+						if ($numbers[$ref] != $last) {
+							$numbers[$ref] .= "-".$last;
+						}
+						$numbers = array_filter($numbers);
+						$list = implode(", ", $numbers).", ";
 					}
-					if ($numbers[$ref] != $last) {
-						$numbers[$ref] .= "-".$last;
-					}
-					$numbers = array_filter($numbers);
-					$list = implode(", ", $numbers).", ";
 					
-					foreach($others as $id) {
-						$list = Release::getRelease($parameter[0], $id)->getName() . ", ";
+					if (!empty($others)) {
+						foreach($others as $id) {
+							$list = Release::getRelease($parameter[0], $id)->getName() . ", ";
+						}
 					}
 					$list = substr($list, 0, strlen($list) - 2);
 					
@@ -571,7 +576,7 @@ class Format {
 					$partner = Partner::getPartner($content);
 					$content = null;
 				}
-				$link = new PartnerLink($partner, BBCodeDescriptor::contentToHTML($content));
+				$link = new PartnerLinkComponent($partner, BBCodeDescriptor::contentToHTML($content));
 				$link->openNewWindow(true);
 				if ($useImage) {
 					$link->setUseImage(true);
@@ -599,7 +604,7 @@ class Format {
 					$partner = Partner::getPartner($content);
 					$content = null;
 				}
-				$link = new PartnerLink($partner, BBCodeDescriptor::contentToHTML($content));
+				$link = new PartnerLinkComponent($partner, BBCodeDescriptor::contentToHTML($content));
 				$link->openNewWindow(true);
 				if ($useImage) {
 					$link->setUseImage(true);
@@ -608,29 +613,29 @@ class Format {
 			};
 			$projectOpenTag = function($tag, $parameter, $content) {
 				if (empty($parameter)) {
-					$link = new ProjectLink(Project::getProject($content));
+					$link = new ProjectLinkComponent(Project::getProject($content));
 				} else {
 					$parameter = preg_split('#\\|#', $parameter);
 					try {
-						$link = new ProjectLink(Project::getProject($parameter[0]));
+						$link = new ProjectLinkComponent(Project::getProject($parameter[0]));
 					} catch(Exception $e) {
-						$link = new ProjectLink(Project::getProject($content));
+						$link = new ProjectLinkComponent(Project::getProject($content));
 					}
 				}
 				return $link->getOpenTag();
 			};
 			$projectContent = function($tag, $parameter, $content) {
 				if (empty($parameter)) {
-					$link = new ProjectLink(Project::getProject($content));
+					$link = new ProjectLinkComponent(Project::getProject($content));
 				} else {
 					$parameter = preg_split('#\\|#', $parameter);
 					try {
-						$link = new ProjectLink(Project::getProject($parameter[0]));
+						$link = new ProjectLinkComponent(Project::getProject($parameter[0]));
 						if (!empty($content)) {
 							$link->setContent(BBCodeDescriptor::contentToHTML($content));
 						}
 					} catch(Exception $e) {
-						$link = new ProjectLink(Project::getProject($content));
+						$link = new ProjectLinkComponent(Project::getProject($content));
 					}
 					
 					if (in_array('image', $parameter)) {

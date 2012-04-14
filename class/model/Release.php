@@ -198,7 +198,7 @@ class Release {
 		return $this->licenseSafeBonuses;
 	}
 	
-	public function addBonus(Link $link, $licenseSafe = false) {
+	public function addBonus(LinkComponent $link, $licenseSafe = false) {
 		$this->bonuses[] = $link;
 		if ($licenseSafe) {
 			$this->licenseSafeBonuses[] = $link;
@@ -209,7 +209,7 @@ class Release {
 		return $this->streamings;
 	}
 	
-	public function addStreaming(Link $link) {
+	public function addStreaming(LinkComponent $link) {
 		$this->streamings[] = $link;
 	}
 	
@@ -380,6 +380,38 @@ class Release {
 			$release->setHeaderImage("images/sorties/mitsudomoeoad.png");
 			Release::$allReleases[] = $release;
 			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep1");
+			$release->setName("01");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep2");
+			$release->setName("02");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep3");
+			$release->setName("03");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep4");
+			$release->setName("04");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep5");
+			$release->setName("05");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep6");
+			$release->setName("06");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep7");
+			$release->setName("07");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep8");
+			$release->setName("08");
+			Release::$allReleases[] = $release;
+			
 			$release = new Release(Project::getProject('kissxsis'), 'ep1');
 			$release->setName("épisode 1");
 			$release->setPreviewUrl("images/episodes/kissxsistv1.jpg");
@@ -403,7 +435,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink(new Url("ddl/[Zero]Kiss_X_Sis_01[Screenshots].zip"), "Screenshots"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("ddl/[Zero]Kiss_X_Sis_01[Screenshots].zip"), "Screenshots"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -430,7 +462,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink(new Url("ddl/[Zero]Kiss_X_Sis_02[Screenshots].zip"), "Screenshots"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("ddl/[Zero]Kiss_X_Sis_02[Screenshots].zip"), "Screenshots"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -457,7 +489,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink(new Url("ddl/[Zero]Kiss_x_Sis_03[Screenshots].zip"), "Screenshots"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("ddl/[Zero]Kiss_x_Sis_03[Screenshots].zip"), "Screenshots"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -548,9 +580,9 @@ class Release {
 			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/AQTqmFGb");
 			$descriptor->setRapidShareUrl("http://rapidshare.com/files/177206714/_5BZero_5DKiss_x_Sis_OAV_00_5BX264-AAC_5D_5B6762C202_5D.mkv");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14643"), "Haute Définition"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.wat.tv/video/kiss-sis-oav-01-1bjbe_1bjbg_.html"), "WAT"));
-			$release->addBonus(Link::newWindowLink(new Url("http://www.yanmaga.kodansha.co.jp/ym/rensai/bessatu/kissxsis/001/001.html"), "Le Manga papier (en VO)"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14643"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.wat.tv/video/kiss-sis-oav-01-1bjbe_1bjbg_.html"), "WAT"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("http://www.yanmaga.kodansha.co.jp/ym/rensai/bessatu/kissxsis/001/001.html"), "Le Manga papier (en VO)"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -622,7 +654,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink(new Url("ddl/[Zero]Kiss_x_Sis_OAV_02[Screenshot].zip"), "Pack de Screenshots"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("ddl/[Zero]Kiss_x_Sis_OAV_02[Screenshot].zip"), "Pack de Screenshots"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -900,8 +932,8 @@ class Release {
 			$descriptor->setPageNumber(26);
 			$descriptor->setMediaFireUrl("http://www.mediafire.com/?3dmc1td0d9u");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://zerofansub.net/hentai/visio/index.php?spgmGal=The%20doujin%20factory/Eriko%20HQ"), "Lecture en ligne HD"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://zerofansub.net/hentai/visio/index.php?spgmGal=The%20doujin%20factory/Eriko%20MQ"), "Lecture en ligne LD"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://zerofansub.net/hentai/visio/index.php?spgmGal=The%20doujin%20factory/Eriko%20HQ"), "Lecture en ligne HD"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://zerofansub.net/hentai/visio/index.php?spgmGal=The%20doujin%20factory/Eriko%20MQ"), "Lecture en ligne LD"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -916,7 +948,7 @@ class Release {
 			$descriptor = new ReleaseFileDescriptor("[Zero]_He_is_my_master_Ce_sont_mes_maids_doujin_FR_[zerofansub.net].zip");
 			$descriptor->setPageNumber(17);
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://zerofansub.net/hentai/visio/index.php?spgmGal=The%20doujin%20factory/He%20is%20my%20Master%20-%20Ce%20sont%20mes%20Maids"), "Lecture en ligne"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://zerofansub.net/hentai/visio/index.php?spgmGal=The%20doujin%20factory/He%20is%20my%20Master%20-%20Ce%20sont%20mes%20Maids"), "Lecture en ligne"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -1120,7 +1152,7 @@ class Release {
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=U8ZFXH46");
 			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/g3Ci9lFO/[Zero]_Kimikiss_Pure_Rouge_02_[h264]_[0F28AE34].mp4");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=8ZP386FU"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=8ZP386FU"), "Megavideo"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -1156,7 +1188,7 @@ class Release {
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=SO0HKZ1F");
 			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/ZVV1J4IZ");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=JVMK6AOM"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=JVMK6AOM"), "Megavideo"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -1188,7 +1220,7 @@ class Release {
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=SWYZQJ88");
 			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/whQlC2jm/[Zero]_Kimikiss_Pure_Rouge_04_[h264]_[F39E1C30].mp4");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=9ATP6YT3"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=9ATP6YT3"), "Megavideo"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -1221,7 +1253,7 @@ class Release {
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/it/?d=SS3HZPZO");
 			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/4QQnhnMx/[Zero]_Kimikiss_Pure_Rouge_05_[H264]_[FD65BB51].mp4");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=U22V4KP5"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=U22V4KP5"), "Megavideo"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -1252,7 +1284,7 @@ class Release {
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/it/?d=SE5XN3GY");
 			$descriptor->setFreeUrl("http://dl.free.fr/getfile.pl?file=/QDIZL6un");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=4YB9PO67"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=4YB9PO67"), "Megavideo"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -1530,8 +1562,8 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setComment("Version Italienne sous-titrée français.");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=TBHLLBN5"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/13975-Mermaid_Melody_Pichi_Pichi_Pitch_Version_Italienne_01"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=TBHLLBN5"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/13975-Mermaid_Melody_Pichi_Pichi_Pitch_Version_Italienne_01"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -1586,11 +1618,11 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$release->addBonus(Link::newWindowLink(new Url("images/news/%5bZero%5dCanaan_02_Photo_negatif_1.jpg"), "1"), true);
-			$release->addBonus(Link::newWindowLink(new Url("images/news/%5bZero%5dCanaan_02_Photo_negatif_2.jpg"), "2"), true);
-			$release->addBonus(Link::newWindowLink(new Url("images/news/%5bZero%5dCanaan_02_Photo_negatif_3.jpg"), "3"), true);
-			$release->addBonus(Link::newWindowLink(new Url("images/news/%5bZero%5dCanaan_02_Photo_negatif_4.jpg"), "4"), true);
-			$release->addBonus(Link::newWindowLink(new Url("images/news/%5bZero%5dCanaan_02_Photo_negatif_5.jpg"), "5"), true);
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/news/%5bZero%5dCanaan_02_Photo_negatif_1.jpg"), "1"), true);
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/news/%5bZero%5dCanaan_02_Photo_negatif_2.jpg"), "2"), true);
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/news/%5bZero%5dCanaan_02_Photo_negatif_3.jpg"), "3"), true);
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/news/%5bZero%5dCanaan_02_Photo_negatif_4.jpg"), "4"), true);
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/news/%5bZero%5dCanaan_02_Photo_negatif_5.jpg"), "5"), true);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -1731,7 +1763,7 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("lepims"), Role::getRole('encod'));
-			$release->addBonus(Link::newWindowLink(new Url("ddl/[Zero]Canaan_12[Screenshots].zip"), "Pack de Screenshots"), true);
+			$release->addBonus(LinkComponent::newWindowLink(new Url("ddl/[Zero]Canaan_12[Screenshots].zip"), "Pack de Screenshots"), true);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -2266,7 +2298,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=7BO9ZIZ0");
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink(new Url('ddl/[Zero]Kanamemo_05_AMV.mp4'), 'AMV'));
+			$release->addBonus(LinkComponent::newWindowLink(new Url('ddl/[Zero]Kanamemo_05_AMV.mp4'), 'AMV'));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -2500,8 +2532,8 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=ZRIUVGVE"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14094-Genshiken_II_01"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=ZRIUVGVE"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14094-Genshiken_II_01"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -2530,8 +2562,8 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=G106COBC"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14216-Genshiken_II_02"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=G106COBC"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14216-Genshiken_II_02"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -2560,8 +2592,8 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=Z9JNELNX"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14570-Genshiken_II_03"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=Z9JNELNX"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14570-Genshiken_II_03"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -2591,11 +2623,11 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=H0RLF81M"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14637-Genshiken_II_04"), "Haute Définition"));
-			$release->addBonus(Link::newWindowLink(new Url("images/news/menma1024_768.jpg"), "Menma 1024x768"));
-			$release->addBonus(Link::newWindowLink(new Url("images/news/menma1280_1024.jpg"), "Menma 1280x1024"));
-			$release->addBonus(Link::newWindowLink(new Url("images/news/menma1920_1080.jpg"), "Menma 1920x1080"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=H0RLF81M"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14637-Genshiken_II_04"), "Haute Définition"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/news/menma1024_768.jpg"), "Menma 1024x768"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/news/menma1280_1024.jpg"), "Menma 1280x1024"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/news/menma1920_1080.jpg"), "Menma 1920x1080"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -2625,8 +2657,8 @@ class Release {
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=AE3J97OO"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14638-Genshiken_II_05"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=AE3J97OO"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14638-Genshiken_II_05"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -2693,7 +2725,7 @@ class Release {
 			$descriptor->setContainerCodec($avi);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=EJOA5HII");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?d=EYVBQ4IJ"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?d=EYVBQ4IJ"), "Megavideo"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -2870,7 +2902,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=L0ML31UC");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=Q251QKZR"), "Megavideo v1"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=Q251QKZR"), "Megavideo v1"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -2893,7 +2925,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=Y28FIIG0");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=6LA5YJEH"), "Megavideo v1"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=6LA5YJEH"), "Megavideo v1"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -2916,7 +2948,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=7O5EIMRG");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=B7Z2GFPR"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=B7Z2GFPR"), "Megavideo"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -3279,7 +3311,7 @@ class Release {
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=4PVMJAPB");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14895-MariaHolic_01"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14895-MariaHolic_01"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -3323,7 +3355,7 @@ class Release {
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=0GLF3ON4");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14895-MariaHolic_01"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14895-MariaHolic_01"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -3576,12 +3608,12 @@ class Release {
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=A1S2BGYE");
 			$descriptor->setTorrentUrl("http://mononoke-bt.org/browse.php?cat=1367#ptarget");
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink(new Url("images/autre/moe%2065490%20angel%20cap%20maria_holic%20miyamae_kanako%20wings.png"), "1"));
-			$release->addBonus(Link::newWindowLink(new Url("images/autre/moe%2065491%20angel%20cap%20inamori_yuzuru%20kimono%20maria_holic.png"), "2"));
-			$release->addBonus(Link::newWindowLink(new Url("images/autre/moe%2065492%20angel%20cap%20kiri_nanami%20maria_holic%20megane%20wings.png"), "3"));
-			$release->addBonus(Link::newWindowLink(new Url("images/autre/moe%2065493%20angel%20cap%20maria_holic%20momoi_sachi%20wings.png"), "4"));
-			$release->addBonus(Link::newWindowLink(new Url("images/autre/moe%2065508%20angel%20cap%20maria_holic%20tagme.png"), "5"));
-			$release->addBonus(Link::newWindowLink(new Url("images/autre/moe%2065509%20angel%20cap%20maria_holic.png"), "6"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/autre/moe%2065490%20angel%20cap%20maria_holic%20miyamae_kanako%20wings.png"), "1"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/autre/moe%2065491%20angel%20cap%20inamori_yuzuru%20kimono%20maria_holic.png"), "2"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/autre/moe%2065492%20angel%20cap%20kiri_nanami%20maria_holic%20megane%20wings.png"), "3"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/autre/moe%2065493%20angel%20cap%20maria_holic%20momoi_sachi%20wings.png"), "4"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/autre/moe%2065508%20angel%20cap%20maria_holic%20tagme.png"), "5"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/autre/moe%2065509%20angel%20cap%20maria_holic.png"), "6"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -4038,7 +4070,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink(new Url("radio/mp3/Love!%20Yes!%20No%20~%20Hateshinai%20Ai%20de.mp3"), "LOVE! YES! NO ~ Hateshinai Ai de.mp3"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("radio/mp3/Love!%20Yes!%20No%20~%20Hateshinai%20Ai%20de.mp3"), "LOVE! YES! NO ~ Hateshinai Ai de.mp3"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -4081,7 +4113,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink(new Url("ddl/%5bZero%5dKujibiki_Unbalance%5b09%5d%5bScreenshots%5d.zip"), "Pack de Screenshots"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("ddl/%5bZero%5dKujibiki_Unbalance%5b09%5d%5bScreenshots%5d.zip"), "Pack de Screenshots"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -4717,7 +4749,7 @@ class Release {
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=G75EDEWC");
 			$descriptor->setFreeUrl("http://dl.free.fr/hHT80GEmq");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=3GBIUO43"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=3GBIUO43"), "Megavideo"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -4764,7 +4796,7 @@ class Release {
 			$descriptor->setComment("Version non censurée");
 			$descriptor->setFreeUrl("http://dl.free.fr/h8knRP4hF");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=CXFX8UJD"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=CXFX8UJD"), "Megavideo"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -4809,9 +4841,9 @@ class Release {
 			$descriptor->setComment("Version non censurée");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=0H32RZ5O");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=9Y36JTJR"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14076-Kodomo_no_Jikan_03"), "Haute Définition"));
-			$release->addBonus(Link::newWindowLink(new Url("images/news/rin_chan.gif"), "Gif Animé - par Praia"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=9Y36JTJR"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14076-Kodomo_no_Jikan_03"), "Haute Définition"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("images/news/rin_chan.gif"), "Gif Animé - par Praia"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -4854,8 +4886,8 @@ class Release {
 			$descriptor->setComment("Version non censurée");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=7210FO35");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=5T6VBQFT"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14091-Kodomo_no_Jikan_04"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=5T6VBQFT"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14091-Kodomo_no_Jikan_04"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -4898,8 +4930,8 @@ class Release {
 			$descriptor->setComment("Version non censurée");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=1TO6904U");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=IPIM9VVB"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14108-Kodomo_no_Jikan_05"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=IPIM9VVB"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14108-Kodomo_no_Jikan_05"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -4943,8 +4975,8 @@ class Release {
 			$descriptor->setComment("Version non censurée");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=5PMIUO9A");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=DUPGYTRQ"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14175-Kodomo_no_Jikan_06"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=DUPGYTRQ"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14175-Kodomo_no_Jikan_06"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -4987,8 +5019,8 @@ class Release {
 			$descriptor->setComment("Version non censurée");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=PHB4KSN0");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=SIX0WZHV"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14634-Kodomo_no_Jikan_07"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=SIX0WZHV"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14634-Kodomo_no_Jikan_07"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5032,8 +5064,8 @@ class Release {
 			$descriptor->setComment("Version non censurée");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=D1Z78M4Z");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=N261U9W4"), "Megavideo"));
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14632-Kodomo_no_Jikan_08"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=N261U9W4"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14632-Kodomo_no_Jikan_08"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5076,7 +5108,7 @@ class Release {
 			$descriptor->setComment("Version non censurée");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=NYL2EXRR");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14640-Kodomo_no_Jikan_09"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14640-Kodomo_no_Jikan_09"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5201,7 +5233,7 @@ class Release {
 			$descriptor->setCRC("15D5F76");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/fr/?d=RDU9AWBN");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14346-Toradora_01"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14346-Toradora_01"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5235,7 +5267,7 @@ class Release {
 			$descriptor->setCRC("106084CD");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=TEZCRVG3");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14345-Toradora_02"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14345-Toradora_02"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5267,7 +5299,7 @@ class Release {
 			$descriptor->setCRC("0115309C");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=0FRWN1AK");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14347-Toradora_03"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14347-Toradora_03"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5298,7 +5330,7 @@ class Release {
 			$descriptor->setContainerCodec($mkv);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=NN8DBQ68");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14571-Toradora_04"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14571-Toradora_04"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5329,7 +5361,7 @@ class Release {
 			$descriptor->setContainerCodec($mkv);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=VPXQG8CX");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14630-Toradora_05"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14630-Toradora_05"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5361,7 +5393,7 @@ class Release {
 			$descriptor->setContainerCodec($mkv);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=QU23MV7I");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14631-Toradora_06"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14631-Toradora_06"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5393,7 +5425,7 @@ class Release {
 			$descriptor->setContainerCodec($mkv);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=EIKCD00D");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14633-Toradora_07"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14633-Toradora_07"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5425,7 +5457,7 @@ class Release {
 			$descriptor->setContainerCodec($mkv);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=HI3J0SZC");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14636-Toradora_08"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14636-Toradora_08"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5456,7 +5488,7 @@ class Release {
 			$descriptor->setContainerCodec($mkv);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=4ARY9MWK");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14740-Toradora_09"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/14740-Toradora_09"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5485,7 +5517,7 @@ class Release {
 			$descriptor->setContainerCodec($mkv);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=IHS9ZCSC");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15222-Toradora_10"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15222-Toradora_10"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5515,7 +5547,7 @@ class Release {
 			$descriptor->setCRC("D5902559");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=L67SM23Y");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15223-Toradora_11"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15223-Toradora_11"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5545,7 +5577,7 @@ class Release {
 			$descriptor->setCRC("79B79287");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=72AREWNZ");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15224-Toradora_12"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15224-Toradora_12"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5575,7 +5607,7 @@ class Release {
 			$descriptor->setCRC("47D1BF2A");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=VJLHQVE1");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15225-Toradora_13"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15225-Toradora_13"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5605,7 +5637,7 @@ class Release {
 			$descriptor->setCRC("4403806F");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=5JGLFAQT");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15226-Toradora_14"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15226-Toradora_14"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5635,7 +5667,7 @@ class Release {
 			$descriptor->setCRC("C4E3A395");
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=AMAN3JXW");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15240-Toradora_15"), "Haute Définition"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.anime-ultime.net/info-0-1/15240-Toradora_15"), "Haute Définition"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -5692,8 +5724,8 @@ class Release {
 			$descriptor->setContainerCodec($mkv);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=619W5NCA");
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink(new Url("radio/mp3/Toradora_-_Silky_Heart.mp3"), "Opening"));
-			$release->addBonus(Link::newWindowLink(new Url("radio/mp3/Toradora_-_Orange.mp3"), "Ending"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("radio/mp3/Toradora_-_Silky_Heart.mp3"), "Opening"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("radio/mp3/Toradora_-_Orange.mp3"), "Ending"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -6086,7 +6118,7 @@ class Release {
 			$descriptor->setContainerCodec($mp4);
 			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=JVH3QH97");
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink(new Url("ddl/[Zero-Maboroshi]Kodomo_no_Jikan_Ni_Gakki[OAV_03]_Screenshot.zip"), "Screenshots"));
+			$release->addBonus(LinkComponent::newWindowLink(new Url("ddl/[Zero-Maboroshi]Kodomo_no_Jikan_Ni_Gakki[OAV_03]_Screenshot.zip"), "Screenshots"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -6121,7 +6153,7 @@ class Release {
 			$descriptor->setRapidShareUrl("http://rapidshare.com/files/169650026/_5BZero_5DKodomo_no_Jikan_II_5BPV_5D_5BHD_5D_5BH264-AAC_5D_5BD03E50B1_5D.mp4");
 			$descriptor->setTorrentUrl("http://bt.fansub-irc.org:2005/torrent.html?info_hash=1f13a421488e2675c3e5eef41fa7c1eec7155a97");
 			$release->addFileDescriptor($descriptor);
-			$release->addStreaming(Link::newWindowLink(new Url("http://www.megavideo.com/?v=L6INSFLM"), "Megavideo"));
+			$release->addStreaming(LinkComponent::newWindowLink(new Url("http://www.megavideo.com/?v=L6INSFLM"), "Megavideo"));
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
@@ -6305,8 +6337,8 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-1-avatar.gif", "avatar sexy"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-1.gif", "grand format"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-1-avatar.gif", "avatar sexy"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-1.gif", "grand format"));
 			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 			
@@ -6319,8 +6351,8 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-2-avatar.gif", "avatar sexy"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-2.gif", "grand format"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-2-avatar.gif", "avatar sexy"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-2.gif", "grand format"));
 			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 			
@@ -6333,10 +6365,10 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-3.1-avatar.gif", "avatar sexy 1"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-3.2-avatar.gif", "2"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-3.1.gif", "grand format 1"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-3.2.gif", "2"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-3.1-avatar.gif", "avatar sexy 1"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-3.2-avatar.gif", "2"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-3.1.gif", "grand format 1"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-3.2.gif", "2"));
 			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 			
@@ -6349,12 +6381,12 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.1-avatar.gif", "avatar sexy 1"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.2-avatar.gif", "2"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.3-avatar.gif", "3"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.1.gif", "grand format 1"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.2.gif", "2"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-4.3.gif", "3"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-4.1-avatar.gif", "avatar sexy 1"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-4.2-avatar.gif", "2"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-4.3-avatar.gif", "3"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-4.1.gif", "grand format 1"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-4.2.gif", "2"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-4.3.gif", "3"));
 			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 			
@@ -6367,8 +6399,8 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-5-avatar.gif", "avatar sexy"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-5.gif", "grand format"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-5-avatar.gif", "avatar sexy"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-5.gif", "grand format"));
 			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 			
@@ -6381,12 +6413,12 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.1-avatar.gif", "avatar sexy 1"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.2-avatar.gif", "2"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.3-avatar.gif", "3"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.1.gif", "grand format 1"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.2.gif", "2"));
-			$release->addBonus(Link::newWindowLink("ddl/bonus/mno-sp-6.3.gif", "3"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-6.1-avatar.gif", "avatar sexy 1"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-6.2-avatar.gif", "2"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-6.3-avatar.gif", "3"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-6.1.gif", "grand format 1"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-6.2.gif", "2"));
+			$release->addBonus(LinkComponent::newWindowLink("ddl/bonus/mno-sp-6.3.gif", "3"));
 			$release->setReleasingTime(strtotime('26 January 2012 00:22'));
 			Release::$allReleases[] = $release;
 			

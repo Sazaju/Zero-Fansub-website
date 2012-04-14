@@ -40,5 +40,5 @@ Certains sites distribuent nos animes (DDL, torrent, MU, ect...) avec ou sans no
 
 Nous autorisons tout le monde à distribuer nos animes ! Alors, n'hésite pas ;) Mais n'oublies pas de nous prévenir, merci.
 ";
-	PageContent::getInstance()->addComponent(Format::convertTextToHTML($content));
+	PageContentComponent::getInstance()->addComponent(Format::convertTextToHTML($content));
 ?>

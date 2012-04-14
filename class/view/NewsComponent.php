@@ -7,11 +7,11 @@ class NewsComponent extends SimpleBlockComponent {
 	public function __construct(News $news) {
 		$this->setClass("news");
 		
-		$title = new Title($news->getTitle(), 2);
+		$title = new TitleComponent($news->getTitle(), 2);
 		$title->setClass("title");
 		$this->addComponent($title);
 		
-		$subtitle = new Title(null, 4);
+		$subtitle = new TitleComponent(null, 4);
 		$subtitle->setClass("subtitle");
 		$time = "Préparée";
 		$timestamp = $news->getTimestamp();
@@ -29,7 +29,7 @@ class NewsComponent extends SimpleBlockComponent {
 		$message->setContentPinned(true);
 		$this->addComponent($message);
 		
-		if (/*$timestamp >= strtotime('12 March 2012 14:47') &&*/ $news->isReleasing()) {
+		if ($news->isReleasing()) {
 			$releases = array();
 			foreach($news->getReleasing() as $release) {
 				if ($release instanceof Project) {
@@ -73,9 +73,9 @@ class NewsComponent extends SimpleBlockComponent {
 			$commentAccess = new SimpleTextComponent();
 			$commentAccess->setClass("comment");
 			$commentAccess->addComponent("~ ");
-			$commentAccess->addComponent(Link::newWindowLink(new Url("http://commentaires.zerofansub.net/t".$commentId.".htm"), "Commentaires"));
+			$commentAccess->addComponent(LinkComponent::newWindowLink(new Url("http://commentaires.zerofansub.net/t".$commentId.".htm"), "Commentaires"));
 			$commentAccess->addComponent(" - ");
-			$commentAccess->addComponent(Link::newWindowLink(new Url("http://commentaires.zerofansub.net/posting.php?mode=reply&t=".$commentId), "Ajouter un commentaire"));
+			$commentAccess->addComponent(LinkComponent::newWindowLink(new Url("http://commentaires.zerofansub.net/posting.php?mode=reply&t=".$commentId), "Ajouter un commentaire"));
 			$commentAccess->addComponent(" ~");
 			$this->addComponent($commentAccess);
 		}
@@ -85,7 +85,7 @@ class NewsComponent extends SimpleBlockComponent {
 		if ($twitterTitle == null) {
 			$twitterTitle = "[Zero] ".$news->getTitle();
 		}
-		$twitterUrl = Link::newWindowLink("http://twitter.com/home?status=".$twitterTitle, "Partager sur <img src='images/autre/logo_twitter.png' border='0' alt='twitter' />");
+		$twitterUrl = LinkComponent::newWindowLink("http://twitter.com/home?status=".$twitterTitle, "Partager sur <img src='images/autre/logo_twitter.png' border='0' alt='twitter' />");
 		$twitterUrl->setOnClick("javascript:pageTracker._trackPageview ('/outbound/twitter.com');");
 		$this->addComponent($twitterUrl);
 		$this->addComponent(" ou ");

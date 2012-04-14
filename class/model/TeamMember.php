@@ -17,7 +17,7 @@ class TeamMember {
 	private $ponctualMember = false;
 	
 	public function __construct($id = null) {
-		$this->image = new Image();
+		$this->image = new ImageComponent();
 		$this->setID($id);
 	}
 	
@@ -128,7 +128,7 @@ class TeamMember {
 			$url = new Url($url);
 		}
 		if ($url !== null) {
-			$this->website = new Link($url, $name);
+			$this->website = new LinkComponent($url, $name);
 		}
 		else {
 			$this->website = null;

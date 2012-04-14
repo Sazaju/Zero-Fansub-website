@@ -32,19 +32,25 @@
 		}
 		
 		try {
-			$id = Url::getCurrentUrl()->getQueryVar('page');
-			PageContent::getInstance()->setClass($id);
+			$id = Url::getCurrentUrl();
+			$id = $id->getQueryVar('page');
+			PageContentComponent::getInstance()->setClass($id);
 			
 			$page = Page::getPage($id);
 			$content = $page->getContent();
 			if ($page->useBBCode()) {
 				$content = Format::convertTextToHTML($content);
 			}
-			PageContent::getInstance()->addComponent(new SimpleTextComponent($content));
+			PageContentComponent::getInstance()->addComponent(new SimpleTextComponent($content));
 		} catch(Exception $e) {
-			require_once("pages/$page.php");
+			$file = "pages/$page.php";
+			if (file_exists($file)) {
+				require_once($file);
+			} else {
+				throw $e;
+			}
 		}
-		PageContent::getInstance()->writeNow();
+		PageContentComponent::getInstance()->writeNow();
 	} catch(Exception $e) {
 		if (TEST_MODE_ACTIVATED) {
 			echo '<div id="page">';
@@ -53,7 +59,7 @@
 			echo '</div>';
 		}
 		else {
-			$pageContent = PageContent::getInstance();
+			$pageContent = PageContentComponent::getInstance();
 			$pageContent->clear();
 			require_once("pages/bug.php");
 			$pageContent->writeNow();

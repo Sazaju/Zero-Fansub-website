@@ -4,7 +4,7 @@
 	URLs.
 */
 
-class Anchor extends DefaultHtmlComponent {
+class AnchorComponent extends DefaultHtmlComponent {
 	private $name = null;
 	
 	public function __construct($name = 'anchor') {

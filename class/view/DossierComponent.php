@@ -6,7 +6,7 @@ class DossierComponent extends SimpleBlockComponent {
 	public function __construct(Dossier $dossier) {
 		$this->setClass('dossier');
 		
-		$this->addComponent(new Title($dossier->getTitle(), 2));
+		$this->addComponent(new TitleComponent($dossier->getTitle(), 2));
 		
 		$author = $dossier->getAuthor();
 		if ($author instanceof TeamMember) {
@@ -14,7 +14,7 @@ class DossierComponent extends SimpleBlockComponent {
 		}
 		$timestamp = strftime("%d/%m/%Y", $dossier->getTimestamp());
 		$subtitle = $timestamp." par ".$author;
-		$this->addComponent(new Title($subtitle, 4));
+		$this->addComponent(new TitleComponent($subtitle, 4));
 		
 		$content = new SimpleBlockComponent();
 		$content->setClass('content');

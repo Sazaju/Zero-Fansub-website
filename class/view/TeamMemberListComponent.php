@@ -4,7 +4,7 @@
 	elements.
 */
 
-class TeamMemberList extends SimpleListComponent {
+class TeamMemberListComponent extends SimpleListComponent {
 	public function __construct() {
 		$this->setClass("teamList");
 	}
@@ -71,7 +71,7 @@ class TeamMemberList extends SimpleListComponent {
 		$mail = $member->getMail();
 		if ($mail !== null) {
 			$wrap = new SimpleTextComponent("<b>Contact</b> ");
-			$wrap->addComponent(new MailLink($mail));
+			$wrap->addComponent(new MailLinkComponent($mail));
 			$list->addComponent($wrap);
 		}
 		

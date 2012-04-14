@@ -6,13 +6,13 @@ class ProjectListComponent extends SimpleListComponent {
 		$this->updateClass();
 		if ($list !== null) {
 			foreach($list->getProjects() as $project) {
-				$this->addComponent(new ProjectLink($project));
+				$this->addComponent(new ProjectLinkComponent($project));
 			}
 		}
 	}
 	
 	public function addComponent($project) {
-		if ($project instanceof ProjectLink) {
+		if ($project instanceof ProjectLinkComponent) {
 			$project->useImage($this->useImage);
 			parent::addComponent($project);
 		}

@@ -1,12 +1,12 @@
 <?php
-	$page = PageContent::getInstance();
+	$page = PageContentComponent::getInstance();
 	
-	$page->addComponent(new Title("Dossiers", 1));
+	$page->addComponent(new TitleComponent("Dossiers", 1));
 	
 	foreach(Dossier::getAllDossiers() as $dossier) {
 		$title = new SimpleBlockComponent();
 		
-		$title->addComponent(new Title($dossier->getTitle(), 2));
+		$title->addComponent(new TitleComponent($dossier->getTitle(), 2));
 		
 		$author = $dossier->getAuthor();
 		if ($author instanceof TeamMember) {
@@ -14,8 +14,8 @@
 		}
 		$timestamp = strftime("%d/%m/%Y", $dossier->getTimestamp());
 		$subtitle = $timestamp." par ".$author;
-		$title->addComponent(new Title($subtitle, 4));
+		$title->addComponent(new TitleComponent($subtitle, 4));
 		
-		$page->addComponent(new Link("?page=dossier&id=".$dossier->getID(), $title));
+		$page->addComponent(new LinkComponent("?page=dossier&id=".$dossier->getID(), $title));
 	}
 ?>

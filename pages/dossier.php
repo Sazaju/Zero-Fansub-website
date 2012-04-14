@@ -1,8 +1,8 @@
 <?php
-	$page = PageContent::getInstance();
+	$page = PageContentComponent::getInstance();
 	$page->setClass('dossierPage');
 	
-	$returnLink = new Link("?page=dossiers", "Retour aux dossiers");
+	$returnLink = new LinkComponent("?page=dossiers", "Retour aux dossiers");
 	$returnLink->setClass('returnLink');
 	$page->addComponent($returnLink);
 	

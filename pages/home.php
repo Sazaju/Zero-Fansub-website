@@ -81,26 +81,26 @@
 	$viewsLinks = new SimpleBlockComponent();
 	foreach($viewMap as $id => $name) {
 		$url->setQueryVar('view', $id);
-		$viewsLinks->addComponent(new Link(new Url($url), $name));
+		$viewsLinks->addComponent(new LinkComponent(new Url($url), $name));
 	}
 	
 	$views = new SimpleBlockComponent();
 	$views->setClass("views");
-	$views->addComponent(new Title("Vues", 2));
+	$views->addComponent(new TitleComponent("Vues", 2));
 	$views->addComponent($viewsLinks);
 	
 	/******************************\
 	           FILL PAGE
 	\******************************/
 	
-	$page = PageContent::getInstance();
-	$page->addComponent(new Title("Zéro fansub", 1));
+	$page = PageContentComponent::getInstance();
+	$page->addComponent(new TitleComponent("Zéro fansub", 1));
 	if (TEST_MODE_ACTIVATED) {
 		$options = new SimpleBlockComponent();
 		$options->setClass('testFeatures');
 		$options->addComponent("Options : ");
 		
-		$link = new Link(Url::getCurrentUrl(), "show prepared");
+		$link = new LinkComponent(Url::getCurrentUrl(), "show prepared");
 		if ($link->getUrl()->hasQueryVar('showPrepared')) {
 			$link->getUrl()->removeQueryVar('showPrepared');
 			$link->setClass('reverse');
@@ -109,7 +109,7 @@
 		}
 		$options->addComponent($link);
 		
-		$link = new Link(Url::getCurrentUrl(), "show all");
+		$link = new LinkComponent(Url::getCurrentUrl(), "show all");
 		if ($link->getUrl()->hasQueryVar('showAll')) {
 			$link->getUrl()->removeQueryVar('showAll');
 			$link->setClass('reverse');

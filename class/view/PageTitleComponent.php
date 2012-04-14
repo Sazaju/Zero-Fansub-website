@@ -5,7 +5,7 @@
 	HTML code is already done after the instanciation.
 */
 
-class PageTitle extends DefaultHtmlComponent {
+class PageTitleComponent extends DefaultHtmlComponent {
 	function __construct($title) {
 		$this->setClass('pageTitle');
 		$this->setContent($title);

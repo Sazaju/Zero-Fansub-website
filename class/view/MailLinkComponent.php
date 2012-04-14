@@ -3,7 +3,7 @@
 	A mail link is a mailto link.
 */
 
-class MailLink extends DefaultHtmlComponent {
+class MailLinkComponent extends DefaultHtmlComponent {
 	private $mail = '';
 	
 	public function getHtmlTag() {

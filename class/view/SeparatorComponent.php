@@ -3,7 +3,7 @@
 	A separator is like a pin, except it is visible.
 */
 
-class Separator extends DefaultHtmlComponent {
+class SeparatorComponent extends DefaultHtmlComponent {
 	function __construct() {
 		$this->setClass('separator');
 		$this->generateHtml();
@@ -19,10 +19,10 @@ class Separator extends DefaultHtmlComponent {
 	
 	private static $instance = null;
 	public static function getInstance() {
-		if (Separator::$instance === null) {
-			Separator::$instance = new Separator();
+		if (SeparatorComponent::$instance === null) {
+			SeparatorComponent::$instance = new SeparatorComponent();
 		}
-		return Separator::$instance;
+		return SeparatorComponent::$instance;
 	}
 }
 ?>

@@ -2,7 +2,7 @@
 /*
 	The table classes allows to manage tables, meaning 2D arrays.
 */
-class Table extends DefaultHtmlComponent {
+class TableComponent extends DefaultHtmlComponent {
 	public function getHtmlTag() {
 		return 'table';
 	}
@@ -12,7 +12,7 @@ class Table extends DefaultHtmlComponent {
 	}
 	
 	public function addComponent($component) {
-		if ($component instanceof TableRow) {
+		if ($component instanceof TableRowComponent) {
 			parent::addComponent($component);
 		}
 		else {
@@ -21,7 +21,7 @@ class Table extends DefaultHtmlComponent {
 	}
 }
 
-class TableRow extends DefaultHtmlComponent {
+class TableRowComponent extends DefaultHtmlComponent {
 	public function getHtmlTag() {
 		return 'tr';
 	}
@@ -31,14 +31,14 @@ class TableRow extends DefaultHtmlComponent {
 	}
 	
 	public function addComponent($component) {
-		if (!($component instanceof TableCell)) {
-			$component = new TableCell($component);
+		if (!($component instanceof TableCellComponent)) {
+			$component = new TableCellComponent($component);
 		}
 		parent::addComponent($component);
 	}
 }
 
-class TableCell extends DefaultHtmlComponent {
+class TableCellComponent extends DefaultHtmlComponent {
 	public function __construct($content = null) {
 		$this->setContent($content);
 	}
@@ -52,7 +52,7 @@ class TableCell extends DefaultHtmlComponent {
 	}
 }
 
-class TableHeader extends TableCell {
+class TableHeaderComponent extends TableCellComponent {
 	public function getHtmlTag() {
 		return 'th';
 	}

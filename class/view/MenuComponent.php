@@ -8,7 +8,7 @@ class MenuComponent extends SimpleBlockComponent {
 		$this->setClass('menu');
 		
 		if ($menu->getTitle() !== null) {
-			$this->addComponent(new Title($menu->getTitle()));
+			$this->addComponent(new TitleComponent($menu->getTitle()));
 		}
 		
 		$list = new SimpleListComponent();

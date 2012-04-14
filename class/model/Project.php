@@ -101,7 +101,7 @@ class Project {
 		return $this->externalSource != null;
 	}
 	
-	public function setOfficialWebsite(Link $link) {
+	public function setOfficialWebsite(LinkComponent $link) {
 		$this->officialWebsite = $link;
 	}
 	
@@ -262,11 +262,11 @@ class Project {
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomo", "Kodomo no Jikan");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kodomo no Jikan");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.kojika-anime.com/", "Kojika-anime.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.kojika-anime.com/", "Kojika-anime.com"));
 			$project->setAiringYear(2007);
-			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setSynopsis("Aoki Daisuke sensei est un tout nouveau professeur en primaire et débute sa carrière dans une classe d’enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d’elle, par de nombreux pièges parfois osés, et rendra sa vie de nouveau professeur très difficile. 
@@ -277,11 +277,11 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomooav", "Kodomo no Jikan OAV");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kodomo no Jikan OVA");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.kojika-anime.com/", "Kojika-anime.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.kojika-anime.com/", "Kojika-anime.com"));
 			$project->setAiringYear(2007);
-			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setSynopsis("Rin, Kuro et Mimi sont trois adorables petites filles de 10 ans qui découvrent le monde des adultes... C'est l'anniversaire de Aoki, leur professeur mais aussi l'amoureux secret de Rin. Celle-ci tentent donc de le séduire en lui offrant un cadeau...original ^^");
@@ -293,11 +293,11 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomo2", "Kodomo no Jikan ~ Ni Gakki");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kodomo no Jikan ~Second Season~");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.kojika-anime.com/", "Kojika-anime.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.kojika-anime.com/", "Kojika-anime.com"));
 			$project->setAiringYear(2009);
-			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setVosta('<a href="http://loli-pop-subs.blogspot.com/" target="_blank">Loli-Pop-Subs</a>');
@@ -306,11 +306,11 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomonatsu", "Kodomo no Natsu Jikan");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kodomo no Jikan - Kodomo no Natsu Jikan");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.kojika-anime.com/", "Kojika-anime.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.kojika-anime.com/", "Kojika-anime.com"));
 			$project->setAiringYear(2011);
-			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setSynopsis("Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'été, en vacances avec Aoki et Houin.");
@@ -319,11 +319,11 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le 
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomofilm", "Kodomo no Jikan Le Film");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kodomo no Jikan - Rin no Gakkyuu Nisshi");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.kojika-anime.com/", "Kojika-anime.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.kojika-anime.com/", "Kojika-anime.com"));
 			$project->setAiringYear(2007);
-			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setSynopsis("Aoki Daisuke sensei est un tout nouveau professeur en primaire et débute sa carrière dans une classe d’enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d’elle, par de nombreux pièges parfois osés, et rendra sa vie de nouveau professeur très difficile. 
@@ -334,8 +334,8 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			
 			$project = new Project("mitsudomoe", "Mitsudomoe");
 			$project->setOriginalName("Mitsudomoe");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.mitsudomoe-anime.com/", "Mitsudomoe Anime"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.mitsudomoe-anime.com/", "Mitsudomoe Anime"));
 			$project->setAiringYear(2010);
 			$project->setStudio("Bridge");
 			$project->setAuthor("Sakurai Norio");
@@ -345,9 +345,21 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
+			$project = new Project("mitsudomoe2", "Mitsudomoe Zouryouchuu!");
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.mitsudomoe-anime.com/", "Mitsudomoe Anime"));
+			$project->setAiringYear(2011);
+			$project->setStudio("Bridge");
+			$project->setAuthor("Sakurai Norio");
+			$project->setGenre("Comédie Ecchi");
+			//$project->setSynopsis("La suite des aventures des triplées, .");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
+			$project->setRunning(true);
+			Project::$allProjects[] = $project;
+			
 			$project = new Project("mitsudomoeoad", "Mitsudomoe OAD");
 			$project->setOriginalName("Mitsudomoe OAD");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.mitsudomoe-anime.com/", "Mitsudomoe Anime"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.mitsudomoe-anime.com/", "Mitsudomoe Anime"));
 			$project->setAiringYear(2010);
 			$project->setStudio("Bridge");
 			$project->setAuthor("Sakurai Norio");
@@ -383,8 +395,8 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			
 			$project = new Project("denpa", "Denpa Onna to Seishun Otoko");
 			$project->setOriginalName("Denpa Onna To Seishun Otoko");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.tbs.co.jp/anime/denpa/", "Denpa Onna To Seishun Otoko"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.tbs.co.jp/anime/denpa/", "Denpa Onna To Seishun Otoko"));
 			$project->setAiringYear(2011);
 			$project->setStudio("Shaft");
 			$project->setGenre("Fantastique");
@@ -396,7 +408,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			
 			$project = new Project("sleeping", "Isshoni Sleeping - S'endormir avec Hinako");
 			$project->setOriginalName("Isshoni Sleeping");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setAiringYear(2010);
 			$project->setGenre("Ecchi");
 			$project->setSynopsis("Hinako est de retour ! Après l'effort, le réconfort, et c'est avec elle que vous allez pouvoir vous reposer après les difficiles exercices de musculations du précédent épisode.");
@@ -407,7 +419,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			
 			$project = new Project("bath", "Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
 			$project->setOriginalName("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setAiringYear(2011);
 			$project->setStudio("Primaesta");
 			$project->setGenre("Ecchi");
@@ -418,10 +430,10 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			
 			$project = new Project("potemayooav", "Potemayo OAV");
 			$project->setOriginalName("Potemayo Special");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.potemayo.com/", "Potemayo.com"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.potemayo.com/", "Potemayo.com"));
 			$project->setAiringYear(2008);
-			$project->setStudio(Link::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
 			$project->setGenre("Comédie");
 			$project->setSynopsis("De petites aventures arrivent à Potemayo dans ces épisodes bonus de la série Potemayo.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2057-Ton-avis-sur-Potemayo.htm");
@@ -439,7 +451,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("akinahshiyo", "Akina To Onsen De H Shiyo !");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Akina To Onsen De H Shiyo");
 			$project->setAiringYear(2011);
 			$project->setGenre("Hentai");
@@ -449,20 +461,20 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("alignment", "Alignment You ! You ! The Animation");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Alignment You ! You ! The Animation");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.pinkpineapple.co.jp/web/alignment/", "Pinkpineapple.co.jp"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.pinkpineapple.co.jp/web/alignment/", "Pinkpineapple.co.jp"));
 			$project->setAiringYear(2008);
-			$project->setStudio(Link::newWindowLink("http://www.pinkpineapple.co.jp/", "Pinkpineapple"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.pinkpineapple.co.jp/", "Pinkpineapple"));
 			$project->setGenre("Hentai");
 			$project->setSynopsis("Takahashi, jeune lycéenne, se masturbe furieusement dans la salle de cours devant l'homme qu'elle aime, Oohara. Mais personne ne remarque la lubrique jeune femme ! Et pour cause : elle est déjà morte...");
-			$project->setVosta(Link::newWindowLink("http://www.killer-maid.net", "Killer maid"));
+			$project->setVosta(LinkComponent::newWindowLink("http://www.killer-maid.net", "Killer maid"));
 			$project->setHentai(true);
 			$project->setHidden(true);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("training", "Isshoni Training - L'entraînement avec Hinako");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Isshoni Training");
 			$project->setAiringYear(2009);
 			$project->setGenre("Ecchi");
@@ -474,9 +486,9 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("working", "Working!!");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Working!!");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.wagnaria.com/", "Wagnaria.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.wagnaria.com/", "Wagnaria.com"));
 			$project->setAiringYear(2010);
 			$project->setStudio("A-1 Pictures Inc");
 			$project->setGenre("Comédie");
@@ -486,9 +498,9 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("working2", "Working!! 2");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Working!! 2");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.wagnaria.com/", "Wagnaria.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.wagnaria.com/", "Wagnaria.com"));
 			$project->setAiringYear(2011);
 			$project->setStudio("A-1 Pictures Inc");
 			$project->setGenre("Comédie");
@@ -496,7 +508,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hshiyo", "Faisons l'amour ensemble !");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Issho ni H shiyo");
 			$project->setAiringYear(2009);
 			$project->setGenre("Hentai");
@@ -507,11 +519,11 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mermaid", "Mermaid Melody Pichi Pichi Pitch");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Mermaid Melody Pichi Pichi Pitch");
-			$project->setOfficialWebsite(Link::newWindowLink("http://p-hanamori.cool.ne.jp/", "Lips"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://p-hanamori.cool.ne.jp/", "Lips"));
 			$project->setAiringYear(2003);
-			$project->setStudio(Link::newWindowLink("http://www.tokyu-agc.co.jp/", "Tokyo Agency"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.tokyu-agc.co.jp/", "Tokyo Agency"));
 			$project->setGenre("Comédie - Magical Girl - Ecchi");
 			$project->setAuthor("Pink Hanamori");
 			$project->setSynopsis("Luchia, une jeune sirène, a sauvé dans son enfance un garçon du même âge qu'elle qui était en train de se noyer et lui a mis au cou un médaillon. Quelques années plus tard, elle gagne la terre ferme dans l'espoir de retrouver celui qu'elle a toujours aimé. Le jeune collégien en question qui est devenu un surfer participant à des concours invite Luchia et sa copine Hanon pour la revoir lors de sa prochaine compétition, mais les Forces du Mal aquatiques vont venir semer le trouble...");
@@ -523,27 +535,27 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			
 			$project = new Project("nanami", "Nanami Madobe Windows 7 Publicité");
 			$project->setOriginalName("Madobe Nanami Windows7 Comercial");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.windows7-mania.jp/", "Windows7 Mania"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.windows7-mania.jp/", "Windows7 Mania"));
 			$project->setAiringYear(2010);
 			$project->setStudio("Microsoft");
 			$project->setGenre("Publicité");
 			$project->setSynopsis("Nanami Madobe te présente Windows 7 et te donne des conseils pour mieux l'utiliser. Elle te montre aussi comment monter ton propre ordinateur.");
-			$project->setVosta(Link::newWindowLink("http://bssubs.net/", "BSS"));
+			$project->setVosta(LinkComponent::newWindowLink("http://bssubs.net/", "BSS"));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2062-Ton-avis-sur-Nanami-Madobe-Windows-7-Publicite.htm");
 			$project->addBonus(new ProjectBonus("ThemePack", "Le thème de Nanami Madobe pour Windows 7 ! Pour l'installer, vous devez avoir Windows 7. Téléchargez le fichier puis double-cliquez dessus pour l'ouvrir. Le thème s'installera tout seul et Nanami vous dira \"Konichiwa ! Nanami desu.\".<br/>
 <a href='ddl/[Zero]_Windows_7_Nanami_Madobe_ThemePack.themepack' target='_blank'>
 <img src='http://zerofansub.net/images/news/theme_nanami.png' border='0' alt='Themepack Thème Windows 7 de Nanami Madobe à télécharger download gratuit' />
 </a>"));
-			$project->addBonus(new ProjectBonus("Pack d'images", Link::newWindowLink("http://zerofansub.net/galerie/index.php?spgmGal=Zero_fansub/Images/Nanami%20Madobe", new Image("http://zerofansub.net/images/news/galerie_nanami.png", "Galerie d'images Nanami Madobe"))));
+			$project->addBonus(new ProjectBonus("Pack d'images", LinkComponent::newWindowLink("http://zerofansub.net/galerie/index.php?spgmGal=Zero_fansub/Images/Nanami%20Madobe", new ImageComponent("http://zerofansub.net/images/news/galerie_nanami.png", "Galerie d'images Nanami Madobe"))));
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("potemayo", "Potemayo");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Potemayo");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.potemayo.com/", "Potemayo.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.potemayo.com/", "Potemayo.com"));
 			$project->setAiringYear(2007);
-			$project->setStudio(Link::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
 			$project->setGenre("Comédie");
 			$project->setSynopsis("Sunao Moriyama, se préparant à partir à l'école, ouvre la porte de son frigo afin de déjeuner, hors celui-ci tombe nez à nez avec une drôle de créature plus ou moins semblable à un \"bébé\".
 Comme s'il n'avait rien vu de spécial celui-ci ferme la porte sans porter plus d'attention à la créature en ayant au préalable saisi son déjeuné, celui-ci portant le nom de \"Potemayo\", il surnommera la créature \"Potemayo\".
@@ -554,9 +566,9 @@ Et c'est dès lors qu'à se moment, les gags et situations humoristiques apparaiss
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hyakkooav", "Hyakko OAV");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Hyakko Extra");
-			$project->setOfficialWebsite(Link::newWindowLink("http://hyakko.jp/", "Hyakko.jp"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://hyakko.jp/", "Hyakko.jp"));
 			$project->setAiringYear(2009);
 			$project->setStudio("Nippon Animation");
 			$project->setGenre("Comédie");
@@ -572,11 +584,11 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mayoi", "Mayoi Neko Overrun!");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Mayoi Neko Overrun!");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.patisserie-straycats.com/", "Patisserie Stray Cats"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.patisserie-straycats.com/", "Patisserie Stray Cats"));
 			$project->setAiringYear(2010);
-			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
 			$project->setAuthor("Matsu Tomohiro");
 			$project->setGenre("Comédie Ecchi");
 			$project->setSynopsis("Takumi Tsuzuki vit avec sa grande “soeur” Otome bien qu’ils ne soient pas liés par le sang. Otome gère une vieille pâtisserie appelée Stray Cats où y travaille également une amie d’enfance de Takumi, Fumino Serisawa. C’est alors qu’un jour, Nozomi Kiriya, une jeune fille mystérieuse imitant un chat, apparaît…");
@@ -587,9 +599,9 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			
 			$project = new Project("mayoisp", "Mayoi Neko Overrun! - Spéciaux");
 			$project->setOriginalName("Mayoi Neko Overrun! Specials");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.patisserie-straycats.com/", "Patisserie Stray Cats"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.patisserie-straycats.com/", "Patisserie Stray Cats"));
 			$project->setAiringYear(2010);
-			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
 			$project->setAuthor("Matsu Tomohiro");
 			$project->setGenre("Comédie Ecchi");
 			$project->setSynopsis("Ces épisodes sont de petites scènes indépendantes de l'histoire. Pour ceux qui ont le nez fragile, préparez les mouchoirs : saignements de nez au programme.");
@@ -598,9 +610,9 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("tayutamapure", "Tayutama - Kiss on my Deity - Pure My Heart");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Tayutama -Kiss on my Deity- Pure My Heart");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.tayutama.com/", "Tayutama.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.tayutama.com/", "Tayutama.com"));
 			$project->setAiringYear(2009);
 			$project->setStudio("Silver Link");
 			$project->setGenre("Amour et Amitié");
@@ -610,11 +622,11 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("sketchbookdrama", "Sketchbook ~full colors~ Picture Drama");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Sketchbook - full color's Picture Drama");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.sketch-full.net/", "Sketch-full.net"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.sketch-full.net/", "Sketch-full.net"));
 			$project->setAiringYear(2008);
-			$project->setStudio(Link::newWindowLink("http://www.hal-film.co.jp/", "Hal film maker"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.hal-film.co.jp/", "Hal film maker"));
 			$project->setGenre("Comédie");
 			$project->setAuthor("Kobako Totan");
 			$project->setSynopsis("Sora et ses amies partent en vacances ensemble.");
@@ -628,9 +640,9 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hyakko", "Hyakko");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Hyakko");
-			$project->setOfficialWebsite(Link::newWindowLink("http://hyakko.jp/", "Hyakko.jp"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://hyakko.jp/", "Hyakko.jp"));
 			$project->setAiringYear(2008);
 			$project->setStudio("Nippon Animation");
 			$project->setGenre("Comédie");
@@ -646,9 +658,9 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("tayutama", "Tayutama - Kiss on my Deity -");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Tayutama -Kiss on my Deity-");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.tayutama.com/", "Tayutama.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.tayutama.com/", "Tayutama.com"));
 			$project->setAiringYear(2009);
 			$project->setStudio("Silver Link");
 			$project->setGenre("Amour et Amitié");
@@ -659,11 +671,11 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("sketchbook", "Sketchbook ~full colors~");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Sketchbook - full color's");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.sketch-full.net/", "Sketch-full.net"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.sketch-full.net/", "Sketch-full.net"));
 			$project->setAiringYear(2007);
-			$project->setStudio(Link::newWindowLink("http://www.hal-film.co.jp/", "Hal film maker"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.hal-film.co.jp/", "Hal film maker"));
 			$project->setGenre("Comédie");
 			$project->setAuthor("Kobako Totan");
 			$project->setSynopsis("Nous suivons la vie de Sora, une jeune adolescente très timide et qui, en raison de cela ne parle pas beaucoup. Donnant l’impression de vivre dans sa bulle, cette dernière a une passion pour le dessin. Ce penchant pour l’art l’entraîna à faire partie du club de dessin de son école où elle s’est fait plusieurs amies. Une des particularités de Sora est qu’elle ne quitte jamais son sketchbook afin de pouvoir retranscrire à n’importe quel moment sur papier, un évènement qui l’émerveille. Malheureusement, elle rencontre toujours le même problème, celui de ne jamais pouvoir terminer les dessins qu’elle fait sur des scènes éphémères (chat qui se lèche, feu d’artifice…). Légèrement déprimée à cause de cela, elle retrouve cependant très vite le sourire grâce à des petites choses qui paraissent insignifiantes, nous faisant ainsi partager son univers à la fois poétique et touchant.");
@@ -678,11 +690,11 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mariaholic", "Maria+Holic");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Maria+Holic");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.mariaholic.com/", "MariaHolic.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.mariaholic.com/", "MariaHolic.com"));
 			$project->setAiringYear(2009);
-			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Déjanté - Ecchi");
 			$project->setAuthor("Endou Minari");
 			$project->setSynopsis("Au milieu de l’année scolaire, Kanako est une adolescente qui décide de venir étudier dans un établissement pour filles : Ame no Kisaki. En faisant ceci, cette dernière espère avoir autant de chance en amour que ses parents qui s’y sont rencontrés (sa mère était une élève et son père un enseignant). Néanmoins, due à sa grande taille, Kanako n’a jamais pu imaginer entretenir une vraie relation avec un garçon et s’est finalement rendue compte qu’elle n’était attirée que par la gente féminine.
@@ -714,9 +726,9 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kanamemo", "Kanamemo");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kanamemo");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.starchild.co.jp/special/kanamemo/", "Starchild"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.starchild.co.jp/special/kanamemo/", "Starchild"));
 			$project->setAiringYear(2009);
 			$project->setStudio("Feel - Starchild Records");
 			$project->setGenre("Comédie - Déjanté - Ecchi");
@@ -751,30 +763,30 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("toradorasos", "Toradora! Spécial SOS");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Toradora! Special");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.starchild.co.jp/special/toradora/", "Toradora"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.starchild.co.jp/special/toradora/", "Toradora"));
 			$project->setAiringYear(2009);
-			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Takemiya Yuyuko");
 			$project->setSynopsis("Ami, Taiga et Ryuuji décident d'aller chez Jonny's pour y gouter les spaghettis Tarako. Sur place ils retrouvent Minori et la dégustation culinaire vire au duel...");
-			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
+			$project->setCoproduction(LinkComponent::newWindowLink("http://japanslash.free.fr", new ImageComponent("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("toradora", "Toradora!");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Toradora!");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.starchild.co.jp/special/toradora/", "Toradora"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.starchild.co.jp/special/toradora/", "Toradora"));
 			$project->setAiringYear(2008);
-			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Takemiya Yuyuko");
 			$project->setSynopsis("En raison de son regard menaçant hérité de son père, Takasu Ryuuji est un adolescent craint, car considéré comme un délinquant, par les autres élèves de son lycée. Cette image étant à l’opposé de ce qu’il est réellement, ce dernier aimerait s’en séparer définitivement afin de ne plus souffrir des conséquences qui en découlent. Ryuuji ne perd pas espoir d’y arriver grâce notamment à son ami Kitamura qui, en plus d’avoir vu clair dans cette mésentente, lui a permis de rencontrer Kushieda Minori dont il est tombé amoureux. Alors qu’il pense à elle, il bouscule par mégarde Asaika Taiga, une élève de sa classe et amie de Minori dont le mauvais caractère n’a d’égal que sa force. Suite à un concours de circonstances, Ryuuji apprendra que Aisaka est sa nouvelle voisine et que cette dernière est amoureuse de Kitamura. Se développe alors entre les deux une relation ambiguë dans le but de se rapprocher des personnes respectives aimées.");
 			$project->setVosta('<a href="http://www.ggkthx.org/" target="_blank">GG</a>');
-			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
+			$project->setCoproduction(LinkComponent::newWindowLink("http://japanslash.free.fr", new ImageComponent("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
 			$project->setFinished(true);
 			Project::$allProjects[] = $project;
@@ -790,11 +802,11 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kujibiki", "Kujibiki Unbalance II");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kujibiki Unbalance 2006");
-			$project->setOfficialWebsite(Link::newWindowLink("http://kujian.info/index.html", "Kujian.info"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://kujian.info/index.html", "Kujian.info"));
 			$project->setAiringYear(2006);
-			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie");
 			$project->setAuthor("Kio Shimoku");
 			$project->setSynopsis("C'est la rentrée pour Chihiro et Tokino. Un tirage au sort est organisé pour déterminer les rôles de chacun au sein de l'établissement. Chihiro, connu pour être malchanceux, semble avoir tiré le gros lot... ou pas.");
@@ -834,11 +846,11 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("genshiken", "Genshiken II");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Genshiken 2");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.genshiken.info/", "Genshiken.info"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.genshiken.info/", "Genshiken.info"));
 			$project->setAiringYear(2007);
-			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie");
 			$project->setAuthor("Kio Shimoku");
 			$project->setSynopsis("L’ancien président du club Genshiken ayant eu son diplôme l’année dernière, Sasahara se voit nommer par les autres membres pour lui succéder. En ce début d’année, la venue de deux nouvelles personnes au sein du club s’accompagne d’une autre bonne surprise. En effet, nos fidèles otakus ont reçu pour la première fois l’autorisation de participer au Comi-Fes (convention de jap'anime). L’équipe en effervescence décide de créer un doujinshi que Ohno vendra en tenue de cosplay. Ogiue quant à elle, montre qu’elle possède un talent assez étonnant pour le dessin. Grâce à cela, il ne reste au club plus qu’à prévoir les divers préparatifs matériels et financiers nécessaires pour le jour J. Toujours dans la bonne humeur et l’amusement, les membres de Genshiken semblent ainsi faire un nouveau pas dans l’univers des otakus.");
@@ -893,9 +905,9 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("canaan", "Canaan");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Canaan");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.canaan.jp/", "Canaan.jp"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.canaan.jp/", "Canaan.jp"));
 			$project->setAiringYear(2009);
 			$project->setStudio("PA Works");
 			$project->setGenre("Enigme et Policier");
@@ -954,9 +966,9 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kissxsis", "KissXsis TV");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kiss×sis (2010)");
-			$project->setOfficialWebsite(Link::newWindowLink("http://kc.kodansha.co.jp/kiss_sis/", "kc.kodansha.co.jp/kiss_sis"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://kc.kodansha.co.jp/kiss_sis/", "kc.kodansha.co.jp/kiss_sis"));
 			$project->setAiringYear(2010);
 			$project->setGenre("Comédie Ecchi");
 			$project->setAuthor("Ditawa Bow");
@@ -967,9 +979,9 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kissxsisoav", "KissXsis OAD");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kiss×sis");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.yanmaga.kodansha.co.jp/ym/rensai/bessatu/kissxsis/kiss.html", "Yamaga.kodansha.co.jp"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.yanmaga.kodansha.co.jp/ym/rensai/bessatu/kissxsis/kiss.html", "Yamaga.kodansha.co.jp"));
 			$project->setAiringYear(2008);
 			$project->setGenre("Ecchi");
 			$project->setAuthor("Ditawa Bow");
@@ -980,11 +992,11 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hitohira", "Hitohira");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Hitohira");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.hitohira.tv/", "Hitohira.tv"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.hitohira.tv/", "Hitohira.tv"));
 			$project->setAiringYear(2007);
-			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Kirihara Izumi");
 			$project->setSynopsis("Asai Mugi est une fille très introvertie qui vient d'entrer dans le lycée des arts Kumakata pour suivre son amie Kayo. 
@@ -1014,9 +1026,9 @@ Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kannagi", "Kannagi");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kannagi: Crazy Shrine Maidens");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.nagisama-fc.com/anime/", "Nagisama-fc.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.nagisama-fc.com/anime/", "Nagisama-fc.com"));
 			$project->setAiringYear(2008);
 			$project->setStudio("Aniplex - Sony Music ent. Visual Works - A-1 Pictures Inc.");
 			$project->setGenre("Fantastique - Comédie");
@@ -1029,7 +1041,7 @@ Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 			
 			$project = new Project("kannagioad", "Kannagi OAD");
 			$project->setOriginalName("Kannagi: Crazy Shrine Maidens");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.nagisama-fc.com/anime/", "Nagisama-fc.com"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.nagisama-fc.com/anime/", "Nagisama-fc.com"));
 			$project->setAiringYear(2008);
 			$project->setStudio("Aniplex - Sony Music ent. Visual Works - A-1 Pictures Inc.");
 			$project->setGenre("Fantastique - Comédie");
@@ -1039,11 +1051,11 @@ Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kimikiss", "Kimikiss Pure Rouge");
-			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setExternalSource(LinkComponent::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("KimiKiss Pure Rouge");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.kimikiss-pure-rouge.jp/", "kimikiss-pure-rouge.jp"));
+			$project->setOfficialWebsite(LinkComponent::newWindowLink("http://www.kimikiss-pure-rouge.jp/", "kimikiss-pure-rouge.jp"));
 			$project->setAiringYear("2007-08");
-			$project->setStudio(Link::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
+			$project->setStudio(LinkComponent::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
 			$project->setGenre("Amour et Amitié");
 			$project->setSynopsis("Après avoir passé deux années en France, Mao jeune étudiante, décide de revenir seule dans sa ville natale au Japon pour finir ses études. Elle y retrouve ainsi ses deux amis d’enfance : Sanada Kouichi, chez lequel elle résidera et Aihara Kazuki. Le trio ainsi réunit compte bien partager ensemble d’aussi agréables moments qu’à l’époque. Le temps ayant passé, Mao va vite comprendre que les histoires de cœur sont devenus d’actualité pendant son absence. En effet, alors que Aihara semble avoir une relation ambiguë avec une élève considérée comme un génie, Sanada quand à lui, a l’air d’éprouver des sentiments pour Hoshino, une camarade de classe. Mao ne voulant pas être en reste décide alors d’intervenir afin de les aider à atteindre leur bonheur.");
 			$project->setVosta('<a href="http://www.bssubs.net" target="_blank">BSS</a>');
@@ -1216,6 +1228,8 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
 			Project::$allLinks[] = array(Project::getProject('haganai'), Project::getProject('haganaioav'));
 			Project::$allLinks[] = array(Project::getProject('kannagi'), Project::getProject('kannagioad'));
 			Project::$allLinks[] = array(Project::getProject('mitsudomoe'), Project::getProject('mitsudomoeoad'));
+			Project::$allLinks[] = array(Project::getProject('mitsudomoe'), Project::getProject('mitsudomoe2'));
+			Project::$allLinks[] = array(Project::getProject('mitsudomoeoad'), Project::getProject('mitsudomoe2'));
 		}
 		
 		return Project::$allLinks;

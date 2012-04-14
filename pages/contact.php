@@ -1,5 +1,5 @@
 <?php
-	$page = PageContent::getInstance();
+	$page = PageContentComponent::getInstance();
 	
 	$content = "[title]Contact[/title]
 

@@ -38,11 +38,11 @@ class Sortie {
 	}
 }
 
-class SortieComponent extends ReleaseLink {
+class SortieComponent extends ReleaseLinkComponent {
 	public function __construct(Sortie $sortie) {
 		parent::__construct($sortie->getProject()->getID(), $sortie->getReleasesIDs());
 		$this->setClass("sortie");
-		$this->setContent(new Image($sortie->getImage(), $sortie->getProject()->getName()));
+		$this->setContent(new ImageComponent($sortie->getImage(), $sortie->getProject()->getName()));
 	}
 }
 

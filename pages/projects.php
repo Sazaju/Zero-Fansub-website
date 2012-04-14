@@ -1,20 +1,20 @@
 <?php
-	$page = PageContent::getInstance();
+	$page = PageContentComponent::getInstance();
 	$page->setClass("series");
 	
-	$page->addComponent(new Title("Séries", 1));
+	$page->addComponent(new TitleComponent("Séries", 1));
 	
 	$url = new Url();
 	$useImageLists = !$url->hasQueryVar('noImage');
 	if ($useImageLists) {
 		$url->setQueryVar('noImage');
-		$link = new Link($url, "Voir la liste sans images");
+		$link = new LinkComponent($url, "Voir la liste sans images");
 		$link->setClass('pictureSwitch');
 		$page->addComponent($link);
 	}
 	else {
 		$url->removeQueryVar('noImage');
-		$link = new Link($url, "Voir la liste avec images");
+		$link = new LinkComponent($url, "Voir la liste avec images");
 		$link->setClass('pictureSwitch');
 		$page->addComponent($link);
 	}
@@ -50,9 +50,9 @@
 			$list = new ProjectListComponent($list);
 			$list->useImage($useImage);
 			
-			$page = PageContent::getInstance();
+			$page = PageContentComponent::getInstance();
 			if (is_string($title)) {
-				$title = new Title($title, 3);
+				$title = new TitleComponent($title, 3);
 			}
 			$page->addComponent($title);
 			$page->addComponent($list);
@@ -83,7 +83,7 @@
 		$options->setClass('testFeatures');
 		$options->addComponent("Options : ");
 		
-		$link = new Link(Url::getCurrentUrl(), "show hidden");
+		$link = new LinkComponent(Url::getCurrentUrl(), "show hidden");
 		if ($link->getUrl()->hasQueryVar('showHidden')) {
 			$link->getUrl()->removeQueryVar('showHidden');
 			$link->setClass('reverse');
@@ -96,7 +96,7 @@
 	}
 	// TODO limit to authorized access
 	if (Url::getCurrentUrl()->hasQueryVar('showHidden')) {
-		call_user_func($listProcessor, new Title("Projets cachés", 2), $allProjects, $hiddenFilter, $useImageLists);
+		call_user_func($listProcessor, new TitleComponent("Projets cachés", 2), $allProjects, $hiddenFilter, $useImageLists);
 	}
 	
 	$categoryMap = array(
@@ -109,12 +109,12 @@
 		"abandonnés" => $abandonnedFilter,
 		"envisagés" => $expectedFilter,
 	);
-	$page->addComponent(new Title("Non licenciés", 2));
+	$page->addComponent(new TitleComponent("Non licenciés", 2));
 	foreach($categoryMap as $category => $projects) {
 		foreach($filterMap as $desc => $filter) {
 			call_user_func($listProcessor, ucfirst($category)." ".$desc, $projects, $filter, $useImageLists);
 		}
 	}
 	
-	call_user_func($listProcessor, new Title("Licenciés", 2), $allProjects, $licensedFilter, $useImageLists);
+	call_user_func($listProcessor, new TitleComponent("Licenciés", 2), $allProjects, $licensedFilter, $useImageLists);
 ?>

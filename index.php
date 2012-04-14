@@ -77,6 +77,8 @@ function __autoload($className) {
 			echo Debug::createWarningTag("Old script used: $file");
 		}
 		include $file;
+	} else {
+		throw new Exception($className." not found");
 	}
 }
 
@@ -149,7 +151,7 @@ if (TEST_MODE_ACTIVATED) {
 	$features->setClass('testFeatures');
 	$features->addComponent('Testing mode : ');
 	
-	$link = new Link(Url::getCurrentUrl(), 'clear DB');
+	$link = new LinkComponent(Url::getCurrentUrl(), 'clear DB');
 	if (DB_USE) {
 		$link->getUrl()->setQueryVar('clearDB');
 	} else {
@@ -158,7 +160,7 @@ if (TEST_MODE_ACTIVATED) {
 	}
 	$features->addComponent($link);
 	
-	$link = new Link(Url::getCurrentUrl(), 'PHP info');
+	$link = new LinkComponent(Url::getCurrentUrl(), 'PHP info');
 	if (Url::getCurrentUrl()->hasQueryVar('phpinfo')) {
 		$link->getUrl()->removeQueryVar('phpinfo');
 		$link->setClass('reverse');
@@ -167,7 +169,7 @@ if (TEST_MODE_ACTIVATED) {
 	}
 	$features->addComponent($link);
 	
-	$link = new Link(Url::getCurrentUrl(), 'deactivate testing mode');
+	$link = new LinkComponent(Url::getCurrentUrl(), 'deactivate testing mode');
 	if (Url::getCurrentUrl()->hasQueryVar('noTest')) {
 		$link->getUrl()->removeQueryVar('noTest');
 		$link->setClass('reverse');
@@ -287,7 +289,7 @@ if ($url->hasQueryVar('page')) {
 				}
 			}
 			foreach($files as $file) {
-				$preload->addComponent(new Image($file));
+				$preload->addComponent(new ImageComponent($file));
 			}
 			$preload->writeNow();
 		?>

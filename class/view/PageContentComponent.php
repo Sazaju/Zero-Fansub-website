@@ -3,13 +3,13 @@
 	A global container for the page content.
 */
 
-class PageContent extends SimpleBlockComponent {
+class PageContentComponent extends SimpleBlockComponent {
 	private static $instance = null;
 	public static function getInstance() {
-		if (PageContent::$instance == null) {
-			PageContent::$instance = new PageContent();
+		if (PageContentComponent::$instance == null) {
+			PageContentComponent::$instance = new PageContentComponent();
 		}
-		return PageContent::$instance;
+		return PageContentComponent::$instance;
 	}
 	
 	public function __construct($title = null) {

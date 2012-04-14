@@ -18,12 +18,12 @@ class SimpleListComponent extends DefaultHtmlComponent {
 	}
 	
 	public function addComponent($content) {
-		parent::addComponent(new ListElement($content));
+		parent::addComponent(new ListElementComponent($content));
 	}
 	
 }
 
-class ListElement extends DefaultHtmlComponent {
+class ListElementComponent extends DefaultHtmlComponent {
 	public function __construct($content) {
 		if ($content instanceof IHtmlComponent) {
 			$this->addComponent($content);

@@ -3,7 +3,7 @@
 	A link is a reference (URL) to another resource.
 */
 
-class Link extends DefaultHtmlComponent {
+class LinkComponent extends DefaultHtmlComponent {
 	private $url = null;
 	private $title = null;
 	private $newWindow = null;
@@ -88,13 +88,13 @@ class Link extends DefaultHtmlComponent {
 	}
 	
 	public static function newWindowLink($url = null, $content = null) {
-		$link = new Link($url, $content);
+		$link = new LinkComponent($url, $content);
 		$link->openNewWindow(true);
 		return $link;
 	}
 	
 	public static function CreateHentaiAccessLink($toHentaiString = "Hentaï", $toEveryoneString = "Tout public") {
-		$hentaiLink = new Link();
+		$hentaiLink = new LinkComponent();
 		$url = $hentaiLink->getUrl();
 		if ($_SESSION[MODE_H] == false) {
 			$url->setQueryVar(DISPLAY_H_AVERT);
