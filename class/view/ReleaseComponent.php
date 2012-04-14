@@ -264,7 +264,8 @@ class ReleaseComponent extends SimpleBlockComponent {
 		$list->setClass("linkList");
 		$list->addcomponent($ddlLinks);
 		if (!$megauploadLinks->isEmpty()) {
-			$list->addComponent($megauploadLinks);
+			// MU links removed because MU down
+			//$list->addComponent($megauploadLinks);
 		}
 		if (!$freeLinks->isEmpty()) {
 			$list->addComponent($freeLinks);
