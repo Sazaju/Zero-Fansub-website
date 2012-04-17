@@ -604,7 +604,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMember(7), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMember(7), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_OAV_02[LD][XVID-MP3][69CC1DD2].avi");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_OAV_02[LD][XVID-MP3][3798B91A].avi");
 			$descriptor->setID("LD");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
@@ -616,7 +616,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_OAV_02[HD][X264-AAC][E1992856].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_OAV_02[HD][X264-AAC][4EF3E5AB].mp4");
 			$descriptor->setID("HD");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
