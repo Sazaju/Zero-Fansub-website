@@ -369,6 +369,18 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
+			$project = new Project("mitsudomoe2", "Mitsudomoe Zouryouchuu!");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.mitsudomoe-anime.com/", "Mitsudomoe Anime"));
+			$project->setAiringYear(2011);
+			$project->setStudio("Bridge");
+			$project->setAuthor("Sakurai Norio");
+			$project->setGenre("Comédie Ecchi");
+			//$project->setSynopsis("La suite des aventures des triplées, .");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
+			$project->setRunning(true);
+			Project::$allProjects[] = $project;
+			
 			$project = new Project("eriko", "ERIKO");
 			$project->setOriginalName("ERIKO");
 			$project->setAiringYear(2007);
