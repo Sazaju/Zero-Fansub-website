@@ -380,6 +380,38 @@ class Release {
 			$release->setHeaderImage("images/sorties/mitsudomoeoad.png");
 			Release::$allReleases[] = $release;
 			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep1");
+			$release->setName("01");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep2");
+			$release->setName("02");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep3");
+			$release->setName("03");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep4");
+			$release->setName("04");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep5");
+			$release->setName("05");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep6");
+			$release->setName("06");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep7");
+			$release->setName("07");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("mitsudomoe2"), "ep8");
+			$release->setName("08");
+			Release::$allReleases[] = $release;
+			
 			$release = new Release(Project::getProject('kissxsis'), 'ep1');
 			$release->setName("épisode 1");
 			$release->setPreviewUrl("images/episodes/kissxsistv1.jpg");

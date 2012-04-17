@@ -357,6 +357,18 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setRunning(true);
 			Project::$allProjects[] = $project;
 			
+			$project = new Project("mitsudomoe2", "Mitsudomoe Zouryouchuu!");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.mitsudomoe-anime.com/", "Mitsudomoe Anime"));
+			$project->setAiringYear(2011);
+			$project->setStudio("Bridge");
+			$project->setAuthor("Sakurai Norio");
+			$project->setGenre("Comédie Ecchi");
+			//$project->setSynopsis("La suite des aventures des triplées, .");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
+			$project->setRunning(true);
+			Project::$allProjects[] = $project;
+			
 			$project = new Project("eriko", "ERIKO");
 			$project->setOriginalName("ERIKO");
 			$project->setAiringYear(2007);
@@ -1216,6 +1228,8 @@ Mizuki 7th KISS : <a href="http://www.mediafire.com/?wynxjyrma1m"><b>Télécharger
 			Project::$allLinks[] = array(Project::getProject('haganai'), Project::getProject('haganaioav'));
 			Project::$allLinks[] = array(Project::getProject('kannagi'), Project::getProject('kannagioad'));
 			Project::$allLinks[] = array(Project::getProject('mitsudomoe'), Project::getProject('mitsudomoeoad'));
+			Project::$allLinks[] = array(Project::getProject('mitsudomoe'), Project::getProject('mitsudomoe2'));
+			Project::$allLinks[] = array(Project::getProject('mitsudomoeoad'), Project::getProject('mitsudomoe2'));
 		}
 		
 		return Project::$allLinks;
