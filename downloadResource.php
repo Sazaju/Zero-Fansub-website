@@ -28,11 +28,13 @@ function __autoload($className) {
 $id = intval(Url::getCurrentUrl()->getQueryVar('id'));
 $name = urldecode(Url::getCurrentUrl()->getQueryVar('name'));
 
-$image = Image::getImage($id);
-$url = $image->getURL()->toString();
+$resource = Resource::getResource($id);
+$url = $resource->getURL()->toString();
 
 $finfo = finfo_open(FILEINFO_MIME);
 $mime = finfo_file($finfo, $url);
+$mime = explode(";", $mime);
+$mime = $mime[0];
 finfo_close($finfo);
 
 
@@ -51,7 +53,9 @@ exit;
 
 header('Content-Description: File Transfer');
 header('Content-Type: '.$mime);
-header('Content-Disposition: attachment; filename='.$name);
+// force download:
+//header('Content-Disposition: attachment; filename='.$name);
+header('Content-Disposition: filename='.$name);
 header('Content-Transfer-Encoding: binary');
 header('Expires: 0');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');

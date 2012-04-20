@@ -10,11 +10,11 @@ class GalleryBonus extends ProjectBonus {
 		} else {
 			$links = "";
 			foreach($maps as $id) {
-				$image = Image::getImage($id);
-				$description = $image->getDescription();
-				$ext = $image->getExtension();
+				$resource = Resource::getResource($id);
+				$description = $resource->getName();
+				$ext = $resource->getExtension();
 				$name = $id.'_'.preg_replace("#[^a-zA-Z0-9]+#", "_", $description).'.'.$ext;
-				$url = 'downloadImage.php?id='.$id.'&name='.urlencode($name);
+				$url = 'downloadResource.php?id='.$id.'&name='.urlencode($name);
 				$links .= '<a target="_blank" href="'.$url.'"><img src="'.$url.'" alt="['.$description.']" title="'.$description.'" /></a>';
 			}
 			return '<div class="bonusGallery">'.$links.'</div>';
