@@ -52,6 +52,7 @@
 		}
 		PageContentComponent::getInstance()->writeNow();
 	} catch(Exception $e) {
+echo "a";
 		if (TEST_MODE_ACTIVATED) {
 			echo '<div id="page">';
 			echo 'Invalid URL, the bug page should be displayed in not testing mode.<br/><br/>';

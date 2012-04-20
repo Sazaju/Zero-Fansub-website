@@ -1,34 +1,21 @@
 <?php
-function findFile($fileName, $dir) {
-	$expected = strtolower($dir.'/'.$fileName);
-	foreach(glob($dir . '/*') as $file) {
-		if (strtolower($file) == $expected) {
-			return $file;
-		}
-		else if (is_dir($file)) {
-			$file = findFile($fileName, $file);
-			if ($file != null) {
-				return $file;
-			}
-		}
-	}
-	return null;
-}
+require_once("baseImport.php");
 
-function __autoload($className) {
-	$file = findFile($className.'.php', 'class');
-	if ($file != null) {
-		$chunks = explode("/", $file);
-		include $file;
-	} else {
-		throw new Exception($className." not found");
-	}
+$resource = null;
+if (Url::getCurrentUrl()->hasQueryVar('id')) {
+	$id = intval(Url::getCurrentUrl()->getQueryVar('id'));
+	$resource = Resource::getResource($id);
+} else if (Url::getCurrentUrl()->hasQueryVar('key')) {
+	$resource = $_SESSION[Url::getCurrentUrl()->getQueryVar('key')];
+} else {
+	throw new Exception("Incomplete URL");
 }
-
-$id = intval(Url::getCurrentUrl()->getQueryVar('id'));
 $name = urldecode(Url::getCurrentUrl()->getQueryVar('name'));
 
-$resource = Resource::getResource($id);
+if (!$resource->exists()) {
+	$resource->generateTempFile();
+}
+
 $url = $resource->getURL()->toString();
 
 $finfo = finfo_open(FILEINFO_MIME);
@@ -64,5 +51,8 @@ header('Content-Length: ' . filesize($url));
 ob_clean();
 flush();
 readfile($url);
+if ($resource->hasTempFile()) {
+	$resource->deleteFile();
+}
 exit;
 ?>
