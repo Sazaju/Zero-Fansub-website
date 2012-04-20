@@ -14,7 +14,7 @@ class GalleryBonus extends ProjectBonus {
 				$description = $image->getDescription();
 				$ext = $image->getExtension();
 				$name = $id.'_'.preg_replace("#[^a-zA-Z0-9]+#", "_", $description).'.'.$ext;
-				$url = 'downloadImage.php?id='.$id.'&name='.$name;
+				$url = 'downloadImage.php?id='.$id.'&name='.urlencode($name);
 				$links .= '<a target="_blank" href="'.$url.'"><img src="'.$url.'" alt="['.$description.']" title="'.$description.'" /></a>';
 			}
 			return '<div class="bonusGallery">'.$links.'</div>';

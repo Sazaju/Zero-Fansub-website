@@ -26,7 +26,7 @@ function __autoload($className) {
 }
 
 $id = intval(Url::getCurrentUrl()->getQueryVar('id'));
-$name = Url::getCurrentUrl()->getQueryVar('name');
+$name = urldecode(Url::getCurrentUrl()->getQueryVar('name'));
 
 $image = Image::getImage($id);
 $url = $image->getURL()->toString();
