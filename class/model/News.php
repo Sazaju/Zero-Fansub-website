@@ -4035,6 +4035,25 @@ Au passage, Mitsudomoe 11 est dans les bacs. Mais tout le monde s'en fout de ça,
 			News::$allNews[] = $news;
 			
 			$news = new News();
+			$news->setTitle("Mitsudomoe 12 BD");
+			//$news->setTimestamp(strtotime("18 April 2012 19:49"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez on continue et on approche tout doucement de la fin de Mitsudomoe. On se focalise sur la plus normale des élèves, qui au final peut se montrer assez craquante, vous trouvez pas :
+
+[img=images/news/mitsudomoe12.png]Tehe ![/img]
+
+Et merci de nous suivre !
+(ça fait un moment qu'on l'a pas sortie celle-là {°.°}~)");
+			//$news->setCommentId(295);
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep12'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("Rerutement exotique !");
 			$news->setTimestamp(strtotime("8 April 2012 12:57"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
