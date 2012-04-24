@@ -259,7 +259,7 @@ class TeamMember {
 			$member->setPseudo("Litinae");
 			$member->setImage("litinae.jpg");
 			$member->addRole(Role::getRole("tradEn"));
-			$member->setHasGone(true);
+			$member->setHasGone(false);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(15);
@@ -695,6 +695,12 @@ class TeamMember {
 			$member->setImage("sunako.jpg");
 			$member->setPseudo("Sunako");
 			$member->addRole(Role::getRole("tradEn"));
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(81);
+			$member->setImage("yota.jpg");
+			$member->setPseudo("Yota");
+			$member->addRole(Role::getRole("time"));
 			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;

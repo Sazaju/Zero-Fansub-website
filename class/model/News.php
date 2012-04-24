@@ -3981,6 +3981,98 @@ Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exacte
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Mitsudomoe 9 BD");
+			$news->setTimestamp(strtotime("4 April 2012 19:41"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Ça se décoince petit à petit. On a eu quelques candidatures et ça allège un peu la charge de travail.
+
+Ajouté à ça, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.");
+			$news->setCommentId(292);
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep9'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Mitsudomoe 10 BD");
+			$news->setTimestamp(strtotime("8 April 2012 18:38"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez, c'est pas fini ! On enchaîne avec l'épisode 10 de Mitsudomoe !
+
+[img]images/news/mitsudomoe10.png[/img]");
+			$news->setCommentId(294);
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep10'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Mitsudomoe 11 BD");
+			$news->setTimestamp(strtotime("18 April 2012 19:49"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Bon, on va pas se faire 2 mini-news d'affilée quand même. Donc voilà un peu de texte : Lorem ipsum... Nan je déconne {^.^}~. Un petit mot tout de même : pour la news d'il y a dix jours, à propos de l'embauche d'un graphiste, pas un seul commentaire n'a été posté (et bien entendu aucune candidature), alors que la suivante s'est vue avoir plus d'intérêt {;_;}.
+
+Je rappelle qu'il n'y a [b][u]pas besoin[/u][/b] d'être super expérimenté, comme savoir faire des effets qui tuent ou autre. Je dirais même qu'à partir du moment où vous savez utiliser le pinceau, la gomme et le couper-coller dans paint (ou tout autre logiciel de traitement d'image), c'est suffisant ! On a juste besoin de quelqu'un qui aime faire ça parce qu'on a plein de petite tâches relatives au traitement d'image, et comme ça peut prendre une masse de temps assez importante, on cherche quelqu'un pour nous épauler. Si vous aimez jouer avec des images, c'est tout ce qu'on demande. C'est même tout ce que je demande, vu que c'est surtout moi qui en ai besoin {'^_^}. S'il y a besoin de faire la moindre chose avancée, je peux dire comment le faire.
+
+Au passage, Mitsudomoe 11 est dans les bacs. Mais tout le monde s'en fout de ça, pas vrai ? Ce qui est important c'est que je cherche quelqu'un qui veut faire graphiste ! \{>o<}/
+
+[img=images/news/mitsudomoe11.jpg]Qui veut maigrir ?[/img]");
+			$news->setCommentId(295);
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep11'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Mitsudomoe 12 BD");
+			//$news->setTimestamp(strtotime("18 April 2012 19:49"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez on continue et on approche tout doucement de la fin de Mitsudomoe. On se focalise sur la plus normale des élèves, qui au final peut se montrer assez craquante, vous trouvez pas :
+
+[img=images/news/mitsudomoe12.png]Tehe ![/img]
+
+Et merci de nous suivre !
+(ça fait un moment qu'on l'a pas sortie celle-là {°.°}~)");
+			//$news->setCommentId(295);
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep12'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Rerutement exotique !");
+			$news->setTimestamp(strtotime("8 April 2012 12:57"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("[imgr]images/news/kanamemo_p4.png[/imgr]On recrute ! Ouais mais vous me direz que ça fait un moment que vous êtes au courant. Mais le truc, c'est que toutes les candidatures qu'on reçoit (pour le peu qu'on a) sont pour des boulots tels que trad et timeurs... et c'est tout. Mais la Zéro, ce n'est pas qu'un blog de fansubbeurs : on maintient un site complet et on essaye de multiplier nos activités.
+
+Bref, tout ça pour vous dire qu'on recherche aussi [b]un graphiste[/b], qui pourra nous aider à faire les sorties en faisant les preview, les images d'entête et de news, mais aussi nous aider à faire les éditions, proposer de nouveaux styles pour le site, et même faire [i]cleaner[/i] pour nos scantrads. Car oui, je vous le rappelle, on a un projet [b]scantrad[/b] (Kanamemo) qui est commencé ! On recherche donc aussi des gens motivés pour participer à ce projet, car là on n'a plus personne {'^_^}.
+
+(je rappelle qu'il n'est pas nécessaire d'être super expérimenté)
+
+Ayez de l'imagination, ne vous dîtes pas d'emblée \"[i]Ah, le fansub ils font ça, mais moi je vois pas où je pourrais aider donc pas la peine de postuler.[/i]\". Si vous voulez aider mais ne savez pas comment, candidatez en disant ce que vous aimez faire, ce que vous savez faire et ce que vous souhaitez améliorer, on vous dira si ça peut servir. Peut-être que vous passez à côté d'une activité pas bien mise en avant mais super intéressante !
+
+Si vous vous sentez prêt à participer à l'aventure : cliquez sur le lien [i]Recrutement[/i] dans le menu de gauche !");
+			$news->setCommentId(293);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
 		}
 		
 		return News::$allNews;

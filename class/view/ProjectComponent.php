@@ -37,7 +37,7 @@ class ProjectComponent extends SimpleBlockComponent {
 		if ($project->getComment() !== null) {
 			$this->addComponent("<p></p>");
 			$this->addComponent(new Title("Commentaire", 2));
-			$this->addComponent($project->getComment());
+			$this->addComponent(Format::convertTextToHtml($project->getComment()));
 		}
 		
 		$this->addComponent("<p></p>");
