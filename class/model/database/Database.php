@@ -96,7 +96,17 @@ class Database {
 	}
 	
 	private function initMissingTable($table) {
-		$this->connection->exec('CREATE TABLE IF NOT EXISTS "'.$table->getName().'" (
+		$this->connection->exec('CREATE TABLE IF NOT EXISTS "working_'.$table->getName().'" (
+			class     VARCHAR(128) NOT NULL,
+			key       INTEGER NOT NULL,
+			field     VARCHAR(128) NOT NULL,
+			timestamp INTEGER NOT NULL,
+			value     '.$table->getColumnType().',
+			author    VARCHAR(128) NOT NULL,
+			
+			PRIMARY KEY (class, field, key, timestamp)
+		)');
+		$this->connection->exec('CREATE TABLE IF NOT EXISTS "archive_'.$table->getName().'" (
 			class     VARCHAR(128) NOT NULL,
 			key       INTEGER NOT NULL,
 			field     VARCHAR(128) NOT NULL,
@@ -166,7 +176,8 @@ class Database {
 		$statement = $this->connection->query('SELECT DISTINCT type FROM "structure"');
 		$tables = array("property", "structure", "user");
 		foreach($statement->fetchAll(PDO::FETCH_COLUMN) as $table) {
-			$tables[] = $table;
+			$tables[] = "working_".$table;
+			$tables[] = "archive_".$table;
 		}
 		return $tables;
 	}
@@ -215,10 +226,10 @@ class Database {
 					             'start' => $time,
 					             'patch' => $patch);
 					
-					$select = $this->connection->prepare('SELECT DISTINCT key FROM "'.$table.'" WHERE class = ? ORDER BY timestamp DESC');
+					$select = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$table.'" WHERE class = ?');
 					$select->execute(array($class));
 					$array = $select->fetchAll(PDO::FETCH_COLUMN);
-					$update = $this->connection->prepare('INSERT INTO "'.$table.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+					$insert = $this->connection->prepare('INSERT INTO "working_'.$table.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
 					foreach($array as $key) {
 						$value = null;
 						if ($patch !== null) {
@@ -226,7 +237,7 @@ class Database {
 						} else {
 							// no patch, do not change the data
 						}
-						$update->execute(array($class, $key, $fieldName, $time, $value, $authorId));
+						$insert->execute(array($class, $key, $fieldName, $time, $value, $authorId));
 					}
 				} else if ($descriptor->isDeletedField()) {
 					// nothing to add or change, just remove the field from the structure (done in the following)
@@ -240,10 +251,10 @@ class Database {
 					unset($row['stop']);
 					$row['start'] = $time;
 					$row['type'] = $descriptor->getNewValue();
-					$select = $this->connection->prepare('SELECT key, value FROM "'.$descriptor->getOldValue().'" WHERE class = ? AND field = ? ORDER BY timestamp DESC');
+					$select = $this->connection->prepare('SELECT key, value FROM "working_'.$descriptor->getOldValue().'" WHERE class = ? AND field = ?');
 					$select->execute(array($class, $fieldName));
 					$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
-					$update = $this->connection->prepare('INSERT INTO "'.$descriptor->getNewValue().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+					$update = $this->connection->prepare('INSERT INTO "working_'.$descriptor->getNewValue().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
 					foreach($array as $key => $values) {
 						$value = $values[0];
 						if ($patch !== null) {
@@ -359,7 +370,7 @@ class Database {
 				$translator = $field->getTranslator();
 				$table = $translator->getPersistentTable($field)->getName();
 				if (in_array($table, $tables)) {
-					$sql = 'SELECT key FROM "'.$table.'" WHERE class = ? AND field = ? AND value = ?';
+					$sql = 'SELECT key FROM "working_'.$table.'" WHERE class = ? AND field = ? AND value = ?';
 					$data = array($class, $name, $translator->getPersistentValue($field->get()));
 					if ($key !== null) {
 						$sql .= ' AND key != ?';
@@ -418,7 +429,14 @@ class Database {
 				if ($field->hasChanged()) {
 					$translator = $field->getTranslator();
 					$table = $translator->getPersistentTable($field);
-					$statement = $this->connection->prepare('INSERT INTO "'.$table->getName().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+					// archive the saved value
+					$statement = $this->connection->prepare('INSERT INTO "archive_'.$table->getName().'" (class, key, field, timestamp, value, author) SELECT class, key, field, timestamp, value, author FROM "working_'.$table->getName().'" WHERE class = ? AND key = ? AND field = ?');
+					$statement->execute(array($class, $key, $name));
+					$statement = $this->connection->prepare('DELETE FROM "working_'.$table->getName().'" WHERE class = ? AND key = ? AND field = ?');
+					$statement->execute(array($class, $key, $name));
+					
+					// save the new value
+					$statement = $this->connection->prepare('INSERT INTO "working_'.$table->getName().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
 					$statement->execute(array($class, $key, $name, $time, $translator->getPersistentValue($field->get()), $authorId));
 				}
 			}
@@ -439,7 +457,7 @@ class Database {
 		foreach($component->getPersistentFields() as $name => $field) {
 			$translator = $field->getTranslator();
 			$table = $translator->getPersistentTable($field);
-			$statement = $this->connection->prepare('SELECT value FROM "'.$table->getName().'" WHERE key = ? AND field = ? ORDER BY timestamp DESC');
+			$statement = $this->connection->prepare('SELECT value FROM "working_'.$table->getName().'" WHERE key = ? AND field = ?');
 			$statement->execute(array($key, $name));
 			$value = $statement->fetchColumn();
 			$translator->setPersistentValue($field, $value);
@@ -455,7 +473,7 @@ class Database {
 		$field = $component->getPersistentField($name);
 		$translator = $field->getTranslator();
 		$table = $translator->getPersistentTable($field);
-		$statement = $this->connection->prepare('SELECT key FROM "'.$table->getName().'" WHERE class = ? AND field = ? AND value = ? ORDER BY timestamp DESC');
+		$statement = $this->connection->prepare('SELECT key FROM "working_'.$table->getName().'" WHERE class = ? AND field = ? AND value = ?');
 		$statement->execute(array($class, $name, $key));
 		$internalKey = $statement->fetchColumn();
 		$component->setInternalKey($internalKey);
@@ -470,7 +488,7 @@ class Database {
 		$statement->execute(array($class));
 		$table = $statement->fetchColumn();
 		
-		$statement = $this->connection->prepare('SELECT DISTINCT key FROM "'.$table.'" WHERE class = ?');
+		$statement = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$table.'" WHERE class = ?');
 		$statement->execute(array($class));
 		$keys = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
 		
