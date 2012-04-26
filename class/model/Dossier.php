@@ -8,85 +8,66 @@ class Dossier extends PersistentComponent {
 	private $author = null;
 	private $timestamp = null;
 	private $content = null;
-	// TODO manage structure updates with patches
-	private $content2 = null;
 	private $commentID = null;
 	
-	public function __construct() {
-		$this->id = PersistentField::stringField(50)->key()->lock();
-		$this->title = PersistentField::stringField(500)->lock();
-		// TODO make TeamMember as a PersistentComponent
-		$this->author = PersistentField::objectField('TeamMember')->translateWith(new DossierTeamMemberPersistentFieldTranslator())->lock();
-		$this->commentID = PersistentField::integerField()->lock();
-		$this->timestamp = PersistentField::integerField()->lock();
-		$this->content = PersistentField::stringField()->lock();
-		//$this->content2 = PersistentField::stringField()->lock();
-	}
-	
 	public function setID($id) {
-		$this->id->set($id);
+		$this->id = $id;
 	}
 	
 	public function getID() {
-		return $this->id->get();
+		return $this->id;
 	}
 	
 	public function setCommentID($id) {
-		$this->commentID->set($id);
+		$this->commentID = $id;
 	}
 	
 	public function getCommentID() {
-		return $this->commentID->get();
+		return $this->commentID;
 	}
 	
 	public function setContent($content) {
-		$this->content->set($content);
+		$this->content = $content;
 	}
 	
 	public function getContent() {
-		return $this->content->get();
+		return $this->content;
 	}
 	
 	public function setTimestamp($timestamp) {
-		$this->timestamp->set($timestamp);
+		$this->timestamp = $timestamp;
 	}
 	
 	public function getTimestamp() {
-		return $this->timestamp->get();
+		return $this->timestamp;
 	}
 	
 	public function setAuthor($author) {
-		$this->author->set($author);
+		$this->author = $author;
 	}
 	
 	public function getAuthor() {
-		return $this->author->get();
+		return $this->author;
 	}
 	
 	public function setTitle($title) {
-		$this->title->set($title);
+		$this->title = $title;
 	}
 	
 	public function getTitle() {
-		return $this->title->get();
+		return $this->title;
 	}
 	
 	private static $allDossiers = null;
 	public static function getAllDossiers() {
 		if (Dossier::$allDossiers === null) {
-			if (Database::getDefaultDatabase()->isKnownStructure(new Dossier())) {
-				if (Database::getDefaultDatabase()->isUpdatedStructure(new Dossier())) {
-					Database::getDefaultDatabase()->updateStructure(Database::getDefaultDatabase()->getStructureDiff(new Dossier()), 'admin');
-				}
-				Dossier::$allDossiers = Database::getDefaultDatabase()->loadAll(get_class(new Dossier()));
-			} else {
-				$dossier = new Dossier();
-				$dossier->setID('genshiken9');
-				$dossier->setTitle("Genshiken - Sortie du tome 9");
-				$dossier->setTimestamp(strtotime('11 June 2009'));
-				$dossier->setAuthor(TeamMember::getMemberByPseudo("Sunao"));
-				$dossier->setCommentID(97);
-				$dossier->setContent("[b]Bien le bonsoir la populace.[/b]
+			$dossier = new Dossier();
+			$dossier->setID('genshiken9');
+			$dossier->setTitle("Genshiken - Sortie du tome 9");
+			$dossier->setTimestamp(strtotime('11 June 2009'));
+			$dossier->setAuthor(TeamMember::getMemberByPseudo("Sunao"));
+			$dossier->setCommentID(97);
+			$dossier->setContent("[b]Bien le bonsoir la populace.[/b]
 
 
 Afin de bien démarrer, il faut partir d'un postulat: j'en branle pas une.
@@ -97,7 +78,7 @@ Let's rock, baby.
 
 
 Comme vous vous en êtes sûrement déjà aperçu: il y a des jours qui comptent plus que d'autres: la sortie d'un nouveau Metal Gear, un concert de Dropkick Murphy's ou bien un diner aux chandelles avec Monica Belluci... Bref c'est évident et je le redis: il y a des jours qui comptent plus que d'autres.
-	
+
 Entre autres, il y a le 11 juin 2009.
 Wesh wesh mon frère, c'est quoi le 11 juin 2009 ? 
 Pour certains c'est la perspective d'un examen, pour d'autres c'est la Saint Barnabé (yosh béber), mais pour tout le monde c'est la sortie du neuvième et dernier tome de GENSHIKEN. ( [url]http://www.kurokawa.fr/humour/fiche/1127/genshiken-t9[/url] )
@@ -205,7 +186,7 @@ Bien qu'il ne soit pas le président du Genshiken, il se conduit toujours comme t
 
 C'est le dessinateur initial du groupe. Introverti du fait de son bégaiement, c'est en quelque sorte l'âme damnée de Madarame.
 
- [u]- Tanaka Soïchiro.[/u]
+[u]- Tanaka Soïchiro.[/u]
 
 Docteur es cosplay et montage de figurines mecchas, Tanaka reste cependant le cas le moins désespéré du groupe. Certes il est obsédé par le cosplay, mais sait garder les pieds sur terre.
 
@@ -348,15 +329,15 @@ Et bah voilà c'est fini.
 Je vous dis à plus tard sur le prochain épisode de Genshiken, et je laisse à Mr. Kio Shimoku le mot final:
 
 [url=http://forum.zerofansub.net/image/20/8/9/d/image-tome-3-ordi-ec2b12.jpg.htm][img]http://img20.xooimage.com/files/1/4/3/image-tome-3-ordi-ec2b13.jpg[/img][/url]");
-				Dossier::$allDossiers[] = $dossier;
-				
-				$dossier = new Dossier();
-				$dossier->setID('epitanime2009');
-				$dossier->setTitle("[IRL] Epitanime 2009");
-				$dossier->setTimestamp(strtotime('06 June 2009'));
-				$dossier->setAuthor(TeamMember::getMemberByPseudo("db0"));
-				$dossier->setCommentID(79);
-				$dossier->setContent("C'était du 29 au 31 mai, et c'était un très grand evenement. Bien malheureux sont ceux qui l'ont ratés ! Et qui, surtout, on raté db-chan ! Oui, il faut le dire, le plus important à Epitanime, c'était elle :P Il fallait être là, car j'avais prévu pour tout les membres de la team Zéro mais aussi toutes les personnes qui viennent régulierement chez Zéro une petite surprise.
+			Dossier::$allDossiers[] = $dossier;
+			
+			$dossier = new Dossier();
+			$dossier->setID('epitanime2009');
+			$dossier->setTitle("[IRL] Epitanime 2009");
+			$dossier->setTimestamp(strtotime('06 June 2009'));
+			$dossier->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$dossier->setCommentID(79);
+			$dossier->setContent("C'était du 29 au 31 mai, et c'était un très grand evenement. Bien malheureux sont ceux qui l'ont ratés ! Et qui, surtout, on raté db-chan ! Oui, il faut le dire, le plus important à Epitanime, c'était elle :P Il fallait être là, car j'avais prévu pour tout les membres de la team Zéro mais aussi toutes les personnes qui viennent régulierement chez Zéro une petite surprise.
 Ce week-end, j'ai donc croisé Sazaju (notre traducteur), Ryocu, Guguganmo et des tas de copains-cosplayeurs dont je ne vous citerait pas le nom puisque vous ne les connaîtrez sûrement pas.
 
 J'ai participé au concours cosplay le samedi 30 mai à 12 heure. À vous de deviner quel personnage j'incarnait :
@@ -418,17 +399,7 @@ De cette convention j'ai rammené quand même des petits souvenirs, 4 figurines de
 [img]images/news/cosplay05.jpg[/img]
 
 C'était Epitanime ! J'espére que ça vous a plu ! À bientôt pour Japan Expo, et une autre surprise spécial Zéro-Kanaii.");
-				Dossier::$allDossiers[] = $dossier;
-				
-				$db = Database::getDefaultDatabase();
-				$db->updateStructure($db->getStructureDiff($dossier), 'admin');
-				foreach(Dossier::$allDossiers as $dossier) {
-					// TODO add TeamMember to database
-					// TODO add members to database users
-					// TODO use dossier's author as save's author
-					$dossier->save('anonymous');
-				}
-			}
+			Dossier::$allDossiers[] = $dossier;
 		}
 		
 		return Dossier::$allDossiers;
