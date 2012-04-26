@@ -177,6 +177,8 @@ if (TEST_MODE_ACTIVATED) {
 	$features->addComponent($link);
 	
 	$features->addComponent('<br/>');
+	$features->addComponent(substr(exec('git branch --merged'), 2));
+	$features->addComponent(' - ');
 	$features->addComponent(exec('git log -1 --pretty=format:"%h - %s"'));
 	
 	define('TESTING_FEATURE', $features->getCurrentHTML());
