@@ -159,6 +159,17 @@ if (TEST_MODE_ACTIVATED) {
 	$features->addComponent($link);
 	
 	$features->addComponent('<br/>');
+	
+	$branches = array();
+	exec('git branch', $branches);
+	foreach($branches as $branch) {
+		if (preg_match("#^\* .*$#", $branch)) {
+			$features->addComponent(substr($branch, 2));
+			break;
+		}
+	}
+	
+	$features->addComponent(' - ');
 	$features->addComponent(exec('git log -1 --pretty=format:"%h - %s"'));
 	
 	define('TESTING_FEATURE', $features->getCurrentHTML());
