@@ -1,32 +1,119 @@
 <?php
 class PersistentComponent {
-	private $persistentUniqueKey = null;
+	private $internalKey = null;
+	private $componentKeyFields = array();
+	private $registeredFields = array();
+	private $persistentDefinitionLock = false;
+	private $lock = false;
 	
 	public function setInternalKey($key) {
-		$this->persistentUniqueKey = $key;
+		$this->internalKey = $key;
 	}
 	
 	public function getInternalKey() {
-		return $this->persistentUniqueKey;
+		return $this->internalKey;
+	}
+	
+	public function setKeyFields() {
+		$this->stressLock();
+		
+		$fields = array();
+		foreach(func_get_args() as $index => $field) {
+			if (in_array($field, $this->getPersistentFields(), true)) {
+				if (in_array($field, $fields)) {
+					throw new Exception("You cannot put the same field (".$name.") twice in the key");
+				} else {
+					$name = array_search($field, $this->getPersistentFields(), true);
+					$fields[$name] = $field;
+				}
+			} else {
+				throw new Exception($field." at the index ".$index." is not a registered field");
+			}
+		}
+		$this->componentKeyFields = $fields;
+	}
+	
+	public function getKeyFields() {
+		return $this->componentKeyFields;
 	}
 	
 	public function getClass() {
 		return get_class($this);
 	}
 	
-	public function getPersistentFields() {
-		$reflector = new ReflectionClass($this);
-		$properties = $reflector->getProperties();
+	// function with variable list of arguments
+	protected function registerPersistentFields() {
+		$this->stressLock();
 		
-		$fields = array();
-		foreach($properties as $property) {
-			$property->setAccessible(true);
-			$value = $property->getValue($this);
-			if ($value instanceof PersistentField) {
-				$fields[$property->getName()] = $value;
+		$fields = func_get_args();
+		if (count($fields) > 0) {
+			// check only persistent fields given
+			foreach($fields as $field) {
+				if ($field instanceof PersistentField) {
+					// continue
+				} else {
+					throw new Exception($field." is not a persistent field");
+				}
+			}
+			
+			// find properties which are persistent fields
+			$reflector = new ReflectionClass($this);
+			$properties = $reflector->getProperties();
+			$candidates = array();
+			foreach($properties as $property) {
+				$property->setAccessible(true);
+				$value = $property->getValue($this);
+				if ($value instanceof PersistentField) {
+					$candidates[$property->getName()] = $value;
+				}
+			}
+			
+			// check and add fields
+			foreach($fields as $field) {
+				if (in_array($field, $candidates, true)) {
+					$name = array_search($field, $candidates, true);
+					if (in_array($field, $this->registeredFields, true)) {
+						$key = array_search($field, $this->registeredFields, true);
+						if ($key == $name) {
+							// already registered field, ignore
+						} else {
+							throw new Exception($field." is already registered for ".$key.", you should not register it for ".$name);
+						}
+					} else {
+						if (isset($this->registeredFields[$name])) {
+							throw new Exception($name." is already registered with another field");
+						} else {
+							$this->registeredFields[$name] = $field;
+						}
+					}
+				} else {
+					throw new Exception($field." is not assigned to a property of the persistent component");
+				}
 			}
 		}
-		return $fields;
+	}
+	
+	public function lockPersistentDefinition() {
+		$this->persistentDefinitionLock = true;
+		foreach($this->registeredFields as $name => $field) {
+			$field->lock();
+		}
+	}
+	
+	public function isPersistentDefinitionLocked() {
+		return $this->persistentDefinitionLock;
+	}
+	
+	private function stressLock() {
+		if ($this->lock) {
+			throw new Exception("This component is locked.");
+		} else {
+			// all green
+		}
+	}
+	
+	public function getPersistentFields() {
+		return $this->registeredFields;
 	}
 	
 	public function getPersistentField($name) {

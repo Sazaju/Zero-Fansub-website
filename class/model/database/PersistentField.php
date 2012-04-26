@@ -2,11 +2,9 @@
 class PersistentField {
 	private $type = null;
 	private $length = null;
-	private $unicity = false;
 	private $mandatory = false;
 	private $translator = null;
 	private $lock = false;
-	private $key = false;
 	private $value = null;
 	private $savedValue = null;
 	
@@ -92,16 +90,6 @@ class PersistentField {
 		return new PersistentField($class);
 	}
 	
-	public function unique() {
-		$this->stressLock();
-		$this->unicity = true;
-		return $this;
-	}
-	
-	public function isUnique() {
-		return $this->unicity;
-	}
-	
 	public function mandatory() {
 		$this->stressLock();
 		$this->mandatory = true;
@@ -110,16 +98,6 @@ class PersistentField {
 	
 	public function isMandatory() {
 		return $this->mandatory;
-	}
-	
-	public function key() {
-		$this->unique()->mandatory();
-		$this->key = true;
-		return $this;
-	}
-	
-	public function isKey() {
-		return $this->key;
 	}
 	
 	public function lock() {
@@ -171,6 +149,10 @@ class PersistentField {
 	
 	public function getTranslator() {
 		return $this->translator;
+	}
+	
+	public function __toString() {
+		return $this->type.'['.$this->value.']';
 	}
 }
 ?> 
