@@ -9,9 +9,10 @@
 */
 
 class Database {
+	/********************************************\
+	                    STATIC
+	\********************************************/
 	private static $defaultDatabase = null;
-	private $connection = null;
-	private $persistentFields = array();
 	
 	public static function getDefaultDatabase() {
 		if (Database::$defaultDatabase === null) {
@@ -19,6 +20,11 @@ class Database {
 		}
 		return Database::$defaultDatabase;
 	}
+	
+	/********************************************\
+	            CONSTRUCTOR & DB INIT
+	\********************************************/
+	private $connection = null;
 	
 	public function __construct() {
 		if (DB_TYPE === 'sqlite') {
@@ -133,17 +139,12 @@ class Database {
 		)');
 	}
 	
+	/********************************************\
+	                     USERS
+	\********************************************/
 	public function addUser($id, $password) {
 		$statement = $this->connection->prepare('INSERT INTO "user" (id, passhash) VALUES (?, ?)');
 		$statement->execute(array($id, $this->generateSaltedHash($password, $this->createRandomSalt())));
-	}
-	
-	private function createRandomSalt() {
-		$salt = '';
-		for($i = 0 ; $i < 2 ; $i ++) {
-			$salt .= chr(rand(32, 126));
-		}
-		return $salt;
 	}
 	
 	public function updateUserPassword($id, $newPassword) {
@@ -151,10 +152,9 @@ class Database {
 		$statement->execute(array($this->generateSaltedHash($newPassword, $this->createRandomSalt()), $id));
 	}
 	
-	private function generateSaltedHash($password, $salt) {
-		return $salt.md5($salt.$password);
-	}
-	
+	/********************************************\
+	                     USERS
+	\********************************************/
 	public function isValidUserPassword($id, $password) {
 		$statement = $this->connection->prepare('SELECT passhash FROM "user" WHERE id = ?');
 		$statement->execute(array($id));
@@ -170,33 +170,38 @@ class Database {
 		return $counter > 0;
 	}
 	
-	public function getNewKey() {
-		$key = $this->connection->query('SELECT value FROM "property" WHERE name = "lastKey"')->fetchColumn();
-		$key++;
-		$this->connection->exec('UPDATE "property" SET value = "'.$key.'" WHERE name = "lastKey"');
-		return $key;
+	/********************************************\
+	                   TABLES
+	\********************************************/
+	private function getTableNames() {
+		$tables = $this->getDataTableNames();
+		$tables[] = "property";
+		$tables[] = "structure";
+		$tables[] = "structure_key";
+		$tables[] = "user";
+		return $tables;
 	}
 	
-	public function getConnection() {
-		return $this->connection;
-	}
-	
-	public function clear() {
-		foreach($this->getTableNames() as $name) {
-			$this->connection->exec('DROP TABLE "'.$name.'"');
-		}
-	}
-	
-	public function getTableNames() {
-		$statement = $this->connection->query('SELECT DISTINCT type FROM "structure"');
-		$tables = array("property", "structure", "user");
-		foreach($statement->fetchAll(PDO::FETCH_COLUMN) as $table) {
+	private function getDataTableNames() {
+		$tables = array();
+		foreach($this->getExistingDataTypes() as $table) {
 			$tables[] = "working_".$table;
 			$tables[] = "archive_".$table;
 		}
 		return $tables;
 	}
 	
+	private function getTablesForClass($class) {
+		$tables = array();
+		foreach($this->getPropertiesForClass($class) as $field => $array) {
+			$tables[$field] = $array['type'];
+		}
+		return $tables;
+	}
+	
+	/********************************************\
+	                  STRUCTURE
+	\********************************************/
 	public function updateStructure(StructureDiff $diff, $authorId) {
 		if (!$this->isRegisteredUser($authorId)) {
 			throw new Exception("There is no user ".$authorId);
@@ -329,28 +334,20 @@ class Database {
 		}
 	}
 	
-	private function applyPatch($patch, $oldValue) {
-		// TODO apply patch
-		throw new Exception('Not implemented yet');
-	}
-	
-	private function getTablesForClass($class) {
-		$tables = array();
-		foreach($this->getPropertiesForClass($class) as $field => $array) {
-			$tables[$field] = $array['type'];
-		}
-		return $tables;
-	}
-	
-	private function getPropertiesForClass($class) {
-		$statement = $this->connection->query('SELECT field, type, mandatory, translator, start, patch FROM "structure" WHERE class = "'.$class.'" AND stop IS NULL');
+	private function getPropertiesForClass($class, $exceptionIfUnknown = true) {
+		$statement = $this->connection->prepare('SELECT field, type, mandatory, translator, start, patch FROM "structure" WHERE class = ? AND stop IS NULL');
+		$statement->execute(array($class));
 		$properties = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
-		foreach($properties as $field => $array) {
-			$array = $array[0];
-			settype($array['mandatory'], 'boolean');
-			$properties[$field] = $array;
+		if ($exceptionIfUnknown && empty($properties)) {
+			throw new Exception("No known structure for $class");
+		} else {
+			foreach($properties as $field => $array) {
+				$array = $array[0];
+				settype($array['mandatory'], 'boolean');
+				$properties[$field] = $array;
+			}
+			return $properties;
 		}
-		return $properties;
 	}
 	
 	private function getKeyPropertiesForClass($class) {
@@ -365,7 +362,7 @@ class Database {
 	
 	public function getStructureDiff(PersistentComponent $component) {
 		$class = $component->getClass();
-		$properties = $this->getPropertiesForClass($class);
+		$properties = $this->getPropertiesForClass($class, false);
 		$diff = new StructureDiff();
 		foreach($component->getPersistentFields() as $name => $field) {
 			if (!array_key_exists($name, $properties)) {
@@ -395,110 +392,126 @@ class Database {
 		return $diff;
 	}
 	
-	public function isKnownStructure(PersistentComponent $component) {
-		$class = $component->getClass();
+	public function isKnownStructure($class) {
 		$counter = $this->connection->query('SELECT count(field) FROM "structure" WHERE class = "'.$class.'"')->fetchColumn();
 		return $counter > 0;
 	}
 	
 	private function checkStructureIsWellKnown(PersistentComponent $component) {
-		if (!$this->isKnownStructure($component)) {
+		if (!$this->isKnownStructure($component->getClass())) {
 			throw new Exception("Not known structure: ".$component->getClass());
 		} else if ($this->isUpdatedStructure($component)) {
 			throw new Exception("Not same structure for ".$component->getClass().": ".$this->getStructureDiff($component));
 		}
 	}
 	
-	private function getPersistentTableNames() {
+	/********************************************\
+	                  DATA TYPES
+	\********************************************/
+	private function getExistingDataTypes() {
 		$statement = $this->connection->query('SELECT DISTINCT type FROM "structure"');
 		$tables = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
 		return $tables;
 	}
 	
-	public function isMandatoryConsistent(PersistentComponent $component) {
-		$class = $component->getClass();
-		$key = $component->getInternalKey();
-		foreach($component->getPersistentFields() as $name => $field) {
-			if ($field->isMandatory()) {
-				if ($field->get() === null) {
-					return false;
-				} else {
-					// not null value, continue
-				}
+	/********************************************\
+	                    SAVE
+	\********************************************/
+	private function getSavedFieldsFor($key) {
+		$data = array();
+		$data[$key] = array();
+		foreach($this->getExistingDataTypes() as $type) {
+			$statement = $this->connection->prepare('SELECT field, value FROM "working_'.$type.'" WHERE key = ?');
+			$statement->execute(array($key));
+			foreach($statement->fetchAll(PDO::FETCH_GROUP|PDO::FETCH_COLUMN) as $name => $array) {
+				$data[$key][$name] = $array[0];
 			}
 		}
-		return true;
+		return $data;
 	}
 	
 	public function save(PersistentComponent $component, $authorId) {
-		$this->checkStructureIsWellKnown($component);
-		if (!$this->isMandatoryConsistent($component)) {
-			throw new Exception("There is not specified mandatory fields for ".$component);
-		} else if (!$this->isRegisteredUser($authorId)) {
+		if (!$this->isRegisteredUser($authorId)) {
 			throw new Exception("There is no user ".$authorId);
 		} else {
+			$class = $component->getClass();
+			$properties = $this->getPropertiesForClass($class);;
+			
 			$key = $component->getInternalKey();
-			if (empty($key)) {
+			$isNew = empty($key);
+			$savedValues = null;
+			if ($isNew) {
 				$key = $this->getNewKey();
 				$component->setInternalKey($key);
+			} else {
+				$savedValues = $this->getSavedFieldsFor($key);
+				$savedValues = $savedValues[$key];
 			}
 			
-			$class = $component->getClass();
 			$time = time();
+			$currentFields = $component->getPersistentFields();
 			$this->connection->beginTransaction();
-			foreach($component->getPersistentFields() as $name => $field) {
-				if ($field->hasChanged()) {
+			foreach($currentFields as $name => $field) {
+				if (!$isNew && !array_key_exists($name, $properties)) {
+					throw new Exception("No field $name for the component $class with the key $key");
+				} else if ($properties[$name]['mandatory'] && $field->get() === null) {
+					throw new Exception("The mandatory field $name is not specified for the component $class with the key $key");
+				} else {
 					$translator = $field->getTranslator();
-					$table = $translator->getPersistentTable($field);
-					// archive the saved value
-					$statement = $this->connection->prepare('INSERT INTO "archive_'.$table->getName().'" (class, key, field, timestamp, value, author) SELECT class, key, field, timestamp, value, author FROM "working_'.$table->getName().'" WHERE class = ? AND key = ? AND field = ?');
-					$statement->execute(array($class, $key, $name));
-					$statement = $this->connection->prepare('DELETE FROM "working_'.$table->getName().'" WHERE class = ? AND key = ? AND field = ?');
-					$statement->execute(array($class, $key, $name));
-					
-					// save the new value
-					$statement = $this->connection->prepare('INSERT INTO "working_'.$table->getName().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
-					$statement->execute(array($class, $key, $name, $time, $translator->getPersistentValue($field->get()), $authorId));
+					$value = $translator->getPersistentValue($field->get());
+					if ($isNew || $savedValues[$name] !== $value) {
+						$table = $translator->getPersistentTable($field);
+						
+						if (!$isNew) {
+							// save old value in archive
+							$statement = $this->connection->prepare('INSERT INTO "archive_'.$table->getName().'" (class, key, field, timestamp, value, author) SELECT class, key, field, timestamp, value, author FROM "working_'.$table->getName().'" WHERE key = ? AND field = ?');
+							$statement->execute(array($key, $name));
+							
+							// clean working table
+							$statement = $this->connection->prepare('DELETE FROM "working_'.$table->getName().'" WHERE key = ? AND field = ?');
+							$statement->execute(array($key, $name));
+							
+						}
+						
+						// save new value in working table
+						$statement = $this->connection->prepare('INSERT INTO "working_'.$table->getName().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+						$statement->execute(array($class, $key, $name, $time, $value, $authorId));
+						
+						unset($properties[$name]);
+					}
 				}
 			}
-			$this->connection->commit();
-			foreach($component->getPersistentFields() as $name => $field) {
-				$field->setAsSaved();
+			if (!empty($properties)) {
+				throw new Exception("Saved field(s) not seen for the component $class with the key $key: ".implode(", ", array_keys($properties)));
 			}
+			$this->connection->commit();
 		}
 	}
 	
+	/********************************************\
+	                    LOAD
+	\********************************************/
 	public function load(PersistentComponent $component) {
 		$this->checkStructureIsWellKnown($component);
+		$class = $component->getClass();
 		
 		$key = $component->getInternalKey();
 		if (empty($key)) {
 			throw new Exception("No key has been assigned to the component ".get_class($component));
 		}
+		$savedValues = $this->getSavedFieldsFor($key);
 		foreach($component->getPersistentFields() as $name => $field) {
-			$translator = $field->getTranslator();
-			$table = $translator->getPersistentTable($field);
-			$statement = $this->connection->prepare('SELECT value FROM "working_'.$table->getName().'" WHERE key = ? AND field = ?');
-			$statement->execute(array($key, $name));
-			$value = $statement->fetchColumn();
-			$translator->setPersistentValue($field, $value);
-			$field->setAsSaved();
+			if (!array_key_exists($name, $savedValues[$key])) {
+				throw new Exception("No field $name for the component $class with the key $key");
+			} else {
+				$translator = $field->getTranslator();
+				$translator->setPersistentValue($field, $savedValues[$key][$name]);
+				unset($savedValues[$key][$name]);
+			}
 		}
-	}
-	
-	public function loadFromKey(PersistentComponent $component, $key) {
-		$this->checkStructureIsWellKnown($component);
-		
-		$class = $component->getClass();
-		$name = $component->getKeyName();
-		$field = $component->getPersistentField($name);
-		$translator = $field->getTranslator();
-		$table = $translator->getPersistentTable($field);
-		$statement = $this->connection->prepare('SELECT key FROM "working_'.$table->getName().'" WHERE class = ? AND field = ? AND value = ?');
-		$statement->execute(array($class, $name, $key));
-		$internalKey = $statement->fetchColumn();
-		$component->setInternalKey($internalKey);
-		$this->load($component);
+		if (!empty($savedValues[$key])) {
+			throw new Exception("Saved field(s) not used for the component $class with the key $key: ".implode(", ", array_keys($savedValues[$key])));
+		}
 	}
 	
 	public function loadAll($class) {
@@ -523,37 +536,37 @@ class Database {
 		return $loaded;
 	}
 	
-	public function addPersistentField(PersistentField $descriptor) {
-		$class = $descriptor->getClass();
-		if (!array_key_exists($class, $this->persistentFields)) {
-			$this->persistentFields[$class] = array();
+	/********************************************\
+	                 MISCELLANEOUS
+	\********************************************/
+	private function createRandomSalt() {
+		$salt = '';
+		for($i = 0 ; $i < 2 ; $i ++) {
+			$salt .= chr(rand(32, 126));
 		}
-		
-		$field = $descriptor->getName();
-		if (!array_key_exists($field, $this->persistentFields[$class])) {
-			$this->persistentFields[$class][$field] = $descriptor;
-			$descriptor->lock();
-		} else {
-			throw new Exception("The descriptor ($class, $field) already exists.");
+		return $salt;
+	}
+	
+	private function generateSaltedHash($password, $salt) {
+		return $salt.md5($salt.$password);
+	}
+	
+	public function getNewKey() {
+		$key = $this->connection->query('SELECT value FROM "property" WHERE name = "lastKey"')->fetchColumn();
+		$key++;
+		$this->connection->exec('UPDATE "property" SET value = "'.$key.'" WHERE name = "lastKey"');
+		return $key;
+	}
+	
+	public function clear() {
+		foreach($this->getTableNames() as $name) {
+			$this->connection->exec('DROP TABLE "'.$name.'"');
 		}
 	}
 	
-	public function getPersistentField($class, $field) {
-		return $this->persistentFields[$class][$field];
-	}
-	
-	public function getPersistentFields($class) {
-		return $this->persistentFields[$class];
-	}
-	
-	public function getAllPersistentFields() {
-		$list = array();
-		foreach($this->persistentFields as $class => $sublist) {
-			foreach($sublist as $field => $descriptor) {
-				$list[] = $descriptor;
-			}
-		}
-		return $list;
+	private function applyPatch($patch, $oldValue) {
+		// TODO apply patch
+		throw new Exception('Not implemented yet');
 	}
 }
 ?>

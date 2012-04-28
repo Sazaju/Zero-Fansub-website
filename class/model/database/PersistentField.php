@@ -6,7 +6,6 @@ class PersistentField {
 	private $translator = null;
 	private $lock = false;
 	private $value = null;
-	private $savedValue = null;
 	
 	private function __construct($type, $length = null) {
 		$this->translator = new DefaultPersistentFieldTranslator();
@@ -127,18 +126,6 @@ class PersistentField {
 	
 	public function get() {
 		return $this->value;
-	}
-	
-	public function setAsSaved() {
-		$this->savedValue = $this->value;
-	}
-	
-	public function getSavedValue() {
-		return $this->savedValue;
-	}
-	
-	public function hasChanged() {
-		return $this->translator->getPersistentValue($this->savedValue) !== $this->translator->getPersistentValue($this->value);
 	}
 	
 	public function translateWith(IPersistentFieldTranslator $translator) {
