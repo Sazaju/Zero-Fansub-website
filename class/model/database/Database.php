@@ -116,23 +116,23 @@ class Database {
 		}
 	}
 	
-	private function initMissingTable($table) {
-		$this->connection->exec('CREATE TABLE IF NOT EXISTS "working_'.$table->getName().'" (
+	private function initMissingTable($type) {
+		$this->connection->exec('CREATE TABLE IF NOT EXISTS "working_'.$type->getName().'" (
 			class     VARCHAR(128) NOT NULL,
 			key       INTEGER NOT NULL,
 			field     VARCHAR(128) NOT NULL,
 			timestamp INTEGER NOT NULL,
-			value     '.$table->getColumnType().',
+			value     '.$type->getColumnType().',
 			author    VARCHAR(128) NOT NULL,
 			
 			PRIMARY KEY (class, field, key, timestamp)
 		)');
-		$this->connection->exec('CREATE TABLE IF NOT EXISTS "archive_'.$table->getName().'" (
+		$this->connection->exec('CREATE TABLE IF NOT EXISTS "archive_'.$type->getName().'" (
 			class     VARCHAR(128) NOT NULL,
 			key       INTEGER NOT NULL,
 			field     VARCHAR(128) NOT NULL,
 			timestamp INTEGER NOT NULL,
-			value     '.$table->getColumnType().',
+			value     '.$type->getColumnType().',
 			author    VARCHAR(128) NOT NULL,
 			
 			PRIMARY KEY (class, field, key, timestamp)
@@ -184,17 +184,9 @@ class Database {
 	
 	private function getDataTableNames() {
 		$tables = array();
-		foreach($this->getExistingDataTypes() as $table) {
-			$tables[] = "working_".$table;
-			$tables[] = "archive_".$table;
-		}
-		return $tables;
-	}
-	
-	private function getTablesForClass($class) {
-		$tables = array();
-		foreach($this->getPropertiesForClass($class) as $field => $array) {
-			$tables[$field] = $array['type'];
+		foreach($this->getExistingTypes() as $type) {
+			$tables[] = "working_".$type;
+			$tables[] = "archive_".$type;
 		}
 		return $tables;
 	}
@@ -206,128 +198,105 @@ class Database {
 		if (!$this->isRegisteredUser($authorId)) {
 			throw new Exception("There is no user ".$authorId);
 		} else {
-			$components = array();
-			foreach($diff->toArray() as $descriptor) {
-				$class = $descriptor->getClass();
-				$component = null;
-				if (array_key_exists($class, $components)) {
-					$component = $components[$class];
-				} else {
-					$reflector = new ReflectionClass($class);
-					$component = $reflector->newInstance();
-					$components[$class] = $component;
-				}
-				
-				if ($descriptor instanceof FieldDiff) {
-					if ($descriptor->isChangedTable()) {
-						$field = $component->getPersistentField($descriptor->getField());
-						$this->initMissingTable($field->getTranslator()->getPersistentTable($field));
-					}
-				} else if ($descriptor instanceof ComponentDiff) {
-					if ($descriptor->isAddedField()) {
-						$field = $component->getPersistentField($descriptor->getNewValue());
-						$this->initMissingTable($field->getTranslator()->getPersistentTable($field));
-					}
-				} else {
-					throw new Exception("This case should not happen");
-				}
-			}
-			
-			$this->connection->beginTransaction();
 			$time = time();
+			$this->connection->beginTransaction();
 			foreach($diff->toArray() as $descriptor) {
 				$class = $descriptor->getClass();
 				$patch = $descriptor->getPatch();
 				
-				$component = $components[$class];
-				
-				if ($descriptor instanceof ComponentDiff) {
-					if ($descriptor->isAddedField()) {
-						$fieldName = $descriptor->getNewValue();
-						$field = $component->getPersistentField($fieldName);
-						$table = $field->getTranslator()->getPersistentTable($field)->getName();
-						$row = array('class' => $class,
-									'field' => $fieldName,
-									'type' => $table,
-									'mandatory' => $field->isMandatory(),
-									'translator' => get_class($field->getTranslator()),
-									'start' => $time,
-									'patch' => $patch);
-						
-						$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, patch, stop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :patch, NULL)');
-						foreach($row as $key => $value) {
-							$insert->bindParam(':'.$key, $row[$key]);
-						}
-						$insert->execute($row);
-						
-						$select = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$table.'" WHERE class = ?');
-						$select->execute(array($class));
-						$array = $select->fetchAll(PDO::FETCH_COLUMN);
-						$insert = $this->connection->prepare('INSERT INTO "working_'.$table.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
-						foreach($array as $key) {
-							$value = null;
-							if ($patch !== null) {
-								$value = $this->applyPatch($patch, $value);
-							} else {
-								// no patch, do not change the data
-							}
-							$insert->execute(array($class, $key, $fieldName, $time, $value, $authorId));
-						}
-					} else if ($descriptor->isDeletedField()) {
-						$fieldName = $descriptor->getOldValue();
-						$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
-						$discard->execute(array($time, $class, $fieldName));
-					} else if ($descriptor->isChangedKey()) {
-						$fieldNames = $descriptor->getNewValue();
-						$discard = $this->connection->prepare('UPDATE "structure_key" SET stop = ? WHERE class = ? and stop IS NULL');
-						$discard->execute(array($time, $class));
-						$insert = $this->connection->prepare('INSERT INTO "structure_key" (class, field, start, stop) VALUES (:class, :field, :start, NULL)');
-						foreach($fieldNames as $name) {
-							$insert->execute(array($class, $name, $time));
-						}
-					} else {
-						// TODO implement other cases
-						throw new Exception('Not implemented yet: '.$descriptor);
+				if ($descriptor instanceof AddFieldDiff) {
+					$data = $descriptor->getNewValue();
+					$fieldName = $data['field'];
+					$table = $data['table'];
+					$type = $table->getName();
+					$property = array('class' => $class,
+								'field' => $fieldName,
+								'type' => $type,
+								'mandatory' => $data['mandatory'],
+								'translator' => $data['translator'],
+								'start' => $time,
+								'patch' => $patch);
+					
+					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, patch, stop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :patch, NULL)');
+					foreach($property as $key => $value) {
+						$insert->bindParam(':'.$key, $property[$key]);
 					}
-				} else if ($descriptor instanceof FieldDiff) {
-					if ($descriptor->isChangedTable()) {
-						$fieldName = $descriptor->getField();
-						$field = $component->getPersistentField($fieldName);
-						$table = $field->getTranslator()->getPersistentTable($field)->getName();
-						$select = $this->connection->prepare('SELECT * FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
-						$select->execute(array($class, $fieldName));
-						$row = $select->fetch(PDO::FETCH_ASSOC);
-						unset($row['stop']);
-						$row['start'] = $time;
-						$row['type'] = $descriptor->getNewValue();
-						$select = $this->connection->prepare('SELECT key, value FROM "working_'.$descriptor->getOldValue().'" WHERE class = ? AND field = ?');
-						$select->execute(array($class, $fieldName));
-						$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
-						$update = $this->connection->prepare('INSERT INTO "working_'.$descriptor->getNewValue().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
-						foreach($array as $key => $values) {
-							$value = $values[0];
-							if ($patch !== null) {
-								$value = $this->applyPatch($patch, $value);
-							} else {
-								// no patch, do not change the data
-							}
-							$update->execute(array($class, $key, $fieldName, $time, $value, $authorId));
+					$insert->execute($property);
+					$this->initMissingTable($table);
+					
+					$select = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$type.'" WHERE class = ?');
+					$select->execute(array($class));
+					$array = $select->fetchAll(PDO::FETCH_COLUMN);
+					$insert = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+					foreach($array as $key) {
+						$value = null;
+						if ($patch !== null) {
+							$value = $this->applyPatch($patch, $value);
+						} else {
+							// no patch, do not change the value
 						}
-						
-						$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
-						$discard->execute(array($time, $class, $fieldName));
-						
-						$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, patch, stop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :patch, NULL)');
-						foreach($row as $key => $value) {
-							$insert->bindParam(':'.$key, $row[$key]);
-						}
-						$insert->execute($row);
-					} else {
-						// TODO implement other cases
-						throw new Exception('Not implemented yet: '.$descriptor);
+						$insert->execute(array($class, $key, $fieldName, $time, $value, $authorId));
 					}
+				} else if ($descriptor instanceof RemoveFieldDiff) {
+					$data = $descriptor->getOldValue();
+					$fieldName = $data['field'];
+					$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
+					$discard->execute(array($time, $class, $fieldName));
+					$this->archiveValues($data['type'], $class, $fieldName);
+				} else if ($descriptor instanceof ChangeKeyDiff) {
+					$fieldNames = $descriptor->getNewValue();
+					$discard = $this->connection->prepare('UPDATE "structure_key" SET stop = ? WHERE class = ? and stop IS NULL');
+					$discard->execute(array($time, $class));
+					$insert = $this->connection->prepare('INSERT INTO "structure_key" (class, field, start, stop) VALUES (:class, :field, :start, NULL)');
+					foreach($fieldNames as $name) {
+						$insert->execute(array($class, $name, $time));
+					}
+				} else if ($descriptor instanceof ChangeTypeDiff) {
+					$fieldName = $descriptor->getField();
+					
+					// retrieve the current property data
+					$select = $this->connection->prepare('SELECT * FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
+					$select->execute(array($class, $fieldName));
+					$property = $select->fetch(PDO::FETCH_ASSOC);
+					
+					// terminate the current property
+					$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
+					$discard->execute(array($time, $class, $fieldName));
+					
+					// start the updated property
+					$property['type'] = $descriptor->getNewValue();
+					$property['start'] = $time;
+					$property['patch'] = null;
+					unset($property['stop']);
+					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, patch, stop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :patch, NULL)');
+					foreach($property as $key => $value) {
+						$insert->bindParam(':'.$key, $property[$key]);
+					}
+					$insert->execute($property);
+					
+					// retrieve the obsolete values
+					$select = $this->connection->prepare('SELECT key, value FROM "working_'.$descriptor->getOldValue().'" WHERE class = ? AND field = ?');
+					$select->execute(array($class, $fieldName));
+					$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
+					
+					// archive the obsolete values
+					$this->archiveValues($descriptor->getOldValue(), $class, $fieldName);
+					
+					// save the new values
+					$update = $this->connection->prepare('INSERT INTO "working_'.$descriptor->getNewValue().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+					foreach($array as $key => $values) {
+						$value = $values[0];
+						if ($patch !== null) {
+							$value = $this->applyPatch($patch, $value);
+						} else {
+							// no patch, do not change the data
+						}
+						$update->execute(array($class, $key, $fieldName, $time, $value, $authorId));
+					}
+					
 				} else {
-					throw new Exception("This case should not happen");
+					// TODO implement other cases
+					throw new Exception('Not implemented yet: '.$descriptor);
 				}
 			}
 			$this->connection->commit();
@@ -365,35 +334,52 @@ class Database {
 		$properties = $this->getPropertiesForClass($class, false);
 		$diff = new StructureDiff();
 		foreach($component->getPersistentFields() as $name => $field) {
+			$table = $field->getTranslator()->getPersistentTable($field);
+			$type = $table->getName();
+			$translator = get_class($field->getTranslator());
+			$mandatory = $field->isMandatory();
+			
 			if (!array_key_exists($name, $properties)) {
-				$diff->addField($class, $name);
-			} else if ($properties[$name]['type'] != $field->getTranslator()->getPersistentTable($field)->getName()) {
-				$diff->changeTable($class, $name, $properties[$name]['type'], $field->getTranslator()->getPersistentTable($field)->getName());
-			} else if ($properties[$name]['mandatory'] != $field->isMandatory()) {
-				$diff->changeMandatory($class, $name, $properties[$name]['mandatory'], $field->isMandatory());
-			} else if ($properties[$name]['translator'] != get_class($field->getTranslator())) {
-				$diff->changeTranslator($class, $name, $properties[$name]['translator'], get_class($field->getTranslator()));
+				$diff->addDiff(new AddFieldDiff($class, $name, $table, $mandatory, $translator));
 			} else {
-				// no modification, do not add a diff
+				$property = $properties[$name];
+				unset($properties[$name]);
+				if ($property['type'] != $type) {
+					$diff->addDiff(new ChangeTypeDiff($class, $name, $property['type'], $type));
+				} else if ($property['mandatory'] != $mandatory) {
+					$diff->addDiff(new ChangeMandatoryDiff($class, $name, $property['mandatory'], $mandatory));
+				} else if ($property['translator'] != $translator) {
+					$diff->addDiff(new ChangeTranslatorDiff($class, $name, $property['translator'], $translator));
+				} else {
+					// no modification, do not add a diff
+				}
 			}
-			unset($properties[$name]);
 		}
 		
-		foreach(array_keys($properties) as $name) {
-			$diff->deleteField($class, $name);
+		foreach($properties as $name => $property) {
+			$diff->addDiff(new RemoveFieldDiff($class, $name, $property['type'], $property['mandatory'], $property['translator']));
 		}
 		
-		$componentKey = array_keys($component->getKeyFields());
+		$componentKey = array_keys($component->getIDFields());
 		$savedKey = $this->getKeyPropertiesForClass($class);
 		if (count(array_diff_assoc($savedKey, $componentKey)) > 0 || count(array_diff_assoc($componentKey, $savedKey)) > 0) {
-			$diff->changeKey($class, $savedKey, $componentKey);
+			$diff->addDiff(new ChangeKeyDiff($class, $savedKey, $componentKey));
 		}
 		
 		return $diff;
 	}
 	
-	public function isKnownStructure($class) {
-		$counter = $this->connection->query('SELECT count(field) FROM "structure" WHERE class = "'.$class.'"')->fetchColumn();
+	public function isKnownStructure($structure) {
+		if (is_object($structure)) {
+			$structure = get_class($structure);
+		} else if (is_string($structure)) {
+			// considered as the name of the class, let as is
+		} else {
+			throw new Exception($structure." cannot be interpreted as an object or its class name");
+		}
+		$statement = $this->connection->prepare('SELECT COUNT(field) FROM "structure" WHERE class = ?');
+		$statement->execute(array($structure));
+		$counter = $statement->fetchColumn();
 		return $counter > 0;
 	}
 	
@@ -408,28 +394,23 @@ class Database {
 	/********************************************\
 	                  DATA TYPES
 	\********************************************/
-	private function getExistingDataTypes() {
+	private function getExistingTypes() {
 		$statement = $this->connection->query('SELECT DISTINCT type FROM "structure"');
-		$tables = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
-		return $tables;
+		$types = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
+		return $types;
+	}
+	
+	private function getTypesForClass($class) {
+		$types = array();
+		foreach($this->getPropertiesForClass($class) as $field => $array) {
+			$types[$field] = $array['type'];
+		}
+		return $types;
 	}
 	
 	/********************************************\
 	                    SAVE
 	\********************************************/
-	private function getSavedFieldsFor($key) {
-		$data = array();
-		$data[$key] = array();
-		foreach($this->getExistingDataTypes() as $type) {
-			$statement = $this->connection->prepare('SELECT field, value FROM "working_'.$type.'" WHERE key = ?');
-			$statement->execute(array($key));
-			foreach($statement->fetchAll(PDO::FETCH_GROUP|PDO::FETCH_COLUMN) as $name => $array) {
-				$data[$key][$name] = $array[0];
-			}
-		}
-		return $data;
-	}
-	
 	public function save(PersistentComponent $component, $authorId) {
 		if (!$this->isRegisteredUser($authorId)) {
 			throw new Exception("There is no user ".$authorId);
@@ -441,6 +422,11 @@ class Database {
 			$isNew = empty($key);
 			$savedValues = null;
 			if ($isNew) {
+				if ($this->isKeyAvailableForComponent($component)) {
+					// key available, can save the new element
+				} else {
+					throw new Exception("Cannot save $component, its ID ".$component->getIDString()." is already used");
+				}
 				$key = $this->getNewKey();
 				$component->setInternalKey($key);
 			} else {
@@ -459,26 +445,17 @@ class Database {
 				} else {
 					$translator = $field->getTranslator();
 					$value = $translator->getPersistentValue($field->get());
-					if ($isNew || $savedValues[$name] !== $value) {
-						$table = $translator->getPersistentTable($field);
+					if ($isNew || $savedValues[$name] !== "".$value /*$savedValues only contains strings*/) {
+						$type = $translator->getPersistentTable($field);
 						
 						if (!$isNew) {
-							// save old value in archive
-							$statement = $this->connection->prepare('INSERT INTO "archive_'.$table->getName().'" (class, key, field, timestamp, value, author) SELECT class, key, field, timestamp, value, author FROM "working_'.$table->getName().'" WHERE key = ? AND field = ?');
-							$statement->execute(array($key, $name));
-							
-							// clean working table
-							$statement = $this->connection->prepare('DELETE FROM "working_'.$table->getName().'" WHERE key = ? AND field = ?');
-							$statement->execute(array($key, $name));
-							
+							$this->archiveValues($type->getName(), $class, $name, array($key));
 						}
-						
-						// save new value in working table
-						$statement = $this->connection->prepare('INSERT INTO "working_'.$table->getName().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+						$statement = $this->connection->prepare('INSERT INTO "working_'.$type->getName().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
 						$statement->execute(array($class, $key, $name, $time, $value, $authorId));
 						
-						unset($properties[$name]);
 					}
+					unset($properties[$name]);
 				}
 			}
 			if (!empty($properties)) {
@@ -486,6 +463,19 @@ class Database {
 			}
 			$this->connection->commit();
 		}
+	}
+	
+	private function getSavedFieldsFor($key) {
+		$data = array();
+		$data[$key] = array();
+		foreach($this->getExistingTypes() as $type) {
+			$statement = $this->connection->prepare('SELECT field, value FROM "working_'.$type.'" WHERE key = ?');
+			$statement->execute(array($key));
+			foreach($statement->fetchAll(PDO::FETCH_GROUP|PDO::FETCH_COLUMN) as $name => $array) {
+				$data[$key][$name] = $array[0];
+			}
+		}
+		return $data;
 	}
 	
 	/********************************************\
@@ -520,9 +510,9 @@ class Database {
 		
 		$statement = $this->connection->query('SELECT type FROM "structure" WHERE class = ?');
 		$statement->execute(array($class));
-		$table = $statement->fetchColumn();
+		$type = $statement->fetchColumn();
 		
-		$statement = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$table.'" WHERE class = ?');
+		$statement = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$type.'" WHERE class = ?');
 		$statement->execute(array($class));
 		$keys = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
 		
@@ -568,5 +558,49 @@ class Database {
 		// TODO apply patch
 		throw new Exception('Not implemented yet');
 	}
+	
+	private function archiveValues($type, $class, $field, $keys = null) {
+		$archiveAll = $keys === null;
+		
+		$source = '"working_'.$type.'" WHERE class = ? AND field = ?';
+		if (!$archiveAll) {
+			$source .= ' AND key = ?';
+		}
+		$copy = $this->connection->prepare('INSERT INTO "archive_'.$type.'" (class, key, field, timestamp, value, author) SELECT class, key, field, timestamp, value, author FROM '.$source);
+		$clean = $this->connection->prepare('DELETE FROM '.$source);
+		if (!$archiveAll) {
+			foreach($keys as $key) {
+				$copy->execute(array($class, $field, $key));
+				$clean->execute(array($class, $field, $key));
+			}
+		} else {
+			$copy->execute(array($class, $field));
+			$clean->execute(array($class, $field));
+		}
+	}
+	
+	public function isKeyAvailableForComponent(PersistentComponent $component) {
+		$class = $component->getClass();
+		$keyFields = $component->getIDFields();
+		$correspondingKeys = null;
+		foreach($keyFields as $name => $field) {
+			$statement = $this->connection->prepare('SELECT type FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
+			$statement->execute(array($class, $name));
+			$type = $statement->fetchColumn();
+			
+			$statement = $this->connection->prepare('SELECT key FROM "working_'.$type.'" WHERE class = ? AND field = ? AND value = ?');
+			$value = $field->getTranslator()->getPersistentValue($field->get());
+			$statement->execute(array($class, $name, $value));
+			$keys = $statement->fetchAll(PDO::FETCH_COLUMN);
+			if ($correspondingKeys === null) {
+				$correspondingKeys = $keys;
+			} else {
+				$correspondingKeys = array_intersect($correspondingKeys, $keys);
+			}
+		}
+		
+		return empty($correspondingKeys);
+	}
+	
 }
 ?>

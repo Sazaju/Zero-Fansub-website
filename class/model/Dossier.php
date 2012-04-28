@@ -20,7 +20,7 @@ class Dossier extends PersistentComponent {
 		$this->commentID = PersistentField::integerField();
 		$this->timestamp = PersistentField::integerField();
 		$this->content = PersistentField::stringField();
-		$this->content2 = PersistentField::stringField();
+		$this->content2 = PersistentField::integerField();
 		
 		$this->registerPersistentFields(
 				$this->id,
@@ -29,9 +29,14 @@ class Dossier extends PersistentComponent {
 				$this->commentID,
 				$this->timestamp,
 				$this->content
+				//,$this->content2
 		);
-		$this->setKeyFields($this->id);
+		$this->setIDFields($this->id);
 		$this->lockPersistentDefinition();
+	}
+	
+	public function setContent2($string) {
+		$this->content2->set($string);
 	}
 	
 	public function setID($id) {
@@ -86,9 +91,11 @@ class Dossier extends PersistentComponent {
 	public static function getAllDossiers() {
 		if (Dossier::$allDossiers === null) {
 			if (Database::getDefaultDatabase()->isKnownStructure(new Dossier())) {
+				/*
 				if (Database::getDefaultDatabase()->isUpdatedStructure(new Dossier())) {
-					//Database::getDefaultDatabase()->updateStructure(Database::getDefaultDatabase()->getStructureDiff(new Dossier()), 'admin');
+					Database::getDefaultDatabase()->updateStructure(Database::getDefaultDatabase()->getStructureDiff(new Dossier()), 'admin');
 				}
+				*/
 				Dossier::$allDossiers = Database::getDefaultDatabase()->loadAll(get_class(new Dossier()));
 			} else {
 				$dossier = new Dossier();

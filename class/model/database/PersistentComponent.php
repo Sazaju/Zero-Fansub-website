@@ -1,7 +1,7 @@
 <?php
 class PersistentComponent {
 	private $internalKey = null;
-	private $componentKeyFields = array();
+	private $IDFields = array();
 	private $registeredFields = array();
 	private $persistentDefinitionLock = false;
 	private $lock = false;
@@ -14,7 +14,7 @@ class PersistentComponent {
 		return $this->internalKey;
 	}
 	
-	public function setKeyFields() {
+	public function setIDFields() {
 		$this->stressLock();
 		
 		$fields = array();
@@ -30,11 +30,11 @@ class PersistentComponent {
 				throw new Exception($field." at the index ".$index." is not a registered field");
 			}
 		}
-		$this->componentKeyFields = $fields;
+		$this->IDFields = $fields;
 	}
 	
-	public function getKeyFields() {
-		return $this->componentKeyFields;
+	public function getIDFields() {
+		return $this->IDFields;
 	}
 	
 	public function getClass() {
@@ -133,16 +133,20 @@ class PersistentComponent {
 		Database::getDefaultDatabase()->load($this);
 	}
 	
+	public function getIDString() {
+		$keyValues = array();
+		foreach($this->getIDFields() as $name => $field) {
+			$keyValues[] = $field->get();
+		}
+		return '('.implode(', ', $keyValues).')';
+	}
+	
 	public function __toString() {
 		$key = $this->getInternalKey();
 		if ($key === null) {
 			$key = '-';
 		}
-		$keyValues = array();
-		foreach($this->getKeyFields() as $name => $field) {
-			$keyValues[] = $field->get();
-		}
-		return $this->getClass().' ('.implode(", ", $keyValues).")[key $key]";
+		return $this->getClass().' '.$this->getIDString()."[key $key]";
 	}
 }
 ?> 
