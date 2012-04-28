@@ -125,17 +125,6 @@ class PersistentComponent {
 		}
 	}
 	
-	public function getKeyName() {
-		foreach($this->getPersistentFields() as $name => $field) {
-			if ($field->isKey()) {
-				return $name;
-			} else {
-				// not yet find, just continue
-			}
-		}
-		throw new Exception("No key field defined for this ".$this->getClass());
-	}
-	
 	public function save($author) {
 		Database::getDefaultDatabase()->save($this, $author);
 	}
@@ -149,7 +138,11 @@ class PersistentComponent {
 		if ($key === null) {
 			$key = '-';
 		}
-		return $this->getClass().' '.$this->getPersistentField($this->getKeyName())->get()." (key $key)";
+		$keyValues = array();
+		foreach($this->getKeyFields() as $name => $field) {
+			$keyValues[] = $field->get();
+		}
+		return $this->getClass().' ('.implode(", ", $keyValues).")[key $key]";
 	}
 }
 ?> 
