@@ -6194,50 +6194,62 @@ class Release {
 			
 			$release = new Release(Project::getProject("denpa"), "ep2");
 			$release->setName("épisode 02");
+			$release->setPreviewUrl("images/episodes/denpa2.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep3");
 			$release->setName("épisode 03");
+			$release->setPreviewUrl("images/episodes/denpa3.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep4");
 			$release->setName("épisode 04");
+			$release->setPreviewUrl("images/episodes/denpa4.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep5");
 			$release->setName("épisode 05");
+			$release->setPreviewUrl("images/episodes/denpa5.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep6");
 			$release->setName("épisode 06");
+			$release->setPreviewUrl("images/episodes/denpa6.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep7");
 			$release->setName("épisode 07");
+			$release->setPreviewUrl("images/episodes/denpa7.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep8");
 			$release->setName("épisode 08");
+			$release->setPreviewUrl("images/episodes/denpa8.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep9");
 			$release->setName("épisode 09");
+			$release->setPreviewUrl("images/episodes/denpa9.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep10");
 			$release->setName("épisode 10");
+			$release->setPreviewUrl("images/episodes/denpa10.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep11");
 			$release->setName("épisode 11");
+			$release->setPreviewUrl("images/episodes/denpa11.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep12");
 			$release->setName("épisode 12");
+			$release->setPreviewUrl("images/episodes/denpa12.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep13");
 			$release->setName("épisode 13");
+			$release->setPreviewUrl("images/episodes/denpa13.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("working"), "ep1");
