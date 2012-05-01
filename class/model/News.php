@@ -4053,7 +4053,7 @@ Attendez-les avec [s]im[/s]patience (ouais vous avez l'habitude maintenant {'^_^
 
 Et merci de nous suivre !
 (ça fait un moment qu'on l'a pas sortie celle-là {°.°}~)");
-			//$news->setCommentId(295);
+			$news->setCommentId(296);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep12'));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep13'));
 			$news->setDisplayInNormalMode(true);
