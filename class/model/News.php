@@ -4039,7 +4039,7 @@ Au passage, Mitsudomoe 11 est dans les bacs. Mais tout le monde s'en fout de ça,
 			$news->setTimestamp(strtotime("01 May 2012 13:56"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("J'ai une mauvaise nouvelle à vous annoncer...
-Mitsudomoe se termine auourd'hui chez Zéro Fansub.
+Mitsudomoe se termine aujourd'hui chez Zéro Fansub.
 
 {°o°} Non ?
 
