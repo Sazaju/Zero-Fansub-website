@@ -342,7 +342,7 @@ Au fil du temps, Aoki sensei découvrira que tout n’est pas toujours rose dans la
 			$project->setGenre("Comédie Ecchi");
 			$project->setSynopsis("Les triplés raconte l'histoire de 3 filles de primaire un peu perverses qui harcèlent leur prof pas doué.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
-			$project->setRunning(true);
+			$project->setFinished(true);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mitsudomoeoad", "Mitsudomoe OAD");
