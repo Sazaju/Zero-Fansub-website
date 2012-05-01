@@ -4038,7 +4038,8 @@ Au passage, Mitsudomoe 11 est dans les bacs. Mais tout le monde s'en fout de ça,
 			$news->setTitle("Mitsudomoe 12+13 BD");
 			$news->setTimestamp(strtotime("01 May 2012 13:56"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("J'ai une mauvaise nouvelle à vous annoncer... Mitsudomoe se termine auourd'hui chez Zéro Fansub.
+			$news->setMessage("J'ai une mauvaise nouvelle à vous annoncer...
+Mitsudomoe se termine auourd'hui chez Zéro Fansub.
 
 {°o°} Non ?
 
@@ -4046,7 +4047,9 @@ Et si. Les deux derniers épisodes de Mitsudomoe sont désormais disponibles.
 
 [img=images/news/mitsudomoe12_13.jpg]Oh non ! Déjà fini ?[/img]
 
-Et oui, Mitsudomoe c'est fini... Enfin pas tout à fait car, petits chanceux que vous êtes, la saison deux est d'ores et déjà entamée chez nous ! {^o^}/ Attendez-là avec (im)patience (ouais vous avez l'habitude maintenant {'^_^}).
+Et oui, Mitsudomoe c'est fini... Enfin pas tout à fait car, petits chanceux que vous êtes, l'OAD et la saison deux sont d'ores et déjà entamés chez nous ! {^o^}/
+
+Attendez-les avec [s]im[/s]patience (ouais vous avez l'habitude maintenant {'^_^}).
 
 Et merci de nous suivre !
 (ça fait un moment qu'on l'a pas sortie celle-là {°.°}~)");
