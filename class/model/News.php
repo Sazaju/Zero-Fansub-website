@@ -4036,7 +4036,7 @@ Au passage, Mitsudomoe 11 est dans les bacs. Mais tout le monde s'en fout de ça,
 			
 			$news = new News();
 			$news->setTitle("Mitsudomoe 12+13 BD");
-			//$news->setTimestamp(strtotime("18 April 2012 19:49"));
+			$news->setTimestamp(strtotime("01 May 2012 13:56"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("J'ai une mauvaise nouvelle à vous annoncer... Mitsudomoe se termine auourd'hui chez Zéro Fansub.
 
