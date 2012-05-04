@@ -74,8 +74,8 @@
 	$abandonnedFilter = function(Project $project) {
 		return !$project->isHidden() && $project->isAbandonned();
 	};
-	$expectedFilter = function(Project $project) {
-		return !$project->isHidden() && !$project->isStarted() && !$project->isAbandonned();
+	$intendedFilter = function(Project $project) {
+		return !$project->isHidden() && $project->isIntended();
 	};
 	
 	if (TEST_MODE_ACTIVATED) {
@@ -107,7 +107,7 @@
 		"en cours" => $runningFilter,
 		"terminés" => $finishedFilter,
 		"abandonnés" => $abandonnedFilter,
-		"envisagés" => $expectedFilter,
+		"envisagés" => $intendedFilter,
 	);
 	$page->addComponent(new Title("Non licenciés", 2));
 	foreach($categoryMap as $category => $projects) {
