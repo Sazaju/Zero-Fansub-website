@@ -97,6 +97,11 @@ class Dossier extends PersistentComponent {
 				}
 				*/
 				Dossier::$allDossiers = Database::getDefaultDatabase()->loadAll(get_class(new Dossier()));
+				/*
+				$d = Dossier::$allDossiers[0];
+				$d->setContent("azerty");
+				$d->save('anonymous');
+				*/
 			} else {
 				$dossier = new Dossier();
 				$dossier->setID('genshiken9');

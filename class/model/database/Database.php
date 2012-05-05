@@ -134,6 +134,7 @@ class Database {
 			timestamp INTEGER NOT NULL,
 			value     '.$type->getColumnType().',
 			author    VARCHAR(128) NOT NULL,
+			archive   INTEGER NOT NULL,
 			
 			PRIMARY KEY (class, field, key, timestamp)
 		)');
@@ -242,7 +243,7 @@ class Database {
 					$fieldName = $data['field'];
 					$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
 					$discard->execute(array($time, $class, $fieldName));
-					$this->archiveValues($data['type'], $class, $fieldName);
+					$this->archiveValues($data['type'], $class, $fieldName, $time);
 				} else if ($descriptor instanceof ChangeKeyDiff) {
 					$fieldNames = $descriptor->getNewValue();
 					$discard = $this->connection->prepare('UPDATE "structure_key" SET stop = ? WHERE class = ? and stop IS NULL');
@@ -280,7 +281,7 @@ class Database {
 					$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
 					
 					// archive the obsolete values
-					$this->archiveValues($descriptor->getOldValue(), $class, $fieldName);
+					$this->archiveValues($descriptor->getOldValue(), $class, $fieldName, $time);
 					
 					// save the new values
 					$update = $this->connection->prepare('INSERT INTO "working_'.$descriptor->getNewValue().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
@@ -449,7 +450,7 @@ class Database {
 						$type = $translator->getPersistentTable($field);
 						
 						if (!$isNew) {
-							$this->archiveValues($type->getName(), $class, $name, array($key));
+							$this->archiveValues($type->getName(), $class, $name, $time, array($key));
 						}
 						$statement = $this->connection->prepare('INSERT INTO "working_'.$type->getName().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
 						$statement->execute(array($class, $key, $name, $time, $value, $authorId));
@@ -559,14 +560,14 @@ class Database {
 		throw new Exception('Not implemented yet');
 	}
 	
-	private function archiveValues($type, $class, $field, $keys = null) {
+	private function archiveValues($type, $class, $field, $time, $keys = null) {
 		$archiveAll = $keys === null;
 		
 		$source = '"working_'.$type.'" WHERE class = ? AND field = ?';
 		if (!$archiveAll) {
 			$source .= ' AND key = ?';
 		}
-		$copy = $this->connection->prepare('INSERT INTO "archive_'.$type.'" (class, key, field, timestamp, value, author) SELECT class, key, field, timestamp, value, author FROM '.$source);
+		$copy = $this->connection->prepare('INSERT INTO "archive_'.$type.'" (class, key, field, timestamp, value, author, archive) SELECT class, key, field, timestamp, value, author, '.$time.' as archive FROM '.$source);
 		$clean = $this->connection->prepare('DELETE FROM '.$source);
 		if (!$archiveAll) {
 			foreach($keys as $key) {
