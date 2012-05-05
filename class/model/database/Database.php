@@ -419,7 +419,7 @@ class Database {
 				$key = $this->getNewKey();
 				$component->setInternalKey($key);
 			} else {
-				$savedValues = $this->getSavedFieldsFor($key);
+				$savedValues = $this->getSavedValuesFor($key);
 				$savedValues = $savedValues[$key];
 			}
 			
@@ -454,7 +454,7 @@ class Database {
 		}
 	}
 	
-	private function getSavedFieldsFor($key) {
+	private function getSavedValuesFor($key) {
 		// TODO improve to take arrays of keys
 		$data = array();
 		$data[$key] = array();
@@ -479,7 +479,7 @@ class Database {
 		if (empty($key)) {
 			throw new Exception("No key has been assigned to the component $component");
 		}
-		$savedValues = $this->getSavedFieldsFor($key);
+		$savedValues = $this->getSavedValuesFor($key);
 		foreach($component->getPersistentFields() as $name => $field) {
 			if (!array_key_exists($name, $savedValues[$key])) {
 				throw new Exception("No field $name for the component $component");
