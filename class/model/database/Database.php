@@ -69,7 +69,6 @@ class Database {
 				mandatory  BOOLEAN NOT NULL,
 				translator VARCHAR(128) NOT NULL,
 				start      INTEGER NOT NULL,
-				patch      TEXT,
 				stop       INTEGER,
 				
 				PRIMARY KEY (class, field, start)
@@ -203,7 +202,6 @@ class Database {
 			$this->connection->beginTransaction();
 			foreach($diff->toArray() as $descriptor) {
 				$class = $descriptor->getClass();
-				$patch = $descriptor->getPatch();
 				
 				if ($descriptor instanceof AddFieldDiff) {
 					$data = $descriptor->getNewValue();
@@ -215,10 +213,9 @@ class Database {
 								'type' => $type,
 								'mandatory' => $data['mandatory'],
 								'translator' => $data['translator'],
-								'start' => $time,
-								'patch' => $patch);
+								'start' => $time);
 					
-					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, patch, stop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :patch, NULL)');
+					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, stop) VALUES (:class, :field, :type, :mandatory, :translator, :start, NULL)');
 					foreach($property as $key => $value) {
 						$insert->bindParam(':'.$key, $property[$key]);
 					}
@@ -231,11 +228,6 @@ class Database {
 					$insert = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
 					foreach($array as $key) {
 						$value = null;
-						if ($patch !== null) {
-							$value = $this->applyPatch($patch, $value);
-						} else {
-							// no patch, do not change the value
-						}
 						$insert->execute(array($class, $key, $fieldName, $time, $value, $authorId));
 					}
 				} else if ($descriptor instanceof RemoveFieldDiff) {
@@ -267,9 +259,8 @@ class Database {
 					// start the updated property
 					$property['type'] = $descriptor->getNewValue();
 					$property['start'] = $time;
-					$property['patch'] = null;
 					unset($property['stop']);
-					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, patch, stop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :patch, NULL)');
+					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, stop) VALUES (:class, :field, :type, :mandatory, :translator, :start, NULL)');
 					foreach($property as $key => $value) {
 						$insert->bindParam(':'.$key, $property[$key]);
 					}
@@ -287,11 +278,6 @@ class Database {
 					$update = $this->connection->prepare('INSERT INTO "working_'.$descriptor->getNewValue().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
 					foreach($array as $key => $values) {
 						$value = $values[0];
-						if ($patch !== null) {
-							$value = $this->applyPatch($patch, $value);
-						} else {
-							// no patch, do not change the data
-						}
 						$update->execute(array($class, $key, $fieldName, $time, $value, $authorId));
 					}
 					
@@ -305,7 +291,7 @@ class Database {
 	}
 	
 	private function getPropertiesForClass($class, $exceptionIfUnknown = true) {
-		$statement = $this->connection->prepare('SELECT field, type, mandatory, translator, start, patch FROM "structure" WHERE class = ? AND stop IS NULL');
+		$statement = $this->connection->prepare('SELECT field, type, mandatory, translator, start FROM "structure" WHERE class = ? AND stop IS NULL');
 		$statement->execute(array($class));
 		$properties = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 		if ($exceptionIfUnknown && empty($properties)) {
@@ -553,11 +539,6 @@ class Database {
 		foreach($this->getTableNames() as $name) {
 			$this->connection->exec('DROP TABLE "'.$name.'"');
 		}
-	}
-	
-	private function applyPatch($patch, $oldValue) {
-		// TODO apply patch
-		throw new Exception('Not implemented yet');
 	}
 	
 	private function archiveValues($type, $class, $field, $time, $keys = null) {
