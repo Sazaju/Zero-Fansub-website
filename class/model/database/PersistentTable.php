@@ -28,7 +28,7 @@ class PersistentTable {
 		return new PersistentTable("double", 'DOUBLE');
 	}
 	
-	public static function defaultStringTable($length) {
+	public static function defaultStringTable($length = null) {
 		if (empty($length)) {
 			return new PersistentTable("string", 'TEXT');
 		} else {

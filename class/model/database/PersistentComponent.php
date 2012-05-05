@@ -3,7 +3,6 @@ class PersistentComponent {
 	private $internalKey = null;
 	private $IDFields = array();
 	private $registeredFields = array();
-	private $persistentDefinitionLock = false;
 	private $lock = false;
 	
 	public function setInternalKey($key) {
@@ -94,14 +93,14 @@ class PersistentComponent {
 	}
 	
 	public function lockPersistentDefinition() {
-		$this->persistentDefinitionLock = true;
+		$this->lock = true;
 		foreach($this->registeredFields as $name => $field) {
 			$field->lock();
 		}
 	}
 	
 	public function isPersistentDefinitionLocked() {
-		return $this->persistentDefinitionLock;
+		return $this->lock;
 	}
 	
 	private function stressLock() {
@@ -146,7 +145,7 @@ class PersistentComponent {
 		if ($key === null) {
 			$key = '-';
 		}
-		return $this->getClass().' '.$this->getIDString()."[key $key]";
+		return $this->getClass().$this->getIDString()."[key $key]";
 	}
 }
 ?> 
