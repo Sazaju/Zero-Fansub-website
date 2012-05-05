@@ -239,7 +239,7 @@ class Release {
 			$release->addStaff(TeamMember::getMember(1), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMember(8), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMember(6), Role::getRole('encod'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_Preview[Xvid-MP3][5ED85545].avi");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_Preview[Xvid-MP3][5ED85545].avi");
 			$descriptor->setVideoCodec($xvid);
 			$descriptor->setSoundCodec($mp3);
 			$descriptor->setContainerCodec($avi);
@@ -247,14 +247,10 @@ class Release {
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
-			$release = new Release(Project::getProject("mitsudomoe"), "ep13");
-			$release->setName("épisode 13");
-			Release::$allReleases[] = $release;
-			
-			$release = new Release(Project::getProject("mitsudomoe"), "ep2");
-			$release->setName("épisode 02");
-			$release->setPreviewUrl("images/episodes/mitsudomoe2.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_02[H264-AAC][D324A25E].mp4");
+			$release = new Release(Project::getProject("mitsudomoe"), "ep1");
+			$release->setName("épisode 01");
+			$release->setPreviewUrl("images/episodes/mitsudomoe1.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_01[BD][H264-AAC][A551786E].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -262,10 +258,10 @@ class Release {
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
-			$release = new Release(Project::getProject("mitsudomoe"), "ep1");
-			$release->setName("épisode 01");
-			$release->setPreviewUrl("images/episodes/mitsudomoe1.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_01[H264-AAC][A551786E].mp4");
+			$release = new Release(Project::getProject("mitsudomoe"), "ep2");
+			$release->setName("épisode 02");
+			$release->setPreviewUrl("images/episodes/mitsudomoe2.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_02[BD][H264-AAC][D324A25E].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -276,7 +272,7 @@ class Release {
 			$release = new Release(Project::getProject("mitsudomoe"), "ep3");
 			$release->setName("épisode 03");
 			$release->setPreviewUrl("images/episodes/mitsudomoe3.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_03[H264-AAC][8C7C6BC3].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_03[BD][H264-AAC][8C7C6BC3].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -287,7 +283,7 @@ class Release {
 			$release = new Release(Project::getProject("mitsudomoe"), "ep4");
 			$release->setName("épisode 04");
 			$release->setPreviewUrl("images/episodes/mitsudomoe4.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_04[H264-AAC][A9514039].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_04[BD][H264-AAC][A9514039].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -298,7 +294,7 @@ class Release {
 			$release = new Release(Project::getProject("mitsudomoe"), "ep5");
 			$release->setName("épisode 05");
 			$release->setPreviewUrl("images/episodes/mitsudomoe5.jpg");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_05[H264-AAC][199319E2].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_05[BD][H264-AAC][199319E2].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -310,7 +306,7 @@ class Release {
 			$release->setName("épisode 06");
 			$release->setPreviewUrl("images/episodes/mitsudomoe6.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoe6.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_06[H264-AAC][43B2986A].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_06[BD][H264-AAC][43B2986A].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -322,7 +318,7 @@ class Release {
 			$release->setName("épisode 07");
 			$release->setPreviewUrl("images/episodes/mitsudomoe7.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoe7.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_07[H264-AAC][ABFFF382].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_07[BD][H264-AAC][ABFFF382].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -334,7 +330,7 @@ class Release {
 			$release->setName("épisode 08");
 			$release->setPreviewUrl("images/episodes/mitsudomoe8.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoe8.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_08[H264-AAC][276A1B90].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_08[BD][H264-AAC][276A1B90].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -346,7 +342,7 @@ class Release {
 			$release->setName("épisode 09");
 			$release->setPreviewUrl("images/episodes/mitsudomoe9.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoe9.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_09[BD][H264-AAC][D1E24E94].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_09[BD][H264-AAC][D1E24E94].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -354,11 +350,23 @@ class Release {
 			$release->setReleasingTime(strtotime("4 April 2012 18:28"));
 			Release::$allReleases[] = $release;
 			
+			$release = new Release(Project::getProject("mitsudomoe"), "ep10");
+			$release->setName("épisode 10");
+			$release->setPreviewUrl("images/episodes/mitsudomoe10.jpg");
+			$release->setHeaderImage("images/sorties/mitsudomoe10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_10[BD][H264-AAC][8C7103DF].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime("8 April 2012 18:38"));
+			Release::$allReleases[] = $release;
+			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep11");
 			$release->setName("épisode 11");
 			$release->setPreviewUrl("images/episodes/mitsudomoe11.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoe11.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_11[BD][H264-AAC][93374939].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_11[BD][H264-AAC][93374939].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -369,25 +377,25 @@ class Release {
 			$release = new Release(Project::getProject("mitsudomoe"), "ep12");
 			$release->setName("épisode 12");
 			$release->setPreviewUrl("images/episodes/mitsudomoe12.png");
-			$release->setHeaderImage("images/sorties/mitsudomoe12.png");
-			$descriptor = new ReleaseFileDescriptor("*");
+			$release->setHeaderImage("images/sorties/mitsudomoe12_13.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_12[BD][H264-AAC][29C1450A].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			//$release->setReleasingTime(strtotime("22 April 2012 19:49"));
+			$release->setReleasingTime(strtotime("01 May 2012 13:56"));
 			Release::$allReleases[] = $release;
 			
-			$release = new Release(Project::getProject("mitsudomoe"), "ep10");
-			$release->setName("épisode 10");
-			$release->setPreviewUrl("images/episodes/mitsudomoe10.jpg");
-			$release->setHeaderImage("images/sorties/mitsudomoe10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_10[BD][H264-AAC][8C7103DF].mp4");
+			$release = new Release(Project::getProject("mitsudomoe"), "ep13");
+			$release->setName("épisode 13");
+			$release->setPreviewUrl("images/episodes/mitsudomoe13.png");
+			$release->setHeaderImage("images/sorties/mitsudomoe12_13.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_13[BD][H264-AAC][11BEE6D0].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
-			$release->setReleasingTime(strtotime("8 April 2012 18:38"));
+			$release->setReleasingTime(strtotime("01 May 2012 13:56"));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mitsudomoeoad"), "oad");
@@ -6194,50 +6202,62 @@ class Release {
 			
 			$release = new Release(Project::getProject("denpa"), "ep2");
 			$release->setName("épisode 02");
+			$release->setPreviewUrl("images/episodes/denpa2.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep3");
 			$release->setName("épisode 03");
+			$release->setPreviewUrl("images/episodes/denpa3.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep4");
 			$release->setName("épisode 04");
+			$release->setPreviewUrl("images/episodes/denpa4.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep5");
 			$release->setName("épisode 05");
+			$release->setPreviewUrl("images/episodes/denpa5.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep6");
 			$release->setName("épisode 06");
+			$release->setPreviewUrl("images/episodes/denpa6.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep7");
 			$release->setName("épisode 07");
+			$release->setPreviewUrl("images/episodes/denpa7.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep8");
 			$release->setName("épisode 08");
+			$release->setPreviewUrl("images/episodes/denpa8.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep9");
 			$release->setName("épisode 09");
+			$release->setPreviewUrl("images/episodes/denpa9.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep10");
 			$release->setName("épisode 10");
+			$release->setPreviewUrl("images/episodes/denpa10.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep11");
 			$release->setName("épisode 11");
+			$release->setPreviewUrl("images/episodes/denpa11.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep12");
 			$release->setName("épisode 12");
+			$release->setPreviewUrl("images/episodes/denpa12.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep13");
 			$release->setName("épisode 13");
+			$release->setPreviewUrl("images/episodes/denpa13.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("working"), "ep1");
