@@ -28,21 +28,12 @@ class StructureDiff {
 }
 
 abstract class ElementDiff {
-	private $patch = null;
 	private $oldValue = null;
 	private $newValue = null;
 	
 	public function __construct($oldValue, $newValue) {
 		$this->oldValue = $oldValue;
 		$this->newValue = $newValue;
-	}
-	
-	public function setPatch($patch) {
-		$this->patch = $patch;
-	}
-	
-	public function getPatch() {
-		return $this->patch;
 	}
 	
 	public function getOldValue() {
