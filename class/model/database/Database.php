@@ -63,13 +63,15 @@ class Database {
 		
 		try {
 			$this->connection->exec('CREATE TABLE "structure" (
-				class      VARCHAR(128) NOT NULL,
-				field      VARCHAR(128) NOT NULL,
-				type       VARCHAR(128) NOT NULL,
-				mandatory  BOOLEAN NOT NULL,
-				translator VARCHAR(128) NOT NULL,
-				start      INTEGER NOT NULL,
-				stop       INTEGER,
+				class       VARCHAR(128) NOT NULL,
+				field       VARCHAR(128) NOT NULL,
+				type        VARCHAR(128) NOT NULL,
+				mandatory   BOOLEAN NOT NULL,
+				translator  VARCHAR(128) NOT NULL,
+				start       INTEGER NOT NULL,
+				authorStart VARCHAR(128) NOT NULL,
+				stop        INTEGER,
+				authorStop  VARCHAR(128),
 				
 				PRIMARY KEY (class, field, start)
 			)');
@@ -213,9 +215,10 @@ class Database {
 								'type' => $type,
 								'mandatory' => $data['mandatory'],
 								'translator' => $data['translator'],
-								'start' => $time);
+								'start' => $time,
+								'authorStart' => $authorId);
 					
-					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, stop) VALUES (:class, :field, :type, :mandatory, :translator, :start, NULL)');
+					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
 					foreach($property as $key => $value) {
 						$insert->bindParam(':'.$key, $property[$key]);
 					}
@@ -233,6 +236,8 @@ class Database {
 				} else if ($descriptor instanceof RemoveFieldDiff) {
 					$data = $descriptor->getOldValue();
 					$fieldName = $data['field'];
+					$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
+					$discard->execute(array($authorId, $class, $fieldName));
 					$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
 					$discard->execute(array($time, $class, $fieldName));
 					$this->archiveValues($data['type'], $class, $fieldName, $time);
@@ -253,6 +258,8 @@ class Database {
 					$property = $select->fetch(PDO::FETCH_ASSOC);
 					
 					// terminate the current property
+					$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
+					$discard->execute(array($authorId, $class, $fieldName));
 					$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
 					$discard->execute(array($time, $class, $fieldName));
 					
@@ -260,7 +267,8 @@ class Database {
 					$property['type'] = $descriptor->getNewValue();
 					$property['start'] = $time;
 					unset($property['stop']);
-					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, stop) VALUES (:class, :field, :type, :mandatory, :translator, :start, NULL)');
+					unset($property['authorStop']);
+					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, NULL, NULL)');
 					foreach($property as $key => $value) {
 						$insert->bindParam(':'.$key, $property[$key]);
 					}
