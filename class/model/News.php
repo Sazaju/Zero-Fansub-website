@@ -3983,6 +3983,27 @@ Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exacte
 			News::$allNews[] = $news;
 			
 			$news = new News();
+			$news->setTitle("Denpa 02");
+			$news->setTimestamp(strtotime("09 May 2012 22:51"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("[imgr=images/news/denpa2.png]On aime rouler les jeunes filles.[/imgr]
+Allez, on continue, on lâche pas le rythme ! {^_^}
+
+D'ici à ce que la suite de Mitsudomoe arrive, on reprend la fille aux ondes. Attention, il y a de la violence dans cet épisode ! Vous en avez d'ailleurs un aperçus ci-à-droite :
+
+Vous avez vu ça ? On y va à coup de pieds ! C'est monstrueux ! {°o°}
+
+Bon, à défaut d'être convaincant vous avez au moins un nouvel épisode à vous mettre sous la dent {-.-}~.");
+			$news->setCommentId(297);
+			$news->addReleasing(Release::getRelease('denpa', 'ep2'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("Mitsudomoe 9 BD");
 			$news->setTimestamp(strtotime("4 April 2012 19:41"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));

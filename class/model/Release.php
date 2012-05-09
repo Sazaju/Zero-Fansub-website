@@ -6203,6 +6203,20 @@ class Release {
 			$release = new Release(Project::getProject("denpa"), "ep2");
 			$release->setName("épisode 02");
 			$release->setPreviewUrl("images/episodes/denpa2.png");
+			$release->setHeaderImage("images/sorties/denpa2.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_02[BD][8bits-720p][29A4CBD5].mp4");
+			$descriptor->setID('8 bits');
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_02[BD][10bits-1080p][756902E5].mp4");
+			$descriptor->setID('10 bits');
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('09 May 2012 22:51'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep3");
