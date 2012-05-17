@@ -4085,7 +4085,7 @@ Et merci de nous suivre !
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Rerutement exotique !");
+			$news->setTitle("Recrutement exotique !");
 			$news->setTimestamp(strtotime("8 April 2012 12:57"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("[imgr]images/news/kanamemo_p4.png[/imgr]On recrute ! Ouais mais vous me direz que ça fait un moment que vous êtes au courant. Mais le truc, c'est que toutes les candidatures qu'on reçoit (pour le peu qu'on a) sont pour des boulots tels que trad et timeurs... et c'est tout. Mais la Zéro, ce n'est pas qu'un blog de fansubbeurs : on maintient un site complet et on essaye de multiplier nos activités.
@@ -4098,6 +4098,21 @@ Ayez de l'imagination, ne vous dîtes pas d'emblée \"[i]Ah, le fansub ils font ça
 
 Si vous vous sentez prêt à participer à l'aventure : cliquez sur le lien [i]Recrutement[/i] dans le menu de gauche !");
 			$news->setCommentId(293);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement Timeur !");
+			$news->setTimestamp(strtotime("17 May 2012 18:58"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
+			$news->setMessage("Nous recherchons un timeur sur la durée qui a du temps à gaspiller.
+
+Intéressé ? Postulez sur notre forum via le lien [i]recrutement[/i] du site.");
+			$news->setCommentId(298);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
