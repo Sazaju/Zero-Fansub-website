@@ -4111,7 +4111,9 @@ Si vous vous sentez prêt à participer à l'aventure : cliquez sur le lien [i]Recr
 			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
 			$news->setMessage("Nous recherchons un timeur sur la durée qui a du temps à gaspiller.
 
-Intéressé ? Postulez sur notre forum via le lien [i]recrutement[/i] du site.");
+Intéressé ? Postulez sur notre forum via le lien [i]recrutement[/i] du site.
+
+[img=images/news/boring.jpg]Rien à faire ? Venez timer chez Zéro Fansub ![/img]");
 			$news->setCommentId(298);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
