@@ -4128,7 +4128,7 @@ Intéressé ? Postulez sur notre forum via le lien [i]recrutement[/i] du site.
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Ça y est ! Avec quelques moments difficiles, nous voilà avec ce troisième épisode de la fille aux ondes.
 
-Attention, visite impromptue d'une jolie donzelle en quête de calins !
+Attention, visite impromptue d'une jolie donzelle en quête de câlins !
 
 Appréciez bien l'épisode et ne soyez pas trop jaloux. {^_°}
 
