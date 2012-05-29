@@ -4121,6 +4121,26 @@ Intéressé ? Postulez sur notre forum via le lien [i]recrutement[/i] du site.
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Denpa 03 BD");
+			$news->setTimestamp(strtotime("29 May 2012 22:00"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Ça y est ! Avec quelques moments difficiles, nous voilà avec ce troisième épisode de la fille aux ondes.
+
+Attention, visite impromptue d'une jolie donzelle en quête de calins !
+
+Appréciez bien l'épisode et ne soyez pas trop jaloux. {^_°}
+
+[img=images/news/denpa3.png]Viens faire un câlin ![/img]");
+			$news->setCommentId(299);
+			$news->addReleasing(Release::getRelease('denpa', 'ep3'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
 		}
 		
 		return News::$allNews;
