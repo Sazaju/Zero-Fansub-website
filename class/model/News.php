@@ -4144,10 +4144,10 @@ Appréciez bien l'épisode et ne soyez pas trop jaloux. {^_°}
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Recrutement adapt");
+			$news->setTitle("Recrutement adapt+time+édit !");
 			$news->setTimestamp(strtotime("7 June 2012 19:18"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
-			$news->setMessage("Cherche adapt pour nouveau projet et plus si affinité.
+			$news->setMessage("Cherche adapteur, timeur et éditeur pour nouveau projet et plus si affinité.
 Contactez-moi sur le forum, je suis dispo à tout heure...
 et si tu es blonde, ça m'intéresse :p
 
