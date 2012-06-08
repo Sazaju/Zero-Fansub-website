@@ -331,7 +331,7 @@ Voilà un gros mois sans news, vous devez donc vous dire [i]enfin une sortie ![/i
 [img=images/news/angry.jpg]Quoi ?[/img]
 [size=0.8]Non pas taper ! {'>_<}[/size]
 
-Comme certains d'entre-vous le savent, je suis en train de raffiner le site, et cela prends du temps. Si pas mal de choses ont été développées pour l'instant, encore reste-t-il à les appliquer au site, et c'est ça qui est long. C'est donc pour ça que je viens à vous {^_^}.
+Comme certains d'entre vous le savent, je suis en train de raffiner le site, et cela prends du temps. Si pas mal de choses ont été développées pour l'instant, encore reste-t-il à les appliquer au site, et c'est ça qui est long. C'est donc pour ça que je viens à vous {^_^}.
 
 Je cherche quelqu'un qui s'y connaît un minimum en HTML/CSS/PHP. Inutile d'être un expert, je demande juste d'avoir déjà utilisé un peu ces langages, dire qu'on se comprenne si je parles de style, de balise et de parcourir des tableaux. Si vous avez déjà programmé en objet (PHP, Java, C++ ou autre) c'est un plus. Notez qu'il faut aussi savoir [i]retoucher[/i] des images. Ce que j'entends par là est simplement savoir redimensionner, couper, coller, rassembler des images en une seule, ... le b.a.-ba donc. Si des compétences plus avancées sont nécessaires, je peux vous les apprendre avec Gimp. De même si vous avez des questions sur le code, c'est tout à votre honneur {^_^}.
 
@@ -4150,7 +4150,7 @@ Appréciez bien l'épisode et ne soyez pas trop jaloux. {^_°}
 			$news->setMessage("Bon, il semble que certains ont douté de la fraîcheur de nos articles sur la news précédente. On ne leur en voudra pas, après 39 ans il y a de quoi se poser des questions... {'-.-}
 
 Du coup, voilà de quoi nous rattraper !
-Pour ceux d'entre-vous qui préfèrent la chair fraîche, nous vous proposons dès aujourd'hui une de nos spécialités, tout droit sortie de dessous la couette :
+Pour ceux d'entre vous qui préfèrent la chair fraîche, nous vous proposons dès aujourd'hui une de nos spécialités, tout droit sortie de dessous la couette :
 
 [img=images/news/denpa4-5.png]Un autre câlin ?[/img]
 
@@ -4158,7 +4158,7 @@ Pour ceux d'entre-vous qui préfèrent la chair fraîche, nous vous proposons dès a
 Donc pour montrer notre bonne volonté, ce sera 2 Denpa pour le prix d'un !
 Si si mes amis, vous avez bien lus ! 2 Denpa !
 
-Toujours pas convaincus ? Ah, vous êtes durs en affaire {'>_<}.
+Toujours pas satisfaits ? Ah, vous êtes durs en affaire {'>_<}.
 Allez, voilà notre dernier mot : L'OAD de Mitsudomoe est offert !
 
 Avant de partir à la chasse de jeunes filles fraîches et plantureuses, vous pourrez vous remettre en forme sur cet OAD. Attention tout de même, les appareils de sport ne sont pas à mettre entre les mains d'enfants inexpérimentés...
