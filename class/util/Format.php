@@ -520,25 +520,27 @@ class Format {
 					}
 					sort($numbers);
 					
-					$ref = 0;
-					$last = $numbers[0];
-					for($i = 1 ; $i < count($numbers) ; $i ++) {
-						$current = $numbers[$i];
-						if ($current == $last + 1) {
-							$numbers[$i] = null;
-						} else {
-							if ($numbers[$ref] != $last) {
-								$numbers[$ref] .= "-".$last;
+					if (!empty($numbers)) {
+						$ref = 0;
+						$last = $numbers[0];
+						for($i = 1 ; $i < count($numbers) ; $i ++) {
+							$current = $numbers[$i];
+							if ($current == $last + 1) {
+								$numbers[$i] = null;
+							} else {
+								if ($numbers[$ref] != $last) {
+									$numbers[$ref] .= "-".$last;
+								}
+								$ref = $i;
 							}
-							$ref = $i;
+							$last = $current;
 						}
-						$last = $current;
+						if ($numbers[$ref] != $last) {
+							$numbers[$ref] .= "-".$last;
+						}
+						$numbers = array_filter($numbers);
+						$list = implode(", ", $numbers).", ";
 					}
-					if ($numbers[$ref] != $last) {
-						$numbers[$ref] .= "-".$last;
-					}
-					$numbers = array_filter($numbers);
-					$list = implode(", ", $numbers).", ";
 					
 					foreach($others as $id) {
 						$list = Release::getRelease($parameter[0], $id)->getName() . ", ";
