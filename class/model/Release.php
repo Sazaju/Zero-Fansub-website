@@ -402,6 +402,12 @@ class Release {
 			$release->setName(null);
 			$release->setPreviewUrl("images/episodes/mitsudomoeoad.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoeoad.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_OAV[BD][H264-AAC][EEBF1E66].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime("8 June 2012 23:07"));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("mitsudomoe2"), "ep1");
@@ -6241,11 +6247,39 @@ class Release {
 			$release = new Release(Project::getProject("denpa"), "ep4");
 			$release->setName("épisode 04");
 			$release->setPreviewUrl("images/episodes/denpa4.png");
+			$release->setHeaderImage("images/sorties/denpa4-5.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_04[BD][8bits-720p][1733BFA5].mp4");
+			$descriptor->setID('8 bits');
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_04[BD][10bits-1080p][4C93316E].mp4");
+			$descriptor->setID('10 bits');
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('8 June 2012 23:08'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep5");
 			$release->setName("épisode 05");
 			$release->setPreviewUrl("images/episodes/denpa5.png");
+			$release->setHeaderImage("images/sorties/denpa4-5.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_05[BD][8bits-720p][AAF431E3].mp4");
+			$descriptor->setID('8 bits');
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_05[BD][10bits-1080p][6C28F74C].mp4");
+			$descriptor->setID('10 bits');
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('8 June 2012 23:08'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("denpa"), "ep6");

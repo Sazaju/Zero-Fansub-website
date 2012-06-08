@@ -4144,8 +4144,44 @@ Appréciez bien l'épisode et ne soyez pas trop jaloux. {^_°}
 			News::$allNews[] = $news;
 			
 			$news = new News();
+			$news->setTitle("Mitsudomoe OAD + Denpa 4 & 5");
+			$news->setTimestamp(strtotime("8 June 2012 22:12"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Bon, il semble que certains ont douté de la fraîcheur de nos articles sur la news précédente. On ne leur en voudra pas, après 39 ans il y a de quoi se poser des questions... {'-.-}
+
+Du coup, voilà de quoi nous rattraper !
+Pour ceux d'entre-vous qui préfèrent la chair fraîche, nous vous proposons dès aujourd'hui une de nos spécialités, tout droit sortie de dessous la couette :
+
+[img=images/news/denpa4-5.png]Un autre câlin ?[/img]
+
+[spoiler=Bon, certains crieront sûrement à l'entourloupe...]Et ils ont raison. {'^.^}~[/spoiler]
+Donc pour montrer notre bonne volonté, ce sera 2 Denpa pour le prix d'un !
+Si si mes amis, vous avez bien lus ! 2 Denpa !
+
+Toujours pas convaincus ? Ah, vous êtes durs en affaire {'>_<}.
+Allez, voilà notre dernier mot : L'OAD de Mitsudomoe est offert !
+
+Avant de partir à la chasse de jeunes filles fraîches et plantureuses, vous pourrez vous remettre en forme sur cet OAD. Attention tout de même, les appareils de sport ne sont pas à mettre entre les mains d'enfants inexpérimentés...
+
+[img=images/news/mitsudomoeoad.png]Un peu de sport ?[/img]
+
+Oui... Enfin bon... On fait ce qu'on peut. {'^_^}
+
+Allez, bon matage et ne restez pas devant votre écran pendant tout le weekend. {^_°}");
+			$news->setCommentId(301);
+			$news->addReleasing(Release::getRelease('mitsudomoeoad', 'oad'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep4'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep5'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("Recrutement adapt+time+édit !");
-			$news->setTimestamp(strtotime("7 June 2012 19:18"));
+			//$news->setTimestamp(strtotime("7 June 2012 19:18"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
 			$news->setMessage("Cherche adapteur, timeur et éditeur pour nouveau projet et plus si affinité.
 Contactez-moi sur le forum, je suis dispo à tout heure...
