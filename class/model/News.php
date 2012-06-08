@@ -4187,7 +4187,9 @@ Allez, bon matage et ne restez pas devant votre écran pendant tout le weekend. {
 Contactez-moi sur le forum, je suis dispo à tout heure...
 et si tu es blonde, ça m'intéresse :p
 
-Le nouveau projet de juillet est... à décider ensemble ^_^");
+Le nouveau projet de juillet est... à décider ensemble ^_^
+
+[img=images/news/recrutement.png]Qui veut nous rejoindre ?[/img]");
 			$news->setCommentId(300);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
