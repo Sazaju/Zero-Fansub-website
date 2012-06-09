@@ -185,7 +185,13 @@ class ChangeTranslatorDiff extends FieldDiff {
 	}
 	
 	protected function getOperationString() {
-		return "translator ".$this->getOldValue().'->'.$this->getNewValue();
+		$oldName = Debug::getClassNameFromSourceCode($this->getOldValue());
+		$newName = Debug::getClassNameFromSourceCode($this->getNewValue());
+		if ($oldName == $newName) {
+			return "translator $oldName modified";
+		} else {
+			return "translator $oldName -> $newName";
+		}
 	}
 }
 ?>

@@ -67,7 +67,7 @@ class Database {
 				field       VARCHAR(128) NOT NULL,
 				type        VARCHAR(128) NOT NULL,
 				mandatory   BOOLEAN NOT NULL,
-				translator  VARCHAR(128) NOT NULL,
+				translator  TEXT,
 				start       INTEGER NOT NULL,
 				authorStart VARCHAR(128) NOT NULL,
 				stop        INTEGER,
@@ -85,10 +85,11 @@ class Database {
 		
 		try {
 			$this->connection->exec('CREATE TABLE "structure_key" (
-				class      VARCHAR(128) NOT NULL,
-				field      VARCHAR(128) NOT NULL,
-				start      INTEGER NOT NULL,
-				stop       INTEGER,
+				class       VARCHAR(128) NOT NULL,
+				field       VARCHAR(128) NOT NULL,
+				start       INTEGER NOT NULL,
+				authorStart VARCHAR(128) NOT NULL,
+				stop        INTEGER,
 				
 				PRIMARY KEY (class, field, start)
 			)');
@@ -245,9 +246,9 @@ class Database {
 					$fieldNames = $descriptor->getNewValue();
 					$discard = $this->connection->prepare('UPDATE "structure_key" SET stop = ? WHERE class = ? and stop IS NULL');
 					$discard->execute(array($time, $class));
-					$insert = $this->connection->prepare('INSERT INTO "structure_key" (class, field, start, stop) VALUES (:class, :field, :start, NULL)');
+					$insert = $this->connection->prepare('INSERT INTO "structure_key" (class, field, start, authorStart, stop) VALUES (:class, :field, :start, :authorStart, NULL)');
 					foreach($fieldNames as $name) {
-						$insert->execute(array($class, $name, $time));
+						$insert->execute(array($class, $name, $time, $authorId));
 					}
 				} else if ($descriptor instanceof ChangeTypeDiff) {
 					$fieldName = $descriptor->getField();
@@ -266,9 +267,10 @@ class Database {
 					// start the updated property
 					$property['type'] = $descriptor->getNewValue();
 					$property['start'] = $time;
+					$property['authorStart'] = $authorId;
 					unset($property['stop']);
 					unset($property['authorStop']);
-					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, NULL, NULL)');
+					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
 					foreach($property as $key => $value) {
 						$insert->bindParam(':'.$key, $property[$key]);
 					}
@@ -288,7 +290,79 @@ class Database {
 						$value = $values[0];
 						$update->execute(array($class, $key, $fieldName, $time, $value, $authorId));
 					}
+				} else if ($descriptor instanceof ChangeTranslatorDiff) {
+					// instantiate old translator
+					$oldSource = $descriptor->getOldValue();
+					$oldName = Debug::getClassNameFromSourceCode($oldSource);
+					$oldSource = Debug::changeClassNameInSourceCode($oldSource, $oldName, $oldName."_obsolete");
+					$oldName = Debug::getClassNameFromSourceCode($oldSource);
+					eval($oldSource);
+					$oldReflector = new ReflectionClass($oldName);
+					$oldTranslator = $oldReflector->newInstance();
 					
+					// instantiate new translator
+					$newSource = $descriptor->getNewValue();
+					$newName = Debug::getClassNameFromSourceCode($newSource);
+					$newReflector = new ReflectionClass($newName);
+					$newTranslator = $newReflector->newInstance();
+					
+					$fieldName = $descriptor->getField();
+					
+					// retrieve the current property data
+					$select = $this->connection->prepare('SELECT * FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
+					$select->execute(array($class, $fieldName));
+					$property = $select->fetch(PDO::FETCH_ASSOC);
+					
+					// terminate the current property
+					$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
+					$discard->execute(array($authorId, $class, $fieldName));
+					$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
+					$discard->execute(array($time, $class, $fieldName));
+					
+					// start the updated property
+					$property['translator'] = $descriptor->getNewValue();
+					$property['start'] = $time;
+					$property['authorStart'] = $authorId;
+					unset($property['stop']);
+					unset($property['authorStop']);
+					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
+					foreach($property as $key => $value) {
+						$insert->bindParam(':'.$key, $property[$key]);
+					}
+					$insert->execute($property);
+					
+					// retrieve the obsolete values
+					$select = $this->connection->prepare('SELECT key, value FROM "working_'.$property['type'].'" WHERE class = ? AND field = ?');
+					$select->execute(array($class, $fieldName));
+					$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
+					
+					$componentReflector = new ReflectionClass($class);
+					$component = $componentReflector->newInstance();
+					$field = $component->getPersistentField($fieldName);
+					$isUpdateNeeded = false;
+					foreach($array as $key => $values) {
+						$oldValue = $values[0];
+						$oldTranslator->setPersistentValue($field, $oldValue);
+						$newValue = $newTranslator->getPersistentValue($field->get());
+						if ($oldValue != $newValue) {
+							$isUpdateNeeded = true;
+							break;
+						}
+					}
+					
+					if ($isUpdateNeeded) {
+						// archive the obsolete values
+						$this->archiveValues($property['type'], $class, $fieldName, $time);
+						
+						// save the new values
+						$update = $this->connection->prepare('INSERT INTO "working_'.$property['type'].'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+						foreach($array as $key => $values) {
+							$oldValue = $values[0];
+							$oldTranslator->setPersistentValue($field, $oldValue);
+							$newValue = $newTranslator->getPersistentValue($field->get());
+							$update->execute(array($class, $key, $fieldName, $time, $newValue, $authorId));
+						}
+					}
 				} else {
 					// TODO implement other cases
 					throw new Exception('Not implemented yet: '.$descriptor);
@@ -332,6 +406,7 @@ class Database {
 			$table = $field->getTranslator()->getPersistentTable($field);
 			$type = $table->getName();
 			$translator = get_class($field->getTranslator());
+			$translator = Debug::getClassSourceCode($translator);
 			$mandatory = $field->isMandatory();
 			
 			if (!array_key_exists($name, $fields)) {
@@ -595,6 +670,5 @@ class Database {
 		
 		return empty($correspondingKeys);
 	}
-	
 }
 ?>
