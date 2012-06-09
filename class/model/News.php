@@ -4181,7 +4181,7 @@ Allez, bon matage et ne restez pas devant votre écran pendant tout le weekend. {
 			
 			$news = new News();
 			$news->setTitle("Recrutement adapt+time+édit !");
-			//$news->setTimestamp(strtotime("7 June 2012 19:18"));
+			$news->setTimestamp(strtotime("16 June 2012 00:00"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
 			$news->setMessage("Cherche adapteur, timeur et éditeur pour nouveau projet et plus si affinités.
 Rendez-vous sur le forum, je suis dispo à tout heure...
