@@ -1,5 +1,5 @@
 <?php
-class DefaultPersistentFieldTranslator implements IPersistentFieldTranslator {
+final class DefaultPersistentFieldTranslator implements IPersistentFieldTranslator {
 	public function getPersistentValue($value) {
 		if (is_array($value)) {
 			throw new Exception("Array management is not implemented yet.");
