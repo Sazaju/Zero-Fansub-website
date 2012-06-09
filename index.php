@@ -74,7 +74,7 @@ function findFile($fileName, $dir) {
 	return null;
 }
 
-function __autoload($className) {
+spl_autoload_register(function($className) {
 	$file = findFile($className.'.php', 'class');
 	if ($file != null) {
 		$chunks = explode("/", $file);
@@ -83,7 +83,7 @@ function __autoload($className) {
 		}
 		include $file;
 	}
-}
+});
 
 /**********************************\
          CRITICAL CONFIG
