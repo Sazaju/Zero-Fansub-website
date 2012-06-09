@@ -121,8 +121,11 @@
 .menu h1, .menu ul, .menu li {
 	margin: 0;
 	padding: 0;
-	font-size: 13px;
 	font-weight: normal;
+}
+
+.menu h1 {
+	font-size: 1.2em;
 }
 
 .menu li {
