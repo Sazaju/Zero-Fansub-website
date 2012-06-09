@@ -1,4 +1,6 @@
 <?php
+require "class/util/PHP-Parser/lib/bootstrap.php";
+
 class Debug {
 	public static function toString( $object, $name = 'object' ) {
 		
@@ -160,6 +162,55 @@ class Debug {
 	
 	public static function createWarningTag($text) {
 		return "<span class='warning'>".$text."</span>";
+	}
+	
+	public static function getClassSourceCode($class) {
+		$class = new ReflectionClass($class);
+		$fileName = $class->getFileName();
+
+		if(!empty($fileName)) {
+			$fileContents = file_get_contents($fileName);
+			$startLine = $class->getStartLine()-1; // getStartLine() seems to start after the {, we want to include the signature
+			$endLine = $class->getEndLine();
+			$numLines = $endLine - $startLine;
+			$classSource = trim(implode('',array_slice(file($fileName),$startLine,$numLines))); // not perfect; if the class starts or ends on the same line as something else, this will be incorrect
+			return $classSource;
+		} else {
+			throw new Exception("No file for the class $class");
+		}
+	}
+	
+	public static function getClassNameFromSourceCode($classSource) {
+		$parser = new PHPParser_Parser(new PHPParser_Lexer());
+		$stmts = $parser->parse("<?php ".$classSource." ?>");
+		return $stmts[0]->name;
+	}
+	
+	public static function changeClassNameInSourceCode($classSource, $oldClassName, $newClassName) {
+		$parser = new PHPParser_Parser(new PHPParser_Lexer());
+		$traverser = new PHPParser_NodeTraverser();
+		$prettyPrinter = new PHPParser_PrettyPrinter_Zend();
+		$traverser->addVisitor(new RenamerVisitor($oldClassName, $newClassName));
+		$stmts = $parser->parse("<?php ".$classSource." ?>");
+		$stmts = $traverser->traverse($stmts);
+		$code = $prettyPrinter->prettyPrint($stmts);
+		return $code;
+	}
+}
+
+class RenamerVisitor extends PHPParser_NodeVisitorAbstract {
+	private $oldClassName;
+	private $newClassName;
+	
+	public function __construct($oldClassName, $newClassName) {
+		$this->oldClassName = $oldClassName;
+		$this->newClassName = $newClassName;
+	}
+	
+	public function leaveNode(PHPParser_Node $node) {
+		if ($node instanceof PHPParser_Node_Stmt_Class && $node->name == $this->oldClassName) {
+			$node->name = $this->newClassName;
+		}
 	}
 }
 ?>
