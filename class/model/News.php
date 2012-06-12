@@ -4183,11 +4183,18 @@ Allez, bon matage et ne restez pas devant votre écran pendant tout le weekend. {
 			$news->setTitle("Recrutement adapt+time+édit !");
 			$news->setTimestamp(strtotime("16 June 2012 00:00"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
-			$news->setMessage("Cherche adapteur, timeur et éditeur pour nouveau projet et plus si affinités.
-Rendez-vous sur le forum, je suis dispo à tout heure...
-et si tu es blonde, ça m'intéresse aussi :p
+			$news->setMessage("Cherche des adapteurs ou timeurs : on n'en a peut-être plus en stock :p
 
-Le nouveau projet de juillet est... à décider ensemble ^_^
+On avance comme on peut dans nos projets en cours,
+mais on a aussi des projets futurs (Haganai, Working!!)...
+
+Donc, on a besoin de vous.
+
+On recherche aussi un éditeur pour épauler le nôtre...
+
+Peut-être un nouveau projet pour cet été, à décider ensemble...
+
+Rendez-vous sur le forum, l'expérience n'est pas exigée ^_^
 
 [img=images/news/recrutement.png]Qui veut nous rejoindre ?[/img]");
 			$news->setCommentId(300);
