@@ -4185,9 +4185,6 @@ Allez, bon matage et ne restez pas devant votre écran pendant tout le weekend. {
 			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
 			$news->setMessage("Cherche des adapteurs ou timeurs : on n'en a peut-être plus en stock :p
 
-On avance comme on peut dans nos projets en cours,
-mais on a aussi des projets futurs (Haganai, Working!!)...
-
 Donc, on a besoin de vous.
 
 On recherche aussi un éditeur pour épauler le nôtre...
