@@ -4183,15 +4183,25 @@ Allez, bon matage et ne restez pas devant votre écran pendant tout le weekend. {
 			$news->setTitle("Recrutement adapt+time+édit !");
 			$news->setTimestamp(strtotime("13 June 2012 00:00"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
-			$news->setMessage("Cherche des adapteurs ou timeurs : on n'en a peut-être plus en stock :p
+			$news->setMessage("Cherche des adapteurs (reformulent les phrases) ou timeurs : le stock est épuisé
 
 Donc, on a besoin de vous.
 
-On recherche aussi un éditeur pour épauler le nôtre...
+On recherche aussi un éditeur pour épauler le nôtre, les projets s'entassent...
 
-Peut-être un nouveau projet pour cet été, à décider ensemble...
+[b]Peut-être un nouveau projet pour cet été, on aimerait bien, quoi...
+Cela fait déjà deux ou trois saisons qu'on ne prend rien...
+mais faudrait déjà qu'on arrive à terminer ceux en cours,
+donc toute aide est la bienvenue...[/b]
 
-Rendez-vous sur le forum, l'expérience n'est pas exigée ^_^
+Si vous avez du temps, que vous voulez un peu contribuer au début,
+histoire de voir si ça vous plaît, venez nous essayer...
+
+Postez votre candidature sur le fourm et vous découvrirez un monde de travail xD
+
+Et le travail, c'est la santé...
+
+N.B. : l'expérience n'est pas exigée ^_^
 
 [img=images/news/recrutement.png]Qui veut nous rejoindre ?[/img]");
 			$news->setCommentId(300);
