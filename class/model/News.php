@@ -4197,7 +4197,7 @@ donc toute aide est la bienvenue...[/b]
 Si vous avez du temps, que vous voulez un peu contribuer au début,
 histoire de voir si ça vous plaît, venez nous essayer...
 
-Postez votre candidature sur le fourm et vous découvrirez un monde de travail xD
+Postez votre candidature sur le forum et vous découvrirez un monde de travail xD
 
 Et le travail, c'est la santé...
 
