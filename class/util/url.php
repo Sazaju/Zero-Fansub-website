@@ -42,7 +42,7 @@ class Url {
 		$this->data = Url::parseUrl($url);
 	}
 	
-	public function toString($full = false) {
+	public function toString($full = false, $html = true) {
 		$url = $this->data[URL_PATH];
 		
 		if ($this->data[URL_QUERY] != null) {
@@ -78,6 +78,10 @@ class Url {
 					$url = $this->data[URL_PROTOCOL].'://'.$url;
 				}
 			}
+		}
+		
+		if ($html) {
+			$url = preg_replace("#&#", "&amp;", $url);
 		}
 		
 		return $url;
