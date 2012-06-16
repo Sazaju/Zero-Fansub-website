@@ -26,7 +26,7 @@
 				<h1>Initialisation des données critiques</h1>
 				<p>
 					Le fichier <b><?php echo $criticalDataFile; ?></b> n'existe pas ou ses données ne sont pas correctes. Il vous faut donc le créer ou le corriger. Pour se faire, ouvrez un fichier portant ce nom à la racine du site (au même endroit que l'index) et remplissez-le selon ce modèle :
-					<pre class='code'>&lt;?php
+					<pre class='code'><?php
 /*
 	This file contains critical data and should never be written
 	in the repository of a version management system (ensure it
