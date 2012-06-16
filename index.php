@@ -173,7 +173,7 @@ if (TEST_MODE_ACTIVATED) {
 	}
 	
 	$features->addComponent(' - ');
-	$features->addComponent(exec('git log -1 --pretty=format:"%h - %s"'));
+	$features->addComponent(htmlspecialchars(exec('git log -1 --pretty=format:"%h - %s"')));
 	
 	define('TESTING_FEATURE', $features->getCurrentHTML());
 }

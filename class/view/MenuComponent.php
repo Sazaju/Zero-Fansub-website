@@ -11,11 +11,14 @@ class MenuComponent extends SimpleBlockComponent {
 			$this->addComponent(new Title($menu->getTitle()));
 		}
 		
-		$list = new SimpleListComponent();
-		foreach($menu->getEntries() as $entry) {
-			$list->addComponent($entry);
+		$entries = $menu->getEntries();
+		if (!empty($entries)) {
+			$list = new SimpleListComponent();
+			foreach($entries as $entry) {
+				$list->addComponent($entry);
+			}
+			$this->addComponent($list);
 		}
-		$this->addComponent($list);
 	}
 }
 ?>
