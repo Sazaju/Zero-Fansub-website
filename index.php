@@ -247,7 +247,7 @@ if ($url->hasQueryVar('page')) {
 		<link rel="stylesheet" href="<?php echo $styleFile; ?>" type="text/css" media="screen" title="Normal" />  
 		<link rel="icon" type="image/gif" href="fav.gif" />
 		<link rel="shortcut icon" href="fav.ico" />
-		<script type="text/javascript" language="Javascript">
+		<script type="text/javascript">
 			function show(nom_champ) {
 				if(document.getElementById) {
 					tabler = document.getElementById(nom_champ);

@@ -103,7 +103,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$url = new Url();
 			$vars = $url->getQueryVars();
 			if (!isset($vars['show']) || !(strcmp($vars['show'], "*") == 0 || preg_match("#(,|^)".preg_quote($release->getID())."(,|$)#", $vars['show']) > 0)) {
-				$releaseContent->addComponent("<script language='javascript'>show('".$release->getID()."');</script>");
+				$releaseContent->addComponent("<script type='text/javascript'>show('".$release->getID()."');</script>");
 			}
 		}
 		else {
