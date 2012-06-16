@@ -51,7 +51,7 @@ class Image extends DefaultHtmlComponent {
 		$alt = $this->getAlternative();
 		$title = $this->getTitle();
 		$sourcePart = ' src="'.$source->toString().'"';
-		$altPart = !empty($alt) ? ' alt="'.$alt.'"' : '';
+		$altPart = ' alt="'.$alt.'"';
 		$titlePart = !empty($title) ? ' title="'.$title.'"' : '';
 		return parent::getOptions().$sourcePart.$titlePart.$altPart;
 	}
