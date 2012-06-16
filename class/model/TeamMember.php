@@ -156,7 +156,7 @@ class TeamMember {
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(2);
-			$member->setPseudo("Jembé");
+			$member->setPseudo("JembÃ©");
 			$member->setImage("jembe.png");
 			$member->addRole(Role::getRole("adapt"));
 			TeamMember::$allMembers[] = $member;
@@ -354,7 +354,7 @@ class TeamMember {
 			$member->setPseudo("Vegeta");
 			$member->setImage("vegeta.jpg");
 			$member->addRole(Role::getRole('check'));
-			$member->setFirstName("Chloé");
+			$member->setFirstName("ChloÃ©");
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
@@ -604,7 +604,7 @@ class TeamMember {
 			$member->addRole(Role::getRole('tradEn'));
 			$member->setFirstName("Ludo");
 			$member->setAge(16);
-			$member->setLocation("Hyères");
+			$member->setLocation("HyÃ¨res");
 			$member->setMail("angel2948@hotmail.fr");
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
@@ -683,7 +683,7 @@ class TeamMember {
 			$member->setPseudo("Vicenzo");
 			$member->addRole(Role::getRole("clean"));
 			$member->addRole(Role::getRole("edit"));
-			$member->setFirstName("François");
+			$member->setFirstName("FranÃ§ois");
 			$member->setAge(23);
 			$member->setLocation("Grasse");
 			$member->setMail("woafanyoshi@hotmail.com");

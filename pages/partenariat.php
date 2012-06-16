@@ -5,7 +5,7 @@
 	$link = new Link("http://forum.zerofansub.net/t552-Les-regles-d-Or-de-chez-Zero.htm#p17057", "Conditions, Offres (a lire avant toute demande !)");
 	$link->openNewWindow(true);
 	$page->addComponent(new Title($link, 2));
-	$page->addComponent(new Title("Nos bannières", 2));
+	$page->addComponent(new Title("Nos banniÃ¨res", 2));
 	
 	$content = '[img=images/partenaires/ourbanner/zero_280x45.png]zero[/img]
 [code]<a href="http://zerofansub.net"><img

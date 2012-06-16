@@ -1,8 +1,8 @@
 <?php
 	$content = "[title]Recrutement[/title]
-On ne recrute plus en dehors de l'école du fansub.
+On ne recrute plus en dehors de l'Ã©cole du fansub.
 [url=http://ecole.zerofansub.net/]En savoir +[/url].
-(Vous pouvez postuler pour l'école même si vous êtes expérimentés, le tout c'est d'être motivé)";
+(Vous pouvez postuler pour l'Ã©cole mÃªme si vous Ãªtes expÃ©rimentÃ©s, le tout c'est d'Ãªtre motivÃ©)";
 	PageContent::getInstance()->addComponent(Format::convertTextToHTML($content));
 	
 	/*

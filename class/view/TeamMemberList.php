@@ -27,7 +27,7 @@ class TeamMemberList extends SimpleListComponent {
 		$list->addComponent("<b>".$pseudo."</b>");
 		
 		$roles = $member->getRoles();
-		$description = "<b>Rôle</b> ";
+		$description = "<b>RÃ´le</b> ";
 		if (!empty($roles)) {
 			$isFirst = true;
 			foreach($roles as $role) {
@@ -47,7 +47,7 @@ class TeamMemberList extends SimpleListComponent {
 		
 		$firstName = $member->getFirstName();
 		if ($firstName !== null) {
-			$list->addComponent("<b>Prénom</b> ".$firstName);
+			$list->addComponent("<b>PrÃ©nom</b> ".$firstName);
 		}
 		
 		$age = $member->getAge();
@@ -60,7 +60,7 @@ class TeamMemberList extends SimpleListComponent {
 				}
 				$age = $age." ans";
 			}
-			$list->addComponent("<b>Âge</b> ".$age);
+			$list->addComponent("<b>Ã‚ge</b> ".$age);
 		}
 		
 		$location = $member->getLocation();
