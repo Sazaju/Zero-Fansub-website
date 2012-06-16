@@ -6,3 +6,8 @@ style3*
 ddl/*
 resources/*
 *~
+
+# Eclipse
+.buildpath
+.project
+.settings
