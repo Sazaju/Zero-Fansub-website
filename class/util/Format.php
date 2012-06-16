@@ -663,7 +663,7 @@ class Format {
 					$parameter = $parameter->generateHTML();
 				}
 				// TODO show the spoiler if javascript deactivated
-				return "<a href=\"#\" onClick=\"show('spoiler$id');return(false)\">$parameter</a><div id=\"spoiler$id\" style=\"display: none;\">";
+				return "<a href=\"#\" onclick=\"show('spoiler$id');return(false)\">$parameter</a><object id=\"spoiler$id\" style=\"display: none;\">";
 			};
 			$spoilerContent = function($tag, $parameter, $content) {
 				$index = 0;
@@ -679,7 +679,7 @@ class Format {
 				}
 				return BBCodeDescriptor::defaultContentCallback($tag, $parameter, $content);
 			};
-			$spoilerCloseTag = function($tag, $parameter, $content) {return '</div>';};
+			$spoilerCloseTag = function($tag, $parameter, $content) {return '</object>';};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("spoiler", $spoilerOpenTag, $spoilerCloseTag, $spoilerContent));
 			
 			/**********************************\

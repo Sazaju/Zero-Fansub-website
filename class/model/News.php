@@ -3749,7 +3749,8 @@ De même ma balise [code]code[/code] (implémentée spécifiquement pour cette n
 
 De même, un spoiler s'écrit d'habitude comme ça : [code][spoiler=titre]...[/spoiler][/code]. Ainsi, le titre s'affiche d'abord seul, puis il faut cliquer dessus pour ouvrir le spoiler. Cependant, je n'ai jamais vu de spoiler capable de prendre un [b]titre formatté en BBCode[/b], par exemple une image. Ma balise spoiler en revanche en est capable, c'est d'ailleurs le cas dans une vieille news.
 
-[spoiler=Pour les curieux]Si aucun titre n'est donné, le premier élément non vide dans le spoiler est pris comme titre (et n'est bien sûr plus affiché dans le spoiler). Ça évite les conflits lors du parsage du paramètre, qui peut alors rester générique.[/spoiler]
+[spoiler=Pour les curieux]
+Si aucun titre n'est donné, le premier élément non vide dans le spoiler est pris comme titre (et n'est bien sûr plus affiché dans le spoiler). Ça évite les conflits lors du parsage du paramètre, qui peut alors rester générique.[/spoiler]
 
 Une autre particularité est que, lorsqu'une balise BBCode génère son code HTML, le contenu [u]préformatté[/u] est donné (une représentation en arbre du contenu) et une simple fonction permet d'obtenir la version parsée (HTML) ou la version originale (BBCode). On peut donc librement travailler sur l'une des trois versions selon le besoin. C'est ce qui me donne le plus de souplesse.
 
@@ -4153,7 +4154,8 @@ Pour ceux d'entre vous qui préfèrent la chair fraîche, nous vous proposons d�
 
 [img=images/news/denpa4-5.png]Un autre câlin ?[/img]
 
-[spoiler=Bon, certains crieront sûrement à l'entourloupe...]Et ils ont raison. {'^.^}~[/spoiler]
+[spoiler=Bon, certains crieront sûrement à l'entourloupe...]
+Et ils ont raison. {'^.^}~[/spoiler]
 Donc pour montrer notre bonne volonté, ce sera 2 Denpa pour le prix d'un !
 Si si mes amis, vous avez bien lus ! 2 Denpa !
 
