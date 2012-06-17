@@ -1,8 +1,17 @@
-criticalData.php
-zero-fansub.sqlite
-index2*
-index3*
-style3*
-ddl/*
-resources/*
+/criticalData.php
+/zero-fansub.sqlite
+/index2*
+/index3*
+/style3*
+/ddl/*
+/resources
+/temp
 *~
+
+# Eclipse
+.buildpath
+.project
+.settings
+
+#Netbeans
+/nbproject

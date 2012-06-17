@@ -16,6 +16,9 @@
 		$subtitle = $timestamp." par ".$author;
 		$title->addComponent(new Title($subtitle, 4));
 		
-		$page->addComponent(new Link("?page=dossier&id=".$dossier->getID(), $title));
+		$url = Url::getCurrentUrl();
+		$url->setQueryVar('page', 'dossier');
+		$url->setQueryVar('id', $dossier->getID());
+		$page->addComponent(new Link($url, $title));
 	}
 ?>

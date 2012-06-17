@@ -36,8 +36,8 @@ class BBCodeParser {
 			$descriptorMap[$openTag] = $descriptor;
 		}
 		$array = $exploder->parse($string);
-		
-		while(count($array) > 1 || is_array($array[0])) {
+                
+		while(count($array) > 1 || count($array) > 0 && is_array($array[0])) {
 			$closeIndex = -1;
 			foreach($array as $index => $chunk) {
 				if (is_array($chunk) && $chunk[1][0] === '/') {

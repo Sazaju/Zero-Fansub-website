@@ -120,7 +120,7 @@ Let's rock, baby.
 
 
 Comme vous vous en êtes sûrement déjà aperçu: il y a des jours qui comptent plus que d'autres: la sortie d'un nouveau Metal Gear, un concert de Dropkick Murphy's ou bien un diner aux chandelles avec Monica Belluci... Bref c'est évident et je le redis: il y a des jours qui comptent plus que d'autres.
-	
+
 Entre autres, il y a le 11 juin 2009.
 Wesh wesh mon frère, c'est quoi le 11 juin 2009 ? 
 Pour certains c'est la perspective d'un examen, pour d'autres c'est la Saint Barnabé (yosh béber), mais pour tout le monde c'est la sortie du neuvième et dernier tome de GENSHIKEN. ( [url]http://www.kurokawa.fr/humour/fiche/1127/genshiken-t9[/url] )
@@ -228,7 +228,7 @@ Bien qu'il ne soit pas le président du Genshiken, il se conduit toujours comme 
 
 C'est le dessinateur initial du groupe. Introverti du fait de son bégaiement, c'est en quelque sorte l'âme damnée de Madarame.
 
- [u]- Tanaka Soïchiro.[/u]
+[u]- Tanaka Soïchiro.[/u]
 
 Docteur es cosplay et montage de figurines mecchas, Tanaka reste cependant le cas le moins désespéré du groupe. Certes il est obsédé par le cosplay, mais sait garder les pieds sur terre.
 
