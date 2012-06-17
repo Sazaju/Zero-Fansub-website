@@ -12,3 +12,6 @@
 .buildpath
 .project
 .settings
+
+#Netbeans
+/nbproject
