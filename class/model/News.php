@@ -331,7 +331,7 @@ Voilà un gros mois sans news, vous devez donc vous dire [i]enfin une sortie ![/
 [img=images/news/angry.jpg]Quoi ?[/img]
 [size=0.8]Non pas taper ! {'>_<}[/size]
 
-Comme certains d'entre-vous le savent, je suis en train de raffiner le site, et cela prends du temps. Si pas mal de choses ont été développées pour l'instant, encore reste-t-il à les appliquer au site, et c'est ça qui est long. C'est donc pour ça que je viens à vous {^_^}.
+Comme certains d'entre vous le savent, je suis en train de raffiner le site, et cela prends du temps. Si pas mal de choses ont été développées pour l'instant, encore reste-t-il à les appliquer au site, et c'est ça qui est long. C'est donc pour ça que je viens à vous {^_^}.
 
 Je cherche quelqu'un qui s'y connaît un minimum en HTML/CSS/PHP. Inutile d'être un expert, je demande juste d'avoir déjà utilisé un peu ces langages, dire qu'on se comprenne si je parles de style, de balise et de parcourir des tableaux. Si vous avez déjà programmé en objet (PHP, Java, C++ ou autre) c'est un plus. Notez qu'il faut aussi savoir [i]retoucher[/i] des images. Ce que j'entends par là est simplement savoir redimensionner, couper, coller, rassembler des images en une seule, ... le b.a.-ba donc. Si des compétences plus avancées sont nécessaires, je peux vous les apprendre avec Gimp. De même si vous avez des questions sur le code, c'est tout à votre honneur {^_^}.
 
@@ -3749,7 +3749,8 @@ De même ma balise [code]code[/code] (implémentée spécifiquement pour cette n
 
 De même, un spoiler s'écrit d'habitude comme ça : [code][spoiler=titre]...[/spoiler][/code]. Ainsi, le titre s'affiche d'abord seul, puis il faut cliquer dessus pour ouvrir le spoiler. Cependant, je n'ai jamais vu de spoiler capable de prendre un [b]titre formatté en BBCode[/b], par exemple une image. Ma balise spoiler en revanche en est capable, c'est d'ailleurs le cas dans une vieille news.
 
-[spoiler=Pour les curieux]Si aucun titre n'est donné, le premier élément non vide dans le spoiler est pris comme titre (et n'est bien sûr plus affiché dans le spoiler). Ça évite les conflits lors du parsage du paramètre, qui peut alors rester générique.[/spoiler]
+[spoiler=Pour les curieux]
+Si aucun titre n'est donné, le premier élément non vide dans le spoiler est pris comme titre (et n'est bien sûr plus affiché dans le spoiler). Ça évite les conflits lors du parsage du paramètre, qui peut alors rester générique.[/spoiler]
 
 Une autre particularité est que, lorsqu'une balise BBCode génère son code HTML, le contenu [u]préformatté[/u] est donné (une représentation en arbre du contenu) et une simple fonction permet d'obtenir la version parsée (HTML) ou la version originale (BBCode). On peut donc librement travailler sur l'une des trois versions selon le besoin. C'est ce qui me donne le plus de souplesse.
 
@@ -3983,6 +3984,27 @@ Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exacte
 			News::$allNews[] = $news;
 			
 			$news = new News();
+			$news->setTitle("Denpa 02 BD");
+			$news->setTimestamp(strtotime("09 May 2012 22:51"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("[imgr=images/news/denpa2.png]On aime rouler les jeunes filles.[/imgr]
+Allez, on continue, on lâche pas le rythme ! {^_^}
+
+D'ici à ce que la suite de Mitsudomoe arrive, on reprend la fille aux ondes. Attention, il y a de la violence dans cet épisode ! Vous en avez d'ailleurs un aperçu ci-à droite :
+
+Vous avez vu ça ? On y va à coups de pied ! C'est monstrueux ! {°o°}
+
+Bon, à défaut d'être convaincant vous avez au moins un nouvel épisode à vous mettre sous la dent {-.-}~.");
+			$news->setCommentId(297);
+			$news->addReleasing(Release::getRelease('denpa', 'ep2'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
 			$news->setTitle("Mitsudomoe 9 BD");
 			$news->setTimestamp(strtotime("4 April 2012 19:41"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
@@ -4035,17 +4057,27 @@ Au passage, Mitsudomoe 11 est dans les bacs. Mais tout le monde s'en fout de ça
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Mitsudomoe 12 BD");
-			//$news->setTimestamp(strtotime("18 April 2012 19:49"));
+			$news->setTitle("Mitsudomoe 12+13 BD");
+			$news->setTimestamp(strtotime("01 May 2012 13:56"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Allez on continue et on approche tout doucement de la fin de Mitsudomoe. On se focalise sur la plus normale des élèves, qui au final peut se montrer assez craquante, vous trouvez pas :
+			$news->setMessage("J'ai une mauvaise nouvelle à vous annoncer...
+Mitsudomoe se termine aujourd'hui chez Zéro Fansub.
 
-[img=images/news/mitsudomoe12.png]Tehe ![/img]
+{°o°} Non ?
+
+Et si. Les deux derniers épisodes de Mitsudomoe sont désormais disponibles.
+
+[img=images/news/mitsudomoe12_13.jpg]Oh non ! Déjà fini ?[/img]
+
+Et oui, Mitsudomoe c'est fini... Enfin pas tout à fait car, petits chanceux que vous êtes, l'OAD et la saison deux sont d'ores et déjà entamés chez nous ! {^o^}/
+
+Attendez-les avec [s]im[/s]patience (ouais vous avez l'habitude maintenant {'^_^}).
 
 Et merci de nous suivre !
 (ça fait un moment qu'on l'a pas sortie celle-là {°.°}~)");
-			//$news->setCommentId(295);
+			$news->setCommentId(296);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep12'));
+			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep13'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
@@ -4054,7 +4086,7 @@ Et merci de nous suivre !
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Rerutement exotique !");
+			$news->setTitle("Recrutement exotique !");
 			$news->setTimestamp(strtotime("8 April 2012 12:57"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("[imgr]images/news/kanamemo_p4.png[/imgr]On recrute ! Ouais mais vous me direz que ça fait un moment que vous êtes au courant. Mais le truc, c'est que toutes les candidatures qu'on reçoit (pour le peu qu'on a) sont pour des boulots tels que trad et timeurs... et c'est tout. Mais la Zéro, ce n'est pas qu'un blog de fansubbeurs : on maintient un site complet et on essaye de multiplier nos activités.
@@ -4067,6 +4099,113 @@ Ayez de l'imagination, ne vous dîtes pas d'emblée \"[i]Ah, le fansub ils font 
 
 Si vous vous sentez prêt à participer à l'aventure : cliquez sur le lien [i]Recrutement[/i] dans le menu de gauche !");
 			$news->setCommentId(293);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement Timeur !");
+			$news->setTimestamp(strtotime("17 May 2012 18:58"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
+			$news->setMessage("Nous recherchons un timeur sur la durée qui a du temps à gaspiller.
+
+Intéressé ? Postulez sur notre forum via le lien [i]recrutement[/i] du site.
+
+[img=images/news/boring.jpg]Rien à faire ? Venez timer chez Zéro Fansub ![/img]");
+			$news->setCommentId(298);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Denpa 03 BD");
+			$news->setTimestamp(strtotime("29 May 2012 22:00"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Ça y est ! Avec quelques moments difficiles, nous voilà avec ce troisième épisode de la fille aux ondes.
+
+Attention, visite impromptue d'une jolie donzelle en quête de câlins !
+
+Appréciez bien l'épisode et ne soyez pas trop jaloux. {^_°}
+
+[img=images/news/denpa3.png]Viens faire un câlin ![/img]");
+			$news->setCommentId(299);
+			$news->addReleasing(Release::getRelease('denpa', 'ep3'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Mitsudomoe OAD + Denpa 4 & 5");
+			$news->setTimestamp(strtotime("8 June 2012 22:12"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Bon, il semble que certains ont douté de la fraîcheur de nos articles sur la news précédente. On ne leur en voudra pas, après 39 ans il y a de quoi se poser des questions... {'-.-}
+
+Du coup, voilà de quoi nous rattraper !
+Pour ceux d'entre vous qui préfèrent la chair fraîche, nous vous proposons dès aujourd'hui une de nos spécialités, tout droit sortie de dessous la couette :
+
+[img=images/news/denpa4-5.png]Un autre câlin ?[/img]
+
+[spoiler=Bon, certains crieront sûrement à l'entourloupe...]
+Et ils ont raison. {'^.^}~[/spoiler]
+Donc pour montrer notre bonne volonté, ce sera 2 Denpa pour le prix d'un !
+Si si mes amis, vous avez bien lus ! 2 Denpa !
+
+Toujours pas satisfaits ? Ah, vous êtes durs en affaire {'>_<}.
+Allez, voilà notre dernier mot : L'OAD de Mitsudomoe est offert !
+
+Avant de partir à la chasse de jeunes filles fraîches et plantureuses, vous pourrez vous remettre en forme sur cet OAD. Attention tout de même, les appareils de sport ne sont pas à mettre entre les mains d'enfants inexpérimentés...
+
+[img=images/news/mitsudomoeoad.png]Un peu de sport ?[/img]
+
+Oui... Enfin bon... On fait ce qu'on peut. {'^_^}
+
+Allez, bon matage et ne restez pas devant votre écran pendant tout le weekend. {^_°}");
+			$news->setCommentId(301);
+			$news->addReleasing(Release::getRelease('mitsudomoeoad', 'oad'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep4'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep5'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement adapt+time+édit !");
+			$news->setTimestamp(strtotime("13 June 2012 00:00"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
+			$news->setMessage("Cherche des adapteurs (reformulent les phrases) ou timeurs : le stock est épuisé
+
+Donc, on a besoin de vous.
+
+On recherche aussi un éditeur pour épauler le nôtre, les projets s'entassent...
+
+[b]Peut-être un nouveau projet pour cet été, on aimerait bien, quoi...
+Cela fait déjà deux saisons qu'on ne prend rien...
+mais faudrait déjà qu'on arrive à terminer ceux en cours,
+donc toute aide est la bienvenue...[/b]
+
+Si vous avez du temps, que vous voulez un peu contribuer au début,
+histoire de voir si ça vous plaît, venez nous essayer...
+
+Postez votre candidature sur le forum et vous découvrirez un monde de travail xD
+
+Et le travail, c'est la santé...
+
+N.B. : l'expérience n'est pas exigée ^_^
+
+[img=images/news/recrutement.png]Qui veut nous rejoindre ?[/img]");
+			$news->setCommentId(300);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
