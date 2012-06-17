@@ -23,9 +23,9 @@
 	<body>
 		<div id="main">
 			<div id="page">
-				<h1>Initialisation des données critiques</h1>
+				<h1>Initialisation des donnÃ©es critiques</h1>
 				<p>
-					Le fichier <b><?php echo $criticalDataFile; ?></b> n'existe pas ou ses données ne sont pas correctes. Il vous faut donc le créer ou le corriger. Pour se faire, ouvrez un fichier portant ce nom à la racine du site (au même endroit que l'index) et remplissez-le selon ce modèle :
+					Le fichier <b><?php echo $criticalDataFile; ?></b> n'existe pas ou ses donnÃ©es ne sont pas correctes. Il vous faut donc le crÃ©er ou le corriger. Pour se faire, ouvrez un fichier portant ce nom Ã  la racine du site (au mÃªme endroit que l'index) et remplissez-le selon ce modÃ¨le :
 					<pre class='code'>&lt;?php
 /*
 	This file contains critical data and should never be written
@@ -41,9 +41,9 @@ define('DB_PASS', 'pass');
 ?></pre>
 				</p>
 				
-				<p>Les informations présentes dans ce fichier correspondent aux données de connexions à la base de données. Les termes en majuscules (comme DB_NAME) sont les <b>noms</b> des constantes utilisées dans le code pour appeler ces données. Les <b>valeurs</b> associées (par exemple 'zero-fansub') correspondent aux informations à personnaliser. Ce modèle est un exemple, libre à vous d'utiliser les même <b>valeurs</b> ou de les changer (notamment le mot de passe), les <b>noms</b> des constantes en revanche ne peuvent pas être changées. Si vous êtes un développeur qui utilise sa propre base de données pour faire ses tests, vous pouvez réutiliser ce modèle tel quel ou changer les données selon vos préférences (mais évitez d'utiliser les mêmes valeurs que celles du serveur officiel si vous les connaissez).</p>
+				<p>Les informations prÃ©sentes dans ce fichier correspondent aux donnÃ©es de connexions Ã  la base de donnÃ©es. Les termes en majuscules (comme DB_NAME) sont les <b>noms</b> des constantes utilisÃ©es dans le code pour appeler ces donnÃ©es. Les <b>valeurs</b> associÃ©es (par exemple 'zero-fansub') correspondent aux informations Ã  personnaliser. Ce modÃ¨le est un exemple, libre Ã  vous d'utiliser les mÃªme <b>valeurs</b> ou de les changer (notamment le mot de passe), les <b>noms</b> des constantes en revanche ne peuvent pas Ãªtre changÃ©es. Si vous Ãªtes un dÃ©veloppeur qui utilise sa propre base de donnÃ©es pour faire ses tests, vous pouvez rÃ©utiliser ce modÃ¨le tel quel ou changer les donnÃ©es selon vos prÃ©fÃ©rences (mais Ã©vitez d'utiliser les mÃªmes valeurs que celles du serveur officiel si vous les connaissez).</p>
 				
-				<p>Notez que, comme l'indique le commentaire, ce fichier ne doit jamais être versionné. Plus généralement il ne doit jamais être partagé, et cela pour une simple raison de sécurité. En effet, si le fichier original devait être disponible, n'importe qui ayant accès au dépôt (autrement dit tout le monde, vu que ce code source est disponible de manière public) aurait accès aux données sensibles du site (nom de la base de donnée, identifiants de connexion, etc.).</p>
+				<p>Notez que, comme l'indique le commentaire, ce fichier ne doit jamais Ãªtre versionnÃ©. Plus gÃ©nÃ©ralement il ne doit jamais Ãªtre partagÃ©, et cela pour une simple raison de sÃ©curitÃ©. En effet, si le fichier original devait Ãªtre disponible, n'importe qui ayant accÃ¨s au dÃ©pÃ´t (autrement dit tout le monde, vu que ce code source est disponible de maniÃ¨re public) aurait accÃ¨s aux donnÃ©es sensibles du site (nom de la base de donnÃ©e, identifiants de connexion, etc.).</p>
 				
 				<p>Pour toute question, contactez l'administrateur par mail: <a href='mailto:sazaju@gmail.com'>sazaju@gmail.com</a>.</p>
 			</div>

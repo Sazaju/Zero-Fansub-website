@@ -5,7 +5,7 @@ class ProjectComponent extends SimpleBlockComponent {
 		$image->setClass('projectPicture');
 		$this->addComponent($image);
 		
-		$this->addComponent(new Title("Informations générales", 2));
+		$this->addComponent(new Title("Informations gÃ©nÃ©rales", 2));
 		if ($project->hasExternalSource()) {
 			$subtitle = new Title("Source : ", 4);
 			$subtitle->addComponent($project->getExternalSource());
@@ -15,7 +15,7 @@ class ProjectComponent extends SimpleBlockComponent {
 		$array = array(
 			array("Titre Original", $project->getOriginalName()),
 			array("Site officiel", $project->getOfficialWebsite()),
-			array("Année de production", $project->getAiringYear()),
+			array("AnnÃ©e de production", $project->getAiringYear()),
 			array("Studio", $project->getStudio()),
 			array("Auteur", $project->getAuthor()),
 			array("Genre", $project->getGenre()),
@@ -46,7 +46,7 @@ class ProjectComponent extends SimpleBlockComponent {
 		$this->addComponent($link);
 		
 		$this->addComponent("<p></p>");
-		$this->addComponent(new Title($project->isDoujin() ? "Chapitres" : "Épisodes", 2));
+		$this->addComponent(new Title($project->isDoujin() ? "Chapitres" : "Ã‰pisodes", 2));
 		
 		$releases = Release::getAllReleasesForProject($project->getID());
 		usort($releases, array('Release', 'idSorter'));

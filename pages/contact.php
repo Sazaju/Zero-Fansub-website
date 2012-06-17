@@ -4,7 +4,7 @@
 	$content = "[title]Contact[/title]
 
 
-Un commentaire à faire ?
+Un commentaire Ã  faire ?
 Une critique ?
 Un lien mort ?
 Une proposition ?

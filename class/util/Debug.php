@@ -4,25 +4,25 @@ require "class/util/PHP-Parser/lib/bootstrap.php";
 class Debug {
 	public static function toString( $object, $name = 'object' ) {
 		
-		//définition de la variable contenant le texte
+		//dÃ©finition de la variable contenant le texte
 		$string = '';
 		
-		//définition des couleurs d'affichage
-		$COLOR_OTHER	= 'green';	//couleur par défaut de la chaîne
+		//dÃ©finition des couleurs d'affichage
+		$COLOR_OTHER	= 'green';	//couleur par dÃ©faut de la chaÃ®ne
 		$COLOR_QUOTE	= 'red';	//quotes dans les ['...'] des tableaux
 		
 		$COLOR_OBJECT	= 'blue';	//objets
 		$COLOR_ARRAY	= 'blue';	//tableaux
 		
-		$COLOR_BOOL		= 'black';	//booléen
+		$COLOR_BOOL		= 'black';	//boolÃ©en
 		$COLOR_DOUBLE	= 'black';	//flottants
 		$COLOR_INT		= 'black';	//entiers
-		$COLOR_STRING	= 'black';	//chaîne de caractères
+		$COLOR_STRING	= 'black';	//chaÃ®ne de caractÃ¨res
 		$COLOR_NULL		= 'red';	//sans valeurs
-		$COLOR_RESOURCE	= 'red';	//resources (types extérieurs)
+		$COLOR_RESOURCE	= 'red';	//resources (types extÃ©rieurs)
 		$COLOR_UNKNOWN	= 'red';	//autres
 		
-		//vérification si tableau non NULL (égalité souple pour prendre en compte un maximum de cas)
+		//vÃ©rification si tableau non NULL (Ã©galitÃ© souple pour prendre en compte un maximum de cas)
 		if ( $object == NULL ) {
 			$string .= '<font color="' . $COLOR_OTHER . '">';
 			$string .= '<b>$</b>' . $name;
@@ -32,12 +32,12 @@ class Debug {
 			$string .= '<br />';
 		}
 		else {
-			//traitement de chaque entrée du tableau
+			//traitement de chaque entrÃ©e du tableau
 			foreach ( $object as $key => $value ) {
 				
-				//traitement de la clé
-				//création d'une variable donnant l'affichage formaté de la clé
-				//le formatage dépend du type de la clé
+				//traitement de la clÃ©
+				//crÃ©ation d'une variable donnant l'affichage formatÃ© de la clÃ©
+				//le formatage dÃ©pend du type de la clÃ©
 				if ( is_array( $object ) ) {
 					$key_format = '<b>[</b>';
 					if ( is_int( $key ) ) {
@@ -59,8 +59,8 @@ class Debug {
 				
 				//traitement de la valeur
 				//si c'est un tableau ou un objet, on relance la fonction dessus
-				//(sauf si c'est un rebouclage non souhaité)
-				//sinon on la considère comme une simple valeur et on l'affiche
+				//(sauf si c'est un rebouclage non souhaitÃ©)
+				//sinon on la considÃ¨re comme une simple valeur et on l'affiche
 				if ( is_array( $value ) ) {
 					
 					//condition anti-rebouclage
@@ -94,7 +94,7 @@ class Debug {
 					}
 				}
 				//affichage de la valeur si ce n'est pas un tableau ou un objet
-				//l'affichage dépend du type de variable
+				//l'affichage dÃ©pend du type de variable
 				else {
 					if ( is_bool( $value ) ) {
 						$string .= '<font color="' . $COLOR_OTHER . '">';

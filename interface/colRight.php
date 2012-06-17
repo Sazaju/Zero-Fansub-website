@@ -2,7 +2,7 @@
 	$rightCol = new SimpleBlockComponent();
 	$rightCol->setId("colRight");
 	
-	$logo = new Image("images/interface/logo.png", "Zéro Fansub");
+	$logo = new Image("images/interface/logo.png", "ZÃ©ro Fansub");
 	$logo->setClass("logo");
 	$rightCol->addComponent($logo);
 	

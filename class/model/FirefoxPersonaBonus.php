@@ -1,7 +1,7 @@
 <?php
 class FirefoxPersonaBonus extends ProjectBonus {
 	public function __construct($ids, $description = null) {
-		parent::__construct("Thèmes pour Firefox (Skin Persona)", FirefoxPersonaBonus::buildContent($ids, $description));
+		parent::__construct("ThÃ¨mes pour Firefox (Skin Persona)", FirefoxPersonaBonus::buildContent($ids, $description));
 	}
 	
 	private static function buildContent($ids, $description) {

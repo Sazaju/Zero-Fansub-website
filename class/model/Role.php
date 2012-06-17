@@ -39,7 +39,7 @@ class Role {
 			Role::$allRoles[] = new Role('tradJp', 'traduction Jp>Fr');
 			Role::$allRoles[] = new Role('adapt', 'adaptation');
 			Role::$allRoles[] = new Role('time', 'time');
-			Role::$allRoles[] = new Role('edit', 'édition');
+			Role::$allRoles[] = new Role('edit', 'Ã©dition');
 			Role::$allRoles[] = new Role('kara', 'karaoke');
 			Role::$allRoles[] = new Role('check', 'check');
 			Role::$allRoles[] = new Role('checkTrad', 'check traduction');

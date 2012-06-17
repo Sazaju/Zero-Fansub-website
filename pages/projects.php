@@ -2,7 +2,7 @@
 	$page = PageContent::getInstance();
 	$page->setClass("series");
 	
-	$page->addComponent(new Title("Séries", 1));
+	$page->addComponent(new Title("SÃ©ries", 1));
 	
 	$url = new Url();
 	$useImageLists = !$url->hasQueryVar('noImage');
@@ -96,7 +96,7 @@
 	}
 	// TODO limit to authorized access
 	if (Url::getCurrentUrl()->hasQueryVar('showHidden')) {
-		call_user_func($listProcessor, new Title("Projets cachés", 2), $allProjects, $hiddenFilter, $useImageLists);
+		call_user_func($listProcessor, new Title("Projets cachÃ©s", 2), $allProjects, $hiddenFilter, $useImageLists);
 	}
 	
 	$categoryMap = array(
@@ -105,16 +105,16 @@
 	);
 	$filterMap = array(
 		"en cours" => $runningFilter,
-		"terminés" => $finishedFilter,
-		"abandonnés" => $abandonnedFilter,
-		"envisagés" => $intendedFilter,
+		"terminÃ©s" => $finishedFilter,
+		"abandonnÃ©s" => $abandonnedFilter,
+		"envisagÃ©s" => $intendedFilter,
 	);
-	$page->addComponent(new Title("Non licenciés", 2));
+	$page->addComponent(new Title("Non licenciÃ©s", 2));
 	foreach($categoryMap as $category => $projects) {
 		foreach($filterMap as $desc => $filter) {
 			call_user_func($listProcessor, ucfirst($category)." ".$desc, $projects, $filter, $useImageLists);
 		}
 	}
 	
-	call_user_func($listProcessor, new Title("Licenciés", 2), $allProjects, $licensedFilter, $useImageLists);
+	call_user_func($listProcessor, new Title("LicenciÃ©s", 2), $allProjects, $licensedFilter, $useImageLists);
 ?>

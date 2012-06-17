@@ -89,8 +89,8 @@ class ProjectGroup {
 <b>+ 4 images</b><br />
 <b>Taille totale</b> 41 Mo.<br />
 <br />
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png"/>		[ <a href="ost/[Zero] Kodomo no Jikan TV & OVA OP Single - Rettsu! Ohime-sama Dakko.zip">Télécharger l\'archive .ZIP</a> ]<br />
+<b>TÃ©lÃ©chargements</b><br />
+<img src="images/icones/ddl.png"/>		[ <a href="ost/[Zero] Kodomo no Jikan TV & OVA OP Single - Rettsu! Ohime-sama Dakko.zip">TÃ©lÃ©charger l\'archive .ZIP</a> ]<br />
 
 <img src="images/icones/torrent.png"/> 		[ <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%20TV%20%26%20OVA%20OP%20Single%20-%20Rettsu!%20Ohime-sama%20Dakko%20%5BVarious%5D.zip.torrent">Torrent (Nipponsei)</a> ]<br /></p>
 
@@ -106,12 +106,12 @@ class ProjectGroup {
 <b>+ 6 images</b><br />
 <b>Taille totale</b> 38 Mo.<br />
 <br />
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png"/>		[ <a href="ost/[Zero] Kodomo no Jikan TV & OVA ED Single - Hana Maru Sensation - Little Non.zip">Télécharger l\'archive .ZIP</a> ]<br />
+<b>TÃ©lÃ©chargements</b><br />
+<img src="images/icones/ddl.png"/>		[ <a href="ost/[Zero] Kodomo no Jikan TV & OVA ED Single - Hana Maru Sensation - Little Non.zip">TÃ©lÃ©charger l\'archive .ZIP</a> ]<br />
 
 <img src="images/icones/torrent.png"/> 		[ <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%20TV%20%26%20OVA%20ED%20Single%20-%20Hana%20Maru%20Sensation%20%5BLittle%20Non%5D.zip.torrent">Torrent (Nipponsei)</a> ]<br /></p>'));
-			$group->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
-Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
+			$group->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposÃ©es par Nipponsei.<br />
+Les principales chansons de cette sÃ©rie sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement Ã©coutable sur <a href="radio" target="_blank">la radio</a>.<br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Phantom%20-Requiem%20for%20the%20Phantom-%20OP2%20Single%20-%20Senritsu%20no%20Kodomo%20Tachi%20%5BALI%20PROJECT%5D.zip.torrent">[Nipponsei] Phantom -Requiem for the Phantom- OP2 Single - Senritsu no Kodomo Tachi [ALI PROJECT].zip</a><br /> 
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%202%20Gakki%20ED%20Single%20-%201%2C%202%2C%203%20Day%20%5BLittle%20Non%5D.zip.torrent">[Nipponsei] Kodomo no Jikan 2 Gakki ED Single - 1, 2, 3 Day [Little Non].zip</a><br /> 
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kodomo%20no%20Jikan%202%20Gakki%20OP%20Single%20-%20Guilty%20Future%20%5BKitamura%20Eri%5D.zip.torrent">[Nipponsei] Kodomo no Jikan 2 Gakki OP Single - Guilty Future [Kitamura Eri].zip</a><br /> 
@@ -194,7 +194,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 			$group->addBonus(new ProjectBonus("OST", '<div style="float : right; display:block; margin-right: 20px;">
 	<img src="ost/[Zero] Toradora! OP Single - Pre-Parade.jpg" border="0"/>
 </div>
-Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
+Les principales chansons de cette sÃ©rie sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement Ã©coutable sur <a href="radio" target="_blank">la radio</a>.<br />
 <b>Nom</b> [Zero] Toradora! OP Single - Pre-Parade<br />
 <b>Pistes audio</b><br />
 01 - Pre-Parade<br />
@@ -204,8 +204,8 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <b>+ 4 images</b><br />
 <b>Taille totale</b> 35 Mo.<br />
 <br />
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png"/>		[ <a href="ost/[Zero] Toradora! OP Single - Pre-Parade.zip">Télécharger l\'archive .ZIP</a> ]<br />
+<b>TÃ©lÃ©chargements</b><br />
+<img src="images/icones/ddl.png"/>		[ <a href="ost/[Zero] Toradora! OP Single - Pre-Parade.zip">TÃ©lÃ©charger l\'archive .ZIP</a> ]<br />
 
 <img src="images/icones/torrent.png"/> 		[ <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Toradora!%20OP%20Single%20-%20Pre-Parade%20%5BVarious%5D.zip.torrent">Torrent (Nipponsei)</a> ]<br />
 	<img src="ost/[Zero] Toradora! ED Single - Vanilla Salt - Horie Yui.jpg" border="0"  style="float : left; display:block; margin-left: 20px;"/>
@@ -218,8 +218,8 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <b>+ 4 images</b><br />
 <b>Taille totale</b> 42 Mo.<br />
 <br />
-<b>Téléchargements</b><br />
-<img src="images/icones/ddl.png"/>		[ <a href="ost/[Zero] Toradora! ED Single - Vanilla Salt - Horie Yui.zip">Télécharger l\'archive .ZIP</a> ]<br />
+<b>TÃ©lÃ©chargements</b><br />
+<img src="images/icones/ddl.png"/>		[ <a href="ost/[Zero] Toradora! ED Single - Vanilla Salt - Horie Yui.zip">TÃ©lÃ©charger l\'archive .ZIP</a> ]<br />
 
 <img src="images/icones/torrent.png"/> 		[ <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Toradora!%20ED%20Single%20-%20Vanilla%20Salt%20%5BHorie%20Yui%5D.zip.torrent">Torrent (Nipponsei)</a> ]'));
 			$group->addBonus(new ProjectBonus("Jaquette(s) DVD", '<h4>Source : <a href="http://www.animecoversfan.com" target="_blank">AnimeCoversFan</a></h4>
@@ -252,12 +252,12 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/m
 <a href="images/cover/[Zero]Kannagi_Cover.jpg" target="_blank">
 	<img src="images/cover/[Zero]Kannagi_Cover.png" alt="Jaquette DVD" border="0" width="200" /></a> 
 </p>'));
-			$group->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
-Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
+			$group->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposÃ©es par Nipponsei.<br />
+Les principales chansons de cette sÃ©rie sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement Ã©coutable sur <a href="radio" target="_blank">la radio</a>.<br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sora%20wo%20Kakeru%20Shoujo%20Character%20Song%202%20-%20Kannagi%20Itsuki%20%5BEndou%20Aya%5D.zip.torrent">[Nipponsei] Sora wo Kakeru Shoujo Character Song 2 - Kannagi Itsuki [Endou Aya].zip</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kannagi%20ED%20Single%20-%20Musuhi%20no%20Toki%20%5BTomatsu%20Haruka%5D.zip.torrent">[Nipponsei] Kannagi ED Single - Musuhi no Toki [Tomatsu Haruka].zip</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kannagi%20OP%20Single%20-%20moto%20hade%20ni%20ne%21%20%5BHaruka%20Tomatsu%5D.zip.torrent">[Nipponsei] Kannagi OP Single - moto hade ni ne! [Haruka Tomatsu].zip</a>'));
-			$group->addBonus(new ProjectBonus("Scantrad (Manga)", 'Ces mangas sont traduits par l\'équipe de Scantrad Française J-Garden. <a href="http://j-garden.kif.fr/hitohira-p20268" target="_blank"><img style="border: none;" src="http://idata.over-blog.com/0/59/73/61/Manga-zaki/Mz-V2/Menu/Partenaires/J-Garden.png" alt="J-Garden"/></a><br />
+			$group->addBonus(new ProjectBonus("Scantrad (Manga)", 'Ces mangas sont traduits par l\'Ã©quipe de Scantrad FranÃ§aise J-Garden. <a href="http://j-garden.kif.fr/hitohira-p20268" target="_blank"><img style="border: none;" src="http://idata.over-blog.com/0/59/73/61/Manga-zaki/Mz-V2/Menu/Partenaires/J-Garden.png" alt="J-Garden"/></a><br />
 Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 <img src="http://img199.imageshack.us/img199/8337/kannagivolume1.png" alt="Kannagi tome1" style="float:right;"/>
  <a href="http://download391.mediafire.com/e4ba94j0c4gg/nznmzzitzej/Kannagi+ch1+VF.rar">Chapitre 01</a><br />
@@ -292,7 +292,7 @@ Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 			$group = new ProjectGroup('kissxsis', $name);
 			$group->addProject('kissxsis');
 			$group->addProject('kissxsisoav');
-			$group->addBonus(new ProjectBonus("Scantrad (Manga)", 'Ces mangas sont traduits par l\'équipe de Scantrad Française <a href="http://www.ecchi-scan.com/" target="_blank">Ecchi-no-chikara <img src="images/partenaires/ecchi.png" /></a> et <a href="http://kouhaiscantrad.wordpress.com" target="_blank">Kouhai Scantrad <img src="images/partenaires/kouhai.jpg" /></a><br />
+			$group->addBonus(new ProjectBonus("Scantrad (Manga)", 'Ces mangas sont traduits par l\'Ã©quipe de Scantrad FranÃ§aise <a href="http://www.ecchi-scan.com/" target="_blank">Ecchi-no-chikara <img src="images/partenaires/ecchi.png" /></a> et <a href="http://kouhaiscantrad.wordpress.com" target="_blank">Kouhai Scantrad <img src="images/partenaires/kouhai.jpg" /></a><br />
 Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 <img src="images/autre/kxstome1.jpg" alt="Kiss X Sis tome 1" style="float:right;"/>
 <a href="http://www.megaupload.com/?d=N0GUHPBW" target="_blank">Chapitre 00</a><br />
@@ -306,8 +306,8 @@ Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 <a href="http://www.multiupload.com/6N9GJIPN5B" target="_blank">Chapitre 07</a><br />
 <a href="http://www.multiupload.com/A9A6UWFB2M" target="_blank">Chapitre 08</a><br />
 <a href="http://www.multiupload.com/C5UAALT969" target="_blank">Chapitre 09</a><br />'));
-			$group->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
-Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
+			$group->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposÃ©es par Nipponsei.<br />
+Les principales chansons de cette sÃ©rie sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement Ã©coutable sur <a href="radio" target="_blank">la radio</a>.<br />
 
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20Character%20Song%20%26%20Soundtrack.zip.torrent">[Nipponsei] Kiss X Sis Character Song &amp; Soundtrack.zip</a><br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Kiss%20X%20Sis%20Character%20Song%20Mini%20Album%20-%20Anata%20ni%20kiss.zip.torrent">[Nipponsei] Kiss X Sis Character Song Mini Album - Anata ni kiss.zip</a><br />

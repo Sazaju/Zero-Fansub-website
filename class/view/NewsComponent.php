@@ -13,7 +13,7 @@ class NewsComponent extends SimpleBlockComponent {
 		
 		$subtitle = new Title(null, 4);
 		$subtitle->setClass("subtitle");
-		$time = "Préparée";
+		$time = "PrÃ©parÃ©e";
 		$timestamp = $news->getTimestamp();
 		if ($timestamp !== null) {
 			$time = strftime("%d/%m/%Y", $timestamp);

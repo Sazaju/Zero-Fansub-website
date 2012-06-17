@@ -1,6 +1,6 @@
 <?php
 	$page = PageContent::getInstance();
-	$page->addComponent(new Title("À propos...", 1));
+	$page->addComponent(new Title("Ã€ propos...", 1));
 
 	$page->addComponent(new Title("Historique des versions", 2));
 	
@@ -11,23 +11,23 @@
 	$head = new TableHeader("Version");
 	$head->setClass("version");
 	$row->addComponent($head);
-	$head = new TableHeader("Déscription");
+	$head = new TableHeader("DÃ©scription");
 	$head->setClass("description");
 	$row->addComponent($head);
-	$head = new TableHeader("Aperçu");
+	$head = new TableHeader("AperÃ§u");
 	$head->setClass("preview");
 	$row->addComponent($head);
 	$table->addComponent($row);
 
 	$row = new TableRow();
 	$row->addComponent("<b>1.0</b>");
-	$row->addComponent("Zéro était un site de ddl.");
+	$row->addComponent("ZÃ©ro Ã©tait un site de ddl.");
 	$row->addComponent("Non dispo.");
 	$table->addComponent($row);
 
 	$row = new TableRow();
 	$row->addComponent("1.1");
-	$content = new SimpleTextComponent("Zéro devient une team de fansub avec pour seul projet ");
+	$content = new SimpleTextComponent("ZÃ©ro devient une team de fansub avec pour seul projet ");
 	$content->addComponent(new ProjectLink(Project::getProject("kimikiss")));
 	$content->addComponent(".");
 	$row->addComponent($content);
@@ -42,7 +42,7 @@
 
 	$row = new TableRow();
 	$row->addComponent("2.1");
-	$row->addComponent("On laisse le choix à l'utilisateur, si il préfère le bleu ^^");
+	$row->addComponent("On laisse le choix Ã  l'utilisateur, si il prÃ©fÃ¨re le bleu ^^");
 	$row->addComponent(Link::newWindowLink("http://zerofansub.net/v2/index.php?s_theme=bleu", "Utiliser cette version"));
 	$table->addComponent($row);
 
@@ -54,13 +54,13 @@
 
 	$row = new TableRow();
 	$row->addComponent("<b>3.0</b>");
-	$row->addComponent("Le petit rond de la v2 n'étant pas pratique, on change de systéme pour la v3. De couleurs aussi.");
+	$row->addComponent("Le petit rond de la v2 n'Ã©tant pas pratique, on change de systÃ©me pour la v3. De couleurs aussi.");
 	$row->addComponent(Link::newWindowLink("index3.0.php", "Utiliser cette version"));
 	$table->addComponent($row);
 
 	$row = new TableRow();
 	$row->addComponent("3.1");
-	$row->addComponent("À part le design général change, mais le contenu des pages reste le même. C'est juste histoire d'améliorer le code.");
+	$row->addComponent("Ã€ part le design gÃ©nÃ©ral change, mais le contenu des pages reste le mÃªme. C'est juste histoire d'amÃ©liorer le code.");
 	$row->addComponent("Version actuelle !");
 	$table->addComponent($row);
 ?>

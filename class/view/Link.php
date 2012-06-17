@@ -93,7 +93,7 @@ class Link extends DefaultHtmlComponent {
 		return $link;
 	}
 	
-	public static function CreateHentaiAccessLink($toHentaiString = "Hentaï", $toEveryoneString = "Tout public") {
+	public static function CreateHentaiAccessLink($toHentaiString = "HentaÃ¯", $toEveryoneString = "Tout public") {
 		$hentaiLink = new Link();
 		$url = $hentaiLink->getUrl();
 		if ($_SESSION[MODE_H] == false) {

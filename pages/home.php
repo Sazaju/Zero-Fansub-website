@@ -70,7 +70,7 @@
 	       BUILD VIEWS ACCESS
 	\******************************/
 	$viewMap = array(
-		'all' => "Dernières news",
+		'all' => "DerniÃ¨res news",
 		'releases' => "Sorties",
 		'team' => "Infos team",
 		'partners' => "Partenaires",
@@ -94,7 +94,7 @@
 	\******************************/
 	
 	$page = PageContent::getInstance();
-	$page->addComponent(new Title("Zéro fansub", 1));
+	$page->addComponent(new Title("ZÃ©ro fansub", 1));
 	if (TEST_MODE_ACTIVATED) {
 		$options = new SimpleBlockComponent();
 		$options->setClass('testFeatures');
