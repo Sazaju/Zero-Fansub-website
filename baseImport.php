@@ -28,7 +28,7 @@ function exception_handler($exception) {
 		$header = "From: noreply@zerofansub.net\r\n";
 		$sent = false;//mail($administrators, $subject, $message, $header);
 		echo "Une erreur est survenue, ".(
-			$sent ? "les administrateurs en ont été notifiés"
+			$sent ? "les administrateurs en ont Ã©tÃ© notifiÃ©s"
 				  : "contactez les administrateurs : ".$administrators
 			).".";
 	}

@@ -21,7 +21,7 @@
 	$radioLink->setOnclick("window.open('radio','radio','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=280, height=380, left=200, top=200');return(false)");
 	$menu->addEntry($radioLink);
 	$menu->addEntry(new LinkComponent("index.php?page=contact", "Contact"));
-	$menu->addEntry(new LinkComponent("index.php?page=about", "À propos..."));
+	$menu->addEntry(new LinkComponent("index.php?page=about", "Ã€ propos..."));
 	$menu->addEntry(new LinkComponent("index.php?page=bug", "Signaler un bug"));
 	$leftCol->addComponent(new MenuComponent($menu));
 	
@@ -29,7 +29,7 @@
 	$projectLink = new LinkComponent("index.php?page=projects", "Projets");
 	$projectLink->setStyle("font-size: 1.5em;");
 	$menu->addEntry($projectLink);
-	$menu->addEntry(new LinkComponent("index.php?page=team", "L'équipe"));
+	$menu->addEntry(new LinkComponent("index.php?page=team", "L'Ã©quipe"));
 	$menu->addEntry(LinkComponent::newWindowLink("http://forum.zerofansub.net/p32750.htm", "Avancement"));
 	$menu->addEntry(LinkComponent::newWindowLink("http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-team-de-fansub.htm", "Recrutement"));
 	$menu->addEntry(LinkComponent::newWindowLink("http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro", "Torrent"));
@@ -44,8 +44,8 @@
 	
 	$menu = new Menu();
 	/* Hidden because never updated:
-	$menu->addEntry("Serveur/mois : 173,39 €");
-	$menu->addEntry("Dons du mois : 20 €");
+	$menu->addEntry("Serveur/mois : 173,39 Â€");
+	$menu->addEntry("Dons du mois : 20 Â€");
 	*/
 	$donateLink = LinkComponent::newWindowLink("https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mba_06%40hotmail%2efr&item_name=Zero&no_shipping=0&no_note=1&tax=0&currency_code=EUR&lc=FR&bn=PP%2dDonationsBF&charset=UTF%2d8", "Faire un don");
 	$donateLink->setStyle("font-size: 1.2em;");

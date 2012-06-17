@@ -40,7 +40,7 @@ class GalleryBonus extends ProjectBonus {
 			}
 			$packId = "packDownload";
 			$url = 'downloadResource.php?key='.$packId.'&name='.GalleryBonus::generateName($pack);
-			$allLink = '<a href="'.$url.'">[Télécharger le pack]</a>';
+			$allLink = '<a href="'.$url.'">[TÃ©lÃ©charger le pack]</a>';
 			$_SESSION[$packId] = $pack;
 			
 			return '<div class="bonusGallery">'.$allLink.'<br/>'.$links.'<br/>'.$allLink.'</div>';

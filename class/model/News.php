@@ -149,14 +149,14 @@ class News {
 	public static function getAllNews() {
 		if (News::$allNews === null) {
 			$news = new News();
-			$news->setTitle("Mayoi Neko Spéciaux");
+			$news->setTitle("Mayoi Neko SpÃ©ciaux");
 			$news->setTimestamp(strtotime("26 January 2012 16:18"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
-			$news->setMessage("Histoire de décrisper ceux qui se disent qu'on meurt à petit feu (faut dire que la dernière sortie date de mi-novembre), voilà un petit truc à vous mettre sous la dent {^_^}. C'est tout chaud et c'est du produit bien de chez Zéro ! Les anémiques, prévoyez les poches de sang, on sait jamais.
+			$news->setMessage("Histoire de dÃ©crisper ceux qui se disent qu'on meurt Ã  petit feu (faut dire que la derniÃ¨re sortie date de mi-novembre), voilÃ  un petit truc Ã  vous mettre sous la dent {^_^}. C'est tout chaud et c'est du produit bien de chez ZÃ©ro ! Les anÃ©miques, prÃ©voyez les poches de sang, on sait jamais.
 
-[release=mayoisp|*][img=images/news/mayoisp.png]MNO Spéciaux[/img][/release]
+[release=mayoisp|*][img=images/news/mayoisp.png]MNO SpÃ©ciaux[/img][/release]
 
-Profitez bien des bonus, bande de cochons {^_°}.");
+Profitez bien des bonus, bande de cochons {^_Â°}.");
 			$news->addReleasing(Project::getProject('mayoisp'));
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -170,17 +170,17 @@ Profitez bien des bonus, bande de cochons {^_°}.");
 			$news->setTitle("Recrutement Boku Tomo");
 			$news->setTimestamp(strtotime("25 January 2012 15:02"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
-			$news->setMessage("Le trad et l'adapt qui auraient dû s'occuper de Boku wa tomodachi ga Sukunai
-ne sont plus disponibles, devant affronter les aléas de la vie...
+			$news->setMessage("Le trad et l'adapt qui auraient dÃ» s'occuper de Boku wa tomodachi ga Sukunai
+ne sont plus disponibles, devant affronter les alÃ©as de la vie...
 
-On cherche donc avec une certaine urgence un trad, un adapt et un timeur pour cette série...
+On cherche donc avec une certaine urgence un trad, un adapt et un timeur pour cette sÃ©rie...
 
 Oui, un timeur aussi, car celle qui devait s'en occuper n'a plus le temps.
 
-expérience requise pour le time, non pas parce qu'on ne forme pas,
-vu qu'on forme, mais parce que ça commence à être chiant de passer
-plus de temps à former des gens qui ne timent pas grand-chose au final
-que de timer soi-même lol");
+expÃ©rience requise pour le time, non pas parce qu'on ne forme pas,
+vu qu'on forme, mais parce que Ã§a commence Ã  Ãªtre chiant de passer
+plus de temps Ã  former des gens qui ne timent pas grand-chose au final
+que de timer soi-mÃªme lol");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(true);
@@ -195,13 +195,13 @@ que de timer soi-même lol");
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(284);
 			$news->setTeamNews(true);
-			$news->setMessage("Pour ceux qui utilisent nos liens MegaUpload, ces derniers jours vous avez sûrement dû avoir du mal, voire vous êtes tombés sur une image comme celle-ci :
+			$news->setMessage("Pour ceux qui utilisent nos liens MegaUpload, ces derniers jours vous avez sÃ»rement dÃ» avoir du mal, voire vous Ãªtes tombÃ©s sur une image comme celle-ci :
 
 [img=images/news/fbi.jpg]Avertissement FBI[/img]
 
-En effet MegaUpload est sous le joug d'une enquête gouvernementale (en Amérique), du coup la majorité de leurs liens (si ce n'est tous) sont hors service, et cela pour une durée indeterminée.
+En effet MegaUpload est sous le joug d'une enquÃªte gouvernementale (en AmÃ©rique), du coup la majoritÃ© de leurs liens (si ce n'est tous) sont hors service, et cela pour une durÃ©e indeterminÃ©e.
 
-Pour télécharger nos épisodes il vous faudra donc vous retrancher sur le DDL, les torrents et autres solutions disponibles.");
+Pour tÃ©lÃ©charger nos Ã©pisodes il vous faudra donc vous retrancher sur le DDL, les torrents et autres solutions disponibles.");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
@@ -214,26 +214,26 @@ Pour télécharger nos épisodes il vous faudra donc vous retrancher sur le DDL, le
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(283);
 			$news->setTeamNews(true);
-			$news->setMessage("Ces derniers jours, le raffinage du site a pas mal avancé, et on en est désormais à la version 3.3+ du site. '+' parce que la version 3.3 s'est faite Samedi et que depuis j'ai encore raffiné une quantité assez phénoménale de données (j'y ai passé tout mon weekend). Du coup la version 3.4 ne devrait pas trop tarder à voir le jour (mais je ne donne pas de date, vu que de toute façon je n'ai aucune raison de la respecter {^.^}~). En bref, le raffinage est quasiment terminé.
+			$news->setMessage("Ces derniers jours, le raffinage du site a pas mal avancÃ©, et on en est dÃ©sormais Ã  la version 3.3+ du site. '+' parce que la version 3.3 s'est faite Samedi et que depuis j'ai encore raffinÃ© une quantitÃ© assez phÃ©nomÃ©nale de donnÃ©es (j'y ai passÃ© tout mon weekend). Du coup la version 3.4 ne devrait pas trop tarder Ã  voir le jour (mais je ne donne pas de date, vu que de toute faÃ§on je n'ai aucune raison de la respecter {^.^}~). En bref, le raffinage est quasiment terminÃ©.
 
 \\{^o^}/ Banzai !
 
-Néanmoins vous me direz peut-être [i]elle est où la différence ?[/i]. Si vous vous posez la question, tant mieux pour moi, ça veut dire que j'ai bien fait mon boulot {^_^}. Le but du raffinage est en effet de réécrire le code, la mise en page du site n'est donc pas sensée changer de manière notable.
+NÃ©anmoins vous me direz peut-Ãªtre [i]elle est oÃ¹ la diffÃ©rence ?[/i]. Si vous vous posez la question, tant mieux pour moi, Ã§a veut dire que j'ai bien fait mon boulot {^_^}. Le but du raffinage est en effet de rÃ©Ã©crire le code, la mise en page du site n'est donc pas sensÃ©e changer de maniÃ¨re notable.
 
-J'en profite tout de même pour vous faire un petit topo sur ce qu'il en est :
+J'en profite tout de mÃªme pour vous faire un petit topo sur ce qu'il en est :
 
-* [b]Toutes les pages projets[/b], incluant toutes les releases, ont été refaites. Autrement dit plusieurs centaines de fichiers on été factorisés (c'est ce dont je me réjouis le plus, parce que contenant des tonnes de données et hyper répétitifs, donc le plus chiant à faire). La version 3.2 (que peu ont dû voir passer {^_^}) sonnait le glas du raffinage des releases. Cette nouvelle version sonne celui du raffinage des projets.
+* [b]Toutes les pages projets[/b], incluant toutes les releases, ont Ã©tÃ© refaites. Autrement dit plusieurs centaines de fichiers on Ã©tÃ© factorisÃ©s (c'est ce dont je me rÃ©jouis le plus, parce que contenant des tonnes de donnÃ©es et hyper rÃ©pÃ©titifs, donc le plus chiant Ã  faire). La version 3.2 (que peu ont dÃ» voir passer {^_^}) sonnait le glas du raffinage des releases. Cette nouvelle version sonne celui du raffinage des projets.
 
-* [b]Presque toutes les news[/b] ont été raffinées. Sur les 6 vues disponibles, il me reste les 3 dernières, en sachant que ce sont de très loin les plus petites et qu'il y a quelques doublons avec les précédentes.
+* [b]Presque toutes les news[/b] ont Ã©tÃ© raffinÃ©es. Sur les 6 vues disponibles, il me reste les 3 derniÃ¨res, en sachant que ce sont de trÃ¨s loin les plus petites et qu'il y a quelques doublons avec les prÃ©cÃ©dentes.
 
-* La plupart des autres pages du site ont été refaites. En mettant de côté les pages gérées à part, il reste les [b]dossiers et galleries d'images[/b] à faire.
+* La plupart des autres pages du site ont Ã©tÃ© refaites. En mettant de cÃ´tÃ© les pages gÃ©rÃ©es Ã  part, il reste les [b]dossiers et galleries d'images[/b] Ã  faire.
 
-* Le site profite désormais d'un peu plus [b]d'affichage dynamique[/b] (contenu changé à la volée). Certaines fonctionnalités peuvent donc être implémentées pour rendre le site un peu plus intelligent, mais encore rien d'extraordinaire vu que les données sont toujours écrites en dur (et non en base de données). En gros, on n'a pas encore de dynamisme sur les données (on ne peut pas modifier un titre par exemple), mais on en a sur leur présentation (afficher/cacher, changer les couleurs/dimensions, ...) avec possibilité de mémorisation (grâce aux sessions et cookies, bien que ces derniers ne soient pas encore utilisés). Le point suivant montre un exemple d'application.
+* Le site profite dÃ©sormais d'un peu plus [b]d'affichage dynamique[/b] (contenu changÃ© Ã  la volÃ©e). Certaines fonctionnalitÃ©s peuvent donc Ãªtre implÃ©mentÃ©es pour rendre le site un peu plus intelligent, mais encore rien d'extraordinaire vu que les donnÃ©es sont toujours Ã©crites en dur (et non en base de donnÃ©es). En gros, on n'a pas encore de dynamisme sur les donnÃ©es (on ne peut pas modifier un titre par exemple), mais on en a sur leur prÃ©sentation (afficher/cacher, changer les couleurs/dimensions, ...) avec possibilitÃ© de mÃ©morisation (grÃ¢ce aux sessions et cookies, bien que ces derniers ne soient pas encore utilisÃ©s). Le point suivant montre un exemple d'application.
 
-* La section H se retrouve désormais [b]fusionnée[/b] à la section tout public, donc il n'y a plus de différence entre les deux. Le passage entre section H et tout public se fait un peu différemment par rapport à avant : désormais vous êtes soit en mode [i]tout public[/i], soit en mode [i]hentai[/i], [b]quelque soit la page[/b] (et non certaines pages tout public et d'autres hentai, comme ça se faisait avant). Cela permet une gestion bien plus souple et précise de l'accès aux contenus adultes. Le passage de l'un à l'autre se fait en premier lieu via le menu de gauche, avec le [b]lien [i]Hentai[/i][/b] pour passer en mode hentai, qui se retrouve remplacé par un [b]lien [i]Tout public[/i][/b] qui refait passer en mode tout public. Le passage se fait aussi lorsque c'est nécessaire (accès à un projet hentai sans être en mode hentai). Selon le mode, les projets affichés sont les projets correspondants (la liste habituelle ou les projets H). Il en est de même pour les news (pour celles déjà raffinées). Le passage 
-au mode hentai se fait toujours via un avertissement, l'inverse en revanche est direct. Quand vous refusez de passer en mode hentai, vous retournez à la page précédente (à l'index pour les accès directs).
+* La section H se retrouve dÃ©sormais [b]fusionnÃ©e[/b] Ã  la section tout public, donc il n'y a plus de diffÃ©rence entre les deux. Le passage entre section H et tout public se fait un peu diffÃ©remment par rapport Ã  avant : dÃ©sormais vous Ãªtes soit en mode [i]tout public[/i], soit en mode [i]hentai[/i], [b]quelque soit la page[/b] (et non certaines pages tout public et d'autres hentai, comme Ã§a se faisait avant). Cela permet une gestion bien plus souple et prÃ©cise de l'accÃ¨s aux contenus adultes. Le passage de l'un Ã  l'autre se fait en premier lieu via le menu de gauche, avec le [b]lien [i]Hentai[/i][/b] pour passer en mode hentai, qui se retrouve remplacÃ© par un [b]lien [i]Tout public[/i][/b] qui refait passer en mode tout public. Le passage se fait aussi lorsque c'est nÃ©cessaire (accÃ¨s Ã  un projet hentai sans Ãªtre en mode hentai). Selon le mode, les projets affichÃ©s sont les projets correspondants (la liste habituelle ou les projets H). Il en est de mÃªme pour les news (pour celles dÃ©jÃ  raffinÃ©es). Le passage 
+au mode hentai se fait toujours via un avertissement, l'inverse en revanche est direct. Quand vous refusez de passer en mode hentai, vous retournez Ã  la page prÃ©cÃ©dente (Ã  l'index pour les accÃ¨s directs).
 
-Il me semble que c'est à peu près tout... Ah oui, si vous avez des soucis sur certaines pages du site, c'est toujours moi qu'il faut venir engueuler {^_^}. Regardez du côté du lien [i]Signaler un bug[/i] dans le menu de gauche. Sur ce, bon leech.");
+Il me semble que c'est Ã  peu prÃ¨s tout... Ah oui, si vous avez des soucis sur certaines pages du site, c'est toujours moi qu'il faut venir engueuler {^_^}. Regardez du cÃ´tÃ© du lien [i]Signaler un bug[/i] dans le menu de gauche. Sur ce, bon leech.");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
@@ -246,9 +246,9 @@ Il me semble que c'est à peu près tout... Ah oui, si vous avez des soucis sur ce
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(282);
 			$news->setTeamNews(true);
-			$news->setMessage("Une petite news pour les autres équipes de fansub et pour nos habitués : étant donné le nombre d'animes licenciés et le nombre d'animes restant non fansubbés, Zéro Fansub ne prévoit pas d'ajouter de nouveaux projets à sa liste pour cette saison.
+			$news->setMessage("Une petite news pour les autres Ã©quipes de fansub et pour nos habituÃ©s : Ã©tant donnÃ© le nombre d'animes licenciÃ©s et le nombre d'animes restant non fansubbÃ©s, ZÃ©ro Fansub ne prÃ©voit pas d'ajouter de nouveaux projets Ã  sa liste pour cette saison.
 
-On en profitera pour avancer correctement nos séries déjà en cours, dont certaines sont sur le feu depuis un moment déjà {'^_^}.");
+On en profitera pour avancer correctement nos sÃ©ries dÃ©jÃ  en cours, dont certaines sont sur le feu depuis un moment dÃ©jÃ  {'^_^}.");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
@@ -261,9 +261,9 @@ On en profitera pour avancer correctement nos séries déjà en cours, dont certain
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(281);
 			$news->setTeamNews(true);
-			$news->setMessage("Juste une petite news informative. Beaucoup savent déjà que s'il y a un bug, c'est de ma faute. Cela dit, mon mail il faut le trouver (et oui c'est dur d'aller voir dans la page équipe, c'est qu'il faut réfléchir et les leecheurs aiment pas ça). Pour vous simplifier la vie, si vous avez le moindre problème, un lien [i]Signaler un bug[/i] est désormais disponible dans le menu de gauche.
+			$news->setMessage("Juste une petite news informative. Beaucoup savent dÃ©jÃ  que s'il y a un bug, c'est de ma faute. Cela dit, mon mail il faut le trouver (et oui c'est dur d'aller voir dans la page Ã©quipe, c'est qu'il faut rÃ©flÃ©chir et les leecheurs aiment pas Ã§a). Pour vous simplifier la vie, si vous avez le moindre problÃ¨me, un lien [i]Signaler un bug[/i] est dÃ©sormais disponible dans le menu de gauche.
 
-Non seulement je vous demande de me jeter des cailloux, mais en plus je vous dit où viser pour faire mal. C'est pas beau ça ? {^_^}
+Non seulement je vous demande de me jeter des cailloux, mais en plus je vous dit oÃ¹ viser pour faire mal. C'est pas beau Ã§a ? {^_^}
 [img=images/news/working_punch.jpg]Frappez-moi ![/img]");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -272,14 +272,14 @@ Non seulement je vous demande de me jeter des cailloux, mais en plus je vous dit
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Bonne année !");
+			$news->setTitle("Bonne annÃ©e !");
 			$news->setTeamNews(false);
 			$news->setTimestamp(strtotime("1 January 2012"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(280);
-			$news->setMessage("Bonne année à tous ! En espérant que le raffinage du site avance vite pour enfin vous (et nous) fournir un site plus pratique {^_^}°.
+			$news->setMessage("Bonne annÃ©e Ã  tous ! En espÃ©rant que le raffinage du site avance vite pour enfin vous (et nous) fournir un site plus pratique {^_^}Â°.
 
-[img=images/news/newYear2012.jpg]Bonne année 2012 ![/img]");
+[img=images/news/newYear2012.jpg]Bonne annÃ©e 2012 ![/img]");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
@@ -292,7 +292,7 @@ Non seulement je vous demande de me jeter des cailloux, mais en plus je vous dit
 			$news->setTimestamp(strtotime("31 December 2011 02:44"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(279);
-			$news->setMessage("Note importante : beaucoup de raffinage a été fait dernièrement. En particulier la structure des fichiers a été retouché, certains fichiers ont même été remplacés (probablement à cause de quelques problèmes CRC). Quelques-uns ont été vérifié, mais pas tous. Aussi, si vous téléchargez des fichiers qui semblent corrompus, faites-le-moi savoir au plus vite. C'est probablement de ma faute.
+			$news->setMessage("Note importante : beaucoup de raffinage a Ã©tÃ© fait derniÃ¨rement. En particulier la structure des fichiers a Ã©tÃ© retouchÃ©, certains fichiers ont mÃªme Ã©tÃ© remplacÃ©s (probablement Ã  cause de quelques problÃ¨mes CRC). Quelques-uns ont Ã©tÃ© vÃ©rifiÃ©, mais pas tous. Aussi, si vous tÃ©lÃ©chargez des fichiers qui semblent corrompus, faites-le-moi savoir au plus vite. C'est probablement de ma faute.
 
 Vous pouvez laisser des commentaires, sinon je redonne mon mail : [mail]sazaju@gmail.com[/mail]");
 			$news->setDisplayInNormalMode(true);
@@ -311,9 +311,9 @@ Vous pouvez laisser des commentaires, sinon je redonne mon mail : [mail]sazaju@g
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('hshiyo', 'ep6'));
 			$news->setMessage("[img-auto=images/news/hshiyo6.png]J'ado~re les concombres ![/img-auto]
-Et voilà un nouvel opus (ou deux nouveaux obus, au choix) de notre H favori. Enfin je dis favori mais comme c'est moi qui fais la news, je vais avant tout donner mon avis {^_^}.
+Et voilÃ  un nouvel opus (ou deux nouveaux obus, au choix) de notre H favori. Enfin je dis favori mais comme c'est moi qui fais la news, je vais avant tout donner mon avis {^_^}.
 
-Vous avez aimé le 4 (pas le précédent, celui d'avant, que j'avais détruit dans ma news) ? Si oui alors réjouissez-vous, celui-ci est du même acabit. Ceux qui sont du même avis que moi, en revanche, passez votre chemin. Pour faire court : on se fait une vache à lait à la campagne. Les grosses mamelles sont de la partie, même si ce ne sont pas elles qui donneront le 'lait' de l'épisode.");
+Vous avez aimÃ© le 4 (pas le prÃ©cÃ©dent, celui d'avant, que j'avais dÃ©truit dans ma news) ? Si oui alors rÃ©jouissez-vous, celui-ci est du mÃªme acabit. Ceux qui sont du mÃªme avis que moi, en revanche, passez votre chemin. Pour faire court : on se fait une vache Ã  lait Ã  la campagne. Les grosses mamelles sont de la partie, mÃªme si ce ne sont pas elles qui donneront le 'lait' de l'Ã©pisode.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -326,20 +326,20 @@ Vous avez aimé le 4 (pas le précédent, celui d'avant, que j'avais détruit dans m
 			$news->setTeamNews(true);
 			$news->setMessage("Salut tout le monde ! {^_^}
 
-Voilà un gros mois sans news, vous devez donc vous dire [i]enfin une sortie ![/i] pas vrai ? Ben désolé de casser l'ambiance, mais non pas pour tout de suite {'^_^}.
+VoilÃ  un gros mois sans news, vous devez donc vous dire [i]enfin une sortie ![/i] pas vrai ? Ben dÃ©solÃ© de casser l'ambiance, mais non pas pour tout de suite {'^_^}.
 
 [img=images/news/angry.jpg]Quoi ?[/img]
 [size=0.8]Non pas taper ! {'>_<}[/size]
 
-Comme certains d'entre-vous le savent, je suis en train de raffiner le site, et cela prends du temps. Si pas mal de choses ont été développées pour l'instant, encore reste-t-il à les appliquer au site, et c'est ça qui est long. C'est donc pour ça que je viens à vous {^_^}.
+Comme certains d'entre-vous le savent, je suis en train de raffiner le site, et cela prends du temps. Si pas mal de choses ont Ã©tÃ© dÃ©veloppÃ©es pour l'instant, encore reste-t-il Ã  les appliquer au site, et c'est Ã§a qui est long. C'est donc pour Ã§a que je viens Ã  vous {^_^}.
 
-Je cherche quelqu'un qui s'y connaît un minimum en HTML/CSS/PHP. Inutile d'être un expert, je demande juste d'avoir déjà utilisé un peu ces langages, dire qu'on se comprenne si je parles de style, de balise et de parcourir des tableaux. Si vous avez déjà programmé en objet (PHP, Java, C++ ou autre) c'est un plus. Notez qu'il faut aussi savoir [i]retoucher[/i] des images. Ce que j'entends par là est simplement savoir redimensionner, couper, coller, rassembler des images en une seule, ... le b.a.-ba donc. Si des compétences plus avancées sont nécessaires, je peux vous les apprendre avec Gimp. De même si vous avez des questions sur le code, c'est tout à votre honneur {^_^}.
+Je cherche quelqu'un qui s'y connaÃ®t un minimum en HTML/CSS/PHP. Inutile d'Ãªtre un expert, je demande juste d'avoir dÃ©jÃ  utilisÃ© un peu ces langages, dire qu'on se comprenne si je parles de style, de balise et de parcourir des tableaux. Si vous avez dÃ©jÃ  programmÃ© en objet (PHP, Java, C++ ou autre) c'est un plus. Notez qu'il faut aussi savoir [i]retoucher[/i] des images. Ce que j'entends par lÃ  est simplement savoir redimensionner, couper, coller, rassembler des images en une seule, ... le b.a.-ba donc. Si des compÃ©tences plus avancÃ©es sont nÃ©cessaires, je peux vous les apprendre avec Gimp. De mÃªme si vous avez des questions sur le code, c'est tout Ã  votre honneur {^_^}.
 
-Je tiens quand même à poser une contrainte : je cherche quelqu'un de motivé, qui aime coder. Je ne veux pas dire par là que c'est difficile, mais je veux quelqu'un sur qui je puisse compter sur la longueur. Il ne faut pas être disponible tout le temps, mais je ne veux pas voir quelqu'un qui après une semaine me dise [i]j'ai plus le temps[/i]. Ce sont toutes des petites tâches qui peuvent se faire un peu n'importe quand, donc c'est très flexible, mais il faut les faire.
+Je tiens quand mÃªme Ã  poser une contrainte : je cherche quelqu'un de motivÃ©, qui aime coder. Je ne veux pas dire par lÃ  que c'est difficile, mais je veux quelqu'un sur qui je puisse compter sur la longueur. Il ne faut pas Ãªtre disponible tout le temps, mais je ne veux pas voir quelqu'un qui aprÃ¨s une semaine me dise [i]j'ai plus le temps[/i]. Ce sont toutes des petites tÃ¢ches qui peuvent se faire un peu n'importe quand, donc c'est trÃ¨s flexible, mais il faut les faire.
 
-Si vous êtes intéressés, passez dans la section recrutement (lien dans le menu de gauche).
+Si vous Ãªtes intÃ©ressÃ©s, passez dans la section recrutement (lien dans le menu de gauche).
 
-NB : vous voyez, j'ai même pas le temps de vous faire une news décente en cette veille de Noël, pour vous dire comme j'ai besoin de quelqu'un {;_;}.");
+NB : vous voyez, j'ai mÃªme pas le temps de vous faire une news dÃ©cente en cette veille de NoÃ«l, pour vous dire comme j'ai besoin de quelqu'un {;_;}.");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
@@ -356,15 +356,15 @@ NB : vous voyez, j'ai même pas le temps de vous faire une news décente en cette 
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep7'));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep8'));
-			$news->setMessage("Ah, j'ai des nouvelles pour vous. Vous allez rire {^_^}. Il se trouve que ça fait un moment qu'on a fini les Mitsudomoe 7 & 8... et j'ai oublié de les sortir ! C'est marrant, hein ? {^o^}
+			$news->setMessage("Ah, j'ai des nouvelles pour vous. Vous allez rire {^_^}. Il se trouve que Ã§a fait un moment qu'on a fini les Mitsudomoe 7 & 8... et j'ai oubliÃ© de les sortir ! C'est marrant, hein ? {^o^}
 
-Non ? Vous trouvez pas ? {°.°}?
+Non ? Vous trouvez pas ? {Â°.Â°}?
 
-[img=images/news/aMort.png]À mort ![/img]
+[img=images/news/aMort.png]Ã€ mort ![/img]
 
-OK, OK, j'arrête {\">_<}. S'il vous reste des cailloux de la dernière fois, vous pouvez me les jeter. Allez, pour me faire pardonner je vous file un accès rapide : [release=mitsudomoe|ep7,ep8]Mitsudomoe 7 & 8[/release]
+OK, OK, j'arrÃªte {\">_<}. S'il vous reste des cailloux de la derniÃ¨re fois, vous pouvez me les jeter. Allez, pour me faire pardonner je vous file un accÃ¨s rapide : [release=mitsudomoe|ep7,ep8]Mitsudomoe 7 & 8[/release]
 
-J'en profite pour vous rappeler que le site est en cours de raffinage, et comme j'en ai fait beaucoup dernièrement (le lien rapide en est un ajout) il est possible que certains bogues me soient passés sous le nez. Aussi n'hésitez pas à me crier dessus si vous en trouvez {'^_^}.
+J'en profite pour vous rappeler que le site est en cours de raffinage, et comme j'en ai fait beaucoup derniÃ¨rement (le lien rapide en est un ajout) il est possible que certains bogues me soient passÃ©s sous le nez. Aussi n'hÃ©sitez pas Ã  me crier dessus si vous en trouvez {'^_^}.
 
 Et si vous voulez nous aider (ou vous essayer au fansub), on cherche des traducteurs Anglais-Francais (ou Japonais pour ceux qui savent {^_^}) !
 
@@ -379,15 +379,15 @@ Sur ceux, bon visionnage {^_^}.");
 			$news->setAuthor(TeamMember::getMember(5));
 			$news->setCommentId(273);
 			$news->setTeamNews(true);
-			$news->setMessage("Allez on enchaîne les news, la motivation est là... Mais elle va peut-être pas durer...
+			$news->setMessage("Allez on enchaÃ®ne les news, la motivation est lÃ ... Mais elle va peut-Ãªtre pas durer...
 
 [color=red][size=2]On a besoin de votre aide ![/size][/color]
 
 [img=images/news/urgent.gif]Au secours ![/img]
 
-On embauche des timeurs ! On n'en a pas assez et du coup chacun essaye de faire pour avoir un time à peu près correcte... Mais ce n'est pas la même chose quand quelqu'un s'y met à plein temps. C'est quelque chose qui nous ralentis beaucoup car, même si ce n'est pas difficile, ça demande du temps pour faire quelque chose de bien (en tout cas pour suivre notre charte qualité {^_^}). On a les outils, les connaissances, il ne manque plus que les personnes motivées !
+On embauche des timeurs ! On n'en a pas assez et du coup chacun essaye de faire pour avoir un time Ã  peu prÃ¨s correcte... Mais ce n'est pas la mÃªme chose quand quelqu'un s'y met Ã  plein temps. C'est quelque chose qui nous ralentis beaucoup car, mÃªme si ce n'est pas difficile, Ã§a demande du temps pour faire quelque chose de bien (en tout cas pour suivre notre charte qualitÃ© {^_^}). On a les outils, les connaissances, il ne manque plus que les personnes motivÃ©es !
 
-Si vous êtes interessés, les candidatures sont ouvertes (cliquez sur [b]Recrutement[/b] dans le menu à gauche) ! Si vous êtes soucieux du détail au point d'en faire chier vos amis, c'est un plus ! Oui on est des vrai SM à la Zéro {>.<}.");
+Si vous Ãªtes interessÃ©s, les candidatures sont ouvertes (cliquez sur [b]Recrutement[/b] dans le menu Ã  gauche) ! Si vous Ãªtes soucieux du dÃ©tail au point d'en faire chier vos amis, c'est un plus ! Oui on est des vrai SM Ã  la ZÃ©ro {>.<}.");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
@@ -408,10 +408,10 @@ Si vous êtes interessés, les candidatures sont ouvertes (cliquez sur [b]Recrutem
 
 Sortie de la v3 de Kodomo no Jikan OAD.
 
-Et le film Kodomo no Jikan, qu'on n'a pas abandonné, non, non... Même si l'envie était là.
+Et le film Kodomo no Jikan, qu'on n'a pas abandonnÃ©, non, non... MÃªme si l'envie Ã©tait lÃ .
 [size=0.8]Sazaju: Hein ? Quoi !? {'O_O}[/size]
 
-Bon matage et à bientôt pour la suite de Mitsudomoe.");
+Bon matage et Ã  bientÃ´t pour la suite de Mitsudomoe.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -427,21 +427,21 @@ Bon matage et à bientôt pour la suite de Mitsudomoe.");
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep4'));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep5'));
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep6'));
-			$news->setMessage("Bon... par où commencer... Dur dur, surtout que le moins réjouissant c'est pour ma pomme {'^_^}. En plus j'ai pas d'image pour vous, vous allez morfler. Alors allons-y gaiement !
+			$news->setMessage("Bon... par oÃ¹ commencer... Dur dur, surtout que le moins rÃ©jouissant c'est pour ma pomme {'^_^}. En plus j'ai pas d'image pour vous, vous allez morfler. Alors allons-y gaiement !
 
-Tout d'abord, sachez que le site est actuellement en cours de raffinage. Autrement dit, une révision complète du code est en cours. Par conséquent, si vous voyez des petites modifications par rapport à avant, c'est normal, mais dans l'ensemble il ne devrait pas y avoir de changement notable sur le site. Quel intérêt que j'en parle vous me direz... Tout simplement parce qu'il est possible que certaines pages boguent (ou bug, comme vous voulez), et si jamais vous en trouvez une, le mieux c'est de me le faire savoir directement par mail : [mail]sazaju@gmail.com[/mail]. Le raffinage étant en cours, il est possible que des pages qui fonctionnent maintenant ne fonctionnent pas plus tard, aussi ne soyez pas surpris. Je fais mon possible pour que ça n'arrive pas, mais si j'en loupe merci de m'aider à les repérer {^_^}.
+Tout d'abord, sachez que le site est actuellement en cours de raffinage. Autrement dit, une rÃ©vision complÃ¨te du code est en cours. Par consÃ©quent, si vous voyez des petites modifications par rapport Ã  avant, c'est normal, mais dans l'ensemble il ne devrait pas y avoir de changement notable sur le site. Quel intÃ©rÃªt que j'en parle vous me direz... Tout simplement parce qu'il est possible que certaines pages boguent (ou bug, comme vous voulez), et si jamais vous en trouvez une, le mieux c'est de me le faire savoir directement par mail : [mail]sazaju@gmail.com[/mail]. Le raffinage Ã©tant en cours, il est possible que des pages qui fonctionnent maintenant ne fonctionnent pas plus tard, aussi ne soyez pas surpris. Je fais mon possible pour que Ã§a n'arrive pas, mais si j'en loupe merci de m'aider Ã  les repÃ©rer {^_^}.
 
-Voilà, les mauvaises nouvelles c'est fini ! Passons aux réjoussances : 3 nouveaux épisodes de Mitsudomoe sont terminés (4 à 6). Si vous ne les voyez pas sur la page de la série... c'est encore de ma faute (lapidez-moi si vous voulez {;_;}). Si au contraire vous les voyez, alors profitez-en, ruez-vous dessus, parce que depuis le temps qu'on n'a pas fait de news vous devez avoir faim, non ? {^_°}
+VoilÃ , les mauvaises nouvelles c'est fini ! Passons aux rÃ©joussances : 3 nouveaux Ã©pisodes de Mitsudomoe sont terminÃ©s (4 Ã  6). Si vous ne les voyez pas sur la page de la sÃ©rie... c'est encore de ma faute (lapidez-moi si vous voulez {;_;}). Si au contraire vous les voyez, alors profitez-en, ruez-vous dessus, parce que depuis le temps qu'on n'a pas fait de news vous devez avoir faim, non ? {^_Â°}
 
-Allez, mangez doucement, ça se déguste les animes (purée j'ai la dalle maintenant {'>.<}). Cela dit, si vous en voulez encore, on a un bon dessert tout droit sorti du restau : Working!! fait désormais partie de nos futurs projets ! Certains doivent se dire qu'il y ont déjà goûté ailleurs... Mais non ! Parce que vous aurez droit aux deux saisons {^o^}v. Tout le monde le sait (surtout dans le Sud de la France), quand on a bien mangé, une sieste s'impose. Vous pourrez donc rejoindre la fille aux ondes dans son futon : Denpa Onna to Seishun Otoko vient aussi allonger la liste de nos projets ! On dit même qu'un projet mystère se faufile entre les membres de l'équipe...
+Allez, mangez doucement, Ã§a se dÃ©guste les animes (purÃ©e j'ai la dalle maintenant {'>.<}). Cela dit, si vous en voulez encore, on a un bon dessert tout droit sorti du restau : Working!! fait dÃ©sormais partie de nos futurs projets ! Certains doivent se dire qu'il y ont dÃ©jÃ  goÃ»tÃ© ailleurs... Mais non ! Parce que vous aurez droit aux deux saisons {^o^}v. Tout le monde le sait (surtout dans le Sud de la France), quand on a bien mangÃ©, une sieste s'impose. Vous pourrez donc rejoindre la fille aux ondes dans son futon : Denpa Onna to Seishun Otoko vient aussi allonger la liste de nos projets ! On dit mÃªme qu'un projet mystÃ¨re se faufile entre les membres de l'Ã©quipe...
 
-Pour terminer, un petit mot sur notre charte qualité. Nous avons décidé de ne plus sortir de releases issues d'une version TV, mais de ne faire que des Blu-Ray. Bien entendu, on fera toujours attention aux petites connexions : nos encodeurs travaillent d'arrache pied pour vous fournir la meilleure vidéo dans le plus petit fichier. J'espère donc que vous apprécierez la qualité de nos futurs épisodes {^_^} (et que vous n'aurez pas trop de pages boguées {'-.-}).");
+Pour terminer, un petit mot sur notre charte qualitÃ©. Nous avons dÃ©cidÃ© de ne plus sortir de releases issues d'une version TV, mais de ne faire que des Blu-Ray. Bien entendu, on fera toujours attention aux petites connexions : nos encodeurs travaillent d'arrache pied pour vous fournir la meilleure vidÃ©o dans le plus petit fichier. J'espÃ¨re donc que vous apprÃ©cierez la qualitÃ© de nos futurs Ã©pisodes {^_^} (et que vous n'aurez pas trop de pages boguÃ©es {'-.-}).");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
-			$news->setTitle("Hitohira - Série complète");
+			$news->setTitle("Hitohira - SÃ©rie complÃ¨te");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("14 August 2011"));
@@ -451,7 +451,7 @@ Pour terminer, un petit mot sur notre charte qualité. Nous avons décidé de ne pl
 			$news->addReleasing(Project::getProject('hitohira'));
 			$news->setMessage("[img=images/news/hito1.jpg]Hitohira[/img]
 
-Sortie de Hitohira, la série complète, 12 épisodes d'un coup !
+Sortie de Hitohira, la sÃ©rie complÃ¨te, 12 Ã©pisodes d'un coup !
 
 [img=images/news/hito2.jpg]Hitohira[/img]");
 			$news->setPartnerNews(false);
@@ -470,13 +470,13 @@ Sortie de Hitohira, la série complète, 12 épisodes d'un coup !
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep3'));
 			$news->setMessage("[img=images/episodes/mitsudomoe3.jpg]Mitsudomoe[/img]
 
-Sortie de l'épisode 03 de Mitsudomoe.");
+Sortie de l'Ã©pisode 03 de Mitsudomoe.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
-			$news->setTitle("Toradora! SOS - Série complète 4 OAV");
+			$news->setTitle("Toradora! SOS - SÃ©rie complÃ¨te 4 OAV");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 July 2011"));
@@ -487,7 +487,7 @@ Sortie de l'épisode 03 de Mitsudomoe.");
 			$news->addReleasing(Project::getProject('toradorasos'));
 			$news->setMessage("[img=images/series/toradorasos.jpg]Toradora SOS[/img]
 
-4 mini OAV délirants sur la bouffe, avec les personnages en taille réduite.
+4 mini OAV dÃ©lirants sur la bouffe, avec les personnages en taille rÃ©duite.
 C'est de la superproduction ^_^");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
@@ -503,13 +503,13 @@ C'est de la superproduction ^_^");
 			$news->setMessage("[img=images/news/m1.jpg]Mitsudomoe[/img]
 
 Nous avons urgemment besoin d'un trad pour Mitsudomoe !!
-S'il vous plaît, pitié xD
-Notre edit s'impatiente et ne peux continuer la série, alors aidez-nous ^_^
-C'est pas souvent qu'on demande du renfort, mais là, c'est devenu indispensable...
-Nous avons perdu un trad récemment, il ne nous en reste plus qu'un... et comble de malheur,  il n'a pas accroché à la série, mais je le remercie pour avoir quand même traduit deux épisodes pour nous dépanner.
+S'il vous plaÃ®t, pitiÃ© xD
+Notre edit s'impatiente et ne peux continuer la sÃ©rie, alors aidez-nous ^_^
+C'est pas souvent qu'on demande du renfort, mais lÃ , c'est devenu indispensable...
+Nous avons perdu un trad rÃ©cemment, il ne nous en reste plus qu'un... et comble de malheur,  il n'a pas accrochÃ© Ã  la sÃ©rie, mais je le remercie pour avoir quand mÃªme traduit deux Ã©pisodes pour nous dÃ©panner.
 Des petits cours sont dispos ici : [ext=http://forum.zerofansub.net/f221-Cours-br.htm]Lien[/ext].
 
-Pour postuler, faites une candidatures à l'école : [ext=http://ecole.zerofansub.net/?page=postuler]Lien[/ext].
+Pour postuler, faites une candidatures Ã  l'Ã©cole : [ext=http://ecole.zerofansub.net/?page=postuler]Lien[/ext].
 
 [img=images/news/m2.jpg]Mitsudomoe[/img]");
 			$news->setDisplayInNormalMode(true);
@@ -519,7 +519,7 @@ Pour postuler, faites une candidatures à l'école : [ext=http://ecole.zerofansub.
 			News::$allNews[] = $news;
 
 			$news = new News();
-			$news->setTitle("Kannagi - Série complète");
+			$news->setTitle("Kannagi - SÃ©rie complÃ¨te");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("19 June 2011"));
@@ -531,11 +531,11 @@ Pour postuler, faites une candidatures à l'école : [ext=http://ecole.zerofansub.
 			$news->setMessage("[ext=http://zerofansub.net/galerie/gal/Zero_fansub/Images/Kannagi/%5BZero%5DKannagi_Image63.jpg][img=images/news/kannagi.jpg]Kannagi[/img][/ext]
 
 Bonjour les amis !
-La série Kannagi est terminée !
-J'éspère qu'elle vous plaira.
-N'hésitez pas à nous dire ce que vous en pensez dans les commentaires. C'est en apprenant de ses erreurs qu'on avance, après tout ;)
+La sÃ©rie Kannagi est terminÃ©e !
+J'Ã©spÃ¨re qu'elle vous plaira.
+N'hÃ©sitez pas Ã  nous dire ce que vous en pensez dans les commentaires. C'est en apprenant de ses erreurs qu'on avance, aprÃ¨s tout ;)
 
-P.S.: Les karaokés sont nuls. Désolée !");
+P.S.: Les karaokÃ©s sont nuls. DÃ©solÃ©e !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -554,14 +554,14 @@ P.S.: Les karaokés sont nuls. Désolée !");
 			$news->setMessage("[img=images/news/mitsu0102.jpg]Mitsudomoe[/img]
 
 Bonjour les amis !
-Après des mois d'attente, les premiers épisodes de Mitsudomoe sont enfin disponibles !
-Quelques petits changements dans notre façon de faire habituelle, on attend vos retours avec impatience ;)");
+AprÃ¨s des mois d'attente, les premiers Ã©pisodes de Mitsudomoe sont enfin disponibles !
+Quelques petits changements dans notre faÃ§on de faire habituelle, on attend vos retours avec impatience ;)");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
-			$news->setTitle("Tayutama ~ Kiss on my Deity ~ Pure my Heart ~ - Série complète 6 OAV");
+			$news->setTitle("Tayutama ~ Kiss on my Deity ~ Pure my Heart ~ - SÃ©rie complÃ¨te 6 OAV");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("15 May 2011"));
@@ -572,13 +572,13 @@ Quelques petits changements dans notre façon de faire habituelle, on attend vos 
 			$news->addReleasing(Project::getProject('tayutamapure'));
 			$news->setMessage("[img=images/news/tayutamapure.jpg]Tayutama ~ Kiss on my Deity ~ Pure my Heart ~[/img]
 
-On continue dans les séries complètes avec cette fois-ci la petite série de 6 OAV qui fait suite à la série Tayutama ~ Kiss on my Deity : les 'Pure my Heart'. Ils sont assez courts mais plutôt drôle alors amusez-vous bien !");
+On continue dans les sÃ©ries complÃ¨tes avec cette fois-ci la petite sÃ©rie de 6 OAV qui fait suite Ã  la sÃ©rie Tayutama ~ Kiss on my Deity : les 'Pure my Heart'. Ils sont assez courts mais plutÃ´t drÃ´le alors amusez-vous bien !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
-			$news->setTitle("Potemayo OAV - Série complète");
+			$news->setTitle("Potemayo OAV - SÃ©rie complÃ¨te");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("11 May 2011"));
@@ -590,14 +590,14 @@ On continue dans les séries complètes avec cette fois-ci la petite série de 6 OA
 			$news->setMessage("[img=images/series/potemayooav.jpg]Potemayo[/img]
 
 Petit bonjour !
-Dans la suite de la série Potemayo, voici la petite série d'OAV. Au nombre de 6, ils sont disponibles en versions basses qialité uniquement puisqu'ils ne sont pas sortis dans un autre format. Désolée !
+Dans la suite de la sÃ©rie Potemayo, voici la petite sÃ©rie d'OAV. Au nombre de 6, ils sont disponibles en versions basses qialitÃ© uniquement puisqu'ils ne sont pas sortis dans un autre format. DÃ©solÃ©e !
 Amusez-vous bien !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
-			$news->setTitle("Potemayo - Série complète entiérement refaite");
+			$news->setTitle("Potemayo - SÃ©rie complÃ¨te entiÃ©rement refaite");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("08 May 2011"));
@@ -610,21 +610,21 @@ Amusez-vous bien !");
 
 Bonjour le monde !
 
-Tout comme pour Kujibiki Unbalance 2, nous avons entièrement refait la série Potemayo. Pour ceux qui suivaient la série, seule les versions avi en petit format étaient disponible puisque c'etait le format qu'utilisait Kirei no Tsubasa, l'équipe qui nous a légué le projet.
+Tout comme pour Kujibiki Unbalance 2, nous avons entiÃ¨rement refait la sÃ©rie Potemayo. Pour ceux qui suivaient la sÃ©rie, seule les versions avi en petit format Ã©taient disponible puisque c'etait le format qu'utilisait Kirei no Tsubasa, l'Ã©quipe qui nous a lÃ©guÃ© le projet.
 
-Du coup, la série complète a été réencodée et on en a profité pour ajouter quelques améliorations.
+Du coup, la sÃ©rie complÃ¨te a Ã©tÃ© rÃ©encodÃ©e et on en a profitÃ© pour ajouter quelques amÃ©liorations.
 
-Rendez-vous page 'Projet' sur le site pour télécharger les 12 épisodes !
+Rendez-vous page 'Projet' sur le site pour tÃ©lÃ©charger les 12 Ã©pisodes !
 
-Et n'oubliez pas : si vous avez une remarque, une question ou quoi que ce soit à nous dire, utilisez le système de commentaires ! Nous vous répondrons avec plaisir.
+Et n'oubliez pas : si vous avez une remarque, une question ou quoi que ce soit Ã  nous dire, utilisez le systÃ¨me de commentaires ! Nous vous rÃ©pondrons avec plaisir.
 
-Bons épisodes, à très bientôt pour les 6 OAV supplémentaires Potemayo... et un petit bonjour à toi aussi !");
+Bons Ã©pisodes, Ã  trÃ¨s bientÃ´t pour les 6 OAV supplÃ©mentaires Potemayo... et un petit bonjour Ã  toi aussi !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 
 			$news = new News();
-			$news->setTitle("Kujibiki Unbalance 2 - Série complète entiérement refaite");
+			$news->setTitle("Kujibiki Unbalance 2 - SÃ©rie complÃ¨te entiÃ©rement refaite");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("02 May 2011"));
@@ -634,20 +634,20 @@ Bons épisodes, à très bientôt pour les 6 OAV supplémentaires Potemayo... et un p
 			$news->setTeamNews(false);
 			$news->addReleasing(Project::getProject('kujibiki'));
 			$news->setMessage("[img-auto=images/news/kujiend.jpg]Kujibiki Unbalance 2[/img-auto]
-La série Kujibiki Unbalance 2 a entiérement été refaite !
-Les polices illisibles ont été changées, les panneaux stylisés ont été refait, la traduction a été revue, bref, une jolie série complète vous attend !
+La sÃ©rie Kujibiki Unbalance 2 a entiÃ©rement Ã©tÃ© refaite !
+Les polices illisibles ont Ã©tÃ© changÃ©es, les panneaux stylisÃ©s ont Ã©tÃ© refait, la traduction a Ã©tÃ© revue, bref, une jolie sÃ©rie complÃ¨te vous attend !
 
-Pour télécharger les épisodes, c'est comme d'habitude :
+Pour tÃ©lÃ©charger les Ã©pisodes, c'est comme d'habitude :
 - Page projet, liens DDL,
 - Sur notre tracker Torrent (restez en seed !)
 - Sur le XDCC de notre chan irc (profitez-en pour nous dire bonjour :D)
 
 Petite info importante :
-Cette série est compétement indépendante, n'a rien a voir avec la premiére saison de Kujibiki Unbalance ni avec la série Genshiken et il n'est pas nécessaire d'avoir vu celles-ci pour apprécier cette petite série.
+Cette sÃ©rie est compÃ©tement indÃ©pendante, n'a rien a voir avec la premiÃ©re saison de Kujibiki Unbalance ni avec la sÃ©rie Genshiken et il n'est pas nÃ©cessaire d'avoir vu celles-ci pour apprÃ©cier cette petite sÃ©rie.
 
-Si vous avez aimé la série, si vous avez des remarques à nous faire ou autre, n'hésitez pas à nous en faire part ! (Commentaires, Forum, Mail, IRC, ...)
+Si vous avez aimÃ© la sÃ©rie, si vous avez des remarques Ã  nous faire ou autre, n'hÃ©sitez pas Ã  nous en faire part ! (Commentaires, Forum, Mail, IRC, ...)
 
-à trés bientôt pour Potemayo !");
+Ã  trÃ©s bientÃ´t pour Potemayo !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -663,7 +663,7 @@ Si vous avez aimé la série, si vous avez des remarques à nous faire ou autre, n'
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomonatsu', 'oav'));
 			$news->setMessage("[img=images/news/kodomonatsu1.jpg]Kodomo no Natsu Jikan[/img]
-Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'été, en vacances avec Aoki et Houin.
+Rin, Kuro et Mimi sont de retour dans un OAV SpÃ©cial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'Ã©tÃ©, en vacances avec Aoki et Houin.
 
 [img=images/news/kodomonatsu2.jpg]Kodomo no Natsu Jikan[/img]
 [img=images/news/kodomonatsu3.jpg]Kodomo no Natsu Jikan[/img]
@@ -674,7 +674,7 @@ Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo
 			News::$allNews[] = $news;
 
 			$news = new News();
-			$news->setTitle("Licence de L'entrainement avec Hinako + Sortie de Akina To Onsen et Faisons l'amour ensemble épisode 05");
+			$news->setTitle("Licence de L'entrainement avec Hinako + Sortie de Akina To Onsen et Faisons l'amour ensemble Ã©pisode 05");
 			$news->setTimestamp(strtotime("08 March 2011"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(252);
@@ -685,19 +685,19 @@ Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo
 			$news->addLicensing(Release::getRelease('training', 'oav'));
 			$news->setMessage("[img-auto=images/news/issho5.jpg]Issho ni H Shiyo 5[/img-auto]
 
-Dans la suite de notre reprise tant attendue, on ne relâche pas le rythme ! Après la sortie d'un genre classique chez Zéro, on poursuit avec l'une de nos spécialités : [i]Faisons l'amour ensemble[/i] revient en force avec un nouvel épisode (de quoi combler les déçus du 4e opus) et un épisode bonus !
+Dans la suite de notre reprise tant attendue, on ne relÃ¢che pas le rythme ! AprÃ¨s la sortie d'un genre classique chez ZÃ©ro, on poursuit avec l'une de nos spÃ©cialitÃ©s : [i]Faisons l'amour ensemble[/i] revient en force avec un nouvel Ã©pisode (de quoi combler les dÃ©Ã§us du 4e opus) et un Ã©pisode bonus !
 
-Tout d'abord, ce 5e épisode nous sort le grand jeu : la petite sœur est dans la place ! Après plusieurs années sans nouvelles de son grand frère, voilà qu'elle a bien grandi et décide donc de taper l'incruste. Voilà une bonne occasion de faire le ménage (les filles sont douées pour ça {^.^}~). À la suite de quoi une bonne douche s'impose... Et si on la prenait ensemble comme au bon vieux temps, [i]oniichan[/i] ?
+Tout d'abord, ce 5e Ã©pisode nous sort le grand jeu : la petite sÂœur est dans la place ! AprÃ¨s plusieurs annÃ©es sans nouvelles de son grand frÃ¨re, voilÃ  qu'elle a bien grandi et dÃ©cide donc de taper l'incruste. VoilÃ  une bonne occasion de faire le mÃ©nage (les filles sont douÃ©es pour Ã§a {^.^}~). Ã€ la suite de quoi une bonne douche s'impose... Et si on la prenait ensemble comme au bon vieux temps, [i]oniichan[/i] ?
 
-Pour ceux qui auraient encore des réserves (faut dire qu'on vous a donné le temps pour {^_^}), un épisode bonus aux sources chaudes vous attend ! Akina, cette jeune demoiselle du premier épisode, revient nous saluer avec son charme généreux et son côté ivre toujours aussi mignon. Vous en dégusterez bien un morceau après le bain, non ?
+Pour ceux qui auraient encore des rÃ©serves (faut dire qu'on vous a donnÃ© le temps pour {^_^}), un Ã©pisode bonus aux sources chaudes vous attend ! Akina, cette jeune demoiselle du premier Ã©pisode, revient nous saluer avec son charme gÃ©nÃ©reux et son cÃ´tÃ© ivre toujours aussi mignon. Vous en dÃ©gusterez bien un morceau aprÃ¨s le bain, non ?
 
 [img=images/series/akinahshiyo.jpg]Akina To Onsen De H Shiyo[/img]
 
-db0 dit : Et pour finir, une nouvelle assez inattendue : La licence de L'entraînement avec Hinako chez Kaze. On vous tiendra au courant quand le DVD sortira.
+db0 dit : Et pour finir, une nouvelle assez inattendue : La licence de L'entraÃ®nement avec Hinako chez Kaze. On vous tiendra au courant quand le DVD sortira.
 
 [img=images/news/training.gif]Isshoni Training[/img]
 
-En parlant de Kaze, j'ai reçu hier par la poste le Blu-ray de Canaan chez Kaze. Vous avez aimé la série ? Faites comme moi, achetez-le !
+En parlant de Kaze, j'ai reÃ§u hier par la poste le Blu-ray de Canaan chez Kaze. Vous avez aimÃ© la sÃ©rie ? Faites comme moi, achetez-le !
 
 [img=images/news/canaanli.jpg]DVD canaan buy kaze[/img]");
 			$news->setDisplayInNormalMode(true);
@@ -718,11 +718,11 @@ En parlant de Kaze, j'ai reçu hier par la poste le Blu-ray de Canaan chez Kaze. 
 			$news->addReleasing(Release::getRelease('hshiyo', 'ep4'));
 			$news->setMessage("[img-auto=images/news/hshiyonew.png]Issho ni H Shiyo oav  4 fin de la serie interdit aux moins de 18 ans.[/img-auto]
 
-Déception intense ! Après de jolis épisodes, c'est avec regret que je vous annonce la sortie de ce quatrième et dernier opus, qui retombe dans de banals stéréotypes H sans une once d'originalité ni de qualité graphique : gros seins surréalistes, personnages prévisibles à souhaits, et comble du comble un final à la \"je jouis mais faisons pour que ça n'en ait pas l'air\" ! Alors que les épisodes précédents nous offraient de somptueux ralentis et des mouvements de corps langoureux pour un plaisir savouré jusqu'à la dernière goutte, ce dernier épisode nous marquera (hélas) par sa simplicité grotesque et son manque de plaisir évident.
+DÃ©ception intense ! AprÃ¨s de jolis Ã©pisodes, c'est avec regret que je vous annonce la sortie de ce quatriÃ¨me et dernier opus, qui retombe dans de banals stÃ©rÃ©otypes H sans une once d'originalitÃ© ni de qualitÃ© graphique : gros seins surrÃ©alistes, personnages prÃ©visibles Ã  souhaits, et comble du comble un final Ã  la \"je jouis mais faisons pour que Ã§a n'en ait pas l'air\" ! Alors que les Ã©pisodes prÃ©cÃ©dents nous offraient de somptueux ralentis et des mouvements de corps langoureux pour un plaisir savourÃ© jusqu'Ã  la derniÃ¨re goutte, ce dernier Ã©pisode nous marquera (hÃ©las) par sa simplicitÃ© grotesque et son manque de plaisir Ã©vident.
 
-Mais réjouissez-vous ! La série étant finie, nous n'aurons plus l'occasion d'assister à une autre erreur mettant en doute la qualité de cette dernière : les plus pointilleux pourront sauvagement se dessécher sur les précédents épisodes sans jamais voir le dernier, alors que ceux qui auront pitié de notre travail pourront gaspiller leur bande passante à télécharger le torchon qui sert de final à cette série qui ne le mérite pourtant pas.
+Mais rÃ©jouissez-vous ! La sÃ©rie Ã©tant finie, nous n'aurons plus l'occasion d'assister Ã  une autre erreur mettant en doute la qualitÃ© de cette derniÃ¨re : les plus pointilleux pourront sauvagement se dessÃ©cher sur les prÃ©cÃ©dents Ã©pisodes sans jamais voir le dernier, alors que ceux qui auront pitiÃ© de notre travail pourront gaspiller leur bande passante Ã  tÃ©lÃ©charger le torchon qui sert de final Ã  cette sÃ©rie qui ne le mÃ©rite pourtant pas.
 
-Merci à tous de nous avoir suivi sur cette série, et je vous souhaite tout le plaisir du monde à sauvegarder votre temps en revisionnant un des épisodes précédents plutôt que celui-ci {^_^}.");
+Merci Ã  tous de nous avoir suivi sur cette sÃ©rie, et je vous souhaite tout le plaisir du monde Ã  sauvegarder votre temps en revisionnant un des Ã©pisodes prÃ©cÃ©dents plutÃ´t que celui-ci {^_^}.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -737,20 +737,20 @@ Merci à tous de nous avoir suivi sur cette série, et je vous souhaite tout le pl
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep3'));
 			$news->setMessage("[img=images/news/kissxsis3news.jpg]KissXsis kiss x sis DVD Blu-Ray Jaquette[/img]
-On peut dire qu'il s'est fait attendre cet épisode...
-Mais le voilà enfin, et c'est tout ce qui compte.
-Vous devez vous demander ce qu'il advient de notre annonce de sortie une semaine/un épisode pour kissxsis.
-Vous avez remarqué que c'est un echec. Pourquoi ? Les épisodes s'avèrent bien plus longs à réaliser que prévu si on souhaite continuer à vous fournir la meilleure qualité possible. De plus, j'étais dans ma période de fin d'année scolaire et j'ai dû mettre de côté nos chères soeurs jumelles pour être sûre de passer en année supérieure...!
+On peut dire qu'il s'est fait attendre cet Ã©pisode...
+Mais le voilÃ  enfin, et c'est tout ce qui compte.
+Vous devez vous demander ce qu'il advient de notre annonce de sortie une semaine/un Ã©pisode pour kissxsis.
+Vous avez remarquÃ© que c'est un echec. Pourquoi ? Les Ã©pisodes s'avÃ¨rent bien plus longs Ã  rÃ©aliser que prÃ©vu si on souhaite continuer Ã  vous fournir la meilleure qualitÃ© possible. De plus, j'Ã©tais dans ma pÃ©riode de fin d'annÃ©e scolaire et j'ai dÃ» mettre de cÃ´tÃ© nos chÃ¨res soeurs jumelles pour Ãªtre sÃ»re de passer en annÃ©e supÃ©rieure...!
 
-Une nouvelle qui ne vous fera peut-être pas plaisir, mais qui j'éspère ne vous découragera pas de mater les soeurettes un peu plus tard : Nous avons l'intention d'attendre la sortie des Blu-Ray des autres épisodes avant de continuer KissXsis. La qualité des vidéos sera meilleure, il y aura moins de censure, plus de détails, bref, plus de plaisir !
-Le premier Blu-Ray contenant les 3 premiers épisodes vient tout juste de sortir et nous sortirons bientôt des nouvelles versions de ces trois premiers. Croyez-moi, ça en vaut la peine. Vous ne me croyiez pas ? [url=http://www.sankakucomplex.com/2010/06/24/kissxsis-erotic-climax-dvd-ero-upgrades-highly-salacious/]Petit lien[/url].
+Une nouvelle qui ne vous fera peut-Ãªtre pas plaisir, mais qui j'Ã©spÃ¨re ne vous dÃ©couragera pas de mater les soeurettes un peu plus tard : Nous avons l'intention d'attendre la sortie des Blu-Ray des autres Ã©pisodes avant de continuer KissXsis. La qualitÃ© des vidÃ©os sera meilleure, il y aura moins de censure, plus de dÃ©tails, bref, plus de plaisir !
+Le premier Blu-Ray contenant les 3 premiers Ã©pisodes vient tout juste de sortir et nous sortirons bientÃ´t des nouvelles versions de ces trois premiers. Croyez-moi, Ã§a en vaut la peine. Vous ne me croyiez pas ? [url=http://www.sankakucomplex.com/2010/06/24/kissxsis-erotic-climax-dvd-ero-upgrades-highly-salacious/]Petit lien[/url].
 
-Et pour ne pas parler que de KissXsis, sachez qu'une petite surprise que je vous ai personnellement concocté devrait bientôt sortir...
+Et pour ne pas parler que de KissXsis, sachez qu'une petite surprise que je vous ai personnellement concoctÃ© devrait bientÃ´t sortir...
 En ce qui concerne les autres projets, nous devrions nous concentrer sur Kujian en attendant les Blu-Ray de KissXsis et boucler certains vieux projets comme Sketchbook, Kodomo no Jikan (le film) ou Tayutama.
 
-En ce qui concerne l'école du fansub, elle va très bien et le nombre d'élève augmente chaque jour, les exercices et les cours aussi ! Si vous êtes intéréssés, vous savez où nous trouver : sur le forum Zéro fansub.
+En ce qui concerne l'Ã©cole du fansub, elle va trÃ¨s bien et le nombre d'Ã©lÃ¨ve augmente chaque jour, les exercices et les cours aussi ! Si vous Ãªtes intÃ©rÃ©ssÃ©s, vous savez oÃ¹ nous trouver : sur le forum ZÃ©ro fansub.
 
-Bonne chance à ceux qui sont en examens, et que ceux qui sont en vacances en profite bien. Moi, je suis en vacances :p");
+Bonne chance Ã  ceux qui sont en examens, et que ceux qui sont en vacances en profite bien. Moi, je suis en vacances :p");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -779,9 +779,9 @@ Bonne chance à ceux qui sont en examens, et que ceux qui sont en vacances en pro
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep2'));
 			$news->setMessage("[img]images/news/kissxsis2.jpg[/img]
-Ako et Riko ne laisseront pas Keita rater ses examens ! Ako décident donc de donner des cours particulier à Keita.
-Ils y resteront très sages et se contenteront d'apprendre sagement l'anglais, l'histoire et les maths. C'est tout.
-Vous vous attendiez à autre chose, peut-être ?");
+Ako et Riko ne laisseront pas Keita rater ses examens ! Ako dÃ©cident donc de donner des cours particulier Ã  Keita.
+Ils y resteront trÃ¨s sages et se contenteront d'apprendre sagement l'anglais, l'histoire et les maths. C'est tout.
+Vous vous attendiez Ã  autre chose, peut-Ãªtre ?");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -797,11 +797,11 @@ Vous vous attendiez à autre chose, peut-être ?");
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep1'));
 			$news->setMessage("[img]images/news/newskissxsis1.jpg[/img]
 Yo !
-Ako et Riko sont ENFIN de retour, cette fois-ci dans une série complète.
-Il y aura donc plus de scénario, mais toujours autant de ecchi.
-C'est bien une suite des OAV, mais il n'est pas nécéssaire des les avoir vus pour suivre la série.
-J'ai essayé de faire des jolis karaokés, alors chantez !! (Et envoyez les vidéos)
-À très vite pour l'épisode 2.");
+Ako et Riko sont ENFIN de retour, cette fois-ci dans une sÃ©rie complÃ¨te.
+Il y aura donc plus de scÃ©nario, mais toujours autant de ecchi.
+C'est bien une suite des OAV, mais il n'est pas nÃ©cÃ©ssaire des les avoir vus pour suivre la sÃ©rie.
+J'ai essayÃ© de faire des jolis karaokÃ©s, alors chantez !! (Et envoyez les vidÃ©os)
+Ã€ trÃ¨s vite pour l'Ã©pisode 2.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -817,13 +817,13 @@ J'ai essayé de faire des jolis karaokés, alors chantez !! (Et envoyez les vidéos
 			$news->addReleasing(Release::getRelease('sleeping', 'oav'));
 			$news->setMessage("[img-auto]images/news/pcover1.gif[/img-auto]
 			Salut toi, c'est Hinako !
-			Tu m'as tellement manquer depuis notre entraînement, tout les deux...
+			Tu m'as tellement manquer depuis notre entraÃ®nement, tout les deux...
 			Tu te souviens ? Flexions, extensions ! Une, deux, une deux !
-			Grâce à toi, j'ai perdu du poids, et toi aussi, non ?
-			Tu sais, cette nuit, je dors toute seule, chez moi, et ça me rend triste...
+			GrÃ¢ce Ã  toi, j'ai perdu du poids, et toi aussi, non ?
+			Tu sais, cette nuit, je dors toute seule, chez moi, et Ã§a me rend triste...
 			Quoi ? C'est vrai ? Tu veux bien dormir avec moi !?
 			Oh merci ! Je savais que je pouvais compter sur toi.
-			Alors, à tout à l'heure, quand tu auras télécharger l'épisode ;)");
+			Alors, Ã  tout Ã  l'heure, quand tu auras tÃ©lÃ©charger l'Ã©pisode ;)");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -838,7 +838,7 @@ J'ai essayé de faire des jolis karaokés, alors chantez !! (Et envoyez les vidéos
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kissxsisoav', 'ep2'));
 			$news->setMessage("[img]images/news/kiss2.png[/img]
-Ah, elles nous font bien attendre, les deux jolies jumelles... Des mois pour sortir les OAV ! Mais au final, ça en vaut la peine, donc on ne peut pas leur en vouloir. C'est bientôt Noël, donc pour l'occasion, elles ont sortis des cosplays très mignons des \"soeurs de Noël\". Elles sont de plus en plus ecchi avec leur frère. Finira-t-il par craquer !? La première version sort ce soir, les autres versions de plus haute qualité sortieront dans la nuit et demain. J'éspère que cet OAV vous plaira ! Une série est annoncée en plus des OAV. Info ou Intox ? Dans tout les cas, Zéro sera de la partie, donc suivez aussi la série avec nous !");
+Ah, elles nous font bien attendre, les deux jolies jumelles... Des mois pour sortir les OAV ! Mais au final, Ã§a en vaut la peine, donc on ne peut pas leur en vouloir. C'est bientÃ´t NoÃ«l, donc pour l'occasion, elles ont sortis des cosplays trÃ¨s mignons des \"soeurs de NoÃ«l\". Elles sont de plus en plus ecchi avec leur frÃ¨re. Finira-t-il par craquer !? La premiÃ¨re version sort ce soir, les autres versions de plus haute qualitÃ© sortieront dans la nuit et demain. J'Ã©spÃ¨re que cet OAV vous plaira ! Une sÃ©rie est annoncÃ©e en plus des OAV. Info ou Intox ? Dans tout les cas, ZÃ©ro sera de la partie, donc suivez aussi la sÃ©rie avec nous !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -868,15 +868,15 @@ Ainsi se termine Canaan.");
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('canaan', 'ep12'));
 			$news->setMessage("[imgl]images/news/piscine.jpg[/imgl]
-Tout d'abord, la sortie du [b]12e épisode de Canaan[/b]. On change complétement de décor par rapport aux précédents épisodes. Cet épisode est centré sur la relation entre Canaan et Alphard, ainsi que les pouvoirs de Canaan.
+Tout d'abord, la sortie du [b]12e Ã©pisode de Canaan[/b]. On change complÃ©tement de dÃ©cor par rapport aux prÃ©cÃ©dents Ã©pisodes. Cet Ã©pisode est centrÃ© sur la relation entre Canaan et Alphard, ainsi que les pouvoirs de Canaan.
 
-Ensuite, [b]db0 va a la piscine ![/b] (Elle a mis son joli maillot de bain, et tout, comme sur l'image) Elle sera donc [b]absente du 5 au 26 octobre inclus[/b]. En attendant, l'équipe Zéro va essayer de continuer à faire des sorties quand même, et c'est ryocu qui se chargera de faire les news.
+Ensuite, [b]db0 va a la piscine ![/b] (Elle a mis son joli maillot de bain, et tout, comme sur l'image) Elle sera donc [b]absente du 5 au 26 octobre inclus[/b]. En attendant, l'Ã©quipe ZÃ©ro va essayer de continuer Ã  faire des sorties quand mÃªme, et c'est ryocu qui se chargera de faire les news.
 
 Puis, deux nouveaux partenaires : [b]Gokuraku-no-fansub[/b] et [b]Tanjou-fansub[/b].
 
-Enfin, une bonne nouvelle. Si certains n'étaient pas au courant, j'annonce : [b]Maboroshi no fansub a réouvert ses portes[/b]. L'incident de fermeture était dû à une mauvaise entente entre la personne qui hébergeait le site et le reste de l'équipe. J'ai repris les rênes ! C'est maintenant moi qui gère leur site. Du coup, il n'y a aucun risque de fermeture ou de mauvais entente :). Ils prennent un nouveau départ, et ont décidé de ne pas reprendre leurs anciens projets, sauf Hakushoku to Yousei dûe à la forte demande.
+Enfin, une bonne nouvelle. Si certains n'Ã©taient pas au courant, j'annonce : [b]Maboroshi no fansub a rÃ©ouvert ses portes[/b]. L'incident de fermeture Ã©tait dÃ» Ã  une mauvaise entente entre la personne qui hÃ©bergeait le site et le reste de l'Ã©quipe. J'ai repris les rÃªnes ! C'est maintenant moi qui gÃ¨re leur site. Du coup, il n'y a aucun risque de fermeture ou de mauvais entente :). Ils prennent un nouveau dÃ©part, et ont dÃ©cidÃ© de ne pas reprendre leurs anciens projets, sauf Hakushoku to Yousei dÃ»e Ã  la forte demande.
 
-Pour finir, [b]Kobato[/b], dans la liste de nos projets depuis juin, ne se fera finalement pas. Kaze nous a devancé et a acheté la licence.");
+Pour finir, [b]Kobato[/b], dans la liste de nos projets depuis juin, ne se fera finalement pas. Kaze nous a devancÃ© et a achetÃ© la licence.");
 			$news->setPartnerNews(true);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -891,7 +891,7 @@ Pour finir, [b]Kobato[/b], dans la liste de nos projets depuis juin, ne se fera 
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep11'));
 			$news->setMessage("[img]images/news/canaan11.jpg[/img]
-Chose promise, chose due. Et en plus, on a même le droit à un peu de ecchi dans cet épisode ! Avec la tenue sexy de Liang Qi, on peut pas dire le contraire... Et un peu de necrophilie aussi. Ouais, c'est tout de suite moins sexy. (Enfin, chacun son truc, hein) Sankaku Complex en a parlé. Cet épisode est un peu triste, comme le précedent, mais un peu plus violent aussi.");
+Chose promise, chose due. Et en plus, on a mÃªme le droit Ã  un peu de ecchi dans cet Ã©pisode ! Avec la tenue sexy de Liang Qi, on peut pas dire le contraire... Et un peu de necrophilie aussi. Ouais, c'est tout de suite moins sexy. (Enfin, chacun son truc, hein) Sankaku Complex en a parlÃ©. Cet Ã©pisode est un peu triste, comme le prÃ©cedent, mais un peu plus violent aussi.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -906,7 +906,7 @@ Chose promise, chose due. Et en plus, on a même le droit à un peu de ecchi dans 
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep10'));
 			$news->setMessage("[img]images/news/canaan10.jpg[/img]
-Vous en rêviez ? Les fans l'ont dessiné... Est-ce que c'est ce qui va se passer dans la suite de l'anime ? Ça semble bien parti... Regardez vite l'épisode 10 pour le savoir ! Et comme on a trop envie de savoir la suite à la fin de cet épisode, je vous promets qu'il ne tardera pas.");
+Vous en rÃªviez ? Les fans l'ont dessinÃ©... Est-ce que c'est ce qui va se passer dans la suite de l'anime ? Ã‡a semble bien parti... Regardez vite l'Ã©pisode 10 pour le savoir ! Et comme on a trop envie de savoir la suite Ã  la fin de cet Ã©pisode, je vous promets qu'il ne tardera pas.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -921,9 +921,9 @@ Vous en rêviez ? Les fans l'ont dessiné... Est-ce que c'est ce qui va se passer 
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep9'));
 			$news->setMessage("[img]images/news/canaancos.jpg[/img]
-Je comptais sortir tout les épisodes en même temps, mais comme les autres prennent plus de temps que prévu, on va pas vous faire attendre plus longtemps et on vous propose dès maintenant l'épisode 09, prêt depuis longtemps. Comme vous pouvez le constater, l'équipe est très occupée en ce moment, donc entre deux irl, on taffe un peu fansub, mais ça reste pas grand chose.
+Je comptais sortir tout les Ã©pisodes en mÃªme temps, mais comme les autres prennent plus de temps que prÃ©vu, on va pas vous faire attendre plus longtemps et on vous propose dÃ¨s maintenant l'Ã©pisode 09, prÃªt depuis longtemps. Comme vous pouvez le constater, l'Ã©quipe est trÃ¨s occupÃ©e en ce moment, donc entre deux irl, on taffe un peu fansub, mais Ã§a reste pas grand chose.
 Je profite de cette news pour vous poster quelques photos de mon cosplay Canaan. Si vous voulez en savoir plus sur ce cosplay et mes autres, rendez-vous sur mon site perso cosplay :
-[url]http://db0.dbcosplay.fr[/url] (et abonnez-vous à la newsletter !)
+[url]http://db0.dbcosplay.fr[/url] (et abonnez-vous Ã  la newsletter !)
 [url=http://www.cosplay.com/photo/2268921/][img]http://images.cosplay.com/thumbs/22/2268921.jpg[/img][/url] [url=http://www.cosplay.com/photo/2268922/][img]http://images.cosplay.com/thumbs/22/2268922.jpg[/img][/url] [url=http://www.cosplay.com/photo/2268923/][img]http://images.cosplay.com/thumbs/22/2268923.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274553/][img]http://images.cosplay.com/thumbs/22/2274553.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274515/][img]http://images.cosplay.com/thumbs/22/2274515.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274516/][img]http://images.cosplay.com/thumbs/22/2274516.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274517/][img]http://images.cosplay.com/thumbs/22/2274517.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274518/][img]http://images.cosplay.com/thumbs/22/2274518.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274519/][img]http://images.cosplay.com/thumbs/22/2274519.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274520/][img]
 http://images.cosplay.com/thumbs/22/2274520.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274521/][img]http://images.cosplay.com/thumbs/22/2274521.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274522/][img]http://images.cosplay.com/thumbs/22/2274522.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274523/][img]http://images.cosplay.com/thumbs/22/2274523.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274531/][img]http://images.cosplay.com/thumbs/22/2274531.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274532/][img]http://images.cosplay.com/thumbs/22/2274532.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274533/][img]http://images.cosplay.com/thumbs/22/2274533.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274536/][img]http://images.cosplay.com/thumbs/22/2274536.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274537/][img]http://images.cosplay.com/thumbs/22/2274537.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274538/][img]http://images.cosplay.com/thumbs/22/2274538.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274540/][img]http://images.cosplay.com/thumbs/22/2274540.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274541/][img]http://images.cosplay.com/thumbs/22/2274541.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274542/][img]http://images.cosplay.com/thumbs/22/2274542.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274543/][img]http://images.cosplay.com/thumbs/22/2274543.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274544/][img]http://images.cosplay.com/thumbs/22/2274544.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274554/][img]http://images.cosplay.com/thumbs/22/2274554.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274555/][img]http://images.cosplay.com/thumbs/22/2274555.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274556/][img]http://images.cosplay.com/thumbs/22/2274556.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274557/][img]http://images.cosplay.com/thumbs/22/2274557.jpg[/img][/url] [url=http://www.cosplay.com/photo/
 2274560/][img]http://images.cosplay.com/thumbs/22/2274560.jpg[/img][/url]");
@@ -941,7 +941,7 @@ http://images.cosplay.com/thumbs/22/2274520.jpg[/img][/url] [url=http://www.cosp
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep8'));
 			$news->setMessage("[imgr]images/news/canaan8.png[/imgr]
-Avec un peu de retard cette semaine, la suite de la trépidante histoire de Canaan, une fille pas comme les autres.");
+Avec un peu de retard cette semaine, la suite de la trÃ©pidante histoire de Canaan, une fille pas comme les autres.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -956,7 +956,7 @@ Avec un peu de retard cette semaine, la suite de la trépidante histoire de Canaa
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep6'));
 			$news->setMessage("[img]images/news/can6.jpg[/img]
-Comme à son habitude, le petit épisode de Canaan de la semaine fait sa sortie. Et comme prévu, nous n'avons aucune réponse pour le recrutement traducteur T___T pourtant j'aime bien, moi, Mermaid Melody. C'est mignon.");
+Comme Ã  son habitude, le petit Ã©pisode de Canaan de la semaine fait sa sortie. Et comme prÃ©vu, nous n'avons aucune rÃ©ponse pour le recrutement traducteur T___T pourtant j'aime bien, moi, Mermaid Melody. C'est mignon.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -972,11 +972,11 @@ Comme à son habitude, le petit épisode de Canaan de la semaine fait sa sortie. E
 			$news->addReleasing(Release::getRelease('canaan', 'ep4'));
 			$news->addReleasing(Release::getRelease('canaan', 'ep5'));
 			$news->setMessage("[img]images/news/can45.jpg[/img]
-Des bunny girls, des blondasses, et tout ça qui se fait des câlins ! Si c'est pas mignon, tout ça ! Non, pas tant que ça, si on remet l'image dans le contexte. Je vous laisse découvrir tout ça dans la double sortie du jour. Double sortie, pourquoi ? Bah justement. J'ai bien envie de faire des news longues ses derniers temps, donc je vais vous expliquer ce que j'appelle \"le rythme Toradora!\".
-Pour ceux qui nous ont connus à l'époque Toradora!, à l'\"apogée\" de la carrière de Zéro, vous vous souvenez sans doute du rythme spéctaculaire auquel les sorties s'enchaînaient. C'était de l'ordre de une sortie tout les deux jours, voir tout les jours ! Pour vous, qui attendez sagement derrière vos écrans, c'est tout bénéf'. Mais ce que vous ne savez pas, c'est que ça travaille, derrière la machine. Nous ne sommes pas une équipe de Speedsub, alors comment réaliser un tel exploit sans perdre de la qualité des épisodes ? Non, non, nous ne savons toujours pas ralentir le temps. Quel est notre secret ? Tout d'abord, sachez qu'il faut minimum 20 heures de boulot pour sortir un épisode chez Zéro (traduction-adaptation-correction-edition-time-vérification finale) encodage non compris. Et que généralement, nous répartissons ses heures sur des semaines. Pour suivre le rythme Toradora!, c'est simple : Etaler ses 20 heures minimum (je dis bien minimum parce qu'en fait c'est beaucoup plus long) sur une seule journée. 
-C'est-à-dire sacrifier une journée + une nuit. Pour Toradora!, suivre ce rythme n'était pas trop dur puisque nous étions en coproduction, ce qui nous permettait de faire des pauses de temps en temps dans ces looongues journées de fansub. Mais nous avons décidé de reprendre ce rythme, pour montrer à nos amis leechers que nous n'avons pas vieilli ! C'est pourquoi nous avons choisi un anime qui nous tient à coeur, à Ryocu et moi-même : Canaan. Ici, nous ne sommes pas en coproduction, mais comme nous sommes en vacances, nous pouvons nous permettre de sacrifier deux journées par épisode de Canaan. Oui, deux jours, car il me faut bien faire des pauses, et comme je m'occupe de tout sauf de la vérification finale et que je suis humaine, je ne peux pas me permettre de taffer 24h d'affilée sans faiblir un chouilla.
-Bref, je raconte pas tout ça pour me la péter, mais juste pour vous éxpliquer ce que représente un rythme acceléré pour une équipe de bon sub et pas de speedsub. Je raconte ça aussi parce que j'ai été déçu par des réactions de personnes qui se sont dit rapide = mauvais sub. Je vous prouve ici que nous travaillons dur pour vous !!
-Et là, je finirai sur une question qui vous turlupine depuis tout à l'heure : Comment se fait-il que vous ne nous sortiez ses épisodes que maintenant ? La réponse est simple : J'avais pas internet dans le trou paumé où je suis pour mes vacances :p
+Des bunny girls, des blondasses, et tout Ã§a qui se fait des cÃ¢lins ! Si c'est pas mignon, tout Ã§a ! Non, pas tant que Ã§a, si on remet l'image dans le contexte. Je vous laisse dÃ©couvrir tout Ã§a dans la double sortie du jour. Double sortie, pourquoi ? Bah justement. J'ai bien envie de faire des news longues ses derniers temps, donc je vais vous expliquer ce que j'appelle \"le rythme Toradora!\".
+Pour ceux qui nous ont connus Ã  l'Ã©poque Toradora!, Ã  l'\"apogÃ©e\" de la carriÃ¨re de ZÃ©ro, vous vous souvenez sans doute du rythme spÃ©ctaculaire auquel les sorties s'enchaÃ®naient. C'Ã©tait de l'ordre de une sortie tout les deux jours, voir tout les jours ! Pour vous, qui attendez sagement derriÃ¨re vos Ã©crans, c'est tout bÃ©nÃ©f'. Mais ce que vous ne savez pas, c'est que Ã§a travaille, derriÃ¨re la machine. Nous ne sommes pas une Ã©quipe de Speedsub, alors comment rÃ©aliser un tel exploit sans perdre de la qualitÃ© des Ã©pisodes ? Non, non, nous ne savons toujours pas ralentir le temps. Quel est notre secret ? Tout d'abord, sachez qu'il faut minimum 20 heures de boulot pour sortir un Ã©pisode chez ZÃ©ro (traduction-adaptation-correction-edition-time-vÃ©rification finale) encodage non compris. Et que gÃ©nÃ©ralement, nous rÃ©partissons ses heures sur des semaines. Pour suivre le rythme Toradora!, c'est simple : Etaler ses 20 heures minimum (je dis bien minimum parce qu'en fait c'est beaucoup plus long) sur une seule journÃ©e. 
+C'est-Ã -dire sacrifier une journÃ©e + une nuit. Pour Toradora!, suivre ce rythme n'Ã©tait pas trop dur puisque nous Ã©tions en coproduction, ce qui nous permettait de faire des pauses de temps en temps dans ces looongues journÃ©es de fansub. Mais nous avons dÃ©cidÃ© de reprendre ce rythme, pour montrer Ã  nos amis leechers que nous n'avons pas vieilli ! C'est pourquoi nous avons choisi un anime qui nous tient Ã  coeur, Ã  Ryocu et moi-mÃªme : Canaan. Ici, nous ne sommes pas en coproduction, mais comme nous sommes en vacances, nous pouvons nous permettre de sacrifier deux journÃ©es par Ã©pisode de Canaan. Oui, deux jours, car il me faut bien faire des pauses, et comme je m'occupe de tout sauf de la vÃ©rification finale et que je suis humaine, je ne peux pas me permettre de taffer 24h d'affilÃ©e sans faiblir un chouilla.
+Bref, je raconte pas tout Ã§a pour me la pÃ©ter, mais juste pour vous Ã©xpliquer ce que reprÃ©sente un rythme accelÃ©rÃ© pour une Ã©quipe de bon sub et pas de speedsub. Je raconte Ã§a aussi parce que j'ai Ã©tÃ© dÃ©Ã§u par des rÃ©actions de personnes qui se sont dit rapide = mauvais sub. Je vous prouve ici que nous travaillons dur pour vous !!
+Et lÃ , je finirai sur une question qui vous turlupine depuis tout Ã  l'heure : Comment se fait-il que vous ne nous sortiez ses Ã©pisodes que maintenant ? La rÃ©ponse est simple : J'avais pas internet dans le trou paumÃ© oÃ¹ je suis pour mes vacances :p
 Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord de mer dans une grande maison avec piscine dont nous profitons entre deux Canaan.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
@@ -991,7 +991,7 @@ Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord
 			$news->setCommentId(106);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep3'));
-			$news->setMessage("Sous la précipitation (train à prendre), j'ai envoyé le mauvais ass à lepims (notre encodeur) pour l'épisode 03 de Canaan, c'est-à-dire celui dont les fautes n'ont pas été corrigés, c'est-à-dire ma traduction telle quelle... Du coup, il a été réencoder, et la nouvelle version est téléchargeable à la place de l'ancienne. Toutes mes excuses !");
+			$news->setMessage("Sous la prÃ©cipitation (train Ã  prendre), j'ai envoyÃ© le mauvais ass Ã  lepims (notre encodeur) pour l'Ã©pisode 03 de Canaan, c'est-Ã -dire celui dont les fautes n'ont pas Ã©tÃ© corrigÃ©s, c'est-Ã -dire ma traduction telle quelle... Du coup, il a Ã©tÃ© rÃ©encoder, et la nouvelle version est tÃ©lÃ©chargeable Ã  la place de l'ancienne. Toutes mes excuses !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -1006,10 +1006,10 @@ Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('canaan', 'ep3'));
 			$news->setMessage("[imgr]images/news/hitocry.png[/imgr]
-Je lance cette bouteille à la mer en espérant que ce message parvienne aux oreilles d’une âme charitable… Nous recherchons désespérément une personne pour reprendre l’une de nos séries, j’ai nommé Hitohira. Nous n'avons rien à offrir, à part notre gratitude. Nous ne nous attendons pas à avoir beaucoup de réponses, voire rien du tout... Si par bonheur, vous êtes intéressé, n’hésitez pas à passer sur le forum, nous vous accueillerons sur un tapis rouge orné de fleurs xD
+Je lance cette bouteille Ã  la mer en espÃ©rant que ce message parvienne aux oreilles dÂ’une Ã¢me charitableÂ… Nous recherchons dÃ©sespÃ©rÃ©ment une personne pour reprendre lÂ’une de nos sÃ©ries, jÂ’ai nommÃ© Hitohira. Nous n'avons rien Ã  offrir, Ã  part notre gratitude. Nous ne nous attendons pas Ã  avoir beaucoup de rÃ©ponses, voire rien du tout... Si par bonheur, vous Ãªtes intÃ©ressÃ©, nÂ’hÃ©sitez pas Ã  passer sur le forum, nous vous accueillerons sur un tapis rouge ornÃ© de fleurs xD
 [pin]
 [img]images/news/canaan-3.jpg[/img]
-Encore du ecchi dans la série Canaan ! Mais pas que ça, bien sûr. L'épisode 3 est disponible, amusez-vous bien~");
+Encore du ecchi dans la sÃ©rie Canaan ! Mais pas que Ã§a, bien sÃ»r. L'Ã©pisode 3 est disponible, amusez-vous bien~");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -1024,7 +1024,7 @@ Encore du ecchi dans la série Canaan ! Mais pas que ça, bien sûr. L'épisode 3 es
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep2'));
 			$news->setMessage("[img]images/news/oppaicanaan.png[/img]
-Bah alors ? Zéro nous fait Canaan ? Mais Zéro, c'est une team de l'ecchi, non ? Bah en voilà un peu d'ecchi, dans cette série de brutes ^^ Alors, heureux ? Oui, très heureux. Snif. Tout ça pour dire que y'a l'épisode 02 prêt à être maté. Et vous savez quoi, les p'tits loulous ? Dans l'épisode 01, on comprenait pas toujours ce qu'il se passait. Dans l'épisode 02, on comprends ce qui s'est passé dans l'épisode 1 ! Hein ? Ça se passe toujours comme ça dans les séries sérieuses...? Ah, naruhodo...");
+Bah alors ? ZÃ©ro nous fait Canaan ? Mais ZÃ©ro, c'est une team de l'ecchi, non ? Bah en voilÃ  un peu d'ecchi, dans cette sÃ©rie de brutes ^^ Alors, heureux ? Oui, trÃ¨s heureux. Snif. Tout Ã§a pour dire que y'a l'Ã©pisode 02 prÃªt Ã  Ãªtre matÃ©. Et vous savez quoi, les p'tits loulous ? Dans l'Ã©pisode 01, on comprenait pas toujours ce qu'il se passait. Dans l'Ã©pisode 02, on comprends ce qui s'est passÃ© dans l'Ã©pisode 1 ! Hein ? Ã‡a se passe toujours comme Ã§a dans les sÃ©ries sÃ©rieuses...? Ah, naruhodo...");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -1039,14 +1039,14 @@ Bah alors ? Zéro nous fait Canaan ? Mais Zéro, c'est une team de l'ecchi, non ? 
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep1'));
 			$news->setMessage("[imgr]images/news/kissx1.jpg[/imgr]
-On vous l'avait promis, le v'là ! On a mis un peu de temps parce qu'on l'a traduit à moitié du Japonais, et forcément, ça prend plus de temps. J'espère qu'il vous plaira autant que le premier, parce qu'il dépasse les limites de l'ecchi !
+On vous l'avait promis, le v'lÃ  ! On a mis un peu de temps parce qu'on l'a traduit Ã  moitiÃ© du Japonais, et forcÃ©ment, Ã§a prend plus de temps. J'espÃ¨re qu'il vous plaira autant que le premier, parce qu'il dÃ©passe les limites de l'ecchi !
 Demain : Epitanime ! J'veux tous vous y voir !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("L'entraînement avec Hinako (Isshoni Training)");
+			$news->setTitle("L'entraÃ®nement avec Hinako (Isshoni Training)");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("28 April 2009"));
@@ -1055,13 +1055,13 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('training', 'oav'));
 			$news->setMessage("[img]images/news/hinako.jpg[/img]
-L'été arrive à grand pas. C'est donc la saison des régimes ! Et qui dit régime, dit bonne alimentation mais aussi entraînement, musculation ! Mais comment arriver à faire bouger nos chers Otakus de leurs chaises...? Hinako a trouvé la solution ! Un entraînement composé de pompes, d'abdos et de flexions on ne peut plus ECCHI ECCHI ! Lancez-vous donc dans cette aventure un peu perverse et rejoignez Hinako dans sa séance de musculation. Et vous le faites, hein ? Hinako vous regarde ;)");
+L'Ã©tÃ© arrive Ã  grand pas. C'est donc la saison des rÃ©gimes ! Et qui dit rÃ©gime, dit bonne alimentation mais aussi entraÃ®nement, musculation ! Mais comment arriver Ã  faire bouger nos chers Otakus de leurs chaises...? Hinako a trouvÃ© la solution ! Un entraÃ®nement composÃ© de pompes, d'abdos et de flexions on ne peut plus ECCHI ECCHI ! Lancez-vous donc dans cette aventure un peu perverse et rejoignez Hinako dans sa sÃ©ance de musculation. Et vous le faites, hein ? Hinako vous regarde ;)");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Joyeux Noël ! - OAV Kiss X Sis");
+			$news->setTitle("Joyeux NoÃ«l ! - OAV Kiss X Sis");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("24 December 2008"));
@@ -1070,11 +1070,11 @@ L'été arrive à grand pas. C'est donc la saison des régimes ! Et qui dit régime, 
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('kissxsisoav', 'ep2'));
 			$news->setMessage("[img]images/news/noel.jpg[/img]
-Toute l'équipe Zéro vous souhaite à tous un joyeux noël, un bon réveillon, une bonne dinde, de bons chocolats, de beaux cadeaux et tout ce qui va avec.
+Toute l'Ã©quipe ZÃ©ro vous souhaite Ã  tous un joyeux noÃ«l, un bon rÃ©veillon, une bonne dinde, de bons chocolats, de beaux cadeaux et tout ce qui va avec.
 Nos cadeaux pour vous :
-- Une galerie d'images de Noël (dans les bonus)
+- Une galerie d'images de NoÃ«l (dans les bonus)
 - L'OAV de Kiss x sis !
-Dans la liste de nos projets depuis cet été, initialement prévu en septembre... Au final, il est sorti le 22 décembre, et nous vous l'avons traduit comme cadeau de Noël. C'est entre-autre grâce à cet OAV que nous avons fait la conaissance de la [partner]kanaii[/partner].");
+Dans la liste de nos projets depuis cet Ã©tÃ©, initialement prÃ©vu en septembre... Au final, il est sorti le 22 dÃ©cembre, et nous vous l'avons traduit comme cadeau de NoÃ«l. C'est entre-autre grÃ¢ce Ã  cet OAV que nous avons fait la conaissance de la [partner]kanaii[/partner].");
 			$news->setPartnerNews(true);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -1091,14 +1091,14 @@ Dans la liste de nos projets depuis cet été, initialement prévu en septembre... 
 			$news->setMessage("[img=images/news/bath.jpg]Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko[/img]
   
 
-  Nous avons appris qu'Ankama va diffuser à partir de la rentrée de septembre 2011 :
-  Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc été retirés.
-  On vous invite à cesser la diffusion de nos liens et à aller regarder la série sur leur site.
+  Nous avons appris qu'Ankama va diffuser Ã  partir de la rentrÃ©e de septembre 2011 :
+  Baccano, Kannagi et Tetsuwan Birdy Decode. Tous les liens on donc Ã©tÃ© retirÃ©s.
+  On vous invite Ã  cesser la diffusion de nos liens et Ã  aller regarder la sÃ©rie sur leur site.
   
   Sorties d'Isshoni Training Ofuro : Bathtime with Hinako & Hiyoko
   
-  3e volet des \"isshoni\", on apprend comment les Japonaises prennent leur bain, très intéressant...
-  Avec en bonus, une petite séance de stretching...
+  3e volet des \"isshoni\", on apprend comment les Japonaises prennent leur bain, trÃ¨s intÃ©ressant...
+  Avec en bonus, une petite sÃ©ance de stretching...
   
   Je ne sais pas s'il y aura une suite, mais si oui, je devine un peu le genre ^_^");
 			$news->setPartnerNews(false);
@@ -1119,13 +1119,13 @@ Dans la liste de nos projets depuis cet été, initialement prévu en septembre... 
 [img=images/news/kana132.jpg]Kanamemo[/img]
 
 
-Eh oui, c'est déjà la fin de Kanamemo, j'espère que cette petite série fort sympathique vous aura plus autant qu'à nous.
-C'est pour nous une bonne nouvelle, on diminue ainsi le nombre de nos projets en cours/futurs, on espère pouvoir faire de même avec d'autres séries prochainement...
+Eh oui, c'est dÃ©jÃ  la fin de Kanamemo, j'espÃ¨re que cette petite sÃ©rie fort sympathique vous aura plus autant qu'Ã  nous.
+C'est pour nous une bonne nouvelle, on diminue ainsi le nombre de nos projets en cours/futurs, on espÃ¨re pouvoir faire de mÃªme avec d'autres sÃ©ries prochainement...
 [img=images/news/kana133.jpg]Kanamemo[/img]
 
-On vous annonce déjà que Kujibiki Unbalance II et Potemayo seront entièrement refaits ! Pas mal de choses ont été revues, j'espère que vous apprécierez nos efforts.
+On vous annonce dÃ©jÃ  que Kujibiki Unbalance II et Potemayo seront entiÃ¨rement refaits ! Pas mal de choses ont Ã©tÃ© revues, j'espÃ¨re que vous apprÃ©cierez nos efforts.
 Kodomo no Jikan OAV 4 ne devrait plus tarder...
-Merci de nous avoir suivis et à bientôt pour d'autres épisodes ^_^
+Merci de nous avoir suivis et Ã  bientÃ´t pour d'autres Ã©pisodes ^_^
 
 [img=images/news/kana134.jpg]Kanamemo[/img]
 
@@ -1147,7 +1147,7 @@ Merci de nous avoir suivis et à bientôt pour d'autres épisodes ^_^
 
 
 Bonjour !
-Sortie de l'épisode 12 de Kanamemo ! Youhouh ! C'est la fête !");
+Sortie de l'Ã©pisode 12 de Kanamemo ! Youhouh ! C'est la fÃªte !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -1165,14 +1165,14 @@ Sortie de l'épisode 12 de Kanamemo ! Youhouh ! C'est la fête !");
 
 
 Bonjour !
-Sortie de l'épisode 11 de Kanamemo ! Youhouh ! C'est la fête !
+Sortie de l'Ã©pisode 11 de Kanamemo ! Youhouh ! C'est la fÃªte !
 
-Rappel, nos releases sont téléchargeable sur :
+Rappel, nos releases sont tÃ©lÃ©chargeable sur :
 [left][list]
-[item]Sur [url=http://zerofansub.net/]le site zerofansub.net[/url] en DDL (cliquez sur projet dans le menu à gauche)[/item]
-[item]Sur [url=http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro]notre tracker torrent BT-Anime[/url] en torrent peer2peer (Notre équipe de seeder vous garantie du seed !)[/item]
+[item]Sur [url=http://zerofansub.net/]le site zerofansub.net[/url] en DDL (cliquez sur projet dans le menu Ã  gauche)[/item]
+[item]Sur [url=http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro]notre tracker torrent BT-Anime[/url] en torrent peer2peer (Notre Ã©quipe de seeder vous garantie du seed !)[/item]
 [item]Sur [url=irc://irc.fansub-irc.eu/zero]notre chan IRC[/url] en XDCC ([url=?page=xdcc]liste des paquets[/url])[/item]
-[item]Sur [url=http://www.anime-ultime.net/part/Site-93]Anime-Ultime[/url] en DDL (Mais en fait, c'est les mêmes fichiers que sur Zéro, c'est juste des liens symboliques ^^)[/item]
+[item]Sur [url=http://www.anime-ultime.net/part/Site-93]Anime-Ultime[/url] en DDL (Mais en fait, c'est les mÃªmes fichiers que sur ZÃ©ro, c'est juste des liens symboliques ^^)[/item]
 [/list][/left]");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
@@ -1210,10 +1210,10 @@ Sortie de l'episode 10 de Kanamemo ! Youhouh ! C'est la fete !");
 			$news->setMessage("[img=images/news/kanamemo7.jpg]Kanamemo[/img]
 
 
-Voilà qui met un terme à cette longue période d'inactivité : Kanamemo 7, 8 et 9, enfin !
-Tout comme l'épisode 5, l'épisode 7 était inutilement censuré, donc on s'est orientés vers les DVD. En version HD uniquement, la LD n'est plus très en vogue, faut dire ^^
+VoilÃ  qui met un terme Ã  cette longue pÃ©riode d'inactivitÃ© : Kanamemo 7, 8 et 9, enfin !
+Tout comme l'Ã©pisode 5, l'Ã©pisode 7 Ã©tait inutilement censurÃ©, donc on s'est orientÃ©s vers les DVD. En version HD uniquement, la LD n'est plus trÃ¨s en vogue, faut dire ^^
 D'autres projets reprennent du service, encore un peu de patience...
-Je vous dis à bientôt pour d'autres épisodes ^_^");
+Je vous dis Ã  bientÃ´t pour d'autres Ã©pisodes ^_^");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -1229,10 +1229,10 @@ Je vous dis à bientôt pour d'autres épisodes ^_^");
 			$news->addReleasing(Release::getRelease('kanamemobook', 'ch1'));
 			$news->setMessage("[img=images/news/kanac1.jpg]Kanamemo Chapitre 01[/img]
 
-Sortie du chapitre 01 de Kanamemo qui ouvre le retour du scantrad chez Zéro !
-Depuis pas mal de temps, nous l'avions laissé à l'abandon mais avec l'école du fansub, nous avons pu nous y remettre.
-Sont prévus les scantrad de Kanamemo, Sketchbook et Maria+Holic. Quelques doujins devraient aussi arriver.
-Pour toutes nos autres séries dont les versions manga existent, vous pouvez les trouver en téléchargement sur les pages des séries comme Hitohira, Kannagi, Kimikiss et KissXsis.
+Sortie du chapitre 01 de Kanamemo qui ouvre le retour du scantrad chez ZÃ©ro !
+Depuis pas mal de temps, nous l'avions laissÃ© Ã  l'abandon mais avec l'Ã©cole du fansub, nous avons pu nous y remettre.
+Sont prÃ©vus les scantrad de Kanamemo, Sketchbook et Maria+Holic. Quelques doujins devraient aussi arriver.
+Pour toutes nos autres sÃ©ries dont les versions manga existent, vous pouvez les trouver en tÃ©lÃ©chargement sur les pages des sÃ©ries comme Hitohira, Kannagi, Kimikiss et KissXsis.
 
 A bientot !");
 			$news->setPartnerNews(false);
@@ -1249,9 +1249,9 @@ A bientot !");
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep6'));
 			$news->setMessage("[img]images/news/newskana6.jpg[/img]
-Hé !
-Mais c'est qu'on arrive à la moitié de la série.
-Le 6éme épisode de Kanamemo est disponible.");
+HÃ© !
+Mais c'est qu'on arrive Ã  la moitiÃ© de la sÃ©rie.
+Le 6Ã©me Ã©pisode de Kanamemo est disponible.");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -1269,12 +1269,12 @@ Le 6éme épisode de Kanamemo est disponible.");
 			$news->setMessage("[url=http://yotsuba.imouto.org/image/b943e76cbe684f3d4c4cf3b748d7d878/moe%2099353%20amano_saki%20fixed%20kanamemo%20kujiin_mika%20nakamachi_kana%20neko%20pantsu%20seifuku.jpg][img]images/news/newskana5.jpg[/img]
 (Image en plus grand clique ici)[/url]
 Coucou, nous revoilou !
-La suite de Kanamemo avec deux épisodes : le 4 et le 5.
-Dans les deux, on voit des filles dans l'eau... Toute nues, aux bains, et en maillot de bain à la \"piscine\" !
-Les deux sont en version non-censurée.
-Pour voir la différence entre les deux versions : [url=http://www.sankakucomplex.com/2009/11/10/kanamemo-dvd-loli-bathing-steamier-than-ever/]LIEN[/url].
-En bonus, un petit AMV de l'épisode 05 (passé à la TV, nous le l'avons pas fait nous-même).
-À bientôt !");
+La suite de Kanamemo avec deux Ã©pisodes : le 4 et le 5.
+Dans les deux, on voit des filles dans l'eau... Toute nues, aux bains, et en maillot de bain Ã  la \"piscine\" !
+Les deux sont en version non-censurÃ©e.
+Pour voir la diffÃ©rence entre les deux versions : [url=http://www.sankakucomplex.com/2009/11/10/kanamemo-dvd-loli-bathing-steamier-than-ever/]LIEN[/url].
+En bonus, un petit AMV de l'Ã©pisode 05 (passÃ© Ã  la TV, nous le l'avons pas fait nous-mÃªme).
+Ã€ bientÃ´t !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -1289,7 +1289,7 @@ En bonus, un petit AMV de l'épisode 05 (passé à la TV, nous le l'avons pas fait 
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep3'));
 			$news->setMessage("[img]images/news/kana3.jpg[/img]
-BANZAIII !! Kanamemo épisode 03, ouais, trop bien ! Je mets du temps à sortir les épisodes ces derniers temps, mais derrnière le rideau, ne vous inquiétez pas, ça bosse ! Oui, c'est encore de ma faute, avant la piscine, maintenant printf, je suis débordée... (Mais de quoi elle parle !? o__O) Bref. Bon épisode !");
+BANZAIII !! Kanamemo Ã©pisode 03, ouais, trop bien ! Je mets du temps Ã  sortir les Ã©pisodes ces derniers temps, mais derrniÃ¨re le rideau, ne vous inquiÃ©tez pas, Ã§a bosse ! Oui, c'est encore de ma faute, avant la piscine, maintenant printf, je suis dÃ©bordÃ©e... (Mais de quoi elle parle !? o__O) Bref. Bon Ã©pisode !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
@@ -1306,20 +1306,20 @@ BANZAIII !! Kanamemo épisode 03, ouais, trop bien ! Je mets du temps à sortir le
 			$news->setMessage("[img]images/news/kana1.jpg[/img]
 Bonsoir....
 
-Kodomo no Jikan touche à sa fin (bouhouh T__T) et on nous a proposé un anime sur le forum : Kanamemo. On a tout de suite vu qu'il s'inscrivait directement dans la ligne directe de Kodomo no Jikan, ecchi ~ loli ! Rétissants au départ à commencer un nouvel anime sans finir nos précédents en cours, mais ayant plusieurs personnes de l'équipage n'ayant rien à faire, nous avons finalement accepté la proposition. Cet anime est trop mignon~choupi~kawaii, c'est la petite Kana qui perd sa grand-mère et ses parents et doit se debrouiller toute seule et trouver du travail. Y'a aussi un peu de yuri dedant, donc je pense que tout le monde y trouvera ce qu'il aime !");
+Kodomo no Jikan touche Ã  sa fin (bouhouh T__T) et on nous a proposÃ© un anime sur le forum : Kanamemo. On a tout de suite vu qu'il s'inscrivait directement dans la ligne directe de Kodomo no Jikan, ecchi ~ loli ! RÃ©tissants au dÃ©part Ã  commencer un nouvel anime sans finir nos prÃ©cÃ©dents en cours, mais ayant plusieurs personnes de l'Ã©quipage n'ayant rien Ã  faire, nous avons finalement acceptÃ© la proposition. Cet anime est trop mignon~choupi~kawaii, c'est la petite Kana qui perd sa grand-mÃ¨re et ses parents et doit se debrouiller toute seule et trouver du travail. Y'a aussi un peu de yuri dedant, donc je pense que tout le monde y trouvera ce qu'il aime !");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Joyeux Noël !");
+			$news->setTitle("Joyeux NoÃ«l !");
 			$news->setTimestamp(strtotime("24 December 2011 21:05"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(277);
 			$news->setTeamNews(false);
-			$news->setMessage("Allez pour me faire pardonner de ma dernière news, un petit goût de Noël dans cette mini-news (cliquez sur l'image).
+			$news->setMessage("Allez pour me faire pardonner de ma derniÃ¨re news, un petit goÃ»t de NoÃ«l dans cette mini-news (cliquez sur l'image).
 
-[url=images/news/%5BZero Fansub%5DNoel 2011.zip][img=images/news/noel3.jpg]Joyeux Noël ![/img][/url]");
+[url=images/news/%5BZero Fansub%5DNoel 2011.zip][img=images/news/noel3.jpg]Joyeux NoÃ«l ![/img][/url]");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setPartnerNews(false);
@@ -1327,7 +1327,7 @@ Kodomo no Jikan touche à sa fin (bouhouh T__T) et on nous a proposé un anime sur
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Kujibiki Unbalance épisode 09");
+			$news->setTitle("Kujibiki Unbalance Ã©pisode 09");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("18 August 2010"));
@@ -1335,14 +1335,14 @@ Kodomo no Jikan touche à sa fin (bouhouh T__T) et on nous a proposé un anime sur
 			$news->setCommentId(243);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep9'));
-			$news->setMessage("[img=images/news/kujian9news.jpg]Kujibiki Unbalance épisode 09 - Yamada montre sa culotte Renko[/img]
+			$news->setMessage("[img=images/news/kujian9news.jpg]Kujibiki Unbalance Ã©pisode 09 - Yamada montre sa culotte Renko[/img]
 
-Chihiro, Tokino, Koyuki, Yamada et Renko sont de retour pour la suite de leurs aventures pour devenir les membres du conseil des élèves de Rikkyouin ! Retrouvez les dans cet épisode 09 où Yamada ne sera pas dans son état normal...
-Comme d'habitude, l'épisode est téléchargeable sur la page de la série partie \"Projets\" en téléchargement direct uniquement et plus tard en torrent, XDCC, etc.
+Chihiro, Tokino, Koyuki, Yamada et Renko sont de retour pour la suite de leurs aventures pour devenir les membres du conseil des Ã©lÃ¨ves de Rikkyouin ! Retrouvez les dans cet Ã©pisode 09 oÃ¹ Yamada ne sera pas dans son Ã©tat normal...
+Comme d'habitude, l'Ã©pisode est tÃ©lÃ©chargeable sur la page de la sÃ©rie partie \"Projets\" en tÃ©lÃ©chargement direct uniquement et plus tard en torrent, XDCC, etc.
 
 [img=images/news/news_dons_k-on.gif]Merci pour le don a Herve ! K-On money money[/img]
 
-Un grand [b]merci[/b] à Hérvé pour son don de 10 euros qui va nous aider à payer nos serveurs !
+Un grand [b]merci[/b] Ã  HÃ©rvÃ© pour son don de 10 euros qui va nous aider Ã  payer nos serveurs !
 
 A bientot !
 
@@ -1353,14 +1353,14 @@ A bientot !
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Sketchbook ~ full color's  ~ Picture Drama série complète (01 à 06)");
+			$news->setTitle("Sketchbook ~ full color's  ~ Picture Drama sÃ©rie complÃ¨te (01 Ã  06)");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 June 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/sketchdrama.png]Sketchbook ~ full color's ~ Picture Drama[/img]
-Pour fêter les vacances qui arrivent, Sora et ses amies vous emmenent avec elles à la mer !
-C'est une petite série de 6 épisodes de moins de 10 minutes chacun qui étaient en Bonus sur les DVDs de Sketchbook ~ full color's ~. Ils ont été réalisé à partir du Drama CD de la série et l'animation est minime. Dans la même douceur que la série, ils sont parfait pour se reposer en pensant aux vacances qui arrivent.");
+Pour fÃªter les vacances qui arrivent, Sora et ses amies vous emmenent avec elles Ã  la mer !
+C'est une petite sÃ©rie de 6 Ã©pisodes de moins de 10 minutes chacun qui Ã©taient en Bonus sur les DVDs de Sketchbook ~ full color's ~. Ils ont Ã©tÃ© rÃ©alisÃ© Ã  partir du Drama CD de la sÃ©rie et l'animation est minime. Dans la mÃªme douceur que la sÃ©rie, ils sont parfait pour se reposer en pensant aux vacances qui arrivent.");
 			$news->setCommentId(234);
 			$news->setTeamNews(false);
 			$news->addReleasing(Project::getProject('sketchbookdrama'));
@@ -1395,7 +1395,7 @@ Bon episode a tous et a tres bientot !");
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage('[img]images/news/pote8.jpg[/img]
 Anyaa~~
-Potemayo, épisode 8, youhou ! Et très bientôt, Kanamemo, Isshoni H shiyo et Isshoni sleeping ! Enjoy, Potemayo !');
+Potemayo, Ã©pisode 8, youhou ! Et trÃ¨s bientÃ´t, Kanamemo, Isshoni H shiyo et Isshoni sleeping ! Enjoy, Potemayo !');
 			$news->setCommentId(207);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('potemayo', 'ep8'));
@@ -1412,17 +1412,17 @@ Potemayo, épisode 8, youhou ! Et très bientôt, Kanamemo, Isshoni H shiyo et Issh
 			$news->setTimestamp(strtotime("30 January 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Tarf"));
 			$news->setMessage("[img]images/news/moepote1.jpg[/img]
-Revenons à nos charmants allumés dans un PotemaYo que j'ai particulièrement aimé.
+Revenons Ã  nos charmants allumÃ©s dans un PotemaYo que j'ai particuliÃ¨rement aimÃ©.
 
-Deux épisodes : La fin de l'été, et La nuit du Festival
+Deux Ã©pisodes : La fin de l'Ã©tÃ©, et La nuit du Festival
 
-Encore, encore un épisode totalement déjanté, où on va devoir faire du nettoyage... et prier. Puis on va manger de la glace à base de lait avec un type fou, fou, fou ^^
-Hé, vous voulez savoir comment on fait cuir plus vite des ramens ?
+Encore, encore un Ã©pisode totalement dÃ©jantÃ©, oÃ¹ on va devoir faire du nettoyage... et prier. Puis on va manger de la glace Ã  base de lait avec un type fou, fou, fou ^^
+HÃ©, vous voulez savoir comment on fait cuir plus vite des ramens ?
 
-Moi ça m'éclate comment Potemayo sait dépenser son argent
+Moi Ã§a m'Ã©clate comment Potemayo sait dÃ©penser son argent
 ENJOY IT !
 [img]images/news/moepote2.jpg[/img]
-db0 dit : Les screens ci-dessus n'ont rien à voir avec l'épisode :) Ce sont des extraits de Moetan, l'épisode 11. J'en profite donc pour faire une petite pub à notre partenaire [partner]kanaii[/partner] grâce à qui on peut regarder Moetan avec des sous-titres d'excellente qualité.");
+db0 dit : Les screens ci-dessus n'ont rien Ã  voir avec l'Ã©pisode :) Ce sont des extraits de Moetan, l'Ã©pisode 11. J'en profite donc pour faire une petite pub Ã  notre partenaire [partner]kanaii[/partner] grÃ¢ce Ã  qui on peut regarder Moetan avec des sous-titres d'excellente qualitÃ©.");
 			$news->setCommentId(191);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('potemayo', 'ep7'));
@@ -1436,10 +1436,10 @@ db0 dit : Les screens ci-dessus n'ont rien à voir avec l'épisode :) Ce sont des 
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage('[img=images/news/newkodomo1.jpg]Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin[/img]
 
-Vous l\'avez attendu longtemps, celui-là ! Il faut dire qu\'il est quand même sorti en aout. Alors pourquoi le sortir si tard ? Surtout qu\'il faut savoir qu\'il était prêt en septembre. C\'est simple : Pour toujours rester dans l\'optique de la qualité de nos animes, nous attendions que les paroles officielles du nouvel ending sortent. Malheuresement, elle ne sont toujours pas sorties à l\'heure actuelle. Nous pensons donc que les chances qu\'elles sortent maintenant sont minimes et avons à contre-coeur décidé de sortir l\'OAV maintenant et sans le karaoké. Cependant, sachez que s\'il s\'avère que les paroles finissent par sortir, même tardivement, nous sortirons une nouvelle version de celui-ci avec le karaoké !
-Merci à DC pour avoir encodé cet épisode et Maboroshi, avec nous en coproduction sur cette série.
-C\'est avec ce dernier épisode que nous marquons la fin de Kodomo no Jikan ! C\'est ma série préférée et je pense que c\'est aussi la préférée de beaucoup de membres de chez Zéro et sa communauté.
-Nous avons passé du bon temps aux côtés de Rin et ses deux amies et nous éspérons que c\'est aussi votre cas.
+Vous l\'avez attendu longtemps, celui-lÃ  ! Il faut dire qu\'il est quand mÃªme sorti en aout. Alors pourquoi le sortir si tard ? Surtout qu\'il faut savoir qu\'il Ã©tait prÃªt en septembre. C\'est simple : Pour toujours rester dans l\'optique de la qualitÃ© de nos animes, nous attendions que les paroles officielles du nouvel ending sortent. Malheuresement, elle ne sont toujours pas sorties Ã  l\'heure actuelle. Nous pensons donc que les chances qu\'elles sortent maintenant sont minimes et avons Ã  contre-coeur dÃ©cidÃ© de sortir l\'OAV maintenant et sans le karaokÃ©. Cependant, sachez que s\'il s\'avÃ¨re que les paroles finissent par sortir, mÃªme tardivement, nous sortirons une nouvelle version de celui-ci avec le karaokÃ© !
+Merci Ã  DC pour avoir encodÃ© cet Ã©pisode et Maboroshi, avec nous en coproduction sur cette sÃ©rie.
+C\'est avec ce dernier Ã©pisode que nous marquons la fin de Kodomo no Jikan ! C\'est ma sÃ©rie prÃ©fÃ©rÃ©e et je pense que c\'est aussi la prÃ©fÃ©rÃ©e de beaucoup de membres de chez ZÃ©ro et sa communautÃ©.
+Nous avons passÃ© du bon temps aux cÃ´tÃ©s de Rin et ses deux amies et nous Ã©spÃ©rons que c\'est aussi votre cas.
 
 [img=images/news/newkodomo2.jpg]Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin[/img]
 
@@ -1457,7 +1457,7 @@ Nous avons passé du bon temps aux côtés de Rin et ses deux amies et nous éspéron
 			$news->setTitle("Tayutama ~Kiss on my deity~ 12 - Fin");
 			$news->setTimestamp(strtotime("12 January 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("C'est aujourd'hui la fin de Tayutama. Le douzième et dernier épisode toujours en coproduction avec nos amis de chez Maboroshi. Nous éspérons que vous avez passé un bon moment avec nous pour cette merveilleuse série ! Et maintenant, it's scrolling time !
+			$news->setMessage("C'est aujourd'hui la fin de Tayutama. Le douziÃ¨me et dernier Ã©pisode toujours en coproduction avec nos amis de chez Maboroshi. Nous Ã©spÃ©rons que vous avez passÃ© un bon moment avec nous pour cette merveilleuse sÃ©rie ! Et maintenant, it's scrolling time !
 
 [img]images/news/tayufin1.jpg[/img]
 [img]images/news/tayufin2.jpg[/img]");
@@ -1475,18 +1475,18 @@ Nous avons passé du bon temps aux côtés de Rin et ses deux amies et nous éspéron
 			$news->setTimestamp(strtotime("04 December 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("TchO"));
 			$news->setMessage("[img]images/news/mashinoel.jpg[/img]
-Tayu 11, la Bataille Décisive !!
+Tayu 11, la Bataille DÃ©cisive !!
 
-Pour calmer la colère du dragon, la grande prêtresse Mashiro tente...
-Hé !!!!! Mais que se passe-t-il ????? C't'une surprise !!!
+Pour calmer la colÃ¨re du dragon, la grande prÃªtresse Mashiro tente...
+HÃ© !!!!! Mais que se passe-t-il ????? C't'une surprise !!!
 
-Pour la Bataille Décisive, on a droit à un cosplay de Dieu !!
-Si c'est comme ça que Mashiro espère gagner la partie !
+Pour la Bataille DÃ©cisive, on a droit Ã  un cosplay de Dieu !!
+Si c'est comme Ã§a que Mashiro espÃ¨re gagner la partie !
 
-Tenez bon ! La fin se précise, et elle est belle à regarder !
+Tenez bon ! La fin se prÃ©cise, et elle est belle Ã  regarder !
 
 Coproduction Zero+Maboroshi !
-TchO_°");
+TchO_Â°");
 			$news->setCommentId(152);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep11'));
@@ -1502,12 +1502,12 @@ TchO_°");
 			$news->setAuthor(TeamMember::getMemberByPseudo("TchO"));
 			$news->setMessage("[img]images/news/tayu10.jpg[/img]
 L'Horoscope d'aujourd'hui :
-Humains : Ecrasé par l'émotion, sachez éviter les coups de marteau !
+Humains : EcrasÃ© par l'Ã©motion, sachez Ã©viter les coups de marteau !
 
-Portée par le rêve de la coexistence, Yumina-chan danse.
-Quant à Ameri, elle est la proie de ses mauvais rêves...
+PortÃ©e par le rÃªve de la coexistence, Yumina-chan danse.
+Quant Ã  Ameri, elle est la proie de ses mauvais rÃªves...
 
-Même romantique, la passion peut être tellement furieuse !");
+MÃªme romantique, la passion peut Ãªtre tellement furieuse !");
 			$news->setCommentId(149);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep10'));
@@ -1522,16 +1522,16 @@ Même romantique, la passion peut être tellement furieuse !");
 			$news->setTimestamp(strtotime("05 November 2009 01:00"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("TchO"));
 			$news->setMessage("[img]images/news/tayuu9.jpg[/img]
-Mashiro découvre que la moto est un souci pour aller aux sources d'eau chaudes.
+Mashiro dÃ©couvre que la moto est un souci pour aller aux sources d'eau chaudes.
 
-Hé, on va tous faire un karaoké ?
+HÃ©, on va tous faire un karaokÃ© ?
 C'est le moment de s'amuser !
-Entre deux entraînements, une balade à la tour de Tokyo.
-Les sentiments de Mashiro n'échappent à personne, ni à Ameri, ni à...
+Entre deux entraÃ®nements, une balade Ã  la tour de Tokyo.
+Les sentiments de Mashiro n'Ã©chappent Ã  personne, ni Ã  Ameri, ni Ã ...
 
 Une Zero + Maboroshi coprod
 
-TchO_°");
+TchO_Â°");
 			$news->setCommentId(141);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep9'));
@@ -1547,13 +1547,13 @@ TchO_°");
 			$news->setAuthor(TeamMember::getMemberByPseudo("TchO"));
 			$news->setMessage("[img]images/news/tayuuu.jpg[/img]
 Tayutama !!!!!!
-Tayutama, c'est pour ce soir l'épisode 08, toujours coproduit avec la Maboroshi.
-Un épisode qui nous livre, dans une exceptionnelle interprétation, un remake de \"j'assortis mon foulard avec ma jupe\".
+Tayutama, c'est pour ce soir l'Ã©pisode 08, toujours coproduit avec la Maboroshi.
+Un Ã©pisode qui nous livre, dans une exceptionnelle interprÃ©tation, un remake de \"j'assortis mon foulard avec ma jupe\".
 Et puis, on allait pas louper la tronche de Yuuri pour une fois ^^
 (Ca veut dire quoi, au fait, Tayutama ?)
-Profitez-en bien, c'est toujours aussi délire !!
+Profitez-en bien, c'est toujours aussi dÃ©lire !!
 db0 dit :
-J'en profite en coup de vent pour vous annoncer que la deuxième session de Konshinkai à Lyon arrive en fin du mois, et pour ça, un forum a fait son ouverture ainsi qu'un nouveau site et un chan irc. Venez nombreux ! [url=http://konshinkai.c.la]+ d'infos, clique.[/url]");
+J'en profite en coup de vent pour vous annoncer que la deuxiÃ¨me session de Konshinkai Ã  Lyon arrive en fin du mois, et pour Ã§a, un forum a fait son ouverture ainsi qu'un nouveau site et un chan irc. Venez nombreux ! [url=http://konshinkai.c.la]+ d'infos, clique.[/url]");
 			$news->setCommentId(140);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep8'));
@@ -1569,22 +1569,22 @@ J'en profite en coup de vent pour vous annoncer que la deuxième session de Konsh
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/tayuu.jpg[/img]
 Bonjour tout le monde !
-Je me suis dit que c'était toujours moi qui rédigait les news, et qu'il serait temps que ça change. Donc j'ai demandé à quelques membres de l'équipe de le faire. J'ai trouvé le résultat assez marrant, donc je vous donne leurs petites idées de news :
+Je me suis dit que c'Ã©tait toujours moi qui rÃ©digait les news, et qu'il serait temps que Ã§a change. Donc j'ai demandÃ© Ã  quelques membres de l'Ã©quipe de le faire. J'ai trouvÃ© le rÃ©sultat assez marrant, donc je vous donne leurs petites idÃ©es de news :
 
 Praia dit :
 \"On abandonne tout et on recommence : Tayutama 6 et 7 en copro avec la Maboroshi.
 Bon leech ! Version MP4 disponible uniquement.
-Kanamemo, c'est quoi ? C'est la série des petits pervers... non, vous voyez, suis pas fait pour faire des news, moi... ^_^
-Dommage que Sunao ne soit pas là... Il nous aurait pondu une brique > <\"
+Kanamemo, c'est quoi ? C'est la sÃ©rie des petits pervers... non, vous voyez, suis pas fait pour faire des news, moi... ^_^
+Dommage que Sunao ne soit pas lÃ ... Il nous aurait pondu une brique > <\"
 
 
 Tarf dit :
-\"Hein ? J'ai pas signé pour ça moi ! Et puis je suis juste un petit trad qui fait un peu de time à ses heures perdus, donc je fais le début de chaîne. C'est aux gens en bout de chaîne de faire ça non ? Va donc voir le joli post \"staff\" que tu as pondu sur toutes les séries, et choppe le dernier nom ^^.
-Bon, une petite news : \"J'ai pu rencontrer samedi 31 octobre, à l'occasion du Konshinkai trois personnes parfois intéressantes. J'ai ainsi parlé IRL mon idole Ryokku, qui travail en tant qu'admin pour anime ultime, qui est à mon avis un des meilleurs sites français d'anime. Après une interview exclusive de ce monument vivant de l'animation, il m'a confié qu'il désespérait de la saison en cours d'anime, et qu'aucun ne trouvait grâce à ses yeux. N'ayant pas les mêmes goûts que lui, je ne suis pas d'accord, mais moi tout le monde s'en fout. Pour ceux que ça interesse, il est gentil, jeune et dynamique ! Avis aux jeunes filles, jetez vous dessus !\"
-Tayutama Kiss on my deity, épisode 6 et 7 enfin sortis en corproduction avec la Maboroshi no Fansub ! La suite des aventures plus ou moins osée de l'avatar fort mignon d'une déesse dans le monde réel. Vous y retrouverez l'amie d'enfance jalouse, la Tsundere et la naïve à forte poitrine. La version MP4 est disponible immédiatement sur le site, la version AVI étant abandonnée.\"
+\"Hein ? J'ai pas signÃ© pour Ã§a moi ! Et puis je suis juste un petit trad qui fait un peu de time Ã  ses heures perdus, donc je fais le dÃ©but de chaÃ®ne. C'est aux gens en bout de chaÃ®ne de faire Ã§a non ? Va donc voir le joli post \"staff\" que tu as pondu sur toutes les sÃ©ries, et choppe le dernier nom ^^.
+Bon, une petite news : \"J'ai pu rencontrer samedi 31 octobre, Ã  l'occasion du Konshinkai trois personnes parfois intÃ©ressantes. J'ai ainsi parlÃ© IRL mon idole Ryokku, qui travail en tant qu'admin pour anime ultime, qui est Ã  mon avis un des meilleurs sites franÃ§ais d'anime. AprÃ¨s une interview exclusive de ce monument vivant de l'animation, il m'a confiÃ© qu'il dÃ©sespÃ©rait de la saison en cours d'anime, et qu'aucun ne trouvait grÃ¢ce Ã  ses yeux. N'ayant pas les mÃªmes goÃ»ts que lui, je ne suis pas d'accord, mais moi tout le monde s'en fout. Pour ceux que Ã§a interesse, il est gentil, jeune et dynamique ! Avis aux jeunes filles, jetez vous dessus !\"
+Tayutama Kiss on my deity, Ã©pisode 6 et 7 enfin sortis en corproduction avec la Maboroshi no Fansub ! La suite des aventures plus ou moins osÃ©e de l'avatar fort mignon d'une dÃ©esse dans le monde rÃ©el. Vous y retrouverez l'amie d'enfance jalouse, la Tsundere et la naÃ¯ve Ã  forte poitrine. La version MP4 est disponible immÃ©diatement sur le site, la version AVI Ã©tant abandonnÃ©e.\"
 
 db0 dit :
-J'en profite en coup de vent pour vous annoncer que la deuxième session de Konshinkai à Lyon arrive en fin du mois, et pour ça, un forum a fait son ouverture ainsi qu'un nouveau site et un chan irc. Venez nombreux ! [url=http://konshinkai.c.la]+ d'infos, clique.[/url]");
+J'en profite en coup de vent pour vous annoncer que la deuxiÃ¨me session de Konshinkai Ã  Lyon arrive en fin du mois, et pour Ã§a, un forum a fait son ouverture ainsi qu'un nouveau site et un chan irc. Venez nombreux ! [url=http://konshinkai.c.la]+ d'infos, clique.[/url]");
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep6'));
 			$news->addReleasing(Release::getRelease('tayutama', 'ep7'));
@@ -1600,7 +1600,7 @@ J'en profite en coup de vent pour vous annoncer que la deuxième session de Konsh
 			$news->setTimestamp(strtotime("21 July 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/newtayu.jpg[/img]
-On vous l'avait promis : on n'allait pas laisser tomber Maboroshi ! Et voilà, c'est chose faite : l'épisode 06 de Tayutama sort aujourd'hui. J'espère qu'il vous plaira.");
+On vous l'avait promis : on n'allait pas laisser tomber Maboroshi ! Et voilÃ , c'est chose faite : l'Ã©pisode 06 de Tayutama sort aujourd'hui. J'espÃ¨re qu'il vous plaira.");
 			$news->setCommentId(105);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('tayutama', 'ep6'));
@@ -1615,7 +1615,7 @@ On vous l'avait promis : on n'allait pas laisser tomber Maboroshi ! Et voilà, c'
 			$news->setTimestamp(strtotime("10 November 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/hito5.jpg[/img]
-Mugi-choco ! Tu nous as tellement manqué... Et tu reviens en maillot de bain, à la plage ! Yahou ! Mugi-Mugi-choco !!");
+Mugi-choco ! Tu nous as tellement manquÃ©... Et tu reviens en maillot de bain, Ã  la plage ! Yahou ! Mugi-Mugi-choco !!");
 			$news->setCommentId(142);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('hitohira', 'ep5'));
@@ -1627,12 +1627,12 @@ Mugi-choco ! Tu nous as tellement manqué... Et tu reviens en maillot de bain, à 
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Hitohira 04 + KnJ Ni Gakki OAV Spécial Version LD HD");
+			$news->setTitle("Hitohira 04 + KnJ Ni Gakki OAV SpÃ©cial Version LD HD");
 			$news->setTimestamp(strtotime("02 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/hito4.jpg[/imgr]
-On est decidé, on va avancer nos projets ! L'un de nos plus vieux, Hitohira, revient ce soir avec son 4ème épisode.
-Et les versions LD et HD tant attendues de l'OAV sorti hier sont aussi arrivées. Profitez-en, c'est gratuit, aujourd'hui ! Et tous les autres jours aussi.");
+On est decidÃ©, on va avancer nos projets ! L'un de nos plus vieux, Hitohira, revient ce soir avec son 4Ã¨me Ã©pisode.
+Et les versions LD et HD tant attendues de l'OAV sorti hier sont aussi arrivÃ©es. Profitez-en, c'est gratuit, aujourd'hui ! Et tous les autres jours aussi.");
 			$news->setCommentId(55);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('hitohira', 'ep4'));
@@ -1644,24 +1644,24 @@ Et les versions LD et HD tant attendues de l'OAV sorti hier sont aussi arrivées.
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("KnJ 03 LD V2, Petit point sur nos petites séries");
+			$news->setTitle("KnJ 03 LD V2, Petit point sur nos petites sÃ©ries");
 			$news->setTimestamp(strtotime("26 January 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/akirin.jpg[/img]
-Petite v2 qu'on attendait depuis pas mal de temps : L'épisode 03 de Kodomo no Jikan LD qui avait quelques petits soucis d'encodage. [url=ddl/%5BZero%5DKodomo_no_Jikan%5B03v2%5D%5BXVID-MP3%5D%5BLD%5D%5B499E9C85%5D.avi]DDL[/url]
+Petite v2 qu'on attendait depuis pas mal de temps : L'Ã©pisode 03 de Kodomo no Jikan LD qui avait quelques petits soucis d'encodage. [url=ddl/%5BZero%5DKodomo_no_Jikan%5B03v2%5D%5BXVID-MP3%5D%5BLD%5D%5B499E9C85%5D.avi]DDL[/url]
  
-On en profite pour faire un petit point sur nos séries actuellement.
+On en profite pour faire un petit point sur nos sÃ©ries actuellement.
  - [b]Alignment you you[/b] En cours de traduction, mais on prend notre temps.
- - [b]Genshiken 2[/b] L'épisode 07 est en cours d'adapt-edit.
+ - [b]Genshiken 2[/b] L'Ã©pisode 07 est en cours d'adapt-edit.
  - [b]Guardian Hearts[/b] En pause pour le moment.
  - [b]Hitohira[/b] En cours de traduction.
  - [b]Kimikiss pure rouge[/b] En pause pour le moment.
- - [b]Kodomo no Jikan[/b] L'épisode 10, 11, 12 sont prêt. La saison 2 arrive bientôt. Heuresement, avec la fin de la saison 1 qui s'approche...
+ - [b]Kodomo no Jikan[/b] L'Ã©pisode 10, 11, 12 sont prÃªt. La saison 2 arrive bientÃ´t. Heuresement, avec la fin de la saison 1 qui s'approche...
  - [b]Kujibiki Unbalance[/b] Je vais m'y mettre...
  - [b]Kurokami[/b] En attente de Karamakeur.
- - [b]Maria Holic[/b] Très bientôt [img=http://img1.xooimage.com/files/w/i/wink-1627.gif]Wink[/img]
- - [b]Mermaid Melody[/b] Notre annonce a fonctionnée, LeChat, notre traducteur IT-FR prend la suite en charge.
- - [b]Sketchbook full color's[/b] Des V2 des épisodes 1 et 5 ainsi que l'épisode 6 sont en cours d'encodage par Ajira.
+ - [b]Maria Holic[/b] TrÃ¨s bientÃ´t [img=http://img1.xooimage.com/files/w/i/wink-1627.gif]Wink[/img]
+ - [b]Mermaid Melody[/b] Notre annonce a fonctionnÃ©e, LeChat, notre traducteur IT-FR prend la suite en charge.
+ - [b]Sketchbook full color's[/b] Des V2 des Ã©pisodes 1 et 5 ainsi que l'Ã©pisode 6 sont en cours d'encodage par Ajira.
  - [b]Toradora![/b] Le 10 arrive !");
 			$news->setCommentId(32);
 			$news->setTeamNews(true);
@@ -1678,12 +1678,12 @@ On en profite pour faire un petit point sur nos séries actuellement.
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/mugi.png[/img]
 Oh !
-À cause d'un problème de raws, la série Hitohira est restée en pause pendant trèèès longtemps. Mais grâce à Lyf, le raw-hunter, et bien sûr à Jeanba, notre nouveau traducteur, mais aussi à B3rning14, nouvel encodeur, la série peut continuer. Et c'est donc l'épisode 03 que nous sortons aujourd'hui !
+Ã€ cause d'un problÃ¨me de raws, la sÃ©rie Hitohira est restÃ©e en pause pendant trÃ¨Ã¨Ã¨s longtemps. Mais grÃ¢ce Ã  Lyf, le raw-hunter, et bien sÃ»r Ã  Jeanba, notre nouveau traducteur, mais aussi Ã  B3rning14, nouvel encodeur, la sÃ©rie peut continuer. Et c'est donc l'Ã©pisode 03 que nous sortons aujourd'hui !
 
-La Genesis ayant accepté que leurs releases en co-pro avec la Kanaii soient diffusées en DDL chez nous, vous pouvez maintenant retrouver la saison 2 de Rosario+Vampire ainsi que 'Kimi ga Aruji de Shitsuji ga Ore de - They are my Noble Masters'. [ext=?page=kanaiiddl]Lien[/ext]
+La Genesis ayant acceptÃ© que leurs releases en co-pro avec la Kanaii soient diffusÃ©es en DDL chez nous, vous pouvez maintenant retrouver la saison 2 de Rosario+Vampire ainsi que 'Kimi ga Aruji de Shitsuji ga Ore de - They are my Noble Masters'. [ext=?page=kanaiiddl]Lien[/ext]
 Bon DL !
 
-Les dernières sorties de la [partner]kanaii[/partner] :
+Les derniÃ¨res sorties de la [partner]kanaii[/partner] :
 - Kanokon 11
 - Kanokon 12");
 			$news->setCommentId(18);
@@ -1696,24 +1696,24 @@ Les dernières sorties de la [partner]kanaii[/partner] :
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Quelques mises à jour");
+			$news->setTitle("Quelques mises Ã  jour");
 			$news->setTimestamp(strtotime("12 October 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/sorties/lasthitohira2.png[/img]
 
-Cela faisait pas mal de temps que Zéro n'avait rien sorti !
-Je pense vous faire plaisir en vous annonçant quelques nouvelles :
-- 4 épisodes sont prêts et attendent juste d'être encodés.
-- 2 Nouvelles séries sont à paraître :
+Cela faisait pas mal de temps que ZÃ©ro n'avait rien sorti !
+Je pense vous faire plaisir en vous annonÃ§ant quelques nouvelles :
+- 4 Ã©pisodes sont prÃªts et attendent juste d'Ãªtre encodÃ©s.
+- 2 Nouvelles sÃ©ries sont Ã  paraÃ®tre :
 -- Sketchbook ~full color's~ 
 -- Toradora!
-- Bientôt une v3 du site !
+- BientÃ´t une v3 du site !
 
-On profite de cette news pour mettre fin à certaines rumeurs :
-- Non ! Nous ne faisons pas de Hentaï
+On profite de cette news pour mettre fin Ã  certaines rumeurs :
+- Non ! Nous ne faisons pas de HentaÃ¯
 - Non ! Nous n'avons pas tous 13 ans ! 
-- Nous n'avons rien contre la Genesis. Au contraire, si ça pouvait s'arranger, je préfererais. Nous ne comprenons toujours pas le pourquoi du comment de cette histoire, mais soyez sûr que nous ne répondrons jamais à leurs éventuelles provocations, insultes ou agressions.
-Merci à tous et Bon download !");
+- Nous n'avons rien contre la Genesis. Au contraire, si Ã§a pouvait s'arranger, je prÃ©fererais. Nous ne comprenons toujours pas le pourquoi du comment de cette histoire, mais soyez sÃ»r que nous ne rÃ©pondrons jamais Ã  leurs Ã©ventuelles provocations, insultes ou agressions.
+Merci Ã  tous et Bon download !");
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('hitohira', 'ep2'));
 			$news->setDisplayInNormalMode(true);
@@ -1727,7 +1727,7 @@ Merci à tous et Bon download !");
 			$news->setTimestamp(strtotime("29 September 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/ogiue.jpg[/img]
-Et ainsi se termine Genshiken, le club d'étude de la culture visuelle moderne, avec un 12e épisode et quelques v2 pour perfectionner. Elle est pas trop mignonne, comme ça, Ogiue ?");
+Et ainsi se termine Genshiken, le club d'Ã©tude de la culture visuelle moderne, avec un 12e Ã©pisode et quelques v2 pour perfectionner. Elle est pas trop mignonne, comme Ã§a, Ogiue ?");
 			$news->setCommentId(133);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep12'));
@@ -1740,11 +1740,11 @@ Et ainsi se termine Genshiken, le club d'étude de la culture visuelle moderne, a
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Genshiken 2 épisode 11");
+			$news->setTitle("Genshiken 2 Ã©pisode 11");
 			$news->setTimestamp(strtotime("19 July 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/genshiken-11.jpg[/imgr]
-C'est les vacances pour certains membres de chez Zéro donc on a le temps de s'occuper de vous... Du moins, des épisodes que vous attendez avec impatience. (Pour qu'on s'occupe de vous personnellement, appelez le 08XXXXXXXX 0.34€ la minute demandez Sonia) Bref, ce soir sort l'épisode 11 de la saison 2 de Genshiken, c'est-à-dire l'avant dernier de la série. Les deux copines américaines sont toujours là pour vous faire rire, mais partieront à la fin de l'épisode. Profitez bien, c'est bientôt la fin ^^");
+C'est les vacances pour certains membres de chez ZÃ©ro donc on a le temps de s'occuper de vous... Du moins, des Ã©pisodes que vous attendez avec impatience. (Pour qu'on s'occupe de vous personnellement, appelez le 08XXXXXXXX 0.34Â€ la minute demandez Sonia) Bref, ce soir sort l'Ã©pisode 11 de la saison 2 de Genshiken, c'est-Ã -dire l'avant dernier de la sÃ©rie. Les deux copines amÃ©ricaines sont toujours lÃ  pour vous faire rire, mais partieront Ã  la fin de l'Ã©pisode. Profitez bien, c'est bientÃ´t la fin ^^");
 			$news->setCommentId(104);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep11'));
@@ -1759,9 +1759,9 @@ C'est les vacances pour certains membres de chez Zéro donc on a le temps de s'oc
 			$news->setTimestamp(strtotime("24 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/gen10.jpg[/imgr]
-Notre petit Week-end d'otaku kanaii-zéro s'est très bien passé, dommage pour ceux qui n'y étaient pas ^^
-Vous vous en foutez ? Anyaa ~~ Bon, bon, le v'là votre épisode 10 de Genshiken.
-Petite info importante : L'OAV de KissXsis est en cours. Après sa sortie, Zéro se met en \"pause\" temporaire puisque je passe mon bac.");
+Notre petit Week-end d'otaku kanaii-zÃ©ro s'est trÃ¨s bien passÃ©, dommage pour ceux qui n'y Ã©taient pas ^^
+Vous vous en foutez ? Anyaa ~~ Bon, bon, le v'lÃ  votre Ã©pisode 10 de Genshiken.
+Petite info importante : L'OAV de KissXsis est en cours. AprÃ¨s sa sortie, ZÃ©ro se met en \"pause\" temporaire puisque je passe mon bac.");
 			$news->setCommentId(76);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep10'));
@@ -1776,7 +1776,7 @@ Petite info importante : L'OAV de KissXsis est en cours. Après sa sortie, Zéro s
 			$news->setTimestamp(strtotime("22 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/genshi9.jpg[/imgr]
-Nyaron~ La suite de Genshiken 2 avec l'épisode 09. Bon download, bande d'otaku.");
+Nyaron~ La suite de Genshiken 2 avec l'Ã©pisode 09. Bon download, bande d'otaku.");
 			$news->setCommentId(75);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep9'));
@@ -1791,9 +1791,9 @@ Nyaron~ La suite de Genshiken 2 avec l'épisode 09. Bon download, bande d'otaku."
 			$news->setTimestamp(strtotime("10 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]http://moe.mabul.org/up/moe/2009/05/10/img-122101gdcpq.png[/img]
-3 sorties en une journée, c'est un cas plutôt rare ! La suite de Genshiken2, c'est [project=genshiken]par là[/project] avec l'épisode 08 qui sort aujourd'hui. Plus tard dans la soirée sortieront les versions LD de Kodomo oav2 et md, ld de Maria Holic 08.
+3 sorties en une journÃ©e, c'est un cas plutÃ´t rare ! La suite de Genshiken2, c'est [project=genshiken]par lÃ [/project] avec l'Ã©pisode 08 qui sort aujourd'hui. Plus tard dans la soirÃ©e sortieront les versions LD de Kodomo oav2 et md, ld de Maria Holic 08.
 
-Une petite sortie Kanaii-Zéro est organisée entre Otaku le 23 et 24 mai à Nice ! Les sudistes pourront ainsi se retrouver sur nos plages ensoleillées pour se sentir un peu en vacances. Et les nordistes, n'hésitez pas à descendre nous voir ! Si vous souhaitez être de la partie, n'hésitez pas ! Envoyez-moi un mail (zero.fansub@gmail.com) ou venez vous signaler sur le forum Kanaii : [url=http://www.kanaii.com/e107_plugins/forum/forum_viewtopic.php?46591]Lien[/url]. Venez nombreux !");
+Une petite sortie Kanaii-ZÃ©ro est organisÃ©e entre Otaku le 23 et 24 mai Ã  Nice ! Les sudistes pourront ainsi se retrouver sur nos plages ensoleillÃ©es pour se sentir un peu en vacances. Et les nordistes, n'hÃ©sitez pas Ã  descendre nous voir ! Si vous souhaitez Ãªtre de la partie, n'hÃ©sitez pas ! Envoyez-moi un mail (zero.fansub@gmail.com) ou venez vous signaler sur le forum Kanaii : [url=http://www.kanaii.com/e107_plugins/forum/forum_viewtopic.php?46591]Lien[/url]. Venez nombreux !");
 			$news->setCommentId(70);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep8'));
@@ -1809,7 +1809,7 @@ Une petite sortie Kanaii-Zéro est organisée entre Otaku le 23 et 24 mai à Nice !
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/mariagen.jpg[/imgr]
 [imgl]images/news/mariagen2.jpg[/imgl]
-Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sortie de Maria+Holic 05 à aujourd'hui. (Nous nous excusons auprès de [partner]kanaii[/partner] en coproduction sur cet anime). Genshiken2 07 devait sortir ce soir. Maria 05 est toujours aussi drôle et dans l'épisode 07 de Genshiken, vous trouverez 2 nouveaux karaokés (à vos micros !). Profitez bien de cette double sortie !
+Un problÃ¨me de ftp est survenu hier soir, ce qui nous a poussÃ© Ã  reporter la sortie de Maria+Holic 05 Ã  aujourd'hui. (Nous nous excusons auprÃ¨s de [partner]kanaii[/partner] en coproduction sur cet anime). Genshiken2 07 devait sortir ce soir. Maria 05 est toujours aussi drÃ´le et dans l'Ã©pisode 07 de Genshiken, vous trouverez 2 nouveaux karaokÃ©s (Ã  vos micros !). Profitez bien de cette double sortie !
 [pin]
 [project]mariaholic[/project] [project]genshiken[/project]");
 			$news->setCommentId(49);
@@ -1827,17 +1827,17 @@ Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sor
 			$news->setTimestamp(strtotime("13 January 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/gen6.jpg[/img] 
-Otaku, otaku, nous revoilà ! Genshiken épisode 06 enfin dans les bacs, en ddl.
-[project=genshiken]Pour télécharger les épisodes en DDL, cliquez ici ![/project]
+Otaku, otaku, nous revoilÃ  ! Genshiken Ã©pisode 06 enfin dans les bacs, en ddl.
+[project=genshiken]Pour tÃ©lÃ©charger les Ã©pisodes en DDL, cliquez ici ![/project]
 
-[b]Les dernières sorties de la [partner]sky-fansub[/partner] :[/b]
+[b]Les derniÃ¨res sorties de la [partner]sky-fansub[/partner] :[/b]
 Kurozuka 08
 Mahou Shoujo Lyrical Nanoha Strikers 21
 
-[b]Les dernières sorties de la [url=http://kyoutsu-subs.over-blog.com/]Kyoutsu[/url] :[/b]
+[b]Les derniÃ¨res sorties de la [url=http://kyoutsu-subs.over-blog.com/]Kyoutsu[/url] :[/b]
 Hyakko 06
 
-[b]Les dernières sorties de la [partner]kanaii[/partner] :[/b]
+[b]Les derniÃ¨res sorties de la [partner]kanaii[/partner] :[/b]
 Kamen no maid Guy 01v2
 Rosario+Vampire Capu2 07v2");
 			$news->setCommentId(31);
@@ -1854,9 +1854,9 @@ Rosario+Vampire Capu2 07v2");
 			$news->setTimestamp(strtotime("10 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/recrut/qc.jpg[/img]
-3 sorties en une, aujourd'hui ! Les épisodes 5 de Genshiken2, 8 de toradora! et 5 de Sketchbook sont disponibles dans la partie projets en DDL uniquement pour le moment. Les liens torrents, XDCC, Streaming viendront plus tard, ainsi que la version avi de genshiken et H264 de Toradora. Bon épisode !
+3 sorties en une, aujourd'hui ! Les Ã©pisodes 5 de Genshiken2, 8 de toradora! et 5 de Sketchbook sont disponibles dans la partie projets en DDL uniquement pour le moment. Les liens torrents, XDCC, Streaming viendront plus tard, ainsi que la version avi de genshiken et H264 de Toradora. Bon Ã©pisode !
 
-Notre unique QC, praia, aimerait bien partager les QC de toutes nos séries avec un autre QC. Si vous êtes exellent en orthographe et que vous avez un oeil de lynx, nous vous solicitons ! Merci de vous présenter au poste de QC ^^ [url=?page=recrutement]Lien[/url]");
+Notre unique QC, praia, aimerait bien partager les QC de toutes nos sÃ©ries avec un autre QC. Si vous Ãªtes exellent en orthographe et que vous avez un oeil de lynx, nous vous solicitons ! Merci de vous prÃ©senter au poste de QC ^^ [url=?page=recrutement]Lien[/url]");
 			$news->setCommentId(21);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep5'));
@@ -1872,7 +1872,7 @@ Notre unique QC, praia, aimerait bien partager les QC de toutes nos séries avec 
 			$news->setTitle("Genshiken 04");
 			$news->setTimestamp(strtotime("08 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("Voilà enfin la suite de notre saga otaku préférée, j'ai nommé... GENSHIKEN ! L'épisode 04 est dispo en ddl seulement pour le moment.");
+			$news->setMessage("VoilÃ  enfin la suite de notre saga otaku prÃ©fÃ©rÃ©e, j'ai nommÃ©... GENSHIKEN ! L'Ã©pisode 04 est dispo en ddl seulement pour le moment.");
 			$news->setCommentId(19);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep4'));
@@ -1883,11 +1883,11 @@ Notre unique QC, praia, aimerait bien partager les QC de toutes nos séries avec 
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Maria+Holic 12 - Fin de la série");
+			$news->setTitle("Maria+Holic 12 - Fin de la sÃ©rie");
 			$news->setTimestamp(strtotime("20 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right]images/news/mariafin.png[/img-right]
-Cette série était si drôle qu'elle est passée bien vite... Eh oui ! Déjà le dernier épisode de Maria+Holic ! Ce 12e épisode est complétement délirant, Kanako fait encore des siennes, et Mariya la suit de près. Avec la fin de cette série se termine aussi une coproduction avec Kanaii, nos partenaires et amis, qui s'est exellement bien passée et que nous accepterons avec plaisir de renouveler. Merci à eux et particulièrement à DC, le maître du projet aux superbes edits AE. Bon dernier épisode, et aussi bonne série à ceux qui attendaient la fin pour commencer la série compléte !");
+Cette sÃ©rie Ã©tait si drÃ´le qu'elle est passÃ©e bien vite... Eh oui ! DÃ©jÃ  le dernier Ã©pisode de Maria+Holic ! Ce 12e Ã©pisode est complÃ©tement dÃ©lirant, Kanako fait encore des siennes, et Mariya la suit de prÃ¨s. Avec la fin de cette sÃ©rie se termine aussi une coproduction avec Kanaii, nos partenaires et amis, qui s'est exellement bien passÃ©e et que nous accepterons avec plaisir de renouveler. Merci Ã  eux et particuliÃ¨rement Ã  DC, le maÃ®tre du projet aux superbes edits AE. Bon dernier Ã©pisode, et aussi bonne sÃ©rie Ã  ceux qui attendaient la fin pour commencer la sÃ©rie complÃ©te !");
 			$news->setCommentId(115);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep12'));
@@ -1905,11 +1905,11 @@ Cette série était si drôle qu'elle est passée bien vite... Eh oui ! Déjà le dern
 [img-left=images/news/maria11.png][/img-left]
 Une triple sortie ce soir !
 
-Tout d'abord, l'habituel Canaan de la semaine avec l'épisode 07. Cet épisode était particulièrement difficile, avec tout ces politiciens, tout ça tout ça, donc nous a pris plus de temps que prévu mais nous y sommes arrivé !
+Tout d'abord, l'habituel Canaan de la semaine avec l'Ã©pisode 07. Cet Ã©pisode Ã©tait particuliÃ¨rement difficile, avec tout ces politiciens, tout Ã§a tout Ã§a, donc nous a pris plus de temps que prÃ©vu mais nous y sommes arrivÃ© !
 
-Une deuxième sortie qui est en fait un épisode déjà encodé depuis longtemps mais que nous n'avions pas encore mis sur le site, l'épisode 2 version italienne de Mermaid Melody Pichi Pichi Pitch. Je pense ne décevoir personne, mais je rappelle que nous abandonnons les versions italiennes pour continuer les versions japonaises de chez Maboroshi (nous recrutons pour cela un traducteur ! SVP ! Help us !). Les liens de téléchargement des 13 épisodes par Maboroshi ne sont pas encore tous mis en place mais le seront dans le courant de la journée de demain.
+Une deuxiÃ¨me sortie qui est en fait un Ã©pisode dÃ©jÃ  encodÃ© depuis longtemps mais que nous n'avions pas encore mis sur le site, l'Ã©pisode 2 version italienne de Mermaid Melody Pichi Pichi Pitch. Je pense ne dÃ©cevoir personne, mais je rappelle que nous abandonnons les versions italiennes pour continuer les versions japonaises de chez Maboroshi (nous recrutons pour cela un traducteur ! SVP ! Help us !). Les liens de tÃ©lÃ©chargement des 13 Ã©pisodes par Maboroshi ne sont pas encore tous mis en place mais le seront dans le courant de la journÃ©e de demain.
 
-Et enfin, la suite de Maria Holic que vous attendiez tous ! L'épisode 11 et... avant-dernier épisode. Profitez bien de ce concentré d'humour avant la fin de cette superbe série, toujours en coproduction avec nos chers amis de chez Kanaii. La version avi ne sera disponible que demain.");
+Et enfin, la suite de Maria Holic que vous attendiez tous ! L'Ã©pisode 11 et... avant-dernier Ã©pisode. Profitez bien de ce concentrÃ© d'humour avant la fin de cette superbe sÃ©rie, toujours en coproduction avec nos chers amis de chez Kanaii. La version avi ne sera disponible que demain.");
 			$news->setCommentId(113);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep11'));
@@ -1926,7 +1926,7 @@ Et enfin, la suite de Maria Holic que vous attendiez tous ! L'épisode 11 et... a
 			$news->setTimestamp(strtotime("16 July 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/canaan.jpg][/img]
-Une double sortie ce soir (peut-être pour rattraper vos attentes ?) dont l'épisode 10 tant attendu de Maria Holic avec comme toujours nos potes de chez Kanaii, et une nouvelle série : Canaan. C'est un nouveau projet assez original puisque c'est un genre d'anime qu'on ne fait habituellement chez Zéro. En fait, c'est Ryocu (le chef ultime !) qui s'est motivé à la traduire. J'espère qu'elle vous plaiera ! Bon download !");
+Une double sortie ce soir (peut-Ãªtre pour rattraper vos attentes ?) dont l'Ã©pisode 10 tant attendu de Maria Holic avec comme toujours nos potes de chez Kanaii, et une nouvelle sÃ©rie : Canaan. C'est un nouveau projet assez original puisque c'est un genre d'anime qu'on ne fait habituellement chez ZÃ©ro. En fait, c'est Ryocu (le chef ultime !) qui s'est motivÃ© Ã  la traduire. J'espÃ¨re qu'elle vous plaiera ! Bon download !");
 			$news->setCommentId(101);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep10'));
@@ -1942,7 +1942,7 @@ Une double sortie ce soir (peut-être pour rattraper vos attentes ?) dont l'épiso
 			$news->setTimestamp(strtotime("05 June 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right]images/news/maria9.jpg[/img-right]
-La team était en \"semi-pause\", maintenant que notre épisode en coproduction est sorti (Maria Holic 09 avec Kanaii), la team est en pause totale et revient en juillet. Bon épisode en attendant.");
+La team Ã©tait en \"semi-pause\", maintenant que notre Ã©pisode en coproduction est sorti (Maria Holic 09 avec Kanaii), la team est en pause totale et revient en juillet. Bon Ã©pisode en attendant.");
 			$news->setCommentId(78);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep9'));
@@ -1957,11 +1957,11 @@ La team était en \"semi-pause\", maintenant que notre épisode en coproduction es
 			$news->setTimestamp(strtotime("09 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right]images/news/maria8.jpg[/img-right]
-Maria Holic épisode 08 pour aujourd'hui, en coproduction avec Kanaii. Un épisode plutôt riche, et toujours aussi drôle. En bonus avec cet épisode, les images des anges \"cosplayés\" pendant l'épisode. [project=mariaholic]C'est par là ![/project]
+Maria Holic Ã©pisode 08 pour aujourd'hui, en coproduction avec Kanaii. Un Ã©pisode plutÃ´t riche, et toujours aussi drÃ´le. En bonus avec cet Ã©pisode, les images des anges \"cosplayÃ©s\" pendant l'Ã©pisode. [project=mariaholic]C'est par lÃ  ![/project]
 
 
-PARTIE HENTAÏ :
-Une mise à jour de la partie hentaï du site et la sortie d'un doujin de He is my master [project=heismymaster]Par là ![/project]");
+PARTIE HENTAÃ :
+Une mise Ã  jour de la partie hentaÃ¯ du site et la sortie d'un doujin de He is my master [project=heismymaster]Par lÃ  ![/project]");
 			$news->setCommentId(67);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep8'));
@@ -1977,7 +1977,7 @@ Une mise à jour de la partie hentaï du site et la sortie d'un doujin de He is my
 			$news->setTimestamp(strtotime("24 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/maria7.jpg[/imgr]
-La suite de Maria+Holic, toujours en coproduction avec nos petits kanailloux. Disponible en DDL pour l'instant, et un peu plus tard en torrent et MU. J'en profite pour vous informer que nous risquons de ralentir le rythme puisque je suis en vacances, mais que dès la rentrée, tout reviendra dans l'ordre.");
+La suite de Maria+Holic, toujours en coproduction avec nos petits kanailloux. Disponible en DDL pour l'instant, et un peu plus tard en torrent et MU. J'en profite pour vous informer que nous risquons de ralentir le rythme puisque je suis en vacances, mais que dÃ¨s la rentrÃ©e, tout reviendra dans l'ordre.");
 			$news->setCommentId(63);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep7'));
@@ -1992,9 +1992,9 @@ La suite de Maria+Holic, toujours en coproduction avec nos petits kanailloux. Di
 			$news->setTimestamp(strtotime("05 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/maria6.jpg[/imgr]
-Maria+Holic, la suite plutôt attendue ! L'épisode 06, en coproduction avec la Kanaii. Et notre DC et ses edits. Un épisode particulierement important pour la série : On y apprend une information ca-pi-tale ! À ne pas manquer !
+Maria+Holic, la suite plutÃ´t attendue ! L'Ã©pisode 06, en coproduction avec la Kanaii. Et notre DC et ses edits. Un Ã©pisode particulierement important pour la sÃ©rie : On y apprend une information ca-pi-tale ! Ã€ ne pas manquer !
 
-Sinon, HS, je suis un peu déçue de voir que le nombre de visite diminue de façon exponentielle depuis la fin de Toradora!... Anya >.< 
+Sinon, HS, je suis un peu dÃ©Ã§ue de voir que le nombre de visite diminue de faÃ§on exponentielle depuis la fin de Toradora!... Anya >.< 
 
 
 EDIT : Sorties des deux autres versions.");
@@ -2012,7 +2012,7 @@ EDIT : Sorties des deux autres versions.");
 			$news->setTimestamp(strtotime("16 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			// TODO refine partner links when implemented
-			$news->setMessage("Maria Holic 03, en copro avec [partner]kanaii[/partner]. [project=mariaholic]L'épisode en DDL, c'est par ici ![/project]");
+			$news->setMessage("Maria Holic 03, en copro avec [partner]kanaii[/partner]. [project=mariaholic]L'Ã©pisode en DDL, c'est par ici ![/project]");
 			$news->setCommentId(39);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('mariaholic', 'ep3'));
@@ -2027,9 +2027,9 @@ EDIT : Sorties des deux autres versions.");
 			$news->setTimestamp(strtotime("07 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/mariaholic2.jpg[/img]
-En direct de Lyon, je vous sors le deuxième épisode de Maria+Holic en co-production avec [partner]kanaii[/partner].
-Les mésaventures de Kanako continuent, ne les manquez pas !
-[project=mariaholic]L'épisode en DDL, c'est par ici ![/project]
+En direct de Lyon, je vous sors le deuxiÃ¨me Ã©pisode de Maria+Holic en co-production avec [partner]kanaii[/partner].
+Les mÃ©saventures de Kanako continuent, ne les manquez pas !
+[project=mariaholic]L'Ã©pisode en DDL, c'est par ici ![/project]
 
  PS : Maboroshi est de retour !!");
 			$news->setCommentId(38);
@@ -2046,8 +2046,8 @@ Les mésaventures de Kanako continuent, ne les manquez pas !
 			$news->setTimestamp(strtotime("28 January 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/kanako.png[/img]
-Nouvelle série que l'on avait pas annoncé officiellement pour le moment : Maria+Holic. Mais ce n'est pas tout : Nouvelle co-production aussi, non pas avec MNF, mais cette fois-ci avec l'un de nos [ext=?page=dakko]partenaires dakkô[/ext] a qui l'on offre du DDL et qui nous laisse poster sur leur site quelques news.... [partner=kanaii]Kanaii ![/partner]
-Trèves de paroles inutiles : Voici donc l'épisode 01, disponible en DDL chez nous et torrent MU chez eux.
+Nouvelle sÃ©rie que l'on avait pas annoncÃ© officiellement pour le moment : Maria+Holic. Mais ce n'est pas tout : Nouvelle co-production aussi, non pas avec MNF, mais cette fois-ci avec l'un de nos [ext=?page=dakko]partenaires dakkÃ´[/ext] a qui l'on offre du DDL et qui nous laisse poster sur leur site quelques news.... [partner=kanaii]Kanaii ![/partner]
+TrÃ¨ves de paroles inutiles : Voici donc l'Ã©pisode 01, disponible en DDL chez nous et torrent MU chez eux.
 [url=ddl/%5bKanaii-Zero%5d_Maria+Holic_01_%5bX264_1280x720%5d.mkv]DDL[/url]");
 			$news->setCommentId(33);
 			$news->setTeamNews(true);
@@ -2063,8 +2063,8 @@ Trèves de paroles inutiles : Voici donc l'épisode 01, disponible en DDL chez nou
 			$news->setTimestamp(strtotime("04 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/pote.jpg[/img]
-Le sondage de la semaine dernière était un peu foireux parce ce qu'on pouvait pas voter en fait donc euh les commentaires seront pris en compte finalement. Merci pour vos réponses. Nous continueront of course à poster moultes actualités concernant autre chose que le fansub. Ce sont les vacances, donc nous en profitons bien, mais nous ne chômons pas quand même et vous proposons donc quelques petits épisodes à regarder entre 2 séries de bronzage ou de baignade ou que sais-je encore de randonnées, de visites au musée, pourquoi pas de job d'été, ect. M'enfin, bref, je m'étale inutilement (comment ça, comme d'habitude ?) et vous propose de vous rendre sur le site si vous n'y êtes pas déjà pis d'aller télécharger notre petit potemayo, mignon potemayo, potemayo, potemayo naaassuuu !! (ça veut rien dire, c'est normal, j'ai un peu bu)(bah quoi ? c'est les vacances ou pas ?). Je regretterai sûrement d'avoir écrit une news aussi foncedé demain mais bon vous inquiétez pas je l'étais pas quand je taffais sur cet épisode, 
-hein. J'vous l'jure, m'sieur l'agent. J'suis sobre, moi, j'bois pas. Jamais, jamais. J'vais jamais en soirée ou quoi, non, non. Moi, je fais du fan-sub ! Du fan-sub ! Sinon, vous avez vu, l'image de sortie, au dessus ? Elle est pourrie, hein ? C'est parce que je sais pas me servir de Gimp et que j'ai internet qu'avec ubuntu parce que j'ai fait ça avec un téléphone portable, en fait. C'est ça, marrez-vous. M'enf, j'apprendrais à utiliser Gimp !! Bon, bon. Et l'image du mois, elle vous plaît ? Ouais, c'est des nichons, tout ça, là, ça vous plaît, ce genre de trucs. Moi, ça me plaît bien en tout cas. Je kiffe ma race, même, je dirais. Et moi, je fais du cosplay !! Si, si. Fin.");
+Le sondage de la semaine derniÃ¨re Ã©tait un peu foireux parce ce qu'on pouvait pas voter en fait donc euh les commentaires seront pris en compte finalement. Merci pour vos rÃ©ponses. Nous continueront of course Ã  poster moultes actualitÃ©s concernant autre chose que le fansub. Ce sont les vacances, donc nous en profitons bien, mais nous ne chÃ´mons pas quand mÃªme et vous proposons donc quelques petits Ã©pisodes Ã  regarder entre 2 sÃ©ries de bronzage ou de baignade ou que sais-je encore de randonnÃ©es, de visites au musÃ©e, pourquoi pas de job d'Ã©tÃ©, ect. M'enfin, bref, je m'Ã©tale inutilement (comment Ã§a, comme d'habitude ?) et vous propose de vous rendre sur le site si vous n'y Ãªtes pas dÃ©jÃ  pis d'aller tÃ©lÃ©charger notre petit potemayo, mignon potemayo, potemayo, potemayo naaassuuu !! (Ã§a veut rien dire, c'est normal, j'ai un peu bu)(bah quoi ? c'est les vacances ou pas ?). Je regretterai sÃ»rement d'avoir Ã©crit une news aussi foncedÃ© demain mais bon vous inquiÃ©tez pas je l'Ã©tais pas quand je taffais sur cet Ã©pisode, 
+hein. J'vous l'jure, m'sieur l'agent. J'suis sobre, moi, j'bois pas. Jamais, jamais. J'vais jamais en soirÃ©e ou quoi, non, non. Moi, je fais du fan-sub ! Du fan-sub ! Sinon, vous avez vu, l'image de sortie, au dessus ? Elle est pourrie, hein ? C'est parce que je sais pas me servir de Gimp et que j'ai internet qu'avec ubuntu parce que j'ai fait Ã§a avec un tÃ©lÃ©phone portable, en fait. C'est Ã§a, marrez-vous. M'enf, j'apprendrais Ã  utiliser Gimp !! Bon, bon. Et l'image du mois, elle vous plaÃ®t ? Ouais, c'est des nichons, tout Ã§a, lÃ , Ã§a vous plaÃ®t, ce genre de trucs. Moi, Ã§a me plaÃ®t bien en tout cas. Je kiffe ma race, mÃªme, je dirais. Et moi, je fais du cosplay !! Si, si. Fin.");
 			$news->setCommentId(108);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('potemayo', 'ep6'));
@@ -2079,7 +2079,7 @@ hein. J'vous l'jure, m'sieur l'agent. J'suis sobre, moi, j'bois pas. Jamais, jam
 			$news->setTimestamp(strtotime("21 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/pote5.jpg[/imgr]
-Si c'est pas trop Kawaii, ça ? Bah oui, c'est Potemayo ! Comme vous le savez, notre partenaire, Kirei no Tsubasa, a déposé le bilan récemment. Histoire de ne pas laisser leurs projets tomber à l'eau, nous avons accepté de reprendre le projet Potemayo. Nous continuons là où ils se sont arrêté et sortons l'épisode 05. Les épisodes 01 à 04 sont aussi disponibles sur le site. Honi Honi ~");
+Si c'est pas trop Kawaii, Ã§a ? Bah oui, c'est Potemayo ! Comme vous le savez, notre partenaire, Kirei no Tsubasa, a dÃ©posÃ© le bilan rÃ©cemment. Histoire de ne pas laisser leurs projets tomber Ã  l'eau, nous avons acceptÃ© de reprendre le projet Potemayo. Nous continuons lÃ  oÃ¹ ils se sont arrÃªtÃ© et sortons l'Ã©pisode 05. Les Ã©pisodes 01 Ã  04 sont aussi disponibles sur le site. Honi Honi ~");
 			$news->setCommentId(74);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('potemayo', 'ep5'));
@@ -2094,7 +2094,7 @@ Si c'est pas trop Kawaii, ça ? Bah oui, c'est Potemayo ! Comme vous le savez, no
 			$news->setTimestamp(strtotime("18 July 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/kuji.jpg[/imgr]
-Kujibiki Unbalance est de retour avec l'épisode 7 qui sort aujourd'hui. Il est riche en émotion pour nos héros et particulièrement pour Tokino. Un nouveau personnage apparaît et on découvre des informations sur les personnages. Je vous laisse découvrir tout ça...");
+Kujibiki Unbalance est de retour avec l'Ã©pisode 7 qui sort aujourd'hui. Il est riche en Ã©motion pour nos hÃ©ros et particuliÃ¨rement pour Tokino. Un nouveau personnage apparaÃ®t et on dÃ©couvre des informations sur les personnages. Je vous laisse dÃ©couvrir tout Ã§a...");
 			$news->setCommentId(102);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep7'));
@@ -2109,9 +2109,9 @@ Kujibiki Unbalance est de retour avec l'épisode 7 qui sort aujourd'hui. Il est r
 			$news->setTimestamp(strtotime("14 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/kuji6.jpg[/imgr]
-Après une longue attente sans Kujibiki, la série continue avec l'épisode 06 (Zéro n'abbandonne jamais !). Merci à Zetsubo Sensei qui prend le relais pour la traduction.
+AprÃ¨s une longue attente sans Kujibiki, la sÃ©rie continue avec l'Ã©pisode 06 (ZÃ©ro n'abbandonne jamais !). Merci Ã  Zetsubo Sensei qui prend le relais pour la traduction.
 
-Ce Week-End, Mangazur à Toulon. Une petite convention très sympa ^^ J'y serais, n'hésitez pas à me contacter (zero.fansub@gmail.com). Et venez nombreux pour cet événement.");
+Ce Week-End, Mangazur Ã  Toulon. Une petite convention trÃ¨s sympa ^^ J'y serais, n'hÃ©sitez pas Ã  me contacter (zero.fansub@gmail.com). Et venez nombreux pour cet Ã©vÃ©nement.");
 			$news->setCommentId(59);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep6'));
@@ -2122,15 +2122,15 @@ Ce Week-End, Mangazur à Toulon. Une petite convention très sympa ^^ J'y serais, 
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Joyeux Anniversaire ! Zéro a un an aujourd'hui. + Kujibiki Unbalance 05");
+			$news->setTitle("Joyeux Anniversaire ! ZÃ©ro a un an aujourd'hui. + Kujibiki Unbalance 05");
 			$news->setTimestamp(strtotime("18 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/unan.png[/img]
-Zéro fête aujourd'hui son anniversaire ! Cela fait maintenant un an que le site Zéro existe. Crée le 18 décembre 2007, il était au départ un site de DDL. Ce n'est que le 6 janvier que le site deviens une team de fansub ^^ Pour voir les premières versions, allez sur la page 'À propos...'. Merci à tous pour votre soutien, c'est grâce à vous que nous en sommes arrivés là !
+ZÃ©ro fÃªte aujourd'hui son anniversaire ! Cela fait maintenant un an que le site ZÃ©ro existe. CrÃ©e le 18 dÃ©cembre 2007, il Ã©tait au dÃ©part un site de DDL. Ce n'est que le 6 janvier que le site deviens une team de fansub ^^ Pour voir les premiÃ¨res versions, allez sur la page 'Ã€ propos...'. Merci Ã  tous pour votre soutien, c'est grÃ¢ce Ã  vous que nous en sommes arrivÃ©s lÃ  !
 
-Comme petit cadeau d'anniversaire, voici l'épisode 05 de Kujibiki Unbalance, en éspérant qu'il vous plaira.
+Comme petit cadeau d'anniversaire, voici l'Ã©pisode 05 de Kujibiki Unbalance, en Ã©spÃ©rant qu'il vous plaira.
 
-[b]Les dernières sorties de la [partner]sky-fansub[/partner] :[/b]
+[b]Les derniÃ¨res sorties de la [partner]sky-fansub[/partner] :[/b]
 Kurozuka 06 HD
 Mahou Shoujo Lyrical Nanoha Strikers 18");
 			$news->setTeamNews(true);
@@ -2147,17 +2147,17 @@ Mahou Shoujo Lyrical Nanoha Strikers 18");
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/sida.png[/img]
 Ciao !
-Sortie de Kujibiki Unbalance, l'épisode 04 ! Je tiens à remercier DC, qui, par pitié peut-être ^^, nous a encodé cet épisode.
+Sortie de Kujibiki Unbalance, l'Ã©pisode 04 ! Je tiens Ã  remercier DC, qui, par pitiÃ© peut-Ãªtre ^^, nous a encodÃ© cet Ã©pisode.
 
-Oui ! Comme vous l'avez compris, nous recrutons de manière urgente un encodeur !
-N'hésitez pas à vous proposer [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] > [url=index.php?page=recrutement]Lien[/url].
+Oui ! Comme vous l'avez compris, nous recrutons de maniÃ¨re urgente un encodeur !
+N'hÃ©sitez pas Ã  vous proposer [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] > [url=index.php?page=recrutement]Lien[/url].
 
-Aujourd'hui, 1er décembre, journée internationale du Sida. Nous vous rappelons que les dons et les clicks sur les pubs sont reversés à l'association medecin du monde. Nous avons besoin de vous !
+Aujourd'hui, 1er dÃ©cembre, journÃ©e internationale du Sida. Nous vous rappelons que les dons et les clicks sur les pubs sont reversÃ©s Ã  l'association medecin du monde. Nous avons besoin de vous !
 [url=index.php?page=dons]En savoir plus sur le fonctionnement des dons sur le site[/url]
 [url=#]En savoir plus sur l'action de l'association[/url]
 
 Sinon, Man-Ban nous a fait une jolie fanfic que vous pouvez lire dans la partie Scantrad [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img]
-Merci à tous et à bientôt !
+Merci Ã  tous et Ã  bientÃ´t !
 //[url=http://db0.fr/]db0[/url]");
 			$news->setCommentId(16);
 			$news->setTeamNews(true);
@@ -2169,11 +2169,11 @@ Merci à tous et à bientôt !
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Fin de la série Sketchbook ~full color's~");
+			$news->setTitle("Fin de la sÃ©rie Sketchbook ~full color's~");
 			$news->setTimestamp(strtotime("30 June 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/sketchend.jpg[/img]
-Nous avons temporairement repris de nos activités pour finir la série Sketchbook full color's. Sortie aujourd'hui de 5 épisodes d'un coup : 09, 10, 11, 12 et 13 :) Profitez bien de ctte magnifique série, et à dans deux jours à Japan Expo !");
+Nous avons temporairement repris de nos activitÃ©s pour finir la sÃ©rie Sketchbook full color's. Sortie aujourd'hui de 5 Ã©pisodes d'un coup : 09, 10, 11, 12 et 13 :) Profitez bien de ctte magnifique sÃ©rie, et Ã  dans deux jours Ã  Japan Expo !");
 			$news->setCommentId(98);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep9'));
@@ -2192,8 +2192,8 @@ Nous avons temporairement repris de nos activités pour finir la série Sketchbook
 			$news->setTimestamp(strtotime("15 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/sketch8.png[/img]
-V'là déjà la suite de Sketchbook full colors ! L'épisode 08 est disponible, et à peine 2 jours après l'épisode 07 ! Si c'est pas beau, ça ? Allez, détendez-vous un peu en regardant ce joli épisode.
-[project=sketchbook]En téléchargement ici ![/project]");
+V'lÃ  dÃ©jÃ  la suite de Sketchbook full colors ! L'Ã©pisode 08 est disponible, et Ã  peine 2 jours aprÃ¨s l'Ã©pisode 07 ! Si c'est pas beau, Ã§a ? Allez, dÃ©tendez-vous un peu en regardant ce joli Ã©pisode.
+[project=sketchbook]En tÃ©lÃ©chargement ici ![/project]");
 			$news->setCommentId(72);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep8'));
@@ -2208,7 +2208,7 @@ V'là déjà la suite de Sketchbook full colors ! L'épisode 08 est disponible, et à
 			$news->setTimestamp(strtotime("12 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/sketch7.jpg[/imgr]
-On avance un peu dans Sketchbook aussi, épisode 07 aujourd'hui ! Apparition d'un nouveau personnage : une étudiante transferée. Cet épisode est plutôt drôle. [project=sketchbook]Et téléchargeable ici ![/project]");
+On avance un peu dans Sketchbook aussi, Ã©pisode 07 aujourd'hui ! Apparition d'un nouveau personnage : une Ã©tudiante transferÃ©e. Cet Ã©pisode est plutÃ´t drÃ´le. [project=sketchbook]Et tÃ©lÃ©chargeable ici ![/project]");
 			$news->setCommentId(72);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep7'));
@@ -2223,7 +2223,7 @@ On avance un peu dans Sketchbook aussi, épisode 07 aujourd'hui ! Apparition d'un
 			$news->setTimestamp(strtotime("23 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/sketchh.jpg[/imgr]
-Une avalanche de Sketchbook ! Ou plutôt, une avalanche de fleurs ^^ Avec la sortie longtemps attendue de la suite de Sketchbook épisode 06 et de 3 v2 (tout ça pour améliorer la qualité de nos releases) Enjoy !");
+Une avalanche de Sketchbook ! Ou plutÃ´t, une avalanche de fleurs ^^ Avec la sortie longtemps attendue de la suite de Sketchbook Ã©pisode 06 et de 3 v2 (tout Ã§a pour amÃ©liorer la qualitÃ© de nos releases) Enjoy !");
 			$news->setCommentId(62);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('sketchbook', 'ep6'));
@@ -2241,15 +2241,15 @@ Une avalanche de Sketchbook ! Ou plutôt, une avalanche de fleurs ^^ Avec la sort
 			$news->setTimestamp(strtotime("05 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/moka.jpg[/img]
-Bouonjòu !
-L'épisode 04 de Sketchbook est sorti ! [project=sketchbook]Lien[/project] Les sorties se font attendre, étant donné qu'on a plus vraiment d'encodeur officiel ^^ Merci à Kyon qui nous a encodé c'lui-ci.
-Beaucoup nous demandaient où il fallait télécharger nos releases. Probléme réglé, j'ai fait une page qui résume tout. [ext=index.php?page=dl]Lien[/ext]
-J'offre aussi du DDL à notre partenaire : la team Kanaii. Allez télécharger leurs animes, ils sont très bons ! [ext=index.php?page=kanaiiddl]Lien[/ext]
+BouonjÃ²u !
+L'Ã©pisode 04 de Sketchbook est sorti ! [project=sketchbook]Lien[/project] Les sorties se font attendre, Ã©tant donnÃ© qu'on a plus vraiment d'encodeur officiel ^^ Merci Ã  Kyon qui nous a encodÃ© c'lui-ci.
+Beaucoup nous demandaient oÃ¹ il fallait tÃ©lÃ©charger nos releases. ProblÃ©me rÃ©glÃ©, j'ai fait une page qui rÃ©sume tout. [ext=index.php?page=dl]Lien[/ext]
+J'offre aussi du DDL Ã  notre partenaire : la team Kanaii. Allez tÃ©lÃ©charger leurs animes, ils sont trÃ¨s bons ! [ext=index.php?page=kanaiiddl]Lien[/ext]
 Nous avons aussi un nouveau partenaire : La team Sky-fansub. [partner=sky-fansub]Lien[/partner]
 //[url=http://db0.fr/]db0[/url]
-PS : 'Bouonjòu' c'est du niçois [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img]
+PS : 'BouonjÃ²u' c'est du niÃ§ois [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img]
 
-Les dernières sorties de la [partner=maboroshi]Maboroshi[/partner] :
+Les derniÃ¨res sorties de la [partner=maboroshi]Maboroshi[/partner] :
 - Neo Angelique Abyss 2nd Age 07
 - Akane Iro Ni Somaru Saka 07");
 			$news->setCommentId(17);
@@ -2266,8 +2266,8 @@ Les dernières sorties de la [partner=maboroshi]Maboroshi[/partner] :
 			$news->setTimestamp(strtotime("22 November 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Bonjour, bonjour !
-Sortie de l'épisode 03 de Sketchbook full color's !
-Et c'est tout. Je sais pas quoi dire d'autre. Bonne journée, mes amis. 
+Sortie de l'Ã©pisode 03 de Sketchbook full color's !
+Et c'est tout. Je sais pas quoi dire d'autre. Bonne journÃ©e, mes amis. 
 //[url=http://db0.fr/]db0[/url]");
 			$news->setCommentId(13);
 			$news->setTeamNews(false);
@@ -2283,7 +2283,7 @@ Et c'est tout. Je sais pas quoi dire d'autre. Bonne journée, mes amis.
 			$news->setTimestamp(strtotime("10 May 2009 01:00"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/knjng2.png[/img]
-La suite tant attendue des aventures de Rin, Kuro et Mimi ! Un épisode riche en émotion qui se déroule pendant la fête du sport où toutes les trois font de leur mieux pour que leur classe, la CM1-1, remporte la victoire ! Toujours en coproduction avec [url=http://www.maboroshinofansub.fr/]Maboroshi[/url]. Cet épisode a été traduit du Japonais par Sazaju car la vosta se faisait attendre, puis \"améliorée\" par Shana. C'est triste, hein ? Plus qu'un et c'est la fin... [project=kodomo2]Ici, ici ![/project]");
+La suite tant attendue des aventures de Rin, Kuro et Mimi ! Un Ã©pisode riche en Ã©motion qui se dÃ©roule pendant la fÃªte du sport oÃ¹ toutes les trois font de leur mieux pour que leur classe, la CM1-1, remporte la victoire ! Toujours en coproduction avec [url=http://www.maboroshinofansub.fr/]Maboroshi[/url]. Cet Ã©pisode a Ã©tÃ© traduit du Japonais par Sazaju car la vosta se faisait attendre, puis \"amÃ©liorÃ©e\" par Shana. C'est triste, hein ? Plus qu'un et c'est la fin... [project=kodomo2]Ici, ici ![/project]");
 			$news->setCommentId(69);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomo2', 'ep2'));
@@ -2298,7 +2298,7 @@ La suite tant attendue des aventures de Rin, Kuro et Mimi ! Un épisode riche en 
 			$news->setTimestamp(strtotime("13 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/knjoav1.png[/imgr]
-C'est maintenant que la saison 2 de Kodomo no Jikan commence vraiment ! Profitez bien de cette épisode ^^ Toujours en coproduction avec [url=http://maboroshinofansub.fr]Maboroshi no fansub[/url], chez qui vous pourrez télecharger l'épisode en XDCC. Chez nous, c'est comme toujours en DDL. Nous vous rappelons que les torrents sont disponibles peu de temps après, et que tout nos épisodes sont disponibles en Streaming HD sur [url=http://www.anime-ultime.net/part/Site-93]Anime-Ultime[/url].");
+C'est maintenant que la saison 2 de Kodomo no Jikan commence vraiment ! Profitez bien de cette Ã©pisode ^^ Toujours en coproduction avec [url=http://maboroshinofansub.fr]Maboroshi no fansub[/url], chez qui vous pourrez tÃ©lecharger l'Ã©pisode en XDCC. Chez nous, c'est comme toujours en DDL. Nous vous rappelons que les torrents sont disponibles peu de temps aprÃ¨s, et que tout nos Ã©pisodes sont disponibles en Streaming HD sur [url=http://www.anime-ultime.net/part/Site-93]Anime-Ultime[/url].");
 			$news->setCommentId(58);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomo2', 'ep1'));
@@ -2309,11 +2309,11 @@ C'est maintenant que la saison 2 de Kodomo no Jikan commence vraiment ! Profitez
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Kodomo no Jikan ~ Ni Gakki OAV Spécial");
+			$news->setTitle("Kodomo no Jikan ~ Ni Gakki OAV SpÃ©cial");
 			$news->setTimestamp(strtotime("01 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/nigakki0.jpg[/imgr]
-Vous l'attendiez TOUS ! (Si, si, même toi) Il est arrivé ! Le premier OAV de la saison 2 de Kodomo no Jikan. Cet OAV est consacré à Kuro-chan et Shirai-sensei. Amateurs de notre petite goth-loli-neko, vous allez être servis ! Elle est encore plus kawaii que d'habitude ^^ La saison 2 se fait en coproduction avec [url=http://maboroshinofansub.fr]Maboroshi[/url] et avec l'aide du grand (ô grand) DC.");
+Vous l'attendiez TOUS ! (Si, si, mÃªme toi) Il est arrivÃ© ! Le premier OAV de la saison 2 de Kodomo no Jikan. Cet OAV est consacrÃ© Ã  Kuro-chan et Shirai-sensei. Amateurs de notre petite goth-loli-neko, vous allez Ãªtre servis ! Elle est encore plus kawaii que d'habitude ^^ La saison 2 se fait en coproduction avec [url=http://maboroshinofansub.fr]Maboroshi[/url] et avec l'aide du grand (Ã´ grand) DC.");
 			$news->setCommentId(55);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomo2', 'ep0'));
@@ -2345,10 +2345,10 @@ C'est ainsi que se termine Toradora! ...");
 			$news->setTimestamp(strtotime("27 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/tora23.png[/imgr]
-La suite de Toradora! avec l'épisode 23. Toujours aussi émouvant, toujours aussi kawaii, toujours aussi Taiga-Ami-Minorin-Ryyuji-ect, toujours aussi dispo sur [url=http://toradora.fr]Toradora.fr![/url], toujours aussi en copro avec [partner=maboroshi]Maboroshi[/partner], toujours en DDL sur notre site [project=toradora]\"Lien\"[/project], Bref, toujours aussi génial ! Enjoy ^^
+La suite de Toradora! avec l'Ã©pisode 23. Toujours aussi Ã©mouvant, toujours aussi kawaii, toujours aussi Taiga-Ami-Minorin-Ryyuji-ect, toujours aussi dispo sur [url=http://toradora.fr]Toradora.fr![/url], toujours aussi en copro avec [partner=maboroshi]Maboroshi[/partner], toujours en DDL sur notre site [project=toradora]\"Lien\"[/project], Bref, toujours aussi gÃ©nial ! Enjoy ^^
 
 Discutons un peu (dans les commentaires) ^^
-Que penses-tu des Maid ? Tu es fanatique, fétichiste, amateur ou indifférent ?");
+Que penses-tu des Maid ? Tu es fanatique, fÃ©tichiste, amateur ou indiffÃ©rent ?");
 			$news->setCommentId(52);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep23'));
@@ -2363,7 +2363,7 @@ Que penses-tu des Maid ? Tu es fanatique, fétichiste, amateur ou indifférent ?")
 			$news->setTimestamp(strtotime("25 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/taiiga.jpg[/imgr]
-Que d'émotion, que d'émotion ! La suite de Toradora!, l'épisode 22. Nous vous rappelons que vous pouvez aussi télécharger les épisodes et en savoir plus sur la série sur [url=http://toradora.fr/]Toradora.fr![/url]. Sinon, les épisodes sont toujours téléchargeables chez [partner=maboroshi]Maboroshi[/partner] en torrent et XDCC et chez nous [project=toradora]par ici en DDL.[/project] Enjoy ^^");
+Que d'Ã©motion, que d'Ã©motion ! La suite de Toradora!, l'Ã©pisode 22. Nous vous rappelons que vous pouvez aussi tÃ©lÃ©charger les Ã©pisodes et en savoir plus sur la sÃ©rie sur [url=http://toradora.fr/]Toradora.fr![/url]. Sinon, les Ã©pisodes sont toujours tÃ©lÃ©chargeables chez [partner=maboroshi]Maboroshi[/partner] en torrent et XDCC et chez nous [project=toradora]par ici en DDL.[/project] Enjoy ^^");
 			$news->setCommentId(51);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep22'));
@@ -2379,9 +2379,9 @@ Que d'émotion, que d'émotion ! La suite de Toradora!, l'épisode 22. Nous vous ra
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/ski.jpg[/img]
 
-Toradora! encore et encore, et bientôt, la fin de la série. Cet épisode est encore une fois bourré d'émotion et de rebondissements... Et de luge, et de neige, et de skis ! [project=toradora]C'est par ici que ça se télécharge ![/project]
+Toradora! encore et encore, et bientÃ´t, la fin de la sÃ©rie. Cet Ã©pisode est encore une fois bourrÃ© d'Ã©motion et de rebondissements... Et de luge, et de neige, et de skis ! [project=toradora]C'est par ici que Ã§a se tÃ©lÃ©charge ![/project]
 
-Profitions-en pour discutailler ! Alors, toi, lecteur de news de Zéro... Tu es parti en vacances, faire du ski ? Raconte-nous tout ça dans les commentaires ;)");
+Profitions-en pour discutailler ! Alors, toi, lecteur de news de ZÃ©ro... Tu es parti en vacances, faire du ski ? Raconte-nous tout Ã§a dans les commentaires ;)");
 			$news->setCommentId(50);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep21'));
@@ -2396,7 +2396,7 @@ Profitions-en pour discutailler ! Alors, toi, lecteur de news de Zéro... Tu es p
 			$news->setTimestamp(strtotime("16 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/taigahand.jpg[/img]
-Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notre travail. Ou plutôt, notre partenaire [partner=maboroshi]Maboroshi[/partner] nous fait reprendre le travail ^^ Sortie de l'épisode 19 de toradora, avec notre petite Taiga toute kawaii autant sur l'image de cette news que dans l'épisode ! Comme d'hab, DDL sur le site, Torrent bientôt (Merci à Khorx), XDCC bientôt et déjà dispo chez [partner=maboroshi]Maboroshi[/partner]. [project=toradora]\"Ze veux l'épisodeuh !\"[/project].");
+AprÃ¨s une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notre travail. Ou plutÃ´t, notre partenaire [partner=maboroshi]Maboroshi[/partner] nous fait reprendre le travail ^^ Sortie de l'Ã©pisode 19 de toradora, avec notre petite Taiga toute kawaii autant sur l'image de cette news que dans l'Ã©pisode ! Comme d'hab, DDL sur le site, Torrent bientÃ´t (Merci Ã  Khorx), XDCC bientÃ´t et dÃ©jÃ  dispo chez [partner=maboroshi]Maboroshi[/partner]. [project=toradora]\"Ze veux l'Ã©pisodeuh !\"[/project].");
 			$news->setCommentId(46);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep19'));
@@ -2411,7 +2411,7 @@ Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notr
 			$news->setTimestamp(strtotime("05 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/noeltora.jpg[/imgr]
-Serait-ce le rythme \"une sortie / un jour\" qui nous prend, à Zéro et [partner=maboroshi]Maboroshi[/partner] ? Peut-être, peut-être... En tout cas, voici la suite de Toradora!, l'épisode 18 ! [project=toradora]Je DL tisouite ![/project]");
+Serait-ce le rythme \"une sortie / un jour\" qui nous prend, Ã  ZÃ©ro et [partner=maboroshi]Maboroshi[/partner] ? Peut-Ãªtre, peut-Ãªtre... En tout cas, voici la suite de Toradora!, l'Ã©pisode 18 ! [project=toradora]Je DL tisouite ![/project]");
 			$news->setCommentId(43);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep18'));
@@ -2426,7 +2426,7 @@ Serait-ce le rythme \"une sortie / un jour\" qui nous prend, à Zéro et [partner=
 			$news->setTimestamp(strtotime("25 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/blond.jpg[/imgr]
-Toradora!, pour changer, en copro avec [url=http://japanslash.free.fr/]Maboroshi no Fansub[/url]. Un épisode plein d'émotion, de tendresse et de violence à la fois. À ne pas manquer ! [project=toradora]L'épisode en DDL, c'est par ici ![/project]");
+Toradora!, pour changer, en copro avec [url=http://japanslash.free.fr/]Maboroshi no Fansub[/url]. Un Ã©pisode plein d'Ã©motion, de tendresse et de violence Ã  la fois. Ã€ ne pas manquer ! [project=toradora]L'Ã©pisode en DDL, c'est par ici ![/project]");
 			$news->setCommentId(39);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep16'));
@@ -2441,12 +2441,12 @@ Toradora!, pour changer, en copro avec [url=http://japanslash.free.fr/]Maboroshi
 			$news->setTimestamp(strtotime("20 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/chibi.jpg[/img]
-En pleine chibi Japan Expo Sud, Toradora! continue avec ce soir l'épisode 15 !
-[project=toradora]L'épisode en DDL, c'est par ici ![/project]
-Rejoignez nous pour cet évenement : 
-Chibi Japan Expo à Marseille ! J'y serais, Kanaii y sera. Nous serions ravis de vous rencontrer, alors n'hésitez pas à me mailer (Zero.fansub@gmail.com).
+En pleine chibi Japan Expo Sud, Toradora! continue avec ce soir l'Ã©pisode 15 !
+[project=toradora]L'Ã©pisode en DDL, c'est par ici ![/project]
+Rejoignez nous pour cet Ã©venement : 
+Chibi Japan Expo Ã  Marseille ! J'y serais, Kanaii y sera. Nous serions ravis de vous rencontrer, alors n'hÃ©sitez pas Ã  me mailer (Zero.fansub@gmail.com).
 
-Dernières sortie de nos partenaires :
+DerniÃ¨res sortie de nos partenaires :
 Kyoutsu : Minami-ke Okawari 02 et Ikkitousen OAV 04
 Kanaii : Kamen no Maid Guy 08
 Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
@@ -2464,12 +2464,12 @@ Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
 			$news->setTimestamp(strtotime("17 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/dentifrice.jpg[/img]
- db0 s'excuse pour sa news ultra-courte de la dernière fois pour Maria Holic 3 et en compensasion va raconter sa vie dans celle-ci (Non, pas ça !). C'est aujourd'hui et pour la première fois chez Zéro une triple sortie ! Les épisodes 12, 13 et 14 de Toradora! sont disponibles, toujours en copro avec [url=http://japanslash.free.fr/]Maboroshi[/url].
- [project=toradora]Les épisodes en DDL, c'est par ici ![/project]
+ db0 s'excuse pour sa news ultra-courte de la derniÃ¨re fois pour Maria Holic 3 et en compensasion va raconter sa vie dans celle-ci (Non, pas Ã§a !). C'est aujourd'hui et pour la premiÃ¨re fois chez ZÃ©ro une triple sortie ! Les Ã©pisodes 12, 13 et 14 de Toradora! sont disponibles, toujours en copro avec [url=http://japanslash.free.fr/]Maboroshi[/url].
+ [project=toradora]Les Ã©pisodes en DDL, c'est par ici ![/project]
 
- J'en profite aussi pour vous préciser que les 2 autres versions de Maria 03 sont sorties.
+ J'en profite aussi pour vous prÃ©ciser que les 2 autres versions de Maria 03 sont sorties.
  Mais surtout, je vous sollicite pour une IRL :
- Chibi Japan Expo à Marseille ! J'y serais, Kanaii y sera. Nous serions ravis de vous rencontrer, alors n'hésitez pas à me mailer (Zero.fansub@gmail.com).");
+ Chibi Japan Expo Ã  Marseille ! J'y serais, Kanaii y sera. Nous serions ravis de vous rencontrer, alors n'hÃ©sitez pas Ã  me mailer (Zero.fansub@gmail.com).");
 			$news->setCommentId(40);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('toradora', 'ep12'));
@@ -2486,10 +2486,10 @@ Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
 			$news->setTimestamp(strtotime("11 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]http://japanslash.free.fr/images/news/toradora11.jpg[/img] 
- La suite, la suite ! Toradora! épisode 11 sortie, en copro avec [url=http://japanslash.free.fr/]Maboroshi no Fansub[/url].
+ La suite, la suite ! Toradora! Ã©pisode 11 sortie, en copro avec [url=http://japanslash.free.fr/]Maboroshi no Fansub[/url].
 
 
-[project=toradora]L'épisode en DDL, c'est par ici ![/project]");
+[project=toradora]L'Ã©pisode en DDL, c'est par ici ![/project]");
 			$news->setCommentId(39);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep11'));
@@ -2504,10 +2504,10 @@ Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
 			$news->setTimestamp(strtotime("10 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/ami.png[/img]
-En direct de Nice, et pour ce 10 Février, l'épisode 10 de Toradora! en co-production avec [url=http://japanslash.free.fr/]Maboroshi no Fansub[/url], qui est de retour, comme vous l'avez vu ! (Avec Kannagi 01, Mermaid 11-12-13 et Kimi Ga 4). Pour Toradora!, nous allons rattraper notre retard !
+En direct de Nice, et pour ce 10 FÃ©vrier, l'Ã©pisode 10 de Toradora! en co-production avec [url=http://japanslash.free.fr/]Maboroshi no Fansub[/url], qui est de retour, comme vous l'avez vu ! (Avec Kannagi 01, Mermaid 11-12-13 et Kimi Ga 4). Pour Toradora!, nous allons rattraper notre retard !
 
 
-[project=toradora]L'épisode en DDL, c'est par ici ![/project]");
+[project=toradora]L'Ã©pisode en DDL, c'est par ici ![/project]");
 			$news->setCommentId(39);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('toradora', 'ep10'));
@@ -2522,17 +2522,17 @@ En direct de Nice, et pour ce 10 Février, l'épisode 10 de Toradora! en co-produc
 			$news->setTimestamp(strtotime("04 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/tora.jpg[/img]
-L'épisode 09 de Toradora! est terminé ! Nous avons pris du retard car la MNF (en co-production) est actuellement en pause temporaire (Tohru n'a plus internet).
-[project=toradora]Pour télécharger les épisodes en DDL, cliquez ici ![/project]
+L'Ã©pisode 09 de Toradora! est terminÃ© ! Nous avons pris du retard car la MNF (en co-production) est actuellement en pause temporaire (Tohru n'a plus internet).
+[project=toradora]Pour tÃ©lÃ©charger les Ã©pisodes en DDL, cliquez ici ![/project]
 
-[b]Les dernières sorties de la [partner]sky-fansub[/partner] :[/b]
+[b]Les derniÃ¨res sorties de la [partner]sky-fansub[/partner] :[/b]
 Kurozuka 07
 Mahou Shoujo Lyrical Nanoha Strikers 20
 
-[b]Les dernières sorties de la [partner]kyoutsu[/partner] :[/b]
+[b]Les derniÃ¨res sorties de la [partner]kyoutsu[/partner] :[/b]
 Hyakko 05
 
-[b]Les dernières sorties de la [partner]kanaii[/partner] :[/b]
+[b]Les derniÃ¨res sorties de la [partner]kanaii[/partner] :[/b]
 Kamen no maid Guy 06
 Rosario+Vampire Capu2 06");
 			$news->setCommentId(31);
@@ -2550,9 +2550,9 @@ Rosario+Vampire Capu2 06");
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/toradora.png[/img]
 Ohayo mina !
-La suite de Toradora est arrivée ! Et toujours en co-production avec la Maboroshi  [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] 
-Cet épisode se déroule à la piscine, et 'Y'a du pelotage dans l'air !' Je n'en dirais pas plus.
-L'épisode est sorti en DDL en format avi, en XDCC. Comme toujours, il sortira un peu plus tard en H264, torrent, streaming, ect.
+La suite de Toradora est arrivÃ©e ! Et toujours en co-production avec la Maboroshi  [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] 
+Cet Ã©pisode se dÃ©roule Ã  la piscine, et 'Y'a du pelotage dans l'air !' Je n'en dirais pas plus.
+L'Ã©pisode est sorti en DDL en format avi, en XDCC. Comme toujours, il sortira un peu plus tard en H264, torrent, streaming, ect.
 //[url=http://db0.fr/]db0[/url]");
 			$news->setCommentId(14);
 			$news->setTeamNews(false);
@@ -2569,11 +2569,11 @@ L'épisode est sorti en DDL en format avi, en XDCC. Comme toujours, il sortira un
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/img_shinobu.gif[/img]
 Bonjour tout le monde !
-J'ai aujourd'hui plusieurs bonnes nouvelles à vous annoncer :
-La V3 avance bien, et je viens de mettre à jour les pages pour le scantrad, car comme vous le savez, nous commençons grâce à François et notre nouvelle recrue Merry-Aime notre premier projet scantrad : Kodomo no Jikan.
-J'ai aussi installée la radio tant attendue et mis sur le site quelques OST.
-Nous avons aussi, grâce à Ryocu, un nouveau XDCC. Vous aviez sans doute remarquer que nous ne pouvions pas mettre à jour le précédent. Celui-ci sera mis à jour à chaque nouvelle sortie.
-Et enfin, notre dernière sortie : Toradora! 06. Toujours en co-production avec [url=http://japanslash.free.fr/]Maboroshi[/url].
+J'ai aujourd'hui plusieurs bonnes nouvelles Ã  vous annoncer :
+La V3 avance bien, et je viens de mettre Ã  jour les pages pour le scantrad, car comme vous le savez, nous commenÃ§ons grÃ¢ce Ã  FranÃ§ois et notre nouvelle recrue Merry-Aime notre premier projet scantrad : Kodomo no Jikan.
+J'ai aussi installÃ©e la radio tant attendue et mis sur le site quelques OST.
+Nous avons aussi, grÃ¢ce Ã  Ryocu, un nouveau XDCC. Vous aviez sans doute remarquer que nous ne pouvions pas mettre Ã  jour le prÃ©cÃ©dent. Celui-ci sera mis Ã  jour Ã  chaque nouvelle sortie.
+Et enfin, notre derniÃ¨re sortie : Toradora! 06. Toujours en co-production avec [url=http://japanslash.free.fr/]Maboroshi[/url].
 Enjoy  [img=http://img1.xooimage.com/files/w/i/wink-1627.gif]Wink[/img]
 //[url=http://db0.fr/]db0[/url]");
 			$news->setCommentId(7);
@@ -2590,8 +2590,8 @@ Enjoy  [img=http://img1.xooimage.com/files/w/i/wink-1627.gif]Wink[/img]
 			$news->setTimestamp(strtotime("06 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/kodomo12fin.png[/img]
-C'est ainsi, en ce 6 mars 2009, que nous fêtons à la fois l'anniversaire de la première release de Zéro (Kodomo no Jikan OAV) et l'achevement de notre première série de 12 épisodes. L'épisode 12 de Kodomo no Jikan sort aujourd'hui pour clore les aventures de nos 3 petites héroïnes : Rin, Mimi et Kuro. Il est dispo en DDL sur [url=http://kojikan.fr]le site Kojikan.fr[/url]. Un pack des 12 épisodes sera bientôt disponible en torrent.
-[url=http://kojikan.fr/?page=saison1-dl_1]Télécharger en DDL ![/url]");
+C'est ainsi, en ce 6 mars 2009, que nous fÃªtons Ã  la fois l'anniversaire de la premiÃ¨re release de ZÃ©ro (Kodomo no Jikan OAV) et l'achevement de notre premiÃ¨re sÃ©rie de 12 Ã©pisodes. L'Ã©pisode 12 de Kodomo no Jikan sort aujourd'hui pour clore les aventures de nos 3 petites hÃ©roÃ¯nes : Rin, Mimi et Kuro. Il est dispo en DDL sur [url=http://kojikan.fr]le site Kojikan.fr[/url]. Un pack des 12 Ã©pisodes sera bientÃ´t disponible en torrent.
+[url=http://kojikan.fr/?page=saison1-dl_1]TÃ©lÃ©charger en DDL ![/url]");
 			$news->setCommentId(44);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomo', 'ep12'));
@@ -2606,7 +2606,7 @@ C'est ainsi, en ce 6 mars 2009, que nous fêtons à la fois l'anniversaire de la p
 			$news->setTimestamp(strtotime("03 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/kodomo10.jpg[/img]
-RIIINN est revenue ! Elle nous apporte son dixième épisode. Plus que 2 avant la fin, et la saison 2 par la suite. Une petite surprise arrive bientôt, sans doute pour le onzième épisode. En attendant, retrouvez vite notre petite délurée dans la suite de ses aventures et ses tentatives de séduction de Aoki-sensei...");
+RIIINN est revenue ! Elle nous apporte son dixiÃ¨me Ã©pisode. Plus que 2 avant la fin, et la saison 2 par la suite. Une petite surprise arrive bientÃ´t, sans doute pour le onziÃ¨me Ã©pisode. En attendant, retrouvez vite notre petite dÃ©lurÃ©e dans la suite de ses aventures et ses tentatives de sÃ©duction de Aoki-sensei...");
 			$news->setCommentId(37);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomo', 'ep10'));
@@ -2621,15 +2621,15 @@ RIIINN est revenue ! Elle nous apporte son dixième épisode. Plus que 2 avant la 
 			$news->setTimestamp(strtotime("13 December 2008"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/kodomo9.jpg[/img]
-Rin, Kuro et Mimi reviennent enfin vous montrer la suite de leurs aventures ! Sortie aujourd'hui de l'épisode 09, merci à DC qui nous l'a encodé. Les 3 versions habituelles sont dispos en DDL.
+Rin, Kuro et Mimi reviennent enfin vous montrer la suite de leurs aventures ! Sortie aujourd'hui de l'Ã©pisode 09, merci Ã  DC qui nous l'a encodÃ©. Les 3 versions habituelles sont dispos en DDL.
 
 Nous recrutons toujours un QC ! Proposez-vous !
-Nous avons décider de reprendre le projet Mermaid Melody Pichi Pichi Pitch, mais pour cela nous avons besoin d'un traducteur italien > français. N'hésitez pas à postuler si vous êtes intéressés [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] Par avance, merci. [url=index.php?page=recrutement]Lien[/url]
+Nous avons dÃ©cider de reprendre le projet Mermaid Melody Pichi Pichi Pitch, mais pour cela nous avons besoin d'un traducteur italien > franÃ§ais. N'hÃ©sitez pas Ã  postuler si vous Ãªtes intÃ©ressÃ©s [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] Par avance, merci. [url=index.php?page=recrutement]Lien[/url]
 
-[b]Les dernières sorties de la [partner]kanaii[/partner] :[/b]
-Kanokon pack DVD 06 à 12
+[b]Les derniÃ¨res sorties de la [partner]kanaii[/partner] :[/b]
+Kanokon pack DVD 06 Ã  12
 Rosario + Vampire S2 -05
-[b]Les dernières sorties de la [partner]sky-fansub[/partner] :[/b]
+[b]Les derniÃ¨res sorties de la [partner]sky-fansub[/partner] :[/b]
 Kurozuka 05 HD
 Mahou Shoujo Lyrical Nanoha Strikers 17");
 			$news->setCommentId(22);
@@ -2642,21 +2642,21 @@ Mahou Shoujo Lyrical Nanoha Strikers 17");
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Joyeuses fêtes !");
+			$news->setTitle("Joyeuses fÃªtes !");
 			$news->setTimestamp(strtotime("26 December 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setMessage("[img=images/news/noel0.jpg]merry christmas ore no imouto[/img]
 
-Une autre année se termine, mais ne vous en faite pas, nous on continue ! Même si on semble être au point mort, ça s'active dans les coulisses. Ne perdez pas espoir, vos commentaires ne sont pas tombés aux oubliettes !
+Une autre annÃ©e se termine, mais ne vous en faite pas, nous on continue ! MÃªme si on semble Ãªtre au point mort, Ã§a s'active dans les coulisses. Ne perdez pas espoir, vos commentaires ne sont pas tombÃ©s aux oubliettes !
 
-Toute l'équipe de Zéro Fansub vous souhaite de joyeuses fêtes de fin d'année et espère vous retrouver l'année prochaine pour de nouvelles séries ! N'hésitez pas à passer sur le forum pour nous soutenir !
+Toute l'Ã©quipe de ZÃ©ro Fansub vous souhaite de joyeuses fÃªtes de fin d'annÃ©e et espÃ¨re vous retrouver l'annÃ©e prochaine pour de nouvelles sÃ©ries ! N'hÃ©sitez pas Ã  passer sur le forum pour nous soutenir !
 
 
 [img=images/news/noel1.jpg]merry christmas ore no imouto[/img]
 
 [img=images/news/noel2.jpg]merry christmas ika musume[/img]
 
-PS : Le projet Canaan est licencié par Kaze. Le dvd de l'integrale est déjà disponible en pré-order !
+PS : Le projet Canaan est licenciÃ© par Kaze. Le dvd de l'integrale est dÃ©jÃ  disponible en prÃ©-order !
 
 [img=images/news/dvdcanaan.jpg]DVD canaan buy pre-order kaze[/img]");
 			$news->setCommentId(250);
@@ -2673,21 +2673,21 @@ PS : Le projet Canaan est licencié par Kaze. Le dvd de l'integrale est déjà disp
 			$news->setTimestamp(strtotime("30 June 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Pour ceux qui ne seraient pas au courant, 
-il est possible de recevoir un mail à chaque fois q'une \"news\" (sorties ou autre) apparait sur le site.
-Pour bénéficier de ce service et être les premier au courant, il suffit de vous inscrire sur le forum :
+il est possible de recevoir un mail Ã  chaque fois q'une \"news\" (sorties ou autre) apparait sur le site.
+Pour bÃ©nÃ©ficier de ce service et Ãªtre les premier au courant, il suffit de vous inscrire sur le forum :
 [url=http://forum.zerofansub.net/profile.php?mode=register&agreed=true]S'inscrire ![/url]
 
 [left][list]
-[item]Vous n'êtes pas obligés d'être un membre actif du forum pour la recevoir.[/item]
-[item]Nous ne divulgons votre adresse e-mail à personne.[/item]
-[item]À tout moment, vous pouvez arrêter votre abonnement (lien en bas des newsletter).[/item]
+[item]Vous n'Ãªtes pas obligÃ©s d'Ãªtre un membre actif du forum pour la recevoir.[/item]
+[item]Nous ne divulgons votre adresse e-mail Ã  personne.[/item]
+[item]Ã€ tout moment, vous pouvez arrÃªter votre abonnement (lien en bas des newsletter).[/item]
 [item]Nous ne vous envoyons rien de plus que nos news : pas de spams, de pubs, etc.[/item]
 [/list][/left]
 
-Pour les habitués des flux RSS, vous pouvez aussi suivre nos news :
+Pour les habituÃ©s des flux RSS, vous pouvez aussi suivre nos news :
 [url=http://zerofansub.feedxs.com/zero.rss]Flux RSS[/url]
 
-[img=images/news/newsletters.jpg]Newsletter Zéro fansub[/img]");
+[img=images/news/newsletters.jpg]Newsletter ZÃ©ro fansub[/img]");
 			$news->setCommentId(235);
 			$news->setTeamNews(true);
 			$news->setDisplayInNormalMode(true);
@@ -2697,54 +2697,54 @@ Pour les habitués des flux RSS, vous pouvez aussi suivre nos news :
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("L'école du fansub + Mayoi Neko Overrun!");
+			$news->setTitle("L'Ã©cole du fansub + Mayoi Neko Overrun!");
 			$news->setTimestamp(strtotime("22 April 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/ecolelogo.png][/img]
 
-Suite au succès inattendu de la précédente news, nous avons décider d'ouvrir une séction spéciale dans Zéro fansub : L'école du fansub.
+Suite au succÃ¨s inattendu de la prÃ©cÃ©dente news, nous avons dÃ©cider d'ouvrir une sÃ©ction spÃ©ciale dans ZÃ©ro fansub : L'Ã©cole du fansub.
 
 [left][b]Le Concept[/b]
-Donner les moyens à des personnes motivées mais n'ayant aucune éxpérience en fansub d'entrer dans une équipe en les formant depuis la base.
+Donner les moyens Ã  des personnes motivÃ©es mais n'ayant aucune Ã©xpÃ©rience en fansub d'entrer dans une Ã©quipe en les formant depuis la base.
 
-[b]Comment ça marche ?[/b]
-Parce que la pratique vaut mieux que la simple théorie, on vous demandera d'effectuer des exercices et activités concrètes qui seront tout de suite utilisés pour l'équipe. Il y aura des tâches à faire avec des dates de rendus (assez flexibles) et vous ne serez jamais seuls puisqu'une section \"salle des profs\" vous permet de poser toutes les questions que vous voulez aux membres de l'équipe.
+[b]Comment Ã§a marche ?[/b]
+Parce que la pratique vaut mieux que la simple thÃ©orie, on vous demandera d'effectuer des exercices et activitÃ©s concrÃ¨tes qui seront tout de suite utilisÃ©s pour l'Ã©quipe. Il y aura des tÃ¢ches Ã  faire avec des dates de rendus (assez flexibles) et vous ne serez jamais seuls puisqu'une section \"salle des profs\" vous permet de poser toutes les questions que vous voulez aux membres de l'Ã©quipe.
 
-[b]Quelles sont les qualités requises ?[/b]
-- Être très motivé
-- Être disponible
-- Être patient
-- Avoir envie de découvrir les coulisses du fansub
+[b]Quelles sont les qualitÃ©s requises ?[/b]
+- ÃŠtre trÃ¨s motivÃ©
+- ÃŠtre disponible
+- ÃŠtre patient
+- Avoir envie de dÃ©couvrir les coulisses du fansub
 - Avoir la soif d'apprendre
-- Être prêt à effectuer des taches pas très amusantes pour commencer
-- N'avoir pas ou peu d'éxpérience en fansub
+- ÃŠtre prÃªt Ã  effectuer des taches pas trÃ¨s amusantes pour commencer
+- N'avoir pas ou peu d'Ã©xpÃ©rience en fansub
 
-[b]Comment vais-je évoluer ?[/b]
-À chaque exercice rendu, le prof de la matière vous donnera une note basée sur des critères précis avec des bonus et des malus ainsi qu'un commentaire. Vous saurez ainsi apprendre de vos erreurs pour progresser.
+[b]Comment vais-je Ã©voluer ?[/b]
+Ã€ chaque exercice rendu, le prof de la matiÃ¨re vous donnera une note basÃ©e sur des critÃ¨res prÃ©cis avec des bonus et des malus ainsi qu'un commentaire. Vous saurez ainsi apprendre de vos erreurs pour progresser.
 
-[b]Quelles sont les matières enseignées et par qui ?[/b]
-Actuellement, nous enseignons dans notre école :
+[b]Quelles sont les matiÃ¨res enseignÃ©es et par qui ?[/b]
+Actuellement, nous enseignons dans notre Ã©cole :
 [list]
-[item]Utilisation du logiciel Aegisub pour le timing, l'édition, ect - db0[/item]
-[item]Apprentissage du langage ASS pour l'édition, le karaoké, ect - db0[/item]
-[item]Programmation orientée web, XHTML/CSS/PHP - db0, Sazaju[/item]
+[item]Utilisation du logiciel Aegisub pour le timing, l'Ã©dition, ect - db0[/item]
+[item]Apprentissage du langage ASS pour l'Ã©dition, le karaokÃ©, ect - db0[/item]
+[item]Programmation orientÃ©e web, XHTML/CSS/PHP - db0, Sazaju[/item]
 [item]Programmation en tout genre - db0, Sazaju[/item]
-[item]Cours de langue, Japonais écrit et oral - Sazaju[/item]
+[item]Cours de langue, Japonais Ã©crit et oral - Sazaju[/item]
 [item]Cours de langue, Anglais - TchO, praia[/item]
-[item]Français écrit, grammaire orthographe - TchO, praia[/item]
+[item]FranÃ§ais Ã©crit, grammaire orthographe - TchO, praia[/item]
 [item]Scantraduction, photoshop & co - db0[/item]
 [/list]
-Par la suite seront enseignés l'encodage vidéo et l'utilisation du logiciel After Effect pour les effets vidéos.
+Par la suite seront enseignÃ©s l'encodage vidÃ©o et l'utilisation du logiciel After Effect pour les effets vidÃ©os.
 
 [b]Comment y entrer ?[/b]
 [/left]
-Déjà 11 personnes qui ont postulée pour entrer à l'école du fansub, dont 7 qui y sont entrées.
+DÃ©jÃ  11 personnes qui ont postulÃ©e pour entrer Ã  l'Ã©cole du fansub, dont 7 qui y sont entrÃ©es.
 Et vous ?
 ~ [url=http://forum.zerofansub.net/t981-Comment-entrer-dans-l-ecole-du-fansub.htm]Postuler[/url] ~
 
-À l'occasion de l'ouverture de cette école pas comme les autres, nous commencons une série :
+Ã€ l'occasion de l'ouverture de cette Ã©cole pas comme les autres, nous commencons une sÃ©rie :
 Mayoi Neko Overrun!
-qui sera entièrement fansubbée par les élèves de l'école du fansub épaulés par leurs professeurs.
+qui sera entiÃ¨rement fansubbÃ©e par les Ã©lÃ¨ves de l'Ã©cole du fansub Ã©paulÃ©s par leurs professeurs.
 
 [img=images/news/newsmayoi.jpg][/img]");
 			$news->setCommentId(226);
@@ -2761,25 +2761,25 @@ qui sera entièrement fansubbée par les élèves de l'école du fansub épaulés par l
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/newsrecru.png][/img]
 Bonjour tout le monde !
-Actuellement, nous recherchons quelqu'un qui n'a aucune conaissance ni éxpérience en fansub pour rejoindre nos rangs.
-Au départ, pour effectuer des tâches très simples qui nous permettrons d'aller plus vite dans nos sorties, et petit à petit d'apprendre les différents domaines du fansub à nos côtés.
-Vous devez pour ça être très motivé, avoir envie de découvrir les coulisses du fansub, être présent et actif parmi nous, avoir la soif d'apprendre et être prêt à faire des tâches pas forcément très amusantes pour commencer.
-Fiche à remplir :
+Actuellement, nous recherchons quelqu'un qui n'a aucune conaissance ni Ã©xpÃ©rience en fansub pour rejoindre nos rangs.
+Au dÃ©part, pour effectuer des tÃ¢ches trÃ¨s simples qui nous permettrons d'aller plus vite dans nos sorties, et petit Ã  petit d'apprendre les diffÃ©rents domaines du fansub Ã  nos cÃ´tÃ©s.
+Vous devez pour Ã§a Ãªtre trÃ¨s motivÃ©, avoir envie de dÃ©couvrir les coulisses du fansub, Ãªtre prÃ©sent et actif parmi nous, avoir la soif d'apprendre et Ãªtre prÃªt Ã  faire des tÃ¢ches pas forcÃ©ment trÃ¨s amusantes pour commencer.
+Fiche Ã  remplir :
 
-[b]Rôle[/b] Novice
-[b]Prénom[/b] REMPLIR
-[b]Âge[/b] REMPLIR
+[b]RÃ´le[/b] Novice
+[b]PrÃ©nom[/b] REMPLIR
+[b]Ã‚ge[/b] REMPLIR
 [b]Lieu[/b] REMPLIR
 [b]Motivation[/b] REMPLIR
-[b]Expérience fansub[/b] REMPLIR
-[b]Expérience hors fansub[/b] REMPLIR
-[b]CDI ou CDD (durée) ? [/b] CDI
-[b]Disponibilités[/b] REMPLIR
-[b]Déjà membres d'autre équipe ?[/b] REMPLIR
+[b]ExpÃ©rience fansub[/b] REMPLIR
+[b]ExpÃ©rience hors fansub[/b] REMPLIR
+[b]CDI ou CDD (durÃ©e) ? [/b] CDI
+[b]DisponibilitÃ©s[/b] REMPLIR
+[b]DÃ©jÃ  membres d'autre Ã©quipe ?[/b] REMPLIR
 [b]Si oui, lesquelles ?[/b] REMPLIR
 [b]Connexion internet[/b] REMPLIR
-[b]Systéme d'exploitation[/b] REMPLIR
-[b]Autre chose à dire ?[/b] REMPLIR");
+[b]SystÃ©me d'exploitation[/b] REMPLIR
+[b]Autre chose Ã  dire ?[/b] REMPLIR");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
@@ -2788,32 +2788,32 @@ Fiche à remplir :
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Sondage : Vos séries préférées, les résultats");
+			$news->setTitle("Sondage : Vos sÃ©ries prÃ©fÃ©rÃ©es, les rÃ©sultats");
 			$news->setTimestamp(strtotime("31 March 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/sondageres.png][/img]
-Nous vous avons laissé 5 jours pour répondre au sondage et le nombre de participants nous a positivement étonné, étant donné que le nombre de visiteurs est en baisse comparé à l'an dernier.
-Vous avez été 24 personnes à participer et à défendre votre série préférée.
-Les votes ont été comptabilisés de la manière suivante : Une série en première place vaut 5 points, deuxième 4, troisème 3, quatrième 2 et cinquième 1. Si vous n'avez voté que pour une série, vous lui avez donné 5 points. J'ai vérifié rapidement les adresses IP et il n'y a pas eu d'abérances donc je considère que personne n'a triché.
-Sans plus attendre, les résultats :
+Nous vous avons laissÃ© 5 jours pour rÃ©pondre au sondage et le nombre de participants nous a positivement Ã©tonnÃ©, Ã©tant donnÃ© que le nombre de visiteurs est en baisse comparÃ© Ã  l'an dernier.
+Vous avez Ã©tÃ© 24 personnes Ã  participer et Ã  dÃ©fendre votre sÃ©rie prÃ©fÃ©rÃ©e.
+Les votes ont Ã©tÃ© comptabilisÃ©s de la maniÃ¨re suivante : Une sÃ©rie en premiÃ¨re place vaut 5 points, deuxiÃ¨me 4, troisÃ¨me 3, quatriÃ¨me 2 et cinquiÃ¨me 1. Si vous n'avez votÃ© que pour une sÃ©rie, vous lui avez donnÃ© 5 points. J'ai vÃ©rifiÃ© rapidement les adresses IP et il n'y a pas eu d'abÃ©rances donc je considÃ¨re que personne n'a trichÃ©.
+Sans plus attendre, les rÃ©sultats :
 [project=image]kissxsis[/project]
-KissXsis, OAV3 et série avec 51 points. La série bennéficiera donc du mode Toradora! dès sa sortie. Pour ceux qui ne conaissent pas le mode Toradora!, c'est le nom que la team donne aux séries dont les épisodes sortent moins d'une semaine après la vosta.
+KissXsis, OAV3 et sÃ©rie avec 51 points. La sÃ©rie bennÃ©ficiera donc du mode Toradora! dÃ¨s sa sortie. Pour ceux qui ne conaissent pas le mode Toradora!, c'est le nom que la team donne aux sÃ©ries dont les Ã©pisodes sortent moins d'une semaine aprÃ¨s la vosta.
 [project=image]kujibiki[/project]
-En seconde place, Kujibiki Unbalance 2 avec 44 points. Pour être honnêtes, nous nous attendions à avoir Kanamemo en seconde place. Ceci nous montre que beaucoup de leechers foncent sur la première sortie d'une série, et si Kujibiki Unbalance avait été fait par une autre team plus rapide, elle n'aurait sûrement pas cette place-là. Déçus, mais nous nous doutions bien que la plupart des gens préférent la rapidité à la qualité.
+En seconde place, Kujibiki Unbalance 2 avec 44 points. Pour Ãªtre honnÃªtes, nous nous attendions Ã  avoir Kanamemo en seconde place. Ceci nous montre que beaucoup de leechers foncent sur la premiÃ¨re sortie d'une sÃ©rie, et si Kujibiki Unbalance avait Ã©tÃ© fait par une autre team plus rapide, elle n'aurait sÃ»rement pas cette place-lÃ . DÃ©Ã§us, mais nous nous doutions bien que la plupart des gens prÃ©fÃ©rent la rapiditÃ© Ã  la qualitÃ©.
 [project=image]kimikiss[/project]
-Kimikiss Pure Rouge, avec 28 points. Ici, c'est l'étonnement inverse. Une série pour laquelle nos épisodes sont tous à refaire dû à leurs médiocrité (des v2 dont prévus pour les épisodes 1 à 6) et terminée chez plusieurs autres teams. Nous sommes dans l'incompréhension, mais ça nous fait plaisir de voir qu'on attends cette série de nous :)
+Kimikiss Pure Rouge, avec 28 points. Ici, c'est l'Ã©tonnement inverse. Une sÃ©rie pour laquelle nos Ã©pisodes sont tous Ã  refaire dÃ» Ã  leurs mÃ©diocritÃ© (des v2 dont prÃ©vus pour les Ã©pisodes 1 Ã  6) et terminÃ©e chez plusieurs autres teams. Nous sommes dans l'incomprÃ©hension, mais Ã§a nous fait plaisir de voir qu'on attends cette sÃ©rie de nous :)
 [project=image]kannagi[/project]
-Kannagi remporte 27 points. Nous n'avons pas encore sortis d'épisodes pour cette série malgré qu'ils soient presque tous terminés car nous pensions que cette série n'aurait pas beaucoup de succès. Une quatrième place, c'est pas mal, il va falloir qu'on s'y mette.
+Kannagi remporte 27 points. Nous n'avons pas encore sortis d'Ã©pisodes pour cette sÃ©rie malgrÃ© qu'ils soient presque tous terminÃ©s car nous pensions que cette sÃ©rie n'aurait pas beaucoup de succÃ¨s. Une quatriÃ¨me place, c'est pas mal, il va falloir qu'on s'y mette.
 [project=image]kanamemo[/project]
-Kanamemo avec 23 points. Grosse décéption pour une série que nous mettions en priorité sur les autres avant ce sondage. Nous soupçonnons nos fans de préférer nos concurrents pour une série qui reflète pourtant l'état d'esprit de notre équipe.
+Kanamemo avec 23 points. Grosse dÃ©cÃ©ption pour une sÃ©rie que nous mettions en prioritÃ© sur les autres avant ce sondage. Nous soupÃ§onnons nos fans de prÃ©fÃ©rer nos concurrents pour une sÃ©rie qui reflÃ¨te pourtant l'Ã©tat d'esprit de notre Ã©quipe.
 [project=image]hitohira[/project]
-Hitohira avec 17 points. Rien d'étonnant, nous savions que cette série n'avait pas beaucoup de succès.
+Hitohira avec 17 points. Rien d'Ã©tonnant, nous savions que cette sÃ©rie n'avait pas beaucoup de succÃ¨s.
 [project=image]potemayo[/project]
-Potemayo avec 9 points. Un tout petit peu déçu mais pas étonnés pour autant. La série est un peu niaise, mais moi je l'aime beaucoup ^^
+Potemayo avec 9 points. Un tout petit peu dÃ©Ã§u mais pas Ã©tonnÃ©s pour autant. La sÃ©rie est un peu niaise, mais moi je l'aime beaucoup ^^
 [project=image]hshiyo[/project]
-En bon dernier, Issho ni H shiyo avec 5 points (un seul vote). Et pourtant, les statistiques sont claires, ce sont les hentaïs qui nous rapportent le plus de visiteurs, les épisodes sont beaucoup plus téléchargés en ddl et ce sont les torrents hentaïs qui sont le plus seedés. Au niveau popularité, nous savons que ce sont de loins les hentaïs qui l'emportent, mais nous savons aussi que ce sont les fans de hentaïs qui sont le moins verbeux. Tant pis pour eux ! Nous prendrons en compte les résultats de ce sondage.
+En bon dernier, Issho ni H shiyo avec 5 points (un seul vote). Et pourtant, les statistiques sont claires, ce sont les hentaÃ¯s qui nous rapportent le plus de visiteurs, les Ã©pisodes sont beaucoup plus tÃ©lÃ©chargÃ©s en ddl et ce sont les torrents hentaÃ¯s qui sont le plus seedÃ©s. Au niveau popularitÃ©, nous savons que ce sont de loins les hentaÃ¯s qui l'emportent, mais nous savons aussi que ce sont les fans de hentaÃ¯s qui sont le moins verbeux. Tant pis pour eux ! Nous prendrons en compte les rÃ©sultats de ce sondage.
 
-Encore merci à tous d'avoir voté ! À bientôt pour les sorties très prochaines de Kujian et Issho ni H shiyo !");
+Encore merci Ã  tous d'avoir votÃ© ! Ã€ bientÃ´t pour les sorties trÃ¨s prochaines de Kujian et Issho ni H shiyo !");
 			$news->setCommentId(218);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -2823,21 +2823,21 @@ Encore merci à tous d'avoir voté ! À bientôt pour les sorties très prochaines de
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Sondage : Quelles sont vos séries préférées ?");
+			$news->setTitle("Sondage : Quelles sont vos sÃ©ries prÃ©fÃ©rÃ©es ?");
 			$news->setTimestamp(strtotime("26 March 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/newssondage.png[/img]
-Vous commencez à nous connaître !
+Vous commencez Ã  nous connaÃ®tre !
 Du moins, si vous lisez nos news un peu longues.
-Je résume.
-L'état d'esprit Zéro est simple : Nous ne faisons pas du fansub pour nous, pour faire plaisir à nous-mêmes, mais pour promouvoir l'animation japonaise, permettre l'accessibilité aus francophones aux séries qu'ils ne peuvent pas trouver (en France), et nous respectons le fameux slogan \"Par des fans, pour des fans.\".
+Je rÃ©sume.
+L'Ã©tat d'esprit ZÃ©ro est simple : Nous ne faisons pas du fansub pour nous, pour faire plaisir Ã  nous-mÃªmes, mais pour promouvoir l'animation japonaise, permettre l'accessibilitÃ© aus francophones aux sÃ©ries qu'ils ne peuvent pas trouver (en France), et nous respectons le fameux slogan \"Par des fans, pour des fans.\".
 Oui, mes amis !
-Ce que l'équipe Zéro fait, du simple sous-titrage à la recherche de qualité, c'est pour vous tous, et uniquement pour vous que nous le faisons.
-C'est la raison pour laquelle j'ai décidé aujourd'hui d'effectuer un sondage pour répondre au mieux à vos attentes.
-[b]Quelles sont vos séries préférées, parmi celles que nous sous-titrons ? Lesquelles attendez-vous avec le plus d'impatience ?[/b]
-Pour y répondre, c'est très simple, il suffit de poster un commentaire avec soit une liste, soit un argumentaire, bref, ce que vous voulez pour défendre vos séries préférées.
-À l'issue de ce sondage, nous vous annoncerons les résultats, et les séries les plus attendues seront mises en priorité dans notre travail pour toujours mieux vous satisfaire.
-J'éspère que vous serez nombreux à nous donner votre avis !
+Ce que l'Ã©quipe ZÃ©ro fait, du simple sous-titrage Ã  la recherche de qualitÃ©, c'est pour vous tous, et uniquement pour vous que nous le faisons.
+C'est la raison pour laquelle j'ai dÃ©cidÃ© aujourd'hui d'effectuer un sondage pour rÃ©pondre au mieux Ã  vos attentes.
+[b]Quelles sont vos sÃ©ries prÃ©fÃ©rÃ©es, parmi celles que nous sous-titrons ? Lesquelles attendez-vous avec le plus d'impatience ?[/b]
+Pour y rÃ©pondre, c'est trÃ¨s simple, il suffit de poster un commentaire avec soit une liste, soit un argumentaire, bref, ce que vous voulez pour dÃ©fendre vos sÃ©ries prÃ©fÃ©rÃ©es.
+Ã€ l'issue de ce sondage, nous vous annoncerons les rÃ©sultats, et les sÃ©ries les plus attendues seront mises en prioritÃ© dans notre travail pour toujours mieux vous satisfaire.
+J'Ã©spÃ¨re que vous serez nombreux Ã  nous donner votre avis !
 
 [project=image]hitohira[/project]
 
@@ -2865,9 +2865,9 @@ J'éspère que vous serez nombreux à nous donner votre avis !
 			$news->setTimestamp(strtotime("09 February 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/seedep.png[/img]
-Après une très longue pause, notre tracker torrent est de retour ! Tarf a repris les rênes et nos épisodes ne devraient pas tarder à être disponibles en torrent.
-Oui, mais pour qu'il marche jusqu'au bout, il nous faut du monde qui soit là, prêt à sacrifier un peu de leur connexion pour partager avec Tarf nos épisodes.
-Si vous êtes interessé pour devenir seeder de la team, cliquez sur le lien de postulat ci-dessous. Nous éspérons que vous serez nombreux à nous aider !
+AprÃ¨s une trÃ¨s longue pause, notre tracker torrent est de retour ! Tarf a repris les rÃªnes et nos Ã©pisodes ne devraient pas tarder Ã  Ãªtre disponibles en torrent.
+Oui, mais pour qu'il marche jusqu'au bout, il nous faut du monde qui soit lÃ , prÃªt Ã  sacrifier un peu de leur connexion pour partager avec Tarf nos Ã©pisodes.
+Si vous Ãªtes interessÃ© pour devenir seeder de la team, cliquez sur le lien de postulat ci-dessous. Nous Ã©spÃ©rons que vous serez nombreux Ã  nous aider !
 
 
 ~ [url=http://forum.zerofansub.net/posting.php?mode=newtopic&f=21]Postuler en tant que seeder[/url] ~");
@@ -2879,18 +2879,18 @@ Si vous êtes interessé pour devenir seeder de la team, cliquez sur le lien de po
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Konshinkai fansub, la réunion des amateurs de fansub français");
+			$news->setTitle("Konshinkai fansub, la rÃ©union des amateurs de fansub franÃ§ais");
 			$news->setTimestamp(strtotime("17 January 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("Le rendez-vous est fixé pour la prochaine convention : Paris manga.
-C'est donc le 6 Février.
-On reste sur le même restaurant qu'à Konshinkai 1, un petit restaurant Jap' très sympathique et pas très cher près de Charle de Gaulle étoile. Toutes les infos pour s'y rendre sont sur le site partie \"Rendez-vous\".
+			$news->setMessage("Le rendez-vous est fixÃ© pour la prochaine convention : Paris manga.
+C'est donc le 6 FÃ©vrier.
+On reste sur le mÃªme restaurant qu'Ã  Konshinkai 1, un petit restaurant Jap' trÃ¨s sympathique et pas trÃ¨s cher prÃ¨s de Charle de Gaulle Ã©toile. Toutes les infos pour s'y rendre sont sur le site partie \"Rendez-vous\".
 
-Pour ceux qui ne conaissent pas encore Konshinkai, c'est une réunion de fansubbeurs et d'amateurs de fansub français (comme vous êtes sûrement puisque vous êtes chez Zéro fansub ;))
+Pour ceux qui ne conaissent pas encore Konshinkai, c'est une rÃ©union de fansubbeurs et d'amateurs de fansub franÃ§ais (comme vous Ãªtes sÃ»rement puisque vous Ãªtes chez ZÃ©ro fansub ;))
 
-Dans un petit restaurant, nous discutons sans prise de tête et chacun expose ses points de vue dans une ambiance sympathique.
+Dans un petit restaurant, nous discutons sans prise de tÃªte et chacun expose ses points de vue dans une ambiance sympathique.
 
-Nous en sommes aujourd'hui à la troisième édition et les membres de Zéro risquent fort d'y être, donc si vous voulez les rencontrer mais aussi discuter ensemble de nos passions communes, nous vous attendons avec impatience !
+Nous en sommes aujourd'hui Ã  la troisiÃ¨me Ã©dition et les membres de ZÃ©ro risquent fort d'y Ãªtre, donc si vous voulez les rencontrer mais aussi discuter ensemble de nos passions communes, nous vous attendons avec impatience !
 
 Venez nombreux, parlez en autours de vous !
 
@@ -2907,19 +2907,19 @@ Venez nombreux, parlez en autours de vous !
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Joyeux Anniversaire ! Zéro a deux ans.");
+			$news->setTitle("Joyeux Anniversaire ! ZÃ©ro a deux ans.");
 			$news->setTimestamp(strtotime("18 December 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/anniv1.jpg][/img]
-Aujourd'hui est un grand jour pour Zéro et pour la db0 company ! Cela fait maintenant exactement deux ans que le groupe Zéro existe, donc j'en profite pour faire un petit résumé de ces deux années riches en evennements.
-db0 créer le site \"Zéro\", qui vient de la dernière lettre de son pseudo le 18 décembre 2007. Au départ, c'est un énième site de liens MU et torrent pour télécharger des animes. db0 rencontre ensuite Genesis et se met au fansub. Elle créait ensuite avec et grâce à cette équipe une nouvelle équipe de fansub qui prend la place de l'ancien site Zéro mais garde le design. Les débuts de Zéro sont difficiles. La formation fansub de db0 s'est en grande partie faite par Klick et le reste de l'équipe Genesis. D'autres membres ont ensuite rejoint l'équipe, dont praia qui deviendra par la suite le co-administrateur de l'équipe. Ryocu rejoint ensuite l'équipe en nous hebergant le site et les épisode en DirectDownload. L'équipe s'agrandit petit à petit, devient amie avec Maboroshi, Kanaii, Animekami, Moe, Kyoutsu, Sky, ect. db0 et Ryocu reprennent ensemble la db0 company et tout ses nombreux sites, dont Anime-ultime et Stream-Anime. Ces sites nous coûtent actuellement dans les environs de 300 à 350€ par mois, et nous 
-avons toujours beaucoup de mal à les financer. Un quatrième \"gros\" site devait ouvrir cet été mais est sans cesse repoussé pour des raisons financières. Stream-Anime a malheuresement fermé ses portes recemment, emportant avec lui ses plus de 5000 vidéos en streaming haute qualité. Malgré ce triste bilan financier, Zéro et la db0 company se porte plutôt bien. Zéro a désormais une équipe soudée et motivée qui ne risque pas de s'arrêter de si tôt. Pour plus d'informations sur la db0 company, un historique complet et détaillé est disponible sur le forum.
+Aujourd'hui est un grand jour pour ZÃ©ro et pour la db0 company ! Cela fait maintenant exactement deux ans que le groupe ZÃ©ro existe, donc j'en profite pour faire un petit rÃ©sumÃ© de ces deux annÃ©es riches en evennements.
+db0 crÃ©er le site \"ZÃ©ro\", qui vient de la derniÃ¨re lettre de son pseudo le 18 dÃ©cembre 2007. Au dÃ©part, c'est un Ã©niÃ¨me site de liens MU et torrent pour tÃ©lÃ©charger des animes. db0 rencontre ensuite Genesis et se met au fansub. Elle crÃ©ait ensuite avec et grÃ¢ce Ã  cette Ã©quipe une nouvelle Ã©quipe de fansub qui prend la place de l'ancien site ZÃ©ro mais garde le design. Les dÃ©buts de ZÃ©ro sont difficiles. La formation fansub de db0 s'est en grande partie faite par Klick et le reste de l'Ã©quipe Genesis. D'autres membres ont ensuite rejoint l'Ã©quipe, dont praia qui deviendra par la suite le co-administrateur de l'Ã©quipe. Ryocu rejoint ensuite l'Ã©quipe en nous hebergant le site et les Ã©pisode en DirectDownload. L'Ã©quipe s'agrandit petit Ã  petit, devient amie avec Maboroshi, Kanaii, Animekami, Moe, Kyoutsu, Sky, ect. db0 et Ryocu reprennent ensemble la db0 company et tout ses nombreux sites, dont Anime-ultime et Stream-Anime. Ces sites nous coÃ»tent actuellement dans les environs de 300 Ã  350Â€ par mois, et nous 
+avons toujours beaucoup de mal Ã  les financer. Un quatriÃ¨me \"gros\" site devait ouvrir cet Ã©tÃ© mais est sans cesse repoussÃ© pour des raisons financiÃ¨res. Stream-Anime a malheuresement fermÃ© ses portes recemment, emportant avec lui ses plus de 5000 vidÃ©os en streaming haute qualitÃ©. MalgrÃ© ce triste bilan financier, ZÃ©ro et la db0 company se porte plutÃ´t bien. ZÃ©ro a dÃ©sormais une Ã©quipe soudÃ©e et motivÃ©e qui ne risque pas de s'arrÃªter de si tÃ´t. Pour plus d'informations sur la db0 company, un historique complet et dÃ©taillÃ© est disponible sur le forum.
 
-Concernant les évennements à venir, un nouveau design de Zéro fansub et d'Anime-Ultime sont prévu. La db0 company devrait bientôt ouvrir un site et regrouper les communautés.
+Concernant les Ã©vennements Ã  venir, un nouveau design de ZÃ©ro fansub et d'Anime-Ultime sont prÃ©vu. La db0 company devrait bientÃ´t ouvrir un site et regrouper les communautÃ©s.
 
-Pour finir, je tenais à remercier toutes les personnes qui nous soutiennent. Financierement bien sûr, mais aussi avec les commentaires qui nous vont droit au coeur et qui nous donnent envie d'avancer. Sachez que Zéro a un état d'esprit qui s'éloigne beaucoup de celui des autres équipes de fansub. Nous ne faisons pas du fansub parce qu'on prend notre pied en sous-titrant des animes (oh oui encore plus de time plan, j'aime ça !), mais parce que nous sommes avant tout fans de l'animation japonaise et c'est avant tout pour vous, les fans comme nous, que nous sous-titrons des animes. C'est la raison pour laquelle nous sommes toujours à l'écoute de nos fans adorés, que nous tenons énormément compte des commentaires sur le site qui nous guident sur ce que nous fansubbons en priorité. C'est grâce à vous et surtout pour vous que nous existons. Votre soutien nous fait vivre et nous donne envie d'aller plus loin. Merci.
+Pour finir, je tenais Ã  remercier toutes les personnes qui nous soutiennent. Financierement bien sÃ»r, mais aussi avec les commentaires qui nous vont droit au coeur et qui nous donnent envie d'avancer. Sachez que ZÃ©ro a un Ã©tat d'esprit qui s'Ã©loigne beaucoup de celui des autres Ã©quipes de fansub. Nous ne faisons pas du fansub parce qu'on prend notre pied en sous-titrant des animes (oh oui encore plus de time plan, j'aime Ã§a !), mais parce que nous sommes avant tout fans de l'animation japonaise et c'est avant tout pour vous, les fans comme nous, que nous sous-titrons des animes. C'est la raison pour laquelle nous sommes toujours Ã  l'Ã©coute de nos fans adorÃ©s, que nous tenons Ã©normÃ©ment compte des commentaires sur le site qui nous guident sur ce que nous fansubbons en prioritÃ©. C'est grÃ¢ce Ã  vous et surtout pour vous que nous existons. Votre soutien nous fait vivre et nous donne envie d'aller plus loin. Merci.
 
-Et Bon Anniversaire Zéro ! 
+Et Bon Anniversaire ZÃ©ro ! 
 
 [img=images/news/anniv2.jpg][/img]");
 			$news->setCommentId(155);
@@ -2935,29 +2935,29 @@ Et Bon Anniversaire Zéro !
 			$news->setTimestamp(strtotime("10 December 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/edit.jpg][/img]
-J'ai toujours tenu depuis la création de l'équipe Zéro à m'occuper personnellement des edits des épisodes. On peut d'ailleurs voir l'évolution de mon niveau au fur et à mesure des épisodes :)  Cependant, aujourd'hui, Zéro connaît un réel ralentissement et j'en prend l'entière résponsabilité : ayant commencé mes études supérieures, j'ai bien moins de temps que ce que j'en avais à l'époque où j'étais lycéenne. J'ai donc décidé, avec certes quelques regrets, d'intégrer un nouveau membre dans l'équipe pour faire les edits à ma place.
+J'ai toujours tenu depuis la crÃ©ation de l'Ã©quipe ZÃ©ro Ã  m'occuper personnellement des edits des Ã©pisodes. On peut d'ailleurs voir l'Ã©volution de mon niveau au fur et Ã  mesure des Ã©pisodes :)  Cependant, aujourd'hui, ZÃ©ro connaÃ®t un rÃ©el ralentissement et j'en prend l'entiÃ¨re rÃ©sponsabilitÃ© : ayant commencÃ© mes Ã©tudes supÃ©rieures, j'ai bien moins de temps que ce que j'en avais Ã  l'Ã©poque oÃ¹ j'Ã©tais lycÃ©enne. J'ai donc dÃ©cidÃ©, avec certes quelques regrets, d'intÃ©grer un nouveau membre dans l'Ã©quipe pour faire les edits Ã  ma place.
 
-Nous recrutons donc un [b]éditeur ASS ou After Effect[/b] si possible expérimenté, ayant un minimum de capacités et de motivation. Si vous êtes interessés, postez un topic dans la partie recrutement du forum avec la fiche de renseignement suivante :
-[b]Rôle[/b] REMPLIR
-[b]Prénom[/b] REMPLIR
-[b]Âge[/b] REMPLIR
+Nous recrutons donc un [b]Ã©diteur ASS ou After Effect[/b] si possible expÃ©rimentÃ©, ayant un minimum de capacitÃ©s et de motivation. Si vous Ãªtes interessÃ©s, postez un topic dans la partie recrutement du forum avec la fiche de renseignement suivante :
+[b]RÃ´le[/b] REMPLIR
+[b]PrÃ©nom[/b] REMPLIR
+[b]Ã‚ge[/b] REMPLIR
 [b]Lieu[/b] REMPLIR
 [b]Motivation[/b] REMPLIR
-[b]Expérience fansub[/b] REMPLIR
-[b]Expérience hors fansub[/b] REMPLIR
-[b]CDI ou CDD (durée) ? [/b] REMPLIR
-[b]Disponibilités[/b] REMPLIR
-[b]Déjà membres d'autre équipe ?[/b] REMPLIR
+[b]ExpÃ©rience fansub[/b] REMPLIR
+[b]ExpÃ©rience hors fansub[/b] REMPLIR
+[b]CDI ou CDD (durÃ©e) ? [/b] REMPLIR
+[b]DisponibilitÃ©s[/b] REMPLIR
+[b]DÃ©jÃ  membres d'autre Ã©quipe ?[/b] REMPLIR
 [b]Si oui, lesquelles ?[/b] REMPLIR
 [b]Connexion internet[/b] REMPLIR
-[b]Systéme d'exploitation[/b] REMPLIR
-[b]Autre chose à dire ?[/b] REMPLIR
+[b]SystÃ©me d'exploitation[/b] REMPLIR
+[b]Autre chose Ã  dire ?[/b] REMPLIR
 
-Ainsi que le très important test de validation. Le test est le suivant :
-Réaliser l'edit du titre de début le plus ressemblant possible au titre de la série, à la différence qu'il ne doit pas y avoir écrit le titre de la série mais \"Zéro fansub\" ou \"Zéro fansub présente\". Ass ou After Effect. Vous pouvez nous envoyer : soit un script, soit une vidéo encodée ET un script. Au choix :
-- [url=ddl/RAW_Kanamemo/%5bZero-Raws%5d%20Kanamemo%20-%2001%20RAW%20(TVO%201280x720%20x264%20AAC%20Chap).mp4]Titre Kanamemo, à 01:03:60[/url] (mouvant obligatoire)
-- [url=ddl/RAW_KissXsis/Kiss%d7sis_OAD_2_Raw_Travail_ED_non_bobb%e9.avi]Titre KissXsis, à 02:03:12[/url] (immobile ou mouvant)
-J'éspère que vous serez nombreux à répondre à notre demande ! Merci à tous de suivre nos épisodes.");
+Ainsi que le trÃ¨s important test de validation. Le test est le suivant :
+RÃ©aliser l'edit du titre de dÃ©but le plus ressemblant possible au titre de la sÃ©rie, Ã  la diffÃ©rence qu'il ne doit pas y avoir Ã©crit le titre de la sÃ©rie mais \"ZÃ©ro fansub\" ou \"ZÃ©ro fansub prÃ©sente\". Ass ou After Effect. Vous pouvez nous envoyer : soit un script, soit une vidÃ©o encodÃ©e ET un script. Au choix :
+- [url=ddl/RAW_Kanamemo/%5bZero-Raws%5d%20Kanamemo%20-%2001%20RAW%20(TVO%201280x720%20x264%20AAC%20Chap).mp4]Titre Kanamemo, Ã  01:03:60[/url] (mouvant obligatoire)
+- [url=ddl/RAW_KissXsis/Kiss%d7sis_OAD_2_Raw_Travail_ED_non_bobb%e9.avi]Titre KissXsis, Ã  02:03:12[/url] (immobile ou mouvant)
+J'Ã©spÃ¨re que vous serez nombreux Ã  rÃ©pondre Ã  notre demande ! Merci Ã  tous de suivre nos Ã©pisodes.");
 			$news->setCommentId(154);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -2973,19 +2973,19 @@ J'éspère que vous serez nombreux à répondre à notre demande ! Merci à tous de su
 			$news->setMessage("[img=images/news/afkonsh.png][/img]
 Bonjour cher ami gentils amis leechers.
 
-\"Encore une nouvelle équipe de fansub ?\", vous allez vous dire, avec le titre de la news. Eh bien non ! \"Konshinkai\" signifie en japonais \"Réunion amicale\", et c'est exactement le but de notre projet.
+\"Encore une nouvelle Ã©quipe de fansub ?\", vous allez vous dire, avec le titre de la news. Eh bien non ! \"Konshinkai\" signifie en japonais \"RÃ©union amicale\", et c'est exactement le but de notre projet.
 
-Notre but est de réunir toutes les équipes de fansub française à une petite soirée pour discuter amicalement de notre passion commune : le fansub. Nous invitons donc toutes les personnes travaillant dans le fansub, et pas seulement les chefs d'équipes, toutes les personnes ayant déjà travaillé dans le fansub et les plus grands fans de cette activité à se réunir autours d'une table dans un restaurant japonais pour se rencontrer, échanger, discuter et s'amuser, sans aucune prise de tête.
+Notre but est de rÃ©unir toutes les Ã©quipes de fansub franÃ§aise Ã  une petite soirÃ©e pour discuter amicalement de notre passion commune : le fansub. Nous invitons donc toutes les personnes travaillant dans le fansub, et pas seulement les chefs d'Ã©quipes, toutes les personnes ayant dÃ©jÃ  travaillÃ© dans le fansub et les plus grands fans de cette activitÃ© Ã  se rÃ©unir autours d'une table dans un restaurant japonais pour se rencontrer, Ã©changer, discuter et s'amuser, sans aucune prise de tÃªte.
 
-L'évennement se déroule à Paris, et comme nous savons bien que tout le monde n'est pas apte à se déplacer librement sur Paris, nous avons décidé de le faire pendant les conventions parisiennes sur la jap'anime, puisque c'est à ce moment là que nos chers otaku ont tendance à se déplacer, se dégageant difficilement de leur chaise adorée bien calée devant leurs ordinateurs (je caricature, hein).
+L'Ã©vennement se dÃ©roule Ã  Paris, et comme nous savons bien que tout le monde n'est pas apte Ã  se dÃ©placer librement sur Paris, nous avons dÃ©cidÃ© de le faire pendant les conventions parisiennes sur la jap'anime, puisque c'est Ã  ce moment lÃ  que nos chers otaku ont tendance Ã  se dÃ©placer, se dÃ©gageant difficilement de leur chaise adorÃ©e bien calÃ©e devant leurs ordinateurs (je caricature, hein).
 
-Nous comptons renouveler l'évenemment pour plusieurs occasions, ésperant ainsi rencontrer un maximum de personnes ! Ne soyez pas timides, rejoignez-nous, venez nombreux !
+Nous comptons renouveler l'Ã©venemment pour plusieurs occasions, Ã©sperant ainsi rencontrer un maximum de personnes ! Ne soyez pas timides, rejoignez-nous, venez nombreux !
 
-[b]Prochaine rencontre : Samedi 30 octobre à 20h, pendant la Chibi Japan Expo. Venez nombreux ! Plus d'informations sur notre site : [url=http://konshinkai.c.la/]Konshinkai Site Officiel[/url][/b]
+[b]Prochaine rencontre : Samedi 30 octobre Ã  20h, pendant la Chibi Japan Expo. Venez nombreux ! Plus d'informations sur notre site : [url=http://konshinkai.c.la/]Konshinkai Site Officiel[/url][/b]
 [separator]
-L'équipe Konshinkai fansub, réunions amicales entre fansubbeurs français.
+L'Ã©quipe Konshinkai fansub, rÃ©unions amicales entre fansubbeurs franÃ§ais.
 
-P.S. : Nous vous serions très reconaissant de faire part de cette évenement autours de vous, aux membres de votre équipes, aux autres équipes, à vos amis fansubbeurs et pourquoi pas faire une news sur votre site officiel.");
+P.S. : Nous vous serions trÃ¨s reconaissant de faire part de cette Ã©venement autours de vous, aux membres de votre Ã©quipes, aux autres Ã©quipes, Ã  vos amis fansubbeurs et pourquoi pas faire une news sur votre site officiel.");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
@@ -2998,9 +2998,9 @@ P.S. : Nous vous serions très reconaissant de faire part de cette évenement auto
 			$news->setTimestamp(strtotime("01 September 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/parismanga.jpg[/img]
-Paris Manga est une petite convention se déroulant à Paris (logique) le 12 et 13 septembre à l'espace Champerret. Zéro y sera ! Donc n'hésitez pas à venir nous voir, on est gentil et on mord pas ^^ Et comme d'habitude, je participe aux concours cosplay. Venez m'encourager samedi à partir de 14h sur scéne en cosplay individuel et dimanche à partir de 14h en cosplay groupe avec un costume spécial Zéro fansub !
+Paris Manga est une petite convention se dÃ©roulant Ã  Paris (logique) le 12 et 13 septembre Ã  l'espace Champerret. ZÃ©ro y sera ! Donc n'hÃ©sitez pas Ã  venir nous voir, on est gentil et on mord pas ^^ Et comme d'habitude, je participe aux concours cosplay. Venez m'encourager samedi Ã  partir de 14h sur scÃ©ne en cosplay individuel et dimanche Ã  partir de 14h en cosplay groupe avec un costume spÃ©cial ZÃ©ro fansub !
 
-L'équipe de fansub n'est actuellement pas en mesure de vous proposer des sorties d'animes : L'encodeur Lepims est en vacances et dieu (db0) déménage.");
+L'Ã©quipe de fansub n'est actuellement pas en mesure de vous proposer des sorties d'animes : L'encodeur Lepims est en vacances et dieu (db0) dÃ©mÃ©nage.");
 			$news->setCommentId(119);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3014,9 +3014,9 @@ L'équipe de fansub n'est actuellement pas en mesure de vous proposer des sorties
 			$news->setTimestamp(strtotime("10 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/mermaid.jpg[/img]
-Nous avons été très étonné du succés qu'a eu notre demande de recrutement pour l'anime Hitohira et nous avons aujourd'hui un nouveau traducteur pour cette série : whatake.
-Aurons-nous autant de succés pour ce deuxième appel...? Je l'espère ! Mais avant cela, je vous vous expliquer la situation. Nous avons commencé la série Mermaid Melody Pichi Pichi Pitch en Vistfr et MnF l'a fait en Vostfr. Nous avons décidé d'abbandonner la série en Vistfr et de la continuer en Vostfr. 13 épisodes de cette série sont sortis. Vous pouvez télécharger l'épisode 01 ici : [url=http://www.megaupload.com/?d=ZZQNU3UZ]Episode 01[/url]
-Nous recherchons quelqu'un de motivé qui aime les animes magical girl pour continuer cette série avec nous ! N'hésitez pas à postuler ! Merci de votre aide.");
+Nous avons Ã©tÃ© trÃ¨s Ã©tonnÃ© du succÃ©s qu'a eu notre demande de recrutement pour l'anime Hitohira et nous avons aujourd'hui un nouveau traducteur pour cette sÃ©rie : whatake.
+Aurons-nous autant de succÃ©s pour ce deuxiÃ¨me appel...? Je l'espÃ¨re ! Mais avant cela, je vous vous expliquer la situation. Nous avons commencÃ© la sÃ©rie Mermaid Melody Pichi Pichi Pitch en Vistfr et MnF l'a fait en Vostfr. Nous avons dÃ©cidÃ© d'abbandonner la sÃ©rie en Vistfr et de la continuer en Vostfr. 13 Ã©pisodes de cette sÃ©rie sont sortis. Vous pouvez tÃ©lÃ©charger l'Ã©pisode 01 ici : [url=http://www.megaupload.com/?d=ZZQNU3UZ]Episode 01[/url]
+Nous recherchons quelqu'un de motivÃ© qui aime les animes magical girl pour continuer cette sÃ©rie avec nous ! N'hÃ©sitez pas Ã  postuler ! Merci de votre aide.");
 			$news->setCommentId(111);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -3026,15 +3026,15 @@ Nous recherchons quelqu'un de motivé qui aime les animes magical girl pour conti
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Infos Téléchargements");
+			$news->setTitle("Infos TÃ©lÃ©chargements");
 			$news->setTimestamp(strtotime("09 August 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("Depuis un incident de surcharge de téléchargements ayant fait planter toute la db0 company (anime-ultime, Zéro et tout les autres), nous avons décidé de limiter les téléchargements. Nous avons annoncé ça clairement, et pourtant, nous continuons à recevoir dans le topics des liens morts qui ne le sont pas. Donc aujourd'hui, j'insiste : Si vous êtes déjà en train de télécharger un épisode sur notre site, vous ne pourrez en telecharger un autre qu'après le premier téléchargement terminé ! Si le message suivant arrive :
+			$news->setMessage("Depuis un incident de surcharge de tÃ©lÃ©chargements ayant fait planter toute la db0 company (anime-ultime, ZÃ©ro et tout les autres), nous avons dÃ©cidÃ© de limiter les tÃ©lÃ©chargements. Nous avons annoncÃ© Ã§a clairement, et pourtant, nous continuons Ã  recevoir dans le topics des liens morts qui ne le sont pas. Donc aujourd'hui, j'insiste : Si vous Ãªtes dÃ©jÃ  en train de tÃ©lÃ©charger un Ã©pisode sur notre site, vous ne pourrez en telecharger un autre qu'aprÃ¨s le premier tÃ©lÃ©chargement terminÃ© ! Si le message suivant arrive :
 
 \"Service Temporarily Unavailable
 The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.\"
 
-Ne vous affolez pas : Attendez la fin de votre premier téléchargement. Il peut arriver que ce message arrive alors que vous n'êtes pas en train de télécharger. Dans ce cas, attendez 30 secondes puis actualisez la page à nouveau, et ceci jusqu'à ce que votre téléchargement se lance. Merci à tous !");
+Ne vous affolez pas : Attendez la fin de votre premier tÃ©lÃ©chargement. Il peut arriver que ce message arrive alors que vous n'Ãªtes pas en train de tÃ©lÃ©charger. Dans ce cas, attendez 30 secondes puis actualisez la page Ã  nouveau, et ceci jusqu'Ã  ce que votre tÃ©lÃ©chargement se lance. Merci Ã  tous !");
 			$news->setCommentId(110);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3048,16 +3048,16 @@ Ne vous affolez pas : Attendez la fin de votre premier téléchargement. Il peut a
 			$news->setTimestamp(strtotime("15 June 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-auto=images/news/japan10.jpg][/img-auto]
-Vous y allez ? Ça tombe bien, nous aussi !
-Pour s'y rencontrer, signalez-vous dans le topic dédié à cette convention sur le forum : [url]http://forum.zerofansub.net/t196-japan-expo-2009.htm[/url]
-Il y aura comme toujours la petite bande de chez Kanaii en plus de celle de chez Zéro.
-J'ai prévu plusieurs concours cosplay :
+Vous y allez ? Ã‡a tombe bien, nous aussi !
+Pour s'y rencontrer, signalez-vous dans le topic dÃ©diÃ© Ã  cette convention sur le forum : [url]http://forum.zerofansub.net/t196-japan-expo-2009.htm[/url]
+Il y aura comme toujours la petite bande de chez Kanaii en plus de celle de chez ZÃ©ro.
+J'ai prÃ©vu plusieurs concours cosplay :
 Cosplay Standart Jeudi 13h (Kodomo no Jikan)
-WCS Pré-selection Samedi 13h concours 15h (Surprise)
+WCS PrÃ©-selection Samedi 13h concours 15h (Surprise)
 Pen of Chaos Dimanche 13h (Dokuro-chan)
 Venez m'y voir ^^ Si vous voulez :)
 
-Rappel : La team est toujours en pause jusqu'à Juillet !");
+Rappel : La team est toujours en pause jusqu'Ã  Juillet !");
 			$news->setCommentId(96);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3070,12 +3070,12 @@ Rappel : La team est toujours en pause jusqu'à Juillet !");
 			$news->setTitle("[IRL] Epitanime 2009");
 			$news->setTimestamp(strtotime("06 June 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("C'était du 29 au 31 mai, et c'était un très grand evenement. Bien malheureux sont ceux qui l'ont ratés ! Et qui, surtout, on raté db-chan ! Oui, il faut le dire, le plus important à Epitanime, c'était elle :P Il fallait être là, car j'avais prévu pour tout les membres de la team Zéro mais aussi toutes les personnes qui viennent régulierement chez Zéro une petite surprise.
-Ce week-end, j'ai donc croisé Sazaju (notre traducteur), Ryocu, Guguganmo et des tas de copains-cosplayeurs dont je ne vous citerait pas le nom puisque vous ne les connaîtrez sûrement pas.
+			$news->setMessage("C'Ã©tait du 29 au 31 mai, et c'Ã©tait un trÃ¨s grand evenement. Bien malheureux sont ceux qui l'ont ratÃ©s ! Et qui, surtout, on ratÃ© db-chan ! Oui, il faut le dire, le plus important Ã  Epitanime, c'Ã©tait elle :P Il fallait Ãªtre lÃ , car j'avais prÃ©vu pour tout les membres de la team ZÃ©ro mais aussi toutes les personnes qui viennent rÃ©gulierement chez ZÃ©ro une petite surprise.
+Ce week-end, j'ai donc croisÃ© Sazaju (notre traducteur), Ryocu, Guguganmo et des tas de copains-cosplayeurs dont je ne vous citerait pas le nom puisque vous ne les connaÃ®trez sÃ»rement pas.
 
-J'ai participé au concours cosplay le samedi 30 mai à 12 heure. À vous de deviner quel personnage j'incarnait :
+J'ai participÃ© au concours cosplay le samedi 30 mai Ã  12 heure. Ã€ vous de deviner quel personnage j'incarnait :
 [img=images/news/cosplay01.jpg][/img]
-Vous ne trouvez pas ? Oui, je sais, c'est très difficile. Pour voir qui c'était, lisez la suite.
+Vous ne trouvez pas ? Oui, je sais, c'est trÃ¨s difficile. Pour voir qui c'Ã©tait, lisez la suite.
 
 [url=index.php?page=dossier&id=epitanime2009][img=images/interface/lirelasuite.png][ Lire la suite . . . ][/img][/url]");
 			$news->setCommentId(79);
@@ -3091,7 +3091,7 @@ Vous ne trouvez pas ? Oui, je sais, c'est très difficile. Pour voir qui c'était,
 			$news->setTimestamp(strtotime("19 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-auto]http://www.epita.fr/img/design/logos/epitanime-logo.jpg[/img-auto]
-Date à retenir : 29-30-31 mai 2009 ! Durant ses trois jours se dérouleront un évenement de taille : la 17éme édition de l'Epitanime ! Une des meilleures conventions et des plus vieilles. Plus pratique pour les parisiens puisqu'elle se déroule au Kremlin-Bicêtre (Porte d'Italie). Si vous avez la possibilité de vous y rendre, faites-le ! db-chan vous y attendra ^^");
+Date Ã  retenir : 29-30-31 mai 2009 ! Durant ses trois jours se dÃ©rouleront un Ã©venement de taille : la 17Ã©me Ã©dition de l'Epitanime ! Une des meilleures conventions et des plus vieilles. Plus pratique pour les parisiens puisqu'elle se dÃ©roule au Kremlin-BicÃªtre (Porte d'Italie). Si vous avez la possibilitÃ© de vous y rendre, faites-le ! db-chan vous y attendra ^^");
 			$news->setCommentId(525);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3107,7 +3107,7 @@ Date à retenir : 29-30-31 mai 2009 ! Durant ses trois jours se dérouleront un év
 			$news->setMessage("[img-right]images/news/favoris.png[/img-right]
 Le forum change d'adresse : 
 [size=22px][url]http://forum.zerofansub.net[/url][/size]
-Faites comme Mario, mettez à jour vos favoris !");
+Faites comme Mario, mettez Ã  jour vos favoris !");
 			$news->setCommentId(588);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3121,9 +3121,9 @@ Faites comme Mario, mettez à jour vos favoris !");
 			$news->setTimestamp(strtotime("17 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[url=http://melbaland.free.fr/][img=http://img8.imageshack.us/img8/6162/bannirepapyo.jpg][/img][/url]
-Papy Al, QC de la petite équipe, a sorti hier soir le premier épisode de sa saga mp3. [url=http://melbaland.free.fr/]Pour l'écouter, c'est par ici ![/url]
+Papy Al, QC de la petite Ã©quipe, a sorti hier soir le premier Ã©pisode de sa saga mp3. [url=http://melbaland.free.fr/]Pour l'Ã©couter, c'est par ici ![/url]
 
-Vous ne le savez peut-être pas, mais Zéro envoie à chaque news une newsletter ! Pour la recevoir, il suffit de s'inscrire sur le forum. Il n'est pas demandé de participer ni quoi que ce soit.");
+Vous ne le savez peut-Ãªtre pas, mais ZÃ©ro envoie Ã  chaque news une newsletter ! Pour la recevoir, il suffit de s'inscrire sur le forum. Il n'est pas demandÃ© de participer ni quoi que ce soit.");
 			$news->setCommentId(73);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3137,17 +3137,17 @@ Vous ne le savez peut-être pas, mais Zéro envoie à chaque news une newsletter ! 
 			$news->setTimestamp(strtotime("11 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/merci.jpg][/img]
-Toute l'équipe Zéro fansub et toute la db0 company (Anime-Ultime, Stream-Anime, Zéro, Kojikan, ect) tient à remercier chalereusement les personnes suivantes pour leurs réponses à notre appel à l'aide :
-Hervé (14€)
-Nicolas (10€)
-Guillaume (5€)
-Fabrice (20€)
-Luc (10€)
-Julien (40€)
-Bkdenice (15€)
-Pascal (10€)
-Mathieu (25€)
-Ces sommes ne nous permettent certes pas de nous sortir de nos problèmes d'argent actuels, mais nous aident énormément à remonter peu à peu la pente ! Nous reprenons du courage et la force de continuer à tenir en forme les sites de la db0 company. Encore une fois, merci.
+Toute l'Ã©quipe ZÃ©ro fansub et toute la db0 company (Anime-Ultime, Stream-Anime, ZÃ©ro, Kojikan, ect) tient Ã  remercier chalereusement les personnes suivantes pour leurs rÃ©ponses Ã  notre appel Ã  l'aide :
+HervÃ© (14Â€)
+Nicolas (10Â€)
+Guillaume (5Â€)
+Fabrice (20Â€)
+Luc (10Â€)
+Julien (40Â€)
+Bkdenice (15Â€)
+Pascal (10Â€)
+Mathieu (25Â€)
+Ces sommes ne nous permettent certes pas de nous sortir de nos problÃ¨mes d'argent actuels, mais nous aident Ã©normÃ©ment Ã  remonter peu Ã  peu la pente ! Nous reprenons du courage et la force de continuer Ã  tenir en forme les sites de la db0 company. Encore une fois, merci.
 //Ryocu et db0");
 			$news->setCommentId(71);
 			$news->setDisplayInNormalMode(true);
@@ -3161,7 +3161,7 @@ Ces sommes ne nous permettent certes pas de nous sortir de nos problèmes d'argen
 			$news->setTitle("C'est la crise !");
 			$news->setTimestamp(strtotime("01 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("C'est la crise pour tout le monde, et même pour nous. Nous n'arrivons plus à payer nos serveurs... On ajoute des publicités et on vous sollicite pour des dons, mais rien ne s'améliore. Depuis le début de Zéro, et sur tout les sites de la db0 company, nous n'avons reçu que 14 € de dons et 75 € de publicités. Sachant qu'il nous a fallut environ 80 € (en tout depuis que Zéro existe) pour l'association humanitaire que Zéro soutient et que nos serveurs de la db0 company coûte environ 250 € /mois, le calcul n'est pas long, nous sommes dans le négatif. Et pauvres petits étudiants que nous sommes, à découvert tout les mois... C'est un appel à l'aide que je lance aujourd'hui, à ceux de Zéro, de la db0 company, à ceux qui aiment les animes que nous sous-titrons et qui respectent notre travail. Par avance, merci.");
+			$news->setMessage("C'est la crise pour tout le monde, et mÃªme pour nous. Nous n'arrivons plus Ã  payer nos serveurs... On ajoute des publicitÃ©s et on vous sollicite pour des dons, mais rien ne s'amÃ©liore. Depuis le dÃ©but de ZÃ©ro, et sur tout les sites de la db0 company, nous n'avons reÃ§u que 14 Â€ de dons et 75 Â€ de publicitÃ©s. Sachant qu'il nous a fallut environ 80 Â€ (en tout depuis que ZÃ©ro existe) pour l'association humanitaire que ZÃ©ro soutient et que nos serveurs de la db0 company coÃ»te environ 250 Â€ /mois, le calcul n'est pas long, nous sommes dans le nÃ©gatif. Et pauvres petits Ã©tudiants que nous sommes, Ã  dÃ©couvert tout les mois... C'est un appel Ã  l'aide que je lance aujourd'hui, Ã  ceux de ZÃ©ro, de la db0 company, Ã  ceux qui aiment les animes que nous sous-titrons et qui respectent notre travail. Par avance, merci.");
 			$news->setCommentId(66);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3187,11 +3187,11 @@ Je ne vois vraiment pas de quoi vous parlez !");
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Toradora! Licencié");
+			$news->setTitle("Toradora! LicenciÃ©");
 			$news->setTimestamp(strtotime("01 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right=images/news/licence.jpg][/img-right]
-Triste nouvelle que je vous apporte aujourd'hui ! La première licence d'une de nos série. Avec beaucoup de regrets, nous retirons donc tout les liens de téléchargement de la série Toradora!...");
+Triste nouvelle que je vous apporte aujourd'hui ! La premiÃ¨re licence d'une de nos sÃ©rie. Avec beaucoup de regrets, nous retirons donc tout les liens de tÃ©lÃ©chargement de la sÃ©rie Toradora!...");
 			$news->setCommentId(54);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3206,8 +3206,8 @@ Triste nouvelle que je vous apporte aujourd'hui ! La première licence d'une de n
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right=images/news/ryoc.jpg][/img-right]
 Bonjour.
-Je suis l'administrateur du site [url=http://www.anime-ultime.net/part/Site-93]Anime-ultime[/url], et l'admin sys de Zéro fansub ainsi que toute la [url=http://db0.fr]db0 company[/url]. Je tiens à remercier les personnes qui se sont crues malignes en employant des accélérateurs de téléchargement. Grâce à ces personnes, plusieurs sites ont été inaccessibles. En utilisant ce genre de logiciel, vous bloquez les accès aux visiteurs des sites web et vous entraînez un ralentissement général des téléchargements (au lieu des les accélerer, vous faites en sorte que les disques durs ne puissent plus tenir la cadence et font ralentir tout le monde). Par conséquent, vous ne pouvez désormais plus télécharger qu'un seul et unique fichier à la fois sur Zerofansub.net et je demande à toutes les personnes qui utilisent des accélerateurs de téléchargement d'arrêter de vous servir de ce genre de logiciel qui plombent les serveurs inutilement en plus d'avoir l'effet contraire à celui désiré.
-Cette limite n'est pas très sévère, soyez compréhensifs. Profitez bien de la fin de Toradora!, même si pour cela, vous devez attendre un peu. Nos releases sont aussi disponibles en torrent.");
+Je suis l'administrateur du site [url=http://www.anime-ultime.net/part/Site-93]Anime-ultime[/url], et l'admin sys de ZÃ©ro fansub ainsi que toute la [url=http://db0.fr]db0 company[/url]. Je tiens Ã  remercier les personnes qui se sont crues malignes en employant des accÃ©lÃ©rateurs de tÃ©lÃ©chargement. GrÃ¢ce Ã  ces personnes, plusieurs sites ont Ã©tÃ© inaccessibles. En utilisant ce genre de logiciel, vous bloquez les accÃ¨s aux visiteurs des sites web et vous entraÃ®nez un ralentissement gÃ©nÃ©ral des tÃ©lÃ©chargements (au lieu des les accÃ©lerer, vous faites en sorte que les disques durs ne puissent plus tenir la cadence et font ralentir tout le monde). Par consÃ©quent, vous ne pouvez dÃ©sormais plus tÃ©lÃ©charger qu'un seul et unique fichier Ã  la fois sur Zerofansub.net et je demande Ã  toutes les personnes qui utilisent des accÃ©lerateurs de tÃ©lÃ©chargement d'arrÃªter de vous servir de ce genre de logiciel qui plombent les serveurs inutilement en plus d'avoir l'effet contraire Ã  celui dÃ©sirÃ©.
+Cette limite n'est pas trÃ¨s sÃ©vÃ¨re, soyez comprÃ©hensifs. Profitez bien de la fin de Toradora!, mÃªme si pour cela, vous devez attendre un peu. Nos releases sont aussi disponibles en torrent.");
 			$news->setCommentId(54);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3221,16 +3221,16 @@ Cette limite n'est pas très sévère, soyez compréhensifs. Profitez bien de la fin
 			$news->setTimestamp(strtotime("24 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right=images/news/guilde.jpg][/img-right]
-Zéro recrute !
+ZÃ©ro recrute !
 
 [b]Gestion tracker BT[/b]
-Ma connexion actuelle ne me permet pas de télécharger, seeder, gérer notre tracker BT. Nous sommes donc à la recherche de quelqu'un de motivé et disponible ayant une bonne connexion. Son rôle : Télécharger nos épisodes dès leurs sorties, créer le fichier .torrent, se mettre en seed dessus, l'uploader sur le tracker, surveiller les sans source. Nous avons aussi à notre disposition un TorrentFlux en cas de besoin.
-Interessé ? Venez vous proposer sur le forum partie Recrutement avec un screen de votre programme de torrent.
+Ma connexion actuelle ne me permet pas de tÃ©lÃ©charger, seeder, gÃ©rer notre tracker BT. Nous sommes donc Ã  la recherche de quelqu'un de motivÃ© et disponible ayant une bonne connexion. Son rÃ´le : TÃ©lÃ©charger nos Ã©pisodes dÃ¨s leurs sorties, crÃ©er le fichier .torrent, se mettre en seed dessus, l'uploader sur le tracker, surveiller les sans source. Nous avons aussi Ã  notre disposition un TorrentFlux en cas de besoin.
+InteressÃ© ? Venez vous proposer sur le forum partie Recrutement avec un screen de votre programme de torrent.
 
 
 [b]Karamaker[/b]
-Nous recherchons un karamaker uniquement pour les effets (je m'occupe du kara-time) qui est de l'éxpérience et des idées (à bannir les karaokés par défaut.)
-Interessé ? Venez vous proposer sur le forum partie Recrutement avec votre meilleur karaoké.
+Nous recherchons un karamaker uniquement pour les effets (je m'occupe du kara-time) qui est de l'Ã©xpÃ©rience et des idÃ©es (Ã  bannir les karaokÃ©s par dÃ©faut.)
+InteressÃ© ? Venez vous proposer sur le forum partie Recrutement avec votre meilleur karaokÃ©.
 
 
 Venez nombreux ! Nous avons besoin de vous !");
@@ -3266,19 +3266,19 @@ Allez donc visiter leur site pour lire les chapitres et les remercier pour leur 
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgl=images/news/samazama.jpg]Samazama no Koto recrute finger pointed loli[/imgl]
 
-La fin de l'été arrive à grand pas, et qui dit rentrée dit manque de disponibilités ! C'est ce qui arrive à nos petits potes de chez Samazama no Koto : ils manquent d'effectifs.
+La fin de l'Ã©tÃ© arrive Ã  grand pas, et qui dit rentrÃ©e dit manque de disponibilitÃ©s ! C'est ce qui arrive Ã  nos petits potes de chez Samazama no Koto : ils manquent d'effectifs.
 
-C'est pourquoi ils font appel à [b]vous[/b]. Oui, vous, là, qui êtes en train de me lire !
+C'est pourquoi ils font appel Ã  [b]vous[/b]. Oui, vous, lÃ , qui Ãªtes en train de me lire !
 
-Vous avez plus de 16 ans ? Vous aimez les mangas ecchi/hentais ? Vous avez envie de connaitre le monde qui se cachent derrière la réalisation de ces chapitres alléchants ?
+Vous avez plus de 16 ans ? Vous aimez les mangas ecchi/hentais ? Vous avez envie de connaitre le monde qui se cachent derriÃ¨re la rÃ©alisation de ces chapitres allÃ©chants ?
 
-N'attendez plus ! Tentez votre chance pour rejoindre cette talentueuse équipe de Scantrad !
+N'attendez plus ! Tentez votre chance pour rejoindre cette talentueuse Ã©quipe de Scantrad !
 
 [imgr=images/news/mercidons2.png]Merci Alain pour son don de 20 euros ! Touhou Projet money money[/imgr]
-Vous devez être disponible et très motivé. Aucune compétence n'est requise. Les postes disponibles sont : traducteurs, éditeurs, checkeurs, webmasters, designers, xdcc-makers.
+Vous devez Ãªtre disponible et trÃ¨s motivÃ©. Aucune compÃ©tence n'est requise. Les postes disponibles sont : traducteurs, Ã©diteurs, checkeurs, webmasters, designers, xdcc-makers.
 
 
-Un grand [b]merci[/b] à Alain pour son don de 20 euros qui va nous aider à payer nos serveurs !
+Un grand [b]merci[/b] Ã  Alain pour son don de 20 euros qui va nous aider Ã  payer nos serveurs !
 
 A bientot !");
 			$news->setCommentId(245);
@@ -3295,10 +3295,10 @@ A bientot !");
 			$news->setTimestamp(strtotime("04 May 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("La Mite en Pullover"));
 			$news->setMessage("[img]images/news/licencerv.jpg[/img]
-Black Box a acquis les droits des deux séries, aussi je vous demande de ne plus distribuer, sur n'importe quel réseau ou système de téléchargement que ce soit, nos fansubs. Si la série vous a plu, soutenez l'éditeur en achetant ses DVD (ou allumez un cierge pour d'éventuels Bluray).
-J'en appelle à tous les sites partenaires de téléchargement, à tous les blogs sérieux et à ceux de kikoololz : stoppez tout, effacez vos liens, supprimez les épisodes de vos comptes.
-Rien ne vous empêche de harceler Black Box pour avoir du boobies en haute définition !
-Bon courage à Black Box !");
+Black Box a acquis les droits des deux sÃ©ries, aussi je vous demande de ne plus distribuer, sur n'importe quel rÃ©seau ou systÃ¨me de tÃ©lÃ©chargement que ce soit, nos fansubs. Si la sÃ©rie vous a plu, soutenez l'Ã©diteur en achetant ses DVD (ou allumez un cierge pour d'Ã©ventuels Bluray).
+J'en appelle Ã  tous les sites partenaires de tÃ©lÃ©chargement, Ã  tous les blogs sÃ©rieux et Ã  ceux de kikoololz : stoppez tout, effacez vos liens, supprimez les Ã©pisodes de vos comptes.
+Rien ne vous empÃªche de harceler Black Box pour avoir du boobies en haute dÃ©finition !
+Bon courage Ã  Black Box !");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
@@ -3311,8 +3311,8 @@ Bon courage à Black Box !");
 			$news->setTimestamp(strtotime("24 April 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[partner=samazama][img]images/news/sama1.jpg[/img][/partner]
-Un nouveau petit pote partenaire viens s'ajouter aux petits potes de Zéro :
-[partner=samazama]Samazama na Koto[/partner] est une équipe de Fanscan, Scantrad aux penchants Ecchi et Hentaï qui nous propose du contenu d'une certaine qualité que nous apprécions.
+Un nouveau petit pote partenaire viens s'ajouter aux petits potes de ZÃ©ro :
+[partner=samazama]Samazama na Koto[/partner] est une Ã©quipe de Fanscan, Scantrad aux penchants Ecchi et HentaÃ¯ qui nous propose du contenu d'une certaine qualitÃ© que nous apprÃ©cions.
 Allez donc lire quelques-uns de leurs chapitres et revenez nous en dire des nouvelles !
 [partner=samazama][img]images/news/sama2.jpg[/img][/partner]");
 			$news->setCommentId(227);
@@ -3329,13 +3329,13 @@ Allez donc lire quelques-uns de leurs chapitres et revenez nous en dire des nouv
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/newsarigatou2.jpg[/img]
 Bonjour tout le monde !
-Un nouveau partenaire se joint aujourd'hui à l'équipe Zéro :
+Un nouveau partenaire se joint aujourd'hui Ã  l'Ã©quipe ZÃ©ro :
 Mangas Arigatou !
-Un très bon état d'esprit, un petit grain de folie et que de sympathie... Que demander de plus ?
+Un trÃ¨s bon Ã©tat d'esprit, un petit grain de folie et que de sympathie... Que demander de plus ?
 Justement, ils vont bien plus loin...
-C'est à la fois une équipe de fansub et in distribuants !
-Attention, pas n'importe quelle équipe de fansub : une équipe de dramas. Une grande première parmi les partenaires de chez Zéro, mais vous le savez, nous sommes ouverts à toute la jap'culture.
-Et pas non plus un banal distribuant qui prend bêtement le premier épisode sortis sans se soucier de prendre différentes équipes... Non, non ! Mangas-Arigatou recherche la qualité et nous a choisi pour la plupart de nos animes (oh arrêtez je vais rougir...). Nos épisodes sont disponibles chez eux pour les séries suivantes :
+C'est Ã  la fois une Ã©quipe de fansub et in distribuants !
+Attention, pas n'importe quelle Ã©quipe de fansub : une Ã©quipe de dramas. Une grande premiÃ¨re parmi les partenaires de chez ZÃ©ro, mais vous le savez, nous sommes ouverts Ã  toute la jap'culture.
+Et pas non plus un banal distribuant qui prend bÃªtement le premier Ã©pisode sortis sans se soucier de prendre diffÃ©rentes Ã©quipes... Non, non ! Mangas-Arigatou recherche la qualitÃ© et nous a choisi pour la plupart de nos animes (oh arrÃªtez je vais rougir...). Nos Ã©pisodes sont disponibles chez eux pour les sÃ©ries suivantes :
 Canaan
 Genshiken 2
 Issho ni Training
@@ -3362,7 +3362,7 @@ Allz visiter leur site au plus vite !!");
 			$news->setTimestamp(strtotime("08 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/tamakon.jpg[/imgr]
-Chez Maboroshi, ça ne chôme pas, et on ne vous l'annonce que maintenant, mais mieux vaut tard que jamais. La petite équipe est actuellement sur 2 nouveaux projets : K-on!, où elle en est déjà à l'épisode 05 et Tayutama Kiss on my deity à l'épisode 04. N'attendez plus, et allez mater ces deux exellentes séries : [partner=maboroshi]Le site Maboroshi[/partner].");
+Chez Maboroshi, Ã§a ne chÃ´me pas, et on ne vous l'annonce que maintenant, mais mieux vaut tard que jamais. La petite Ã©quipe est actuellement sur 2 nouveaux projets : K-on!, oÃ¹ elle en est dÃ©jÃ  Ã  l'Ã©pisode 05 et Tayutama Kiss on my deity Ã  l'Ã©pisode 04. N'attendez plus, et allez mater ces deux exellentes sÃ©ries : [partner=maboroshi]Le site Maboroshi[/partner].");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(true);
@@ -3375,7 +3375,7 @@ Chez Maboroshi, ça ne chôme pas, et on ne vous l'annonce que maintenant, mais mi
 			$news->setTimestamp(strtotime("04 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/lucky3.jpg[/imgr]
-On vous l'avait promis ! Sky-fansub, c'est du sérieux, et malgré la difficulté de la série, les revoilà déjà avec l'épisode 03... Si c'est pas beau, ça ? Allez, va le télécharger, mon petit otaku : [partner=sky-fansub]Le site Sky-fansub[/partner].");
+On vous l'avait promis ! Sky-fansub, c'est du sÃ©rieux, et malgrÃ© la difficultÃ© de la sÃ©rie, les revoilÃ  dÃ©jÃ  avec l'Ã©pisode 03... Si c'est pas beau, Ã§a ? Allez, va le tÃ©lÃ©charger, mon petit otaku : [partner=sky-fansub]Le site Sky-fansub[/partner].");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
@@ -3388,9 +3388,9 @@ On vous l'avait promis ! Sky-fansub, c'est du sérieux, et malgré la difficulté d
 			$news->setTimestamp(strtotime("15 April 2009 00:30"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/lucky2.jpg[/imgr]
-Sky-Anime nous apporte comme promis les aventures déjantés de Konata et ses amies. L'épisode 02 est déjà disponible sur leur site.
+Sky-Anime nous apporte comme promis les aventures dÃ©jantÃ©s de Konata et ses amies. L'Ã©pisode 02 est dÃ©jÃ  disponible sur leur site.
 
-Côté hentaï, l'épisode 02 de Konoe no Jikan (parodie X de Kodomo no jikan).");
+CÃ´tÃ© hentaÃ¯, l'Ã©pisode 02 de Konoe no Jikan (parodie X de Kodomo no jikan).");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(false);
@@ -3404,9 +3404,9 @@ Côté hentaï, l'épisode 02 de Konoe no Jikan (parodie X de Kodomo no jikan).");
 			$news->setTimestamp(strtotime("07 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/lucky.png[/imgr]
-Notre très proche partenaire Sky-fansub commence une nouvelle série, et pas une petite série, attention... Lucky Star ! C'est sûr, c'est pas récent comme anime, mais malheuresement, niveau fansub, c'est pas au top (Aucune team n'est arrivé au bout de la série). La différence, c'est que cette team-là, mes amis, n'a rien à voir avec les autres ! En plus de nous faire de la qualité, elle est sérieuse et assidue. Que demandez de plus ? Profitez déjà du premier épisode ^o^
+Notre trÃ¨s proche partenaire Sky-fansub commence une nouvelle sÃ©rie, et pas une petite sÃ©rie, attention... Lucky Star ! C'est sÃ»r, c'est pas rÃ©cent comme anime, mais malheuresement, niveau fansub, c'est pas au top (Aucune team n'est arrivÃ© au bout de la sÃ©rie). La diffÃ©rence, c'est que cette team-lÃ , mes amis, n'a rien Ã  voir avec les autres ! En plus de nous faire de la qualitÃ©, elle est sÃ©rieuse et assidue. Que demandez de plus ? Profitez dÃ©jÃ  du premier Ã©pisode ^o^
 
-[partner=sky-fansub]Sky-fansub, c'est par là ![/partner]");
+[partner=sky-fansub]Sky-fansub, c'est par lÃ  ![/partner]");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
@@ -3419,7 +3419,7 @@ Notre très proche partenaire Sky-fansub commence une nouvelle série, et pas une 
 			$news->setTimestamp(strtotime("13 January 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/kyoutsu.jpg][/img]
-Notre partenaire-dakkô Kyoutsu commence une nouvelle série... Minami-ke Okawari ! Vous pouvez dès maintenant télécharger l'épisode 01 en DDL :
+Notre partenaire-dakkÃ´ Kyoutsu commence une nouvelle sÃ©rie... Minami-ke Okawari ! Vous pouvez dÃ¨s maintenant tÃ©lÃ©charger l'Ã©pisode 01 en DDL :
 [url=ddl/kyoutsu/%5bKfS%5d1280x720_Minami-Ke_Okawari_001_vostfr.mkv]DDL Minami-ke Okawari 01[/url]
 Mais aussi en torrent, Megaupload sur leur site : [partner=kyoutsu]Lien[/partner].");
 			$news->setDisplayInNormalMode(true);
@@ -3434,9 +3434,9 @@ Mais aussi en torrent, Megaupload sur leur site : [partner=kyoutsu]Lien[/partner
 			$news->setTimestamp(strtotime("12 January 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[url=http://ranka.imouto.org/image/85ba4e0864c9ee58520eee540d4cebcb/moe%2053546%20bikini%20cleavage%20katagiri_yuuhi%20kiryu_tsukasa%20nagase_minato%20nekomimi%20no_bra%20open_shirt%20pantsu%20seifuku%20shiina_mitsuki%20shiraishi_nagomi%20swimsuits.jpg][img]http://japanslash.free.fr/images/news/akane8.jpg[/img][/url]
-Maboroshi nous sort aujourd'hui l'épisode 08 de Akane !
-Contrairement à ce qui a été dit, cet épisode n'a pas été réalisé en co-pro avec Zéro.
-[partner=maboroshi]Pour télécharger l'épisode sur MU, cliquez ici ![/partner]");
+Maboroshi nous sort aujourd'hui l'Ã©pisode 08 de Akane !
+Contrairement Ã  ce qui a Ã©tÃ© dit, cet Ã©pisode n'a pas Ã©tÃ© rÃ©alisÃ© en co-pro avec ZÃ©ro.
+[partner=maboroshi]Pour tÃ©lÃ©charger l'Ã©pisode sur MU, cliquez ici ![/partner]");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
@@ -3451,11 +3451,11 @@ Contrairement à ce qui a été dit, cet épisode n'a pas été réalisé en co-pro avec
 			$news->setMessage("[url=http://www.cosplay.com/photo/2277002/][img]http://images.cosplay.com/thumbs/22/2277002.jpg[/img] [/url][url=http://www.cosplay.com/photo/2277008/][img]http://images.cosplay.com/thumbs/22/2277008.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277009/][img]http://images.cosplay.com/thumbs/22/2277009.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277010/][img]http://images.cosplay.com/thumbs/22/2277010.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277011/][img]http://images.cosplay.com/thumbs/22/2277011.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277012/][img]http://images.cosplay.com/thumbs/22/2277012.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277013/][img]http://images.cosplay.com/thumbs/22/2277013.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277014/][img]http://images.cosplay.com/thumbs/22/2277014.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277015/][img]http://images.cosplay.com/thumbs/22/2277015.jpg[/img][/url] [url=http://www.cosplay.com/
 photo/2277016/][img]http://images.cosplay.com/thumbs/22/2277016.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277017/][img]http://images.cosplay.com/thumbs/22/2277017.jpg[/img][/url] 
 
-Eh non, vous ne rêvez pas, j'ai bel et bien affronté la Flander's Company !
-La Flander's Company, qu'est-ce que c'est ? Ce n'est pas un rival de la db0 company, mais une société qui recrute des supers vilains pour que les supers hérios aient des défouloirs et surtout des raisons d'exister.
-J'ai fait appel aux services de la Flander's pour que mes petits camarades, le blond-boulet et le brun-tenebreux, et moi, l'hystérique-raleuse au cheveux roses (...?) ayons un super vilain à combattre.
+Eh non, vous ne rÃªvez pas, j'ai bel et bien affrontÃ© la Flander's Company !
+La Flander's Company, qu'est-ce que c'est ? Ce n'est pas un rival de la db0 company, mais une sociÃ©tÃ© qui recrute des supers vilains pour que les supers hÃ©rios aient des dÃ©fouloirs et surtout des raisons d'exister.
+J'ai fait appel aux services de la Flander's pour que mes petits camarades, le blond-boulet et le brun-tenebreux, et moi, l'hystÃ©rique-raleuse au cheveux roses (...?) ayons un super vilain Ã  combattre.
 
-Vous l'aurez compris, j'incarne donc Sakura de la mondialement connue série Naruto dans cet épisode 3, saison 3 de la Flander's Company.
+Vous l'aurez compris, j'incarne donc Sakura de la mondialement connue sÃ©rie Naruto dans cet Ã©pisode 3, saison 3 de la Flander's Company.
 Je vous laisse juger de notre performence au combat :P
 
 [video=width:480|height:272]http://www.dailymotion.com/swf/xbgkly&related=0[/video]");
@@ -3471,7 +3471,7 @@ Je vous laisse juger de notre performence au combat :P
 			$news->setTitle("C'est la crise !");
 			$news->setTimestamp(strtotime("01 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("C'est la crise pour tout le monde, et même pour nous. Nous n'arrivons plus à payer nos serveurs... On ajoute des publicités et on vous sollicite pour des dons, mais rien ne s'améliore. Depuis le début de Zéro, et sur tout les sites de la db0 company, nous n'avons reçu que 14 € de dons et 75 € de publicités. Sachant qu'il nous a fallut environ 80 € (en tout depuis que Zéro existe) pour l'association humanitaire que Zéro soutient et que nos serveurs de la db0 company coûte environ 250 € /mois, le calcul n'est pas long, nous sommes dans le négatif. Et pauvres petits étudiants que nous sommes, à découvert tout les mois... C'est un appel à l'aide que je lance aujourd'hui, à ceux de Zéro, de la db0 company, à ceux qui aiment les animes que nous sous-titrons et qui respectent notre travail. Par avance, merci.");
+			$news->setMessage("C'est la crise pour tout le monde, et mÃªme pour nous. Nous n'arrivons plus Ã  payer nos serveurs... On ajoute des publicitÃ©s et on vous sollicite pour des dons, mais rien ne s'amÃ©liore. Depuis le dÃ©but de ZÃ©ro, et sur tout les sites de la db0 company, nous n'avons reÃ§u que 14 Â€ de dons et 75 Â€ de publicitÃ©s. Sachant qu'il nous a fallut environ 80 Â€ (en tout depuis que ZÃ©ro existe) pour l'association humanitaire que ZÃ©ro soutient et que nos serveurs de la db0 company coÃ»te environ 250 Â€ /mois, le calcul n'est pas long, nous sommes dans le nÃ©gatif. Et pauvres petits Ã©tudiants que nous sommes, Ã  dÃ©couvert tout les mois... C'est un appel Ã  l'aide que je lance aujourd'hui, Ã  ceux de ZÃ©ro, de la db0 company, Ã  ceux qui aiment les animes que nous sous-titrons et qui respectent notre travail. Par avance, merci.");
 			$news->setCommentId(66);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -3484,9 +3484,9 @@ Je vous laisse juger de notre performence au combat :P
 			$news->setTitle("Stream-Anime.org");
 			$news->setTimestamp(strtotime("15 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("Pour les fans d'animes trop pressés ou qui préférent les VOSTA'z, Ryocu, hébergeur de Zéro fansub et fondateur d'[url=http://www.anime-ultime.net/part/Site-93]anime-ultime[/url], avec ma petite participation, a créer [url=http://www.stream-anime.org/]Stream-Anime.org[/url] ! Ce site propose toutes les dernières sorties d'animes en VOSTA en streaming de très haute qualité. Actuellement, vous pouvez visionner plus de 5000 vidéos, et c'est loin d'être fini. Bientôt, le site proposera les sous-titres dans toutes les langues.
+			$news->setMessage("Pour les fans d'animes trop pressÃ©s ou qui prÃ©fÃ©rent les VOSTA'z, Ryocu, hÃ©bergeur de ZÃ©ro fansub et fondateur d'[url=http://www.anime-ultime.net/part/Site-93]anime-ultime[/url], avec ma petite participation, a crÃ©er [url=http://www.stream-anime.org/]Stream-Anime.org[/url] ! Ce site propose toutes les derniÃ¨res sorties d'animes en VOSTA en streaming de trÃ¨s haute qualitÃ©. Actuellement, vous pouvez visionner plus de 5000 vidÃ©os, et c'est loin d'Ãªtre fini. BientÃ´t, le site proposera les sous-titres dans toutes les langues.
 [url=http://www.stream-anime.org/][img]images/news/stream.png[/img][/url]
-Malheuresement, tout ceci n'est pas gratuit. Une petite aide par des dons, clicks sur les pubs ou allopass sur anime-ultime sont les bienvenus. Vos commentaires aussi, sur cette news, pour améliorer le site.");
+Malheuresement, tout ceci n'est pas gratuit. Une petite aide par des dons, clicks sur les pubs ou allopass sur anime-ultime sont les bienvenus. Vos commentaires aussi, sur cette news, pour amÃ©liorer le site.");
 			$news->setCommentId(45);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -3500,7 +3500,7 @@ Malheuresement, tout ceci n'est pas gratuit. Une petite aide par des dons, click
 			$news->setTimestamp(strtotime("26 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[url=http://toradora.fr][img=http://toradora.fr/images/partenaires/ban1.png]toradora.fr[/img][/url]
-Après Kojikan.fr, ouvrez grand vos bras au nouveau site de la db0 company : Toradora.fr !");
+AprÃ¨s Kojikan.fr, ouvrez grand vos bras au nouveau site de la db0 company : Toradora.fr !");
 			$news->setCommentId(42);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -3510,11 +3510,11 @@ Après Kojikan.fr, ouvrez grand vos bras au nouveau site de la db0 company : Tora
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("[Kojikan.fr] Ouverture du site Kodomo no Jikan France ! + épisode 11");
+			$news->setTitle("[Kojikan.fr] Ouverture du site Kodomo no Jikan France ! + Ã©pisode 11");
 			$news->setTimestamp(strtotime("13 February 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[url=http://kojikan.fr/][img]http://zerofansub.net/images/news/kojikanfrance.png[/img][/url]
-Pour la sortie de l'épisode 11 de Kodomo no Jikan, comme promis, la petite surprise ! Quoi de mieux qu'un vendredi 13 pour l'ouverture du site officiel français Kodomo no Jikan ?
+Pour la sortie de l'Ã©pisode 11 de Kodomo no Jikan, comme promis, la petite surprise ! Quoi de mieux qu'un vendredi 13 pour l'ouverture du site officiel franÃ§ais Kodomo no Jikan ?
 
 
 [url=http://kojikan.fr/]Le site officiel Kodomo no Jikan France, c'est par ici ![/url]");
@@ -3531,7 +3531,7 @@ Pour la sortie de l'épisode 11 de Kodomo no Jikan, comme promis, la petite surpr
 			$news->setTitle("The db0 company");
 			$news->setTimestamp(strtotime("28 January 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("Rien de bien important, pas de nouvelle sortie (désolée), juste un nouveau petit site à moi. [url=http://db0.fr/]db0.fr[/url] existe depuis longtemps, je viens juste de le remettre en forme, et maintenant c'est une version très simple qui présente simplement mes petits travaux. J'éspère qu'il vous plaira, n'hésitez pas à donner votre avis. [img=http://img1.xooimage.com/files/w/i/wink-1627.gif]Wink[/img]
+			$news->setMessage("Rien de bien important, pas de nouvelle sortie (dÃ©solÃ©e), juste un nouveau petit site Ã  moi. [url=http://db0.fr/]db0.fr[/url] existe depuis longtemps, je viens juste de le remettre en forme, et maintenant c'est une version trÃ¨s simple qui prÃ©sente simplement mes petits travaux. J'Ã©spÃ¨re qu'il vous plaira, n'hÃ©sitez pas Ã  donner votre avis. [img=http://img1.xooimage.com/files/w/i/wink-1627.gif]Wink[/img]
 
 [url=http://db0.fr/][img]db0/images/interface/logo.png[/img][/url]");
 			$news->setCommentId(35);
@@ -3548,8 +3548,8 @@ Pour la sortie de l'épisode 11 de Kodomo no Jikan, comme promis, la petite surpr
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/cover/%5BZero%5DKanamemo_Cover.png[/img]
 Des bonus, encore des bonus !
-Sur le site AnimeCoversFan, je suis allée chercher pour vous les covers et labels de nos séries.
-Elles sont téléchargeables sur la page des séries partie Bonus.
+Sur le site AnimeCoversFan, je suis allÃ©e chercher pour vous les covers et labels de nos sÃ©ries.
+Elles sont tÃ©lÃ©chargeables sur la page des sÃ©ries partie Bonus.
 - Canaan
 - Kanamemo
 - Kannagi
@@ -3558,7 +3558,7 @@ Elles sont téléchargeables sur la page des séries partie Bonus.
 - Kodomo no Jikan
 - Tayutama ~Kiss on my Deity~
 - Toradora!
-Faites-vous de jolis DVD ! Mais ne les gardez pas lorsque la série est licenciée et achetez les vrais DVDs.
+Faites-vous de jolis DVD ! Mais ne les gardez pas lorsque la sÃ©rie est licenciÃ©e et achetez les vrais DVDs.
 [img]images/cover/%5BZero%5DKissXsis_Cover.png[/img]");
 			$news->setCommentId(213);
 			$news->setDisplayInNormalMode(true);
@@ -3569,23 +3569,23 @@ Faites-vous de jolis DVD ! Mais ne les gardez pas lorsque la série est licenciée
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Bonne année 2010 !");
+			$news->setTitle("Bonne annÃ©e 2010 !");
 			$news->setTimestamp(strtotime("01 January 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setMessage("[img]images/news/sazanne.jpg[/img]
 [img]images/news/finalanne.jpg[/img]
 [spoiler][img=images/interface/lirelasuite.png]Lire la suite ...[/img]
-[img=images/news/annee1.jpg]Bonne année 2010[/img]
-[img=images/news/annee2.jpg]Bonne année 2010[/img]
-[img=images/news/annee3.jpg]Bonne année 2010[/img]
-[img=images/news/annee4.jpg]Bonne année 2010[/img]
-[img=images/news/annee5.jpg]Bonne année 2010[/img]
-[img=images/news/annee6.jpg]Bonne année 2010[/img]
-[img=images/news/annee7.jpg]Bonne année 2010[/img]
-[img=images/news/annee8.jpg]Bonne année 2010[/img]
-[img=images/news/annee9.jpg]Bonne année 2010[/img]
-[img=images/news/annee10.jpg]Bonne année 2010[/img]
-[img=images/news/annee11.jpg]Bonne année 2010[/img]
+[img=images/news/annee1.jpg]Bonne annÃ©e 2010[/img]
+[img=images/news/annee2.jpg]Bonne annÃ©e 2010[/img]
+[img=images/news/annee3.jpg]Bonne annÃ©e 2010[/img]
+[img=images/news/annee4.jpg]Bonne annÃ©e 2010[/img]
+[img=images/news/annee5.jpg]Bonne annÃ©e 2010[/img]
+[img=images/news/annee6.jpg]Bonne annÃ©e 2010[/img]
+[img=images/news/annee7.jpg]Bonne annÃ©e 2010[/img]
+[img=images/news/annee8.jpg]Bonne annÃ©e 2010[/img]
+[img=images/news/annee9.jpg]Bonne annÃ©e 2010[/img]
+[img=images/news/annee10.jpg]Bonne annÃ©e 2010[/img]
+[img=images/news/annee11.jpg]Bonne annÃ©e 2010[/img]
 [/spoiler]");
 			$news->setCommentId(157);
 			$news->setDisplayInNormalMode(true);
@@ -3596,16 +3596,16 @@ Faites-vous de jolis DVD ! Mais ne les gardez pas lorsque la série est licenciée
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Joyeux Noël ! Zéro vous offre pleins de cadeaux");
+			$news->setTitle("Joyeux NoÃ«l ! ZÃ©ro vous offre pleins de cadeaux");
 			$news->setTimestamp(strtotime("25 December 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/zeronoel09.jpg[/img]
-C'est Noël ! Et au nom de toute l'équipe Zéro fansub et de la db0 company je vous souhaite à tous un joyeux noël, de bonnes fêtes et de passer de bos moments auprès de vos proches. Cette année, vous avez télécharger les animes ecchi-ecchi de chez Zéro, donc vous avez été très coquin et Papa Noël le sais, donc il a demandé à l'équipe Zéro de vous offrir ce petit cadeau :
+C'est NoÃ«l ! Et au nom de toute l'Ã©quipe ZÃ©ro fansub et de la db0 company je vous souhaite Ã  tous un joyeux noÃ«l, de bonnes fÃªtes et de passer de bos moments auprÃ¨s de vos proches. Cette annÃ©e, vous avez tÃ©lÃ©charger les animes ecchi-ecchi de chez ZÃ©ro, donc vous avez Ã©tÃ© trÃ¨s coquin et Papa NoÃ«l le sais, donc il a demandÃ© Ã  l'Ã©quipe ZÃ©ro de vous offrir ce petit cadeau :
 
-[url=ddl/%5BZero%5DLa_selection_de_Noel_2009.zip][b]150 images ecchi de Noël ![/b][/url]
+[url=ddl/%5BZero%5DLa_selection_de_Noel_2009.zip][b]150 images ecchi de NoÃ«l ![/b][/url]
 
-Téléchargez donc vite ce pack d'images de tout thèmes : ecchi, loli, kawaii, il y en a pour tout les goûts. Cependant, il y a aussi quelques images hentaï soft, je recommande donc aux moins de 14 ans de ne pas télécharger ces images.
-En plus de ce cadeau, Zéro a aussi mis à jour le design du site et de nouveaux persos aparaissent au dessus du menu aléatoirement, mais aussi et surtout de nouvelles musiques dans la radio ! Allez vite les écouter, lien radio, menu de gauche sur le site. Merci pour vos chaleureux commentaires sur la news anniversaire... Encore une fois, un joyeux noël à tous !
+TÃ©lÃ©chargez donc vite ce pack d'images de tout thÃ¨mes : ecchi, loli, kawaii, il y en a pour tout les goÃ»ts. Cependant, il y a aussi quelques images hentaÃ¯ soft, je recommande donc aux moins de 14 ans de ne pas tÃ©lÃ©charger ces images.
+En plus de ce cadeau, ZÃ©ro a aussi mis Ã  jour le design du site et de nouveaux persos aparaissent au dessus du menu alÃ©atoirement, mais aussi et surtout de nouvelles musiques dans la radio ! Allez vite les Ã©couter, lien radio, menu de gauche sur le site. Merci pour vos chaleureux commentaires sur la news anniversaire... Encore une fois, un joyeux noÃ«l Ã  tous !
 [img]images/news/noelsaza.png[/img]");
 			$news->setCommentId(156);
 			$news->setDisplayInNormalMode(true);
@@ -3620,7 +3620,7 @@ En plus de ce cadeau, Zéro a aussi mis à jour le design du site et de nouveaux p
 			$news->setTimestamp(strtotime("30 September 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/genshikenbonus.jpg[/img]
-Et un petit pack de bonus, un ! Pour marquer la fin de la série, je vous ai concocté un joli mélange de bonus comprenant : Diverses images, des photos de cosplay, les screenshots des épisodes, les musiques de l'opening et de l'ending et une jaquette dvd pour décorer vos dvds gravés. Le pack est disponible sur la page de la série, comme d'habitude.");
+Et un petit pack de bonus, un ! Pour marquer la fin de la sÃ©rie, je vous ai concoctÃ© un joli mÃ©lange de bonus comprenant : Diverses images, des photos de cosplay, les screenshots des Ã©pisodes, les musiques de l'opening et de l'ending et une jaquette dvd pour dÃ©corer vos dvds gravÃ©s. Le pack est disponible sur la page de la sÃ©rie, comme d'habitude.");
 			$news->setCommentId(134);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -3634,8 +3634,8 @@ Et un petit pack de bonus, un ! Pour marquer la fin de la série, je vous ai conc
 			$news->setTimestamp(strtotime("23 September 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/mariabonus.png[/img]
-Déjà 23 longues journées sans que Zéro ne donne de nouvelles... Je suis tellement occupée en ce moment que je m'occupe plus de vous ! Dieu indigne que je suis. Pas de sorties pour aujourd'hui mais juste l'annonce des nombreux bonus sortis chez Kanaii et qu'il fallait sortir chez nous aussi de Maria+Holic.
-Rendez-vous sur la page de la série Maria+Holic pour les découvrir !");
+DÃ©jÃ  23 longues journÃ©es sans que ZÃ©ro ne donne de nouvelles... Je suis tellement occupÃ©e en ce moment que je m'occupe plus de vous ! Dieu indigne que je suis. Pas de sorties pour aujourd'hui mais juste l'annonce des nombreux bonus sortis chez Kanaii et qu'il fallait sortir chez nous aussi de Maria+Holic.
+Rendez-vous sur la page de la sÃ©rie Maria+Holic pour les dÃ©couvrir !");
 			$news->setCommentId(128);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -3664,18 +3664,18 @@ Rendez-vous sur la page de la série Maria+Holic pour les découvrir !");
 			$news->setMessage("[b]Bien le bonsoir la populace.[/b]
 
 
-Afin de bien démarrer, il faut partir d'un postulat: j'en branle pas une.
-Donc quand on s'est demandé s'il fallait diversifier les news du site, j'ai eu le malheur de proposer de faire quelque chose sur Genshiken. Malheureusement, je me suis mangé un «rédige-le» en plein dans les dents. Ouch.
-Qu'à cela ne tienne, je relève le défi.
+Afin de bien dÃ©marrer, il faut partir d'un postulat: j'en branle pas une.
+Donc quand on s'est demandÃ© s'il fallait diversifier les news du site, j'ai eu le malheur de proposer de faire quelque chose sur Genshiken. Malheureusement, je me suis mangÃ© un Â«rÃ©dige-leÂ» en plein dans les dents. Ouch.
+Qu'Ã  cela ne tienne, je relÃ¨ve le dÃ©fi.
 
 Let's rock, baby.
 
 
-Comme vous vous en êtes sûrement déjà aperçu: il y a des jours qui comptent plus que d'autres: la sortie d'un nouveau Metal Gear, un concert de Dropkick Murphy's ou bien un diner aux chandelles avec Monica Belluci... Bref c'est évident et je le redis: il y a des jours qui comptent plus que d'autres.
+Comme vous vous en Ãªtes sÃ»rement dÃ©jÃ  aperÃ§u: il y a des jours qui comptent plus que d'autres: la sortie d'un nouveau Metal Gear, un concert de Dropkick Murphy's ou bien un diner aux chandelles avec Monica Belluci... Bref c'est Ã©vident et je le redis: il y a des jours qui comptent plus que d'autres.
 
 Entre autres, il y a le 11 juin 2009.
-Wesh wesh mon frère, c'est quoi le 11 juin 2009 ?
-Pour certains c'est la perspective d'un examen, pour d'autres c'est la Saint Barnabé (yosh béber), mais pour tout le monde c'est la sortie du neuvième et dernier tome de GENSHIKEN. ( [url]http://www.kurokawa.fr/humour/fiche/1127/genshiken-t9[/url] )
+Wesh wesh mon frÃ¨re, c'est quoi le 11 juin 2009 ?
+Pour certains c'est la perspective d'un examen, pour d'autres c'est la Saint BarnabÃ© (yosh bÃ©ber), mais pour tout le monde c'est la sortie du neuviÃ¨me et dernier tome de GENSHIKEN. ( [url]http://www.kurokawa.fr/humour/fiche/1127/genshiken-t9[/url] )
 
 [url=http://www.kurokawa.fr/humour/fiche/1127/genshiken-t9][img]http://img40.xooimage.com/files/f/7/7/tome-9-ec2933.jpg[/img][/url]
 
@@ -3693,7 +3693,7 @@ Pour certains c'est la perspective d'un examen, pour d'autres c'est la Saint Bar
 			$news->setTimestamp(strtotime("01 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/lolisummer.jpg[/img]
-À l'occasion du premier Mai, on s'offre du muguet, en rapport avec le printemps. Zéro vous fait donc cadeau d'une jolie Loli printemps !");
+Ã€ l'occasion du premier Mai, on s'offre du muguet, en rapport avec le printemps. ZÃ©ro vous fait donc cadeau d'une jolie Loli printemps !");
 			$news->setCommentId(66);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -3707,7 +3707,7 @@ Pour certains c'est la perspective d'un examen, pour d'autres c'est la Saint Bar
 			$news->setTimestamp(strtotime("21 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/dokuro.jpg[/img]
-db0 à gauche et Angel à droite.");
+db0 Ã  gauche et Angel Ã  droite.");
 			$news->setCommentId(61);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -3717,7 +3717,7 @@ db0 à gauche et Angel à droite.");
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Bonne année 2009");
+			$news->setTitle("Bonne annÃ©e 2009");
 			$news->setTimestamp(strtotime("01 January 2009"));
 			$news->setMessage("[url=images/news/%5BZero%5Dnewyear.jpg][img]images/news/newyear_min.jpg[/img][/url]");
 			$news->setCommentId(28);
@@ -3732,31 +3732,31 @@ db0 à gauche et Angel à droite.");
 			$news->setTitle("V3.4 du site !");
 			$news->setTimestamp(strtotime("30 January 2012 00:40"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Après avoir bien bossé ce weekend, je reviens vous faire un petit topo sur l'avancement du raffinage {^_^}. Pour éviter de vous agresser les yeux je vous met les détails en spoiler {^_°}. Pour faire bref, les news sont toutes raffinées (c'est ce qui fait ce changement de version) et le BBCode est dispo.
+			$news->setMessage("AprÃ¨s avoir bien bossÃ© ce weekend, je reviens vous faire un petit topo sur l'avancement du raffinage {^_^}. Pour Ã©viter de vous agresser les yeux je vous met les dÃ©tails en spoiler {^_Â°}. Pour faire bref, les news sont toutes raffinÃ©es (c'est ce qui fait ce changement de version) et le BBCode est dispo.
 
-[spoiler=Afficher les détails]
-* [b]Toutes les news[/b] sont désormais raffinées. La gestion a été fusionnée (il y en avait une pour chaque [i]archive[/i]) de manière à ce que tout soit homogène. Au passage ces [i]archives[/i] sont désormais des [i]vues[/i]. Par défaut elles affichent les [b]10 dernières news[/b] pour éviter de surcharger la page (avant elles affichaient la liste complète, seule la page d'accueil étant réduite à 10). Elles sont capables de tout afficher, mais je n'ai pas mis de fonctionnalité pour le faire simplement (il faut rajouter l'élément [i]showAll[/i] à la main dans l'URL). Pour l'instant ça reste comme ça, j'espère implémenter un système de pagination, dire de pouvoir voyager dedans... parce que tout afficher c'est vraiment barbare {'^_^}.
+[spoiler=Afficher les dÃ©tails]
+* [b]Toutes les news[/b] sont dÃ©sormais raffinÃ©es. La gestion a Ã©tÃ© fusionnÃ©e (il y en avait une pour chaque [i]archive[/i]) de maniÃ¨re Ã  ce que tout soit homogÃ¨ne. Au passage ces [i]archives[/i] sont dÃ©sormais des [i]vues[/i]. Par dÃ©faut elles affichent les [b]10 derniÃ¨res news[/b] pour Ã©viter de surcharger la page (avant elles affichaient la liste complÃ¨te, seule la page d'accueil Ã©tant rÃ©duite Ã  10). Elles sont capables de tout afficher, mais je n'ai pas mis de fonctionnalitÃ© pour le faire simplement (il faut rajouter l'Ã©lÃ©ment [i]showAll[/i] Ã  la main dans l'URL). Pour l'instant Ã§a reste comme Ã§a, j'espÃ¨re implÃ©menter un systÃ¨me de pagination, dire de pouvoir voyager dedans... parce que tout afficher c'est vraiment barbare {'^_^}.
 
-* [b]L'utilisation du BBCode est désormais possible[/b]. Vous me direz ça sert à rien si on peut pas entrer de nouvelles données {'^_^}. Je suis d'accord, mais j'aimerais que certaines fonctionnalités soient déjà implémentées avant que cela ne devienne possible, dire de pas avoir tout à faire en même temps. De plus je me suis amusé à réécrire [u]toutes[/u] les news (164, à la base en HTML ou en objets PHP) en utilisant ce BBCode, de façon à le tester.
+* [b]L'utilisation du BBCode est dÃ©sormais possible[/b]. Vous me direz Ã§a sert Ã  rien si on peut pas entrer de nouvelles donnÃ©es {'^_^}. Je suis d'accord, mais j'aimerais que certaines fonctionnalitÃ©s soient dÃ©jÃ  implÃ©mentÃ©es avant que cela ne devienne possible, dire de pas avoir tout Ã  faire en mÃªme temps. De plus je me suis amusÃ© Ã  rÃ©Ã©crire [u]toutes[/u] les news (164, Ã  la base en HTML ou en objets PHP) en utilisant ce BBCode, de faÃ§on Ã  le tester.
 
-Pour ceux qui connaissent les fonctionnalités PHP pour le BBCode, sachez que j'ai tout recodé [b]à partir de zéro[/b]. Non pas que je voulais me faire chier pour rien, mais je voulais simplement avoir quelque chose de plus cohérent et souple. En particulier, les fonctionnalités BBCode de PHP n'étant pas disponibles de base (il faut installer le module) c'est un énorme point noir si un jour on se retrouve sur un serveur où on ne peut pas le mettre. Là on a notre propre parseur... et j'ai déjà plusieurs balises bien sympathiques {^_^}.
+Pour ceux qui connaissent les fonctionnalitÃ©s PHP pour le BBCode, sachez que j'ai tout recodÃ© [b]Ã  partir de zÃ©ro[/b]. Non pas que je voulais me faire chier pour rien, mais je voulais simplement avoir quelque chose de plus cohÃ©rent et souple. En particulier, les fonctionnalitÃ©s BBCode de PHP n'Ã©tant pas disponibles de base (il faut installer le module) c'est un Ã©norme point noir si un jour on se retrouve sur un serveur oÃ¹ on ne peut pas le mettre. LÃ  on a notre propre parseur... et j'ai dÃ©jÃ  plusieurs balises bien sympathiques {^_^}.
 
-Par exemple, pour accéder directement à des projets ou des releases données. [code][release=mitsudomoe|*]lien[/release][/code] donne ce [release=mitsudomoe|*]lien[/release], affichant toutes les releases de Mitsudomoe. C'est ce que j'ai appelé un [i]lien rapide[/i] dans une news précédente, il a désormais son équivalent BBCode. On peut remplacer [code]*[/code] par une liste d'ID d'épisodes pour ne lister que ceux là.
+Par exemple, pour accÃ©der directement Ã  des projets ou des releases donnÃ©es. [code][release=mitsudomoe|*]lien[/release][/code] donne ce [release=mitsudomoe|*]lien[/release], affichant toutes les releases de Mitsudomoe. C'est ce que j'ai appelÃ© un [i]lien rapide[/i] dans une news prÃ©cÃ©dente, il a dÃ©sormais son Ã©quivalent BBCode. On peut remplacer [code]*[/code] par une liste d'ID d'Ã©pisodes pour ne lister que ceux lÃ .
 
-De même ma balise [code]code[/code] (implémentée spécifiquement pour cette news, juste pour vanter les mérites de mon parseur) me permet d'afficher même le BBCode, sans avoir besoin de tricher sur le codage des caractères, ou mettre un caractère spécial pour éviter que ce soit interprété. Mon exemple avec les releases n'est rien d'autre que ce code :
+De mÃªme ma balise [code]code[/code] (implÃ©mentÃ©e spÃ©cifiquement pour cette news, juste pour vanter les mÃ©rites de mon parseur) me permet d'afficher mÃªme le BBCode, sans avoir besoin de tricher sur le codage des caractÃ¨res, ou mettre un caractÃ¨re spÃ©cial pour Ã©viter que ce soit interprÃ©tÃ©. Mon exemple avec les releases n'est rien d'autre que ce code :
 
 [code][code][release=mitsudomoe|*]lien[/release][/code] donne ce [release=mitsudomoe|*]lien[/release][/code]
 
-De même, un spoiler s'écrit d'habitude comme ça : [code][spoiler=titre]...[/spoiler][/code]. Ainsi, le titre s'affiche d'abord seul, puis il faut cliquer dessus pour ouvrir le spoiler. Cependant, je n'ai jamais vu de spoiler capable de prendre un [b]titre formatté en BBCode[/b], par exemple une image. Ma balise spoiler en revanche en est capable, c'est d'ailleurs le cas dans une vieille news.
+De mÃªme, un spoiler s'Ã©crit d'habitude comme Ã§a : [code][spoiler=titre]...[/spoiler][/code]. Ainsi, le titre s'affiche d'abord seul, puis il faut cliquer dessus pour ouvrir le spoiler. Cependant, je n'ai jamais vu de spoiler capable de prendre un [b]titre formattÃ© en BBCode[/b], par exemple une image. Ma balise spoiler en revanche en est capable, c'est d'ailleurs le cas dans une vieille news.
 
-[spoiler=Pour les curieux]Si aucun titre n'est donné, le premier élément non vide dans le spoiler est pris comme titre (et n'est bien sûr plus affiché dans le spoiler). Ça évite les conflits lors du parsage du paramètre, qui peut alors rester générique.[/spoiler]
+[spoiler=Pour les curieux]Si aucun titre n'est donnÃ©, le premier Ã©lÃ©ment non vide dans le spoiler est pris comme titre (et n'est bien sÃ»r plus affichÃ© dans le spoiler). Ã‡a Ã©vite les conflits lors du parsage du paramÃ¨tre, qui peut alors rester gÃ©nÃ©rique.[/spoiler]
 
-Une autre particularité est que, lorsqu'une balise BBCode génère son code HTML, le contenu [u]préformatté[/u] est donné (une représentation en arbre du contenu) et une simple fonction permet d'obtenir la version parsée (HTML) ou la version originale (BBCode). On peut donc librement travailler sur l'une des trois versions selon le besoin. C'est ce qui me donne le plus de souplesse.
+Une autre particularitÃ© est que, lorsqu'une balise BBCode gÃ©nÃ¨re son code HTML, le contenu [u]prÃ©formattÃ©[/u] est donnÃ© (une reprÃ©sentation en arbre du contenu) et une simple fonction permet d'obtenir la version parsÃ©e (HTML) ou la version originale (BBCode). On peut donc librement travailler sur l'une des trois versions selon le besoin. C'est ce qui me donne le plus de souplesse.
 
-Enfin bref, vous l'aurez compris, je me suis éclaté ce weekend. Et en plus j'ai pu vérifier les 5 karas de MNO, jap + fr, faire mes lessives et mes courses. C'est pas beau tout ça ? {^.^}~
+Enfin bref, vous l'aurez compris, je me suis Ã©clatÃ© ce weekend. Et en plus j'ai pu vÃ©rifier les 5 karas de MNO, jap + fr, faire mes lessives et mes courses. C'est pas beau tout Ã§a ? {^.^}~
 [/spoiler]
 
-NB : pour ceux qui ont vu que la section H était hors service, normalement ça a été corrigé.");
+NB : pour ceux qui ont vu que la section H Ã©tait hors service, normalement Ã§a a Ã©tÃ© corrigÃ©.");
 			$news->setCommentId(287);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3769,16 +3769,16 @@ NB : pour ceux qui ont vu que la section H était hors service, normalement ça a 
 			$news->setTitle("Toradora! OAD");
 			$news->setTimestamp(strtotime("30 January 2012 20:16"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("[project=toradorabento][imgl=images/news/toradorabento.png]Toradora! Bentô[/imgl][/project]
-Certains l'ont demandé, le voilà tout droit sorti du four.
+			$news->setMessage("[project=toradorabento][imgl=images/news/toradorabento.png]Toradora! BentÃ´[/imgl][/project]
+Certains l'ont demandÃ©, le voilÃ  tout droit sorti du four.
 
-À consommer sans modération {^_^}.
+Ã€ consommer sans modÃ©ration {^_^}.
 
-[img=images/news/toradorabento2.png]Toradora! Bentô[/img]
+[img=images/news/toradorabento2.png]Toradora! BentÃ´[/img]
 
-Encore une news qui m'aura donné la dalle {'-_-}.
+Encore une news qui m'aura donnÃ© la dalle {'-_-}.
 [pin]
-Notez que l'épisode est aussi disponible en 1080p (certains l'ont demandé... et ben on l'a fait aussi). Cela dit on passe par une méthode pas encore passe partout (10 bits). Assurez-vous d'avoir des codecs à jour pour pouvoir le lire.");
+Notez que l'Ã©pisode est aussi disponible en 1080p (certains l'ont demandÃ©... et ben on l'a fait aussi). Cela dit on passe par une mÃ©thode pas encore passe partout (10 bits). Assurez-vous d'avoir des codecs Ã  jour pour pouvoir le lire.");
 			$news->setCommentId(288);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
@@ -3795,7 +3795,7 @@ Notez que l'épisode est aussi disponible en 1080p (certains l'ont demandé... et 
 			$news->setMessage("[img]images/news/newsisso3.png[/img]
 Yeah !
 La suite d'Issho ni H shiyo avec cette fois-ci une jolie neko-maid qui vient s'occuper de ranger votre appartement, vous faire la cuisine et pleins d'autres choses.
-Toujours en coproduction avec FinalFan sub dont la p'tite bannière est venue rejoindre celles de nos partenaires.
+Toujours en coproduction avec FinalFan sub dont la p'tite banniÃ¨re est venue rejoindre celles de nos partenaires.
 Attention ! Moins de 18 ans s'abstenir.");
 			$news->setCommentId(219);
 			$news->setDisplayInNormalMode(false);
@@ -3811,13 +3811,13 @@ Attention ! Moins de 18 ans s'abstenir.");
 			$news->setTimestamp(strtotime("03 March 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
 			$news->setMessage("[imgr]images/news/issho.png[/imgr]
-La suite de notre nouvel hentaï dans la série des isshoni !
+La suite de notre nouvel hentaÃ¯ dans la sÃ©rie des isshoni !
 
-Aujourd'hui, vous êtes le senpai de la jolie Haruka et comme celle-ci vous offre des patisseries, vous la remerciez du mieux que vous pouvez... Vous savez bien comment.
+Aujourd'hui, vous Ãªtes le senpai de la jolie Haruka et comme celle-ci vous offre des patisseries, vous la remerciez du mieux que vous pouvez... Vous savez bien comment.
 
-Attention, cet épisode est résérvé aux personnes majeures de plus de 18 ans !
+Attention, cet Ã©pisode est rÃ©sÃ©rvÃ© aux personnes majeures de plus de 18 ans !
 
-Cet épisode est en coproduction avec l'équipe Finalfan Sub.");
+Cet Ã©pisode est en coproduction avec l'Ã©quipe Finalfan Sub.");
 			$news->setCommentId(208);
 			$news->setDisplayInNormalMode(false);
 			$news->setDisplayInHentaiMode(true);
@@ -3831,12 +3831,12 @@ Cet épisode est en coproduction avec l'équipe Finalfan Sub.");
 			$news->setTitle("Issho ni H shiyo OAV 01");
 			$news->setTimestamp(strtotime("30 January 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
-			$news->setMessage("[imgr]images/news/isho.jpg[/imgr]Encore un petit épisode de hentaï, mes chers petits pervers !
-Vous vous conaissez, on ne fait pas les choses à moitié.
+			$news->setMessage("[imgr]images/news/isho.jpg[/imgr]Encore un petit Ã©pisode de hentaÃ¯, mes chers petits pervers !
+Vous vous conaissez, on ne fait pas les choses Ã  moitiÃ©.
 Quand on fait Kodomo, on fait Konoe.
-Donc forcément, quand on fait Issho ni Training, on fait Issho ni H siyo !
+Donc forcÃ©ment, quand on fait Issho ni Training, on fait Issho ni H siyo !
 C'est une sorte de parodie ou c'est vous, ce soir, qui allez faire l'amour avec Miyazawa.
-Cet épisode est en co-production avec [partner=finalfan]Finalfan Sub[/partner].");
+Cet Ã©pisode est en co-production avec [partner=finalfan]Finalfan Sub[/partner].");
 			$news->setCommentId(193);
 			$news->setDisplayInNormalMode(false);
 			$news->setDisplayInHentaiMode(true);
@@ -3850,7 +3850,7 @@ Cet épisode est en co-production avec [partner=finalfan]Finalfan Sub[/partner]."
 			$news->setTitle("Konoe no Jikan 03");
 			$news->setTimestamp(strtotime("28 January 2010"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
-			$news->setMessage("[imgr]images/news/konoee3.jpg[/imgr]Après la fin de Kodomo, vous vous sentez seuls sans Rin ? La voilà de retour ! Non, ce n'est pas la saison 3 de Kodomo no Jikan mais bien la suite de Konoe no Jikan, la parodie porno. L'épisode est disponible dans la partie Hentaï du site. Mais attention, moins de 18 ans s'abstenir... Je vous surveille, ne trichez pas !");
+			$news->setMessage("[imgr]images/news/konoee3.jpg[/imgr]AprÃ¨s la fin de Kodomo, vous vous sentez seuls sans Rin ? La voilÃ  de retour ! Non, ce n'est pas la saison 3 de Kodomo no Jikan mais bien la suite de Konoe no Jikan, la parodie porno. L'Ã©pisode est disponible dans la partie HentaÃ¯ du site. Mais attention, moins de 18 ans s'abstenir... Je vous surveille, ne trichez pas !");
 			$news->setCommentId(189);
 			$news->setDisplayInNormalMode(false);
 			$news->setDisplayInHentaiMode(true);
@@ -3865,7 +3865,7 @@ Cet épisode est en co-production avec [partner=finalfan]Finalfan Sub[/partner]."
 			$news->setTimestamp(strtotime("15 April 2009 01:00"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
 			$news->setMessage("[img]images/news/heismymaster.jpg[/img]
-Un nouveau doujin de plus chez Zéro ! Aucun rapport cette fois avec nos séries, mais une série qu'on aime bien : He is my master. [project=heismymaster]Lien pour le doujin[/project]");
+Un nouveau doujin de plus chez ZÃ©ro ! Aucun rapport cette fois avec nos sÃ©ries, mais une sÃ©rie qu'on aime bien : He is my master. [project=heismymaster]Lien pour le doujin[/project]");
 			$news->setCommentId(68);
 			$news->setDisplayInNormalMode(false);
 			$news->setDisplayInHentaiMode(true);
@@ -3880,7 +3880,7 @@ Un nouveau doujin de plus chez Zéro ! Aucun rapport cette fois avec nos séries, 
 			$news->setTimestamp(strtotime("15 April 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
 			$news->setMessage("[img]images/news/konoe2.jpg[/img]
-Seto Hinata est de retour dans son rôle de Rin pour l'épisode 02 de Konoe no jikan ! Cette fois-ci, son prof va lui apprendre un cours plutôt interessant... [url=http://www.kojikan.fr/?page=hentai-konoe]Accéder à la page de téléchargement[/url].");
+Seto Hinata est de retour dans son rÃ´le de Rin pour l'Ã©pisode 02 de Konoe no jikan ! Cette fois-ci, son prof va lui apprendre un cours plutÃ´t interessant... [url=http://www.kojikan.fr/?page=hentai-konoe]AccÃ©der Ã  la page de tÃ©lÃ©chargement[/url].");
 			$news->setCommentId(60);
 			$news->setDisplayInNormalMode(false);
 			$news->setDisplayInHentaiMode(true);
@@ -3895,7 +3895,7 @@ Seto Hinata est de retour dans son rôle de Rin pour l'épisode 02 de Konoe no jik
 			$news->setTimestamp(strtotime("18 March 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
 			$news->setMessage("[img]images/news/konoe.jpg[/img]
-Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et autres perversités à nos chers amis leechers. Ce temps est révolu ! Zéro sort aujourd'hui son premier épisode \"hentaï\" qui n'en est pas vraiment un puisque c'est un film, avec de vrais gens dedant, et tout, et tout. Konoe no Jikan ! La parodie cinématographique de Kodomo no Jikan. Série en 4 épisodes, traduits généreusement par Sazaju, traumatisé après ça (R.I.P.). Profitez bien de cet épisode, et n'hésitez pas à nous faire part de votre avis pervers dans les commentaires ! [url=http://www.kojikan.fr/?page=konoe]Accéder à la page de téléchargement[/url].");
+Il fut un temps oÃ¹ ZÃ©ro refusait catÃ©goriquement de proposer du hentaÃ¯ et autres perversitÃ©s Ã  nos chers amis leechers. Ce temps est rÃ©volu ! ZÃ©ro sort aujourd'hui son premier Ã©pisode \"hentaÃ¯\" qui n'en est pas vraiment un puisque c'est un film, avec de vrais gens dedant, et tout, et tout. Konoe no Jikan ! La parodie cinÃ©matographique de Kodomo no Jikan. SÃ©rie en 4 Ã©pisodes, traduits gÃ©nÃ©reusement par Sazaju, traumatisÃ© aprÃ¨s Ã§a (R.I.P.). Profitez bien de cet Ã©pisode, et n'hÃ©sitez pas Ã  nous faire part de votre avis pervers dans les commentaires ! [url=http://www.kojikan.fr/?page=konoe]AccÃ©der Ã  la page de tÃ©lÃ©chargement[/url].");
 			$news->setCommentId(48);
 			$news->setDisplayInNormalMode(false);
 			$news->setDisplayInHentaiMode(true);
@@ -3909,20 +3909,20 @@ Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et autres
 			$news->setTitle("V3.5 du site");
 			$news->setTimestamp(strtotime("06 February 2012 11:21"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Voilà encore quelques petites choses de faites (plus de 40 commits en un weekend quand même). Ce changement de version indique la fin du raffinage des pages.
+			$news->setMessage("VoilÃ  encore quelques petites choses de faites (plus de 40 commits en un weekend quand mÃªme). Ce changement de version indique la fin du raffinage des pages.
 
-[spoiler=Afficher le résumé][left][list]
-[item]Ajout des sections scantrads (en cours, terminés, abandonnés, envisagés) + retrait automatique des sections vides dans la [url=?page=projects]liste des projets[/url].[/item]
-[item]Affichage de quelques informations dans la [url=?page=bug]page de bug[/url], pour aider le suivi (si vous en voyez d'autres dîtes-le-moi).[/item]
-[item]Complétion d'anciennes informations (certaines étaient isolées dans des fichiers non utilisés, elles sont maintenant avec toutes les autres). Cela inclut les news H et les anciens membres.[/item]
-[item]Raffinage des [url=?page=dossiers]dossiers[/url], de la liste des partenaires et de la page pour devenir partenaire (menu de droite). En bref j'ai fini de raffiner les menus et les pages qu'ils pointent. Les news ont été revues pour servir de tests (certaines ont des liens vers des dossiers ou des partenaires).[/item]
+[spoiler=Afficher le rÃ©sumÃ©][left][list]
+[item]Ajout des sections scantrads (en cours, terminÃ©s, abandonnÃ©s, envisagÃ©s) + retrait automatique des sections vides dans la [url=?page=projects]liste des projets[/url].[/item]
+[item]Affichage de quelques informations dans la [url=?page=bug]page de bug[/url], pour aider le suivi (si vous en voyez d'autres dÃ®tes-le-moi).[/item]
+[item]ComplÃ©tion d'anciennes informations (certaines Ã©taient isolÃ©es dans des fichiers non utilisÃ©s, elles sont maintenant avec toutes les autres). Cela inclut les news H et les anciens membres.[/item]
+[item]Raffinage des [url=?page=dossiers]dossiers[/url], de la liste des partenaires et de la page pour devenir partenaire (menu de droite). En bref j'ai fini de raffiner les menus et les pages qu'ils pointent. Les news ont Ã©tÃ© revues pour servir de tests (certaines ont des liens vers des dossiers ou des partenaires).[/item]
 [item]Raffinage d'anciennes pages non accessibles depuis les menus mais accessibles depuis d'anciennes news (kanaiiddl, recrutement, dakko, dons, dl).[/item]
 [item]Suppression des pages non accessibles (plus de 20 {^_^}).[/item]
-[item]Gestion d'URL améliorée : du XSS comme 'index.php/%22onmouseover=prompt(987201)%3E' ne devrait pas fonctionner (n'hésitez pas à en chercher d'autres si ça vous amuse {^_^}).[/item]
-[item]Complétion des balises BBCode (relativement aux points précédents).[/item]
+[item]Gestion d'URL amÃ©liorÃ©e : du XSS comme 'index.php/%22onmouseover=prompt(987201)%3E' ne devrait pas fonctionner (n'hÃ©sitez pas Ã  en chercher d'autres si Ã§a vous amuse {^_^}).[/item]
+[item]ComplÃ©tion des balises BBCode (relativement aux points prÃ©cÃ©dents).[/item]
 [/list][/left][/spoiler]
 
-La prochaine étape devrait être la persistence des données je pense. Avec le passage en base de données, on pourra profiter d'un vrai dynamisme. Si ce n'est pas ça ça sera sûrement l'implémentation des comptes. On verra selon les besoins (ou les envies) du moment {^_^}.");
+La prochaine Ã©tape devrait Ãªtre la persistence des donnÃ©es je pense. Avec le passage en base de donnÃ©es, on pourra profiter d'un vrai dynamisme. Si ce n'est pas Ã§a Ã§a sera sÃ»rement l'implÃ©mentation des comptes. On verra selon les besoins (ou les envies) du moment {^_^}.");
 			$news->setCommentId(289);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3935,21 +3935,21 @@ La prochaine étape devrait être la persistence des données je pense. Avec le pas
 			$news->setTitle("On met la pression ! + MNO 1-10");
 			$news->setTimestamp(strtotime("25 March 2012 19:01"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Ça fait un moment qu'on a du mal à sortir des releases, pourquoi ? Mine de rien la réponse est assez simple (malgré le gros pavé qui vous attend).
+			$news->setMessage("Ã‡a fait un moment qu'on a du mal Ã  sortir des releases, pourquoi ? Mine de rien la rÃ©ponse est assez simple (malgrÃ© le gros pavÃ© qui vous attend).
 
-[imgr=images/news/stripKobato.png]Dur, dur de changer de veste ![/imgr]En fait on a tellement peu de monde que certains doivent faire des choses [b]qu'ils ne sont pas censés faire[/b]. Et bien entendu, non seulement ça leur prend du temps supplémentaire, mais en plus c'est plus lent que quelqu'un qui ne fait que ça. En effet, il faut sans arrêt changer de veste, et donc se remettre dans le bain à chaque fois. C'est pas forcément motivant, vu qu'on n'en voit pas le bout.
+[imgr=images/news/stripKobato.png]Dur, dur de changer de veste ![/imgr]En fait on a tellement peu de monde que certains doivent faire des choses [b]qu'ils ne sont pas censÃ©s faire[/b]. Et bien entendu, non seulement Ã§a leur prend du temps supplÃ©mentaire, mais en plus c'est plus lent que quelqu'un qui ne fait que Ã§a. En effet, il faut sans arrÃªt changer de veste, et donc se remettre dans le bain Ã  chaque fois. C'est pas forcÃ©ment motivant, vu qu'on n'en voit pas le bout.
 
-On se doute bien que vous avez des trucs à faire, [b]mais nous aussi[/b]. Ce qu'on aimerait, c'est des gens qui aient l'esprit fansub, cet esprit partage qui nous anime nous (depuis un paquet d'années déjà). Hélas, depuis un certain temps, on n'en trouve quasiment plus. On n'a plus que des gens qui leechent et postent des '[i]Merci, continuez, @+[/i]'.
+On se doute bien que vous avez des trucs Ã  faire, [b]mais nous aussi[/b]. Ce qu'on aimerait, c'est des gens qui aient l'esprit fansub, cet esprit partage qui nous anime nous (depuis un paquet d'annÃ©es dÃ©jÃ ). HÃ©las, depuis un certain temps, on n'en trouve quasiment plus. On n'a plus que des gens qui leechent et postent des '[i]Merci, continuez, @+[/i]'.
 
-Et parmi ces gens-là, il y en a un paquet qui ont les qualités suffisantes pour faire du fansub, mais par timidité ou par honte non justifiée ils se retiennent en se disant qu'il y aura bien quelqu'un d'autre qui postulera... S'ils peuvent avoir raison (on en a de temps en temps qui postulent), ils ne voient hélas [b]que le court terme[/b]. Parmi ceux qui entrent beaucoup trop ne restent pas. Et pour les rares qui restent, on se retrouve vite avec des gens démotivés parce qu'on n'est pas assez, et donc tout le monde court de partout et se retrouve à faire des choses qu'il ne voulait pas.
+Et parmi ces gens-lÃ , il y en a un paquet qui ont les qualitÃ©s suffisantes pour faire du fansub, mais par timiditÃ© ou par honte non justifiÃ©e ils se retiennent en se disant qu'il y aura bien quelqu'un d'autre qui postulera... S'ils peuvent avoir raison (on en a de temps en temps qui postulent), ils ne voient hÃ©las [b]que le court terme[/b]. Parmi ceux qui entrent beaucoup trop ne restent pas. Et pour les rares qui restent, on se retrouve vite avec des gens dÃ©motivÃ©s parce qu'on n'est pas assez, et donc tout le monde court de partout et se retrouve Ã  faire des choses qu'il ne voulait pas.
 
-[b]On n'a pas besoin de gens super compétents[/b], ces gens-là on les a déjà. La plupart d'entre nous ont appris sur le tas, et ça ne les empêche pas de faire du bon boulot. Mais si on n'est pas assez nombreux, la charge de travail est similaire à un boulot classique (sauf que personne n'est rémunéré). Alors ne vous étonnez pas après de ne plus voir grand-chose sortir. Beaucoup de teams très bonnes dans ce qu'elles faisaient ont fermé pour moins que ça. Nous, on tient parce qu'on est des entêtés qui ne veulent pas s'avouer à l'article de la mort. On a des gens très doués qui sont là pour vous aider à apprendre et vous perfectionner, mais si personne ne nous tend la main ces personnes sont débordées et ne peuvent pas aider les nouveaux arrivants.
+[b]On n'a pas besoin de gens super compÃ©tents[/b], ces gens-lÃ  on les a dÃ©jÃ . La plupart d'entre nous ont appris sur le tas, et Ã§a ne les empÃªche pas de faire du bon boulot. Mais si on n'est pas assez nombreux, la charge de travail est similaire Ã  un boulot classique (sauf que personne n'est rÃ©munÃ©rÃ©). Alors ne vous Ã©tonnez pas aprÃ¨s de ne plus voir grand-chose sortir. Beaucoup de teams trÃ¨s bonnes dans ce qu'elles faisaient ont fermÃ© pour moins que Ã§a. Nous, on tient parce qu'on est des entÃªtÃ©s qui ne veulent pas s'avouer Ã  l'article de la mort. On a des gens trÃ¨s douÃ©s qui sont lÃ  pour vous aider Ã  apprendre et vous perfectionner, mais si personne ne nous tend la main ces personnes sont dÃ©bordÃ©es et ne peuvent pas aider les nouveaux arrivants.
 [img=images/news/study.png]Allez, courage ![/img]
-Plus on est nombreux, mieux c'est pour tout le monde : on ne dilue pas la qualité, on dilue la charge de travail. On a des gens très compétents qui passeront derrière vous de toute façon pour corriger ce qui ne va pas [b]et vous dire comment vous améliorer[/b]. Alors pourquoi se retenir ? Si vous aimez les animes et que vous avez déjà vu quelques dizaines de séries, vous savez déjà ce que c'est que le fansub. Le reste c'est de la découverte et de la mise en pratique, il suffit d'être curieux.
+Plus on est nombreux, mieux c'est pour tout le monde : on ne dilue pas la qualitÃ©, on dilue la charge de travail. On a des gens trÃ¨s compÃ©tents qui passeront derriÃ¨re vous de toute faÃ§on pour corriger ce qui ne va pas [b]et vous dire comment vous amÃ©liorer[/b]. Alors pourquoi se retenir ? Si vous aimez les animes et que vous avez dÃ©jÃ  vu quelques dizaines de sÃ©ries, vous savez dÃ©jÃ  ce que c'est que le fansub. Le reste c'est de la dÃ©couverte et de la mise en pratique, il suffit d'Ãªtre curieux.
 
-Pour ceux qui seront arrivés jusque-là, on a tout de même une grosse bonne nouvelle : Mayoi Neko Overrun 1 à 10 dans les bacs (et en Blu-Ray) ! Cela dit, on attendra d'avoir la série complète pour faire le torrent du pack, d'ici là le DDL est dispo. Notez le cadre en fin de news, qui liste les sorties liées à la news. Ça marche pour toutes les news de sorties, ça vient d'être implémenté {^_^}.
+Pour ceux qui seront arrivÃ©s jusque-lÃ , on a tout de mÃªme une grosse bonne nouvelle : Mayoi Neko Overrun 1 Ã  10 dans les bacs (et en Blu-Ray) ! Cela dit, on attendra d'avoir la sÃ©rie complÃ¨te pour faire le torrent du pack, d'ici lÃ  le DDL est dispo. Notez le cadre en fin de news, qui liste les sorties liÃ©es Ã  la news. Ã‡a marche pour toutes les news de sorties, Ã§a vient d'Ãªtre implÃ©mentÃ© {^_^}.
 
-Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exactement ce que je vous disais plus haut. Les hauts gradés ont tellement de boulot qu'ils repoussent tout à plus tard, moi le premier. Aussi j'espère que vous téléchargerez ces épisodes avec l'envie d'aider.");
+Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exactement ce que je vous disais plus haut. Les hauts gradÃ©s ont tellement de boulot qu'ils repoussent tout Ã  plus tard, moi le premier. Aussi j'espÃ¨re que vous tÃ©lÃ©chargerez ces Ã©pisodes avec l'envie d'aider.");
 			$news->setCommentId(291);
 			$news->addReleasing(Release::getRelease('mayoi', 'ep1'));
 			$news->addReleasing(Release::getRelease('mayoi', 'ep2'));
@@ -3972,7 +3972,7 @@ Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exacte
 			$news->setTitle("Denpa 01");
 			$news->setTimestamp(strtotime("12 March 2012 14:47"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Petite sortie en vitesse. Il y en a un paquet d'autres qui sont en cours de préparation mais qui devraient arriver la semaine prochaine.");
+			$news->setMessage("Petite sortie en vitesse. Il y en a un paquet d'autres qui sont en cours de prÃ©paration mais qui devraient arriver la semaine prochaine.");
 			$news->setCommentId(290);
 			$news->addReleasing(Release::getRelease('denpa', 'ep1'));
 			$news->setDisplayInNormalMode(true);
@@ -3986,9 +3986,9 @@ Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exacte
 			$news->setTitle("Mitsudomoe 9 BD");
 			$news->setTimestamp(strtotime("4 April 2012 19:41"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Ça se décoince petit à petit. On a eu quelques candidatures et ça allège un peu la charge de travail.
+			$news->setMessage("Ã‡a se dÃ©coince petit Ã  petit. On a eu quelques candidatures et Ã§a allÃ¨ge un peu la charge de travail.
 
-Ajouté à ça, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.");
+AjoutÃ© Ã  Ã§a, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.");
 			$news->setCommentId(292);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep9'));
 			$news->setDisplayInNormalMode(true);
@@ -4002,7 +4002,7 @@ Ajouté à ça, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.");
 			$news->setTitle("Mitsudomoe 10 BD");
 			$news->setTimestamp(strtotime("8 April 2012 18:38"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Allez, c'est pas fini ! On enchaîne avec l'épisode 10 de Mitsudomoe !
+			$news->setMessage("Allez, c'est pas fini ! On enchaÃ®ne avec l'Ã©pisode 10 de Mitsudomoe !
 
 [img]images/news/mitsudomoe10.png[/img]");
 			$news->setCommentId(294);
@@ -4018,11 +4018,11 @@ Ajouté à ça, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.");
 			$news->setTitle("Mitsudomoe 11 BD");
 			$news->setTimestamp(strtotime("18 April 2012 19:49"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Bon, on va pas se faire 2 mini-news d'affilée quand même. Donc voilà un peu de texte : Lorem ipsum... Nan je déconne {^.^}~. Un petit mot tout de même : pour la news d'il y a dix jours, à propos de l'embauche d'un graphiste, pas un seul commentaire n'a été posté (et bien entendu aucune candidature), alors que la suivante s'est vue avoir plus d'intérêt {;_;}.
+			$news->setMessage("Bon, on va pas se faire 2 mini-news d'affilÃ©e quand mÃªme. Donc voilÃ  un peu de texte : Lorem ipsum... Nan je dÃ©conne {^.^}~. Un petit mot tout de mÃªme : pour la news d'il y a dix jours, Ã  propos de l'embauche d'un graphiste, pas un seul commentaire n'a Ã©tÃ© postÃ© (et bien entendu aucune candidature), alors que la suivante s'est vue avoir plus d'intÃ©rÃªt {;_;}.
 
-Je rappelle qu'il n'y a [b][u]pas besoin[/u][/b] d'être super expérimenté, comme savoir faire des effets qui tuent ou autre. Je dirais même qu'à partir du moment où vous savez utiliser le pinceau, la gomme et le couper-coller dans paint (ou tout autre logiciel de traitement d'image), c'est suffisant ! On a juste besoin de quelqu'un qui aime faire ça parce qu'on a plein de petite tâches relatives au traitement d'image, et comme ça peut prendre une masse de temps assez importante, on cherche quelqu'un pour nous épauler. Si vous aimez jouer avec des images, c'est tout ce qu'on demande. C'est même tout ce que je demande, vu que c'est surtout moi qui en ai besoin {'^_^}. S'il y a besoin de faire la moindre chose avancée, je peux dire comment le faire.
+Je rappelle qu'il n'y a [b][u]pas besoin[/u][/b] d'Ãªtre super expÃ©rimentÃ©, comme savoir faire des effets qui tuent ou autre. Je dirais mÃªme qu'Ã  partir du moment oÃ¹ vous savez utiliser le pinceau, la gomme et le couper-coller dans paint (ou tout autre logiciel de traitement d'image), c'est suffisant ! On a juste besoin de quelqu'un qui aime faire Ã§a parce qu'on a plein de petite tÃ¢ches relatives au traitement d'image, et comme Ã§a peut prendre une masse de temps assez importante, on cherche quelqu'un pour nous Ã©pauler. Si vous aimez jouer avec des images, c'est tout ce qu'on demande. C'est mÃªme tout ce que je demande, vu que c'est surtout moi qui en ai besoin {'^_^}. S'il y a besoin de faire la moindre chose avancÃ©e, je peux dire comment le faire.
 
-Au passage, Mitsudomoe 11 est dans les bacs. Mais tout le monde s'en fout de ça, pas vrai ? Ce qui est important c'est que je cherche quelqu'un qui veut faire graphiste ! \{>o<}/
+Au passage, Mitsudomoe 11 est dans les bacs. Mais tout le monde s'en fout de Ã§a, pas vrai ? Ce qui est important c'est que je cherche quelqu'un qui veut faire graphiste ! \{>o<}/
 
 [img=images/news/mitsudomoe11.jpg]Qui veut maigrir ?[/img]");
 			$news->setCommentId(295);
@@ -4038,12 +4038,12 @@ Au passage, Mitsudomoe 11 est dans les bacs. Mais tout le monde s'en fout de ça,
 			$news->setTitle("Mitsudomoe 12 BD");
 			//$news->setTimestamp(strtotime("18 April 2012 19:49"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Allez on continue et on approche tout doucement de la fin de Mitsudomoe. On se focalise sur la plus normale des élèves, qui au final peut se montrer assez craquante, vous trouvez pas :
+			$news->setMessage("Allez on continue et on approche tout doucement de la fin de Mitsudomoe. On se focalise sur la plus normale des Ã©lÃ¨ves, qui au final peut se montrer assez craquante, vous trouvez pas :
 
 [img=images/news/mitsudomoe12.png]Tehe ![/img]
 
 Et merci de nous suivre !
-(ça fait un moment qu'on l'a pas sortie celle-là {°.°}~)");
+(Ã§a fait un moment qu'on l'a pas sortie celle-lÃ  {Â°.Â°}~)");
 			//$news->setCommentId(295);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep12'));
 			$news->setDisplayInNormalMode(true);
@@ -4057,15 +4057,15 @@ Et merci de nous suivre !
 			$news->setTitle("Rerutement exotique !");
 			$news->setTimestamp(strtotime("8 April 2012 12:57"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("[imgr]images/news/kanamemo_p4.png[/imgr]On recrute ! Ouais mais vous me direz que ça fait un moment que vous êtes au courant. Mais le truc, c'est que toutes les candidatures qu'on reçoit (pour le peu qu'on a) sont pour des boulots tels que trad et timeurs... et c'est tout. Mais la Zéro, ce n'est pas qu'un blog de fansubbeurs : on maintient un site complet et on essaye de multiplier nos activités.
+			$news->setMessage("[imgr]images/news/kanamemo_p4.png[/imgr]On recrute ! Ouais mais vous me direz que Ã§a fait un moment que vous Ãªtes au courant. Mais le truc, c'est que toutes les candidatures qu'on reÃ§oit (pour le peu qu'on a) sont pour des boulots tels que trad et timeurs... et c'est tout. Mais la ZÃ©ro, ce n'est pas qu'un blog de fansubbeurs : on maintient un site complet et on essaye de multiplier nos activitÃ©s.
 
-Bref, tout ça pour vous dire qu'on recherche aussi [b]un graphiste[/b], qui pourra nous aider à faire les sorties en faisant les preview, les images d'entête et de news, mais aussi nous aider à faire les éditions, proposer de nouveaux styles pour le site, et même faire [i]cleaner[/i] pour nos scantrads. Car oui, je vous le rappelle, on a un projet [b]scantrad[/b] (Kanamemo) qui est commencé ! On recherche donc aussi des gens motivés pour participer à ce projet, car là on n'a plus personne {'^_^}.
+Bref, tout Ã§a pour vous dire qu'on recherche aussi [b]un graphiste[/b], qui pourra nous aider Ã  faire les sorties en faisant les preview, les images d'entÃªte et de news, mais aussi nous aider Ã  faire les Ã©ditions, proposer de nouveaux styles pour le site, et mÃªme faire [i]cleaner[/i] pour nos scantrads. Car oui, je vous le rappelle, on a un projet [b]scantrad[/b] (Kanamemo) qui est commencÃ© ! On recherche donc aussi des gens motivÃ©s pour participer Ã  ce projet, car lÃ  on n'a plus personne {'^_^}.
 
-(je rappelle qu'il n'est pas nécessaire d'être super expérimenté)
+(je rappelle qu'il n'est pas nÃ©cessaire d'Ãªtre super expÃ©rimentÃ©)
 
-Ayez de l'imagination, ne vous dîtes pas d'emblée \"[i]Ah, le fansub ils font ça, mais moi je vois pas où je pourrais aider donc pas la peine de postuler.[/i]\". Si vous voulez aider mais ne savez pas comment, candidatez en disant ce que vous aimez faire, ce que vous savez faire et ce que vous souhaitez améliorer, on vous dira si ça peut servir. Peut-être que vous passez à côté d'une activité pas bien mise en avant mais super intéressante !
+Ayez de l'imagination, ne vous dÃ®tes pas d'emblÃ©e \"[i]Ah, le fansub ils font Ã§a, mais moi je vois pas oÃ¹ je pourrais aider donc pas la peine de postuler.[/i]\". Si vous voulez aider mais ne savez pas comment, candidatez en disant ce que vous aimez faire, ce que vous savez faire et ce que vous souhaitez amÃ©liorer, on vous dira si Ã§a peut servir. Peut-Ãªtre que vous passez Ã  cÃ´tÃ© d'une activitÃ© pas bien mise en avant mais super intÃ©ressante !
 
-Si vous vous sentez prêt à participer à l'aventure : cliquez sur le lien [i]Recrutement[/i] dans le menu de gauche !");
+Si vous vous sentez prÃªt Ã  participer Ã  l'aventure : cliquez sur le lien [i]Recrutement[/i] dans le menu de gauche !");
 			$news->setCommentId(293);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);

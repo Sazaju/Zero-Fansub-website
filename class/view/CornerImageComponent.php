@@ -39,7 +39,7 @@ class CornerImageComponent extends LinkComponent {
 			CornerImageComponent::$allImages[] = new CornerImageComponent("Genshiken0.png", "Ohno", "genshiken");
 			CornerImageComponent::$allImages[] = new CornerImageComponent("Genshiken1.png", "Ogiue", "genshiken");
 			CornerImageComponent::$allImages[] = new CornerImageComponent("Sketchbook1.png", "Kate", "sketchbook");
-			CornerImageComponent::$allImages[] = new CornerImageComponent("kujian.png", "Présidente & Tokino", "kujibiki");
+			CornerImageComponent::$allImages[] = new CornerImageComponent("kujian.png", "PrÃ©sidente & Tokino", "kujibiki");
 			CornerImageComponent::$allImages[] = new CornerImageComponent("rin.png", "Rin", "kodomo2");
 			CornerImageComponent::$allImages[] = new CornerImageComponent("Working1.png", "? & ?", "working");
 			CornerImageComponent::$allImages[] = new CornerImageComponent("Working1.png", "? & ?", "working2");

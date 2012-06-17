@@ -5,26 +5,26 @@ define("DM_SORT_SIZE", "2");
 
 class DirectoryManager {
     /*********************************************************************************\
-    Retourne un tableau listant le contenu du dossier, chaque ÈlÈment possËde les
+    Retourne un tableau listant le contenu du dossier, chaque √©l√©ment poss√®de les
     informations suivantes :
-        - name      : nom de l'ÈlÈment
+        - name      : nom de l'√©l√©ment
         - type      : 'file' pour les fichiers, 'directory' pour les dossiers,
                       'unknown' pour le reste
         - size      : taille en octets
-        - access    : droits d'accËs (rwx en octal (0-7))
+        - access    : droits d'acc√®s (rwx en octal (0-7))
         - content   : contenu du dossier (uniquement les dossiers et si $recursive = true)
 
-    L'argument $sorting est un tableau (clÈ => valeur) dÈcrivant les tris ‡ appliquer.
-	Chaque clÈ correspond a une des constantes suivantes :
+    L'argument $sorting est un tableau (cl√© => valeur) d√©crivant les tris √† appliquer.
+	Chaque cl√© correspond a une des constantes suivantes :
 		- DM_SORT_NAME	: tri par nom
 		- DM_SORT_TYPE	: tri par type
 		- DM_SORT_SIZE	: tri par taille
-	Les valeurs associÈes ‡ chaque clÈ dÈcrivent le sens de tri est doivent valoir l'une
+	Les valeurs associ√©es √† chaque cl√© d√©crivent le sens de tri est doivent valoir l'une
 	de ces constantes :
 		- SORT_ASC	: tri croissant
-		- SORT_DESC	: tri dÈcroissant
-	Il est possible de demander plusieurs tris (jusqu'‡ 3). L'ordre des tris correspond
-	‡ celui fournit dans le tableau.
+		- SORT_DESC	: tri d√©croissant
+	Il est possible de demander plusieurs tris (jusqu'√† 3). L'ordre des tris correspond
+	√† celui fournit dans le tableau.
     
     \*********************************************************************************/
     public static function getContent($path, $recursive = false, $sorting = array(), $ignore = array( '.', '..' )) {

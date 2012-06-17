@@ -42,7 +42,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$localizedName = new SimpleBlockComponent();
 			$localizedName->setClass("localizedName");
 			if ($release->getLocalizedTitle() !== null) {
-				$localizedName->addComponent(new TitleComponent("Nom de l'épisode FR"));
+				$localizedName->addComponent(new TitleComponent("Nom de l'Ã©pisode FR"));
 				$localizedName->addComponent($release->getLocalizedTitle());
 			}
 			$releaseContent->addComponent($localizedName);
@@ -116,11 +116,11 @@ class ReleaseComponent extends SimpleBlockComponent {
 	private function fillWithLicenseData($releaseContent, $release) {
 		$license = $release->getLicense();
 		
-		$releaseContent->addComponent(new TitleComponent("Licencié"));
+		$releaseContent->addComponent(new TitleComponent("LicenciÃ©"));
 		$list = new SimpleListComponent();
 		$list->setClass("licenseList");
 		if ($license->getOwner() != null) {
-			$list->addComponent("Propriétaire : ".$license->getOwner());
+			$list->addComponent("PropriÃ©taire : ".$license->getOwner());
 		}
 		$releaseContent->addComponent($list);
 		
@@ -160,7 +160,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$path = $descriptor->getFilePath();
 			$name = basename($path);
 			if (empty($name)) {
-				$name = Debug::createWarningTag("aucun fichier renseigné");
+				$name = Debug::createWarningTag("aucun fichier renseignÃ©");
 			}
 			$description->addLine($name);
 			
@@ -238,7 +238,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$description->addLine();
 			$fileList->addcomponent($description);
 			
-			$linkName = count($fileDescriptors) == 1 ? "Télécharger" : $id;
+			$linkName = count($fileDescriptors) == 1 ? "TÃ©lÃ©charger" : $id;
 			$ddlLinks->addLink(new LinkComponent($url, $linkName));
 			if ($descriptor->getMegauploadUrl() !== null) {
 				$megauploadLinks->addLink(new LinkComponent($descriptor->getMegauploadUrl(), $linkName));
@@ -259,7 +259,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 		$releaseContent->addComponent(new TitleComponent("Fichiers"));
 		$releaseContent->addComponent($fileList);
 		
-		$releaseContent->addComponent(new TitleComponent("Téléchargements"));
+		$releaseContent->addComponent(new TitleComponent("TÃ©lÃ©chargements"));
 		$list = new SimpleListComponent();
 		$list->setClass("linkList");
 		$list->addcomponent($ddlLinks);

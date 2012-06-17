@@ -11,20 +11,20 @@
 	$text = "
 
 
-Le site étant en plein raffinage, il est possible que vous tombiez sur des bogues (ou bug) au cours de votre navigation. Si tel est le cas, vous retomberez généralement sur cette page. Par conséquent, si vous vous trouvez ici sans trop savoir pourquoi, c'est probablement parce que vous venez de tomber sur un de ces bogues. Pour nous le signaler, plusieurs moyens sont à votre disposition :
+Le site Ã©tant en plein raffinage, il est possible que vous tombiez sur des bogues (ou bug) au cours de votre navigation. Si tel est le cas, vous retomberez gÃ©nÃ©ralement sur cette page. Par consÃ©quent, si vous vous trouvez ici sans trop savoir pourquoi, c'est probablement parce que vous venez de tomber sur un de ces bogues. Pour nous le signaler, plusieurs moyens sont Ã  votre disposition :
 
 [url=https://github.com/Sazaju/Zero-Fansub-website/issues]Enregistrer un bug sur GitHub[/url]
 
-[mail=".$admin->getMail()."]Envoyer un mail à l'administrateur Web[/mail]
+[mail=".$admin->getMail()."]Envoyer un mail Ã  l'administrateur Web[/mail]
 
-La première solution est de loin la meilleure, car en plus d'avertir les administrateurs, le problème est enregistré et peut donc être suivi efficacement. Néanmoins, si vous ne savez pas comment utiliser ce système, la seconde option vous permet d'envoyer directement un mail aux admins. De préférence utilisez la première solution, n'utilisez la seconde que si vraiment vous avez des soucis avec la première.
+La premiÃ¨re solution est de loin la meilleure, car en plus d'avertir les administrateurs, le problÃ¨me est enregistrÃ© et peut donc Ãªtre suivi efficacement. NÃ©anmoins, si vous ne savez pas comment utiliser ce systÃ¨me, la seconde option vous permet d'envoyer directement un mail aux admins. De prÃ©fÃ©rence utilisez la premiÃ¨re solution, n'utilisez la seconde que si vraiment vous avez des soucis avec la premiÃ¨re.
 
-Soyez sûrs de donner le maximum de détails, en particulier l'adresse actuelle de la page, la page ou vous étiez juste avant le bogue, votre navigateur et sa version (ou au moins dire si vous l'avez mis à jour récemment), et les plugins ou programmes que vous auriez installé qui vous semble être une cause potentielle du problème (gestionnaire de scripts, antivirus, ...).
+Soyez sÃ»rs de donner le maximum de dÃ©tails, en particulier l'adresse actuelle de la page, la page ou vous Ã©tiez juste avant le bogue, votre navigateur et sa version (ou au moins dire si vous l'avez mis Ã  jour rÃ©cemment), et les plugins ou programmes que vous auriez installÃ© qui vous semble Ãªtre une cause potentielle du problÃ¨me (gestionnaire de scripts, antivirus, ...).
 
-En voici quelques unes, vous pouvez les recopier et les compléter :
+En voici quelques unes, vous pouvez les recopier et les complÃ©ter :
 [left][list]
 [item]adresse actuelle : [urlk=current|full][/urlk][/item]
-[item]adresse précédente : [urlk=referer|full][/urlk][/item]
+[item]adresse prÃ©cÃ©dente : [urlk=referer|full][/urlk][/item]
 [item]infos navigateur : ".$serverInfo('HTTP_USER_AGENT')."[/item]
 [/list][/left]";
 	
