@@ -62,12 +62,27 @@ class Database {
 		}
 		
 		try {
+			$this->connection->exec('CREATE TABLE "translator" (
+				id       INTEGER UNIQUE NOT NULL,
+				source   TEXT UNIQUE NOT NULL,
+				
+				PRIMARY KEY (id)
+			)');
+		} catch(PDOException $ex) {
+			if ($this->connection->errorCode() == 'HY000') {
+				// maybe the table already exists, just ignore this part
+			} else {
+				throw $ex;
+			}
+		}
+		
+		try {
 			$this->connection->exec('CREATE TABLE "structure" (
 				class       VARCHAR(128) NOT NULL,
 				field       VARCHAR(128) NOT NULL,
 				type        VARCHAR(128) NOT NULL,
 				mandatory   BOOLEAN NOT NULL,
-				translator  TEXT,
+				translator  INTEGER NOT NULL,
 				start       INTEGER NOT NULL,
 				authorStart VARCHAR(128) NOT NULL,
 				stop        INTEGER,
@@ -211,11 +226,12 @@ class Database {
 					$fieldName = $data['field'];
 					$table = $data['table'];
 					$type = $table->getName();
+					$translatorID = $this->saveAndGetTranslatorID($data['translator']);
 					$property = array('class' => $class,
 								'field' => $fieldName,
 								'type' => $type,
 								'mandatory' => $data['mandatory'],
-								'translator' => $data['translator'],
+								'translator' => $translatorID,
 								'start' => $time,
 								'authorStart' => $authorId);
 					
@@ -291,10 +307,12 @@ class Database {
 						$update->execute(array($class, $key, $fieldName, $time, $value, $authorId));
 					}
 				} else if ($descriptor instanceof ChangeTranslatorDiff) {
+					$fieldName = $descriptor->getField();
+					
 					// instantiate old translator
 					$oldSource = $descriptor->getOldValue();
 					$oldName = Debug::getClassNameFromSourceCode($oldSource);
-					$oldSource = Debug::changeClassNameInSourceCode($oldSource, $oldName, $oldName."_obsolete");
+					$oldSource = Debug::changeClassNameInSourceCode($oldSource, $oldName, $oldName."_obsolete_".$class."_".$fieldName);
 					$oldName = Debug::getClassNameFromSourceCode($oldSource);
 					eval($oldSource);
 					$oldReflector = new ReflectionClass($oldName);
@@ -305,8 +323,6 @@ class Database {
 					$newName = Debug::getClassNameFromSourceCode($newSource);
 					$newReflector = new ReflectionClass($newName);
 					$newTranslator = $newReflector->newInstance();
-					
-					$fieldName = $descriptor->getField();
 					
 					// retrieve the current property data
 					$select = $this->connection->prepare('SELECT * FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
@@ -320,7 +336,8 @@ class Database {
 					$discard->execute(array($time, $class, $fieldName));
 					
 					// start the updated property
-					$property['translator'] = $descriptor->getNewValue();
+					$newTranslatorID = $this->saveAndGetTranslatorID($descriptor->getNewValue());
+					$property['translator'] = $newTranslatorID;
 					$property['start'] = $time;
 					$property['authorStart'] = $authorId;
 					unset($property['stop']);
@@ -372,6 +389,33 @@ class Database {
 		}
 	}
 	
+	private function saveAndGetTranslatorID($translatorSource) {
+		$select = $this->connection->prepare('SELECT id FROM "translator" WHERE source = ?');
+		$select->execute(array($translatorSource));
+		$array = $select->fetch();
+		if ($array !== false) {
+			echo "__________________________ID found: ".$array[0]."<br/>";
+			return $array[0];
+		} else {
+			$select = $this->connection->prepare('SELECT MAX(id) FROM "translator"');
+			$select->execute();
+			$array = $select->fetch();
+			$id = $array[0] + 1;
+			
+			echo "__________________________ID created: $id<br/>";
+			$insert = $this->connection->prepare('INSERT INTO "translator" (id, source) VALUES (:id, :source)');
+			$insert->execute(array($id, $translatorSource));
+			return $id;
+		}
+	}
+	
+	private function getSavedTranslator($id) {
+		$select = $this->connection->prepare('SELECT source FROM "translator" WHERE id = ?');
+		$select->execute(array($id));
+		$array = $select->fetch();
+		return $array[0];
+	}
+	
 	private function getFieldsForClass($class, $exceptionIfUnknown = true) {
 		$statement = $this->connection->prepare('SELECT field, type, mandatory, translator, start FROM "structure" WHERE class = ? AND stop IS NULL');
 		$statement->execute(array($class));
@@ -414,12 +458,13 @@ class Database {
 			} else {
 				$property = $fields[$name];
 				unset($fields[$name]);
+				$savedTranslator = $this->getSavedTranslator($property['translator']);
 				if ($property['type'] != $type) {
 					$diff->addDiff(new ChangeTypeDiff($class, $name, $property['type'], $type));
 				} else if ($property['mandatory'] != $mandatory) {
 					$diff->addDiff(new ChangeMandatoryDiff($class, $name, $property['mandatory'], $mandatory));
-				} else if ($property['translator'] != $translator) {
-					$diff->addDiff(new ChangeTranslatorDiff($class, $name, $property['translator'], $translator));
+				} else if ($savedTranslator != $translator) {
+					$diff->addDiff(new ChangeTranslatorDiff($class, $name, $savedTranslator, $translator));
 				} else {
 					// no modification, do not add a diff
 				}
