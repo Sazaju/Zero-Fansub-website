@@ -164,17 +164,24 @@ class Debug {
 		return "<span class='warning'>".$text."</span>";
 	}
 	
-	public static function getClassSourceCode($class) {
-		$class = new ReflectionClass($class);
+	public static function getClassSourceCode($className) {
+		$class = new ReflectionClass($className);
 		$fileName = $class->getFileName();
 
 		if(!empty($fileName)) {
-			$fileContents = file_get_contents($fileName);
-			$startLine = $class->getStartLine()-1; // getStartLine() seems to start after the {, we want to include the signature
-			$endLine = $class->getEndLine();
-			$numLines = $endLine - $startLine;
-			$classSource = trim(implode('',array_slice(file($fileName),$startLine,$numLines))); // not perfect; if the class starts or ends on the same line as something else, this will be incorrect
-			return $classSource;
+			$fileContent = file_get_contents($fileName);
+			$parser = new PHPParser_Parser(new PHPParser_Lexer());
+			$stmts = $parser->parse($fileContent);
+			
+			$traverser = new PHPParser_NodeTraverser();
+			$extractor = new ExtractorVisitor($className);
+			$traverser->addVisitor($extractor);
+			$traverser->traverse($stmts);
+			$stmts = array($extractor->getNode());
+			
+			$prettyPrinter = new PHPParser_PrettyPrinter_Zend();
+			$code = $prettyPrinter->prettyPrint($stmts);
+			return $code;
 		} else {
 			throw new Exception("No file for the class $class");
 		}
@@ -211,6 +218,25 @@ class RenamerVisitor extends PHPParser_NodeVisitorAbstract {
 		if ($node instanceof PHPParser_Node_Stmt_Class && $node->name == $this->oldClassName) {
 			$node->name = $this->newClassName;
 		}
+	}
+}
+
+class ExtractorVisitor extends PHPParser_NodeVisitorAbstract {
+	private $className;
+	private $node;
+	
+	public function __construct($className) {
+		$this->className = $className;
+	}
+	
+	public function leaveNode(PHPParser_Node $node) {
+		if ($node instanceof PHPParser_Node_Stmt_Class && $node->name == $this->className) {
+			$this->node = $node;
+		}
+	}
+	
+	public function getNode() {
+		return $this->node;
 	}
 }
 ?>
