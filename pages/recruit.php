@@ -4,8 +4,6 @@
 	$candidateLink = Link::newWindowLink("http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-team-de-fansub.htm", "Candidature");
 	$page->addComponent(new SimpleTextComponent(Format::convertTextToHtml("[title=1]Entrer dans l'équipe[/title]
 
-[spoiler=Un mot du président]
-[/spoiler]
 [left]
 [title=2|number]Prendre connaissance des engagements[/title]
 
