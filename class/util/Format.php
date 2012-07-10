@@ -274,9 +274,9 @@ class Format {
 		if (Format::$BBCodeParser === null) {
 			Format::$BBCodeParser = new BBCodeParser();
 
-			/*			 * ********************************\
-			  NO CLOSING TAGS
-			  \********************************* */
+			/**********************************\
+			          NO CLOSING TAGS
+			\**********************************/
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("separator", function($tag, $parameter, $content) {
 								return Separator::getInstance()->getHtml();
 							}));
@@ -287,9 +287,9 @@ class Format {
 								return "<script src='http://www.blogbang.com/demo/js/blogbang_ad.php?id=6ee3436cd7' type='text/javascript'></script>";
 							}));
 
-			/*			 * ********************************\
-			  NO PARAMETERED TAGS
-			  \********************************* */
+			/**********************************\
+			       NO PARAMETERED TAGS
+			\**********************************/
 			$notFormattedContent = function($tag, $parameter, $content) {
 						return BBCodeDescriptor::contentToString($content);
 					};
@@ -305,9 +305,9 @@ class Format {
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("s", $simpleOpenTag, $simpleCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("code", $simpleOpenTag, $simpleCloseTag, $notFormattedContent));
 
-			/*			 * ********************************\
-			  TITLE
-			  \********************************* */
+			/**********************************\
+			                TITLE
+			\**********************************/
 			$titleOpenTag = function($tag, $parameter, $content) {
 						if ($parameter === null) {
 							$parameter = 1;
@@ -322,9 +322,9 @@ class Format {
 					};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("title", $titleOpenTag, $titleCloseTag));
 
-			/*			 * ********************************\
-			  SIZE
-			  \********************************* */
+			/**********************************\
+			                SIZE
+			\**********************************/
 			$sizeOpenTag = function($tag, $parameter, $content) {
 						$parameter = is_numeric($parameter) ? $parameter . 'em' : $parameter;
 						return "<span style='font-size: " . $parameter . ";'>";
@@ -334,9 +334,9 @@ class Format {
 					};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("size", $sizeOpenTag, $sizeCloseTag));
 
-			/*			 * ********************************\
-			  COLORS
-			  \********************************* */
+			/**********************************\
+			              COLORS
+			\**********************************/
 			$colorOpenTag = function($tag, $parameter, $content) {
 						return "<span style='color: $parameter;'>";
 					};
@@ -345,9 +345,9 @@ class Format {
 					};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("color", $colorOpenTag, $colorCloseTag));
 
-			/*			 * ********************************\
-			  ALIGNEMENT
-			  \********************************* */
+			/**********************************\
+			             ALIGNEMENT
+			\**********************************/
 			$alignOpenTag = function($tag, $parameter, $content) {
 						if ($tag === 'align') {
 							$tag = empty($parameter) ? 'inherited' : $parameter;
@@ -367,9 +367,9 @@ class Format {
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("justify", $alignOpenTag, $alignCloseTag));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("align", $alignOpenTag, $alignCloseTag));
 
-			/*			 * ********************************\
-			  LISTS & LIST ITEMS
-			  \********************************* */
+			/**********************************\
+			         LISTS & LIST ITEMS
+			\**********************************/
 			$listOpenTag = function($tag, $parameter, $content) {
 						if ($tag === 'list') {
 							return $parameter === '1' ? '<ol>' : '<ul>';
@@ -397,9 +397,9 @@ class Format {
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("list", $listOpenTag, $listCloseTag, $listContent));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("item", $listOpenTag, $listCloseTag));
 
-			/*			 * ********************************\
-			  IMAGES
-			  \********************************* */
+			/**********************************\
+			               IMAGES
+			\**********************************/
 			$imageOpenTag = function($tag, $parameter, $content) {
 						if (empty($parameter)) {
 							$parameter = $content;
@@ -443,9 +443,9 @@ class Format {
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("img-auto-right", $imageOpenTag, $imageCloseTag, null));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("imgar", $imageOpenTag, $imageCloseTag, null));
 
-			/*			 * ********************************\
-			  GENERIC LINKS
-			  \********************************* */
+			/**********************************\
+			          GENERIC LINKS
+			\**********************************/
 			$linkOpenTag = function($tag, $parameter, $content) {
 						if (empty($parameter) && empty($content)) {
 							throw new Exception("no data has been given");
@@ -520,9 +520,9 @@ class Format {
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("ext", $linkOpenTag, $linkCloseTag, $linkContent));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("mail", $linkOpenTag, $linkCloseTag, $linkContent));
 
-			/*			 * ********************************\
-			  SPECIAL LINKS
-			  \********************************* */
+			/**********************************\
+			          SPECIAL LINKS
+			\**********************************/
 			$releaseOpenTag = function($tag, $parameter, $content) {
 						$parameter = preg_split('#\\|#', $parameter);
 						if ($parameter[1] === '*') {
@@ -680,9 +680,9 @@ class Format {
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("project", $projectOpenTag, $linkCloseTag, $projectContent));
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("partner", $partnerOpenTag, $linkCloseTag, $partnerContent));
 
-			/*			 * ********************************\
-			  SPOILER
-			  \********************************* */
+			/**********************************\
+			             SPOILER
+			\**********************************/
 			$spoilerOpenTag = function($tag, $parameter, $content) {
 						static $id = 0;
 						$id++;
@@ -719,9 +719,9 @@ class Format {
 					};
 			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("spoiler", $spoilerOpenTag, $spoilerCloseTag, $spoilerContent));
 
-			/*			 * ********************************\
-			  VIDEOS
-			  \********************************* */
+			/**********************************\
+			              VIDEOS
+			\**********************************/
 
 			function parseVideoParameter($parameter) {
 				$parameter = preg_split('#\\|#', $parameter);
