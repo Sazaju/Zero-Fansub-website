@@ -31,7 +31,7 @@
 	$menu->addEntry($projectLink);
 	$menu->addEntry(new Link("index.php?page=team", "L'équipe"));
 	$menu->addEntry(Link::newWindowLink("http://forum.zerofansub.net/p32750.htm", "Avancement"));
-	$menu->addEntry(Link::newWindowLink("http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-team-de-fansub.htm", "Recrutement"));
+	$menu->addEntry(new Link("index.php?page=recruit", "Recrutement"));
 	$menu->addEntry(Link::newWindowLink("http://www.bt-anime.net/index.php?page=tracker&team=Z%e9ro", "Torrent"));
 	$menu->addEntry(new Link("index.php?page=xdcc", "XDCC"));
 	$leftCol->addComponent(new MenuComponent($menu));
