@@ -394,7 +394,6 @@ class Database {
 		$select->execute(array($translatorSource));
 		$array = $select->fetch();
 		if ($array !== false) {
-			echo "__________________________ID found: ".$array[0]."<br/>";
 			return $array[0];
 		} else {
 			$select = $this->connection->prepare('SELECT MAX(id) FROM "translator"');
@@ -402,7 +401,6 @@ class Database {
 			$array = $select->fetch();
 			$id = $array[0] + 1;
 			
-			echo "__________________________ID created: $id<br/>";
 			$insert = $this->connection->prepare('INSERT INTO "translator" (id, source) VALUES (:id, :source)');
 			$insert->execute(array($id, $translatorSource));
 			return $id;
