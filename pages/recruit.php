@@ -1,7 +1,6 @@
 <?php
 	$page = PageContent::getInstance();
 	
-	$candidateLink = Link::newWindowLink("http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-team-de-fansub.htm", "Candidature");
 	$page->addComponent(new SimpleTextComponent(Format::convertTextToHtml("[title=1]Entrer dans l'équipe[/title]
 
 [left]
@@ -32,7 +31,7 @@
 [b]Qualité Contrôle :[/b] vérifie que tout a bien été effectué : time, édit, ortho, adapt, etc.
 
 [title=2|number]Poster sa fiche de candidature[/title]
-Elle se poste dans le sous-forum appelé \"Recrutement\". Elle doit être correctement remplie.
+Elle se poste [url=http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-team-de-fansub.htm]sur le forum[/url] (créer un [url=http://forum.zerofansub.net/posting.php?mode=newtopic&f=21]nouveau sujet[/url]). Elle doit être correctement remplie.
 [code]
 [b]Rôle :[/b] 
 [b]Pseudo ou prénom :[/b]
