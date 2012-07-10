@@ -309,18 +309,54 @@ class Format {
 			                TITLE
 			\**********************************/
 			$titleOpenTag = function($tag, $parameter, $content) {
+						$level = 1;
 						if ($parameter === null) {
-							$parameter = 1;
+							// let as is
 						}
-						return "<h" . $parameter . ">";
+						else {
+							$parameters = preg_split('#\\|#', $parameter);
+							$level = $parameters[0];
+						}
+						return "<h".$level.">";
+					};
+			$titleContent = function($tag, $parameter, $content) {
+						$level = 1;
+						static $lastNumbers = array();
+						if ($parameter === null) {
+							// let as is
+						}
+						else {
+							$parameters = preg_split('#\\|#', $parameter);
+							$level = $parameters[0];
+							if (count($parameters) == 2) {
+								if ($parameters[1] == 'number') {
+									if (in_array($level, array_keys($lastNumbers))) {
+										$lastNumbers[$level]++;
+									} else {
+										$lastNumbers[$level] = 1;
+									}
+									$content = $lastNumbers[$level].". ".$content;
+								} else {
+									throw new Exception($parameters[1]." is not a known parameter");
+								}
+							} else {
+								// do nothing special
+							}
+						}
+						return $content;
 					};
 			$titleCloseTag = function($tag, $parameter, $content) {
+						$level = 1;
 						if ($parameter === null) {
-							$parameter = 1;
+							// let as is
 						}
-						return "</h" . $parameter . ">";
+						else {
+							$parameters = preg_split('#\\|#', $parameter);
+							$level = $parameters[0];
+						}
+						return "</h".$level.">";
 					};
-			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("title", $titleOpenTag, $titleCloseTag));
+			Format::$BBCodeParser->addDescriptor(new BBCodeDescriptor("title", $titleOpenTag, $titleCloseTag, $titleContent));
 
 			/**********************************\
 			                SIZE
