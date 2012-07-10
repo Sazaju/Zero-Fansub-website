@@ -234,6 +234,7 @@ class Format {
 
     public static function convertTextToHtml($text) {
         $text = htmlspecialchars($text);
+        $text = str_replace("  ", '&nbsp ', $text);
         $text = Format::parseBBCode($text);
         $text = str_replace("\n", '<br/>', $text);
         return $text;
