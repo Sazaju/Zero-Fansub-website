@@ -149,6 +149,13 @@ class Database {
 		$statement->execute(array($id, $this->generateSaltedHash($password, $this->createRandomSalt())));
 	}
 	
+	public function isRegisteredUser($id) {
+		$statement = $this->connection->prepare('SELECT count(*) FROM "user" WHERE id = ?');
+		$statement->execute(array($id));
+		$counter = $statement->fetchColumn();
+		return $counter > 0;
+	}
+	
 	public function updateUserPassword($id, $newPassword) {
 		$statement = $this->connection->prepare('UPDATE "user" SET passhash = ? WHERE id = ?');
 		$statement->execute(array($this->generateSaltedHash($newPassword, $this->createRandomSalt()), $id));
@@ -160,13 +167,6 @@ class Database {
 		$saltedhash = $statement->fetchColumn();
 		$salt = substr($saltedhash, 0, 2);
 		return $this->generateSaltedHash($password, $salt) === $saltedhash;
-	}
-	
-	public function isRegisteredUser($id) {
-		$statement = $this->connection->prepare('SELECT count(*) FROM "user" WHERE id = ?');
-		$statement->execute(array($id));
-		$counter = $statement->fetchColumn();
-		return $counter > 0;
 	}
 	
 	/********************************************\
