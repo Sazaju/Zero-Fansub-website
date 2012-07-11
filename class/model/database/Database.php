@@ -154,9 +154,6 @@ class Database {
 		$statement->execute(array($this->generateSaltedHash($newPassword, $this->createRandomSalt()), $id));
 	}
 	
-	/********************************************\
-	                     USERS
-	\********************************************/
 	public function isValidUserPassword($id, $password) {
 		$statement = $this->connection->prepare('SELECT passhash FROM "user" WHERE id = ?');
 		$statement->execute(array($id));
