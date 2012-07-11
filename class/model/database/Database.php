@@ -226,13 +226,8 @@ class Database {
 					$table = $fieldData['table'];
 					$this->addField($time, $authorId, $class, $fieldData['field'], $table, $table->getName(), $fieldData['translator'], $fieldData['mandatory']);
 				} else if ($descriptor instanceof RemoveFieldDiff) {
-					$data = $descriptor->getOldValue();
-					$fieldName = $data['field'];
-					$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
-					$discard->execute(array($authorId, $class, $fieldName));
-					$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
-					$discard->execute(array($time, $class, $fieldName));
-					$this->archiveValues($data['type'], $class, $fieldName, $time);
+					$fieldData = $descriptor->getOldValue();
+					$this->removeField($time, $authorId, $class, $fieldData['field'], $fieldData['type']);
 				} else if ($descriptor instanceof ChangeKeyDiff) {
 					$fieldNames = $descriptor->getNewValue();
 					$discard = $this->connection->prepare('UPDATE "structure_key" SET stop = ? WHERE class = ? and stop IS NULL');
@@ -389,6 +384,14 @@ class Database {
 			$value = null;
 			$insert->execute(array($class, $key, $fieldName, $time, $value, $authorId));
 		}
+	}
+	
+	public function removeField($time, $authorId, $class, $fieldName, $type) {
+		$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
+		$discard->execute(array($authorId, $class, $fieldName));
+		$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
+		$discard->execute(array($time, $class, $fieldName));
+		$this->archiveValues($type, $class, $fieldName, $time);
 	}
 	
 	private function saveAndGetTranslatorID($translatorSource) {
