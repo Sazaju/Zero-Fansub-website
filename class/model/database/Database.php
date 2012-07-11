@@ -233,79 +233,7 @@ class Database {
 				} else if ($descriptor instanceof ChangeTypeDiff) {
 					$this->changeType($time, $authorId, $class, $descriptor->getField(), $descriptor->getNewValue());
 				} else if ($descriptor instanceof ChangeTranslatorDiff) {
-					$fieldName = $descriptor->getField();
-					
-					// instantiate old translator
-					$oldSource = $descriptor->getOldValue();
-					$oldName = Debug::getClassNameFromSourceCode($oldSource);
-					$oldSource = Debug::changeClassNameInSourceCode($oldSource, $oldName, $oldName."_obsolete_".$class."_".$fieldName);
-					$oldName = Debug::getClassNameFromSourceCode($oldSource);
-					eval($oldSource);
-					$oldReflector = new ReflectionClass($oldName);
-					$oldTranslator = $oldReflector->newInstance();
-					
-					// instantiate new translator
-					$newSource = $descriptor->getNewValue();
-					$newName = Debug::getClassNameFromSourceCode($newSource);
-					$newReflector = new ReflectionClass($newName);
-					$newTranslator = $newReflector->newInstance();
-					
-					// retrieve the current property data
-					$select = $this->connection->prepare('SELECT * FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
-					$select->execute(array($class, $fieldName));
-					$property = $select->fetch(PDO::FETCH_ASSOC);
-					
-					// terminate the current property
-					$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
-					$discard->execute(array($authorId, $class, $fieldName));
-					$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
-					$discard->execute(array($time, $class, $fieldName));
-					
-					// start the updated property
-					$newTranslatorID = $this->saveAndGetTranslatorID($descriptor->getNewValue());
-					$property['translator'] = $newTranslatorID;
-					$property['start'] = $time;
-					$property['authorStart'] = $authorId;
-					unset($property['stop']);
-					unset($property['authorStop']);
-					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
-					foreach($property as $key => $value) {
-						$insert->bindParam(':'.$key, $property[$key]);
-					}
-					$insert->execute($property);
-					
-					// retrieve the obsolete values
-					$select = $this->connection->prepare('SELECT key, value FROM "working_'.$property['type'].'" WHERE class = ? AND field = ?');
-					$select->execute(array($class, $fieldName));
-					$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
-					
-					$componentReflector = new ReflectionClass($class);
-					$component = $componentReflector->newInstance();
-					$field = $component->getPersistentField($fieldName);
-					$isUpdateNeeded = false;
-					foreach($array as $key => $values) {
-						$oldValue = $values[0];
-						$oldTranslator->setPersistentValue($field, $oldValue);
-						$newValue = $newTranslator->getPersistentValue($field->get());
-						if ($oldValue != $newValue) {
-							$isUpdateNeeded = true;
-							break;
-						}
-					}
-					
-					if ($isUpdateNeeded) {
-						// archive the obsolete values
-						$this->archiveValues($property['type'], $class, $fieldName, $time);
-						
-						// save the new values
-						$update = $this->connection->prepare('INSERT INTO "working_'.$property['type'].'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
-						foreach($array as $key => $values) {
-							$oldValue = $values[0];
-							$oldTranslator->setPersistentValue($field, $oldValue);
-							$newValue = $newTranslator->getPersistentValue($field->get());
-							$update->execute(array($class, $key, $fieldName, $time, $newValue, $authorId));
-						}
-					}
+					$this->changeTranslator($time, $authorId, $class, $descriptor->getField(), $descriptor->getNewValue());
 				} else {
 					// TODO implement other cases
 					throw new Exception('Not implemented yet: '.$descriptor);
@@ -398,6 +326,80 @@ class Database {
 		foreach($array as $key => $values) {
 			$value = $values[0];
 			$update->execute(array($class, $key, $fieldName, $time, $value, $authorId));
+		}
+	}
+	
+	public function changeTranslator($time, $authorId, $class, $fieldName, $newSource) {
+		// retrieve the current property data
+		// TODO use getFieldsForClass()
+		$select = $this->connection->prepare('SELECT * FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
+		$select->execute(array($class, $fieldName));
+		$property = $select->fetch(PDO::FETCH_ASSOC);
+		
+		// instantiate old translator
+		$oldSource = $this->getSavedTranslator($property['translator']);
+		$oldName = Debug::getClassNameFromSourceCode($oldSource);
+		$oldSource = Debug::changeClassNameInSourceCode($oldSource, $oldName, $oldName."_obsolete_".$class."_".$fieldName);
+		$oldName = Debug::getClassNameFromSourceCode($oldSource);
+		eval($oldSource);
+		$oldReflector = new ReflectionClass($oldName);
+		$oldTranslator = $oldReflector->newInstance();
+		
+		// instantiate new translator
+		$newName = Debug::getClassNameFromSourceCode($newSource);
+		$newReflector = new ReflectionClass($newName);
+		$newTranslator = $newReflector->newInstance();
+		
+		// terminate the current property
+		$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
+		$discard->execute(array($authorId, $class, $fieldName));
+		$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
+		$discard->execute(array($time, $class, $fieldName));
+		
+		// start the updated property
+		$newTranslatorID = $this->saveAndGetTranslatorID($newSource);
+		$property['translator'] = $newTranslatorID;
+		$property['start'] = $time;
+		$property['authorStart'] = $authorId;
+		unset($property['stop']);
+		unset($property['authorStop']);
+		$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
+		foreach($property as $key => $value) {
+			$insert->bindParam(':'.$key, $property[$key]);
+		}
+		$insert->execute($property);
+		
+		// retrieve the obsolete values
+		$select = $this->connection->prepare('SELECT key, value FROM "working_'.$property['type'].'" WHERE class = ? AND field = ?');
+		$select->execute(array($class, $fieldName));
+		$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
+		
+		$componentReflector = new ReflectionClass($class);
+		$component = $componentReflector->newInstance();
+		$field = $component->getPersistentField($fieldName);
+		$isUpdateNeeded = false;
+		foreach($array as $key => $values) {
+			$oldValue = $values[0];
+			$oldTranslator->setPersistentValue($field, $oldValue);
+			$newValue = $newTranslator->getPersistentValue($field->get());
+			if ($oldValue != $newValue) {
+				$isUpdateNeeded = true;
+				break;
+			}
+		}
+		
+		if ($isUpdateNeeded) {
+			// archive the obsolete values
+			$this->archiveValues($property['type'], $class, $fieldName, $time);
+			
+			// save the new values
+			$update = $this->connection->prepare('INSERT INTO "working_'.$property['type'].'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+			foreach($array as $key => $values) {
+				$oldValue = $values[0];
+				$oldTranslator->setPersistentValue($field, $oldValue);
+				$newValue = $newTranslator->getPersistentValue($field->get());
+				$update->execute(array($class, $key, $fieldName, $time, $newValue, $authorId));
+			}
 		}
 	}
 	
