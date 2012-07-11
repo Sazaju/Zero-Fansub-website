@@ -231,45 +231,7 @@ class Database {
 				} else if ($descriptor instanceof ChangeKeyDiff) {
 					$this->changeKey($time, $authorId, $class, $descriptor->getNewValue());
 				} else if ($descriptor instanceof ChangeTypeDiff) {
-					$fieldName = $descriptor->getField();
-					
-					// retrieve the current property data
-					$select = $this->connection->prepare('SELECT * FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
-					$select->execute(array($class, $fieldName));
-					$property = $select->fetch(PDO::FETCH_ASSOC);
-					
-					// terminate the current property
-					$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
-					$discard->execute(array($authorId, $class, $fieldName));
-					$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
-					$discard->execute(array($time, $class, $fieldName));
-					
-					// start the updated property
-					$property['type'] = $descriptor->getNewValue();
-					$property['start'] = $time;
-					$property['authorStart'] = $authorId;
-					unset($property['stop']);
-					unset($property['authorStop']);
-					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
-					foreach($property as $key => $value) {
-						$insert->bindParam(':'.$key, $property[$key]);
-					}
-					$insert->execute($property);
-					
-					// retrieve the obsolete values
-					$select = $this->connection->prepare('SELECT key, value FROM "working_'.$descriptor->getOldValue().'" WHERE class = ? AND field = ?');
-					$select->execute(array($class, $fieldName));
-					$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
-					
-					// archive the obsolete values
-					$this->archiveValues($descriptor->getOldValue(), $class, $fieldName, $time);
-					
-					// save the new values
-					$update = $this->connection->prepare('INSERT INTO "working_'.$descriptor->getNewValue().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
-					foreach($array as $key => $values) {
-						$value = $values[0];
-						$update->execute(array($class, $key, $fieldName, $time, $value, $authorId));
-					}
+					$this->changeType($time, $authorId, $class, $descriptor->getField(), $descriptor->getNewValue());
 				} else if ($descriptor instanceof ChangeTranslatorDiff) {
 					$fieldName = $descriptor->getField();
 					
@@ -394,6 +356,48 @@ class Database {
 		$insert = $this->connection->prepare('INSERT INTO "structure_key" (class, field, start, authorStart, stop) VALUES (:class, :field, :start, :authorStart, NULL)');
 		foreach($fieldNames as $name) {
 			$insert->execute(array($class, $name, $time, $authorId));
+		}
+	}
+	
+	public function changeType($time, $authorId, $class, $fieldName, $newType) {
+		// retrieve the current property data
+		// TODO use getFieldsForClass()
+		$select = $this->connection->prepare('SELECT * FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
+		$select->execute(array($class, $fieldName));
+		$property = $select->fetch(PDO::FETCH_ASSOC);
+		$oldType = $property['type'];
+		
+		// terminate the current property
+		$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
+		$discard->execute(array($authorId, $class, $fieldName));
+		$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
+		$discard->execute(array($time, $class, $fieldName));
+		
+		// start the updated property
+		$property['type'] = $newType;
+		$property['start'] = $time;
+		$property['authorStart'] = $authorId;
+		unset($property['stop']);
+		unset($property['authorStop']);
+		$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
+		foreach($property as $key => $value) {
+			$insert->bindParam(':'.$key, $property[$key]);
+		}
+		$insert->execute($property);
+		
+		// retrieve the obsolete values
+		$select = $this->connection->prepare('SELECT key, value FROM "working_'.$oldType.'" WHERE class = ? AND field = ?');
+		$select->execute(array($class, $fieldName));
+		$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
+		
+		// archive the obsolete values
+		$this->archiveValues($oldType, $class, $fieldName, $time);
+		
+		// save the new values
+		$update = $this->connection->prepare('INSERT INTO "working_'.$newType.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+		foreach($array as $key => $values) {
+			$value = $values[0];
+			$update->execute(array($class, $key, $fieldName, $time, $value, $authorId));
 		}
 	}
 	
