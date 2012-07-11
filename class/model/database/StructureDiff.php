@@ -106,12 +106,11 @@ abstract class FieldDiff extends ElementDiff {
 }
 
 class AddFieldDiff extends ComponentDiff {
-	public function __construct($class, $field, PersistentTable $table, $mandatory, $translator) {
+	public function __construct($class, $field, PersistentTable $table, $mandatory) {
 		parent::__construct($class, null, array(
 				'field' => $field,
 				'table' => $table,
-				'mandatory' => $mandatory,
-				'translator' => $translator
+				'mandatory' => $mandatory
 		));
 	}
 	
@@ -122,12 +121,11 @@ class AddFieldDiff extends ComponentDiff {
 }
 
 class RemoveFieldDiff extends ComponentDiff {
-	public function __construct($class, $field, $type, $mandatory, $translator) {
+	public function __construct($class, $field, $type, $mandatory) {
 		parent::__construct($class, array(
 				'field' => $field,
 				'type' => $type,
-				'mandatory' => $mandatory,
-				'translator' => $translator
+				'mandatory' => $mandatory
 		), null);
 	}
 	
@@ -176,22 +174,6 @@ class ChangeMandatoryDiff extends FieldDiff {
 	
 	protected function getOperationString() {
 		return "mandatory ".$this->getOldValue().'->'.$this->getNewValue();
-	}
-}
-
-class ChangeTranslatorDiff extends FieldDiff {
-	public function __construct($class, $field, $oldTranslator, $newTranslator) {
-		parent::__construct($class, $field, $oldTranslator, $newTranslator);
-	}
-	
-	protected function getOperationString() {
-		$oldName = Debug::getClassNameFromSourceCode($this->getOldValue());
-		$newName = Debug::getClassNameFromSourceCode($this->getNewValue());
-		if ($oldName == $newName) {
-			return "translator $oldName modified";
-		} else {
-			return "translator $oldName -> $newName";
-		}
 	}
 }
 ?>

@@ -62,27 +62,11 @@ class Database {
 		}
 		
 		try {
-			$this->connection->exec('CREATE TABLE "translator" (
-				id       INTEGER UNIQUE NOT NULL,
-				source   TEXT UNIQUE NOT NULL,
-				
-				PRIMARY KEY (id)
-			)');
-		} catch(PDOException $ex) {
-			if ($this->connection->errorCode() == 'HY000') {
-				// maybe the table already exists, just ignore this part
-			} else {
-				throw $ex;
-			}
-		}
-		
-		try {
 			$this->connection->exec('CREATE TABLE "structure" (
 				class       VARCHAR(128) NOT NULL,
 				field       VARCHAR(128) NOT NULL,
 				type        VARCHAR(128) NOT NULL,
 				mandatory   BOOLEAN NOT NULL,
-				translator  INTEGER NOT NULL,
 				start       INTEGER NOT NULL,
 				authorStart VARCHAR(128) NOT NULL,
 				stop        INTEGER,
@@ -224,7 +208,7 @@ class Database {
 				if ($descriptor instanceof AddFieldDiff) {
 					$fieldData = $descriptor->getNewValue();
 					$table = $fieldData['table'];
-					$this->addField($time, $authorId, $class, $fieldData['field'], $table, $table->getName(), $fieldData['translator'], $fieldData['mandatory']);
+					$this->addField($time, $authorId, $class, $fieldData['field'], $table, $table->getName(), $fieldData['mandatory']);
 				} else if ($descriptor instanceof RemoveFieldDiff) {
 					$fieldData = $descriptor->getOldValue();
 					$this->removeField($time, $authorId, $class, $fieldData['field'], $fieldData['type']);
@@ -232,8 +216,6 @@ class Database {
 					$this->changeKey($time, $authorId, $class, $descriptor->getNewValue());
 				} else if ($descriptor instanceof ChangeTypeDiff) {
 					$this->changeType($time, $authorId, $class, $descriptor->getField(), $descriptor->getNewValue());
-				} else if ($descriptor instanceof ChangeTranslatorDiff) {
-					$this->changeTranslator($time, $authorId, $class, $descriptor->getField(), $descriptor->getNewValue());
 				} else {
 					// TODO implement other cases
 					throw new Exception('Not implemented yet: '.$descriptor);
@@ -243,17 +225,15 @@ class Database {
 		}
 	}
 	
-	public function addField($time, $authorId, $class, $fieldName, $table, $type, $translator, $mandatory) {
-		$translatorID = $this->saveAndGetTranslatorID($translator);
+	public function addField($time, $authorId, $class, $fieldName, $table, $type, $mandatory) {
 		$property = array('class' => $class,
 					'field' => $fieldName,
 					'type' => $type,
 					'mandatory' => $mandatory,
-					'translator' => $translatorID,
 					'start' => $time,
 					'authorStart' => $authorId);
 		
-		$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
+		$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :start, :authorStart, NULL, NULL)');
 		foreach($property as $key => $value) {
 			$insert->bindParam(':'.$key, $property[$key]);
 		}
@@ -307,7 +287,7 @@ class Database {
 		$property['authorStart'] = $authorId;
 		unset($property['stop']);
 		unset($property['authorStop']);
-		$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
+		$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :start, :authorStart, NULL, NULL)');
 		foreach($property as $key => $value) {
 			$insert->bindParam(':'.$key, $property[$key]);
 		}
@@ -329,107 +309,8 @@ class Database {
 		}
 	}
 	
-	public function changeTranslator($time, $authorId, $class, $fieldName, $newSource) {
-		// retrieve the current property data
-		// TODO use getFieldsForClass()
-		$select = $this->connection->prepare('SELECT * FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
-		$select->execute(array($class, $fieldName));
-		$property = $select->fetch(PDO::FETCH_ASSOC);
-		
-		// instantiate old translator
-		$oldSource = $this->getSavedTranslator($property['translator']);
-		$oldName = Debug::getClassNameFromSourceCode($oldSource);
-		$oldSource = Debug::changeClassNameInSourceCode($oldSource, $oldName, $oldName."_obsolete_".$class."_".$fieldName);
-		$oldName = Debug::getClassNameFromSourceCode($oldSource);
-		eval($oldSource);
-		$oldReflector = new ReflectionClass($oldName);
-		$oldTranslator = $oldReflector->newInstance();
-		
-		// instantiate new translator
-		$newName = Debug::getClassNameFromSourceCode($newSource);
-		$newReflector = new ReflectionClass($newName);
-		$newTranslator = $newReflector->newInstance();
-		
-		// terminate the current property
-		$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
-		$discard->execute(array($authorId, $class, $fieldName));
-		$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
-		$discard->execute(array($time, $class, $fieldName));
-		
-		// start the updated property
-		$newTranslatorID = $this->saveAndGetTranslatorID($newSource);
-		$property['translator'] = $newTranslatorID;
-		$property['start'] = $time;
-		$property['authorStart'] = $authorId;
-		unset($property['stop']);
-		unset($property['authorStop']);
-		$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
-		foreach($property as $key => $value) {
-			$insert->bindParam(':'.$key, $property[$key]);
-		}
-		$insert->execute($property);
-		
-		// retrieve the obsolete values
-		$select = $this->connection->prepare('SELECT key, value FROM "working_'.$property['type'].'" WHERE class = ? AND field = ?');
-		$select->execute(array($class, $fieldName));
-		$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
-		
-		$componentReflector = new ReflectionClass($class);
-		$component = $componentReflector->newInstance();
-		$field = $component->getPersistentField($fieldName);
-		$isUpdateNeeded = false;
-		foreach($array as $key => $values) {
-			$oldValue = $values[0];
-			$oldTranslator->setPersistentValue($field, $oldValue);
-			$newValue = $newTranslator->getPersistentValue($field->get());
-			if ($oldValue != $newValue) {
-				$isUpdateNeeded = true;
-				break;
-			}
-		}
-		
-		if ($isUpdateNeeded) {
-			// archive the obsolete values
-			$this->archiveValues($property['type'], $class, $fieldName, $time);
-			
-			// save the new values
-			$update = $this->connection->prepare('INSERT INTO "working_'.$property['type'].'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
-			foreach($array as $key => $values) {
-				$oldValue = $values[0];
-				$oldTranslator->setPersistentValue($field, $oldValue);
-				$newValue = $newTranslator->getPersistentValue($field->get());
-				$update->execute(array($class, $key, $fieldName, $time, $newValue, $authorId));
-			}
-		}
-	}
-	
-	private function saveAndGetTranslatorID($translatorSource) {
-		$select = $this->connection->prepare('SELECT id FROM "translator" WHERE source = ?');
-		$select->execute(array($translatorSource));
-		$array = $select->fetch();
-		if ($array !== false) {
-			return $array[0];
-		} else {
-			$select = $this->connection->prepare('SELECT MAX(id) FROM "translator"');
-			$select->execute();
-			$array = $select->fetch();
-			$id = $array[0] + 1;
-			
-			$insert = $this->connection->prepare('INSERT INTO "translator" (id, source) VALUES (:id, :source)');
-			$insert->execute(array($id, $translatorSource));
-			return $id;
-		}
-	}
-	
-	private function getSavedTranslator($id) {
-		$select = $this->connection->prepare('SELECT source FROM "translator" WHERE id = ?');
-		$select->execute(array($id));
-		$array = $select->fetch();
-		return $array[0];
-	}
-	
 	private function getFieldsForClass($class, $exceptionIfUnknown = true) {
-		$statement = $this->connection->prepare('SELECT field, type, mandatory, translator, start FROM "structure" WHERE class = ? AND stop IS NULL');
+		$statement = $this->connection->prepare('SELECT field, type, mandatory, start FROM "structure" WHERE class = ? AND stop IS NULL');
 		$statement->execute(array($class));
 		$fields = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 		if ($exceptionIfUnknown && empty($fields)) {
@@ -461,22 +342,17 @@ class Database {
 		foreach($component->getPersistentFields() as $name => $field) {
 			$table = $field->getTranslator()->getPersistentTable($field);
 			$type = $table->getName();
-			$translator = get_class($field->getTranslator());
-			$translator = Debug::getClassSourceCode($translator);
 			$mandatory = $field->isMandatory();
 			
 			if (!array_key_exists($name, $fields)) {
-				$diff->addDiff(new AddFieldDiff($class, $name, $table, $mandatory, $translator));
+				$diff->addDiff(new AddFieldDiff($class, $name, $table, $mandatory));
 			} else {
 				$property = $fields[$name];
 				unset($fields[$name]);
-				$savedTranslator = $this->getSavedTranslator($property['translator']);
 				if ($property['type'] != $type) {
 					$diff->addDiff(new ChangeTypeDiff($class, $name, $property['type'], $type));
 				} else if ($property['mandatory'] != $mandatory) {
 					$diff->addDiff(new ChangeMandatoryDiff($class, $name, $property['mandatory'], $mandatory));
-				} else if ($savedTranslator != $translator) {
-					$diff->addDiff(new ChangeTranslatorDiff($class, $name, $savedTranslator, $translator));
 				} else {
 					// no modification, do not add a diff
 				}
@@ -484,7 +360,7 @@ class Database {
 		}
 		
 		foreach($fields as $name => $property) {
-			$diff->addDiff(new RemoveFieldDiff($class, $name, $property['type'], $property['mandatory'], $property['translator']));
+			$diff->addDiff(new RemoveFieldDiff($class, $name, $property['type'], $property['mandatory']));
 		}
 		
 		$componentKey = array_keys($component->getIDFields());
