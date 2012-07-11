@@ -49,7 +49,7 @@ class PersistentField {
 		return !in_array($this->type, array("boolean", "integer", "double", "array", "resource", "string"));
 	}
 	
-	public function getBasicType() {
+	public function getPHPType() {
 		return $this->type;
 	}
 	
