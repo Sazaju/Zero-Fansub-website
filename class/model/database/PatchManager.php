@@ -2,6 +2,8 @@
 define("PATCH_REGEX_COMMENT", '#[^#]*#');
 define("PATCH_REGEX_CLASS", '([0-9a-zA-Z]*)');
 define("PATCH_REGEX_FIELD", '([0-9a-zA-Z]*)');
+define("PATCH_REGEX_FIELD_TYPE", '([0-9a-zA-Z]*)');
+define("PATCH_REGEX_FIELD_MANDATORY", '((?:mandatory)|(?:optional))');
 define("PATCH_REGEX_ATTRIBUTE", '((?:type)|(?:mandatory))');
 define("PATCH_REGEX_STRING", '"((?:[^"]|(?:(?<=\\\\)"))*)"');
 define("PATCH_REGEX_BOOLEAN", '((?:true)|(?:false))');
@@ -19,7 +21,7 @@ define("PATCH_REGEX_SELECT_RECORD", PATCH_REGEX_CLASS.PATCH_REGEX_ID_VALUES);
 define("PATCH_REGEX_SELECT_RECORD_FIELD", PATCH_REGEX_SELECT_RECORD.'\.'.PATCH_REGEX_FIELD);
 define("PATCH_REGEX_VALUE_EXTENDED", '((?:'.PATCH_REGEX_STRING.'|'.PATCH_REGEX_BOOLEAN.'|'.PATCH_REGEX_INTEGER.'|'.PATCH_REGEX_SELECT_ATTRIBUTE.'|'.PATCH_REGEX_SELECT_RECORD_FIELD.'))');
 
-define("PATCH_REGEX_ADD_FIELD", '\+'.PATCH_REGEX_SELECT_FIELD);
+define("PATCH_REGEX_ADD_FIELD", '\+'.PATCH_REGEX_SELECT_FIELD.'\('.PATCH_REGEX_FIELD_TYPE.','.PATCH_REGEX_FIELD_MANDATORY.'\)');
 define("PATCH_REGEX_REMOVE_FIELD", '-'.PATCH_REGEX_SELECT_FIELD);
 define("PATCH_REGEX_CHANGE_ATTRIBUTE", PATCH_REGEX_SELECT_ATTRIBUTE.'='.PATCH_REGEX_VALUE_EXTENDED);
 define("PATCH_REGEX_CHANGE_KEY", PATCH_REGEX_CLASS.'='.PATCH_REGEX_ID_FIELDS);
@@ -72,7 +74,9 @@ class PatchManager {
 			} else if (preg_match('#^'.PATCH_REGEX_ADD_FIELD.'$#', $instruction, $matches)) {
 				$class = $matches[1];
 				$fieldName = $matches[2];
-				echo "add field <b>$fieldName</b> in class <b>$class</b>";
+				$type = $matches[3];
+				$mandatory = $matches[4];
+				echo "add <b>$mandatory $type</b> field <b>$fieldName</b> in class <b>$class</b>";
 			} else if (preg_match('#^'.PATCH_REGEX_REMOVE_FIELD.'$#', $instruction, $matches)) {
 				$class = $matches[1];
 				$fieldName = $matches[2];
