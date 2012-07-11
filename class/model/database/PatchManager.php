@@ -9,7 +9,7 @@ define("PATCH_REGEX_STRING", '"((?:[^"]|(?:(?<=\\\\)"))*)"');
 define("PATCH_REGEX_BOOLEAN", '((?:true)|(?:false))');
 define("PATCH_REGEX_INTEGER", '([0-9]*)');
 
-define("PATCH_REGEX_PATCH_ATTRIBUTES", '\[time='.PATCH_REGEX_INTEGER.',user='.PATCH_REGEX_STRING.'\]');
+define("PATCH_REGEX_PATCH_ATTRIBUTES", '\[time\='.PATCH_REGEX_INTEGER.',user\='.PATCH_REGEX_STRING.'\]');
 
 define("PATCH_REGEX_ID_FIELDS", '\[('.PATCH_REGEX_FIELD.'(?:,'.PATCH_REGEX_FIELD.')*)\]');
 define("PATCH_REGEX_SELECT_FIELD", PATCH_REGEX_CLASS.'\.'.PATCH_REGEX_FIELD);
@@ -19,15 +19,19 @@ define("PATCH_REGEX_VALUE", '((?:'.PATCH_REGEX_STRING.'|'.PATCH_REGEX_BOOLEAN.'|
 define("PATCH_REGEX_ID_VALUES", '\[('.PATCH_REGEX_VALUE.'(?:,'.PATCH_REGEX_VALUE.')*)\]');
 define("PATCH_REGEX_SELECT_RECORD", PATCH_REGEX_CLASS.PATCH_REGEX_ID_VALUES);
 define("PATCH_REGEX_SELECT_RECORD_FIELD", PATCH_REGEX_SELECT_RECORD.'\.'.PATCH_REGEX_FIELD);
-define("PATCH_REGEX_VALUE_EXTENDED", '((?:'.PATCH_REGEX_STRING.'|'.PATCH_REGEX_BOOLEAN.'|'.PATCH_REGEX_INTEGER.'|'.PATCH_REGEX_SELECT_ATTRIBUTE.'|'.PATCH_REGEX_SELECT_RECORD_FIELD.'))');
+define("PATCH_REGEX_ATTRIBUTE_VALUE", '((?:'.PATCH_REGEX_STRING.'|'.PATCH_REGEX_BOOLEAN.'|'.PATCH_REGEX_INTEGER.'|'.PATCH_REGEX_SELECT_ATTRIBUTE.'))');
+define("PATCH_REGEX_FIELD_VALUE", '((?:'.PATCH_REGEX_STRING.'|'.PATCH_REGEX_BOOLEAN.'|'.PATCH_REGEX_INTEGER.'|'.PATCH_REGEX_SELECT_RECORD_FIELD.'))');
+
+define("PATCH_REGEX_FIELD_VALUE_ASSIGNMENT", '('.PATCH_REGEX_FIELD.'\='.PATCH_REGEX_FIELD_VALUE.')');
+define("PATCH_REGEX_FIELD_VALUE_MULTIASSIGNMENT", '\(('.PATCH_REGEX_FIELD_VALUE_ASSIGNMENT.'(?:,'.PATCH_REGEX_FIELD_VALUE_ASSIGNMENT.')*'.')?\)');
 
 define("PATCH_REGEX_ADD_FIELD", '\+'.PATCH_REGEX_SELECT_FIELD.'\('.PATCH_REGEX_FIELD_TYPE.','.PATCH_REGEX_FIELD_MANDATORY.'\)');
 define("PATCH_REGEX_REMOVE_FIELD", '-'.PATCH_REGEX_SELECT_FIELD);
-define("PATCH_REGEX_CHANGE_ATTRIBUTE", PATCH_REGEX_SELECT_ATTRIBUTE.'='.PATCH_REGEX_VALUE_EXTENDED);
-define("PATCH_REGEX_CHANGE_KEY", PATCH_REGEX_CLASS.'='.PATCH_REGEX_ID_FIELDS);
-define("PATCH_REGEX_ADD_RECORD", '\+'.PATCH_REGEX_CLASS.PATCH_REGEX_ID_FIELDS);
+define("PATCH_REGEX_CHANGE_ATTRIBUTE", PATCH_REGEX_SELECT_ATTRIBUTE.'\='.PATCH_REGEX_ATTRIBUTE_VALUE);
+define("PATCH_REGEX_CHANGE_KEY", PATCH_REGEX_CLASS.'\='.PATCH_REGEX_ID_FIELDS);
+define("PATCH_REGEX_ADD_RECORD", '\+'.PATCH_REGEX_CLASS.PATCH_REGEX_ID_FIELDS.PATCH_REGEX_FIELD_VALUE_MULTIASSIGNMENT);
 define("PATCH_REGEX_REMOVE_RECORD", '-'.PATCH_REGEX_CLASS.PATCH_REGEX_ID_FIELDS);
-define("PATCH_REGEX_CHANGE_RECORD", PATCH_REGEX_SELECT_RECORD_FIELD.'='.PATCH_REGEX_VALUE_EXTENDED);
+define("PATCH_REGEX_CHANGE_RECORD", PATCH_REGEX_SELECT_RECORD_FIELD.'\='.PATCH_REGEX_FIELD_VALUE);
 
 class PatchManager {
 	public static function buildPatch(StructureDiff $diff, $user, $time = time) {
@@ -94,7 +98,17 @@ class PatchManager {
 			} else if (preg_match('#^'.PATCH_REGEX_ADD_RECORD.'$#', $instruction, $matches)) {
 				$class = $matches[1];
 				$ids = preg_split("#,#", $matches[2]);
+				$assignments = array();
+				if (count($matches) > 4) {
+					$fieldAssignments = preg_split("#,#", $matches[5]);
+					foreach($fieldAssignments as $assignment) {
+						$data = preg_split("#=#", $assignment);
+						$assignments[$data[0]] = $data[1];
+					}
+				}
 				echo "create record <b>[".array_reduce($ids, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
+				//echo Debug::toString($matches, "matches");
+				//echo Debug::toString($assignments, "assign");
 			} else if (preg_match('#^'.PATCH_REGEX_REMOVE_RECORD.'$#', $instruction, $matches)) {
 				$class = $matches[1];
 				$ids = preg_split("#,#", $matches[2]);
