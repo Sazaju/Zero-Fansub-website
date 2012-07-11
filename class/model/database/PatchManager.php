@@ -11,12 +11,12 @@ define("PATCH_REGEX_INTEGER", '([0-9]*)');
 
 define("PATCH_REGEX_PATCH_ATTRIBUTES", '\[time='.PATCH_REGEX_INTEGER.',user='.PATCH_REGEX_STRING.'\]');
 
-define("PATCH_REGEX_ID_FIELDS", '\(('.PATCH_REGEX_FIELD.'(?:,'.PATCH_REGEX_FIELD.')*)\)');
+define("PATCH_REGEX_ID_FIELDS", '\[('.PATCH_REGEX_FIELD.'(?:,'.PATCH_REGEX_FIELD.')*)\]');
 define("PATCH_REGEX_SELECT_FIELD", PATCH_REGEX_CLASS.'\.'.PATCH_REGEX_FIELD);
 define("PATCH_REGEX_SELECT_ATTRIBUTE", PATCH_REGEX_SELECT_FIELD.'\.'.PATCH_REGEX_ATTRIBUTE);
 
 define("PATCH_REGEX_VALUE", '((?:'.PATCH_REGEX_STRING.'|'.PATCH_REGEX_BOOLEAN.'|'.PATCH_REGEX_INTEGER.'))');
-define("PATCH_REGEX_ID_VALUES", '\(('.PATCH_REGEX_VALUE.'(?:,'.PATCH_REGEX_VALUE.')*)\)');
+define("PATCH_REGEX_ID_VALUES", '\[('.PATCH_REGEX_VALUE.'(?:,'.PATCH_REGEX_VALUE.')*)\]');
 define("PATCH_REGEX_SELECT_RECORD", PATCH_REGEX_CLASS.PATCH_REGEX_ID_VALUES);
 define("PATCH_REGEX_SELECT_RECORD_FIELD", PATCH_REGEX_SELECT_RECORD.'\.'.PATCH_REGEX_FIELD);
 define("PATCH_REGEX_VALUE_EXTENDED", '((?:'.PATCH_REGEX_STRING.'|'.PATCH_REGEX_BOOLEAN.'|'.PATCH_REGEX_INTEGER.'|'.PATCH_REGEX_SELECT_ATTRIBUTE.'|'.PATCH_REGEX_SELECT_RECORD_FIELD.'))');
@@ -94,17 +94,17 @@ class PatchManager {
 			} else if (preg_match('#^'.PATCH_REGEX_ADD_RECORD.'$#', $instruction, $matches)) {
 				$class = $matches[1];
 				$ids = preg_split("#,#", $matches[2]);
-				echo "create record <b>(".array_reduce($ids, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";}).")</b> for class <b>$class</b>";
+				echo "create record <b>[".array_reduce($ids, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
 			} else if (preg_match('#^'.PATCH_REGEX_REMOVE_RECORD.'$#', $instruction, $matches)) {
 				$class = $matches[1];
 				$ids = preg_split("#,#", $matches[2]);
-				echo "remove record <b>(".array_reduce($ids, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";}).")</b> for class <b>$class</b>";
+				echo "remove record <b>[".array_reduce($ids, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
 			} else if (preg_match('#^'.PATCH_REGEX_CHANGE_RECORD.'$#', $instruction, $matches)) {
 				$class = $matches[1];
 				$ids = preg_split("#,#", $matches[2]);
 				$fieldName = $matches[11];
 				$value = $matches[12];
-				echo "set field <b>$fieldName</b> from record <b>(".array_reduce($ids, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";}).")</b> for class <b>$class</b> to <b>".nl2br($value)."</b>";
+				echo "set field <b>$fieldName</b> from record <b>[".array_reduce($ids, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b> to <b>".nl2br($value)."</b>";
 			} else {
 				throw new Exception("<i>$instruction</i> is not a recognised instruction");
 			}
