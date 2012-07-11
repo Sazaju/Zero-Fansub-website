@@ -16,13 +16,13 @@ final class DefaultPersistentFieldTranslator implements IPersistentFieldTranslat
 	
 	public function setPersistentValue(PersistentField $field, $value) {
 		if ($field->isCustomized()) {
-			$reflector = new ReflectionClass($field->getType());
+			$reflector = new ReflectionClass($field->getBasicType());
 			if ($reflector->isSubclassOf('PersistentComponent')) {
 				$component = $reflector->newInstance();
 				$component->setInternalKey($value);
 				$component->load();
 			} else {
-				throw new Exception("You have to use a specific translator for ".$field->getType()." objects.");
+				throw new Exception("You have to use a specific translator for ".$field->getBasicType()." objects.");
 			}
 		} else {
 			if ($field->isArray()) {
@@ -30,7 +30,7 @@ final class DefaultPersistentFieldTranslator implements IPersistentFieldTranslat
 			} else if ($field->isResource()) {
 				throw new Exception("Resource management is not implemented yet.");
 			} else {
-				settype($value, $field->getType());
+				settype($value, $field->getBasicType());
 				$field->set($value);
 			}
 		}
@@ -53,7 +53,7 @@ final class DefaultPersistentFieldTranslator implements IPersistentFieldTranslat
 			if ($field->get() instanceof PersistentComponent) {
 				return PersistentTable::defaultIntegerTable();
 			} else {
-				throw new Exception("You have to use a specific translator for ".$field->getType()." objects.");
+				throw new Exception("You have to use a specific translator for ".$field->getBasicType()." objects.");
 			}
 		}
 	}
