@@ -222,34 +222,9 @@ class Database {
 				$class = $descriptor->getClass();
 				
 				if ($descriptor instanceof AddFieldDiff) {
-					$data = $descriptor->getNewValue();
-					$fieldName = $data['field'];
-					$table = $data['table'];
-					$type = $table->getName();
-					$translatorID = $this->saveAndGetTranslatorID($data['translator']);
-					$property = array('class' => $class,
-								'field' => $fieldName,
-								'type' => $type,
-								'mandatory' => $data['mandatory'],
-								'translator' => $translatorID,
-								'start' => $time,
-								'authorStart' => $authorId);
-					
-					$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
-					foreach($property as $key => $value) {
-						$insert->bindParam(':'.$key, $property[$key]);
-					}
-					$insert->execute($property);
-					$this->initMissingTable($table);
-					
-					$select = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$type.'" WHERE class = ?');
-					$select->execute(array($class));
-					$array = $select->fetchAll(PDO::FETCH_COLUMN);
-					$insert = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
-					foreach($array as $key) {
-						$value = null;
-						$insert->execute(array($class, $key, $fieldName, $time, $value, $authorId));
-					}
+					$fieldData = $descriptor->getNewValue();
+					$table = $fieldData['table'];
+					$this->addField($time, $authorId, $class, $fieldData['field'], $table, $table->getName(), $fieldData['translator'], $fieldData['mandatory']);
 				} else if ($descriptor instanceof RemoveFieldDiff) {
 					$data = $descriptor->getOldValue();
 					$fieldName = $data['field'];
@@ -386,6 +361,33 @@ class Database {
 				}
 			}
 			$this->connection->commit();
+		}
+	}
+	
+	public function addField($time, $authorId, $class, $fieldName, $table, $type, $translator, $mandatory) {
+		$translatorID = $this->saveAndGetTranslatorID($translator);
+		$property = array('class' => $class,
+					'field' => $fieldName,
+					'type' => $type,
+					'mandatory' => $mandatory,
+					'translator' => $translatorID,
+					'start' => $time,
+					'authorStart' => $authorId);
+		
+		$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, translator, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :translator, :start, :authorStart, NULL, NULL)');
+		foreach($property as $key => $value) {
+			$insert->bindParam(':'.$key, $property[$key]);
+		}
+		$insert->execute($property);
+		$this->initMissingTable($table);
+		
+		$select = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$type.'" WHERE class = ?');
+		$select->execute(array($class));
+		$array = $select->fetchAll(PDO::FETCH_COLUMN);
+		$insert = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+		foreach($array as $key) {
+			$value = null;
+			$insert->execute(array($class, $key, $fieldName, $time, $value, $authorId));
 		}
 	}
 	
