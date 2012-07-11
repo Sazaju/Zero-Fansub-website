@@ -229,13 +229,7 @@ class Database {
 					$fieldData = $descriptor->getOldValue();
 					$this->removeField($time, $authorId, $class, $fieldData['field'], $fieldData['type']);
 				} else if ($descriptor instanceof ChangeKeyDiff) {
-					$fieldNames = $descriptor->getNewValue();
-					$discard = $this->connection->prepare('UPDATE "structure_key" SET stop = ? WHERE class = ? and stop IS NULL');
-					$discard->execute(array($time, $class));
-					$insert = $this->connection->prepare('INSERT INTO "structure_key" (class, field, start, authorStart, stop) VALUES (:class, :field, :start, :authorStart, NULL)');
-					foreach($fieldNames as $name) {
-						$insert->execute(array($class, $name, $time, $authorId));
-					}
+					$this->changeKey($time, $authorId, $class, $descriptor->getNewValue());
 				} else if ($descriptor instanceof ChangeTypeDiff) {
 					$fieldName = $descriptor->getField();
 					
@@ -392,6 +386,15 @@ class Database {
 		$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
 		$discard->execute(array($time, $class, $fieldName));
 		$this->archiveValues($type, $class, $fieldName, $time);
+	}
+	
+	public function changeKey($time, $authorId, $class, $fieldNames) {
+		$discard = $this->connection->prepare('UPDATE "structure_key" SET stop = ? WHERE class = ? and stop IS NULL');
+		$discard->execute(array($time, $class));
+		$insert = $this->connection->prepare('INSERT INTO "structure_key" (class, field, start, authorStart, stop) VALUES (:class, :field, :start, :authorStart, NULL)');
+		foreach($fieldNames as $name) {
+			$insert->execute(array($class, $name, $time, $authorId));
+		}
 	}
 	
 	private function saveAndGetTranslatorID($translatorSource) {
