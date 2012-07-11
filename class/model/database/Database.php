@@ -133,23 +133,23 @@ class Database {
 		}
 	}
 	
-	private function initMissingTable($type) {
-		$this->connection->exec('CREATE TABLE IF NOT EXISTS "working_'.$type->getName().'" (
+	private function initMissingTable($table) {
+		$this->connection->exec('CREATE TABLE IF NOT EXISTS "working_'.$table->getName().'" (
 			class     VARCHAR(128) NOT NULL,
 			field     VARCHAR(128) NOT NULL,
 			key       INTEGER NOT NULL,
 			timestamp INTEGER NOT NULL,
-			value     '.$type->getColumnType().',
+			value     '.$table->getColumnType().',
 			author    VARCHAR(128) NOT NULL,
 			
 			PRIMARY KEY (class, field, key, timestamp)
 		)');
-		$this->connection->exec('CREATE TABLE IF NOT EXISTS "archive_'.$type->getName().'" (
+		$this->connection->exec('CREATE TABLE IF NOT EXISTS "archive_'.$table->getName().'" (
 			class     VARCHAR(128) NOT NULL,
 			field     VARCHAR(128) NOT NULL,
 			key       INTEGER NOT NULL,
 			timestamp INTEGER NOT NULL,
-			value     '.$type->getColumnType().',
+			value     '.$table->getColumnType().',
 			author    VARCHAR(128) NOT NULL,
 			archive   INTEGER NOT NULL,
 			
