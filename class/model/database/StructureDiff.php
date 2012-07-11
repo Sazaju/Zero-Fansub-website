@@ -106,10 +106,10 @@ abstract class FieldDiff extends ElementDiff {
 }
 
 class AddFieldDiff extends ComponentDiff {
-	public function __construct($class, $field, PersistentTable $table, $mandatory) {
+	public function __construct($class, $field, $type, $mandatory) {
 		parent::__construct($class, null, array(
 				'field' => $field,
-				'table' => $table,
+				'type' => $type instanceof PersistentType ? $type->getType() : $type,
 				'mandatory' => $mandatory
 		));
 	}
@@ -124,7 +124,7 @@ class RemoveFieldDiff extends ComponentDiff {
 	public function __construct($class, $field, $type, $mandatory) {
 		parent::__construct($class, array(
 				'field' => $field,
-				'type' => $type,
+				'type' => $type instanceof PersistentType ? $type->getType() : $type,
 				'mandatory' => $mandatory
 		), null);
 	}
@@ -159,7 +159,9 @@ class ChangeKeyDiff extends ComponentDiff {
 
 class ChangeTypeDiff extends FieldDiff {
 	public function __construct($class, $field, $oldType, $newType) {
-		parent::__construct($class, $field, $oldType, $newType);
+		parent::__construct($class, $field,
+				$oldType instanceof PersistentType ? $oldType->getType() : $oldType,
+				$newType instanceof PersistentType ? $newType->getType() : $newType);
 	}
 	
 	protected function getOperationString() {

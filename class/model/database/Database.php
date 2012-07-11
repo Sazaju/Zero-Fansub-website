@@ -117,23 +117,41 @@ class Database {
 		}
 	}
 	
-	private function initMissingTable($table) {
-		$this->connection->exec('CREATE TABLE IF NOT EXISTS "working_'.$table->getName().'" (
+	private function initMissingTable($type) {
+		$type = $type instanceof PersistentType ? $type->getType() : $type;
+		
+		$column = null;
+		if ($type == "boolean") {
+			$column = 'BOOLEAN';
+		} else if ($type == "integer") {
+			$column = 'INTEGER';
+		} else if ($type == "double") {
+			$column = 'DOUBLE';
+		} else if ($type == "string") {
+			$column = 'TEXT';
+		} else if (preg_match("#^string[0-9]+$#", $type)) {
+			$column = 'VARCHAR('.substr($type, 6).')';
+		} else {
+			throw new Exception("$type is not a managed persistent type");
+		}
+		
+		$this->connection->exec('CREATE TABLE IF NOT EXISTS "working_'.$type.'" (
 			class     VARCHAR(128) NOT NULL,
 			field     VARCHAR(128) NOT NULL,
 			key       INTEGER NOT NULL,
 			timestamp INTEGER NOT NULL,
-			value     '.$table->getColumnType().',
+			value     '.$column.',
 			author    VARCHAR(128) NOT NULL,
 			
 			PRIMARY KEY (class, field, key, timestamp)
 		)');
-		$this->connection->exec('CREATE TABLE IF NOT EXISTS "archive_'.$table->getName().'" (
+		
+		$this->connection->exec('CREATE TABLE IF NOT EXISTS "archive_'.$type.'" (
 			class     VARCHAR(128) NOT NULL,
 			field     VARCHAR(128) NOT NULL,
 			key       INTEGER NOT NULL,
 			timestamp INTEGER NOT NULL,
-			value     '.$table->getColumnType().',
+			value     '.$column.',
 			author    VARCHAR(128) NOT NULL,
 			archive   INTEGER NOT NULL,
 			
@@ -204,8 +222,7 @@ class Database {
 				
 				if ($descriptor instanceof AddFieldDiff) {
 					$fieldData = $descriptor->getNewValue();
-					$table = $fieldData['table'];
-					$this->addField($time, $authorId, $class, $fieldData['field'], $table, $table->getName(), $fieldData['mandatory']);
+					$this->addField($time, $authorId, $class, $fieldData['field'], $fieldData['type'], $fieldData['mandatory']);
 				} else if ($descriptor instanceof RemoveFieldDiff) {
 					$fieldData = $descriptor->getOldValue();
 					$this->removeField($time, $authorId, $class, $fieldData['field'], $fieldData['type']);
@@ -222,7 +239,7 @@ class Database {
 		}
 	}
 	
-	public function addField($time, $authorId, $class, $fieldName, $table, $type, $mandatory) {
+	public function addField($time, $authorId, $class, $fieldName, $type, $mandatory) {
 		$property = array('class' => $class,
 					'field' => $fieldName,
 					'type' => $type,
@@ -235,7 +252,7 @@ class Database {
 			$insert->bindParam(':'.$key, $property[$key]);
 		}
 		$insert->execute($property);
-		$this->initMissingTable($table);
+		$this->initMissingTable($type);
 		
 		$select = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$type.'" WHERE class = ?');
 		$select->execute(array($class));
@@ -337,12 +354,11 @@ class Database {
 		$fields = $this->getFieldsForClass($class, false);
 		$diff = new StructureDiff();
 		foreach($component->getPersistentFields() as $name => $field) {
-			$table = $field->getTranslator()->getPersistentTable($field);
-			$type = $table->getName();
+			$type = $field->getTranslator()->getPersistentType($field)->getType();
 			$mandatory = $field->isMandatory();
 			
 			if (!array_key_exists($name, $fields)) {
-				$diff->addDiff(new AddFieldDiff($class, $name, $table, $mandatory));
+				$diff->addDiff(new AddFieldDiff($class, $name, $type, $mandatory));
 			} else {
 				$property = $fields[$name];
 				unset($fields[$name]);
@@ -446,14 +462,14 @@ class Database {
 					throw new Exception("The mandatory field $name is not specified for the component $component");
 				} else {
 					$translator = $field->getTranslator();
-					$value = $translator->getPersistentValue($field->get());
+					$value = $translator->getPersistentValue($field);
 					if ($isNew || $savedValues[$name] !== "".$value /*$savedValues only contains strings*/) {
-						$type = $translator->getPersistentTable($field);
+						$type = $field->getTranslator()->getPersistentType($field)->getType();
 						
 						if (!$isNew) {
-							$this->archiveValues($type->getName(), $class, $name, $time, array($key));
+							$this->archiveValues($type, $class, $name, $time, array($key));
 						}
-						$statement = $this->connection->prepare('INSERT INTO "working_'.$type->getName().'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+						$statement = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
 						$statement->execute(array($class, $key, $name, $time, $value, $authorId));
 						
 					}
@@ -588,7 +604,7 @@ class Database {
 			$type = $statement->fetchColumn();
 			
 			$statement = $this->connection->prepare('SELECT key FROM "working_'.$type.'" WHERE class = ? AND field = ? AND value = ?');
-			$value = $field->getTranslator()->getPersistentValue($field->get());
+			$value = $field->getTranslator()->getPersistentValue($field);
 			$statement->execute(array($class, $name, $value));
 			$keys = $statement->fetchAll(PDO::FETCH_COLUMN);
 			if ($correspondingKeys === null) {

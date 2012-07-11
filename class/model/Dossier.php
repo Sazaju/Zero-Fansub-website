@@ -468,12 +468,17 @@ C'était Epitanime ! J'espére que ça vous a plu ! À bientôt pour Japan Expo,
 }
 
 class DossierTeamMemberPersistentFieldTranslator implements IPersistentFieldTranslator {
-	public function getPersistentValue($value) {
+	public function getPersistentValue(PersistentField $field) {
+		$value = $field->get();
 		if ($value === null) {
 			return null;
 		} else {
 			return $value->getID();
 		}
+	}
+	
+	public function getPersistentType(PersistentField $field) {
+		return PersistentType::getIntegerType();
 	}
 	
 	public function setPersistentValue(PersistentField $field, $value) {
