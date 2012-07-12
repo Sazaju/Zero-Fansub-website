@@ -231,4 +231,119 @@ class PatchIntegerValue extends LeafPatchInstruction {
 		return '[0-9]+';
 	}
 }
+
+/*************************************\
+        COMPOSED INSTRUCTIONS
+\*************************************/
+
+class ComposedPatchInstruction extends PatchInstruction {
+	private $composition;
+	
+	public function __construct() {
+		$composition = array();
+		for ($i = 0 ; $i < func_num_args() ; $i ++) {
+			$element = func_get_arg($i);
+			if (is_string($element) || $element instanceof PatchInstruction) {
+				$composition[] = $element;
+			} else {
+				throw new Exception("$element is not managed in composed instructions");
+			}
+		}
+		$this->composition = $composition;
+	}
+	
+	function __clone() {
+		$composition = array();
+		foreach($this->composition as $element) {
+			if (is_string($element)) {
+				$composition[] = $element;
+			} else if ($element instanceof PatchInstruction) {
+				$composition[] = clone $element;
+			} else {
+				throw new Exception($element." is not a managed element");
+			}
+		}
+		$this->composition = $composition;
+	}
+	
+	protected function getComposition() {
+		return $this->composition;
+	}
+	
+	private function generateRegex($catchInnerInstructions = false) {
+		$globalRegex = "";
+		foreach($this->getComposition() as $element) {
+			if (is_string($element)) {
+				$globalRegex .= preg_quote($element);
+			} else if ($element instanceof PatchInstruction) {
+				$regex = $element->getRegex();
+				$regex = $catchInnerInstructions ? "($regex)" : "(?:$regex)";
+				$globalRegex .= $regex;
+			} else {
+				throw new Exception($element." is not a managed element");
+			}
+		}
+		return $globalRegex;
+	}
+	
+	public function getInnerInstructions() {
+		$instructions = array();
+		foreach($this->getComposition() as $element) {
+			if ($element instanceof PatchInstruction) {
+				$instructions[] = $element;
+			} else {
+				continue;
+			}
+		}
+		return $instructions;
+	}
+	
+	public function getInnerInstruction() {
+		$ref = $this;
+		$depth = 0;
+		$i = 0;
+		for (; $i < func_num_args() - 1 ; $i ++) {
+			$index = func_get_arg($i);
+			if (!is_int($index)) {
+				throw new Exception("$index is not an index");
+			} else if(!($ref instanceof ComposedPatchInstruction)) {
+				throw new Exception("the element at depth $depth is not a composed instruction, you cannot ask for deepest parts");
+			} else {
+				$ref = $ref->getInnerInstruction($index);
+				$depth++;
+			}
+		}
+		$index = func_get_arg($i);
+		$instructions = $ref->getInnerInstructions();
+		return $instructions[$index];
+	}
+	
+	public function getInnerValues() {
+		$innerValues = array();
+		foreach($this->getInnerInstructions() as $instruction) {
+			$innerValues[] = $instruction->getValue();
+		}
+		return $innerValues;
+	}
+	
+	public function getInnerValue($index) {
+		$values = $this->getInnerValues();
+		return $values[$index];
+	}
+	
+	protected function applyValue($instruction) {
+		$regex = $this->generateRegex(true);
+		preg_match('#^'.PatchInstruction::formatRegex($regex, '#').'$#s', $instruction, $matches);
+		array_shift($matches); // remove the full match
+		foreach($this->getInnerInstructions() as $instruction) {
+			$instruction->setValue(array_shift($matches));
+		}
+	}
+	
+	protected function getRegex() {
+		return $this->generateRegex(false);
+	}
+	
+	
+}
 ?>
