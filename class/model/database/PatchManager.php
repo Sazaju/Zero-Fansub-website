@@ -339,11 +339,23 @@ class PatchSelectField extends ComposedPatchInstruction {
 	public function __construct() {
 		parent::__construct(new PatchClass(),'.',new PatchField());
 	}
+	
+	public function getClass() {
+		return $this->getInnerValue(0);
+	}
+	
+	public function getField() {
+		return $this->getInnerValue(1);
+	}
 }
 
 class PatchIDFields extends ComposedPatchInstruction {
 	public function __construct() {
 		parent::__construct('[',new ListPatchInstruction(new PatchField(),','),']');
+	}
+	
+	public function getIDFields() {
+		return $this->getInnerInstruction(0)->getAllValues();
 	}
 }
 
@@ -361,9 +373,17 @@ class PatchAttributes extends ComposedPatchInstruction implements PatchExecutabl
 	}
 	
 	public function execute(Database $db) {
-		$time = $this->getInnerValue(0);
-		$user = substr($this->getInnerValue(1), 1, -1);
+		$time = $this->getTime();
+		$user = $this->getUser();
 		echo "new patch: user <b>$user</b> at <b>$time</b> (".date("Y-m-d H:i:s", (integer) $time).")";
+	}
+	
+	public function getTime() {
+		return $this->getInnerValue(0);
+	}
+	
+	public function getUser() {
+		return substr($this->getInnerValue(1), 1, -1);
 	}
 }
 
@@ -373,12 +393,28 @@ class PatchAddField extends ComposedPatchInstruction implements PatchExecutableI
 	}
 	
 	public function execute(Database $db) {
-		$class = $this->getInnerInstruction(0)->getInnerValue(0);
-		$field = $this->getInnerInstruction(0)->getInnerValue(1);
-		$type = $this->getInnerValue(1);
-		$mandatory = $this->getInnerValue(2);
+		$class = $this->getClass();
+		$field = $this->getField();
+		$type = $this->getType();
+		$mandatory = $this->getMandatory();
 		
 		echo "add <b>$mandatory $type</b> field <b>$field</b> in class <b>$class</b>";
+	}
+	
+	public function getClass() {
+		return $this->getInnerInstruction(0)->getClass();
+	}
+	
+	public function getField() {
+		return $this->getInnerInstruction(0)->getField();
+	}
+	
+	public function getType() {
+		return $this->getInnerValue(1);
+	}
+	
+	public function getMandatory() {
+		return $this->getInnerValue(2);
 	}
 }
 
@@ -388,10 +424,18 @@ class PatchRemoveField extends ComposedPatchInstruction implements PatchExecutab
 	}
 	
 	public function execute(Database $db) {
-		$class = $this->getInnerInstruction(0)->getInnerValue(0);
-		$field = $this->getInnerInstruction(0)->getInnerValue(1);
+		$class = $this->getClass();
+		$field = $this->getField();
 		
 		echo "remove field <b>$field</b> from class <b>$class</b>";
+	}
+	
+	public function getClass() {
+		return $this->getInnerInstruction(0)->getClass();
+	}
+	
+	public function getField() {
+		return $this->getInnerInstruction(0)->getField();
 	}
 }
 
@@ -401,14 +445,18 @@ class PatchSetClassKey extends ComposedPatchInstruction implements PatchExecutab
 	}
 	
 	public function execute(Database $db) {
-		$class = $this->getInnerValue(0);
-		$fields = array();
-		$fields[] = $this->getInnerInstruction(1)->getInnerValue(0);
-		foreach($this->getInnerInstruction(1, 1)->getAllInstructions() as $instruction) {
-			$fields[] = $instruction->getInnerInstruction(0)->getValue();
-		}
+		$class = $this->getClass();
+		$fields = $this->getIDFields();
 		
 		echo "set ID to <b>[".array_reduce($fields, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
+	}
+	
+	public function getClass() {
+		return $this->getInnerValue(0);
+	}
+	
+	public function getIDFields() {
+		return $this->getInnerInstruction(1)->getIDFields();
 	}
 }
 
