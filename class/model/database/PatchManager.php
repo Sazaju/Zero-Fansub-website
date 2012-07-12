@@ -72,6 +72,7 @@ class Patch {
 			$in4 = new PatchSetClassKey();
 			$in5 = new PatchAddRecord();
 			$in6 = new PatchRemoveRecord();
+			$in7 = new PatchChangeRecordField();
 			$matches = array();
 			if (preg_match('#^('.$in1->getFormattedRegex('#').')\n.*$#s', $patch, $matches)) {
 				$instruction = $matches[1];
@@ -131,6 +132,16 @@ class Patch {
 				$patch = substr($patch, strlen($instruction));
 				/*
 				echo '<b>'.$in6->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
+				$patch = null;
+				*/
+			} else if (preg_match('#^('.$in7->getFormattedRegex('#').').*$#s', $patch, $matches)) {
+				$instruction = $matches[1];
+				$in7->setValue($instruction);
+				$in7->execute(Database::getDefaultDatabase());
+				$this->instructions[] = $in7;
+				$patch = substr($patch, strlen($instruction));
+				/*
+				echo '<b>'.$in7->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
 				$patch = null;
 				*/
 			} else {
@@ -609,6 +620,37 @@ class PatchRemoveRecord extends ComposedPatchInstruction implements PatchExecuta
 	
 	public function getIDValues() {
 		return $this->getInnerInstruction(0)->getIDValues();
+	}
+}
+
+class PatchChangeRecordField extends ComposedPatchInstruction implements PatchExecutableInstruction {
+	public function __construct() {
+		parent::__construct(new PatchSelectRecordField(),'=',new PatchFieldValue());
+	}
+	
+	public function execute(Database $db) {
+		$class = $this->getClass();
+		$values = $this->getIDValues();
+		$field = $this->getField();
+		$fieldValue = $this->getFieldValue();
+		
+		echo "set the field <b>$field($fieldValue)</b> of the record <b>[".array_reduce($values, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
+	}
+	
+	public function getClass() {
+		return $this->getInnerInstruction(0)->getClass();
+	}
+	
+	public function getIDValues() {
+		return $this->getInnerInstruction(0)->getIDValues();
+	}
+	
+	public function getField() {
+		return $this->getInnerInstruction(0)->getField();
+	}
+	
+	public function getFieldValue() {
+		return $this->getInnerValue(1);
 	}
 }
 
