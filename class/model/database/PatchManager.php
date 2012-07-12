@@ -73,6 +73,7 @@ class Patch {
 			$in5 = new PatchAddRecord();
 			$in6 = new PatchRemoveRecord();
 			$in7 = new PatchChangeRecordField();
+			$in8 = new PatchChangeFieldAttribute();
 			$matches = array();
 			if (preg_match('#^('.$in1->getFormattedRegex('#').')\n.*$#s', $patch, $matches)) {
 				$instruction = $matches[1];
@@ -142,6 +143,16 @@ class Patch {
 				$patch = substr($patch, strlen($instruction));
 				/*
 				echo '<b>'.$in7->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
+				$patch = null;
+				*/
+			} else if (preg_match('#^('.$in8->getFormattedRegex('#').').*$#s', $patch, $matches)) {
+				$instruction = $matches[1];
+				$in8->setValue($instruction);
+				$in8->execute(Database::getDefaultDatabase());
+				$this->instructions[] = $in8;
+				$patch = substr($patch, strlen($instruction));
+				/*
+				echo '<b>'.$in8->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
 				$patch = null;
 				*/
 			} else {
@@ -226,6 +237,12 @@ class PatchFieldType extends LeafPatchInstruction {
 class PatchFieldMandatoryValue extends LeafPatchInstruction {
 	protected function getRegex() {
 		return '(?:mandatory)|(?:optional)';
+	}
+}
+
+class PatchFieldTypeValue extends LeafPatchInstruction {
+	protected function getRegex() {
+		return '(?:boolean)|(?:integer)|(?:double)|(?:array)|(?:resource)|(?:string(?:[1-9][0-9]*)?)';
 	}
 }
 
@@ -467,6 +484,33 @@ class PatchSelectRecord extends ComposedPatchInstruction {
 	}
 }
 
+class PatchSelectFieldAttribute extends ComposedPatchInstruction {
+	public function __construct() {
+		parent::__construct(new PatchSelectField(),'.',new PatchFieldAttribute());
+	}
+	
+	public function getClass() {
+		return $this->getInnerInstruction(0)->getClass();
+	}
+	
+	public function getField() {
+		return $this->getInnerInstruction(0)->getField();
+	}
+	
+	public function getAttribute() {
+		return $this->getInnerValue(1);
+	}
+}
+
+class PatchClassAttributeValue extends ComposedPatchInstruction {
+	public function __construct() {
+		parent::__construct(new AlternativePatchInstruction(
+				new PatchFieldMandatoryValue(),
+				new PatchFieldTypeValue()
+		));
+	}
+}
+
 /*************************************\
      ROOT INSTRUCTIONS (EXECUTABLE)
 \*************************************/
@@ -650,6 +694,37 @@ class PatchChangeRecordField extends ComposedPatchInstruction implements PatchEx
 	}
 	
 	public function getFieldValue() {
+		return $this->getInnerValue(1);
+	}
+}
+
+class PatchChangeFieldAttribute extends ComposedPatchInstruction implements PatchExecutableInstruction {
+	public function __construct() {
+		parent::__construct(new PatchSelectFieldAttribute(),'=',new PatchClassAttributeValue());
+	}
+	
+	public function execute(Database $db) {
+		$class = $this->getClass();
+		$field = $this->getField();
+		$attribute = $this->getAttribute();
+		$attributeValue = $this->getAttributeValue();
+		
+		echo "set the attribute <b>$attribute($attributeValue)</b> of the field <b>$field</b> for class <b>$class</b>";
+	}
+	
+	public function getClass() {
+		return $this->getInnerInstruction(0)->getClass();
+	}
+	
+	public function getField() {
+		return $this->getInnerInstruction(0)->getField();
+	}
+	
+	public function getAttribute() {
+		return $this->getInnerInstruction(0)->getAttribute();
+	}
+	
+	public function getAttributeValue() {
 		return $this->getInnerValue(1);
 	}
 }
