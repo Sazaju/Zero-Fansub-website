@@ -493,4 +493,15 @@ class RepetitivePatchInstruction extends PatchInstruction {
 		return $this->instructions;
 	}
 }
+
+class OptionalPatchInstruction extends RepetitivePatchInstruction {
+	public function __construct(PatchInstruction $instruction) {
+		parent::__construct($instruction, 0, 1);
+	}
+	
+	public function getSingleInstruction() {
+		$instructions = $this->getAllInstructions();
+		return array_shift($instructions);
+	}
+}
 ?>
