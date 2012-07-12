@@ -70,6 +70,7 @@ class Patch {
 			$in2 = new PatchAddField();
 			$in3 = new PatchRemoveField();
 			$in4 = new PatchSetClassKey();
+			$in5 = new PatchAddRecord();
 			$matches = array();
 			if (preg_match('#^('.$in1->getFormattedRegex('#').')\n.*$#s', $patch, $matches)) {
 				$instruction = $matches[1];
@@ -109,6 +110,16 @@ class Patch {
 				$patch = substr($patch, strlen($instruction));
 				/*
 				echo '<b>'.$in4->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
+				$patch = null;
+				*/
+			} else if (preg_match('#^('.$in5->getFormattedRegex('#').').*$#s', $patch, $matches)) {
+				$instruction = $matches[1];
+				$in5->setValue($instruction);
+				$in5->execute(Database::getDefaultDatabase());
+				$this->instructions[] = $in5;
+				$patch = substr($patch, strlen($instruction));
+				/*
+				echo '<b>'.$in5->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
 				$patch = null;
 				*/
 			} else {
