@@ -554,8 +554,17 @@ class PatchAddRecord extends ComposedPatchInstruction implements PatchExecutable
 	public function execute(Database $db) {
 		$class = $this->getClass();
 		$values = $this->getIDValues();
+		$assignments = array();
+		foreach($this->getAssignments() as $field => $value) {
+			$assignments[] = "$field($value)";
+		}
 		
-		echo "Add record <b>[".array_reduce($values, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
+		echo "Add record <b>[".array_reduce($values, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>,";
+		if (empty($assignments)) {
+			echo " setting no field";
+		} else {
+			echo " setting the fields <b>".array_reduce($assignments, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."</b>";
+		}
 	}
 	
 	public function getClass() {
