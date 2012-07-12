@@ -343,7 +343,7 @@ class PatchSelectField extends ComposedPatchInstruction {
 
 class PatchIDFields extends ComposedPatchInstruction {
 	public function __construct() {
-		parent::__construct('[',new PatchField(),new RepetitivePatchInstruction(new ComposedPatchInstruction(',',new PatchField())),']');
+		parent::__construct('[',new ListPatchInstruction(new PatchField(),','),']');
 	}
 }
 
