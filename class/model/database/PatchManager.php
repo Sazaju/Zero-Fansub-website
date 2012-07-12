@@ -550,6 +550,31 @@ class PatchSetClassKey extends ComposedPatchInstruction implements PatchExecutab
 	}
 }
 
+class PatchAddRecord extends ComposedPatchInstruction implements PatchExecutableInstruction {
+	public function __construct() {
+		parent::__construct('+',new PatchSelectRecord(),new PatchChainFieldValueAssignment());
+	}
+	
+	public function execute(Database $db) {
+		$class = $this->getClass();
+		$values = $this->getIDValues();
+		
+		echo "Add record <b>[".array_reduce($values, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
+	}
+	
+	public function getClass() {
+		return $this->getInnerInstruction(0)->getClass();
+	}
+	
+	public function getIDValues() {
+		return $this->getInnerInstruction(0)->getIDValues();
+	}
+	
+	public function getAssignments() {
+		return $this->getInnerInstruction(1)->getAssignments();
+	}
+}
+
 /*************************************\
          SPECIAL INSTRUCTIONS
 \*************************************/
