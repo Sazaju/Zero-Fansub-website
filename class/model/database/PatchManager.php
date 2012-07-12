@@ -360,6 +360,14 @@ class PatchIDFields extends ComposedPatchInstruction {
 }
 
 /*************************************\
+     ROOT INSTRUCTIONS (EXECUTABLE)
+\*************************************/
+
+interface PatchExecutableInstruction {
+	public function execute(Database $db);
+}
+
+/*************************************\
          SPECIAL INSTRUCTIONS
 \*************************************/
 
