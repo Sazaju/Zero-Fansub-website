@@ -297,23 +297,8 @@ class ComposedPatchInstruction extends PatchInstruction {
 		return $instructions;
 	}
 	
-	public function getInnerInstruction() {
-		$ref = $this;
-		$depth = 0;
-		$i = 0;
-		for (; $i < func_num_args() - 1 ; $i ++) {
-			$index = func_get_arg($i);
-			if (!is_int($index)) {
-				throw new Exception("$index is not an index");
-			} else if(!($ref instanceof ComposedPatchInstruction)) {
-				throw new Exception("the element at depth $depth is not a composed instruction, you cannot ask for deepest parts");
-			} else {
-				$ref = $ref->getInnerInstruction($index);
-				$depth++;
-			}
-		}
-		$index = func_get_arg($i);
-		$instructions = $ref->getInnerInstructions();
+	public function getInnerInstruction($index) {
+		$instructions = $this->getInnerInstructions();
 		return $instructions[$index];
 	}
 	
@@ -599,11 +584,12 @@ class ListPatchInstruction extends PatchInstruction {
 			$this->instruction = new RepetitivePatchInstruction($repeat, $min, $max);
 		} else {
 			$max = $max === null ? $max : $max - 1;
+			$min = $min > 0 ? $min - 1 : $min;
+			$this->instruction = new ComposedPatchInstruction(clone $instruction, new RepetitivePatchInstruction($repeat, $min, $max));
 			if ($min <= 0) {
-				$this->instruction = new ComposedPatchInstruction(clone $instruction, new RepetitivePatchInstruction($repeat, $min, $max));
 				$this->instruction = new OptionalPatchInstruction($this->instruction);
 			} else {
-				$this->instruction = new ComposedPatchInstruction(clone $instruction, new RepetitivePatchInstruction($repeat, $min-1, $max));
+				// keep as is
 			}
 		}
 	}
@@ -621,31 +607,33 @@ class ListPatchInstruction extends PatchInstruction {
 	}
 	
 	public function getAllInstructions() {
-		$origin = $this->instruction;
-		if ($origin instanceof RepetitivePatchInstruction) {
-			return $origin->getAllInstructions();
-		} else if ($origin instanceof ComposedPatchInstruction) {
-			$instructions = array();
-			$instructions[] = $origin->getInnerInstruction(1)->getInnerValue(0);
-			foreach($origin->getInnerInstruction(1, 1)->getAllInstructions() as $instruction) {
-				$instructions[] = $instruction->getInnerInstruction(0)->getValue();
-			}
-			return $instructions;
-		} else if ($origin instanceof OptionalPatchInstruction) {
-			$instructions = array();
-			$origin = $origin->getSingleInstruction();
-			if ($origin != null) {
-				$instructions[] = $origin->getInnerInstruction(1)->getInnerValue(0);
-				foreach($origin->getInnerInstruction(1, 1)->getAllInstructions() as $instruction) {
-					$instructions[] = $instruction->getInnerInstruction(0)->getValue();
-				}
-			} else {
-				// no value
-			}
-			return $instructions;
+		$instructions = array();
+		$reference = $this->instruction;
+		if ($reference instanceof OptionalPatchInstruction) {
+			$reference = $reference->getSingleInstruction();
 		} else {
-			throw new Exception("This case should never happen: ".get_class($instruction));
+			// go directly to the next step
 		}
+		
+		if ($reference == null) {
+			// no result, just ignore everything until the end
+		} else {
+			if ($reference instanceof ComposedPatchInstruction) {
+				$instructions[] = $reference->getInnerInstruction(0);
+				$reference = $reference->getInnerInstruction(1);
+			} else {
+				// go directly to the next step
+			}
+			
+			// now, we should have a RepetitivePatchInstruction
+			foreach($reference->getAllInstructions() as $instruction) {
+				// each instruction is a repeating stuff (ComposedPatchInstruction)
+				// we need the last element (we do not know if there is 1 or 2 instructions)
+				$in = $instruction->getInnerInstructions();
+				$instructions[] = array_pop($in);
+			}
+		}
+		return $instructions;
 	}
 	
 	public function getAllValues() {
