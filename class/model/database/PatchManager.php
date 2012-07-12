@@ -401,7 +401,7 @@ class PatchChainFieldValueAssignment extends ComposedPatchInstruction {
 	
 	public function getAssignments() {
 		$assignments = array();
-		foreach($this->getInnerInstruction(0)->getAllInstructions() as $instructions) {
+		foreach($this->getInnerInstruction(0)->getAllInstructions() as $instruction) {
 			$assignments[$instruction->getField()] = $instruction->getFieldValue();
 		}
 		return $assignments;
