@@ -379,6 +379,21 @@ class PatchAttributes extends ComposedPatchInstruction implements PatchExecutabl
 	}
 }
 
+class PatchAddField extends ComposedPatchInstruction implements PatchExecutableInstruction {
+	public function __construct() {
+		parent::__construct('+',new PatchSelectField(),'(',new PatchFieldType(),',',new PatchFieldMandatoryValue(),')');
+	}
+	
+	public function execute(Database $db) {
+		$class = $this->getInnerInstruction(0)->getInnerValue(0);
+		$field = $this->getInnerInstruction(0)->getInnerValue(1);
+		$type = $this->getInnerValue(1);
+		$mandatory = $this->getInnerValue(2);
+		
+		echo "add <b>$mandatory $type</b> field <b>$field</b> in class <b>$class</b>";
+	}
+}
+
 /*************************************\
          SPECIAL INSTRUCTIONS
 \*************************************/
