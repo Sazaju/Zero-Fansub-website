@@ -71,6 +71,7 @@ class Patch {
 			$in3 = new PatchRemoveField();
 			$in4 = new PatchSetClassKey();
 			$in5 = new PatchAddRecord();
+			$in6 = new PatchRemoveRecord();
 			$matches = array();
 			if (preg_match('#^('.$in1->getFormattedRegex('#').')\n.*$#s', $patch, $matches)) {
 				$instruction = $matches[1];
@@ -120,6 +121,16 @@ class Patch {
 				$patch = substr($patch, strlen($instruction));
 				/*
 				echo '<b>'.$in5->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
+				$patch = null;
+				*/
+			} else if (preg_match('#^('.$in6->getFormattedRegex('#').').*$#s', $patch, $matches)) {
+				$instruction = $matches[1];
+				$in6->setValue($instruction);
+				$in6->execute(Database::getDefaultDatabase());
+				$this->instructions[] = $in6;
+				$patch = substr($patch, strlen($instruction));
+				/*
+				echo '<b>'.$in6->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
 				$patch = null;
 				*/
 			} else {
@@ -577,6 +588,27 @@ class PatchAddRecord extends ComposedPatchInstruction implements PatchExecutable
 	
 	public function getAssignments() {
 		return $this->getInnerInstruction(1)->getAssignments();
+	}
+}
+
+class PatchRemoveRecord extends ComposedPatchInstruction implements PatchExecutableInstruction {
+	public function __construct() {
+		parent::__construct('-',new PatchSelectRecord());
+	}
+	
+	public function execute(Database $db) {
+		$class = $this->getClass();
+		$values = $this->getIDValues();
+		
+		echo "remove the record <b>[".array_reduce($values, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> from class <b>$class</b>";
+	}
+	
+	public function getClass() {
+		return $this->getInnerInstruction(0)->getClass();
+	}
+	
+	public function getIDValues() {
+		return $this->getInnerInstruction(0)->getIDValues();
 	}
 }
 
