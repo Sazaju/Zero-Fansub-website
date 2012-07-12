@@ -32,6 +32,7 @@ class Patch {
 	public function addPatch($patch) {
 		while(!empty($patch)) {
 			$patch = trim($patch);
+			$in0 = new PatchComment();
 			$in1 = new PatchAttributes();
 			$in2 = new PatchAddField();
 			$in3 = new PatchRemoveField();
@@ -41,7 +42,17 @@ class Patch {
 			$in7 = new PatchChangeRecordField();
 			$in8 = new PatchChangeFieldAttribute();
 			$matches = array();
-			if (preg_match('#^('.$in1->getFormattedRegex('#').')\n.*$#s', $patch, $matches)) {
+			if (preg_match('#^('.$in0->getFormattedRegex('#').')\n.*$#s', $patch, $matches)) {
+				$instruction = $matches[1];
+				$in0->setValue($instruction);
+				$in0->execute(Database::getDefaultDatabase());
+				$this->instructions[] = $in0;
+				$patch = substr($patch, strlen($instruction));
+				/*
+				echo '<b>'.$in0->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
+				$patch = null;
+				*/
+			} else if (preg_match('#^('.$in1->getFormattedRegex('#').')\n.*$#s', $patch, $matches)) {
 				$instruction = $matches[1];
 				$in1->setValue($instruction);
 				$in1->execute(Database::getDefaultDatabase());
@@ -173,12 +184,6 @@ abstract class PatchInstruction {
 abstract class LeafPatchInstruction extends PatchInstruction {
 	protected function applyValue($instruction) {
 		// nothing to do
-	}
-}
-
-class PatchComments extends LeafPatchInstruction {
-	protected function getRegex() {
-		return '#[^#]*#';
 	}
 }
 
@@ -483,6 +488,18 @@ class PatchClassAttributeValue extends ComposedPatchInstruction {
 
 interface PatchExecutableInstruction {
 	public function execute(Database $db);
+}
+
+class PatchComment extends LeafPatchInstruction implements PatchExecutableInstruction {
+	protected function getRegex() {
+		return '#[^\n]*\n';
+	}
+	
+	public function execute(Database $db) {
+		// do nothing (ignore the comment)
+		$comment = trim(substr($this->getValue(), 1));
+		echo "(comment: $comment)";
+	}
 }
 
 class PatchAttributes extends ComposedPatchInstruction implements PatchExecutableInstruction {
