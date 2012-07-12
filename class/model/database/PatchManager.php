@@ -383,6 +383,20 @@ class PatchFieldValueAssignment extends ComposedPatchInstruction {
 	}
 }
 
+class PatchChainFieldValueAssignment extends ComposedPatchInstruction {
+	public function __construct() {
+		parent::__construct('(',new ListPatchInstruction(new PatchFieldValueAssignment(),','),')');
+	}
+	
+	public function getAssignments() {
+		$assignments = array();
+		foreach($this->getInnerInstruction(0)->getAllInstructions() as $instructions) {
+			$assignments[$instruction->getField()] = $instruction->getFieldValue();
+		}
+		return $assignments;
+	}
+}
+
 class PatchBasicValue extends ComposedPatchInstruction {
 	// TODO add variables or manage recursivity in order to manage not restricted only
 	public function __construct() {
