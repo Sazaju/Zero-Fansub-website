@@ -346,4 +346,10 @@ class ComposedPatchInstruction extends PatchInstruction {
 	
 	
 }
+
+class PatchSelectField extends ComposedPatchInstruction {
+	public function __construct() {
+		parent::__construct(new PatchClass(),'.',new PatchField());
+	}
+}
 ?>
