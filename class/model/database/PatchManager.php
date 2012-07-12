@@ -380,6 +380,24 @@ class PatchBasicValue extends ComposedPatchInstruction {
 	}
 }
 
+class PatchSelectRecordField extends ComposedPatchInstruction {
+	public function __construct() {
+		parent::__construct(new PatchSelectRecord(),'.',new PatchField());
+	}
+	
+	public function getClass() {
+		return $this->getInnerInstruction(0)->getClass();
+	}
+	
+	public function getIDValues() {
+		return $this->getInnerInstruction(0)->getIDValues();
+	}
+	
+	public function getField() {
+		return $this->getInnerValue(1);
+	}
+}
+
 class PatchSelectRecord extends ComposedPatchInstruction {
 	public function __construct() {
 		parent::__construct(new PatchClass(),new PatchIDValues());
