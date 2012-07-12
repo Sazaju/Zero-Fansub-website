@@ -407,6 +407,23 @@ class PatchRemoveField extends ComposedPatchInstruction implements PatchExecutab
 	}
 }
 
+class PatchSetClassKey extends ComposedPatchInstruction implements PatchExecutableInstruction {
+	public function __construct() {
+		parent::__construct(new PatchClass(),'=',new PatchIDFields());
+	}
+	
+	public function execute(Database $db) {
+		$class = $this->getInnerValue(0);
+		$fields = array();
+		$fields[] = $this->getInnerInstruction(1)->getInnerValue(0);
+		foreach($this->getInnerInstruction(1, 1)->getAllInstructions() as $instruction) {
+			$fields[] = $instruction->getInnerInstruction(0)->getValue();
+		}
+		
+		echo "set ID to <b>".array_reduce($fields, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."</b> for class <b>$class</b>";
+	}
+}
+
 /*************************************\
          SPECIAL INSTRUCTIONS
 \*************************************/
