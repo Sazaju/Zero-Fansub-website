@@ -459,6 +459,8 @@ class RepetitivePatchInstruction extends PatchInstruction {
 			$regex = "(?:$regex)+";
 		} else if ($min === 0 && $max === 1) {
 			$regex = "(?:$regex)?";
+		} else if ($min === $max) {
+			$regex = "(?:$regex)\{$min\}";
 		} else {
 			$regex = "(?:$regex)\{$min,$max\}";
 		}
