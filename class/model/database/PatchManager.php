@@ -359,6 +359,17 @@ class PatchIDFields extends ComposedPatchInstruction {
 	}
 }
 
+class PatchBasicValue extends ComposedPatchInstruction {
+	// TODO add variables or manage recursivity in order to manage not restricted only
+	public function __construct() {
+		parent::__construct(new AlternativePatchInstruction(
+				new PatchStringValue(),
+				new PatchBooleanValue(),
+				new PatchIntegerValue()
+		));
+	}
+}
+
 /*************************************\
      ROOT INSTRUCTIONS (EXECUTABLE)
 \*************************************/
