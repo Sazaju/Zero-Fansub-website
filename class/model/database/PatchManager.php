@@ -167,4 +167,68 @@ abstract class PatchInstruction {
 		return preg_match('#^'.$this->getFormattedRegex('#').'$#s', $value);
 	}
 }
+
+/*************************************\
+           LEAF INSTRUCTIONS
+\*************************************/
+
+abstract class LeafPatchInstruction extends PatchInstruction {
+	protected function applyValue($instruction) {
+		// nothing to do
+	}
+}
+
+class PatchComments extends LeafPatchInstruction {
+	protected function getRegex() {
+		return '#[^#]*#';
+	}
+}
+
+class PatchClass extends LeafPatchInstruction {
+	protected function getRegex() {
+		return '[0-9a-zA-Z]+';
+	}
+}
+
+class PatchField extends LeafPatchInstruction {
+	protected function getRegex() {
+		return '[0-9a-zA-Z]+';
+	}
+}
+
+class PatchFieldType extends LeafPatchInstruction {
+	protected function getRegex() {
+		return '[0-9a-zA-Z]+';
+	}
+}
+
+class PatchFieldMandatoryValue extends LeafPatchInstruction {
+	protected function getRegex() {
+		return '(?:mandatory)|(?:optional)';
+	}
+}
+
+class PatchFieldAttribute extends LeafPatchInstruction {
+	protected function getRegex() {
+		return '(?:type)|(?:mandatory)';
+	}
+}
+
+class PatchStringValue extends LeafPatchInstruction {
+	protected function getRegex() {
+		return '"(?:[^"]|(?:(?<=\\\\)"))*"';
+	}
+}
+
+class PatchBooleanValue extends LeafPatchInstruction {
+	protected function getRegex() {
+		return '(?:true)|(?:false)';
+	}
+}
+
+class PatchIntegerValue extends LeafPatchInstruction {
+	protected function getRegex() {
+		return '[0-9]+';
+	}
+}
 ?>
