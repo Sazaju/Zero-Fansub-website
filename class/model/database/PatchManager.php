@@ -625,14 +625,14 @@ class ListPatchInstruction extends PatchInstruction {
 		if ($origin instanceof RepetitivePatchInstruction) {
 			return $origin->getAllInstructions();
 		} else if ($origin instanceof ComposedPatchInstruction) {
-			$instructions == array();
+			$instructions = array();
 			$instructions[] = $origin->getInnerInstruction(1)->getInnerValue(0);
 			foreach($origin->getInnerInstruction(1, 1)->getAllInstructions() as $instruction) {
 				$instructions[] = $instruction->getInnerInstruction(0)->getValue();
 			}
 			return $instructions;
 		} else if ($origin instanceof OptionalPatchInstruction) {
-			$instructions == array();
+			$instructions = array();
 			$origin = $origin->getSingleInstruction();
 			if ($origin != null) {
 				$instructions[] = $origin->getInnerInstruction(1)->getInnerValue(0);
