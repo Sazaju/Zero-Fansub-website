@@ -131,6 +131,77 @@ class PatchManager {
               PATCH BASE
 \*************************************/
 
+class Patch {
+	private $instructions = array();
+	
+	public function __construct($patch = null) {
+		if ($patch == null) {
+			// do nothing
+		} else {
+			$this->addPatch($patch);
+		}
+	}
+	
+	public function getInstructions() {
+		return $this->instructions;
+	}
+	
+	public function addPatch($patch) {
+		while(!empty($patch)) {
+			$patch = trim($patch);
+			$in1 = new PatchAttributes();
+			$in2 = new PatchAddField();
+			$in3 = new PatchRemoveField();
+			$in4 = new PatchSetClassKey();
+			$matches = array();
+			if (preg_match('#^('.$in1->getFormattedRegex('#').')\n.*$#s', $patch, $matches)) {
+				$instruction = $matches[1];
+				$in1->setValue($instruction);
+				$in1->execute(Database::getDefaultDatabase());
+				$this->instructions[] = $in1;
+				$patch = substr($patch, strlen($instruction));
+				/*
+				echo '<b>'.$in1->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
+				$patch = null;
+				*/
+			} else if (preg_match('#^('.$in2->getFormattedRegex('#').').*$#s', $patch, $matches)) {
+				$instruction = $matches[1];
+				$in2->setValue($instruction);
+				$in2->execute(Database::getDefaultDatabase());
+				$this->instructions[] = $in2;
+				$patch = substr($patch, strlen($instruction));
+				/*
+				echo '<b>'.$in2->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
+				$patch = null;
+				*/
+			} else if (preg_match('#^('.$in3->getFormattedRegex('#').').*$#s', $patch, $matches)) {
+				$instruction = $matches[1];
+				$in3->setValue($instruction);
+				$in3->execute(Database::getDefaultDatabase());
+				$this->instructions[] = $in3;
+				$patch = substr($patch, strlen($instruction));
+				/*
+				echo '<b>'.$in3->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
+				$patch = null;
+				*/
+			} else if (preg_match('#^('.$in4->getFormattedRegex('#').').*$#s', $patch, $matches)) {
+				$instruction = $matches[1];
+				$in4->setValue($instruction);
+				$in4->execute(Database::getDefaultDatabase());
+				$this->instructions[] = $in4;
+				$patch = substr($patch, strlen($instruction));
+				/*
+				echo '<b>'.$in4->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
+				$patch = null;
+				*/
+			} else {
+				throw new Exception("The given patch cannot be parsed from there: $patch");
+			}
+			echo '<br/>';
+		}
+	}
+}
+
 abstract class PatchInstruction {
 	abstract protected function getRegex();
 	abstract protected function applyValue($value);
