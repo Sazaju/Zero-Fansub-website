@@ -367,6 +367,18 @@ interface PatchExecutableInstruction {
 	public function execute(Database $db);
 }
 
+class PatchAttributes extends ComposedPatchInstruction implements PatchExecutableInstruction {
+	public function __construct() {
+		parent::__construct('[time=',new PatchIntegerValue(),',user=',new PatchStringValue(),']');
+	}
+	
+	public function execute(Database $db) {
+		$time = $this->getInnerValue(0);
+		$user = substr($this->getInnerValue(1), 1, -1);
+		echo "new patch: user <b>$user</b> at <b>$time</b> (".date("Y-m-d H:i:s", (integer) $time).")";
+	}
+}
+
 /*************************************\
          SPECIAL INSTRUCTIONS
 \*************************************/
