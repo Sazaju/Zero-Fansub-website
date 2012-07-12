@@ -39,7 +39,7 @@ class PatchManager {
 	}
 	
 	public static function executePatch(Database $db, $patch) {
-		$patch = new Patch($patchString);
+		$patch = new Patch($patch);
 		// TODO
 	}
 }
