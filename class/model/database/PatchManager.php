@@ -408,7 +408,7 @@ class PatchSetClassKey extends ComposedPatchInstruction implements PatchExecutab
 			$fields[] = $instruction->getInnerInstruction(0)->getValue();
 		}
 		
-		echo "set ID to <b>".array_reduce($fields, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."</b> for class <b>$class</b>";
+		echo "set ID to <b>[".array_reduce($fields, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
 	}
 }
 
