@@ -416,6 +416,73 @@ class PatchSetClassKey extends ComposedPatchInstruction implements PatchExecutab
          SPECIAL INSTRUCTIONS
 \*************************************/
 
+class ListPatchInstruction extends PatchInstruction {
+	private $instruction;
+	
+	public function __construct(PatchInstruction $instruction, $separator = null, $min = 0, $max = null) {
+		$repeat = new ComposedPatchInstruction(is_object($separator) ? clone $separator : $separator,clone $instruction);
+		if ($separator == null) {
+			$this->instruction = new RepetitivePatchInstruction($repeat, $min, $max);
+		} else {
+			$max = $max === null ? $max : $max - 1;
+			if ($min <= 0) {
+				$this->instruction = new ComposedPatchInstruction(clone $instruction, new RepetitivePatchInstruction($repeat, $min, $max));
+				$this->instruction = new OptionalPatchInstruction($this->instruction);
+			} else {
+				$this->instruction = new ComposedPatchInstruction(clone $instruction, new RepetitivePatchInstruction($repeat, $min-1, $max));
+			}
+		}
+	}
+	
+	public function __clone() {
+		$this->instruction = clone $this->instruction;
+	}
+	
+	protected function getRegex() {
+		return $this->instruction->getRegex();
+	}
+	
+	protected function applyValue($value) {
+		$this->instruction->setValue($value);
+	}
+	
+	public function getAllInstructions() {
+		$origin = $this->instruction;
+		if ($origin instanceof RepetitivePatchInstruction) {
+			return $origin->getAllInstructions();
+		} else if ($origin instanceof ComposedPatchInstruction) {
+			$instructions == array();
+			$instructions[] = $origin->getInnerInstruction(1)->getInnerValue(0);
+			foreach($origin->getInnerInstruction(1, 1)->getAllInstructions() as $instruction) {
+				$instructions[] = $instruction->getInnerInstruction(0)->getValue();
+			}
+			return $instructions;
+		} else if ($origin instanceof OptionalPatchInstruction) {
+			$instructions == array();
+			$origin = $origin->getSingleInstruction();
+			if ($origin != null) {
+				$instructions[] = $origin->getInnerInstruction(1)->getInnerValue(0);
+				foreach($origin->getInnerInstruction(1, 1)->getAllInstructions() as $instruction) {
+					$instructions[] = $instruction->getInnerInstruction(0)->getValue();
+				}
+			} else {
+				// no value
+			}
+			return $instructions;
+		} else {
+			throw new Exception("This case should never happen: ".get_class($instruction));
+		}
+	}
+	
+	public function getAllValues() {
+		$values = array();
+		foreach($this->getAllInstructions() as $instruction) {
+			$values[] = $instruction->getValue();
+		}
+		return $values;
+	}
+}
+
 class RepetitivePatchInstruction extends PatchInstruction {
 	private $instructions = array();
 	private $reference;
