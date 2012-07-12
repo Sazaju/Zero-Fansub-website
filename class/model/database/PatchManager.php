@@ -369,6 +369,20 @@ class PatchIDValues extends ComposedPatchInstruction {
 	}
 }
 
+class PatchFieldValueAssignment extends ComposedPatchInstruction {
+	public function __construct() {
+		parent::__construct(new PatchField(),'=',new PatchFieldValue());
+	}
+	
+	public function getField() {
+		return $this->getInnerValue(0);
+	}
+	
+	public function getFieldValue() {
+		return $this->getInnerValue(1);
+	}
+}
+
 class PatchBasicValue extends ComposedPatchInstruction {
 	// TODO add variables or manage recursivity in order to manage not restricted only
 	public function __construct() {
