@@ -417,6 +417,7 @@ class PatchSetClassKey extends ComposedPatchInstruction implements PatchExecutab
 \*************************************/
 
 class RepetitivePatchInstruction extends PatchInstruction {
+	private $instructions = array();
 	private $reference;
 	private $min;
 	private $max;
@@ -464,7 +465,6 @@ class RepetitivePatchInstruction extends PatchInstruction {
 		return $regex;
 	}
 	
-	private $instructions;
 	protected function applyValue($value) {
 		$regex = $this->reference->getRegex();
 		$this->instructions = array();
