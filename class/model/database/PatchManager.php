@@ -394,6 +394,19 @@ class PatchAddField extends ComposedPatchInstruction implements PatchExecutableI
 	}
 }
 
+class PatchRemoveField extends ComposedPatchInstruction implements PatchExecutableInstruction {
+	public function __construct() {
+		parent::__construct('-',new PatchSelectField());
+	}
+	
+	public function execute(Database $db) {
+		$class = $this->getInnerInstruction(0)->getInnerValue(0);
+		$field = $this->getInnerInstruction(0)->getInnerValue(1);
+		
+		echo "remove field <b>$field</b> from class <b>$class</b>";
+	}
+}
+
 /*************************************\
          SPECIAL INSTRUCTIONS
 \*************************************/
