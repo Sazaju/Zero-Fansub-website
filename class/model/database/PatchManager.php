@@ -239,7 +239,7 @@ class PatchFieldAttribute extends LeafPatchInstruction {
 
 class PatchStringValue extends LeafPatchInstruction {
 	protected function getRegex() {
-		return '"(?:[^"]|(?:(?<=\\\\)"))*"';
+		return '"(?:[^\\\\"]|(?:\\\\")|(?:\\\\\\\\))*"';
 	}
 }
 
