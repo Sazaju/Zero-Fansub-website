@@ -16,6 +16,18 @@ li{
 	text-indent: 0;
 }
 
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: #FF5555 !important;
+}
+
+a:active, a:focus {
+	color: #5555FF !important;
+}
+
 .warning {
 	color: red;
 	font-weight: bold;

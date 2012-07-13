@@ -31,18 +31,6 @@
 	color: #999999;
 }
 
-#page a:hover {
-	font-weight: bold;
-}
-
-#page a:active, #page a:focus {
-	color: #696969;
-}
-
-#page a:visited {
-	font-decoration: line-through;
-}
-
 #page p:after { 
 	content: url('images/barre.png');
 	width: 100%;
@@ -133,12 +121,6 @@
 }
 
 .menu a{
-	text-decoration: none;
-	color: rgb(80,80,80);
-}
-
-.menu a:hover{
-	font-weight: bold;
 	color: rgb(80,80,80);
 }
 
