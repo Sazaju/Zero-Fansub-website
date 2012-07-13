@@ -31,7 +31,7 @@ class Patch {
 	
 	public function addPatch($patch) {
 		$prefix = "#^(";
-		$suffix = ").*$#s";
+		$suffix = ")(?:\n.*)?$#s";
 		while(!empty($patch)) {
 			$patch = trim($patch);
 			$rootInstructions = array(
