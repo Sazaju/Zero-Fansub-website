@@ -49,7 +49,7 @@ class Patch {
 			$matches = array();
 			do {
 				$instruction = array_shift($rootInstructions);
-			} while(!preg_match($prefix.$instruction->getFormattedRegex('#').$suffix, $patch, $matches) && $instruction != null);
+			} while($instruction != null && !preg_match($prefix.$instruction->getFormattedRegex('#').$suffix, $patch, $matches));
 			
 			if ($instruction != null) {
 				$extract = $matches[1];
