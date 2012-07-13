@@ -138,6 +138,20 @@ class Patch {
 			echo '<br/>';
 		}
 	}
+	
+	public static function protectStringValue($value) {
+		$value = str_replace('\\', '\\\\', $value);
+		$value = str_replace('"', '\\"', $value);
+		$value = '"'.$value.'"';
+		return $value;
+	}
+	
+	public static function cleanStringValue($value) {
+		$value = substr($value, 1, -1);
+		$value = str_replace('\\"', '"', $value);
+		$value = str_replace('\\\\', '\\', $value);
+		return $value;
+	}
 }
 
 abstract class PatchInstruction {
@@ -518,7 +532,7 @@ class PatchAttributes extends ComposedPatchInstruction implements PatchExecutabl
 	}
 	
 	public function getUser() {
-		return substr($this->getInnerValue(1), 1, -1);
+		return Patch::cleanStringValue($this->getInnerValue(1));
 	}
 }
 
