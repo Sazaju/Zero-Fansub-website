@@ -30,112 +30,42 @@ class Patch {
 	}
 	
 	public function addPatch($patch) {
+		$prefix = "#^(";
+		$suffix = ").*$#s";
 		while(!empty($patch)) {
 			$patch = trim($patch);
-			$in0 = new PatchComment();
-			$in1 = new PatchAttributes();
-			$in2 = new PatchAddField();
-			$in3 = new PatchRemoveField();
-			$in4 = new PatchSetClassKey();
-			$in5 = new PatchAddRecord();
-			$in6 = new PatchRemoveRecord();
-			$in7 = new PatchChangeRecordField();
-			$in8 = new PatchChangeFieldAttribute();
+			$rootInstructions = array(
+				new PatchComment(),
+				new PatchAttributes(),
+				new PatchAddField(),
+				new PatchRemoveField(),
+				new PatchSetClassKey(),
+				new PatchAddRecord(),
+				new PatchRemoveRecord(),
+				new PatchChangeRecordField(),
+				new PatchChangeFieldAttribute(),
+			);
+			$instruction = null;
 			$matches = array();
-			if (preg_match('#^('.$in0->getFormattedRegex('#').')\n.*$#s', $patch, $matches)) {
-				$instruction = $matches[1];
-				$in0->setValue($instruction);
-				$in0->execute(Database::getDefaultDatabase());
-				$this->instructions[] = $in0;
-				$patch = substr($patch, strlen($instruction));
+			do {
+				$instruction = array_shift($rootInstructions);
+			} while(!preg_match($prefix.$instruction->getFormattedRegex('#').$suffix, $patch, $matches) && $instruction != null);
+			
+			if ($instruction != null) {
+				$extract = $matches[1];
+				$instruction->setValue($extract);
+				$instruction->execute(Database::getDefaultDatabase());
+				$this->instructions[] = $instruction;
+				$patch = substr($patch, strlen($extract));
 				/*
-				echo '<b>'.$in0->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
+				echo '<b>'.$in->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
 				$patch = null;
 				*/
-			} else if (preg_match('#^('.$in1->getFormattedRegex('#').')\n.*$#s', $patch, $matches)) {
-				$instruction = $matches[1];
-				$in1->setValue($instruction);
-				$in1->execute(Database::getDefaultDatabase());
-				$this->instructions[] = $in1;
-				$patch = substr($patch, strlen($instruction));
-				/*
-				echo '<b>'.$in1->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
-				$patch = null;
-				*/
-			} else if (preg_match('#^('.$in2->getFormattedRegex('#').').*$#s', $patch, $matches)) {
-				$instruction = $matches[1];
-				$in2->setValue($instruction);
-				$in2->execute(Database::getDefaultDatabase());
-				$this->instructions[] = $in2;
-				$patch = substr($patch, strlen($instruction));
-				/*
-				echo '<b>'.$in2->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
-				$patch = null;
-				*/
-			} else if (preg_match('#^('.$in3->getFormattedRegex('#').').*$#s', $patch, $matches)) {
-				$instruction = $matches[1];
-				$in3->setValue($instruction);
-				$in3->execute(Database::getDefaultDatabase());
-				$this->instructions[] = $in3;
-				$patch = substr($patch, strlen($instruction));
-				/*
-				echo '<b>'.$in3->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
-				$patch = null;
-				*/
-			} else if (preg_match('#^('.$in4->getFormattedRegex('#').').*$#s', $patch, $matches)) {
-				$instruction = $matches[1];
-				$in4->setValue($instruction);
-				$in4->execute(Database::getDefaultDatabase());
-				$this->instructions[] = $in4;
-				$patch = substr($patch, strlen($instruction));
-				/*
-				echo '<b>'.$in4->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
-				$patch = null;
-				*/
-			} else if (preg_match('#^('.$in5->getFormattedRegex('#').').*$#s', $patch, $matches)) {
-				$instruction = $matches[1];
-				$in5->setValue($instruction);
-				$in5->execute(Database::getDefaultDatabase());
-				$this->instructions[] = $in5;
-				$patch = substr($patch, strlen($instruction));
-				/*
-				echo '<b>'.$in5->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
-				$patch = null;
-				*/
-			} else if (preg_match('#^('.$in6->getFormattedRegex('#').').*$#s', $patch, $matches)) {
-				$instruction = $matches[1];
-				$in6->setValue($instruction);
-				$in6->execute(Database::getDefaultDatabase());
-				$this->instructions[] = $in6;
-				$patch = substr($patch, strlen($instruction));
-				/*
-				echo '<b>'.$in6->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
-				$patch = null;
-				*/
-			} else if (preg_match('#^('.$in7->getFormattedRegex('#').').*$#s', $patch, $matches)) {
-				$instruction = $matches[1];
-				$in7->setValue($instruction);
-				$in7->execute(Database::getDefaultDatabase());
-				$this->instructions[] = $in7;
-				$patch = substr($patch, strlen($instruction));
-				/*
-				echo '<b>'.$in7->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
-				$patch = null;
-				*/
-			} else if (preg_match('#^('.$in8->getFormattedRegex('#').').*$#s', $patch, $matches)) {
-				$instruction = $matches[1];
-				$in8->setValue($instruction);
-				$in8->execute(Database::getDefaultDatabase());
-				$this->instructions[] = $in8;
-				$patch = substr($patch, strlen($instruction));
-				/*
-				echo '<b>'.$in8->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
-				$patch = null;
-				*/
+				echo '<br/>';
+				continue;
 			} else {
 				throw new Exception("The given patch cannot be parsed from there: $patch");
 			}
-			echo '<br/>';
 		}
 	}
 	
