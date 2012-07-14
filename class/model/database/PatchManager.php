@@ -187,90 +187,55 @@ class PatchIntegerValue extends RegexPatchInstruction {
 \*************************************/
 
 class ComposedPatchInstruction extends PatchInstruction {
-	private $composition;
+	private $innerInstructions;
 	
 	public function __construct() {
-		$composition = array();
-		for ($i = 0 ; $i < func_num_args() ; $i ++) {
-			$element = func_get_arg($i);
-			if (is_string($element) || $element instanceof PatchInstruction) {
-				$composition[] = $element;
-			} else {
-				throw new Exception("$element is not managed in composed instructions");
-			}
-		}
-		$this->composition = $composition;
+		$this->innerInstructions = PatchInstruction::toInstructionOnly(func_get_args());
 	}
 	
 	function __clone() {
-		$composition = array();
-		foreach($this->composition as $element) {
-			if (is_string($element)) {
-				$composition[] = $element;
-			} else if ($element instanceof PatchInstruction) {
-				$composition[] = clone $element;
-			} else {
-				throw new Exception($element." is not a managed element");
-			}
+		$innerInstructions = array();
+		foreach($this->innerInstructions as $element) {
+			$innerInstructions[] = clone $element;
 		}
-		$this->composition = $composition;
+		$this->innerInstructions = $innerInstructions;
 	}
 	
-	protected function getComposition() {
-		return $this->composition;
+	public function getInnerInstructions() {
+		return $this->innerInstructions;
+	}
+	
+	public function getInnerInstruction($index) {
+		return $this->innerInstructions[$index];
 	}
 	
 	private function generateRegex($catchInnerInstructions = false) {
 		$globalRegex = "";
-		foreach($this->getComposition() as $element) {
-			if (is_string($element)) {
-				$globalRegex .= preg_quote($element);
-			} else if ($element instanceof PatchInstruction) {
-				$regex = $element->getRegex();
-				$regex = $catchInnerInstructions ? "($regex)" : "(?:$regex)";
-				$globalRegex .= $regex;
-			} else {
-				throw new Exception($element." is not a managed element");
-			}
+		foreach($this->innerInstructions as $element) {
+			$regex = $element->getRegex();
+			$regex = $catchInnerInstructions ? "($regex)" : "(?:$regex)";
+			$globalRegex .= $regex;
 		}
 		return $globalRegex;
 	}
 	
-	public function getInnerInstructions() {
-		$instructions = array();
-		foreach($this->getComposition() as $element) {
-			if ($element instanceof PatchInstruction) {
-				$instructions[] = $element;
-			} else {
-				continue;
-			}
-		}
-		return $instructions;
-	}
-	
-	public function getInnerInstruction($index) {
-		$instructions = $this->getInnerInstructions();
-		return $instructions[$index];
-	}
-	
 	public function getInnerValues() {
 		$innerValues = array();
-		foreach($this->getInnerInstructions() as $instruction) {
+		foreach($this->innerInstructions as $instruction) {
 			$innerValues[] = $instruction->getValue();
 		}
 		return $innerValues;
 	}
 	
 	public function getInnerValue($index) {
-		$values = $this->getInnerValues();
-		return $values[$index];
+		return $this->innerInstructions[$index]->getValue();
 	}
 	
 	protected function applyValue($instruction) {
 		$regex = $this->generateRegex(true);
 		preg_match('#^'.PatchInstruction::formatRegex($regex, '#').'$#s', $instruction, $matches);
 		array_shift($matches); // remove the full match
-		foreach($this->getInnerInstructions() as $instruction) {
+		foreach($this->innerInstructions as $instruction) {
 			$instruction->setValue(array_shift($matches));
 		}
 	}
@@ -292,7 +257,7 @@ class PatchSelectField extends ComposedPatchInstruction {
 	}
 	
 	public function getField() {
-		return $this->getInnerValue(1);
+		return $this->getInnerValue(2);
 	}
 }
 
@@ -302,7 +267,7 @@ class PatchIDFields extends ComposedPatchInstruction {
 	}
 	
 	public function getIDFields() {
-		return $this->getInnerInstruction(0)->getAllValues();
+		return $this->getInnerInstruction(1)->getAllValues();
 	}
 }
 
@@ -312,7 +277,7 @@ class PatchIDValues extends ComposedPatchInstruction {
 	}
 	
 	public function getIDValues() {
-		return $this->getInnerInstruction(0)->getAllValues();
+		return $this->getInnerInstruction(1)->getAllValues();
 	}
 }
 
@@ -326,7 +291,7 @@ class PatchFieldValueAssignment extends ComposedPatchInstruction {
 	}
 	
 	public function getFieldValue() {
-		return $this->getInnerValue(1);
+		return $this->getInnerValue(2);
 	}
 }
 
@@ -337,7 +302,7 @@ class PatchChainFieldValueAssignment extends ComposedPatchInstruction {
 	
 	public function getAssignments() {
 		$assignments = array();
-		foreach($this->getInnerInstruction(0)->getAllInstructions() as $instruction) {
+		foreach($this->getInnerInstruction(1)->getAllInstructions() as $instruction) {
 			$assignments[$instruction->getField()] = $instruction->getFieldValue();
 		}
 		return $assignments;
@@ -358,7 +323,7 @@ class PatchSelectRecordField extends ComposedPatchInstruction {
 	}
 	
 	public function getField() {
-		return $this->getInnerValue(1);
+		return $this->getInnerValue(2);
 	}
 }
 
@@ -506,11 +471,11 @@ class PatchAttributes extends ComposedPatchInstruction implements PatchCompleteI
 	}
 	
 	public function getTime() {
-		return $this->getInnerValue(0);
+		return $this->getInnerValue(1);
 	}
 	
 	public function getUser() {
-		return Patch::cleanStringValue($this->getInnerValue(1));
+		return Patch::cleanStringValue($this->getInnerValue(3));
 	}
 }
 
@@ -529,19 +494,19 @@ class PatchAddField extends ComposedPatchInstruction implements PatchCompleteIns
 	}
 	
 	public function getClass() {
-		return $this->getInnerInstruction(0)->getClass();
+		return $this->getInnerInstruction(1)->getClass();
 	}
 	
 	public function getField() {
-		return $this->getInnerInstruction(0)->getField();
+		return $this->getInnerInstruction(1)->getField();
 	}
 	
 	public function getType() {
-		return $this->getInnerValue(1);
+		return $this->getInnerValue(3);
 	}
 	
 	public function getMandatory() {
-		return $this->getInnerValue(2);
+		return $this->getInnerValue(5);
 	}
 }
 
@@ -558,11 +523,11 @@ class PatchRemoveField extends ComposedPatchInstruction implements PatchComplete
 	}
 	
 	public function getClass() {
-		return $this->getInnerInstruction(0)->getClass();
+		return $this->getInnerInstruction(1)->getClass();
 	}
 	
 	public function getField() {
-		return $this->getInnerInstruction(0)->getField();
+		return $this->getInnerInstruction(1)->getField();
 	}
 }
 
@@ -583,7 +548,7 @@ class PatchSetClassKey extends ComposedPatchInstruction implements PatchComplete
 	}
 	
 	public function getIDFields() {
-		return $this->getInnerInstruction(1)->getIDFields();
+		return $this->getInnerInstruction(2)->getIDFields();
 	}
 }
 
@@ -609,15 +574,15 @@ class PatchAddRecord extends ComposedPatchInstruction implements PatchCompleteIn
 	}
 	
 	public function getClass() {
-		return $this->getInnerInstruction(0)->getClass();
+		return $this->getInnerInstruction(1)->getClass();
 	}
 	
 	public function getIDValues() {
-		return $this->getInnerInstruction(0)->getIDValues();
+		return $this->getInnerInstruction(1)->getIDValues();
 	}
 	
 	public function getAssignments() {
-		return $this->getInnerInstruction(1)->getAssignments();
+		return $this->getInnerInstruction(2)->getAssignments();
 	}
 }
 
@@ -634,11 +599,11 @@ class PatchRemoveRecord extends ComposedPatchInstruction implements PatchComplet
 	}
 	
 	public function getClass() {
-		return $this->getInnerInstruction(0)->getClass();
+		return $this->getInnerInstruction(1)->getClass();
 	}
 	
 	public function getIDValues() {
-		return $this->getInnerInstruction(0)->getIDValues();
+		return $this->getInnerInstruction(1)->getIDValues();
 	}
 }
 
@@ -669,7 +634,7 @@ class PatchChangeRecordField extends ComposedPatchInstruction implements PatchCo
 	}
 	
 	public function getFieldValue() {
-		return $this->getInnerValue(1);
+		return $this->getInnerValue(2);
 	}
 }
 
