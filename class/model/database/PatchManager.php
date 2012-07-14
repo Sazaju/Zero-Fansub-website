@@ -43,7 +43,8 @@ class Patch {
 				new PatchAddRecord(),
 				new PatchRemoveRecord(),
 				new PatchChangeRecordField(),
-				new PatchChangeFieldAttribute(),
+				new PatchChangeFieldType(),
+				new PatchChangeFieldMandatory(),
 			);
 			$instruction = null;
 			$matches = array();
@@ -112,6 +113,20 @@ abstract class PatchInstruction {
 		}
 	}
 	
+	public static function toInstructionOnly($array) {
+		$result = array();
+		foreach($array as $element) {
+			if (is_string($element)) {
+				$result[] = new TextPatchInstruction($element);
+			} else if ($element instanceof PatchInstruction) {
+				$result[] = $element;
+			} else {
+				throw new Exception("$element is not an instruction");
+			}
+		}
+		return $result;
+	}
+	
 	public function getFormattedRegex($delimiter) {
 		return PatchInstruction::formatRegex($this->getRegex(), $delimiter);
 	}
@@ -122,64 +137,46 @@ abstract class PatchInstruction {
 }
 
 /*************************************\
-           LEAF INSTRUCTIONS
+           REGEX INSTRUCTIONS
 \*************************************/
 
-abstract class LeafPatchInstruction extends PatchInstruction {
+abstract class RegexPatchInstruction extends PatchInstruction {
 	protected function applyValue($instruction) {
 		// nothing to do
 	}
 }
 
-class PatchClass extends LeafPatchInstruction {
+class PatchClass extends RegexPatchInstruction {
 	protected function getRegex() {
 		return '[0-9a-zA-Z]+';
 	}
 }
 
-class PatchField extends LeafPatchInstruction {
+class PatchField extends RegexPatchInstruction {
 	protected function getRegex() {
 		return '[0-9a-zA-Z]+';
 	}
 }
 
-class PatchFieldType extends LeafPatchInstruction {
+class PatchFieldType extends RegexPatchInstruction {
 	protected function getRegex() {
 		return '[0-9a-zA-Z]+';
 	}
 }
 
-class PatchFieldMandatoryValue extends LeafPatchInstruction {
-	protected function getRegex() {
-		return '(?:mandatory)|(?:optional)';
-	}
-}
-
-class PatchFieldTypeValue extends LeafPatchInstruction {
+class PatchFieldTypeValue extends RegexPatchInstruction {
 	protected function getRegex() {
 		return '(?:boolean)|(?:integer)|(?:double)|(?:array)|(?:resource)|(?:string(?:[1-9][0-9]*)?)';
 	}
 }
 
-class PatchFieldAttribute extends LeafPatchInstruction {
-	protected function getRegex() {
-		return '(?:type)|(?:mandatory)';
-	}
-}
-
-class PatchStringValue extends LeafPatchInstruction {
+class PatchStringValue extends RegexPatchInstruction {
 	protected function getRegex() {
 		return '"(?:[^\\\\"]|(?:\\\\")|(?:\\\\\\\\))*"';
 	}
 }
 
-class PatchBooleanValue extends LeafPatchInstruction {
-	protected function getRegex() {
-		return '(?:true)|(?:false)';
-	}
-}
-
-class PatchIntegerValue extends LeafPatchInstruction {
+class PatchIntegerValue extends RegexPatchInstruction {
 	protected function getRegex() {
 		return '[0-9]+';
 	}
@@ -347,26 +344,6 @@ class PatchChainFieldValueAssignment extends ComposedPatchInstruction {
 	}
 }
 
-class PatchBasicValue extends ComposedPatchInstruction {
-	// TODO add variables or manage recursivity in order to manage not restricted only
-	public function __construct() {
-		parent::__construct(new AlternativePatchInstruction(
-				new PatchStringValue(),
-				new PatchBooleanValue(),
-				new PatchIntegerValue()
-		));
-	}
-}
-
-class PatchFieldValue extends ComposedPatchInstruction {
-	public function __construct() {
-		parent::__construct(new AlternativePatchInstruction(
-				new PatchBasicValue(),
-				new PatchSelectRecordField()
-		));
-	}
-}
-
 class PatchSelectRecordField extends ComposedPatchInstruction {
 	public function __construct() {
 		parent::__construct(new PatchSelectRecord(),'.',new PatchField());
@@ -399,42 +376,113 @@ class PatchSelectRecord extends ComposedPatchInstruction {
 	}
 }
 
-class PatchSelectFieldAttribute extends ComposedPatchInstruction {
+/*************************************\
+ ALTERNATIVE INSTRUCTIONS (... OR ...)
+\*************************************/
+
+class AlternativePatchInstruction extends PatchInstruction {
+	private $alternatives;
+	private $compatibleInstruction;
+	
 	public function __construct() {
-		parent::__construct(new PatchSelectField(),'.',new PatchFieldAttribute());
+		$this->alternatives = PatchInstruction::toInstructionOnly(func_get_args());
 	}
 	
-	public function getClass() {
-		return $this->getInnerInstruction(0)->getClass();
+	function __clone() {
+		$alternatives = array();
+		foreach($this->alternatives as $element) {
+			$alternatives[] = clone $element;
+		}
+		$this->alternatives = $alternatives;
+		$this->compatibleInstruction = $this->compatibleInstruction === null ? null : clone $this->compatibleInstruction;
 	}
 	
-	public function getField() {
-		return $this->getInnerInstruction(0)->getField();
+	public function getAlternatives() {
+		return $this->alternatives;
 	}
 	
-	public function getAttribute() {
-		return $this->getInnerValue(1);
+	protected function getRegex() {
+		$globaleRegex = "";
+		foreach($this->alternatives as $instruction) {
+			$regex = $instruction->getRegex();
+			$globaleRegex .= "|(?:$regex)";
+		}
+		$globaleRegex = substr($globaleRegex, 1);
+		return "(?:$globaleRegex)";
+	}
+	
+	protected function applyValue($value) {
+		foreach($this->alternatives as $instruction) {
+			if ($instruction->isSyntaxicallyCompatible($value)) {
+				$instruction->setValue($value);
+				$this->compatibleInstruction = $instruction;
+			} else {
+				continue;
+			}
+		}
+	}
+	
+	public function getCompatibleInstruction() {
+		return $this->compatibleInstruction;
 	}
 }
 
-class PatchClassAttributeValue extends ComposedPatchInstruction {
+class PatchBasicValue extends AlternativePatchInstruction {
+	// TODO add variables or manage recursivity in order to manage not restricted only
 	public function __construct() {
-		parent::__construct(new AlternativePatchInstruction(
-				new PatchFieldMandatoryValue(),
-				new PatchFieldTypeValue()
-		));
+		parent::__construct(
+				new PatchStringValue(),
+				new PatchBooleanValue(),
+				new PatchIntegerValue()
+		);
+	}
+}
+
+class PatchFieldValue extends AlternativePatchInstruction {
+	public function __construct() {
+		parent::__construct(
+				new PatchBasicValue(),
+				new PatchSelectRecordField()
+		);
+	}
+}
+
+class PatchFieldMandatoryValue extends AlternativePatchInstruction {
+	public function __construct() {
+		parent::__construct(
+				'mandatory',
+				'optional'
+		);
+	}
+}
+
+class PatchFieldAttribute extends AlternativePatchInstruction {
+	public function __construct() {
+		parent::__construct(
+				'type',
+				'mandatory'
+		);
+	}
+}
+
+class PatchBooleanValue extends AlternativePatchInstruction {
+	public function __construct() {
+		parent::__construct(
+				'true',
+				'false'
+		);
 	}
 }
 
 /*************************************\
-     ROOT INSTRUCTIONS (EXECUTABLE)
+   COMPLETE INSTRUCTIONS (EXECUTABLE)
 \*************************************/
 
-interface PatchExecutableInstruction {
+interface PatchCompleteInstruction {
 	public function execute(Database $db);
 }
 
-class PatchComment extends LeafPatchInstruction implements PatchExecutableInstruction {
+class PatchComment extends RegexPatchInstruction implements PatchCompleteInstruction {
 	protected function getRegex() {
 		return '#[^\n]*\n';
 	}
@@ -446,7 +494,7 @@ class PatchComment extends LeafPatchInstruction implements PatchExecutableInstru
 	}
 }
 
-class PatchAttributes extends ComposedPatchInstruction implements PatchExecutableInstruction {
+class PatchAttributes extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
 		parent::__construct('[time=',new PatchIntegerValue(),',user=',new PatchStringValue(),']');
 	}
@@ -466,7 +514,7 @@ class PatchAttributes extends ComposedPatchInstruction implements PatchExecutabl
 	}
 }
 
-class PatchAddField extends ComposedPatchInstruction implements PatchExecutableInstruction {
+class PatchAddField extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
 		parent::__construct('+',new PatchSelectField(),'(',new PatchFieldType(),',',new PatchFieldMandatoryValue(),')');
 	}
@@ -497,7 +545,7 @@ class PatchAddField extends ComposedPatchInstruction implements PatchExecutableI
 	}
 }
 
-class PatchRemoveField extends ComposedPatchInstruction implements PatchExecutableInstruction {
+class PatchRemoveField extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
 		parent::__construct('-',new PatchSelectField());
 	}
@@ -518,7 +566,7 @@ class PatchRemoveField extends ComposedPatchInstruction implements PatchExecutab
 	}
 }
 
-class PatchSetClassKey extends ComposedPatchInstruction implements PatchExecutableInstruction {
+class PatchSetClassKey extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
 		parent::__construct(new PatchClass(),'=',new PatchIDFields());
 	}
@@ -539,7 +587,7 @@ class PatchSetClassKey extends ComposedPatchInstruction implements PatchExecutab
 	}
 }
 
-class PatchAddRecord extends ComposedPatchInstruction implements PatchExecutableInstruction {
+class PatchAddRecord extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
 		parent::__construct('+',new PatchSelectRecord(),new PatchChainFieldValueAssignment());
 	}
@@ -573,7 +621,7 @@ class PatchAddRecord extends ComposedPatchInstruction implements PatchExecutable
 	}
 }
 
-class PatchRemoveRecord extends ComposedPatchInstruction implements PatchExecutableInstruction {
+class PatchRemoveRecord extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
 		parent::__construct('-',new PatchSelectRecord());
 	}
@@ -594,7 +642,7 @@ class PatchRemoveRecord extends ComposedPatchInstruction implements PatchExecuta
 	}
 }
 
-class PatchChangeRecordField extends ComposedPatchInstruction implements PatchExecutableInstruction {
+class PatchChangeRecordField extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
 		parent::__construct(new PatchSelectRecordField(),'=',new PatchFieldValue());
 	}
@@ -625,18 +673,9 @@ class PatchChangeRecordField extends ComposedPatchInstruction implements PatchEx
 	}
 }
 
-class PatchChangeFieldAttribute extends ComposedPatchInstruction implements PatchExecutableInstruction {
+class PatchChangeFieldType extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
-		parent::__construct(new PatchSelectFieldAttribute(),'=',new PatchClassAttributeValue());
-	}
-	
-	public function execute(Database $db) {
-		$class = $this->getClass();
-		$field = $this->getField();
-		$attribute = $this->getAttribute();
-		$attributeValue = $this->getAttributeValue();
-		
-		echo "set the attribute <b>$attribute($attributeValue)</b> of the field <b>$field</b> for class <b>$class</b>";
+		parent::__construct(new PatchSelectField(),'.type=',new PatchFieldTypeValue());
 	}
 	
 	public function getClass() {
@@ -647,12 +686,42 @@ class PatchChangeFieldAttribute extends ComposedPatchInstruction implements Patc
 		return $this->getInnerInstruction(0)->getField();
 	}
 	
-	public function getAttribute() {
-		return $this->getInnerInstruction(0)->getAttribute();
+	public function getTypeValue() {
+		return $this->getInnerValue(2);
 	}
 	
-	public function getAttributeValue() {
-		return $this->getInnerValue(1);
+	public function execute(Database $db) {
+		$class = $this->getClass();
+		$field = $this->getField();
+		$value = $this->getTypeValue();
+		
+		echo "set the type <b>$value</b> for the field <b>$field</b> of the class <b>$class</b>";
+	}
+}
+
+class PatchChangeFieldMandatory extends ComposedPatchInstruction implements PatchCompleteInstruction {
+	public function __construct() {
+		parent::__construct(new PatchSelectField(),'.mandatory=',new PatchFieldMandatoryValue());
+	}
+	
+	public function getClass() {
+		return $this->getInnerInstruction(0)->getClass();
+	}
+	
+	public function getField() {
+		return $this->getInnerInstruction(0)->getField();
+	}
+	
+	public function getMandatoryValue() {
+		return $this->getInnerValue(2);
+	}
+	
+	public function execute(Database $db) {
+		$class = $this->getClass();
+		$field = $this->getField();
+		$value = $this->getMandatoryValue();
+		
+		echo "set the mandatory attribute to <b>$value</b> for the field <b>$field</b> of the class <b>$class</b>";
 	}
 }
 
@@ -819,58 +888,15 @@ class OptionalPatchInstruction extends RepetitivePatchInstruction {
 	}
 }
 
-class AlternativePatchInstruction extends PatchInstruction {
-	private $alternatives;
-	private $compatibleInstruction;
+class TextPatchInstruction extends RegexPatchInstruction {
+	private $text;
 	
-	public function __construct() {
-		$alternatives = array();
-		foreach(func_get_args() as $element) {
-			if ($element instanceof PatchInstruction) {
-				$alternatives[] = $element;
-			} else {
-				throw new Exception("$element is not managed in alternative instructions");
-			}
-		}
-		$this->alternatives = $alternatives;
-	}
-	
-	function __clone() {
-		$alternatives = array();
-		foreach($this->alternatives as $element) {
-			$alternatives[] = clone $element;
-		}
-		$this->alternatives = $alternatives;
-		$this->compatibleInstruction = $this->compatibleInstruction === null ? null : clone $this->compatibleInstruction;
-	}
-	
-	public function getAlternatives() {
-		return $this->alternatives;
+	public function __construct($text) {
+		$this->text = $text;
 	}
 	
 	protected function getRegex() {
-		$globaleRegex = "";
-		foreach($this->alternatives as $instruction) {
-			$regex = $instruction->getRegex();
-			$globaleRegex .= "|(?:$regex)";
-		}
-		$globaleRegex = substr($globaleRegex, 1);
-		return "(?:$globaleRegex)";
-	}
-	
-	protected function applyValue($value) {
-		foreach($this->alternatives as $instruction) {
-			if ($instruction->isSyntaxicallyCompatible($value)) {
-				$instruction->setValue($value);
-				$this->compatibleInstruction = $instruction;
-			} else {
-				continue;
-			}
-		}
-	}
-	
-	public function getCompatibleInstruction() {
-		return $this->compatibleInstruction;
+		return preg_quote($this->text);
 	}
 }
 ?>
