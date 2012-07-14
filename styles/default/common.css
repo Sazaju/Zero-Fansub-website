@@ -21,11 +21,11 @@ a {
 }
 
 a:hover {
-	color: #FF5555 !important;
+	color: #5555FF !important;
 }
 
 a:active, a:focus {
-	color: #5555FF !important;
+	color: #FF5555 !important;
 }
 
 .warning {
