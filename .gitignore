@@ -1,11 +1,15 @@
-/zero-fansub.sqlite
-/index2*
-/index3*
-/style3*
-/ddl/*
+# resources
+/ddl
 /resources
 /temp
+
+# config files
 /databaseConfig.php
+
+# database
+/zero-fansub.sqlite
+
+# auto backup files
 *~
 .*.kate-swp
 
