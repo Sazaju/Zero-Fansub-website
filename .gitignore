@@ -1,4 +1,3 @@
-/criticalData.php
 /zero-fansub.sqlite
 /index2*
 /index3*
@@ -6,6 +5,7 @@
 /ddl/*
 /resources
 /temp
+/databaseConfig.php
 *~
 .*.kate-swp
 

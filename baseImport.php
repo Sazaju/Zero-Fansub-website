@@ -85,16 +85,16 @@ spl_autoload_register(function($className) {
          CRITICAL CONFIG
 \**********************************/
 
-$criticalDataFile = "criticalData.php";
+$criticalDataFile = "databaseConfig.php";
 $needConfig = true;
-if (is_file($criticalDataFile)) {
+try {
 	require_once($criticalDataFile);
-	if (defined('DB_TYPE') && defined('DB_NAME') && defined('DB_HOST') && defined('DB_USER') && defined('DB_PASS')) {
-		$needConfig = false;
-	}
+	$needConfig = false;
+} catch(Exception $ex) {
+	// do nothing, the error is managed later
 }
 if ($needConfig) {
-	require_once("criticalConfig.php");
+	require_once("configAlert.php");
 	exit;
 } else {
 	// all green, just continue

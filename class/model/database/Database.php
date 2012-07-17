@@ -15,10 +15,11 @@ class Database {
 	private static $defaultDatabase = null;
 	
 	public static function getDefaultDatabase() {
-		if (Database::$defaultDatabase === null) {
-			Database::$defaultDatabase = new Database();
-		}
 		return Database::$defaultDatabase;
+	}
+	
+	public static function setDefaultDatabase(Database $database) {
+		Database::$defaultDatabase = $database;
 	}
 	
 	/********************************************\
@@ -26,17 +27,17 @@ class Database {
 	\********************************************/
 	private $connection = null;
 	
-	public function __construct() {
-		if (DB_TYPE === 'sqlite') {
-			$dbFile = DB_NAME.'.sqlite';
+	public function __construct($driver = 'sqlite', $database = 'database', $host = 'localhost', $user = 'admin', $password = null) {
+		if ($driver === 'sqlite') {
+			$dbFile = $database.'.sqlite';
 			if (!file_exists($dbFile)) {
 				file_put_contents($dbFile, '');
 				chmod($dbFile, fileperms($dbFile) | 0x0030); // +rw for the group
 			}
-			$this->connection = new PDO(DB_TYPE.':'.$dbFile);
+			$this->connection = new PDO($driver.':'.$dbFile);
 		}
 		else {
-			$this->connection = new PDO(DB_TYPE.':dbname='.DB_NAME.';host='.DB_HOST, DB_USER, DB_PASS);
+			$this->connection = new PDO($driver.':dbname='.$database.';host='.$host, $user, $password);
 		}
 		$this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$this->initDatabase();
