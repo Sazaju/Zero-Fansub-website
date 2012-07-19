@@ -17,9 +17,7 @@
 	$menu->addEntry(Link::newWindowLink("irc://irc.Fansub-IRC.eu/zero", "IRC"));
 	$menu->addEntry(Link::newWindowLink("http://forum.zerofansub.net", "Forum"));
 	$menu->addEntry(Link::newWindowLink("http://twitter.com/zero_fansub", "Twitter"));
-	$radioLink = new Link("#", "Radio");
-	$radioLink->setOnclick("window.open('radio','radio','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=280, height=380, left=200, top=200');return(false)");
-	$menu->addEntry($radioLink);
+	$menu->addEntry(Link::newWindowLink("radio", "Radio"));
 	$menu->addEntry(new Link("index.php?page=contact", "Contact"));
 	$menu->addEntry(new Link("index.php?page=about", "À propos..."));
 	$menu->addEntry(new Link("index.php?page=bug", "Signaler un bug"));
@@ -50,7 +48,6 @@
 	$donateLink = Link::newWindowLink("https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mba_06%40hotmail%2efr&item_name=Zero&no_shipping=0&no_note=1&tax=0&currency_code=EUR&lc=FR&bn=PP%2dDonationsBF&charset=UTF%2d8", "Faire un don");
 	$donateLink->setStyle("font-size: 1.2em;");
 	$menu->addEntry($donateLink);
-	$menu->addEntry(Link::newWindowLink("http://forum.zerofansub.net/t552.htm#p32300", "En savoir +"));
 	$leftCol->addComponent(new MenuComponent($menu));
 	
 	$leftCol->writeNow();
