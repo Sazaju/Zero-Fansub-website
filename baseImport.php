@@ -88,7 +88,7 @@ spl_autoload_register(function($className) {
 $criticalDataFile = "databaseConfig.php";
 $needConfig = true;
 try {
-	require_once($criticalDataFile);
+	include_once($criticalDataFile);
 	$needConfig = false;
 } catch(Exception $ex) {
 	// do nothing, the error is managed later
