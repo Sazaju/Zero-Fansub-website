@@ -4,6 +4,7 @@
 /temp
 
 # config files
+/criticalData.php
 /databaseConfig.php
 
 # database
