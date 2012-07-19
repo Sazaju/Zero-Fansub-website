@@ -58,6 +58,10 @@
 	font-weight: bold;
 }
 
+#page.project .released .title a:hover, #page.project .notReleased .title a:hover {
+	text-decoration: none !important;
+}
+
 #page.project .released .previewImage {
 	display: block;
 	margin: 1em;
