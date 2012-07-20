@@ -211,9 +211,9 @@ class PatchField extends RegexPatchInstruction {
 	}
 }
 
-class PatchFieldTypeValue extends RegexPatchInstruction {
+class PatchStringType extends RegexPatchInstruction {
 	protected function getRegex() {
-		return '(?:boolean)|(?:integer)|(?:double)|(?:array)|(?:resource)|(?:string(?:[1-9][0-9]*)?)';
+		return 'string(?:[1-9][0-9]*)?';
 	}
 }
 
@@ -458,6 +458,19 @@ class PatchFieldValue extends AlternativePatchInstruction {
 		parent::__construct(
 				new PatchBasicValue(),
 				new PatchSelectRecordField(false)
+		);
+	}
+}
+
+class PatchFieldTypeValue extends AlternativePatchInstruction {
+	public function __construct() {
+		parent::__construct(
+				'boolean',
+				'integer',
+				'double',
+				'array',
+				'resource',
+				new PatchStringType()
 		);
 	}
 }
