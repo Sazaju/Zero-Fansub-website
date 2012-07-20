@@ -19,14 +19,20 @@ if ($url->hasQueryVar('page')) {
 		// TODO indicates it is definitively relocated
 		header('Location: '.$url->toString());
 		exit();
-	}
-	if (preg_match("#^dossier/#", $page)) {
+	} else if (preg_match("#^dossier/#", $page)) {
 		$url->setQueryVar('page', 'dossier');
 		$parts = preg_split("#/#", $page);
 		$url->setQueryVar('id', $parts[1]);
 		// TODO indicates it is definitively relocated
 		header('Location: '.$url->toString());
 		exit();
+	} else if ($page == 'home') {
+		$url->setQueryVar('page', 'news');
+		// TODO indicates it is definitively relocated
+		header('Location: '.$url->toString());
+		exit();
+	} else {
+		// no retro-compatibility action is needed
 	}
 }
 ?>
