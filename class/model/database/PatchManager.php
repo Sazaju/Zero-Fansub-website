@@ -14,6 +14,8 @@ class PatchManager {
 \*************************************/
 
 class Patch {
+	private $user = null;
+	private $time = null;
 	private $instructions = array();
 	
 	
@@ -48,7 +50,12 @@ class Patch {
 				$extract = $matches[1];
 				$instruction->setValue($extract);
 				$instruction->execute(Database::getDefaultDatabase());
-				$this->instructions[] = $instruction;
+				if ($instruction instanceof PatchAttributes) {
+					$this->user = $instruction->getUser();
+					$this->time = (int) $instruction->getTime();
+				} else {
+					$this->instructions[] = $instruction;
+				}
 				$patch = substr($patch, strlen($extract));
 				echo '<br/><pre>'.($instruction->getValue()).'</pre><br/><br/>';
 				continue;
@@ -56,6 +63,18 @@ class Patch {
 				throw new Exception("The given patch cannot be parsed from there: $patch");
 			}
 		}
+	}
+	
+	public function getUser() {
+		return $this->user;
+	}
+	
+	public function getTime() {
+		return $this->time;
+	}
+	
+	public function progressiveCheck() {
+		// TODO
 	}
 	
 	public static function protectStringValue($value) {
