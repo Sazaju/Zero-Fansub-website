@@ -61,7 +61,7 @@ class Patch {
 				echo '<b>'.$in->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
 				$patch = null;
 				*/
-				echo '<br/>';
+				echo '<br/><pre>'.($instruction->getValue()).'</pre><br/><br/>';
 				continue;
 			} else {
 				throw new Exception("The given patch cannot be parsed from there: $patch");
