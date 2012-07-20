@@ -553,15 +553,16 @@ class PatchAddRecord extends ComposedPatchInstruction implements PatchCompleteIn
 		parent::__construct('+',new PatchSelectRecord(),new PatchChainFieldValueAssignment());
 	}
 	
+	// TODO manage 0 ID values
 	public function execute(Database $db) {
 		$class = $this->getClass();
-		$values = $this->getIDValues();
+		$IdValues = $this->getIDValues();
 		$assignments = array();
 		foreach($this->getAssignments() as $field => $value) {
 			$assignments[] = "$field($value)";
 		}
 		
-		echo "Add record <b>[".array_reduce($values, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>,";
+		echo "Add record <b>[".array_reduce($IdValues, function($a, $b) {return $a = $a === null ? "$b":"$a,$b";})."]</b> for class <b>$class</b>,";
 		if (empty($assignments)) {
 			echo " setting no field";
 		} else {
@@ -730,7 +731,7 @@ class ListPatchInstruction extends PatchInstruction {
 			// go directly to the next step
 		}
 		
-		if ($reference == null) {
+		if ($reference === null) {
 			// no result, just ignore everything until the end
 		} else {
 			if ($reference instanceof ComposedPatchInstruction) {
