@@ -393,7 +393,8 @@ class PatchBasicValue extends AlternativePatchInstruction {
 		parent::__construct(
 				new PatchStringValue(),
 				new PatchBooleanValue(),
-				new PatchIntegerValue()
+				new PatchIntegerValue(),
+				new PatchNullValue()
 		);
 	}
 }
@@ -857,6 +858,12 @@ class TextPatchInstruction extends RegexPatchInstruction {
 	
 	protected function getRegex() {
 		return preg_quote($this->text);
+	}
+}
+
+class PatchNullValue extends TextPatchInstruction {
+	public function __construct() {
+		parent::__construct("null");
 	}
 }
 ?>
