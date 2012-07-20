@@ -48,6 +48,8 @@ class Patch {
 				if ($instruction instanceof PatchAttributes) {
 					$this->user = $instruction->getUser();
 					$this->time = (int) $instruction->getTime();
+				} else if ($instruction instanceof PatchComment) {
+					// just ignore it
 				} else {
 					$this->instructions[] = $instruction;
 				}
