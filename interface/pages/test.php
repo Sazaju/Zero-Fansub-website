@@ -32,6 +32,9 @@ Dossier=[id]
 +Dossier[2](title="abc")
 Dossier[2].id=3
 Dossier[3].title="azerty"
++Dossier[2](title="abc")
++Dossier[1](title="test")
+Dossier[*].title=null
 ';
 	echo "<div class='xdebug-var-dump'>";
 	$manager = new PatchManager();
