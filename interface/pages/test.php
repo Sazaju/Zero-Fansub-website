@@ -33,7 +33,7 @@ Dossier=[id]
 Dossier[2].id=3
 Dossier[3].title="azerty"
 ';
-	echo "<div class='xdebug-var-dump' style='line-height: 50%;'>";
+	echo "<div class='xdebug-var-dump'>";
 	$manager = new PatchManager();
 	$patch = new Patch($string);
 	echo "</div>";
