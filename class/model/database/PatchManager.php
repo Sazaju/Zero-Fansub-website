@@ -138,7 +138,7 @@ class Patch {
 	}
 }
 
-abstract class PatchInstruction {
+abstract class AbstractPatchInstruction {
 	abstract protected function getRegex();
 	abstract protected function applyValue($value);
 	
@@ -171,7 +171,7 @@ abstract class PatchInstruction {
 		foreach($array as $element) {
 			if (is_string($element)) {
 				$result[] = new TextPatchInstruction($element);
-			} else if ($element instanceof PatchInstruction) {
+			} else if ($element instanceof AbstractPatchInstruction) {
 				$result[] = $element;
 			} else {
 				throw new Exception("$element is not an instruction");
@@ -181,7 +181,7 @@ abstract class PatchInstruction {
 	}
 	
 	public function getFormattedRegex($delimiter) {
-		return PatchInstruction::formatRegex($this->getRegex(), $delimiter);
+		return AbstractPatchInstruction::formatRegex($this->getRegex(), $delimiter);
 	}
 	
 	public function isSyntaxicallyCompatible($value) {
@@ -193,7 +193,7 @@ abstract class PatchInstruction {
            REGEX INSTRUCTIONS
 \*************************************/
 
-abstract class RegexPatchInstruction extends PatchInstruction {
+abstract class RegexPatchInstruction extends AbstractPatchInstruction {
 	protected function applyValue($instruction) {
 		// nothing to do
 	}
@@ -233,11 +233,11 @@ class PatchIntegerValue extends RegexPatchInstruction {
         COMPOSED INSTRUCTIONS
 \*************************************/
 
-class ComposedPatchInstruction extends PatchInstruction {
+class ComposedPatchInstruction extends AbstractPatchInstruction {
 	private $innerInstructions;
 	
 	public function __construct() {
-		$this->innerInstructions = PatchInstruction::toInstructionOnly(func_get_args());
+		$this->innerInstructions = AbstractPatchInstruction::toInstructionOnly(func_get_args());
 	}
 	
 	function __clone() {
@@ -280,7 +280,7 @@ class ComposedPatchInstruction extends PatchInstruction {
 	
 	protected function applyValue($instruction) {
 		$regex = $this->generateRegex(true);
-		preg_match('#^'.PatchInstruction::formatRegex($regex, '#').'$#s', $instruction, $matches);
+		preg_match('#^'.AbstractPatchInstruction::formatRegex($regex, '#').'$#s', $instruction, $matches);
 		array_shift($matches); // remove the full match
 		foreach($this->innerInstructions as $instruction) {
 			$instruction->setValue(array_shift($matches));
@@ -394,12 +394,12 @@ class PatchSelectRecord extends ComposedPatchInstruction {
  ALTERNATIVE INSTRUCTIONS (... OR ...)
 \*************************************/
 
-class AlternativePatchInstruction extends PatchInstruction {
+class AlternativePatchInstruction extends AbstractPatchInstruction {
 	private $alternatives;
 	private $compatibleInstruction;
 	
 	public function __construct() {
-		$this->alternatives = PatchInstruction::toInstructionOnly(func_get_args());
+		$this->alternatives = AbstractPatchInstruction::toInstructionOnly(func_get_args());
 	}
 	
 	function __clone() {
@@ -765,10 +765,10 @@ class PatchChangeFieldMandatory extends ComposedPatchInstruction implements Patc
          SPECIAL INSTRUCTIONS
 \*************************************/
 
-class ListPatchInstruction extends PatchInstruction {
+class ListPatchInstruction extends AbstractPatchInstruction {
 	private $instruction;
 	
-	public function __construct(PatchInstruction $instruction, $separator = null, $min = 0, $max = null) {
+	public function __construct(AbstractPatchInstruction $instruction, $separator = null, $min = 0, $max = null) {
 		$repeat = new ComposedPatchInstruction(is_object($separator) ? clone $separator : $separator,clone $instruction);
 		if ($separator == null) {
 			$this->instruction = new RepetitivePatchInstruction($repeat, $min, $max);
@@ -835,13 +835,13 @@ class ListPatchInstruction extends PatchInstruction {
 	}
 }
 
-class RepetitivePatchInstruction extends PatchInstruction {
+class RepetitivePatchInstruction extends AbstractPatchInstruction {
 	private $instructions = array();
 	private $reference;
 	private $min;
 	private $max;
 	
-	public function __construct(PatchInstruction $reference, $min = 0, $max = null) {
+	public function __construct(AbstractPatchInstruction $reference, $min = 0, $max = null) {
 		$this->reference = $reference;
 		$this->min = $min;
 		$this->max = $max;
@@ -891,7 +891,7 @@ class RepetitivePatchInstruction extends PatchInstruction {
 		$this->instructions = array();
 		while(!empty($value)) {
 			$matches = array();
-			preg_match('#^('.PatchInstruction::formatRegex($regex, '#').').*$#s', $value, $matches);
+			preg_match('#^('.AbstractPatchInstruction::formatRegex($regex, '#').').*$#s', $value, $matches);
 			$chunk = $matches[1];
 			$instruction = clone $this->reference;
 			$instruction->setValue($chunk);
@@ -914,7 +914,7 @@ class RepetitivePatchInstruction extends PatchInstruction {
 }
 
 class OptionalPatchInstruction extends RepetitivePatchInstruction {
-	public function __construct(PatchInstruction $instruction) {
+	public function __construct(AbstractPatchInstruction $instruction) {
 		parent::__construct($instruction, 0, 1);
 	}
 	
