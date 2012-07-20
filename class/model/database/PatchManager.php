@@ -209,12 +209,6 @@ class PatchField extends RegexPatchInstruction {
 	}
 }
 
-class PatchFieldType extends RegexPatchInstruction {
-	protected function getRegex() {
-		return '[0-9a-zA-Z]+';
-	}
-}
-
 class PatchFieldTypeValue extends RegexPatchInstruction {
 	protected function getRegex() {
 		return '(?:boolean)|(?:integer)|(?:double)|(?:array)|(?:resource)|(?:string(?:[1-9][0-9]*)?)';
@@ -533,7 +527,7 @@ class PatchAttributes extends ComposedPatchInstruction implements PatchCompleteI
 
 class PatchAddField extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
-		parent::__construct('+',new PatchSelectField(),'(',new PatchFieldType(),',',new PatchFieldMandatoryValue(),')');
+		parent::__construct('+',new PatchSelectField(),'(',new PatchFieldTypeValue(),',',new PatchFieldMandatoryValue(),')');
 	}
 	
 	public function execute(Database $db) {
