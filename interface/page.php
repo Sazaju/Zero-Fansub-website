@@ -27,7 +27,7 @@
 		\***************************************/
 		if (!in_array($page, array('project', 'news', 'about', 'contact', 'bug', 'projects',
 		                           'team', 'xdcc', 'havert', 'dossiers', 'dossier', 'partenariat',
-		                           'kanaiiddl', 'recrutement', 'dakko', 'dons', 'dl', 'recruit'))) {
+		                           'kanaiiddl', 'recrutement', 'dakko', 'dons', 'dl', 'recruit', 'test'))) {
 			throw new Exception("Inexistant page ".$page);
 		}
 		
