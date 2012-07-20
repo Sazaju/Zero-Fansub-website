@@ -57,10 +57,6 @@ class Patch {
 				$instruction->execute(Database::getDefaultDatabase());
 				$this->instructions[] = $instruction;
 				$patch = substr($patch, strlen($extract));
-				/*
-				echo '<b>'.$in->getFormattedRegex('#').'</b> =X=> '.Debug::toString($matches);
-				$patch = null;
-				*/
 				echo '<br/><pre>'.($instruction->getValue()).'</pre><br/><br/>';
 				continue;
 			} else {
