@@ -42,7 +42,7 @@
 			}
 			PageContent::getInstance()->addComponent(new SimpleTextComponent($content));
 		} catch(Exception $e) {
-			require_once("pages/$page.php");
+			require_once("interface/pages/$page.php");
 		}
 		PageContent::getInstance()->writeNow();
 	} catch(Exception $e) {
