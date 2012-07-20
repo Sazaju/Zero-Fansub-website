@@ -59,6 +59,7 @@ class Patch {
 			} else {
 				throw new Exception("The given patch cannot be parsed from there: $patch");
 			}
+			$this->progressiveCheck();
 		}
 	}
 	
@@ -75,7 +76,49 @@ class Patch {
 	}
 	
 	public function progressiveCheck() {
-		// TODO
+		static $initialized = false;
+		if (!$initialized) {
+			$userOK = $this->user != null;
+			$timeOK = $this->time >= 0;
+			$instructionsEmpty = empty($this->instructions);
+			if (!$userOK && !$timeOK && $instructionsEmpty) {
+				// before initialization: OK
+			} else if ($userOK && !$timeOK && $instructionsEmpty) {
+				// during initialization: OK
+			} else if (!$userOK && $timeOK && $instructionsEmpty) {
+				// during initialization: OK
+			} else if (!$userOK && !$timeOK && !$instructionsEmpty) {
+				throw new Exception("User and time attributes are missing, cannot have instructions before them.");
+			} else if ($userOK && !$timeOK && !$instructionsEmpty) {
+				throw new Exception("Time attribute is missing, cannot have instructions before it.");
+			} else if (!$userOK && $timeOK && !$instructionsEmpty) {
+				throw new Exception("User attribute is missing, cannot have instructions before it.");
+			} else if ($userOK && $timeOK) {
+				// initialization ended: OK
+				$initialized = true;
+				if ($instructionsEmpty) {
+					// initialization just finished, no more check is needed
+				} else {
+					// check instructions
+					$this->progressiveCheck();
+				}
+			} else {
+				throw new Exception("This case should never happen");
+			}
+		} else {
+			static $checkedInstructions = array();
+			for($i = 0 ; $i < count($checkedInstructions) ; $i++) {
+				if ($checkedInstructions[$i] === $this->instructions[$i]) {
+					// no change, continue
+				} else {
+					throw new Exception("The checked instructions have changed, there is a problem in the parsing function");
+				}
+			}
+			
+			// TODO, check instructions.
+			// When an instruction is checked, add it to $checkedInstructions.
+			// Think about constraints discovered during the check
+		}
 	}
 	
 	public static function protectStringValue($value) {
