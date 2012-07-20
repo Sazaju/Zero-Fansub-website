@@ -4,8 +4,7 @@ class PatchManager {
 		
 	}
 	
-	public static function executePatch(Database $db, $patch) {
-		$patch = new Patch($patch);
+	public static function executePatch(Database $db, Patch $patch) {
 		// TODO
 	}
 }
