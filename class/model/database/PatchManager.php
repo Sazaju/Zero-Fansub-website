@@ -75,7 +75,7 @@ class Patch {
 		return $this->time;
 	}
 	
-	public function progressiveCheck() {
+	private function progressiveCheck() {
 		static $initialized = false;
 		if (!$initialized) {
 			$userOK = $this->user != null;
