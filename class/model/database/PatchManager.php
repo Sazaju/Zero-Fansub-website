@@ -199,31 +199,31 @@ abstract class RegexPatchInstruction extends AbstractPatchInstruction {
 	}
 }
 
-class PatchClass extends RegexPatchInstruction {
+class ClassPatchRegex extends RegexPatchInstruction {
 	protected function getRegex() {
 		return '[0-9a-zA-Z]+';
 	}
 }
 
-class PatchField extends RegexPatchInstruction {
+class FieldPatchRegex extends RegexPatchInstruction {
 	protected function getRegex() {
 		return '[0-9a-zA-Z]+';
 	}
 }
 
-class PatchStringType extends RegexPatchInstruction {
+class StringTypePatchRegex extends RegexPatchInstruction {
 	protected function getRegex() {
 		return 'string(?:[1-9][0-9]*)?';
 	}
 }
 
-class PatchStringValue extends RegexPatchInstruction {
+class StringValuePatchRegex extends RegexPatchInstruction {
 	protected function getRegex() {
 		return '"(?:[^\\\\"]|(?:\\\\")|(?:\\\\\\\\))*"';
 	}
 }
 
-class PatchIntegerValue extends RegexPatchInstruction {
+class IntegerValuePatchRegex extends RegexPatchInstruction {
 	protected function getRegex() {
 		return '[0-9]+';
 	}
@@ -296,7 +296,7 @@ class ComposedPatchInstruction extends AbstractPatchInstruction {
 
 class PatchSelectField extends ComposedPatchInstruction {
 	public function __construct() {
-		parent::__construct(new PatchClass(),'.',new PatchField());
+		parent::__construct(new ClassPatchRegex(),'.',new FieldPatchRegex());
 	}
 	
 	public function getClass() {
@@ -310,7 +310,7 @@ class PatchSelectField extends ComposedPatchInstruction {
 
 class PatchIDFields extends ComposedPatchInstruction {
 	public function __construct() {
-		parent::__construct('[',new ListPatchInstruction(new PatchField(),','),']');
+		parent::__construct('[',new ListPatchInstruction(new FieldPatchRegex(),','),']');
 	}
 	
 	public function getIDFields() {
@@ -332,7 +332,7 @@ class PatchIDValues extends ComposedPatchInstruction {
 
 class PatchFieldValueAssignment extends ComposedPatchInstruction {
 	public function __construct() {
-		parent::__construct(new PatchField(),'=',new PatchFieldValue());
+		parent::__construct(new FieldPatchRegex(),'=',new PatchFieldValue());
 	}
 	
 	public function getField() {
@@ -360,7 +360,7 @@ class PatchChainFieldValueAssignment extends ComposedPatchInstruction {
 
 class PatchSelectRecordField extends ComposedPatchInstruction {
 	public function __construct($useJoker) {
-		parent::__construct(new PatchSelectRecord($useJoker),'.',new PatchField());
+		parent::__construct(new PatchSelectRecord($useJoker),'.',new FieldPatchRegex());
 	}
 	
 	public function getClass() {
@@ -378,7 +378,7 @@ class PatchSelectRecordField extends ComposedPatchInstruction {
 
 class PatchSelectRecord extends ComposedPatchInstruction {
 	public function __construct($useJoker) {
-		parent::__construct(new PatchClass(),new PatchIDValues($useJoker));
+		parent::__construct(new ClassPatchRegex(),new PatchIDValues($useJoker));
 	}
 	
 	public function getClass() {
@@ -445,9 +445,9 @@ class PatchBasicValue extends AlternativePatchInstruction {
 	// TODO add variables or manage recursivity in order to manage not restricted only
 	public function __construct() {
 		parent::__construct(
-				new PatchStringValue(),
+				new StringValuePatchRegex(),
 				new PatchBooleanValue(),
-				new PatchIntegerValue(),
+				new IntegerValuePatchRegex(),
 				new PatchNullValue()
 		);
 	}
@@ -470,7 +470,7 @@ class PatchFieldTypeValue extends AlternativePatchInstruction {
 				'double',
 				'array',
 				'resource',
-				new PatchStringType()
+				new StringTypePatchRegex()
 		);
 	}
 }
@@ -524,7 +524,7 @@ class PatchComment extends RegexPatchInstruction implements PatchCompleteInstruc
 
 class PatchAttributes extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
-		parent::__construct('[time=',new PatchIntegerValue(),',user=',new PatchStringValue(),']');
+		parent::__construct('[time=',new IntegerValuePatchRegex(),',user=',new StringValuePatchRegex(),']');
 	}
 	
 	public function execute(Database $db) {
@@ -596,7 +596,7 @@ class PatchRemoveField extends ComposedPatchInstruction implements PatchComplete
 
 class PatchSetClassKey extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
-		parent::__construct(new PatchClass(),'=',new PatchIDFields());
+		parent::__construct(new ClassPatchRegex(),'=',new PatchIDFields());
 	}
 	
 	public function execute(Database $db) {
