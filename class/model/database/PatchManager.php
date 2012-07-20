@@ -16,19 +16,12 @@ class PatchManager {
 class Patch {
 	private $instructions = array();
 	
-	public function __construct($patch = null) {
-		if ($patch == null) {
-			// do nothing
-		} else {
-			$this->addPatch($patch);
-		}
-	}
 	
 	public function getInstructions() {
 		return $this->instructions;
 	}
 	
-	public function addPatch($patch) {
+	public function __construct($patch) {
 		$prefix = "#^(";
 		$suffix = ")(?:\n.*)?$#s";
 		while(!empty($patch)) {
