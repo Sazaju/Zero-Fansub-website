@@ -18,11 +18,6 @@ class Patch {
 	private $time = null;
 	private $instructions = array();
 	
-	
-	public function getInstructions() {
-		return $this->instructions;
-	}
-	
 	public function __construct($patch) {
 		$prefix = "#^(";
 		$suffix = ")(?:\n.*)?$#s";
@@ -63,6 +58,10 @@ class Patch {
 				throw new Exception("The given patch cannot be parsed from there: $patch");
 			}
 		}
+	}
+	
+	public function getInstructions() {
+		return $this->instructions;
 	}
 	
 	public function getUser() {
