@@ -1,4 +1,6 @@
 <?php
+define('PATCH_ID_JOKER', '*');
+
 class PatchManager {
 	public static function buildPatch(StructureDiff $diff, $user, $time = time) {
 		
@@ -317,8 +319,10 @@ class PatchIDFields extends ComposedPatchInstruction {
 }
 
 class PatchIDValues extends ComposedPatchInstruction {
-	public function __construct() {
-		parent::__construct('[',new ListPatchInstruction(new PatchBasicValue(),','),']');
+	public function __construct($useJoker) {
+		parent::__construct('[',new ListPatchInstruction(
+				($useJoker ? new AlternativePatchInstruction(new PatchBasicValue(), PATCH_ID_JOKER) : new PatchBasicValue())
+				,','),']');
 	}
 	
 	public function getIDValues() {
@@ -355,8 +359,8 @@ class PatchChainFieldValueAssignment extends ComposedPatchInstruction {
 }
 
 class PatchSelectRecordField extends ComposedPatchInstruction {
-	public function __construct() {
-		parent::__construct(new PatchSelectRecord(),'.',new PatchField());
+	public function __construct($useJoker) {
+		parent::__construct(new PatchSelectRecord($useJoker),'.',new PatchField());
 	}
 	
 	public function getClass() {
@@ -373,8 +377,8 @@ class PatchSelectRecordField extends ComposedPatchInstruction {
 }
 
 class PatchSelectRecord extends ComposedPatchInstruction {
-	public function __construct() {
-		parent::__construct(new PatchClass(),new PatchIDValues());
+	public function __construct($useJoker) {
+		parent::__construct(new PatchClass(),new PatchIDValues($useJoker));
 	}
 	
 	public function getClass() {
@@ -453,7 +457,7 @@ class PatchFieldValue extends AlternativePatchInstruction {
 	public function __construct() {
 		parent::__construct(
 				new PatchBasicValue(),
-				new PatchSelectRecordField()
+				new PatchSelectRecordField(false)
 		);
 	}
 }
@@ -600,7 +604,7 @@ class PatchSetClassKey extends ComposedPatchInstruction implements PatchComplete
 
 class PatchAddRecord extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
-		parent::__construct('+',new PatchSelectRecord(),new PatchChainFieldValueAssignment());
+		parent::__construct('+',new PatchSelectRecord(false),new PatchChainFieldValueAssignment());
 	}
 	
 	// TODO manage 0 ID values
@@ -635,7 +639,7 @@ class PatchAddRecord extends ComposedPatchInstruction implements PatchCompleteIn
 
 class PatchRemoveRecord extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
-		parent::__construct('-',new PatchSelectRecord());
+		parent::__construct('-',new PatchSelectRecord(true));
 	}
 	
 	public function execute(Database $db) {
@@ -656,7 +660,7 @@ class PatchRemoveRecord extends ComposedPatchInstruction implements PatchComplet
 
 class PatchChangeRecordField extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
-		parent::__construct(new PatchSelectRecordField(),'=',new PatchFieldValue());
+		parent::__construct(new PatchSelectRecordField(true),'=',new PatchFieldValue());
 	}
 	
 	public function execute(Database $db) {
@@ -665,7 +669,14 @@ class PatchChangeRecordField extends ComposedPatchInstruction implements PatchCo
 		$field = $this->getField();
 		$fieldValue = $this->getFieldValue();
 		
-		echo "set the field <b>$field($fieldValue)</b> of the record <b>[".array_reduce($values, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
+		$records = null;
+		if (in_array(PATCH_ID_JOKER, $values)) {
+			$records = 'all the records';
+		} else {
+			$records = 'the record';
+		}
+		
+		echo "set the field <b>$field($fieldValue)</b> of $records <b>[".array_reduce($values, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
 	}
 	
 	public function getClass() {
