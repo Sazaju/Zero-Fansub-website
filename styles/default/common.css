@@ -51,3 +51,10 @@ a:active, a:focus {
 #page:after, .views:after, .news:after, .teamList .member:after, .teamList:before, .p:after, .separator {
 	content: url('images/barre.png');
 }
+
+/* Facebook */
+
+.fb-like, .fb-like * {
+	display: inline-block !important;
+	width: 90px;
+}

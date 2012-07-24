@@ -80,18 +80,16 @@ class NewsComponent extends SimpleBlockComponent {
 			$this->addComponent($commentAccess);
 		}
 		
-		$this->addComponent("~ ");
 		$twitterTitle = $news->getTwitterTitle();
 		if ($twitterTitle == null) {
 			$twitterTitle = "[Zero] ".$news->getTitle();
 		}
-		$twitterUrl = Link::newWindowLink("http://twitter.com/home?status=".$twitterTitle, "Partager sur <img src='images/autre/logo_twitter.png' border='0' alt='twitter' />");
-		$twitterUrl->setOnClick("javascript:pageTracker._trackPageview ('/outbound/twitter.com');");
-		$this->addComponent($twitterUrl);
-		$this->addComponent(" ou ");
-		$this->addComponent("<a name='fb_share' type='button' share_url='http://zerofansub.net'></a>");
-		$this->addComponent("<script src='http://static.ak.fbcdn.net/connect.php/js/FB.Share' type='text/javascript'></script>");
-		$this->addComponent(" ~");
+		$twitterButton = '<a href="https://twitter.com/share" class="twitter-share-button" data-text="'.$twitterTitle.'" data-lang="fr" data-hashtags="zerofansub">Tweeter</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
+		$this->addComponent($twitterButton);
+		
+		$facebookButton = '<div class="fb-like" data-href="http://zerofansub.net" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true"></div>';
+		$this->addComponent($facebookButton);
 	}
 }
 ?>
