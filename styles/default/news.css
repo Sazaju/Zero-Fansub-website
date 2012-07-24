@@ -35,3 +35,11 @@
 .news .comment {
 	display: block;
 }
+
+.news .twitter-share-button {
+	margin-top: 4px;
+}
+
+.news .fb-like * {
+	margin-top: -4px;
+}
