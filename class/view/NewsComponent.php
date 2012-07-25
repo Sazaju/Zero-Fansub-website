@@ -91,7 +91,7 @@ class NewsComponent extends SimpleBlockComponent {
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
 		$this->addComponent($twitterButton);
 		
-		$facebookButton = '<div class="fb-like" data-href="http://zerofansub.net" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true"></div>';
+		$facebookButton = '<div class="fb-like" data-href="'.$newsUrl->toFullString().'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true"></div>';
 		$this->addComponent($facebookButton);
 	}
 }
