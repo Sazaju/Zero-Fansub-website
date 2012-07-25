@@ -100,6 +100,9 @@ class NewsComponent extends SimpleBlockComponent {
 		$this->setMetaData('itemtype', 'http://schema.org/Product');
 		$title->setMetaData('itemprop', 'name');
 		$message->setMetaData('itemprop', 'description');
+		$c = $message->getComponent(0);
+		$c = preg_replace('#<img #', '<img itemprop="image"', $c);
+		$message->setComponent(0, $c);
 	}
 }
 ?>
