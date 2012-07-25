@@ -87,6 +87,10 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		return $this->subcomponents[$index];
 	}
 	
+	public function setComponent($index, $component) {
+		$this->subcomponents[$index] = $component;
+	}
+	
 	public function isEmpty() {
 		return empty($this->subcomponents);
 	}
