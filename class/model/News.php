@@ -4262,7 +4262,7 @@ C'est la mise-à-jour la plus importante que je voulais décrire, mais les curie
 Ceux qui voudront encore plus de détails se référeront au dépôt GitHub {^_^}.
 
 Enfin, merci de signaler tout bug sur lequel vous tombez pour nous aider à améliorer le site.");
-			//$news->setCommentId(300);
+			$news->setCommentId(302);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
