@@ -96,6 +96,10 @@ class NewsComponent extends SimpleBlockComponent {
 		
 		$googleButton = '<div class="g-plusone" data-href="'.$newsUrl->toFullString().'" data-size="medium"></div>';
 		$this->addComponent($googleButton);
+		$this->setMetaData('itemscope');
+		$this->setMetaData('itemtype', 'http://schema.org/Product');
+		$title->setMetaData('itemprop', 'name');
+		$message->setMetaData('itemprop', 'description');
 	}
 }
 ?>
