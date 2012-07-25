@@ -442,7 +442,7 @@ class Format {
 							$content = null;
 						}
 						if (empty($parameter)) {
-							$parameter = $default;
+							throw new Exception("No image given");
 						}
 
 						if ($tag === 'img') {
