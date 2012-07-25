@@ -4227,6 +4227,49 @@ N.B. : l'expérience n'est pas exigée ^_^
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Pas mal de petits changements");
+			$news->setTimestamp(strtotime("25 June 2012 20:18"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Bon, ça fait longtemps qu'on n'a pas fait de news, donc j'en profite pour faire un petit topo sur ce qui a été  implémenté sur le site depuis la dernière news sur le sujet (datant du 6 Février). Je passerai sous silence ce qui attend au chaud sur les autres branches de développement (et qui n'est donc pas accessible ici) sinon je suis bon pour en écrire encore trois tonnes et perdre tout le monde {'^_^}. Les curieux sauront demander.
+
+Donc tout d'abord, ceux qui regardent correctement ont du remarquer que les news ont des boutons, pour les partager via Twitter et Facebook. Ces boutons ont été [b]renouvelés[/b] (on utilise les dernières versions) et le +1 de Google a été ajouté. De plus, auparavant ces boutons étaient liés au site, donc cliquer sur l'un d'entre-eux était suffisant, mais pas super intéressant. Maintenant ils sont liés aux news elles-même, donc vous pouvez toutes les cliquer. Autrement dit : lâchez-vous et [b]faîtes-nous de la pub ![/b] Parce qu'on manque (encore et toujours) cruellement de main d'oeuvre {'^_^}.
+
+[img=images/news/follower.jpg]Oh ! On a des amis ![/img]
+
+C'est la mise-à-jour la plus importante que je voulais décrire, mais les curieux pourront dérouler ce spoiler pour voir la liste des améliorations.
+[spoiler=<Montrer la liste>]
+[left][list]
+[item]Les news de sorties listent (semi-automatiquement, c'est ça le plus important) les releases en fin de news.[/item]
+[item]Les releases ont désormais la source indiquée (DVD, BD, ...).[/item]
+[item]Intégration de la page de recrutement du forum sur le site (accessible depuis le lien en question dans le menu de gauche).[/item]
+[item]Mise à jour de la radio.[/item]
+[item]Les publicités qui s'affichaient sur certaines pages ont été retirées.[/item]
+[item]Des pages obsolètes ont été retirées.[/item]
+[item]Les liens MU (obsolètes) ont été retirés.[/item]
+[item]Un style plus [i]propre[/i] (autant niveau codage que rendu), même si ce sont des modifications minimes.[/item]
+[item]Quelques optimisations sur l'affichage ont également été faites.[/item]
+[item]Certains liens morts ont été corrigés dans nos releases.[/item]
+[item]Les liens vers les discussions en bas de projets ont été corrigés.[/item]
+[item]La page de bug a une meilleure couverture (certains types d'erreurs n'étaient pas pris en compte avant).[/item]
+[item]Plusieurs modifications pour avoir un code XHTML plus valide (mais on n'est pas encore nickel {'^_^}).[/item]
+[item]Encodage UTF-8 pour tout le site (au lieu de ISO-8859-15 pour ceux que ça intéresse).[/item]
+[item]Quelques tests automatisés ont été implémentés (c'est pas grand chose, mais c'est un premier pas qui ne sera pas le dernier).[/item]
+[item]Multiples corrections de bugs et autres ...[/item]
+[/list][/left]
+[/spoiler]
+
+Ceux qui voudront encore plus de détails se référeront au dépôt GitHub {^_^}.
+
+Enfin, merci de signaler tout bug sur lequel vous tombez pour nous aider à améliorer le site.");
+			//$news->setCommentId(300);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
