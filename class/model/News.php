@@ -4,6 +4,7 @@
 	to display and some added data (image, author, date of writing, ...).
 */
 class News {
+	private $id = null;
 	private $title = null;
 	private $timestamp = null;
 	private $author = null;
@@ -19,9 +20,22 @@ class News {
 	private $isPartnerNews = null;
 	private $isDb0CompanyNews = null;
 	
+	private static function generateId() {
+		// /!\ This works only if the news are added always in the same order !
+		// The new ones must be placed at the end !
+		static $lastId = 0;
+		$lastId++;
+		return $lastId;
+	}
+	
 	public function __construct($title = null, $message = null) {
+		$this->id = News::generateId();
 		$this->setTitle($title);
 		$this->setMessage($message);
+	}
+	
+	public function getId() {
+		return $this->id;
 	}
 	
 	public function setDb0CompanyNews($boolean) {
@@ -4212,9 +4226,30 @@ N.B. : l'expérience n'est pas exigée ^_^
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
+			
+			$ids = array();
+			foreach(News::$allNews as $news) {
+				$id = $news->getId();
+				if (in_array($id, $ids)) {
+					throw new Exception("$id is used more than once");
+				} else {
+					$ids[] = $id;
+				}
+			}
 		}
 		
 		return News::$allNews;
+	}
+	
+	public static function getNews($id) {
+		foreach(News::getAllNews() as $news) {
+			if ($news->getId() == $id) {
+				return $news;
+			} else {
+				continue;
+			}
+		}
+		throw new Exception("$id is not a valid news ID");
 	}
 	
 	public static function timestampSorter(News $a, News $b) {
