@@ -9,7 +9,10 @@ class NewsComponent extends SimpleBlockComponent {
 		
 		$title = new Title($news->getTitle(), 2);
 		$title->setClass("title");
-		$this->addComponent($title);
+		$newsUrl = Url::getCurrentUrl();
+		$newsUrl->setQueryVar('page', 'news2');
+		$newsUrl->setQueryVar('id', $news->getId());
+		$this->addComponent(new Link($newsUrl, $title));
 		
 		$subtitle = new Title(null, 4);
 		$subtitle->setClass("subtitle");

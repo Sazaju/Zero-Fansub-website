@@ -25,7 +25,7 @@
 		/***************************************\
 		              PAGE LOADING
 		\***************************************/
-		if (!in_array($page, array('project', 'news', 'about', 'contact', 'bug', 'projects',
+		if (!in_array($page, array('project', 'news', 'news2', 'about', 'contact', 'bug', 'projects',
 		                           'team', 'xdcc', 'havert', 'dossiers', 'dossier', 'partenariat',
 		                           'kanaiiddl', 'recrutement', 'dakko', 'dons', 'dl', 'recruit'))) {
 			throw new Exception("Inexistant page ".$page);
