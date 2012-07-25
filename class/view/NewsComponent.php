@@ -93,6 +93,9 @@ class NewsComponent extends SimpleBlockComponent {
 		
 		$facebookButton = '<div class="fb-like" data-href="'.$newsUrl->toFullString().'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true"></div>';
 		$this->addComponent($facebookButton);
+		
+		$googleButton = '<div class="g-plusone" data-href="'.$newsUrl->toFullString().'" data-size="medium"></div>';
+		$this->addComponent($googleButton);
 	}
 }
 ?>
