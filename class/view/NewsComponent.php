@@ -87,15 +87,24 @@ class NewsComponent extends SimpleBlockComponent {
 		if ($twitterTitle == null) {
 			$twitterTitle = "[Zero] ".$news->getTitle();
 		}
+		$twitterPart = new SimpleTextComponent();
+		$twitterPart->setClass("twitter");
 		$twitterButton = '<a href="https://twitter.com/share" class="twitter-share-button" data-url="'.$newsUrl->toFullString().'" data-text="'.$twitterTitle.'" data-via="zero_fansub" data-lang="fr">Tweeter</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
-		$this->addComponent($twitterButton);
+		$twitterPart->addComponent($twitterButton);
+		$this->addComponent($twitterPart);
 		
+		$facebookPart = new SimpleTextComponent();
+		$facebookPart->setClass("facebook");
 		$facebookButton = '<div class="fb-like" data-href="'.$newsUrl->toFullString().'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true"></div>';
-		$this->addComponent($facebookButton);
+		$facebookPart->addComponent($facebookButton);
+		$this->addComponent($facebookPart);
 		
+		$googlePart = new SimpleTextComponent();
+		$googlePart->setClass("google");
 		$googleButton = '<div class="g-plusone" data-href="'.$newsUrl->toFullString().'" data-size="medium"></div>';
-		$this->addComponent($googleButton);
+		$googlePart->addComponent($googleButton);
+		$this->addComponent($googlePart);
 		$this->setMetaData('itemscope');
 		$this->setMetaData('itemtype', 'http://schema.org/Product');
 		$title->setMetaData('itemprop', 'name');

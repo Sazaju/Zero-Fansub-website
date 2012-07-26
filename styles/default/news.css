@@ -39,9 +39,22 @@
 }
 
 /***************************************\
-   FACEBOOK & TWITTER STYLES ADJUSTING
+   SHARING BUTTONS STYLES ADJUSTING
 \***************************************/
+.news .twitter, .news .facebook, .news .google {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	width: 100px;
+}
 
-.news .fb-like * {
-	margin-top: -4px;
+.news .twitter *, .news .facebook *, .news .google * {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.news .facebook * {
+	margin-top: -4px !important;
+	/*
+	*/
 }
