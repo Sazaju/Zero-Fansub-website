@@ -13,6 +13,7 @@
 .news {
 	max-width: 550px;
 	margin: auto;
+	margin-top: 1em;
 }
 
 .news .title, .news .subtitle { 
