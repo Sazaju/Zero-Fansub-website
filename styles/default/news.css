@@ -34,15 +34,12 @@
 
 .news .comment {
 	display: block;
+	margin-bottom: 1.5em;
 }
 
 /***************************************\
    FACEBOOK & TWITTER STYLES ADJUSTING
 \***************************************/
-
-.news .twitter-share-button {
-	margin-top: 4px;
-}
 
 .news .fb-like * {
 	margin-top: -4px;
