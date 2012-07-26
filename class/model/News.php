@@ -4233,11 +4233,11 @@ N.B. : l'expérience n'est pas exigée ^_^
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Bon, ça fait longtemps qu'on n'a pas fait de news, donc j'en profite pour faire un petit topo sur ce qui a été  implémenté sur le site depuis la dernière news sur le sujet (datant du 6 Février). Je passerai sous silence ce qui attend au chaud sur les autres branches de développement (et qui n'est donc pas accessible ici) sinon je suis bon pour en écrire encore trois tonnes et perdre tout le monde {'^_^}. Les curieux sauront demander.
 
-Donc tout d'abord, ceux qui regardent correctement ont du remarquer que les news ont des boutons, pour les partager via Twitter et Facebook. Ces boutons ont été [b]renouvelés[/b] (on utilise les dernières versions) et le +1 de Google a été ajouté. De plus, auparavant ces boutons étaient liés au site, donc cliquer sur l'un d'entre-eux était suffisant, mais pas super intéressant. Maintenant ils sont liés aux news elles-même, donc vous pouvez toutes les cliquer. Autrement dit : lâchez-vous et [b]faîtes-nous de la pub ![/b] Parce qu'on manque (encore et toujours) cruellement de main d'oeuvre {'^_^}.
+Tout d'abord, ceux qui regardent correctement ont dû remarquer que les news ont des boutons pour les partager via Twitter et Facebook. Ces boutons ont été [b]renouvelés[/b] (on utilise les dernières versions) et le +1 de Google a été ajouté. De plus, auparavant, ces boutons étaient liés au site, donc cliquer sur l'un d'entre eux était suffisant, mais pas super intéressant. Maintenant, ils sont liés aux news elles-mêmes, donc vous pouvez toutes les cliquer. Autrement dit : lâchez-vous et [b]faites-nous de la pub ![/b] Parce qu'on manque (encore et toujours) cruellement de main d'œuvre {'^_^}.
 
 [img=images/news/follower.jpg]Oh ! On a des amis ![/img]
 
-C'est la mise-à-jour la plus importante que je voulais décrire, mais les curieux pourront dérouler ce spoiler pour voir la liste des améliorations.
+C'est la mise à jour la plus importante que je voulais décrire, mais les curieux pourront dérouler ce spoiler pour voir la liste des améliorations.
 [spoiler=<Montrer la liste>]
 [left][list]
 [item]Les news de sorties listent (semi-automatiquement, c'est ça le plus important) les releases en fin de news.[/item]
