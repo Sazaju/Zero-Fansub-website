@@ -43,18 +43,16 @@
 \***************************************/
 .news .twitter, .news .facebook, .news .google {
 	display: inline-block;
-	margin: 0;
+	margin: auto;
 	padding: 0;
-	width: 100px;
+	width: 110px;
 }
 
 .news .twitter *, .news .facebook *, .news .google * {
-	margin: 0 auto !important;
+	margin: auto !important;
 	padding: 0 !important;
 }
 
 .news .facebook * {
 	margin-top: -4px !important;
-	/*
-	*/
 }
