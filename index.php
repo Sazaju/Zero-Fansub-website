@@ -27,7 +27,7 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 		}
 		
 		$url->setQueryVar('select', $selected);
-		// TODO indicates it is definitively relocated
+		header("HTTP/1.1 301 Moved Permanently", false, 301);
 		header('Location: '.$url->toString());
 		exit();
 	} else {
@@ -39,19 +39,19 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 		$url->setQueryVar('page', 'project');
 		$parts = preg_split("#/#", $page);
 		$url->setQueryVar('id', $parts[1]);
-		// TODO indicates it is definitively relocated
+		header("HTTP/1.1 301 Moved Permanently", false, 301);
 		header('Location: '.$url->toString());
 		exit();
 	} else if (preg_match("#^dossier/#", $page)) {
 		$url->setQueryVar('page', 'dossier');
 		$parts = preg_split("#/#", $page);
 		$url->setQueryVar('id', $parts[1]);
-		// TODO indicates it is definitively relocated
+		header("HTTP/1.1 301 Moved Permanently", false, 301);
 		header('Location: '.$url->toString());
 		exit();
 	} else if ($page == 'home') {
 		$url->setQueryVar('page', 'news');
-		// TODO indicates it is definitively relocated
+		header("HTTP/1.1 301 Moved Permanently", false, 301);
 		header('Location: '.$url->toString());
 		exit();
 	} else {
