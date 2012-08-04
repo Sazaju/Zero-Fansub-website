@@ -48,6 +48,10 @@ a:active, a:focus {
 	border: 0;
 }
 
+img.rss {
+	max-height: 1em;
+}
+
 #page:after, .views:after, .news:after, .teamList .member:after, .teamList:before, .p:after, .separator {
 	content: url('images/barre.png');
 }

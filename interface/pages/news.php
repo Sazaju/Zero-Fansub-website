@@ -29,7 +29,13 @@
 	
 	$views = new SimpleBlockComponent();
 	$views->setClass("views");
-	$views->addComponent(new Title("Vues", 2));
+	$rssUrl = new Url('rss.php');
+	$rssUrl->setQueryVar('select', $selected);
+	$rssUrl->setQueryVar('h', $_SESSION[MODE_H]);
+	$title = new Title(null, 2);
+	$title->addComponent(new RssLink($rssUrl));
+	$title->addComponent("Vues");
+	$views->addComponent($title);
 	$views->addComponent($viewsLinks);
 	
 	/******************************\
