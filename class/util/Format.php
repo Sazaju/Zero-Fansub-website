@@ -777,9 +777,8 @@ class Format {
 					throw new Exception("The height of the video is not well defined");
 				}
 				return $result;
-			}
-
-;
+			};
+			
 			$videoOpenTag = function($tag, $parameter, $content) {
 						$parameter = parseVideoParameter($parameter);
 						$width = $parameter['width'];
