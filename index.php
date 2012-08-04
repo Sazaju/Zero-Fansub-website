@@ -10,7 +10,30 @@ require_once("baseImport.php");
          RETRO COMPATIBILITY
 \**********************************/
 $url = Url::getCurrentUrl();
-if ($url->hasQueryVar('page')) {
+if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
+		if ($url->hasQueryVar('view')) {
+		$view = $url->getQueryVar('view');
+		$url->removeQueryVar('view');
+		
+		$select = '';
+		switch($view) {
+			case 'all': $selected = '';break;
+			case 'releases': $selected = 'r';break;
+			case 'team': $selected = 't';break;
+			case 'partners': $selected = 'p';break;
+			case 'db0company': $selected = 'c';break;
+			case 'unclassable': $selected = 'm';break;
+			default: $selected = '';// all by default
+		}
+		
+		$url->setQueryVar('select', $selected);
+		// TODO indicates it is definitively relocated
+		header('Location: '.$url->toString());
+		exit();
+	} else {
+		// no retro-compatibility action is needed
+	}
+} else if ($url->hasQueryVar('page')) {
 	$page = $url->getQueryVar('page');
 	if (preg_match("#^series/#", $page)) {
 		$url->setQueryVar('page', 'project');
