@@ -167,7 +167,7 @@ class News {
 	}
 	
 	private static $allNews = null;
-	public static function getAllNews() {
+	public static function getAllNews(NewsSelector $selector = null) {
 		if (News::$allNews === null) {
 			$news = new News();
 			$news->setTitle("Mayoi Neko Spéciaux");
@@ -4307,7 +4307,11 @@ Enfin, merci de signaler tout bug sur lequel vous tombez pour nous aider à amé
 			}, News::$allNews);
 		}
 		
-		return News::$allNews;
+		if ($selector != null) {
+			return array_filter(News::$allNews, $selector->getCallback());
+		} else {
+			return News::$allNews;
+		}
 	}
 	
 	public static function getNews($id) {
