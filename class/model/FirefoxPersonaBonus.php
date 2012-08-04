@@ -21,4 +21,4 @@ class FirefoxPersonaBonus extends ProjectBonus {
 		}
 	}
 }
-?> 
+?>
