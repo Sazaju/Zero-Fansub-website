@@ -1,25 +1,5 @@
 <?php
-	/******************************\
-	     CHECK NO NULL PROPERTY
-	\******************************/
 	$newsList = News::getAllNews();
-	array_map(function(News $news) {
-		$properties = array();
-		$properties['isReleasing'] = $news->isReleasing();
-		$properties['isTeamNews'] = $news->isTeamNews();
-		$properties['isPartnerNews'] = $news->isPartnerNews();
-		$properties['isDb0CompanyNews'] = $news->isDb0CompanyNews();
-		try {
-			array_map(function($name, $property) {
-				if ($property === null) {
-					throw new Exception($name);
-				}
-			}, array_keys($properties), $properties);
-		} catch(Exception $e) {
-			$property = $e->getMessage();
-			throw new Exception($property."() is null for the news ".$news->getTitle());
-		}
-	}, $newsList);
 	
 	/******************************\
 	       FILTER NEWS : VIEWS
