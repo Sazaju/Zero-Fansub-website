@@ -172,6 +172,7 @@ class TeamMember {
 			$member->setPseudo("Nyaan~");
 			$member->setImage("nyaan.png");
 			$member->addRole(Role::getRole("time"));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(5);
