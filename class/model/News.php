@@ -34,6 +34,13 @@ class News {
 		$this->setMessage($message);
 	}
 	
+	public function getUrl() {
+		$url = Url::getCurrentDirUrl();
+		$url->setQueryVar('page', 'news2');
+		$url->setQueryVar('id', $this->getId());
+		return $url;
+	}
+	
 	public function getId() {
 		return $this->id;
 	}
