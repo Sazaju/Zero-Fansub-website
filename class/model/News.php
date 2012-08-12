@@ -4277,6 +4277,30 @@ Enfin, merci de signaler tout bug sur lequel vous tombez pour nous aider à amé
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement timeurs !");
+			$news->setTimestamp(strtotime("12 August 2012 20:44"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez, vous avez l'habitude, alors on continue : une p'tite news de recrutement ! {^_^}
+
+[imgl=images/news/recrutementTimeurs.png]Alors ? Ça vous tente ?[/imgl]Ce coup-ci, on cherche (encore et toujours) des timeurs. Pas besoin d'expérience, c'est pas compliqué. C'est juste long à faire, donc il nous faut du monde.
+
+Si vous vous ennuyez pendant vos vacances, et que vous avez toujours rien à raconter pour la rentrée, c'est le moment d'en profiter ! Vous pourrez vous vanter de participer à la création de ces vidéos que vos amis téléchargent comme des cochons sur le net. Et le fin du fin, de le faire dans une team qui fait de la QUA-LI-TÉ !
+
+{^o^}/ A~h, quel doux sentiment de supériorité...
+
+Pour ceux qui n'ont plus l'âge de se vanter à la récré, un break ne fait pas de mal. Avec nos séries rafraîchissantes, dépaysement garanti ! Et si vous en avez marre de votre patron qui vous force à faire des trucs salement pour faire plaisir à des clients qui n'en ont rien à battre... Vous êtes les bienvenus ! Chez Zéro, on sait ce que ça veut dire de passer du temps à faire les choses correctement.
+
+Pour ceux qui se rendent compte de ce qu'ils ratent, direction
+[url=?page=recruit]la page de recrutement[/url] !");
+			//$news->setCommentId(302);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
