@@ -4293,7 +4293,7 @@ Pour ceux qui n'ont plus l'âge de se vanter à la récré, un break ne fait pas
 
 Pour ceux qui se rendent compte de ce qu'ils ratent, direction
 [url=?page=recruit]la page de recrutement[/url] !");
-			//$news->setCommentId(302);
+			$news->setCommentId(303);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
