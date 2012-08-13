@@ -31,7 +31,11 @@
 	$views->setClass("views");
 	$rssUrl = new Url('rss.php');
 	$rssUrl->setQueryVar('select', $selected);
-	$rssUrl->setQueryVar('h', $_SESSION[MODE_H]);
+	if ($_SESSION[MODE_H]) {
+		$rssUrl->setQueryVar('h');
+	} else {
+		// do not add it
+	}
 	$title = new Title(null, 2);
 	$title->addComponent(new RssLink($rssUrl));
 	$title->addComponent("Vues");

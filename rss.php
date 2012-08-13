@@ -5,7 +5,7 @@
 	$website = Url::getCurrentDirUrl()->toFullString();
 	
 	$selected = $url->hasQueryVar('select') ? $url->getQueryVar('select') : NEWSSELECTOR_ALL;
-	$hMode = $url->hasQueryVar('h') ? $url->getQueryVar('h') : false;
+	$hMode = $url->hasQueryVar('h');
 	$selector = new NewsSelector($selected, $hMode);
 	$newsList = News::getAllNews($selector);
 	usort($newsList, array('News', 'timestampSorter'));
