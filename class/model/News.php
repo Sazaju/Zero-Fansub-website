@@ -4285,13 +4285,13 @@ Enfin, merci de signaler tout bug sur lequel vous tombez pour nous aider à amé
 
 [imgl=images/news/recrutementTimeurs.png]Alors ? Ça vous tente ?[/imgl]Ce coup-ci, on cherche (encore et toujours) des timeurs. Pas besoin d'expérience, c'est pas compliqué. C'est juste long à faire, donc il nous faut du monde.
 
-Si vous vous ennuyez pendant vos vacances, et que vous avez toujours rien à raconter pour la rentrée, c'est le moment d'en profiter ! Vous pourrez vous vanter de participer à la création de ces vidéos que vos amis téléchargent comme des cochons sur le net. Et le fin du fin, de le faire dans une team qui fait de la QUA-LI-TÉ !
+Donc si vous vous ennuyez pendant vos vacances, et que vous n'avez toujours rien à raconter pour la rentrée, c'est le moment d'en profiter ! Vous pourrez vous vanter de participer à la création de ces vidéos que vos amis téléchargent comme des cochons sur le net. Et le fin du fin, de le faire dans une team qui fait de la QUA-LI-TÉ ! {*o*}
 
-{^o^}/ A~h, quel doux sentiment de supériorité...
+A~h, ce doux sentiment de supériorité...
 
-Pour ceux qui n'ont plus l'âge de se vanter à la récré, un break ne fait pas de mal. Avec nos séries rafraîchissantes, dépaysement garanti ! Et si vous en avez marre de votre patron qui vous force à faire des trucs salement pour faire plaisir à des clients qui n'en ont rien à battre... Vous êtes les bienvenus ! Chez Zéro, on sait ce que ça veut dire de passer du temps à faire les choses correctement.
+Pour ceux qui n'ont plus l'âge de se vanter à la récrée, un break ne vous ferait pas de mal. Ça tombe bien : avec nos séries rafraîchissantes, dépaysement garanti ! Et si vous en avez marre des supérieurs qui ne vous laissent pas le temps de travailler correctement, tout ça pour faire plaisir à des gens qui s'en foutent... Vous êtes les bienvenus ! Chez Zéro, on sait ce que ça veut dire de prendre le temps de bien faire. Et on aime ça ! {^_°}
 
-Pour ceux qui se rendent compte de ce qu'ils ratent, direction
+Donc, pour ceux qui se rendent compte de ce qu'ils ratent, direction
 [url=?page=recruit]la page de recrutement[/url] !");
 			$news->setCommentId(303);
 			$news->setDisplayInNormalMode(true);
