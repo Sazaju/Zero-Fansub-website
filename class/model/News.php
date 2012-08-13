@@ -4289,7 +4289,7 @@ Donc si vous vous ennuyez pendant vos vacances, et que vous n'avez toujours rien
 
 A~h, ce doux sentiment de supériorité...
 
-Pour ceux qui n'ont plus l'âge de se vanter à la récrée, un break ne vous ferait pas de mal. Ça tombe bien : avec nos séries rafraîchissantes, dépaysement garanti ! Et si vous en avez marre des supérieurs qui ne vous laissent pas le temps de travailler correctement, tout ça pour faire plaisir à des gens qui n'en ont rien à faire... Vous êtes les bienvenus ! Chez Zéro, on sait ce que ça veut dire de prendre le temps de bien faire. Et on aime ça ! {^_°}
+Pour ceux qui n'ont plus l'âge de se vanter à la récrée, un break ne vous ferait pas de mal. Ça tombe bien : avec nos séries rafraîchissantes, dépaysement garanti ! Et si, comme certains, vous en avez marre des supérieurs qui ne vous laissent pas le temps de travailler correctement, tout ça pour faire plaisir à des gens qui n'en ont rien à faire... Vous êtes les bienvenus ! Chez Zéro, on sait ce que ça veut dire de prendre le temps de bien faire. Et on aime ça ! {^_°}
 
 Donc, pour ceux qui se rendent compte de ce qu'ils ratent, direction
 [url=?page=recruit]la page de recrutement[/url] !");
