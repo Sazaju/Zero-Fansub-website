@@ -23,19 +23,15 @@
 	);
 	$viewsLinks = new SimpleBlockComponent();
 	foreach($viewMap as $id => $name) {
-		$url->setQueryVar('select', $id);
+		$url->setQueryVar('select', empty($id) ? null : $id, true);
 		$viewsLinks->addComponent(new Link(new Url($url), $name));
 	}
 	
 	$views = new SimpleBlockComponent();
 	$views->setClass("views");
 	$rssUrl = new Url('rss.php');
-	$rssUrl->setQueryVar('select', $selected);
-	if ($_SESSION[MODE_H]) {
-		$rssUrl->setQueryVar('h');
-	} else {
-		// do not add it
-	}
+	$rssUrl->setQueryVar('select', empty($selected) ? null : $selected, true);
+	$rssUrl->setQueryVar('h', null, !$_SESSION[MODE_H]);
 	$title = new Title(null, 2);
 	$title->addComponent(new RssLink($rssUrl));
 	$title->addComponent("Vues");
