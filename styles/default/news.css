@@ -45,14 +45,7 @@
 	display: inline-block;
 	margin: auto;
 	padding: 0;
-	width: 110px;
-}
-
-.news .google {
-	display: inline-block;
-	margin: auto;
-	padding: 0;
-	width: 75px;
+	width: 150px;
 }
 
 .news .twitter *, .news .facebook *, .news .google * {
