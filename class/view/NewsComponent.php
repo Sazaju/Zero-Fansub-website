@@ -92,12 +92,6 @@ class NewsComponent extends SimpleBlockComponent {
 		$twitterPart->addComponent($twitterButton);
 		$this->addComponent($twitterPart);
 		
-		$facebookPart = new SimpleTextComponent();
-		$facebookPart->setClass("facebook");
-		$facebookButton = '<div class="fb-like" data-href="'.$newsUrl->toFullString().'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true"></div>';
-		$facebookPart->addComponent($facebookButton);
-		$this->addComponent($facebookPart);
-		
 		$googlePart = new SimpleTextComponent();
 		$googlePart->setClass("google");
 		$googleButton = '<div class="g-plusone" data-href="'.$newsUrl->toFullString().'" data-size="medium"></div>';
@@ -110,6 +104,12 @@ class NewsComponent extends SimpleBlockComponent {
 		$c = $message->getComponent(0);
 		$c = preg_replace('#<img #', '<img itemprop="image"', $c);
 		$message->setComponent(0, $c);
+		
+		$facebookPart = new SimpleTextComponent();
+		$facebookPart->setClass("facebook");
+		$facebookButton = '<div class="fb-like" data-href="'.$newsUrl->toFullString().'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true"></div>';
+		$facebookPart->addComponent($facebookButton);
+		$this->addComponent($facebookPart);
 	}
 }
 ?>
