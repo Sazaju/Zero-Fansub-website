@@ -95,14 +95,24 @@ class Database {
 		}
 		
 		try {
-			$this->connection->exec('CREATE TABLE "structure_key" (
+			$this->connection->exec('CREATE TABLE "working_key" (
 				class       VARCHAR(128) NOT NULL,
 				field       VARCHAR(128) NOT NULL,
-				start       INTEGER NOT NULL,
-				authorStart VARCHAR(128) NOT NULL,
-				stop        INTEGER,
+				timestamp   INTEGER NOT NULL,
+				author      VARCHAR(128) NOT NULL,
 				
-				PRIMARY KEY (class, field, start)
+				PRIMARY KEY (class, field)
+			)');
+			
+			$this->connection->exec('CREATE TABLE "archive_key" (
+				class         VARCHAR(128) NOT NULL,
+				field         VARCHAR(128) NOT NULL,
+				timeCreate    INTEGER NOT NULL,
+				authorCreate  VARCHAR(128) NOT NULL,
+				timeArchive   INTEGER NOT NULL,
+				authorArchive VARCHAR(128) NOT NULL,
+				
+				PRIMARY KEY (class, field, timeCreate)
 			)');
 		} catch(PDOException $ex) {
 			if ($this->connection->errorCode() == 'HY000') {
@@ -208,7 +218,8 @@ class Database {
 		$tables[] = "property";
 		$tables[] = "working_structure";
 		$tables[] = "archive_structure";
-		$tables[] = "structure_key";
+		$tables[] = "working_key";
+		$tables[] = "archive_key";
 		$tables[] = "user";
 		return $tables;
 	}
@@ -287,11 +298,16 @@ class Database {
 		$this->archiveValues($type, $class, $fieldName, $time, $authorId);
 	}
 	
-	public function changeKey($time, $authorId, $class, $fieldNames) {
-		$discard = $this->connection->prepare('UPDATE "structure_key" SET stop = ? WHERE class = ? and stop IS NULL');
-		$discard->execute(array($time, $class));
-		$insert = $this->connection->prepare('INSERT INTO "structure_key" (class, field, start, authorStart, stop) VALUES (:class, :field, :start, :authorStart, NULL)');
-		foreach($fieldNames as $name) {
+	public function changeKey($time, $authorId, $class, $newFields) {
+		// TODO do not remove field which do not change (add the order in the data)
+		$source = '"working_key" WHERE class = ?';
+		$copy = $this->connection->prepare('INSERT INTO "archive_key" (class, field, timeCreate, authorCreate, timeArchive, authorArchive) SELECT class, field, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$authorId.'" as authorArchive FROM '.$source);
+		$clean = $this->connection->prepare('DELETE FROM '.$source);
+		$copy->execute(array($class));
+		$clean->execute(array($class));
+		
+		$insert = $this->connection->prepare('INSERT INTO "working_key" (class, field, timestamp, author) VALUES (:class, :field, :timestamp, :author)');
+		foreach($newFields as $name) {
 			$insert->execute(array($class, $name, $time, $authorId));
 		}
 	}
@@ -355,7 +371,7 @@ class Database {
 	}
 	
 	private function getIDFieldsForClass($class) {
-		$statement = $this->connection->query('SELECT field FROM "structure_key" WHERE class = "'.$class.'" AND stop IS NULL');
+		$statement = $this->connection->query('SELECT field FROM "working_key" WHERE class = "'.$class.'"');
 		$fields = $statement->fetchAll(PDO::FETCH_COLUMN);
 		return $fields;
 	}
