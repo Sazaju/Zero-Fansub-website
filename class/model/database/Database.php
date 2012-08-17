@@ -140,8 +140,8 @@ class Database {
 			class     VARCHAR(128) NOT NULL,
 			field     VARCHAR(128) NOT NULL,
 			key       INTEGER NOT NULL,
-			timestamp INTEGER NOT NULL,
 			value     '.$column.',
+			timestamp INTEGER NOT NULL,
 			author    VARCHAR(128) NOT NULL,
 			
 			PRIMARY KEY (class, field, key, timestamp)
@@ -259,10 +259,10 @@ class Database {
 		$select = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$type.'" WHERE class = ?');
 		$select->execute(array($class));
 		$array = $select->fetchAll(PDO::FETCH_COLUMN);
-		$insert = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+		$insert = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, value, timestamp, author) VALUES (?, ?, ?, ?, ?, ?)');
 		foreach($array as $key) {
 			$value = null;
-			$insert->execute(array($class, $key, $fieldName, $time, $value, $authorId));
+			$insert->execute(array($class, $key, $fieldName, $value, $time, $authorId));
 		}
 	}
 	
@@ -318,10 +318,10 @@ class Database {
 		$this->archiveValues($oldType, $class, $fieldName, $time, $authorId);
 		
 		// save the new values
-		$update = $this->connection->prepare('INSERT INTO "working_'.$newType.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
+		$update = $this->connection->prepare('INSERT INTO "working_'.$newType.'" (class, key, field, value, timestamp, author) VALUES (?, ?, ?, ?, ?, ?)');
 		foreach($array as $key => $values) {
 			$value = $values[0];
-			$update->execute(array($class, $key, $fieldName, $time, $value, $authorId));
+			$update->execute(array($class, $key, $fieldName, $value, $time, $authorId));
 		}
 	}
 	
@@ -471,8 +471,8 @@ class Database {
 						if (!$isNew) {
 							$this->archiveValues($type, $class, $name, $time, $authorId, array($key));
 						}
-						$statement = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, timestamp, value, author) VALUES (?, ?, ?, ?, ?, ?)');
-						$statement->execute(array($class, $key, $name, $time, $value, $authorId));
+						$statement = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, value, timestamp, author) VALUES (?, ?, ?, ?, ?, ?)');
+						$statement->execute(array($class, $key, $name, $value, $time, $authorId));
 						
 					}
 					unset($savedFields[$name]);
