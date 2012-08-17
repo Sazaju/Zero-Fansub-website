@@ -63,17 +63,28 @@ class Database {
 		}
 		
 		try {
-			$this->connection->exec('CREATE TABLE "structure" (
+			$this->connection->exec('CREATE TABLE "working_structure" (
 				class       VARCHAR(128) NOT NULL,
 				field       VARCHAR(128) NOT NULL,
 				type        VARCHAR(128) NOT NULL,
 				mandatory   BOOLEAN NOT NULL,
-				start       INTEGER NOT NULL,
-				authorStart VARCHAR(128) NOT NULL,
-				stop        INTEGER,
-				authorStop  VARCHAR(128),
+				timestamp   INTEGER NOT NULL,
+				author      VARCHAR(128) NOT NULL,
 				
-				PRIMARY KEY (class, field, start)
+				PRIMARY KEY (class, field)
+			)');
+			
+			$this->connection->exec('CREATE TABLE "archive_structure" (
+				class         VARCHAR(128) NOT NULL,
+				field         VARCHAR(128) NOT NULL,
+				type          VARCHAR(128) NOT NULL,
+				mandatory     BOOLEAN NOT NULL,
+				timeCreate    INTEGER NOT NULL,
+				authorCreate  VARCHAR(128) NOT NULL,
+				timeArchive   INTEGER NOT NULL,
+				authorArchive VARCHAR(128) NOT NULL,
+				
+				PRIMARY KEY (class, field, timeCreate)
 			)');
 		} catch(PDOException $ex) {
 			if ($this->connection->errorCode() == 'HY000') {
@@ -195,7 +206,8 @@ class Database {
 	private function getTableNames() {
 		$tables = $this->getDataTableNames();
 		$tables[] = "property";
-		$tables[] = "structure";
+		$tables[] = "working_structure";
+		$tables[] = "archive_structure";
 		$tables[] = "structure_key";
 		$tables[] = "user";
 		return $tables;
@@ -246,10 +258,10 @@ class Database {
 					'field' => $fieldName,
 					'type' => $type,
 					'mandatory' => $mandatory,
-					'start' => $time,
-					'authorStart' => $authorId);
+					'timestamp' => $time,
+					'author' => $authorId);
 		
-		$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :start, :authorStart, NULL, NULL)');
+		$insert = $this->connection->prepare('INSERT INTO "working_structure" (class, field, type, mandatory, timestamp, author) VALUES (:class, :field, :type, :mandatory, :timestamp, :author)');
 		foreach($property as $key => $value) {
 			$insert->bindParam(':'.$key, $property[$key]);
 		}
@@ -267,10 +279,11 @@ class Database {
 	}
 	
 	public function removeField($time, $authorId, $class, $fieldName, $type) {
-		$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
-		$discard->execute(array($authorId, $class, $fieldName));
-		$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
-		$discard->execute(array($time, $class, $fieldName));
+		$source = '"working_structure" WHERE class = ? AND field = ?';
+		$copy = $this->connection->prepare('INSERT INTO "archive_structure" (class, field, type, mandatory, timeCreate, authorCreate, timeArchive, authorArchive) SELECT class, field, type, mandatory, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$authorId.'" as authorArchive FROM '.$source);
+		$clean = $this->connection->prepare('DELETE FROM '.$source);
+		$copy->execute(array($class, $fieldName));
+		$clean->execute(array($class, $fieldName));
 		$this->archiveValues($type, $class, $fieldName, $time, $authorId);
 	}
 	
@@ -286,47 +299,47 @@ class Database {
 	public function changeType($time, $authorId, $class, $fieldName, $newType) {
 		// retrieve the current property data
 		// TODO use getFieldsForClass()
-		$select = $this->connection->prepare('SELECT * FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
+		$select = $this->connection->prepare('SELECT * FROM "working_structure" WHERE class = ? AND field = ?');
 		$select->execute(array($class, $fieldName));
 		$property = $select->fetch(PDO::FETCH_ASSOC);
 		$oldType = $property['type'];
 		
-		// terminate the current property
-		$discard = $this->connection->prepare('UPDATE "structure" SET authorStop = ? WHERE class = ? AND field = ? and stop IS NULL');
-		$discard->execute(array($authorId, $class, $fieldName));
-		$discard = $this->connection->prepare('UPDATE "structure" SET stop = ? WHERE class = ? AND field = ? and stop IS NULL');
-		$discard->execute(array($time, $class, $fieldName));
-		
-		// start the updated property
-		$property['type'] = $newType;
-		$property['start'] = $time;
-		$property['authorStart'] = $authorId;
-		unset($property['stop']);
-		unset($property['authorStop']);
-		$insert = $this->connection->prepare('INSERT INTO "structure" (class, field, type, mandatory, start, authorStart, stop, authorStop) VALUES (:class, :field, :type, :mandatory, :start, :authorStart, NULL, NULL)');
-		foreach($property as $key => $value) {
-			$insert->bindParam(':'.$key, $property[$key]);
-		}
-		$insert->execute($property);
-		
-		// retrieve the obsolete values
-		$select = $this->connection->prepare('SELECT key, value FROM "working_'.$oldType.'" WHERE class = ? AND field = ?');
-		$select->execute(array($class, $fieldName));
-		$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
-		
-		// archive the obsolete values
-		$this->archiveValues($oldType, $class, $fieldName, $time, $authorId);
-		
-		// save the new values
-		$update = $this->connection->prepare('INSERT INTO "working_'.$newType.'" (class, key, field, value, timestamp, author) VALUES (?, ?, ?, ?, ?, ?)');
-		foreach($array as $key => $values) {
-			$value = $values[0];
-			$update->execute(array($class, $key, $fieldName, $value, $time, $authorId));
+		if ($oldType == $newType) {
+			throw new Exception("The type for $class.$fieldName is already $newType");
+		} else {
+			// archive the current property
+			$copy = $this->connection->prepare('INSERT INTO "archive_structure" (field, type, mandatory, timeCreate, authorCreate, timeArchive, authorArchive) SELECT field, type, mandatory, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$author.'" as authorArchive FROM "working_structure" WHERE class = ? AND field = ?');
+			$copy->execute(array($class, $fieldName));
+			
+			// create the updated property
+			$property['type'] = $newType;
+			$property['timestamp'] = $time;
+			$property['author'] = $authorId;
+			$insert = $this->connection->prepare('INSERT INTO "working_structure" (class, field, type, mandatory, timestamp, author) VALUES (:class, :field, :type, :mandatory, :timestamp, :author)');
+			foreach($property as $key => $value) {
+				$insert->bindParam(':'.$key, $property[$key]);
+			}
+			$insert->execute($property);
+			
+			// retrieve the obsolete values
+			$select = $this->connection->prepare('SELECT key, value FROM "working_'.$oldType.'" WHERE class = ? AND field = ?');
+			$select->execute(array($class, $fieldName));
+			$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
+			
+			// archive the obsolete values
+			$this->archiveValues($oldType, $class, $fieldName, $time, $authorId);
+			
+			// save the new values
+			$update = $this->connection->prepare('INSERT INTO "working_'.$newType.'" (class, key, field, value, timestamp, author) VALUES (?, ?, ?, ?, ?, ?)');
+			foreach($array as $key => $values) {
+				$value = $values[0];
+				$update->execute(array($class, $key, $fieldName, $value, $time, $authorId));
+			}
 		}
 	}
 	
 	private function getFieldsForClass($class, $exceptionIfUnknown = true) {
-		$statement = $this->connection->prepare('SELECT field, type, mandatory, start FROM "structure" WHERE class = ? AND stop IS NULL');
+		$statement = $this->connection->prepare('SELECT field, type, mandatory, timestamp FROM "working_structure" WHERE class = ?');
 		$statement->execute(array($class));
 		$fields = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 		if ($exceptionIfUnknown && empty($fields)) {
@@ -395,7 +408,7 @@ class Database {
 		} else {
 			throw new Exception($structure." cannot be interpreted as an object or its class name");
 		}
-		$statement = $this->connection->prepare('SELECT COUNT(field) FROM "structure" WHERE class = ? AND stop IS NULL');
+		$statement = $this->connection->prepare('SELECT COUNT(field) FROM "working_structure" WHERE class = ?');
 		$statement->execute(array($structure));
 		$counter = $statement->fetchColumn();
 		return $counter > 0;
@@ -413,7 +426,7 @@ class Database {
 	                  DATA TYPES
 	\********************************************/
 	private function getExistingTypes() {
-		$statement = $this->connection->query('SELECT DISTINCT type FROM "structure"');
+		$statement = $this->connection->query('SELECT DISTINCT type FROM "working_structure"');
 		$types = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
 		return $types;
 	}
@@ -529,7 +542,7 @@ class Database {
 		$reflector = new ReflectionClass($class);
 		$this->checkStructureIsWellKnown($reflector->newInstance());
 		
-		$statement = $this->connection->query('SELECT type FROM "structure" WHERE class = ?');
+		$statement = $this->connection->query('SELECT type FROM "working_structure" WHERE class = ?');
 		$statement->execute(array($class));
 		$type = $statement->fetchColumn();
 		
@@ -601,7 +614,7 @@ class Database {
 		$IDFields = $component->getIDFields();
 		$correspondingKeys = null;
 		foreach($IDFields as $name => $field) {
-			$statement = $this->connection->prepare('SELECT type FROM "structure" WHERE class = ? AND field = ? AND stop IS NULL');
+			$statement = $this->connection->prepare('SELECT type FROM "working_structure" WHERE class = ? AND field = ?');
 			$statement->execute(array($class, $name));
 			$type = $statement->fetchColumn();
 			
