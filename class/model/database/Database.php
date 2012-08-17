@@ -8,6 +8,11 @@
 	used by default in the persistent components.
 */
 
+/*
+TODO manage transactions with objects representing packages of queries,
+then use an executor to execute a list of packages surrounded by begin
+& commit.
+*/
 class Database {
 	/********************************************\
 	                    STATIC
