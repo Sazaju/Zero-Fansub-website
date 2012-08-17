@@ -461,7 +461,7 @@ class Database {
 	}
 	
 	/********************************************\
-	                    SAVE
+	                    RECORDS
 	\********************************************/
 	public function save(PersistentComponent $component, $authorId) {
 		if (!$this->isRegisteredUser($authorId)) {
@@ -533,9 +533,6 @@ class Database {
 		return $data;
 	}
 	
-	/********************************************\
-	                    LOAD
-	\********************************************/
 	public function load(PersistentComponent $component) {
 		$this->checkStructureIsWellKnown($component);
 		$class = $component->getClass();
@@ -579,6 +576,26 @@ class Database {
 			$loaded[] = $component;
 		}
 		return $loaded;
+	}
+	
+	public function delete(PersistentComponent $component, $authorId) {
+		if (!$this->isRegisteredUser($authorId)) {
+			throw new Exception("There is no user ".$authorId);
+		} else {
+			$class = $component->getClass();
+			$key = $component->getInternalKey();
+			if (empty($key)) {
+				throw new Exception("Cannot delete $component, it is not linked to an existing record");
+			} else {
+				$savedFields = $this->getFieldsForClass($class);
+				$time = time();
+				$this->connection->beginTransaction();
+				foreach($savedFields as $field => $metadata) {
+					$this->archiveValues($time, $authorId, $metadata['type'], $class, $field, array($key));
+				}
+				$this->connection->commit();
+			}
+		}
 	}
 	
 	/********************************************\

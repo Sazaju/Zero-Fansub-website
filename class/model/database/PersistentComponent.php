@@ -128,6 +128,10 @@ class PersistentComponent {
 		Database::getDefaultDatabase()->save($this, $author);
 	}
 	
+	public function delete($author) {
+		Database::getDefaultDatabase()->delete($this, $author);
+	}
+	
 	public function load() {
 		Database::getDefaultDatabase()->load($this);
 	}
