@@ -250,11 +250,11 @@ class Database {
 					$this->addField($time, $authorId, $class, $fieldData['field'], $fieldData['type'], $fieldData['mandatory']);
 				} else if ($descriptor instanceof RemoveFieldDiff) {
 					$fieldData = $descriptor->getOldValue();
-					$this->removeField($time, $authorId, $class, $fieldData['field'], $fieldData['type']);
+					$this->removeFieldAndArchiveRelatedValues($time, $authorId, $class, $fieldData['field'], $fieldData['type']);
 				} else if ($descriptor instanceof ChangeKeyDiff) {
 					$this->changeKey($time, $authorId, $class, $descriptor->getNewValue());
 				} else if ($descriptor instanceof ChangeTypeDiff) {
-					$this->changeType($time, $authorId, $class, $descriptor->getField(), $descriptor->getNewValue());
+					$this->changeTypeAndMoveRelatedValues($time, $authorId, $class, $descriptor->getField(), $descriptor->getNewValue());
 				} else {
 					// TODO implement other cases
 					throw new Exception('Not implemented yet: '.$descriptor);
@@ -289,13 +289,13 @@ class Database {
 		}
 	}
 	
-	public function removeField($time, $authorId, $class, $fieldName, $type) {
+	public function removeFieldAndArchiveRelatedValues($time, $authorId, $class, $fieldName, $type) {
 		$source = '"working_structure" WHERE class = ? AND field = ?';
 		$copy = $this->connection->prepare('INSERT INTO "archive_structure" (class, field, type, mandatory, timeCreate, authorCreate, timeArchive, authorArchive) SELECT class, field, type, mandatory, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$authorId.'" as authorArchive FROM '.$source);
 		$clean = $this->connection->prepare('DELETE FROM '.$source);
 		$copy->execute(array($class, $fieldName));
 		$clean->execute(array($class, $fieldName));
-		$this->archiveValues($type, $class, $fieldName, $time, $authorId);
+		$this->archiveValues($time, $authorId, $type, $class, $fieldName);
 	}
 	
 	public function changeKey($time, $authorId, $class, $newFields) {
@@ -312,7 +312,7 @@ class Database {
 		}
 	}
 	
-	public function changeType($time, $authorId, $class, $fieldName, $newType) {
+	public function changeTypeAndMoveRelatedValues($time, $authorId, $class, $fieldName, $newType) {
 		// retrieve the current property data
 		// TODO use getFieldsForClass()
 		$select = $this->connection->prepare('SELECT * FROM "working_structure" WHERE class = ? AND field = ?');
@@ -343,7 +343,7 @@ class Database {
 			$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
 			
 			// archive the obsolete values
-			$this->archiveValues($oldType, $class, $fieldName, $time, $authorId);
+			$this->archiveValues($time, $authorId, $oldType, $class, $fieldName);
 			
 			// save the new values
 			$update = $this->connection->prepare('INSERT INTO "working_'.$newType.'" (class, key, field, value, timestamp, author) VALUES (?, ?, ?, ?, ?, ?)');
@@ -498,7 +498,7 @@ class Database {
 						$type = $field->getTranslator()->getPersistentType($field)->getType();
 						
 						if (!$isNew) {
-							$this->archiveValues($type, $class, $name, $time, $authorId, array($key));
+							$this->archiveValues($time, $authorId, $type, $class, $name, array($key));
 						}
 						$statement = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, value, timestamp, author) VALUES (?, ?, ?, ?, ?, ?)');
 						$statement->execute(array($class, $key, $name, $value, $time, $authorId));
@@ -605,7 +605,7 @@ class Database {
 		}
 	}
 	
-	private function archiveValues($type, $class, $field, $time, $author, $keys = null) {
+	private function archiveValues($time, $author, $type, $class, $field, $keys = null) {
 		$archiveAll = $keys === null;
 		
 		$source = '"working_'.$type.'" WHERE class = ? AND field = ?';
