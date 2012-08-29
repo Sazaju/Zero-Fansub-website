@@ -716,6 +716,24 @@ class TeamMember {
 			$member->setPseudo("KupofTea");
 			$member->addRole(Role::getRole("graphiste"));
 			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(84);
+			$member->setImage("brainstorm27.jpg");
+			$member->setPseudo("brainstorm27");
+			$member->addRole(Role::getRole("tradEn"));
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(85);
+			$member->setImage("Cavi.png");
+			$member->setPseudo("Cavi");
+			$member->addRole(Role::getRole("edit"));
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember(86);
+			$member->setImage("Phantafun.png");
+			$member->setPseudo("Phantafun");
+			$member->addRole(Role::getRole("adapt"));
+			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;
 	}
