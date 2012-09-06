@@ -73,8 +73,8 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 			$styleFile = "styles/".$_SESSION[STYLE]."/style".($_SESSION[MODE_H] ? "H" : "").".css";
 		?>
 		<link rel="stylesheet" href="<?php echo $styleFile; ?>" type="text/css" media="screen" title="Normal" />  
-		<link rel="icon" type="image/gif" href="fav.gif" />
-		<link rel="shortcut icon" href="fav.ico" />
+		<link rel="icon" type="image/gif" href="favicon.gif" />
+		<link rel="shortcut icon" href="favicon.ico" />
 		<script type="text/javascript">
 			function show(nom_champ) {
 				if(document.getElementById) {
