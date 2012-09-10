@@ -224,6 +224,7 @@ class TeamMember {
 			$member->addRole(Role::getRole("edit"));
 			$member->addRole(Role::getRole("kara"));
 			$member->setAge(23);
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember(10);
