@@ -32,6 +32,7 @@ class CornerImage extends Link {
 	private static $allImages = null;
 	static function getAllImages() {
 		if (CornerImage::$allImages === null) {
+			// TODO retrieve the name of the missing characters
 			CornerImage::$allImages[] = new CornerImage("canaan0.png", "Canaan", "canaan");
 			
 			CornerImage::$allImages[] = new CornerImage("denpa1.png", "Erio", "denpa");
@@ -65,7 +66,7 @@ class CornerImage extends Link {
 			CornerImage::$allImages[] = new CornerImage("isshoni0.png", "Hinako", "sleeping");
 			
 			CornerImage::$allImages[] = new CornerImage("kanamemo0.png", "Kana", "kanamemo");
-			CornerImage::$allImages[] = new CornerImage("kanamemo1.png", "Kana & ?", "kanamemo");// TODO retrieve the name of the character
+			CornerImage::$allImages[] = new CornerImage("kanamemo1.png", "Kana & ?", "kanamemo");
 			
 			CornerImage::$allImages[] = new CornerImage("kannagi0.png", "Nagi", "kannagi");
 			CornerImage::$allImages[] = new CornerImage("kannagi1.png", "Nagi", "kannagi");
