@@ -4301,6 +4301,34 @@ Donc, pour ceux qui se rendent compte de ce qu'ils ratent, direction
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement karamakeur !");
+			$news->setTimestamp(strtotime("10 September 2012 20:34"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Oyez, oyez ! Braves gens !
+
+La team Zéro ouvre ses portes aux plus avenants d'entre vous qui voudraient rejoindre nos rangs !
+
+En effet, un de nos éditeurs vient de nous quitter.
+Mal lui en a pris de favoriser la vie IRL : il s'est retrouvé à ne plus avoir assez de temps pour s'amuser chez nous. {;o;}/
+
+Mais ainsi soit-il !
+Mes braves gens, votre heure de gloire est venue !
+
+Nous cherchons donc un karamakeur (ou éditeur) qui serait tenté par l'aventure Zéro Fansub. Que tous les manants intéressés, fussent-ils expérimenté ou simple amateurs, se présentent [url=?page=recruit]à nos portes[/url] !
+
+Mais attention : premier arrivé, premier servi {^_^}.
+(bien qu'il devrait y avoir de la place pour tout le monde)
+
+[img=images/news/party.png]Attention, ça va pexer ![/img]");
+			$news->setCommentId(304);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
