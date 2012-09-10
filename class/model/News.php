@@ -4315,7 +4315,7 @@ Mal lui en a pris de favoriser la vie IRL : il s'est retrouvé à ne plus avoir 
 Mais ainsi soit-il !
 Mes braves gens, votre heure de gloire est venue !
 
-Nous cherchons donc un karamakeur (ou éditeur) qui serait tenté par l'aventure Zéro Fansub. Que tous les manants intéressés, fussent-ils expérimenté ou simple amateurs, se présentent [url=?page=recruit]à nos portes[/url] !
+Nous cherchons donc un karamakeur (ou éditeur) qui serait tenté par l'aventure Zéro Fansub. Que tous les manants intéressés, fussent-ils expérimentés ou simple amateurs, se présentent [url=?page=recruit]à nos portes[/url] !
 
 Mais attention : premier arrivé, premier servi {^_^}.
 (bien qu'il devrait y avoir de la place pour tout le monde)
