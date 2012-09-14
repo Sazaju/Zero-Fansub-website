@@ -77,6 +77,24 @@ class Patch {
 		return $this->time;
 	}
 	
+	public function __tostring() {
+		$string = "";
+		
+		$attributes = new PatchAttributes();
+		try {
+			$attributes->setValue('[time='.$this->getTime().',user="'.$this->getUser().'"]');
+			$string .= $attributes->getValue()."\n";
+		} catch(Exception $ex) {
+			return $ex->getMessage();
+		}
+		
+		foreach($this->instructions as $instruction) {
+			$string .= $instruction->getValue()."\n";
+		}
+		
+		return $string;
+	}
+	
 	private function progressiveCheck() {
 		static $initialized = false;
 		if (!$initialized) {
