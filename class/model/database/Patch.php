@@ -112,12 +112,8 @@ class Patch {
 		$string = "";
 		
 		$attributes = new PatchAttributes();
-		try {
-			$attributes->setValue('[time='.$this->getTime().',user="'.$this->getUser().'"]');
-			$string .= $attributes->getValue()."\n";
-		} catch(Exception $ex) {
-			return $ex->getMessage();
-		}
+		$attributes->setValue('[time='.$this->getTime().',user="'.$this->getUser().'"]');
+		$string .= $attributes->getValue()."\n";
 		
 		foreach($this->instructions as $instruction) {
 			$string .= $instruction->getValue()."\n";
