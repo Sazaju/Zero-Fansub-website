@@ -90,13 +90,15 @@ class Dossier extends PersistentComponent {
 	private static $allDossiers = null;
 	public static function getAllDossiers() {
 		if (Dossier::$allDossiers === null) {
-			if (Database::getDefaultDatabase()->isKnownStructure(new Dossier())) {
+			$db = Database::getDefaultDatabase();
+			if ($db->isKnownStructure(new Dossier())) {
 				/*
-				if (Database::getDefaultDatabase()->isUpdatedStructure(new Dossier())) {
-					Database::getDefaultDatabase()->updateStructure(Database::getDefaultDatabase()->getStructureDiff(new Dossier()), 'admin');
+				if ($db->isUpdatedStructure(new Dossier())) {
+					$patch = Patch::buildFromDiff($db->getStructureDiff(new Dossier()), 'admin');
+					$db->applyPatch($patch);
 				}
 				*/
-				Dossier::$allDossiers = Database::getDefaultDatabase()->loadAll(get_class(new Dossier()));
+				Dossier::$allDossiers = $db->loadAll(get_class(new Dossier()));
 				/*
 				$d = Dossier::$allDossiers[0];
 				$d->setContent("azerty");
@@ -443,8 +445,8 @@ De cette convention j'ai rammené quand même des petits souvenirs, 4 figurines 
 C'était Epitanime ! J'espére que ça vous a plu ! À bientôt pour Japan Expo, et une autre surprise spécial Zéro-Kanaii.");
 				Dossier::$allDossiers[] = $dossier;
 				
-				$db = Database::getDefaultDatabase();
-				$db->updateStructure($db->getStructureDiff($dossier), 'admin');
+				$patch = Patch::buildFromDiff($db->getStructureDiff($dossier), 'admin');
+				$db->applyPatch($patch);
 				foreach(Dossier::$allDossiers as $dossier) {
 					// TODO add TeamMember to database
 					// TODO add members to database users

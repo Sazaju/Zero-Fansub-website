@@ -122,13 +122,6 @@ class Patch {
 		return $string;
 	}
 	
-	public function executeOn(Database $db) {//Database::getDefaultDatabase()
-		foreach($patch->getInstructions() as $instruction) {
-			$instruction->execute($db);
-			echo '<br/><pre>'.($instruction->getValue()).'</pre><br/><br/>';
-		}
-	}
-	
 	private function progressiveCheck() {
 		static $initialized = false;
 		if (!$initialized) {
@@ -559,30 +552,17 @@ class PatchBooleanValue extends AlternativePatchInstruction {
 \*************************************/
 
 interface PatchCompleteInstruction {
-	public function execute(Database $db);
 }
 
 class PatchComment extends RegexPatchInstruction implements PatchCompleteInstruction {
 	protected function getRegex() {
 		return '#[^\n]*\n';
 	}
-	
-	public function execute(Database $db) {
-		// do nothing (ignore the comment)
-		$comment = trim(substr($this->getValue(), 1));
-		echo "(comment: $comment)";
-	}
 }
 
 class PatchAttributes extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
 		parent::__construct('[time=',new IntegerValuePatchRegex(),',user=',new StringValuePatchRegex(),']');
-	}
-	
-	public function execute(Database $db) {
-		$time = $this->getTime();
-		$user = $this->getUser();
-		echo "new patch: user <b>$user</b> at <b>$time</b> (".date("Y-m-d H:i:s", (integer) $time).")";
 	}
 	
 	public function getTime() {
@@ -597,15 +577,6 @@ class PatchAttributes extends ComposedPatchInstruction implements PatchCompleteI
 class PatchAddField extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
 		parent::__construct('+',new PatchSelectField(),'(',new PatchFieldTypeValue(),',',new PatchFieldMandatoryValue(),')');
-	}
-	
-	public function execute(Database $db) {
-		$class = $this->getClass();
-		$field = $this->getField();
-		$type = $this->getType();
-		$mandatory = $this->getMandatory();
-		
-		echo "add <b>$mandatory $type</b> field <b>$field</b> in class <b>$class</b>";
 	}
 	
 	public function getClass() {
@@ -634,13 +605,6 @@ class PatchRemoveField extends ComposedPatchInstruction implements PatchComplete
 		parent::__construct('-',new PatchSelectField());
 	}
 	
-	public function execute(Database $db) {
-		$class = $this->getClass();
-		$field = $this->getField();
-		
-		echo "remove field <b>$field</b> from class <b>$class</b>";
-	}
-	
 	public function getClass() {
 		return $this->getInnerInstruction(1)->getClass();
 	}
@@ -655,13 +619,6 @@ class PatchSetClassKey extends ComposedPatchInstruction implements PatchComplete
 		parent::__construct(new ClassPatchRegex(),'=',new PatchIDFields());
 	}
 	
-	public function execute(Database $db) {
-		$class = $this->getClass();
-		$fields = $this->getIDFields();
-		
-		echo "set ID to <b>[".array_reduce($fields, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
-	}
-	
 	public function getClass() {
 		return $this->getInnerValue(0);
 	}
@@ -674,23 +631,6 @@ class PatchSetClassKey extends ComposedPatchInstruction implements PatchComplete
 class PatchAddRecord extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
 		parent::__construct('+',new PatchSelectRecord(false),new PatchChainFieldValueAssignment());
-	}
-	
-	// TODO manage 0 ID values
-	public function execute(Database $db) {
-		$class = $this->getClass();
-		$IdValues = $this->getIDValues();
-		$assignments = array();
-		foreach($this->getAssignments() as $field => $value) {
-			$assignments[] = "$field($value)";
-		}
-		
-		echo "Add record <b>[".array_reduce($IdValues, function($a, $b) {return $a = $a === null ? "$b":"$a,$b";})."]</b> for class <b>$class</b>,";
-		if (empty($assignments)) {
-			echo " setting no field";
-		} else {
-			echo " setting the fields <b>".array_reduce($assignments, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."</b>";
-		}
 	}
 	
 	public function getClass() {
@@ -711,13 +651,6 @@ class PatchRemoveRecord extends ComposedPatchInstruction implements PatchComplet
 		parent::__construct('-',new PatchSelectRecord(true));
 	}
 	
-	public function execute(Database $db) {
-		$class = $this->getClass();
-		$values = $this->getIDValues();
-		
-		echo "remove the record <b>[".array_reduce($values, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> from class <b>$class</b>";
-	}
-	
 	public function getClass() {
 		return $this->getInnerInstruction(1)->getClass();
 	}
@@ -730,22 +663,6 @@ class PatchRemoveRecord extends ComposedPatchInstruction implements PatchComplet
 class PatchChangeRecordField extends ComposedPatchInstruction implements PatchCompleteInstruction {
 	public function __construct() {
 		parent::__construct(new PatchSelectRecordField(true),'=',new PatchFieldValue());
-	}
-	
-	public function execute(Database $db) {
-		$class = $this->getClass();
-		$values = $this->getIDValues();
-		$field = $this->getField();
-		$fieldValue = $this->getFieldValue();
-		
-		$records = null;
-		if (in_array(PATCH_ID_JOKER, $values)) {
-			$records = 'all the records';
-		} else {
-			$records = 'the record';
-		}
-		
-		echo "set the field <b>$field($fieldValue)</b> of $records <b>[".array_reduce($values, function($a, $b) {return $a = empty($a) ? $b:"$a,$b";})."]</b> for class <b>$class</b>";
 	}
 	
 	public function getClass() {
@@ -781,14 +698,6 @@ class PatchChangeFieldType extends ComposedPatchInstruction implements PatchComp
 	public function getTypeValue() {
 		return $this->getInnerValue(2);
 	}
-	
-	public function execute(Database $db) {
-		$class = $this->getClass();
-		$field = $this->getField();
-		$value = $this->getTypeValue();
-		
-		echo "set the type <b>$value</b> for the field <b>$field</b> of the class <b>$class</b>";
-	}
 }
 
 class PatchChangeFieldMandatory extends ComposedPatchInstruction implements PatchCompleteInstruction {
@@ -806,14 +715,6 @@ class PatchChangeFieldMandatory extends ComposedPatchInstruction implements Patc
 	
 	public function getMandatoryValue() {
 		return $this->getInnerValue(2);
-	}
-	
-	public function execute(Database $db) {
-		$class = $this->getClass();
-		$field = $this->getField();
-		$value = $this->getMandatoryValue();
-		
-		echo "set the mandatory attribute to <b>$value</b> for the field <b>$field</b> of the class <b>$class</b>";
 	}
 }
 

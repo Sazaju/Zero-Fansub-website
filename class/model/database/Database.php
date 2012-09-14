@@ -241,28 +241,36 @@ class Database {
 	/********************************************\
 	                  STRUCTURE
 	\********************************************/
-	public function updateStructure(StructureDiff $diff, $authorId) {
+	public function applyPatch(Patch $patch) {
+		$authorId = $patch->getUser();
+		$time = $patch->getTime();
 		if (!$this->isRegisteredUser($authorId)) {
 			throw new Exception("There is no user ".$authorId);
 		} else {
-			$time = time();
 			$this->connection->beginTransaction();
-			foreach($diff->toArray() as $descriptor) {
-				$class = $descriptor->getClass();
-				
-				if ($descriptor instanceof AddFieldDiff) {
-					$fieldData = $descriptor->getNewValue();
-					$this->addField($time, $authorId, $class, $fieldData['field'], $fieldData['type'], $fieldData['mandatory']);
-				} else if ($descriptor instanceof RemoveFieldDiff) {
-					$fieldData = $descriptor->getOldValue();
-					$this->removeFieldAndArchiveRelatedValues($time, $authorId, $class, $fieldData['field'], $fieldData['type']);
-				} else if ($descriptor instanceof ChangeKeyDiff) {
-					$this->changeKey($time, $authorId, $class, $descriptor->getNewValue());
-				} else if ($descriptor instanceof ChangeTypeDiff) {
-					$this->changeTypeAndMoveRelatedValues($time, $authorId, $class, $descriptor->getField(), $descriptor->getNewValue());
+			foreach($patch->getInstructions() as $instruction) {
+				if ($instruction instanceof PatchAddField) {
+					$class = $instruction->getClass();
+					$field = $instruction->getField();
+					$type = $instruction->getType();
+					$mandatory = $instruction->getMandatoryAsBoolean();
+					$this->addField($time, $authorId, $class, $field, $type, $mandatory);
+				} else if ($instruction instanceof PatchRemoveField) {
+					$class = $instruction->getClass();
+					$field = $instruction->getField();
+					$this->removeFieldAndArchiveRelatedValues($time, $authorId, $class, $field);
+				} else if ($instruction instanceof PatchSetClassKey) {
+					$class = $instruction->getClass();
+					$fields = $instruction->getIDFields();
+					$this->changeKey($time, $authorId, $class, $fields);
+				} else if ($instruction instanceof PatchChangeFieldType) {
+					$class = $instruction->getClass();
+					$field = $instruction->getField();
+					$type = $instruction->getTypeValue();
+					$this->changeTypeAndMoveRelatedValues($time, $authorId, $class, $field, $type);
 				} else {
 					// TODO implement other cases
-					throw new Exception('Not implemented yet: '.$descriptor);
+					throw new Exception("Not implemented yet: ".get_class($instruction));
 				}
 			}
 			$this->connection->commit();
@@ -294,13 +302,16 @@ class Database {
 		}
 	}
 	
-	public function removeFieldAndArchiveRelatedValues($time, $authorId, $class, $fieldName, $type) {
+	public function removeFieldAndArchiveRelatedValues($time, $authorId, $class, $fieldName) {
+		$data = $this->getFieldsForClass($class);
+		$type = $data[$fieldName]['type'];
+		$this->archiveValues($time, $authorId, $type, $class, $fieldName);
+		
 		$source = '"working_structure" WHERE class = ? AND field = ?';
 		$copy = $this->connection->prepare('INSERT INTO "archive_structure" (class, field, type, mandatory, timeCreate, authorCreate, timeArchive, authorArchive) SELECT class, field, type, mandatory, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$authorId.'" as authorArchive FROM '.$source);
 		$clean = $this->connection->prepare('DELETE FROM '.$source);
 		$copy->execute(array($class, $fieldName));
 		$clean->execute(array($class, $fieldName));
-		$this->archiveValues($time, $authorId, $type, $class, $fieldName);
 	}
 	
 	public function changeKey($time, $authorId, $class, $newFields) {
