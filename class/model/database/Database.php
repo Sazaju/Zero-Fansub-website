@@ -304,7 +304,6 @@ class Database {
 	}
 	
 	public function changeKey($time, $authorId, $class, $newFields) {
-		// TODO do not remove field which do not change (add the order in the data)
 		$source = '"working_key" WHERE class = ?';
 		$copy = $this->connection->prepare('INSERT INTO "archive_key" (class, field, timeCreate, authorCreate, timeArchive, authorArchive) SELECT class, field, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$authorId.'" as authorArchive FROM '.$source);
 		$clean = $this->connection->prepare('DELETE FROM '.$source);
