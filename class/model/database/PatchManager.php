@@ -20,6 +20,39 @@ class Patch {
 	private $time = null;
 	private $instructions = array();
 	
+	public static function buildFromDiff(StructureDiff $diff, $user, $time = time) {
+		$patch = new Patch();
+		$patch->setUser($user);
+		$patch->setTime($time);
+		foreach($diff->toArray() as $row) {
+			$instruction = null;
+			if ($row instanceof AddFieldDiff) {
+				$instruction = new PatchAddField();
+				$data = $row->getNewValue();
+				$instruction->setValue("+".$row->getClass().'.'.$data['field']."(".$data['type'].",".($data['mandatory'] ? 'mandatory' : 'optional').")");
+			} else if ($row instanceof AddFieldDiff) {
+				$instruction = new PatchRemoveField();
+				$data = $row->getOldValue();
+				$instruction->setValue("-".$row->getClass().'.'.$data['field']);
+			} else if ($row instanceof RenameFieldDiff) {
+				throw new Exception("Not implemented yet");
+			} else if ($row instanceof ChangeKeyDiff) {
+				$instruction = new PatchSetClassKey();
+				$instruction->setValue($row->getClass().'='.'['.implode(', ', $row->getNewValue()).']');
+			} else if ($row instanceof ChangeTypeDiff) {
+				$instruction = new PatchChangeFieldType();
+				$instruction->setValue($this->getClass().'.'.$this->getField().'.type='.$this->getNewValue());
+			} else if ($row instanceof ChangeMandatoryDiff) {
+				$instruction = new PatchChangeFieldMandatory();
+				$instruction->setValue($row->getClass().'.'.$row->getField().'.mandatory='.$row->getNewValue());
+			} else {
+				throw new Exception(get_class($row)." is not a managed diff element");
+			}
+			$patch->addInstruction($instruction);
+		}
+		return $patch;
+	}
+	
 	public static function buildFromText($text) {
 		$prefix = "#^(";
 		$suffix = ")(?:\n.*)?$#s";
