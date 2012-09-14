@@ -17,7 +17,7 @@ class Patch {
 				$instruction = new PatchAddField();
 				$data = $row->getNewValue();
 				$instruction->setValue("+".$row->getClass().'.'.$data['field']."(".$data['type'].",".($data['mandatory'] ? 'mandatory' : 'optional').")");
-			} else if ($row instanceof AddFieldDiff) {
+			} else if ($row instanceof RemoveFieldDiff) {
 				$instruction = new PatchRemoveField();
 				$data = $row->getOldValue();
 				$instruction->setValue("-".$row->getClass().'.'.$data['field']);
@@ -28,7 +28,7 @@ class Patch {
 				$instruction->setValue($row->getClass().'='.'['.implode(', ', $row->getNewValue()).']');
 			} else if ($row instanceof ChangeTypeDiff) {
 				$instruction = new PatchChangeFieldType();
-				$instruction->setValue($this->getClass().'.'.$this->getField().'.type='.$this->getNewValue());
+				$instruction->setValue($row->getClass().'.'.$row->getField().'.type='.$row->getNewValue());
 			} else if ($row instanceof ChangeMandatoryDiff) {
 				$instruction = new PatchChangeFieldMandatory();
 				$instruction->setValue($row->getClass().'.'.$row->getField().'.mandatory='.$row->getNewValue());
