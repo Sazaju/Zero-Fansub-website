@@ -6,7 +6,8 @@ class Patch {
 	private $time = null;
 	private $instructions = array();
 	
-	public static function buildFromDiff(StructureDiff $diff, $user, $time = time) {
+	public static function buildFromDiff(StructureDiff $diff, $user, $time = -1) {
+		$time = $time === -1 ? time() : $time;// time() cannot be used as a default parameter
 		$patch = new Patch();
 		$patch->setUser($user);
 		$patch->setTime($time);
