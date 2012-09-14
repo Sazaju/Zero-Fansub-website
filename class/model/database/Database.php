@@ -328,8 +328,11 @@ class Database {
 			throw new Exception("The type for $class.$fieldName is already $newType");
 		} else {
 			// archive the current property
-			$copy = $this->connection->prepare('INSERT INTO "archive_structure" (field, type, mandatory, timeCreate, authorCreate, timeArchive, authorArchive) SELECT field, type, mandatory, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$author.'" as authorArchive FROM "working_structure" WHERE class = ? AND field = ?');
+			$source = '"working_structure" WHERE class = ? AND field = ?';
+			$copy = $this->connection->prepare('INSERT INTO "archive_structure" (class, field, type, mandatory, timeCreate, authorCreate, timeArchive, authorArchive) SELECT class, field, type, mandatory, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$authorId.'" as authorArchive FROM '.$source);
+			$clean = $this->connection->prepare('DELETE FROM '.$source);
 			$copy->execute(array($class, $fieldName));
+			$clean->execute(array($class, $fieldName));
 			
 			// create the updated property
 			$property['type'] = $newType;
