@@ -4,6 +4,7 @@
 	to display and some added data (image, author, date of writing, ...).
 */
 class News {
+	private $id = null;
 	private $title = null;
 	private $timestamp = null;
 	private $author = null;
@@ -19,9 +20,29 @@ class News {
 	private $isPartnerNews = null;
 	private $isDb0CompanyNews = null;
 	
+	private static function generateId() {
+		// /!\ This works only if the news are added always in the same order !
+		// The new ones must be placed at the end !
+		static $lastId = 0;
+		$lastId++;
+		return $lastId;
+	}
+	
 	public function __construct($title = null, $message = null) {
+		$this->id = News::generateId();
 		$this->setTitle($title);
 		$this->setMessage($message);
+	}
+	
+	public function getUrl() {
+		$url = Url::getCurrentDirUrl();
+		$url->setQueryVar('page', 'news2');
+		$url->setQueryVar('id', $this->getId());
+		return $url;
+	}
+	
+	public function getId() {
+		return $this->id;
 	}
 	
 	public function setDb0CompanyNews($boolean) {
@@ -146,7 +167,7 @@ class News {
 	}
 	
 	private static $allNews = null;
-	public static function getAllNews() {
+	public static function getAllNews(NewsSelector $selector = null) {
 		if (News::$allNews === null) {
 			$news = new News();
 			$news->setTitle("Mayoi Neko Spéciaux");
@@ -4212,9 +4233,148 @@ N.B. : l'expérience n'est pas exigée ^_^
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Pas mal de petits changements");
+			$news->setTimestamp(strtotime("25 June 2012 20:18"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Bon, ça fait longtemps qu'on n'a pas fait de news, donc j'en profite pour faire un petit topo sur ce qui a été  implémenté sur le site depuis la dernière news sur le sujet (datant du 6 Février). Je passerai sous silence ce qui attend au chaud sur les autres branches de développement (et qui n'est donc pas accessible ici) sinon je suis bon pour en écrire encore trois tonnes et perdre tout le monde {'^_^}. Les curieux sauront demander.
+
+Tout d'abord, ceux qui regardent correctement ont dû remarquer que les news ont des boutons pour les partager via Twitter et Facebook. Ces boutons ont été [b]renouvelés[/b] (on utilise les dernières versions) et le +1 de Google a été ajouté. De plus, auparavant, ces boutons étaient liés au site, donc cliquer sur l'un d'entre eux était suffisant, mais pas super intéressant. Maintenant, ils sont liés aux news elles-mêmes, donc vous pouvez toutes les cliquer. Autrement dit : lâchez-vous et [b]faites-nous de la pub ![/b] Parce qu'on manque (encore et toujours) cruellement de main d'œuvre {'^_^}.
+
+[img=images/news/follower.jpg]Oh ! On a des amis ![/img]
+
+C'est la mise à jour la plus importante que je voulais décrire, mais les curieux pourront dérouler ce spoiler pour voir la liste des améliorations.
+[spoiler=<Montrer la liste>]
+[left][list]
+[item]Les news de sorties listent (semi-automatiquement, c'est ça le plus important) les releases en fin de news.[/item]
+[item]Les releases ont désormais la source indiquée (DVD, BD, ...).[/item]
+[item]Intégration de la page de recrutement du forum sur le site (accessible depuis le lien en question dans le menu de gauche).[/item]
+[item]Mise à jour de la radio.[/item]
+[item]Les publicités qui s'affichaient sur certaines pages ont été retirées.[/item]
+[item]Des pages obsolètes ont été retirées.[/item]
+[item]Les liens MU (obsolètes) ont été retirés.[/item]
+[item]Un style plus [i]propre[/i] (autant niveau codage que rendu), même si ce sont des modifications minimes.[/item]
+[item]Quelques optimisations sur l'affichage ont également été faites.[/item]
+[item]Certains liens morts ont été corrigés dans nos releases.[/item]
+[item]Les liens vers les discussions en bas de projets ont été corrigés.[/item]
+[item]La page de bug a une meilleure couverture (certains types d'erreurs n'étaient pas pris en compte avant).[/item]
+[item]Plusieurs modifications pour avoir un code XHTML plus valide (mais on n'est pas encore nickel {'^_^}).[/item]
+[item]Encodage UTF-8 pour tout le site (au lieu de ISO-8859-15 pour ceux que ça intéresse).[/item]
+[item]Quelques tests automatisés ont été implémentés (c'est pas grand chose, mais c'est un premier pas qui ne sera pas le dernier).[/item]
+[item]Multiples corrections de bugs et autres ...[/item]
+[/list][/left]
+[/spoiler]
+
+Ceux qui voudront encore plus de détails se référeront au dépôt GitHub {^_^}.
+
+Enfin, merci de signaler tout bug sur lequel vous tombez pour nous aider à améliorer le site.");
+			$news->setCommentId(302);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement timeurs !");
+			$news->setTimestamp(strtotime("12 August 2012 20:44"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez, vous avez l'habitude, alors on continue : une p'tite news de recrutement ! {^_^}
+
+[imgl=images/news/recrutementTimeurs.png]Alors ? Ça vous tente ?[/imgl]Ce coup-ci, on cherche (encore et toujours) des timeurs. Pas besoin d'expérience, c'est pas compliqué. C'est juste long à faire, donc il nous faut du monde.
+
+Donc si vous vous ennuyez pendant vos vacances, et que vous n'avez toujours rien à raconter pour la rentrée, c'est le moment d'en profiter ! Vous pourrez vous vanter de participer à la création de ces vidéos que vos amis téléchargent comme des cochons sur le net. Et le fin du fin, de le faire dans une team qui fait de la QUA-LI-TÉ ! {*o*}
+
+A~h, ce doux sentiment de supériorité...
+
+Pour ceux qui n'ont plus l'âge de se vanter à la récrée, un break ne vous ferait pas de mal. Ça tombe bien : avec nos séries rafraîchissantes, dépaysement garanti ! Et si, comme certains, vous en avez marre des supérieurs qui ne vous laissent pas le temps de travailler correctement, tout ça pour faire plaisir à des gens qui n'en ont rien à faire... Vous êtes les bienvenus ! Chez Zéro, on sait ce que ça veut dire de prendre le temps de bien faire. Et on aime ça ! {^_°}
+
+Donc, pour ceux qui se rendent compte de ce qu'ils ratent, direction
+[url=?page=recruit]la page de recrutement[/url] !");
+			$news->setCommentId(303);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement karamakeur !");
+			$news->setTimestamp(strtotime("10 September 2012 20:34"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Oyez, oyez ! Braves gens !
+
+La team Zéro ouvre ses portes aux plus avenants d'entre vous qui voudraient rejoindre nos rangs !
+
+En effet, un de nos éditeurs vient de nous quitter.
+Mal lui en a pris de favoriser la vie IRL : il s'est retrouvé à ne plus avoir assez de temps pour s'amuser chez nous. {;o;}/
+
+Mais ainsi soit-il !
+Mes braves gens, votre heure de gloire est venue !
+
+Nous cherchons donc un karamakeur (ou éditeur) qui serait tenté par l'aventure Zéro Fansub. Que tous les manants intéressés, fussent-ils expérimentés ou simple amateurs, se présentent [url=?page=recruit]à nos portes[/url] !
+
+Mais attention : premier arrivé, premier servi {^_^}.
+(bien qu'il devrait y avoir de la place pour tout le monde)
+
+[img=images/news/party.png]Attention, ça va pexer ![/img]");
+			$news->setCommentId(304);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$ids = array();
+			foreach(News::$allNews as $news) {
+				$id = $news->getId();
+				if (in_array($id, $ids)) {
+					throw new Exception("$id is used more than once");
+				} else {
+					$ids[] = $id;
+				}
+			}
+			
+			// check no null property
+			array_map(function(News $news) {
+				$properties = array();
+				$properties['isReleasing'] = $news->isReleasing();
+				$properties['isTeamNews'] = $news->isTeamNews();
+				$properties['isPartnerNews'] = $news->isPartnerNews();
+				$properties['isDb0CompanyNews'] = $news->isDb0CompanyNews();
+				try {
+					array_map(function($name, $property) {
+						if ($property === null) {
+							throw new Exception($name);
+						}
+					}, array_keys($properties), $properties);
+				} catch(Exception $e) {
+					$property = $e->getMessage();
+					throw new Exception($property."() is null for the news '".$news->getTitle()."'");
+				}
+			}, News::$allNews);
 		}
 		
-		return News::$allNews;
+		if ($selector != null) {
+			return array_filter(News::$allNews, $selector->getCallback());
+		} else {
+			return News::$allNews;
+		}
+	}
+	
+	public static function getNews($id) {
+		foreach(News::getAllNews() as $news) {
+			if ($news->getId() == $id) {
+				return $news;
+			} else {
+				continue;
+			}
+		}
+		throw new Exception("$id is not a valid news ID");
 	}
 	
 	public static function timestampSorter(News $a, News $b) {

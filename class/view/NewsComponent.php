@@ -9,7 +9,8 @@ class NewsComponent extends SimpleBlockComponent {
 		
 		$title = new Title($news->getTitle(), 2);
 		$title->setClass("title");
-		$this->addComponent($title);
+		$newsUrl = $news->getUrl();
+		$this->addComponent(new Link($newsUrl, $title));
 		
 		$subtitle = new Title(null, 4);
 		$subtitle->setClass("subtitle");
@@ -80,18 +81,35 @@ class NewsComponent extends SimpleBlockComponent {
 			$this->addComponent($commentAccess);
 		}
 		
-		$this->addComponent("~ ");
 		$twitterTitle = $news->getTwitterTitle();
 		if ($twitterTitle == null) {
 			$twitterTitle = "[Zero] ".$news->getTitle();
 		}
-		$twitterUrl = Link::newWindowLink("http://twitter.com/home?status=".$twitterTitle, "Partager sur <img src='images/autre/logo_twitter.png' border='0' alt='twitter' />");
-		$twitterUrl->setOnClick("javascript:pageTracker._trackPageview ('/outbound/twitter.com');");
-		$this->addComponent($twitterUrl);
-		$this->addComponent(" ou ");
-		$this->addComponent("<a name='fb_share' type='button' share_url='http://zerofansub.net'></a>");
-		$this->addComponent("<script src='http://static.ak.fbcdn.net/connect.php/js/FB.Share' type='text/javascript'></script>");
-		$this->addComponent(" ~");
+		$twitterPart = new SimpleTextComponent();
+		$twitterPart->setClass("twitter");
+		$twitterButton = '<a href="https://twitter.com/share" class="twitter-share-button" data-url="'.$newsUrl->toFullString().'" data-text="'.$twitterTitle.'" data-via="zero_fansub" data-lang="fr">Tweeter</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
+		$twitterPart->addComponent($twitterButton);
+		$this->addComponent($twitterPart);
+		
+		$googlePart = new SimpleTextComponent();
+		$googlePart->setClass("google");
+		$googleButton = '<div class="g-plusone" data-href="'.$newsUrl->toFullString().'" data-size="medium"></div>';
+		$googlePart->addComponent($googleButton);
+		$this->addComponent($googlePart);
+		$this->setMetaData('itemscope');
+		$this->setMetaData('itemtype', 'http://schema.org/Product');
+		$title->setMetaData('itemprop', 'name');
+		$message->setMetaData('itemprop', 'description');
+		$c = $message->getComponent(0);
+		$c = preg_replace('#<img #', '<img itemprop="image"', $c);
+		$message->setComponent(0, $c);
+		
+		$facebookPart = new SimpleTextComponent();
+		$facebookPart->setClass("facebook");
+		$facebookButton = '<div class="fb-like" data-href="'.$newsUrl->toFullString().'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true"></div>';
+		$facebookPart->addComponent($facebookButton);
+		$this->addComponent($facebookPart);
 	}
 }
 ?>

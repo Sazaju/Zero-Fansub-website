@@ -6,6 +6,7 @@
 [left]
 [title=2|number]Prendre connaissance des engagements[/title]
 
+    * Avoir plus de 16 ans
     * Avoir lu les [url=http://forum.zerofansub.net/t552-Les-regles-d-Or-de-chez-Zero.htm]règles d'Or[/url]
     * Te tenir aux engagements que tu auras précisés dans ta candidature
     * Ne pas mentir ou gonfler tes exploits dans ta candidature

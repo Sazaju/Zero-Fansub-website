@@ -1,92 +1,41 @@
 <?php
-	/******************************\
-	     CHECK NO NULL PROPERTY
-	\******************************/
-	$newsList = News::getAllNews();
-	array_map(function(News $news) {
-		$properties = array();
-		$properties['isReleasing'] = $news->isReleasing();
-		$properties['isTeamNews'] = $news->isTeamNews();
-		$properties['isPartnerNews'] = $news->isPartnerNews();
-		$properties['isDb0CompanyNews'] = $news->isDb0CompanyNews();
-		try {
-			array_map(function($name, $property) {
-				if ($property === null) {
-					throw new Exception($name);
-				}
-			}, array_keys($properties), $properties);
-		} catch(Exception $e) {
-			$property = $e->getMessage();
-			throw new Exception($property."() is null for the news ".$news->getTitle());
-		}
-	}, $newsList);
+	$url = Url::getCurrentUrl();
+	new NewsSelector();//force class loading
 	
 	/******************************\
-	       FILTER NEWS : VIEWS
+	          LOAD NEWS
 	\******************************/
-	$view = 'all';
-	if (Url::getCurrentUrl()->hasQueryVar('view')) {
-		$view = Url::getCurrentUrl()->getQueryVar('view');
-	}
-	
-	if ($view === 'all') {
-		// keep all news
-	} else if ($view === 'releases') {
-		$newsList = array_filter($newsList, function(News $news) {return $news->isReleasing();});
-	} else if ($view === 'team') {
-		$newsList = array_filter($newsList, function(News $news) {return $news->isTeamNews();});
-	} else if ($view === 'partners') {
-		$newsList = array_filter($newsList, function(News $news) {return $news->isPartnerNews();});
-	} else if ($view === 'db0company') {
-		$newsList = array_filter($newsList, function(News $news) {return $news->isDb0CompanyNews();});
-	} else if ($view === 'unclassable') {
-		$newsList = array_filter($newsList, function(News $news) {return !$news->isReleasing();});
-		$newsList = array_filter($newsList, function(News $news) {return !$news->isTeamNews();});
-		$newsList = array_filter($newsList, function(News $news) {return !$news->isPartnerNews();});
-		$newsList = array_filter($newsList, function(News $news) {return !$news->isDb0CompanyNews();});
-	} else {
-		throw new Exception($view." is not managed");
-	}
-	
-	/******************************\
-	       FILTER NEWS : H MODE
-	\******************************/
-	$newsList = array_filter($newsList, function(News $news) {
-		// TODO 'showPrepared' only for authorized people
-		if ($news->getTimestamp() !== null && $news->getTimestamp() <= time() || Url::getCurrentUrl()->hasQueryVar('showPrepared')) {
-			$hMode = $_SESSION[MODE_H];
-			return !$hMode && $news->displayInNormalMode() || $hMode && $news->displayInHentaiMode();
-		} else {
-			return false;
-		}
-	});
-	
-	/******************************\
-	         FINALIZE LIST
-	\******************************/
+	$selected = $url->hasQueryVar('select') ? $url->getQueryVar('select') : NEWSSELECTOR_ALL;
+	$selector = new NewsSelector($selected, $_SESSION[MODE_H], $url->hasQueryVar('showPrepared'));
+	$newsList = News::getAllNews($selector);
 	usort($newsList, array('News', 'timestampSorter'));
 	
 	/******************************\
 	       BUILD VIEWS ACCESS
 	\******************************/
 	$viewMap = array(
-		'all' => "Dernières news",
-		'releases' => "Sorties",
-		'team' => "Infos team",
-		'partners' => "Partenaires",
-		'db0company' => "db0 company",
-		'unclassable' => "Bonus",
+		NEWSSELECTOR_ALL => "Dernières news",
+		NEWSSELECTOR_RELEASES => "Sorties",
+		NEWSSELECTOR_TEAM => "Infos team",
+		NEWSSELECTOR_PARTNERS => "Partenaires",
+		NEWSSELECTOR_DB0COMPANY => "db0 company",
+		NEWSSELECTOR_MISC => "Bonus",
 	);
-	$url = Url::getCurrentUrl();
 	$viewsLinks = new SimpleBlockComponent();
 	foreach($viewMap as $id => $name) {
-		$url->setQueryVar('view', $id);
+		$url->setQueryVar('select', empty($id) ? null : $id, true);
 		$viewsLinks->addComponent(new Link(new Url($url), $name));
 	}
 	
 	$views = new SimpleBlockComponent();
 	$views->setClass("views");
-	$views->addComponent(new Title("Vues", 2));
+	$rssUrl = new Url('rss.php');
+	$rssUrl->setQueryVar('select', empty($selected) ? null : $selected, true);
+	$rssUrl->setQueryVar('h', null, !$_SESSION[MODE_H]);
+	$title = new Title(null, 2);
+	$title->addComponent(new RssLink($rssUrl));
+	$title->addComponent("Vues");
+	$views->addComponent($title);
 	$views->addComponent($viewsLinks);
 	
 	/******************************\

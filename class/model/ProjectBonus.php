@@ -16,4 +16,4 @@ class ProjectBonus {
 		return $this->content;
 	}
 }
-?> 
+?>

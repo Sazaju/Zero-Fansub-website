@@ -845,31 +845,30 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->addBonus(new ProjectBonus("La Saison 1", '<div style="float : right; display:block; margin-right: 20px;">
 	<img src="images/autre/genshikendvd.jpg" border="0" width="100"/><img src="http://www.discountmanga.fr/images/927754.pid.jpg" border="0" width="100"/>
 </div>
-<p>
 <b>Résumé</b> La rentrée des classes a enfin lieu et Sasahara, jeune étudiant timide, se décide à intégrer une association. Le choix se révèle particulièrement ardu pour notre héros et finalement, celui-ci va rejoindre le Genshiken (Gendai Shikaku Bunka Kenkyuu Kai), un club où se retrouve de jeunes otakus. Sasahara, qui ne peut encore admettre quil en est un, va peu à peu découvrir le monde si particulier des otakus et trouver sa véritable place parmi ces jeunes passionnés de mangas et de jeux vidéos<br />
 La saison 1 de Genshiken est licenciée en France par <a href="http://www.kaze.fr/" target="_blank">Kaze</a>.<br />
 <b>Commander la saison 1 en dvd !</b><br />
-
-<img src="images/icones/puce.png"/> <a href="http://www.discountmanga.fr/DVD+Anime/Genshiken+Integrale+Collector,p936135.html" target="_blank">Genshiken - Intégrale collector (Coffret Collector 4 DVD) <b>48.99</b></a><br />
-
-<img src="images/icones/puce.png"/> <a href="http://www.discountmanga.fr/DVD+Anime/Genshiken+Coffret+VOVF+1+2,p927498.html" target="_blank">Genshiken VF Box.1 (Coffret Pack 2 DVD) épisodes 1 à 6 + 2 OAV Kujibiki Unbalance <b>41.99</b></a><br />
-
-<img src="images/icones/puce.png"/> <a href="http://www.discountmanga.fr/DVD+Anime/Genshiken+Coffret+VOVF+2+2,p927754.html" target="_blank">Genshiken VF Box.2 (Coffret Pack 2 DVD) épisodes 7 à 12 + 1 OAV Kujibiki Unbalance <b>41.99</b></a><br />
-</p>'));
+<ul>
+<li><a href="http://www.discountmanga.fr/DVD+Anime/Genshiken+Integrale+Collector,p936135.html" target="_blank">Genshiken - Intégrale collector (Coffret Collector 4 DVD) <b>48.99</b></a></li>
+<li><a href="http://www.discountmanga.fr/DVD+Anime/Genshiken+Coffret+VOVF+1+2,p927498.html" target="_blank">Genshiken VF Box.1 (Coffret Pack 2 DVD) épisodes 1 à 6 + 2 OAV Kujibiki Unbalance <b>41.99</b></a></li>
+<li><a href="http://www.discountmanga.fr/DVD+Anime/Genshiken+Coffret+VOVF+2+2,p927754.html" target="_blank">Genshiken VF Box.2 (Coffret Pack 2 DVD) épisodes 7 à 12 + 1 OAV Kujibiki Unbalance <b>41.99</b></a></li>
+</ul>
+'));
 			$project->addBonus(new ProjectBonus("Le manga", '<div style="float : right; display:block; margin-right: 20px;">
 	<img src="images/autre/genshikenmanga.jpg" border="0"/>
 </div>
-<p>
 <b>Résumé</b> Kanji Sasahara rentre en première année à l\'université S. Grand fan de mangas et d\'animes, il recherche un club étudiant où il pourrait partager cette passion. Un seul semble lui convenir : le « club d\'étude de la culture visuelle moderne » aussi appelé Genshiken. Malgré sa timidité maladive, il tente d\'en apprendre plus sur les activités proposées par ce club. Il va à la rencontre des adhérents, d\'authentiques otakus, qui le piègent et lui font passer un test avant de l\'accueillir officiellement. Le jeune homme va alors découvrir un univers où prône la connaissance des mangas et des jeux vidéo, un véritable parcours initiatique à travers la sous-culture contemporaine nippone.<br />
 <b>Commander les mangas !</b><br />
-<img src="images/icones/puce.png"/> <a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p927469.html" target="_blank">Tome 1 <b>6.55</b></a><br />
-<img src="images/icones/puce.png"/> <a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p927470.html" target="_blank">Tome 2 <b>6.55</b></a><br />
-<img src="images/icones/puce.png"/> <a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p927471.html" target="_blank">Tome 3 <b>6.55</b></a><br />
-<img src="images/icones/puce.png"/> <a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p930295.html" target="_blank">Tome 4 <b>6.55</b></a><br />
-<img src="images/icones/puce.png"/> <a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p933386.html" target="_blank">Tome 5 <b>6.55</b></a><br />
-<img src="images/icones/puce.png"/> <a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p937336.html" target="_blank">Tome 6 <b>6.55</b></a><br />
-<img src="images/icones/puce.png"/> <a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p939954.html" target="_blank">Tome 7 <b>6.55</b></a><br />
-</p>'));
+<ul>
+<li><a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p927469.html" target="_blank">Tome 1 <b>6.55</b></a></li>
+<li><a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p927470.html" target="_blank">Tome 2 <b>6.55</b></a></li>
+<li><a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p927471.html" target="_blank">Tome 3 <b>6.55</b></a></li>
+<li><a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p930295.html" target="_blank">Tome 4 <b>6.55</b></a></li>
+<li><a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p933386.html" target="_blank">Tome 5 <b>6.55</b></a></li>
+<li><a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p937336.html" target="_blank">Tome 6 <b>6.55</b></a></li>
+<li><a href="http://www.discountmanga.fr/Mangas+VF/Genshiken,p939954.html" target="_blank">Tome 7 <b>6.55</b></a></li>
+</ul>
+'));
 			$project->addBonus(new ProjectBonus("Divers", '<div class="p" style="text-align:left;">Pack de Bonus comprenant :<br />
 <ul>
 <li>Diverses images,</li>

@@ -442,7 +442,7 @@ class Format {
 							$content = null;
 						}
 						if (empty($parameter)) {
-							$parameter = $default;
+							throw new Exception("No image given");
 						}
 
 						if ($tag === 'img') {
@@ -777,9 +777,8 @@ class Format {
 					throw new Exception("The height of the video is not well defined");
 				}
 				return $result;
-			}
-
-;
+			};
+			
 			$videoOpenTag = function($tag, $parameter, $content) {
 						$parameter = parseVideoParameter($parameter);
 						$width = $parameter['width'];

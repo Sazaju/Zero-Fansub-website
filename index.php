@@ -10,25 +10,48 @@ require_once("baseImport.php");
          RETRO COMPATIBILITY
 \**********************************/
 $url = Url::getCurrentUrl();
-if ($url->hasQueryVar('page')) {
+if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
+		if ($url->hasQueryVar('view')) {
+		$view = $url->getQueryVar('view');
+		$url->removeQueryVar('view');
+		
+		$select = '';
+		switch($view) {
+			case 'all': $selected = '';break;
+			case 'releases': $selected = 'r';break;
+			case 'team': $selected = 't';break;
+			case 'partners': $selected = 'p';break;
+			case 'db0company': $selected = 'c';break;
+			case 'unclassable': $selected = 'm';break;
+			default: $selected = '';// all by default
+		}
+		
+		$url->setQueryVar('select', $selected);
+		header("HTTP/1.1 301 Moved Permanently", false, 301);
+		header('Location: '.$url->toString());
+		exit();
+	} else {
+		// no retro-compatibility action is needed
+	}
+} else if ($url->hasQueryVar('page')) {
 	$page = $url->getQueryVar('page');
 	if (preg_match("#^series/#", $page)) {
 		$url->setQueryVar('page', 'project');
 		$parts = preg_split("#/#", $page);
 		$url->setQueryVar('id', $parts[1]);
-		// TODO indicates it is definitively relocated
+		header("HTTP/1.1 301 Moved Permanently", false, 301);
 		header('Location: '.$url->toString());
 		exit();
 	} else if (preg_match("#^dossier/#", $page)) {
 		$url->setQueryVar('page', 'dossier');
 		$parts = preg_split("#/#", $page);
 		$url->setQueryVar('id', $parts[1]);
-		// TODO indicates it is definitively relocated
+		header("HTTP/1.1 301 Moved Permanently", false, 301);
 		header('Location: '.$url->toString());
 		exit();
 	} else if ($page == 'home') {
 		$url->setQueryVar('page', 'news');
-		// TODO indicates it is definitively relocated
+		header("HTTP/1.1 301 Moved Permanently", false, 301);
 		header('Location: '.$url->toString());
 		exit();
 	} else {
@@ -50,8 +73,8 @@ if ($url->hasQueryVar('page')) {
 			$styleFile = "styles/".$_SESSION[STYLE]."/style".($_SESSION[MODE_H] ? "H" : "").".css";
 		?>
 		<link rel="stylesheet" href="<?php echo $styleFile; ?>" type="text/css" media="screen" title="Normal" />  
-		<link rel="icon" type="image/gif" href="fav.gif" />
-		<link rel="shortcut icon" href="fav.ico" />
+		<link rel="icon" type="image/gif" href="favicon.gif" />
+		<link rel="shortcut icon" href="favicon.ico" />
 		<script type="text/javascript">
 			function show(nom_champ) {
 				if(document.getElementById) {
@@ -67,6 +90,29 @@ if ($url->hasQueryVar('page')) {
 		</script>
 	</head>
 	<body>
+		<!--FACEBOOK-->
+		<div id="fb-root"></div>
+		<script>
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<!--/FACEBOOK-->
+		<!--GOOGLE-->
+		<script type="text/javascript">
+			window.___gcfg = {lang: 'fr'};
+			
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+		<!--/GOOGLE-->
 		<?php
 			$preload = new SimpleBlockComponent();
 			$preload->setID("preload");
