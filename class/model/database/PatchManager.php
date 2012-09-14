@@ -20,11 +20,12 @@ class Patch {
 	private $time = null;
 	private $instructions = array();
 	
-	public function __construct($patch) {
+	public static function buildFromText($text) {
 		$prefix = "#^(";
 		$suffix = ")(?:\n.*)?$#s";
-		while(!empty($patch)) {
-			$patch = trim($patch);
+		$patch = new Patch();
+		while(!empty($text)) {
+			$text = trim($text);
 			$rootInstructions = array(
 				new PatchComment(),
 				new PatchAttributes(),
@@ -41,28 +42,38 @@ class Patch {
 			$matches = array();
 			do {
 				$instruction = array_shift($rootInstructions);
-			} while($instruction != null && !preg_match($prefix.$instruction->getFormattedRegex('#').$suffix, $patch, $matches));
+			} while($instruction != null && !preg_match($prefix.$instruction->getFormattedRegex('#').$suffix, $text, $matches));
 			
 			if ($instruction != null) {
 				$extract = $matches[1];
 				$instruction->setValue($extract);
-				$instruction->execute(Database::getDefaultDatabase());
 				if ($instruction instanceof PatchAttributes) {
-					$this->user = $instruction->getUser();
-					$this->time = (int) $instruction->getTime();
+					$patch->setUser($instruction->getUser());
+					$patch->setTime((int) $instruction->getTime());
 				} else if ($instruction instanceof PatchComment) {
 					// just ignore it
 				} else {
-					$this->instructions[] = $instruction;
+					$patch->addInstruction($instruction);
 				}
-				$patch = substr($patch, strlen($extract));
-				echo '<br/><pre>'.($instruction->getValue()).'</pre><br/><br/>';
-				continue;
+				$text = substr($text, strlen($extract));
 			} else {
-				throw new Exception("The given patch cannot be parsed from there: $patch");
+				throw new Exception("The given patch cannot be parsed from there: $text");
 			}
 			$this->progressiveCheck();
 		}
+		return $patch;
+	}
+	
+	private function addInstruction($instruction) {
+		$this->instructions[] = $instruction;
+	}
+	
+	private function setUser($user) {
+		$this->user = $user;
+	}
+	
+	private function setTime($time) {
+		$this->time = $time;
 	}
 	
 	public function getInstructions() {
