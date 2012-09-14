@@ -623,6 +623,10 @@ class PatchAddField extends ComposedPatchInstruction implements PatchCompleteIns
 	public function getMandatory() {
 		return $this->getInnerValue(5);
 	}
+	
+	public function getMandatoryAsBoolean() {
+		return $this->getMandatory() == 'mandatory' ? true : false;
+	}
 }
 
 class PatchRemoveField extends ComposedPatchInstruction implements PatchCompleteInstruction {
