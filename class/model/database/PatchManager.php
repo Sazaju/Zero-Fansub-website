@@ -139,6 +139,13 @@ class Patch {
 		return $string;
 	}
 	
+	public function executeOn(Database $db) {//Database::getDefaultDatabase()
+		foreach($patch->getInstructions() as $instruction) {
+			$instruction->execute($db);
+			echo '<br/><pre>'.($instruction->getValue()).'</pre><br/><br/>';
+		}
+	}
+	
 	private function progressiveCheck() {
 		static $initialized = false;
 		if (!$initialized) {
