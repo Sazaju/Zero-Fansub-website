@@ -1,20 +1,6 @@
 <?php
 define('PATCH_ID_JOKER', '*');
 
-class PatchManager {
-	public static function buildPatch(StructureDiff $diff, $user, $time = time) {
-		
-	}
-	
-	public static function executePatch(Database $db, Patch $patch) {
-		// TODO
-	}
-}
-
-/*************************************\
-              PATCH BASE
-\*************************************/
-
 class Patch {
 	private $user = null;
 	private $time = null;
