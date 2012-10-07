@@ -64,7 +64,7 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 	<head>
 		<title>Zéro ~fansub~ :: Le Site Officiel <?php echo WEBSITE_VERSION?></title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Language" content="fr" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
