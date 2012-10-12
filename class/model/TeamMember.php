@@ -16,9 +16,17 @@ class TeamMember {
 	private $hasGone = false;
 	private $ponctualMember = false;
 	
-	public function __construct($id = null) {
+	private static function generateId() {
+		// /!\ This works only if the members are added always in the same order !
+		// The new ones must be placed at the end !
+		static $lastId = 0;
+		$lastId++;
+		return $lastId;
+	}
+	
+	public function __construct() {
 		$this->image = new Image();
-		$this->setID($id);
+		$this->setID(TeamMember::generateId());
 	}
 	
 	public function setIsAdmin($boolean) {
@@ -144,7 +152,7 @@ class TeamMember {
 		if (TeamMember::$allMembers === null) {
 			TeamMember::$allMembers = array();
 			
-			$member = new TeamMember(1);
+			$member = new TeamMember();
 			$member->setPseudo("db0");
 			$member->setIsAdmin(true);
 			$member->addRole(Role::getRole("admin"));
@@ -155,27 +163,27 @@ class TeamMember {
 			$member->setWebsite("http://db0.fr/", "db0.fr");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(2);
+			$member = new TeamMember();
 			$member->setPseudo("Jembé");
 			$member->setImage("jembe.png");
 			$member->addRole(Role::getRole("adapt"));
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(3);
+			$member = new TeamMember();
 			$member->setPseudo("Ryuuken");
 			$member->setImage("ryuuken.jpeg");
 			$member->addRole(Role::getRole("adapt"));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(4);
+			$member = new TeamMember();
 			$member->setPseudo("Nyaan~");
 			$member->setImage("nyaan.png");
 			$member->addRole(Role::getRole("time"));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(5);
+			$member = new TeamMember();
 			$member->setPseudo("Sazaju HITOKAGE");
 			$member->addRole(Role::getRole("tradJp"));
 			$member->addRole(Role::getRole("adapt"));
@@ -187,7 +195,7 @@ class TeamMember {
 			$member->setMail("sazaju@gmail.com");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(6);
+			$member = new TeamMember();
 			$member->setPseudo("lepims");
 			$member->addRole(Role::getRole("encod"));
 			$member->setFirstName("Lepims");
@@ -196,7 +204,7 @@ class TeamMember {
 			$member->setLocation("Clermont-Ferrand");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(7);
+			$member = new TeamMember();
 			$member->setPseudo("DC");
 			$member->setImage("dc.jpg");
 			$member->addRole(Role::getRole("encod"));
@@ -205,7 +213,7 @@ class TeamMember {
 			$member->setLocation("Lyon");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(8);
+			$member = new TeamMember();
 			$member->setPseudo("praia");
 			$member->setImage("praia.jpg");
 			$member->addRole(Role::getRole("verifFinale"));
@@ -218,7 +226,7 @@ class TeamMember {
 			$member->setMail("raiapietro_dam22@hotmail.com");
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(9);
+			$member = new TeamMember();
 			$member->setPseudo("Personne");
 			$member->setImage("personne.jpg");
 			$member->addRole(Role::getRole("edit"));
@@ -227,13 +235,13 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(10);
+			$member = new TeamMember();
 			$member->setPseudo("Nyaa-Gentle");
 			$member->setImage("nyaa-gentle.jpeg");
 			$member->addRole(Role::getRole("time"));
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(11);
+			$member = new TeamMember();
 			$member->setPseudo("ZackDeMars");
 			$member->setImage("zack.jpg");
 			$member->addRole(Role::getRole("tradEn"));
@@ -243,28 +251,28 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(12);
+			$member = new TeamMember();
 			$member->setPseudo("Shana-chan");
 			$member->setImage("shana.png");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setFirstName("Guillaume");
 			TeamMember::$allMembers[] = $member;
 
-			$member = new TeamMember(13);
+			$member = new TeamMember();
 			$member->setPseudo("Onee-chan");
 			$member->setImage("onee-chan.jpg");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 
-			$member = new TeamMember(14);
+			$member = new TeamMember();
 			$member->setPseudo("Litinae");
 			$member->setImage("litinae.jpg");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setHasGone(false);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(15);
+			$member = new TeamMember();
 			$member->setPseudo("Merry-Aime");
 			$member->setImage("merry.gif");
 			$member->addRole(Role::getRole("tradEn"));
@@ -276,7 +284,7 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(16);
+			$member = new TeamMember();
 			$member->setPseudo("Adeo");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->addRole(Role::getRole("check"));
@@ -284,20 +292,20 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(17);
+			$member = new TeamMember();
 			$member->setPseudo("Nixy'Z");
 			$member->setFirstName("Maxime");
 			$member->addRole(Role::getRole("qc"));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(18);
+			$member = new TeamMember();
 			$member->setPseudo("Bk");
 			$member->addRole(Role::getRole("encod"));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(19);
+			$member = new TeamMember();
 			$member->setPseudo("Klick");
 			$member->setFirstName("Christophe");
 			$member->setLocation("Lilles");
@@ -306,25 +314,25 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(20);
+			$member = new TeamMember();
 			$member->setPseudo("Galaf");
 			$member->addRole(Role::getRole("kara"));
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(21);
+			$member = new TeamMember();
 			$member->setPseudo("FinalFan");
 			$member->addRole(Role::getRole("time"));
 			$member->setPonctualMember(true); // team FinalFanSub
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(22);
+			$member = new TeamMember();
 			$member->setPseudo("Sky_Lekas");
 			$member->addRole(Role::getRole("encod"));
 			$member->setPonctualMember(true); // team FinalFanSub
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(23);
+			$member = new TeamMember();
 			$member->setPseudo("Bkdenice");
 			$member->setFirstName("Bruno");
 			$member->setLocation("Nice");
@@ -333,26 +341,26 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(24);
+			$member = new TeamMember();
 			$member->setPseudo("Kurosaki");
 			$member->addRole(Role::getRole('tradEn'));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(25);
+			$member = new TeamMember();
 			$member->setPseudo("Kaj");
 			$member->setFirstName("Jack");
 			$member->addRole(Role::getRole('qc'));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(26);
+			$member = new TeamMember();
 			$member->setPseudo("Baka !");
 			$member->addRole(Role::getRole('help'));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(27);
+			$member = new TeamMember();
 			$member->setPseudo("Vegeta");
 			$member->setImage("vegeta.jpg");
 			$member->addRole(Role::getRole('check'));
@@ -360,7 +368,7 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(28);
+			$member = new TeamMember();
 			$member->setPseudo("Zorro25");
 			$member->setFirstName("Alexandre");
 			$member->setLocation("Paris");
@@ -369,19 +377,19 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(30);
+			$member = new TeamMember();
 			$member->setPseudo("Ryocu");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(30);
+			$member = new TeamMember();
 			$member->setPseudo("Thrax");
 			$member->addRole(Role::getRole('tradEn'));
 			$member->addRole(Role::getRole('kara'));
 			$member->setPonctualMember(true); // autre team
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(31);
+			$member = new TeamMember();
 			$member->setPseudo("Man-ban");
 			$member->setImage("manban.jpg");
 			$member->setFirstName("Manu");
@@ -394,7 +402,7 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(32);
+			$member = new TeamMember();
 			$member->setPseudo("Thibou");
 			$member->setImage("thibou.jpg");
 			$member->addRole(Role::getRole('check'));
@@ -403,7 +411,7 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(33);
+			$member = new TeamMember();
 			$member->setPseudo("Ryuku");
 			$member->setFirstName("Jordan");
 			$member->setLocation("Nice");
@@ -412,7 +420,7 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(34);
+			$member = new TeamMember();
 			$member->setPseudo("Ed3");
 			$member->setImage("ed3.jpg");
 			$member->setFirstName("Edouard");
@@ -421,17 +429,17 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(35);
+			$member = new TeamMember();
 			$member->setPseudo("Jet9009");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(36);
+			$member = new TeamMember();
 			$member->setPseudo("Shibo");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(37);
+			$member = new TeamMember();
 			$member->setPseudo("Suke");
 			$member->setFirstName("Marvin");
 			$member->setLocation("Paris");
@@ -440,19 +448,19 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(38);
+			$member = new TeamMember();
 			$member->setPseudo("B3rning");
 			$member->addRole(Role::getRole('encod'));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(39);
+			$member = new TeamMember();
 			$member->setPseudo("Khorx");
 			$member->addRole(Role::getRole('time'));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(40);
+			$member = new TeamMember();
 			$member->setPseudo("Pyra");
 			$member->addRole(Role::getRole('qc'));
 			$member->addRole(Role::getRole('adapt'));
@@ -460,24 +468,24 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(41);
+			$member = new TeamMember();
 			$member->setPseudo("Akai_Ritsu");
 			$member->addRole(Role::getRole('kara'));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(42);
+			$member = new TeamMember();
 			$member->setPseudo("Benjee");
 			$member->addRole(Role::getRole('tradEn'));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(46);
+			$member = new TeamMember();
 			$member->setPseudo("Tcho");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(47);
+			$member = new TeamMember();
 			$member->setPseudo("Ryuseiken71");
 			$member->setImage("ryuseiken.png");
 			$member->addRole(Role::getRole('kara'));
@@ -487,28 +495,28 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(48);
+			$member = new TeamMember();
 			$member->setPseudo("Kyon");
 			$member->addRole(Role::getRole('encod'));
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(49);
+			$member = new TeamMember();
 			$member->setPseudo("Sunao");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(50);
+			$member = new TeamMember();
 			$member->setPseudo("Papy Al");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(51);
+			$member = new TeamMember();
 			$member->setPseudo("Zetsubo Sensei");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(52);
+			$member = new TeamMember();
 			$member->setPseudo("SwRafael");
 			$member->setImage("swrafael.png");
 			$member->addRole(Role::getRole('time'));
@@ -520,52 +528,52 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(53);
+			$member = new TeamMember();
 			$member->setPseudo("Basti3n");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(54);
+			$member = new TeamMember();
 			$member->setPseudo("Inuarth");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(55);
+			$member = new TeamMember();
 			$member->setPseudo("Constance");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(56);
+			$member = new TeamMember();
 			$member->setPseudo("Dunkelzahn");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(57);
+			$member = new TeamMember();
 			$member->setPseudo("LeLapinBlanc");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(58);
+			$member = new TeamMember();
 			$member->setPseudo("La Mite en Pullover");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(59);
+			$member = new TeamMember();
 			$member->setPseudo("Kuenchinu");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(60);
+			$member = new TeamMember();
 			$member->setPseudo("Tohru");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(61);
+			$member = new TeamMember();
 			$member->setPseudo("youg40");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(62);
+			$member = new TeamMember();
 			$member->setPseudo("Karta");
 			$member->setFirstName("Marko");
 			$member->setLocation("Nice");
@@ -574,7 +582,7 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(63);
+			$member = new TeamMember();
 			$member->setPseudo("Jeanba");
 			$member->setImage("jeanba.jpg");
 			$member->addRole(Role::getRole('tradEn'));
@@ -583,12 +591,12 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(64);
+			$member = new TeamMember();
 			$member->setPseudo("whatake");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(65);
+			$member = new TeamMember();
 			$member->setPseudo("Bzou6");
 			$member->setFirstName("Rachel");
 			$member->setLocation("Nice");
@@ -596,12 +604,12 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(66);
+			$member = new TeamMember();
 			$member->setPseudo("Kira");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(67);
+			$member = new TeamMember();
 			$member->setPseudo("Angel");
 			$member->addRole(Role::getRole('tradEn'));
 			$member->setFirstName("Ludo");
@@ -611,37 +619,37 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(68);
+			$member = new TeamMember();
 			$member->setPseudo("captainricard");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(69);
+			$member = new TeamMember();
 			$member->setPseudo("Chakko33");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(70);
+			$member = new TeamMember();
 			$member->setPseudo("Kurama");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(71);
+			$member = new TeamMember();
 			$member->setPseudo("Shetan");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(72);
+			$member = new TeamMember();
 			$member->setPseudo("Aniki");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(73);
+			$member = new TeamMember();
 			$member->setPseudo("Tarf");
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(74);
+			$member = new TeamMember();
 			$member->setPseudo("Hikari");
 			$member->setImage("hikari.jpg");
 			$member->setLocation("France");
@@ -651,7 +659,7 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(75);
+			$member = new TeamMember();
 			$member->setPseudo("Aice5");
 			$member->setFirstName("Jerry");
 			$member->setImage("aice5.png");
@@ -660,7 +668,7 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(76);
+			$member = new TeamMember();
 			$member->setImage("smam.jpg");
 			$member->setPseudo("ShowMeaManga");
 			$member->setFirstName("Daniel");
@@ -668,19 +676,19 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(77);
+			$member = new TeamMember();
 			$member->setPseudo("AxelRT");
 			$member->setPonctualMember(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(78);
+			$member = new TeamMember();
 			$member->setPseudo("K");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setFirstName("Karim");
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(79);
+			$member = new TeamMember();
 			$member->setImage("vicenzo.png");
 			$member->setPseudo("Vicenzo");
 			$member->addRole(Role::getRole("clean"));
@@ -693,45 +701,45 @@ class TeamMember {
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(80);
+			$member = new TeamMember();
 			$member->setImage("sunako.jpg");
 			$member->setPseudo("Sunako");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(81);
+			$member = new TeamMember();
 			$member->setImage("yota.jpg");
 			$member->setPseudo("Yota");
 			$member->addRole(Role::getRole("time"));
 			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(82);
+			$member = new TeamMember();
 			$member->setImage("mijari.jpg");
 			$member->setPseudo("Mijari");
 			$member->addRole(Role::getRole("tradEn"));
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(83);
+			$member = new TeamMember();
 			$member->setImage("kupoftea.jpg");
 			$member->setPseudo("KupofTea");
 			$member->addRole(Role::getRole("graphiste"));
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(84);
+			$member = new TeamMember();
 			$member->setImage("brainstorm27.jpg");
 			$member->setPseudo("brainstorm27");
 			$member->addRole(Role::getRole("tradEn"));
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(85);
+			$member = new TeamMember();
 			$member->setImage("Cavi.png");
 			$member->setPseudo("Cavi");
 			$member->addRole(Role::getRole("edit"));
 			TeamMember::$allMembers[] = $member;
 			
-			$member = new TeamMember(86);
+			$member = new TeamMember();
 			$member->setImage("Phantafun.png");
 			$member->setPseudo("Phantafun");
 			$member->addRole(Role::getRole("adapt"));
