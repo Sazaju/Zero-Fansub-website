@@ -90,7 +90,7 @@ $needConfig = true;
 try {
 	include_once($criticalDataFile);
 	$needConfig = false;
-} catch(Exception $ex) {
+} catch(ErrorException $ex) {
 	// do nothing, the error is managed later
 }
 if ($needConfig) {
