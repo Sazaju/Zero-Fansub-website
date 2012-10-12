@@ -201,6 +201,10 @@ class Database {
 		$hash = $password != null
 				? $this->generateSaltedHash($password, $this->createRandomSalt())
 				: null;
+		$this->setUserHash($id, $hash);
+	}
+	
+	private function setUserHash($id, $hash) {
 		$statement = $this->connection->prepare('UPDATE "user" SET passhash = ? WHERE id = ?');
 		$statement->execute(array($hash, $id));
 	}
@@ -273,6 +277,11 @@ class Database {
 					$field = $instruction->getField();
 					$type = $instruction->getTypeValue();
 					$this->changeTypeAndMoveRelatedValues($time, $authorId, $class, $field, $type);
+				} else if ($instruction instanceof PatchUser) {
+					$authorId = $instruction->getUser();
+					$hash = $instruction->getHash();
+					$this->addUser($authorId);
+					$this->setUserHash($authorId, $hash);
 				} else {
 					// TODO implement other cases
 					throw new Exception("Not implemented yet: ".get_class($instruction));

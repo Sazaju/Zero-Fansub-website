@@ -49,6 +49,7 @@ class Patch {
 			$rootInstructions = array(
 				new PatchComment(),
 				new PatchAttributes(),
+				new PatchUser(),
 				new PatchAddField(),
 				new PatchRemoveField(),
 				new PatchSetClassKey(),
@@ -571,6 +572,21 @@ class PatchAttributes extends ComposedPatchInstruction implements PatchCompleteI
 	
 	public function getUser() {
 		return Patch::cleanStringValue($this->getInnerValue(3));
+	}
+}
+
+class PatchUser extends ComposedPatchInstruction implements PatchCompleteInstruction {
+	public function __construct() {
+		parent::__construct('user(',new StringValuePatchRegex(),new OptionalPatchInstruction(new ComposedPatchInstruction(',',new StringValuePatchRegex())),')');
+	}
+	
+	public function getUser() {
+		return Patch::cleanStringValue($this->getInnerValue(1));
+	}
+	
+	public function getHash() {
+		$i = $this->getInnerInstruction(2)->getSingleInstruction();
+		return $i == null ? null : Patch::cleanStringValue($i->getInnerValue(1));
 	}
 }
 
