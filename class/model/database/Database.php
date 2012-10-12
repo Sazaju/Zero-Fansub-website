@@ -213,6 +213,13 @@ class Database {
 		return $this->generateSaltedHash($password, $salt) === $saltedhash;
 	}
 	
+	public function isActiveUser($id) {
+		$statement = $this->connection->prepare('SELECT count(*) FROM "user" WHERE id = ? AND passhash NOT NULL');
+		$statement->execute(array($id));
+		$counter = $statement->fetchColumn();
+		return $counter > 0;
+	}
+	
 	/********************************************\
 	                   TABLES
 	\********************************************/
