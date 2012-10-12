@@ -49,8 +49,12 @@ class Database {
 	}
 	
 	private function initDatabase() {
-		// TODO improve the check (exceptions are not precise enough)
+		$c = $this->connection;
+		$checkExistence = function($table) use ($c) {$c->prepare('SELECT * FROM "'.$table.'" LIMIT 1');};
+		
 		try {
+			$checkExistence('property');
+		} catch(PDOException $ex) {
 			$this->connection->exec('CREATE TABLE "property" (
 				name     VARCHAR(128),
 				value    VARCHAR(128),
@@ -59,15 +63,11 @@ class Database {
 			)');
 			$statement = $this->connection->prepare('INSERT INTO "property" (name, value) VALUES (?, ?)');
 			$statement->execute(array('lastKey', '0'));
-		} catch(PDOException $ex) {
-			if ($this->connection->errorCode() == 'HY000') {
-				// maybe the table already exists, just ignore this part
-			} else {
-				throw $ex;
-			}
 		}
 		
 		try {
+			$checkExistence('working_structure');
+		} catch(PDOException $ex) {
 			$this->connection->exec('CREATE TABLE "working_structure" (
 				class       VARCHAR(128) NOT NULL,
 				field       VARCHAR(128) NOT NULL,
@@ -78,7 +78,11 @@ class Database {
 				
 				PRIMARY KEY (class, field)
 			)');
-			
+		}
+		
+		try {
+			$checkExistence('archive_structure');
+		} catch(PDOException $ex) {
 			$this->connection->exec('CREATE TABLE "archive_structure" (
 				class         VARCHAR(128) NOT NULL,
 				field         VARCHAR(128) NOT NULL,
@@ -91,15 +95,11 @@ class Database {
 				
 				PRIMARY KEY (class, field, timeCreate)
 			)');
-		} catch(PDOException $ex) {
-			if ($this->connection->errorCode() == 'HY000') {
-				// maybe the table already exists, just ignore this part
-			} else {
-				throw $ex;
-			}
 		}
 		
 		try {
+			$checkExistence('working_key');
+		} catch(PDOException $ex) {
 			$this->connection->exec('CREATE TABLE "working_key" (
 				class       VARCHAR(128) NOT NULL,
 				field       VARCHAR(128) NOT NULL,
@@ -108,7 +108,11 @@ class Database {
 				
 				PRIMARY KEY (class, field)
 			)');
-			
+		}
+		
+		try {
+			$checkExistence('archive_key');
+		} catch(PDOException $ex) {
 			$this->connection->exec('CREATE TABLE "archive_key" (
 				class         VARCHAR(128) NOT NULL,
 				field         VARCHAR(128) NOT NULL,
@@ -119,15 +123,11 @@ class Database {
 				
 				PRIMARY KEY (class, field, timeCreate)
 			)');
-		} catch(PDOException $ex) {
-			if ($this->connection->errorCode() == 'HY000') {
-				// maybe the table already exists, just ignore this part
-			} else {
-				throw $ex;
-			}
 		}
 		
 		try {
+			$checkExistence('user');
+		} catch(PDOException $ex) {
 			$this->connection->exec('CREATE TABLE "user" (
 				id       VARCHAR(128) NOT NULL,
 				passhash CHAR(34) NOT NULL,
@@ -135,12 +135,6 @@ class Database {
 				PRIMARY KEY (id)
 			)');
 			$this->addUser('admin', 'admin');
-		} catch(PDOException $ex) {
-			if ($this->connection->errorCode() == 'HY000') {
-				// maybe the table already exists, just ignore this part
-			} else {
-				throw $ex;
-			}
 		}
 	}
 	
