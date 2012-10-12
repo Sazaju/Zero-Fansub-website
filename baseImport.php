@@ -134,11 +134,6 @@ if (TEST_MODE_ACTIVATED && $url->hasQueryVar('clearDB')) {
 	exit();
 }
 
-$db = Database::getDefaultDatabase();
-if (!$db->isRegisteredUser('anonymous')) {
-	$db->addUser('anonymous', null);
-}
-
 /**********************************\
             TEST FEATURES
 \**********************************/

@@ -130,11 +130,12 @@ class Database {
 		} catch(PDOException $ex) {
 			$this->connection->exec('CREATE TABLE "user" (
 				id       VARCHAR(128) NOT NULL,
-				passhash CHAR(34) NOT NULL,
+				passhash CHAR(34),
 				
 				PRIMARY KEY (id)
 			)');
-			$this->addUser('admin', 'admin');
+			$this->addUser('admin');
+			$this->setUserPassword('admin', 'admin');
 		}
 	}
 	
@@ -184,9 +185,9 @@ class Database {
 	/********************************************\
 	                     USERS
 	\********************************************/
-	public function addUser($id, $password) {
-		$statement = $this->connection->prepare('INSERT INTO "user" (id, passhash) VALUES (?, ?)');
-		$statement->execute(array($id, $this->generateSaltedHash($password, $this->createRandomSalt())));
+	public function addUser($id) {
+		$statement = $this->connection->prepare('INSERT INTO "user" (id, passhash) VALUES (?, NULL)');
+		$statement->execute(array($id));
 	}
 	
 	public function isRegisteredUser($id) {
@@ -196,9 +197,12 @@ class Database {
 		return $counter > 0;
 	}
 	
-	public function updateUserPassword($id, $newPassword) {
+	public function setUserPassword($id, $password) {
+		$hash = $password != null
+				? $this->generateSaltedHash($password, $this->createRandomSalt())
+				: null;
 		$statement = $this->connection->prepare('UPDATE "user" SET passhash = ? WHERE id = ?');
-		$statement->execute(array($this->generateSaltedHash($newPassword, $this->createRandomSalt()), $id));
+		$statement->execute(array($hash, $id));
 	}
 	
 	public function isValidUserPassword($id, $password) {

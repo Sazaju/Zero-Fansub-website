@@ -445,13 +445,19 @@ De cette convention j'ai rammené quand même des petits souvenirs, 4 figurines 
 C'était Epitanime ! J'espére que ça vous a plu ! À bientôt pour Japan Expo, et une autre surprise spécial Zéro-Kanaii.");
 				Dossier::$allDossiers[] = $dossier;
 				
-				$patch = Patch::buildFromDiff($db->getStructureDiff($dossier), 'admin');
+				$user = 'anonymous';
+				$patch = Patch::buildFromDiff($db->getStructureDiff($dossier), $user);
+				if (!$db->isRegisteredUser($user)) {
+					$db->addUser($user);
+				} else {
+					// do not register it another time
+				}
 				$db->applyPatch($patch);
 				foreach(Dossier::$allDossiers as $dossier) {
 					// TODO add TeamMember to database
 					// TODO add members to database users
 					// TODO use dossier's author as save's author
-					$dossier->save('anonymous');
+					$dossier->save($user);
 				}
 			}
 		}
