@@ -6,11 +6,14 @@ class Patch {
 	private $time = null;
 	private $instructions = array();
 	
-	public static function buildFromDiff(StructureDiff $diff, $user, $time = -1) {
+	public function __construct($user = null, $time = -1) {
 		$time = $time === -1 ? time() : $time;// time() cannot be used as a default parameter
-		$patch = new Patch();
-		$patch->setUser($user);
-		$patch->setTime($time);
+		$this->setUser($user);
+		$this->setTime($time);
+	}
+	
+	public static function buildFromDiff(StructureDiff $diff, $user, $time = -1) {
+		$patch = new Patch($user, $time);
 		foreach($diff->toArray() as $row) {
 			$instruction = null;
 			if ($row instanceof AddFieldDiff) {
@@ -40,15 +43,14 @@ class Patch {
 		return $patch;
 	}
 	
-	public static function buildFromText($text) {
+	public function appendScript($script) {
 		$prefix = "#^(";
 		$suffix = ")(?:\n.*)?$#s";
-		$patch = new Patch();
-		while(!empty($text)) {
-			$text = trim($text);
+		while(!empty($script)) {
+			$script = trim($script);
 			$rootInstructions = array(
 				new PatchComment(),
-				new PatchAttributes(),
+				new PatchAttributes(),// TODO extract at a higher level (static function building from text)
 				new PatchUser(),
 				new PatchAddField(),
 				new PatchRemoveField(),
@@ -63,25 +65,30 @@ class Patch {
 			$matches = array();
 			do {
 				$instruction = array_shift($rootInstructions);
-			} while($instruction != null && !preg_match($prefix.$instruction->getFormattedRegex('#').$suffix, $text, $matches));
+			} while($instruction != null && !preg_match($prefix.$instruction->getFormattedRegex('#').$suffix, $script, $matches));
 			
 			if ($instruction != null) {
 				$extract = $matches[1];
 				$instruction->setValue($extract);
 				if ($instruction instanceof PatchAttributes) {
-					$patch->setUser($instruction->getUser());
-					$patch->setTime((int) $instruction->getTime());
+					$this->setUser($instruction->getUser());
+					$this->setTime((int) $instruction->getTime());
 				} else if ($instruction instanceof PatchComment) {
 					// just ignore it
 				} else {
-					$patch->addInstruction($instruction);
+					$this->addInstruction($instruction);
 				}
-				$text = substr($text, strlen($extract));
+				$script = substr($script, strlen($extract));
 			} else {
-				throw new Exception("The given patch cannot be parsed from there: $text");
+				throw new Exception("The given patch cannot be parsed from there: $script");
 			}
 			$this->progressiveCheck();
 		}
+	}
+	
+	public static function buildFromScript($script) {
+		$patch = new Patch();
+		$patch->appendScript($script);
 		return $patch;
 	}
 	
