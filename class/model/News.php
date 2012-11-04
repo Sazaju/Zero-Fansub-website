@@ -4333,7 +4333,7 @@ Mais attention : premier arrivé, premier servi {^_^}.
 			$news->setTitle("Haganai OAV");
 			$news->setTimestamp(strtotime("2 November 2012 17:10"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Petite sortie en vitesse: en attendant d'avoir la série, voilà déjà l'OAV de Boku ha Tomodachi ga Sukunai. À réserver aux estomacs surentraînés {^_°}.
+			$news->setMessage("Petite sortie en vitesse : en attendant d'avoir la série, voilà déjà l'OAV de Boku ha Tomodachi ga Sukunai. À réserver aux estomacs surentraînés {^_°}.
 
 [img=images/news/haganaioav.png]Attention aux aigreurs d'estomac...[/img]");
 			$news->setCommentId(305);
