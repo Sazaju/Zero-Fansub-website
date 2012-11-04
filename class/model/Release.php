@@ -6588,6 +6588,14 @@ class Release {
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject("haganaioav"), "oav");
+			$release->setPreviewUrl("images/episodes/haganaioav.png");
+			$release->setHeaderImage("images/sorties/haganaioav.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Haganai_OAD[HD][H264-AAC][8A327A78].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('2 November 2012 16:25'));
 			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
