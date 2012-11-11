@@ -25,14 +25,20 @@ class PatchContext {
 		return $answer;
 	}
 	
-	public function createField($class, $field) {
+	public function createField($class, $field, $type = null, $mandatory = null) {
 		if ($this->isExistingClass($class) !== true) {
 			$this->createClass($class);
 		} else {
 			// do not recreate it
 		}
 		$classData = $this->class[$class];
-		$classData->addField($field, new FieldData());
+		$fieldData = new FieldData($type);
+		$classData->addField($field, $fieldData);
+		if ($mandatory !== null) {
+			$this->setFieldMandatory($class, $field, $mandatory);
+		} else {
+			// no information about mandatory, do not set anything
+		}
 	}
 	
 	public function isExistingField($class, $field) {
