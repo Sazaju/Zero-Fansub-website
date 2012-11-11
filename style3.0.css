@@ -1,0 +1,367 @@
+
+
+body {
+margin: auto;
+background-image: url('images/interface/fond.jpg');
+font-family: Tahoma;
+font-size: 1em;
+color: #666699;
+}
+
+a {
+color: #3e3e3e;
+}
+
+
+
+a:hover {
+text-decoration: none;
+}
+
+
+#menuvertical img {
+border: none;
+display: block;
+font-size: 1px;
+}
+
+.partenaires img {
+border: none;
+line-height: 1px;
+vertical-align: middle;
+font-size: 1px;
+margin: 0px;
+padding: 0px;
+}
+
+
+/* Menu vertical */
+
+
+
+#menuvertical {
+
+background-repeat: no-repeat;
+background-image: url('images/interface/rondgauche.png');
+width: 180px;
+
+float: left;
+
+font-size: 0.9em;
+color: #FFFFFF;
+margin: 0;
+}
+
+
+
+#menuvertical .sousmenu {
+margin: 0;
+background: url('images/interface/fondboutonmenu.png');
+}
+
+
+#contenu .partenaires ul {
+margin: 0;
+padding-top: 20px;
+padding-bottom: 20px;
+background: url('images/interface/fondpart.png') no-repeat;
+}
+
+#contenu ul{ 
+font-family: Tahoma;
+font-size: 0.8em;
+color: #666666;
+margin-right: 40px;
+margin-top: 0px;
+list-style-type : none;
+}
+
+
+#menuvertical ul {
+
+
+margin: 0 25px 0 0;
+
+list-style-type : none;
+color: #ffffff;
+}
+
+#menuvertical li {
+
+
+text-align: right;
+
+margin: 0;
+}
+
+
+
+#menuvertical .nolink {
+
+
+text-align: left;
+
+color: #696969;
+font-size: 1.2em;
+letter-spacing: 5px;
+}
+
+
+#menuvertical li a {
+margin: 0;
+
+
+color: #FFFFFF;
+text-decoration: none;
+
+
+}
+
+
+
+#menuvertical li a:hover {
+font-size: 1.4em;
+}
+
+
+
+#menuvertical a:active, #menuvertical a:focus {
+color: #696969;
+}
+
+#menuvertical li a:visited {
+font-decoration: line-through;
+}
+
+
+#menuvertical p{
+margin: 0;
+}
+
+#menuvertical img {
+margin: 0;
+}
+
+/* Contenu */
+
+
+
+#contenu {
+
+margin-left: 180px;
+width: 1142px;
+
+font-family: Tahoma;
+font-size: 1em;
+color: #666699;
+}
+
+
+
+#contenu table.haut {
+table-layout: fixed;
+background-image : url('images/interface/fondpage.jpg') ;
+background-position:0px 200px;
+background-repeat: repeat-y;
+width: 759px;
+border-width: 0px 0px 0px 0px;
+}
+
+#contenu table.p {
+table-layout: fixed;
+border-width: 0px 0px 0px 0px;
+text-indent: 10px;
+font-family: Tahoma;
+font-size: 0.8em;
+color: #666666;
+margin-left: 40px;
+margin-right: 40px;
+margin-top: 0px;
+}
+
+#contenu tr.lign {
+background-image : url('images/interface/rond_droit.png') ;
+background-repeat: no-repeat;
+background-position: top left;
+height: 294px;
+width: 759px;
+}
+
+#contenu td.droit {
+width: 203px;
+background-image: url('images/interface/fond_droit.png');
+background-repeat: no-repeat;
+background-position:0px 292px;
+}
+
+#contenu p{ 
+text-indent: 10px;
+font-family: Tahoma;
+font-size: 0.8em;
+color: #666666;
+margin-left: 40px;
+margin-right: 40px;
+margin-top: 0px;
+}
+
+#contenu .p { 
+text-align: center;
+text-indent: 10px;
+font-family: Tahoma;
+font-size: 0.8em;
+color: #666666;
+margin-left: 40px;
+margin-right: 40px;
+margin-top: 0px;
+}
+
+
+
+#contenu li.nd {
+color: #CCCCCC;
+}
+
+
+#contenu a {
+font-weight: normal;
+text-decoration: none;
+color: #999999;
+}
+
+
+
+
+#contenu a:hover {
+font-weight: bold;
+}
+
+
+
+#contenu a:active, #contenu a:focus {
+color: #696969;
+}
+
+#contenu a:visited {
+font-decoration: line-through;
+}
+
+
+
+#contenu p:after{ 
+content: url('images/interface/barre.png');
+width: 100%;
+}
+
+
+#contenu h3 {
+
+
+margin-left: 150px;
+letter-spacing: 12px;
+font-family: Tahoma;
+font-weight: normal;
+}
+
+#contenu h2 {
+
+color: #000000;
+
+
+font-size: 1em;
+
+margin-left: 60px;
+margin-right: 20px;
+margin-top: 0px;
+}
+
+
+
+#contenu h4 /* Date, auteur, sous-titre, ect */ {
+
+color: #999999;
+
+
+font-size: 0.7em;
+
+margin-left: 80px;
+margin-right: 20px;
+font-weight: normal;
+margin-top: -15px;
+}
+
+#contenu h5 /* épisodes */ {
+
+color: #FFFFFF;
+
+
+background: url('images/interface/episodes.png') no-repeat;
+width: 603px;
+height: 30px;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 20px;
+padding-left: 20px;
+padding-top: 5px;
+font-size: 1em;
+font-family: 'Courier New';
+}
+
+#contenu h5 a /* épisodes */ {
+
+color: #FFFFFF;
+background: url('images/interface/episodes.png') no-repeat;
+font-size: 1em;
+}
+
+.mnf {
+font-size: 0.9em;
+color: #CC33CC;
+} 
+
+
+
+
+#contenu h6 /* épisodes ND */{
+
+width: 603px;
+height: 30px;
+margin-top: 0px;
+margin-bottom: 0;
+margin-left: 20px;
+padding-left: 20px;
+padding-top: 5px;
+font-size: 1em;
+font-family: 'Courier New';
+color: #999999;
+
+
+background: url('images/interface/episodesnd.png') no-repeat;
+font-size: 1em;
+}
+
+#ep1, #ep2, #ep3, #ep4, #ep5, #ep6, #ep7, #ep8, #ep9, #ep10, #ep11,  #ep12,  #ep13 {
+
+}
+
+#contenu .infobulle{
+	position: absolute;   
+	visibility : hidden;
+	border: 1px solid Grey;
+	padding: 10px;
+	font-family: Tahoma;
+	font-size: 1em;
+	background-color: #FFFFCC;
+	margin: 0;
+}
+
+/* footer */
+
+
+#footer {
+
+
+text-indent: 181px;
+background-image: url('images/interface/footer.png');
+background-repeat: no-repeat;
+background-position: bottom left;
+}
