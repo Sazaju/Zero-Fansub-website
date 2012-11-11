@@ -10,6 +10,45 @@ class PatchContext {
 		// TODO use the DB to get data not known
 	}
 	
+	public function applyPatch(Patch $patch) {
+		// TODO check data before to apply
+		foreach($patch->getInstructions() as $instruction) {
+			if ($instruction instanceof PatchAddField) {
+				$class = $instruction->getClass();
+				$field = $instruction->getField();
+				$type = $instruction->getType();
+				$mandatory = $instruction->getMandatoryAsBoolean();
+				$this->createField($class, $field, $type, $mandatory);
+				//$this->addField($time, $authorId, $class, $field, $type, $mandatory);
+			} else if ($instruction instanceof PatchRemoveField) {
+				$class = $instruction->getClass();
+				$field = $instruction->getField();
+				$this->deleteField($class, $field);
+				//$this->removeFieldAndArchiveRelatedValues($time, $authorId, $class, $field);
+			} else if ($instruction instanceof PatchSetClassKey) {
+				$class = $instruction->getClass();
+				$fields = $instruction->getIDFields();
+				// TODO
+				$this->changeKey($time, $authorId, $class, $fields);
+			} else if ($instruction instanceof PatchChangeFieldType) {
+				$class = $instruction->getClass();
+				$field = $instruction->getField();
+				$type = $instruction->getTypeValue();
+				$this->setFieldType($class, $field, $type);
+				//$this->changeTypeAndMoveRelatedValues($time, $authorId, $class, $field, $type);
+			} else if ($instruction instanceof PatchUser) {
+				$authorId = $instruction->getUser();
+				$hash = $instruction->getHash();
+				$this->addUser($authorId);
+				// TODO
+				$this->setUserHash($authorId, $hash);
+			} else {
+				// TODO implement other cases
+				throw new Exception("Not implemented yet: ".get_class($instruction));
+			}
+		}
+	}
+	
 	public function createClass($class) {
 		$this->classes[$class] = new ClassData();
 	}
