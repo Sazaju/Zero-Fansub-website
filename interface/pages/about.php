@@ -39,6 +39,7 @@
 			array_shift($output); // remove tagger
 			array_shift($output); // remove empty line
 			$output = array_reduce($output, function($result, $item) {return $result == null ? $item : "$result\n$item";});
+			// TODO create a link to access the old websites (clone in temp if not yet there)
 			$desc = new VersionDescriptor($version, $output);
 			$versions[] = $desc;
 		}
