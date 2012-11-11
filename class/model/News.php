@@ -4345,6 +4345,27 @@ Mais attention : premier arrivé, premier servi {^_^}.
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Besoin de timeur !");
+			$news->setTimestamp(strtotime("11 November 2012 09:22"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez, on a fait l'effort de sortir un épisode, maintenant on a besoin de gens pour faire cet effort avec nous {^_^} !
+
+On recrute donc encore et toujours des timeurs, c'est ce qui nous manque cruellement. A défaut d'en avoir, l'horloge de Zéro risque de rester figée pendant un moment... En espérant que ça ne devienne pas un compte à rebours avant la fin...
+
+[img=images/news/time.jpg]Attention à ce que ça ne vire pas au rouge...[/img]
+
+{;o;}/ Noooon !
+
+Donc voilà, le recrutement c'est [url=?page=recruit]par ici[/url], merci de nous aider à tenir encore un peu, au moins le temps que certaines choses se débloquent.");
+			$news->setCommentId(306);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
