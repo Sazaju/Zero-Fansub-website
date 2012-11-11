@@ -2,7 +2,7 @@
 /*
 	Each querying function (is...) return a boolean value (true/false) if the answer is known, null otherwise.
 */
-class PatchContext {
+class PatchContext implements Patchable {
 	private $classes = array();
 	
 	public function __construct() {

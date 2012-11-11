@@ -12,6 +12,10 @@ class Patch {
 		$this->setTime($time);
 	}
 	
+	public function applyTo(Patchable $db) {
+		$db->applyPatch($this);
+	}
+	
 	public static function buildFromDiff(StructureDiff $diff, $user, $time = -1) {
 		$patch = new Patch($user, $time);
 		foreach($diff->toArray() as $row) {
