@@ -4346,7 +4346,7 @@ Mais attention : premier arrivé, premier servi {^_^}.
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Besoin de timeur !");
+			$news->setTitle("Besoin de timeurs !");
 			$news->setTimestamp(strtotime("11 November 2012 09:22"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Allez, on a fait l'effort de sortir un épisode, maintenant on a besoin de gens pour faire cet effort avec nous {^_^} !
