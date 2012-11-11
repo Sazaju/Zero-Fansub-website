@@ -69,6 +69,11 @@ class PatchContext {
 		}
 	}
 	
+	public function setFieldType($class, $field, $type) {
+		$fieldData = $this->getFieldDataCreatedIfUnkown($class, $field);
+		$fieldData->setType($type);
+	}
+	
 	public function setFieldTypeCompatibleWithValue($class, $field, $value) {
 		$fieldData = $this->getFieldDataCreatedIfUnkown($class, $field);
 		$fieldData->considerValue($value);
@@ -113,8 +118,29 @@ class PatchContext {
 }
 
 class TypeData {
-	private $type = '*';
+	private $type;
 	private static $INFINITY = -log(0);
+	
+	public function __construct($type = null) {
+		$this->setType($type);
+	}
+	
+	public function setType($type) {
+		if (in_array($type, array('boolean', 'array', 'double'))) {
+			// keep the value as is
+		} else if ($type == "string") {
+			$type = "string<".TypeData::$INFINITY;
+		} else if (preg_match("#string[0-9]+#", $type)) {
+			$type = "string<".substr($type, 6);
+		} else if ($type === null) {
+			$type = '*';
+		} else {
+			// TODO resource
+			throw new Exception("'$value' cannot be assigned a type");
+		}
+		$this->type = $type;
+	}
+	
 	public function crossValue($value) {
 		$t2 = new TypeData();
 		if ($value == "true" || $value == "false") {
