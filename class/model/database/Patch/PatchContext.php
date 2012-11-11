@@ -5,6 +5,11 @@
 class PatchContext {
 	private $classes = array();
 	
+	public function __construct() {
+		// TODO take an optional DB in argument
+		// TODO use the DB to get data not known
+	}
+	
 	public function createClass($class) {
 		$this->classes[$class] = new ClassData();
 	}
