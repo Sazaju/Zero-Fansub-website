@@ -4236,7 +4236,7 @@ N.B. : l'expérience n'est pas exigée ^_^
 			
 			$news = new News();
 			$news->setTitle("Pas mal de petits changements");
-			$news->setTimestamp(strtotime("25 June 2012 20:18"));
+			$news->setTimestamp(strtotime("25 July 2012 20:18"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Bon, ça fait longtemps qu'on n'a pas fait de news, donc j'en profite pour faire un petit topo sur ce qui a été  implémenté sur le site depuis la dernière news sur le sujet (datant du 6 Février). Je passerai sous silence ce qui attend au chaud sur les autres branches de développement (et qui n'est donc pas accessible ici) sinon je suis bon pour en écrire encore trois tonnes et perdre tout le monde {'^_^}. Les curieux sauront demander.
 
