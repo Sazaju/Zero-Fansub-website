@@ -4366,6 +4366,33 @@ Donc voilà, le recrutement c'est [url=?page=recruit]par ici[/url], merci de nou
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+/*
+			$news = new News();
+			$news->setTitle("Mise à jour du site v3.6");
+			$news->setTimestamp(strtotime("11 November 2012 12:51"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("
+[spoiler=<Montrer la liste>]
+[left][list]
+[item]Renouvellement des flux RSS (les plus attentifs devraient l'avoir remarqué depuis longtemps) avec la possibilité de les paramétrer : l'icône RSS que vous pouvez voir à côté de \"Vues\" vous permet d'accéder au flux RSS de la vue courante, il existe aussi de quoi contrôler la taille de la liste. Je ne détaille pas car ça peut encore changer (reportez-vous au code sur GitHub pour les plus curieux, ou demandez tout simplement {^_^}).[/item]
+[item][/item]
+[item][/item]
+[item][/item]
+[item][/item]
+[item][/item]
+[item]Autres nettoyages de code, corrections de bugs et trucs du genre[/item]
+[/list][/left]
+[/spoiler]
+");
+			$news->setCommentId(302);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+*/
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
