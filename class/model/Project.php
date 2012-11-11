@@ -247,7 +247,7 @@ class Project {
 			$project->setGenre("Comédie - Ecchi");
 			$project->setSynopsis("Quand on a une bonne bande d'amis, on partage de bons moments ensemble. On organise des pique-niques, chacun ramène son repas, et tout le monde s'amuse avec entrain. Enfin ça, c'est ce qu'on fait quand on a des amis. Mais quand on n'en a pas, que fait-on ? Et bien certains essayent de faire comme-si... et là ça peut tourner au génocide. Attention à la crise de foie.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::FINISHED);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomo", "Kodomo no Jikan");

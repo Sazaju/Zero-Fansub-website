@@ -397,7 +397,7 @@ Sur ceux, bon visionnage {^_^}.");
 			$news = new News();
 			$news->setTitle("Besoin de timeurs !");
 			$news->setTimestamp(strtotime("11 October 2011"));
-			$news->setAuthor(TeamMember::getMember(5));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(273);
 			$news->setTeamNews(true);
 			$news->setMessage("Allez on enchaîne les news, la motivation est là... Mais elle va peut-être pas durer...
@@ -420,7 +420,7 @@ Si vous êtes interessés, les candidatures sont ouvertes (cliquez sur [b]Recrut
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("10 October 2011"));
-			$news->setAuthor(TeamMember::getMember(8));
+			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(272);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomooav', 'oav'));
@@ -442,7 +442,7 @@ Bon matage et à bientôt pour la suite de Mitsudomoe.");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 September 2011"));
-			$news->setAuthor(TeamMember::getMember(5));
+			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(271);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep4'));
@@ -466,7 +466,7 @@ Pour terminer, un petit mot sur notre charte qualité. Nous avons décidé de ne
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("14 August 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(270);
 			$news->setTeamNews(false);
 			$news->addReleasing(Project::getProject('hitohira'));
@@ -484,7 +484,7 @@ Sortie de Hitohira, la série complète, 12 épisodes d'un coup !
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("05 August 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(269);
 			$news->setTwitterTitle("Sortie de Mitsudomoe 03 chez Z%C3%A9ro fansub !");
 			$news->setTeamNews(false);
@@ -501,7 +501,7 @@ Sortie de l'épisode 03 de Mitsudomoe.");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("26 July 2011"));
-			$news->setAuthor(TeamMember::getMember(8));
+			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(268);
 			$news->setTwitterTitle("Sortie de Toradora! SOS chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -517,7 +517,7 @@ C'est de la superproduction ^_^");
 			$news = new News();
 			$news->setTitle("Recrutement traducteur");
 			$news->setTimestamp(strtotime("04 July 2011"));
-			$news->setAuthor(TeamMember::getMember(8));
+			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(266);
 			$news->setTeamNews(true);
 			$news->setTwitterTitle("Zero recherche un traducteur");
@@ -544,7 +544,7 @@ Pour postuler, faites une candidatures à l'école : [ext=http://ecole.zerofansu
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("19 June 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(264);
 			$news->setTwitterTitle("Sortie de Kannagi serie complete chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -566,7 +566,7 @@ P.S.: Les karaokés sont nuls. Désolée !");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("27 May 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(263);
 			$news->setTwitterTitle("Sortie de Mitsudomoe 01 + 02 chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -586,7 +586,7 @@ Quelques petits changements dans notre façon de faire habituelle, on attend vos
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("15 May 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(262);
 			$news->setTwitterTitle("Sortie de Tayutama Kiss on my Deity Pure my Heart serie complete chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -603,7 +603,7 @@ On continue dans les séries complètes avec cette fois-ci la petite série de 6
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("11 May 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(261);
 			$news->setTwitterTitle("Sortie de Potemayo serie complete chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -622,7 +622,7 @@ Amusez-vous bien !");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTimestamp(strtotime("08 May 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(261);
 			$news->setTwitterTitle("Sortie de Potemayo serie complete chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -4322,6 +4322,43 @@ Mais attention : premier arrivé, premier servi {^_^}.
 
 [img=images/news/party.png]Attention, ça va pexer ![/img]");
 			$news->setCommentId(304);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Haganai OAV");
+			$news->setTimestamp(strtotime("2 November 2012 17:10"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Petite sortie en vitesse : en attendant d'avoir la série, voilà déjà l'OAV de Boku ha Tomodachi ga Sukunai. À réserver aux estomacs surentraînés {^_°}.
+
+[img=images/news/haganaioav.png]Attention aux aigreurs d'estomac...[/img]");
+			$news->setCommentId(305);
+			$news->addReleasing(Release::getRelease('haganaioav', 'oav'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Besoin de timeurs !");
+			$news->setTimestamp(strtotime("11 November 2012 09:22"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez, on a fait l'effort de sortir un épisode, maintenant on a besoin de gens pour faire cet effort avec nous {^_^} !
+
+On recrute donc encore et toujours des timeurs, c'est ce qui nous manque cruellement. A défaut d'en avoir, l'horloge de Zéro risque de rester figée pendant un moment... En espérant que ça ne devienne pas un compte à rebours avant la fin...
+
+[img=images/news/time.jpg]Attention à ce que ça ne vire pas au rouge...[/img]
+
+{;o;}/ Noooon !
+
+Donc voilà, le recrutement c'est [url=?page=recruit]par ici[/url], merci de nous aider à tenir encore un peu, au moins le temps que certaines choses se débloquent.");
+			$news->setCommentId(306);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);

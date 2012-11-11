@@ -42,6 +42,10 @@ class Url {
 		$this->data = Url::parseUrl($url);
 	}
 	
+	public function __toString() {
+		return $this->toString();
+	}
+	
 	public function toString($full = false) {
 		$url = $this->data[URL_PATH];
 		
