@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Z&eacute;ro | La team</title>
+
+
+  <script language="javascript" type="text/javascript">
+<!--
+function GetId(id)
+{
+return document.getElementById(id);
+}
+var i=false; // La variable i nous dit si la bulle est visible ou non
+function move(e) {
+if(i) { // Si la bulle est visible, on calcul en temps reel sa position ideale
+if (navigator.appName!="Microsoft Internet Explorer") { // Si on est pas sous IE
+GetId("curseur").style.left=e.pageX + 5+"px";
+GetId("curseur").style.top=e.pageY + 10+"px";
+}
+else { // Modif proposé par TeDeum, merci à lui
+if(document.documentElement.clientWidth>0) {
+GetId("curseur").style.left=20+event.x+document.documentElement.scrollLeft+"px";
+GetId("curseur").style.top=10+event.y+document.documentElement.scrollTop+"px";
+} else {
+GetId("curseur").style.left=20+event.x+document.body.scrollLeft+"px";
+GetId("curseur").style.top=10+event.y+document.body.scrollTop+"px";
+}
+}
+}
+}
+function montre(text) {
+if(i==false) {
+GetId("curseur").style.visibility="visible"; // Si il est cacher (la verif n'est qu'une securité) on le rend visible.
+GetId("curseur").innerHTML = text; // on copie notre texte dans l'élément html
+i=true;
+}
+}
+function cache() {
+if(i==true) {
+GetId("curseur").style.visibility="hidden"; // Si la bulle est visible on la cache
+i=false;
+}
+}
+document.onmousemove=move; // dès que la souris bouge, on appelle la fonction move pour mettre à jour la position de la bulle.
+//-->
+  </script>
+</head>
+
+
+<body style="color: rgb(234, 18, 115); background-color: transparent;" alink="#990946" link="#ff1368" vlink="#f718e1">
+
+
+<! --- Membres importants ! --->
+
+
+ <a href="http://db0.fr" target="_blank" onmouseover="montre('<center><b>db0</b></center><br><b>Rôle dans la team</b> Admin, Webmaster, Trad It (Mermaid Melody), Check, Time, Kara, Adapt, Edit.<br><b>Prénom </b> Barby<br><b>Âge</b> 17 ans<br><b>Lieu</b> Nice<br><b>Contact</b> o0x06@hotmail.fr');" onmouseout="cache();">
+<img alt="db0" src="http://img2.xooimage.com/files/a/2/4/naoavax-33b917.gif" border="0"></a>
+
+ <a href="http://anime-ultime.net" target="_blank" onmouseover="montre('<center><b>Ryocu</b></center><br><b>Rôle dans la team</b> Hébergement site web<br><b>Prénom </b> Kévin<br><b>Âge</b> 19 ans<br><b>Lieu</b> Paris');" onmouseout="cache();">
+<img alt="ryocu" src="http://zerofansub.net/ryocu.png" border="0"></a>
+
+ <a target="_blank" onmouseover="montre('<center><b>Praia</b></center><br><b>Rôle dans la team</b> QC, co-admin.<br><b>Prénom</b> Piet<br><b>Âge</b> 28<br><b>Lieu</b> Belgique');" onmouseout="cache();">
+<img style="border: 0px solid ;" class="user-id-31 photo" alt="praia" src="http://img7.xooimage.com/files/d/2/3/kodomooav-497c95.jpg"></a><br>
+
+ <a href="http://sk8ter-du-06.skyrock.com" target="_blank" onmouseover="montre('<center><b>Ryuku</b></center><br><b>Rôle dans la team</b> Trad (Kimikiss pure rouge)<br><b>Prénom </b> Jordan<br><b>Âge</b> 16 ans<br><b>Lieu</b> Nice<br><b>Contact</b> sk8ter_du_06@hotmail.fr');" onmouseout="cache();">
+<img alt="ryuku" src="http://img1.xooimage.com/files/4/f/4/4f41663db304d1ae...b8c3a6f6-46351e.jpeg" border="0"></a>
+
+ <a href="http://cosplay2009.skyrock.com" target="_blank" onmouseover="montre('<center><b>Angel</b></center><br><b>Rôle dans la team</b> Trad (Kodomo no Jikan)<br><b>Prénom </b> Ludo<br><b>Âge</b> 15 ans<br><b>Lieu</b> Hyères<br><b>Contact</b> angel2948@hotmail.fr');" onmouseout="cache();">
+ <img alt="angel" src="http://img5.xooimage.com/files/4/9/2/492a3c1f6436e474d...2ab8ad085-554736.png" border="0"></a>
+
+ <a href="http://man-ban.skyrock.com" target="_blank" onmouseover="montre('<center><b>Man-Ban</b></center><br><b>Rôle dans la team</b> Trad (Genshiken 2),Time.<br><b>Prénom </b> Manu<br><b>Âge</b> 17 ans<br><b>Lieu</b> Nice<br><b>Contact</b> emmanuel_valat@hotmail.com');" onmouseout="cache();">
+<img style="border: 0px solid ; width: 100px; height: 100px;" class="user-id-5 photo" alt="man-ban" src="http://img5.xooimage.com/files/0/7/3/avatarmanu-45283c.jpg" border="0"></a><br>
+
+ <a href="http://animekami.com" target="_blank" onmouseover="montre('<center><b>Suke</b></center><br><b>Rôle dans la team</b> Encodeur<br><b>Prénom </b> Marvin<br><b>Âge</b> 19 ans<br><b>Lieu</b> France<br><b>Contact</b> suke@animekami.eu');" onmouseout="cache();">
+<img style="border: 0px solid ;" class="user-id-47 photo" alt="suke" src="http://img4.xooimage.com/files/f/4/c/1217796684-55a9cc.jpg" border="0"></a>
+
+ <a target="_blank" onmouseover="montre('<center><b>Ryuseiken71</b></center><br><b>Rôle dans la team</b> Karamakeur<br><b>Prénom </b> Romain<br><b>Âge</b> 29 ans<br><b>Lieu</b> Chalon sur Saone');" onmouseout="cache();">
+<img style="border: 0px solid ; width: 100px; height: 100px;" class="user-id-47 photo" alt="ryuseiken71" src="http://img9.xooimage.com/files/c/5/6/av_priss_sh-6140a6.jpg" border="0"></a>
+
+ <a target="_blank" onmouseover="montre('<center><b>SWRafael</b></center><br><b>Rôle dans la team</b>  Trad (Kujibiki) Time<br><b>Prénom </b> Rafael Henrique<br><b>Âge</b> 20 ans<br><b>Lieu</b> Lausanne/Suisse<br><b>Contact</b>silvel_angel@hotmail.com');" onmouseout="cache();">
+<img style="border: 0px solid ; width: 100px; height: 100px;" class="user-id-47 photo" alt="rafael" src="http://img1.xooimage.com/files/d/d/7/dd7da67427b696aa...e8919fff-662e18.jpeg" border="0"></a><br>
+
+
+<! --- Membres moins importants ! --->
+
+ <a href="http://karta-la-vista.blogspot.com" target="_blank" onmouseover="montre('<center><b>Karta</b></center><br><b>Rôle dans la team</b> Trad (Hitohira)<br><b>Prénom </b> Marko<br><b>Âge</b> 15 ans<br><b>Lieu</b> Nice<br><b>Contact</b> karta-siempre@live.fr');" onmouseout="cache();">
+<img style="width: 73px; height: 73px;" alt="karta" src="http://img9.xooimage.com/files/b/c/4/tp_geisha3-514599.jpg" border="0"></a>
+
+ <a target="_blank" onmouseover="montre('<center><b>Adover</b></center><br><b>Rôle dans la team</b> Seeder, Uploader<br><b>Prénom </b> ?<br><b>Âge</b> ? ans<br><b>Contact</b> ?');" onmouseout="cache();">
+ <img style="border: 0px solid ; width: 73px; height: 73px;" class="user-id-6 photo" alt="adover" src="http://img2.xooimage.com/files/8/3/b/83b77cb35a5b451a...b4cddd93-574d72.jpeg" border="0"></a>
+
+<a target="_blank" onmouseover="montre('<center><b>Thibou</b></center><br><b>Rôle dans la team</b> Check<br><b>Prénom </b> Thibault<br><b>Âge</b> 16 ans<br><b>Lieu</b> Libourne près de Bordeaux<br><b>Contact</b> thibou33@hotmail.fr');" onmouseout="cache();">
+ <img style="width: 73px; height: 73px;" alt="thibou" src="http://img7.xooimage.com/files/1/7/3/images-4a303a.jpg" border="0"></a>
+
+ <a href="http://manga-mania.forums-actifs.com" target="_blank" onmouseover="montre('<center><b>Vegeta</b></center><br><b>Rôle dans la team</b> Check<br><b>Prénom </b> Chloé<br><b>Âge</b> 15 ans<br><b>Contact</b> duck_86@hotmail.fr');" onmouseout="cache();">
+<img style="width: 73px; height: 73px;" alt="vegeta" src="http://zerofansub.net/vegeta.png" border="0"></a><br>
+
+ <a target="_blank" onmouseover="montre('<center><b>ed3</b></center><br><b>Rôle dans la team</b> Check<br><b>Prénom </b> Edouard<br><b>Âge</b> 17 ans<br><b>Lieu</b> Caen<br><b>Contact</b> padojued@hotmail.fr');" onmouseout="cache();">
+ <img style="width: 73px; height: 73px;" alt="ed3" src="http://img8.xooimage.com/files/2/0/4/avatard-ed3-442af7.jpg" border="0"></a>
+
+ <a href="http://forum.bk-zone.net" target="_blank" onmouseover="montre('<center><b>Bkdenice</b></center><br><b>Rôle dans la team</b> Encodeur<br><b>Prénom </b> Bruno<br><b>Âge</b> 19 ans<br><b>Lieu</b> Nice<br><b>Contact</b> bkdenice@c-gold.info');" onmouseout="cache();">
+<img style="width: 73px; height: 73px;" alt="bk" src="http://zerofansub.net/bk.jpg" border="0"></a>
+
+ <a target="_blank" onmouseover="montre('<center><b>Visual Cat</b></center><br><b>Rôle dans la team</b> Scantrad<br><b>Prénom </b> Kévin<br><b>Âge</b> 19 ans<br><b>Contact</b> lamass_kevin@hotmail.fr');" onmouseout="cache();">
+ <img style="border: 0px solid ; width: 73px; height: 73px;" class="user-id-6 photo" alt="visual cat" src="http://img3.xooimage.com/files/9/4/d/avatar-db0-4e9f66.jpg" border="0"></a>
+
+ <a target="_blank" onmouseover="montre('<center><b>ShowMeAManga</b></center><br><b>Rôle dans la team</b> Check<br><b>Prénom </b> Daniel');" onmouseout="cache();">
+ <img style="border: 0px solid ; width: 73px; height: 73px;" class="user-id-6 photo" alt="showmeamanga" src="http://img1.xooimage.com/files/5/7/e/57e9e9f29e1cf545...1f41f39b-6272f4.jpeg" border="0"></a><br>
+
+<! Autres membres >
+
+
+ <a target="_blank" onmouseover="montre('<b>Ils nous aident sans être de la team :</b><br><b>Jet9009</b> Check<br><b>Galaf</b> Karamakeur<br><b>Thrax</b> Karamaker, Trad.<br><b>DC</b> Kara');" onmouseout="cache();">
+<img style="width: 100px; height: 100px;" alt="&amp;" src="http://zerofansub.net/&amp;.png" border="0"></a>
+
+ <a target="_blank" onmouseover="montre('<b>Ils nous ont quittés :</b><br><b>Zorro25</b> Trad, check<br><b>Nixy`Z</b> QC<br><b>Klick</b> Karamakeur<br><b>Lyf Adeo</b> Trad, check, QC.<br><b>Kaj</b> QC<br><b>Bzou6</b> Trad KnJ<br><b>K</b> Trad Kujibiki Unbalance');" onmouseout="cache();">
+<img style="width: 100px; height: 100px;" alt="&amp;" src="http://zerofansub.net/!.png" border="0"></a>
+
+ <a target="_blank" onmouseover="montre('<b>Ils sont fans :</b><br>Lirina<br>Lelouch<br>AxelRT');" onmouseout="cache();">
+<img style="width: 100px; height: 100px;" alt="&amp;" src="http://zerofansub.net/etoile.png" border="0"></a>
+
+<div id="curseur" style="border-style: solid; border-color: rgb(209, 39, 85); padding: 10px; position: absolute; visibility: hidden; font-family: Arial Rounded MT Bold; Georgia; font-size: 12px; background-color: rgb(255, 255, 255);"></div><br>
+
+<span style="font-family: Arial Rounded MT Bold, Georgia; color: rgb(0, 0, 0);">
+Nous aider ?<br>
+&#9734; <a href="recrut.php">Recrutement</a><br>
+&#9734; <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=mba_06%40hotmail%2efr&amp;item_name=Zero&amp;no_shipping=0&amp;no_note=1&amp;tax=0&amp;currency_code=EUR&amp;lc=FR&amp;bn=PP%2dDonationsBF&amp;charset=UTF%2d8">Dons</a><br>
+&#9734; <a href="mailto:o0x06@hotmail.fr">Devenir fan<br>
+(envoyer un mail de demande)</a><br>
+<br>
+Nous contacter ?<br>
+&#9734; <a href="mailto:o0x06@hotmail.fr">Mail</a><br>
+&#9734; <a href="irc://irc.fansub-irc.eu/zero">IRC</a><br>
+&#9734; <a href="http://zero.xooit.fr" target="_blank">Forum</a><br>
+<br>
+Nous sommes :<br>
+&#9734; 18 membres actifs<br>
+&#9734; Moyenne d'âge : 21 ans<br>
+&#9734; 2 femmes / 16 hommes</span>
+
+
+</a>
+</body>
+</html>
