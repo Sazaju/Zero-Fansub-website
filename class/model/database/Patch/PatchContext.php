@@ -5,7 +5,7 @@
 class PatchContext {
 	private $classes = array();
 	
-	private function createClass($class) {
+	public function createClass($class) {
 		$this->classes[$class] = new ClassData();
 	}
 	
