@@ -114,6 +114,7 @@ class PatchContext {
 
 class TypeData {
 	private $type = '*';
+	private static $INFINITY = -log(0);
 	public function crossValue($value) {
 		$t2 = new TypeData();
 		if ($value == "true" || $value == "false") {
@@ -169,7 +170,7 @@ class TypeData {
 				$extractMax = function($string) {
 					$r1 = intval(substr($string, 6, 1));
 					if ($r1 == '>') {
-						return -log(0); // +infinity
+						return TypeData::$INFINITY;
 					} else if ($r1 == '<' && $r2 == '>') {
 						return intval(substr($string, 7));
 					} else if ($r1 == '=' && $r2 == '>') {
