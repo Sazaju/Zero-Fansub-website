@@ -4366,6 +4366,23 @@ Donc voilà, le recrutement c'est [url=?page=recruit]par ici[/url], merci de nou
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("WANTED: Karamakeur");
+			$news->setTimestamp(strtotime("20 November 2012 18:39"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Dans la même veine que la news précédente, on a besoin de vous pour boucler des travaux ! Avec un peu de chance, on aura quelque chose à vous sortir pour Noël {^_^}.
+
+On recrute donc des karamakeurs ! [url=?page=recruit]Cliquez ici[/url] pour postuler.
+
+[img=images/news/karaKannagi.jpg]Allez, bougez-vous si vous voulez quelque chose pour Noël ![/img]");
+			$news->setCommentId(307);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
