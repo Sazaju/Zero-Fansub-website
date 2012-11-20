@@ -4374,6 +4374,8 @@ Donc voilà, le recrutement c'est [url=?page=recruit]par ici[/url], merci de nou
 
 On recrute donc des karamakeurs ! [url=?page=recruit]Cliquez ici[/url] pour postuler.
 
+Si vous avez des soucis avec le forum (celui-ci étant indisponible à l'heure où cette news est écrite), postez dans les commentaires de cette news {^_°}.
+
 [img=images/news/karaKannagi.jpg]Allez, bougez-vous si vous voulez quelque chose pour Noël ![/img]");
 			$news->setCommentId(307);
 			$news->setDisplayInNormalMode(true);
