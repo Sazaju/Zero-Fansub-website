@@ -238,7 +238,7 @@ class Project {
 			$project->setGenre("Comédie - Ecchi");
 			$project->setSynopsis("C'est bien connu, les otakus n'ont pas d'amis. Mais quand on n'en est pas un, ça ne veut pas dire pour autant qu'on en a. Si vous aussi vous avez du mal avec les autres, peut-être vous reconnaitrez-vous dans cette série. Sinon, vous pourrez toujours en profiter pleinement pour découvrir comment s'amuser quand on n'a pas d'amis... ou tout du moins quand on en est convaincu.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::INTENDED);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("haganaioav", "Boku ha Tomodachi ga Sukunai OAV");
