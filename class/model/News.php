@@ -4385,6 +4385,25 @@ Si vous avez des soucis avec le forum (celui-ci étant indisponible à l'heure o
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement traducteurs + éditeurs");
+			$news->setTimestamp(strtotime("12 December 2012 18:43"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("La news précédente a eu un pseudo-succès (on a gagné un timeur, c'est toujours mieux que rien), mais l'idée d'avoir quelque chose pour Noël en revanche est encore loin d'être palpable. Notre petit nouveau a beau être efficace, si personne ne suit derrière ça restera aux oubliettes. Et oui, contrairement à ce que certains pensent, le fansub ça n'arrive pas tout cuit du ciel, il faut des gens derrière pour le faire tourner. À vous de voir si vous voulez faire partie du mouvement ou pas {^_^}.
+
+On réitère donc nos propositions de recrutement pour des traducteurs anglais-français et des éditeurs. [url=?page=recruit]Cliquez ici[/url] pour postuler.
+
+Si on n'a toujours personne, on risque de se tourner vers des solutions plus... machiavéliques.
+
+[img=images/news/recrutKobatoHaganai.jpg]Essayons l'hypnose, peut-être que ça marchera.[/img]");
+			$news->setCommentId(308);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
