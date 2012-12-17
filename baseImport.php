@@ -207,5 +207,10 @@ $styles = array();
 foreach($dirs as $info) {
 	$styles[] = $info['name'];
 }
+if (!isset($_SESSION[STYLE])) {
+	$_SESSION[STYLE] = null;
+} else {
+	// keep it as is
+}
 $_SESSION[STYLE] = Check::getInputIn(isset($_GET[STYLE]) ? $_GET[STYLE] : $_SESSION[STYLE], $styles, "default");
 ?>
