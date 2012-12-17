@@ -1,0 +1,90 @@
+@import url(common.css);
+
+@import url(interface.css);
+@import url(about.css);
+@import url(team.css);
+@import url(news.css);
+@import url(dossier.css);
+@import url(projectList.css);
+@import url(project.css);
+@import url(hentai.css);
+@import url(sorties.css);
+
+@import url(test.css);
+
+/*
+	OLD STYLE (should be removed when refining completed)
+*/
+
+#main {
+background: url('images/bg2.png') repeat-y;
+margin: auto;
+width: 1000px;
+} 
+
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.center {
+	text-align: center;
+}
+
+.p { 
+text-align: center;
+text-indent: 10px;
+font-family: Tahoma;
+font-size: 12px;
+color: #666666;
+margin-left: 40px;
+margin-right: 40px;
+margin-top: 0px;
+}
+.quote {
+width: 550px;
+background: #F0F4FF;
+margin-left: 40px;
+margin-right: 40px;
+}
+
+.quote:before {
+content: url('images/quote1.jpg');
+}
+
+.quote:after {
+content: url('images/quote2.jpg');
+}
+
+#page h5 /* épisodes */ {
+color: #FFFFFF;
+background: url('images/episodes.png') no-repeat;
+width: 603px;
+height: 30px;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 20px;
+padding-left: 20px;
+padding-top: 5px;
+font-size: 16px;
+font-family: 'Courier New';
+}
+#page h5 a /* épisodes */ {
+color: #FFFFFF;
+background: url('images/episodes.png') no-repeat;
+font-size: 16px;
+}
+#page h6 /* épisodes ND */{
+background: url('images/episodesnd.png') no-repeat;
+width: 603px;
+height: 30px;
+margin-top: 0px;
+margin-bottom: 0;
+margin-left: 20px;
+padding-left: 20px;
+padding-top: 5px;
+font-size: 16px;
+font-family: 'Courier New';
+color: #999999;
+}

@@ -1,0 +1,18 @@
+#page .teamList, .teamList ul{
+	list-style: none;
+}
+
+#page .teamList .member, #page .teamList ul{
+	text-align: left;
+	text-indent: 0;
+	margin: 0;
+}
+
+#page .teamList ul img{
+	float: right;
+	display: block;
+	margin-right: 50px;
+	margin-top: 10px;
+	max-width: 100px;
+	max-height: 100px;
+}

@@ -1,0 +1,37 @@
+.testFeatures {
+	text-align: center;
+	border: 1px solid red;
+	background-color: white;
+	color: black;
+}
+
+.testFeatures a {
+	margin: 0 1em;
+	color: black !important;
+	text-decoration: none !important;
+}
+
+.testFeatures a.deactivated {
+	color: #AAAAAA !important;
+}
+
+.testFeatures a.reverse {
+	text-decoration: line-through !important;
+}
+
+.testFeatures a:before {
+	content: '[';
+}
+
+.testFeatures a:after {
+	content: ']';
+}
+
+.xdebug-var-dump {
+	padding-left: 200px;
+}
+
+.xdebug-error {
+	width: 660px;
+	margin: auto;
+}

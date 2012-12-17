@@ -202,5 +202,10 @@ if (isset($_GET[MODE_H])) {
 	// let the state as is
 }
 
-$_SESSION[STYLE] = "default";
+$dirs = DirectoryManager::getContent("styles");
+$styles = array();
+foreach($dirs as $info) {
+	$styles[] = $info['name'];
+}
+$_SESSION[STYLE] = Check::getInputIn(isset($_GET[STYLE]) ? $_GET[STYLE] : $_SESSION[STYLE], $styles, "default");
 ?>

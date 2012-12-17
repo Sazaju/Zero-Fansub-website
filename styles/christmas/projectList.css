@@ -1,0 +1,53 @@
+.projectListImage, .projectListText {
+	list-style: none;
+}
+
+.projectListImage {
+	margin: 0;
+	padding: 0;
+}
+
+#page .projectListImage li {
+	text-align: center;
+	margin-bottom: 1.4em;
+}
+
+.projectListText li {
+	text-align: left;
+}
+
+#page.series {
+	text-align: left;
+}
+
+#page.series h2 {
+	text-align: center;
+	margin: 2em auto 1em auto;
+	width: 75%;
+	/*
+	font-style: italic;
+	*/
+	font-weight: normal;
+	letter-spacing: 5px;
+	border: 1px solid gray;
+}
+
+#page.series h3 {
+	color: black;
+	font-size: 17px;
+	margin-left: 60px;
+	margin-right: 20px;
+	margin-top: 0;
+	letter-spacing: 0;
+	font-weight: bold;
+}
+
+#page.series .pictureSwitch {
+	color: black;
+	font-size: 17px;
+	margin-left: 60px;
+	margin-right: 20px;
+	margin-top: 0px;
+	letter-spacing: 0;
+	font-weight: bold;
+}

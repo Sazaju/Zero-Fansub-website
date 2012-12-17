@@ -1,0 +1,125 @@
+#page.project {
+	text-align: left;
+}
+
+#page.project .projectPicture {
+	float: right;
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+#page.project .deadLinks {
+	display: block;
+	text-align: right;
+}
+
+#page.project .released *{
+	text-indent: 0;
+}
+
+#page.project .released h1, #page.project .notReleased h1 {
+	margin-left: 0;
+	letter-spacing: 0;
+	font-weight: bold;
+}
+
+#page.project .released .title, #page.project .notReleased .title {
+	display: block;
+	width: 603px;
+	height: 30px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
+	padding-left: 20px;
+	padding-top: 5px;
+}
+
+#page.project .released .title {
+	background: url('images/episodes.png') no-repeat;
+}
+
+#page.project .notReleased .title {
+	background: url('images/episodesnd.png') no-repeat;
+}
+
+#page.project .released .title a, #page.project .notReleased .title a {
+	display: block;
+	font-size: 16px;
+	font-family: 'Courier New';
+}
+
+#page.project .released .title a {
+	color: #FFFFFF;
+}
+
+#page.project .notReleased .title a {
+	color: #999999;
+	font-weight: bold;
+}
+
+#page.project .released .title a:hover, #page.project .notReleased .title a:hover {
+	text-decoration: none !important;
+}
+
+#page.project .released .previewImage {
+	display: block;
+	margin: 1em;
+}
+
+#page.project .released .content, #page.project .notReleased .content {
+	text-indent: 10px;
+	font-family: Tahoma;
+	font-size: 12px;
+	font-size: 12px;
+	color: #666666;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 0px;
+}
+
+#page.project .released .synopsis, #page.project .released ul {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+#page.project .released .synopsis {
+	text-align: justify;
+}
+
+#page.project .released .comment {
+	font-weight: bold;
+}
+
+#page.project .linkList, #page.project .releaseList, #page.project .licenseList, #page.project .skinList {
+	list-style: none;
+	padding-left: 0;
+}
+
+#page.project .linkList {
+	padding-left: 10px;
+}
+
+#page.project .fileList {
+	list-style-image: url('images/puce.png');
+	padding-left: 15px;
+}
+
+#page.project .released h1 {
+	display: block;
+	font-size: 1em;
+	margin: 0;
+	margin-top: 10px;
+}
+
+#page.project .released .originalName h1, #page.project .released .localizedName h1, #page.project .released .size h1, #page.project .released .codecs h1 {
+	display: inline;
+	margin-right: 1em;
+}
+
+#page.project .discussionLink {
+	display:block;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
