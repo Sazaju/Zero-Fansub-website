@@ -13,6 +13,6 @@
 .sortie img {
 	max-width: 160px;
 	max-height: 90px;
-	border: 0;
+	border: 2px outset red;
+	background-color: white;
 }
-
