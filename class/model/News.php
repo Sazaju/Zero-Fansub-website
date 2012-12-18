@@ -4404,6 +4404,27 @@ Si on n'a toujours personne, on risque de se tourner vers des solutions plus... 
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Préparations pour Noël");
+			$news->setTimestamp(strtotime("18 December 2012 20:13"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("En l'approche des fêtes de Noël, le team Zéro se démène pour montrer qu'elle n'est pas morte !
+
+[img=images/news/xmasPreparation.jpg]Allez, la deadline est proche ![/img]
+
+Pour l'occasion, le style du site a été légèrement revu pour les fêtes (et notez que c'est un style automatique, il est réglé pour apparaître entre le 15 et le 31 décembre {^_^}).
+
+Bien entendu, on se doute bien que vous vous en fout... Hum... que cela vous réjouit sans pour autant vous faire sauter de joie. Mais ne vous en faite pas, on vous prépare une petite surprise. Toute petite. Si si, minuscule, je vous jure {^_^}.
+
+Bref, ne vous en faites pas, on est encore dans la course, et on ne tardera pas à le prouver.");
+			$news->setCommentId(309);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
