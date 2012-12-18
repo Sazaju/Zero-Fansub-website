@@ -4414,9 +4414,7 @@ Si on n'a toujours personne, on risque de se tourner vers des solutions plus... 
 
 Pour l'occasion, le style du site a été légèrement revu pour les fêtes (et notez que c'est un style automatique, il est réglé pour apparaître entre le 15 et le 31 décembre {^_^}).
 
-Bien entendu, on se doute bien que vous vous en fout... Hum... que cela vous réjouit sans pour autant vous faire sauter de joie. Mais ne vous en faite pas, on vous prépare une petite surprise. Toute petite. Si si, minuscule, je vous jure {^_^}.
-
-Bref, ne vous en faites pas, on est encore dans la course, et on ne tardera pas à le prouver.");
+Bien entendu, on se doute bien que vous vous en fout... Hum... que cela vous réjouit sans pour autant vous faire sauter de joie. Mais ne vous en faite pas, on vous prépare une petite surprise. De quoi vous montrer qu'on est encore dans la course {^_^}.");
 			$news->setCommentId(309);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
