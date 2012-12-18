@@ -70,7 +70,14 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta name="DC.Language" scheme="RFC3066" content="fr" />
 		<?php
-			$styleFile = "styles/".$_SESSION[STYLE]."/style".($_SESSION[MODE_H] ? "H" : "").".css";
+			$date = getdate();
+			$month = $date['mon'];
+			$day = $date['mday'];
+			
+			$variant = "";
+			$variant .= $_SESSION[MODE_H] ? "H" : "";
+			$variant .= ($month == 12 && $day >= 15 && $day <= 31) ? "Xmas" : "";
+			$styleFile = "styles/".$_SESSION[STYLE]."/style".$variant.".css";
 		?>
 		<link rel="stylesheet" href="<?php echo $styleFile; ?>" type="text/css" media="screen" title="Normal" />  
 		<link rel="icon" type="image/gif" href="favicon.gif" />

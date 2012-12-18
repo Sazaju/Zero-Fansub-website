@@ -1,0 +1,16 @@
+body {
+	background: url('images/xmas/bg.jpg');
+}
+
+#header {
+	background: url('images/xmas/banniere.png') no-repeat;
+}
+
+.sortie img {
+	background-color: white;
+	border: 2px outset red;
+}
+
+.logo {
+	content: url('images/xmas/logo.png');
+}
