@@ -11,6 +11,6 @@ body {
 	border: 2px outset red;
 }
 
-.logo {
+#colRight .logo:after {/*should not be after, nor before, but does not work with Firefox 17 without this*/
 	content: url('images/xmas/logo.png');
 }
