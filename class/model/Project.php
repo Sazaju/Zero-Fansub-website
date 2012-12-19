@@ -235,6 +235,7 @@ class Project {
 			$project = new Project("haganai", "Boku ha Tomodachi ga Sukunai");
 			$project->setOriginalName("Boku ha Tomodachi ga Sukunai");
 			$project->setAiringYear(2011);
+			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setSynopsis("C'est bien connu, les otakus n'ont pas d'amis. Mais quand on n'en est pas un, ça ne veut pas dire pour autant qu'on en a. Si vous aussi vous avez du mal avec les autres, peut-être vous reconnaitrez-vous dans cette série. Sinon, vous pourrez toujours en profiter pleinement pour découvrir comment s'amuser quand on n'a pas d'amis... ou tout du moins quand on en est convaincu.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
@@ -244,6 +245,7 @@ class Project {
 			$project = new Project("haganaioav", "Boku ha Tomodachi ga Sukunai OAV");
 			$project->setOriginalName("Boku ha Tomodachi ga Sukunai OAV");
 			$project->setAiringYear(2011);
+			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setSynopsis("Quand on a une bonne bande d'amis, on partage de bons moments ensemble. On organise des pique-niques, chacun apporte son repas, et tout le monde s'amuse avec entrain. Enfin ça, c'est ce qu'on fait quand on a des amis. Mais quand on n'en a pas, que fait-on ? Eh bien, certains essayent de faire comme si... et là, ça peut tourner au génocide. Attention à la crise de foie.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
@@ -960,6 +962,7 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project->setOriginalName("Kiss×sis (2010)");
 			$project->setOfficialWebsite(Link::newWindowLink("http://kc.kodansha.co.jp/kiss_sis/", "kc.kodansha.co.jp/kiss_sis"));
 			$project->setAiringYear(2010);
+			$project->setStudio("Feel - Starchild Records");
 			$project->setGenre("Comédie Ecchi");
 			$project->setAuthor("Ditawa Bow");
 			$project->setSynopsis("Keita a deux grandes demi-soeurs, Ako et Riko, mais puisqu'ils ne sont pas liés par le sang, elles l'aiment d'une façon assez lascive. Après une infortune à l'école, Ako et Riko lui avouent finalement leur amour. Keita n'aime pas la pensée d'être plus que frère et soeur, mais comme il essaye d'entrer à la même école que ses soeurs, il devient lentement attiré par elles.");
@@ -973,6 +976,7 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project->setOriginalName("Kiss×sis");
 			$project->setOfficialWebsite(Link::newWindowLink("http://kc.kodansha.co.jp/kiss_sis/", "kc.kodansha.co.jp/kiss_sis"));
 			$project->setAiringYear(2008);
+			$project->setStudio("Feel");
 			$project->setGenre("Ecchi");
 			$project->setAuthor("Ditawa Bow");
 			$project->setSynopsis("Ako et Riko sont deux soeurs jumelles. Toutes les deux sont amoureuses de leur frère par alliance, Keita, avec qui elles n'ont aucun lien de sang.");
