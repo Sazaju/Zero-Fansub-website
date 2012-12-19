@@ -971,7 +971,7 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project = new Project("kissxsisoav", "KissXsis OAD");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kiss×sis");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.yanmaga.kodansha.co.jp/ym/rensai/bessatu/kissxsis/kiss.html", "Yamaga.kodansha.co.jp"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://kc.kodansha.co.jp/kiss_sis/", "kc.kodansha.co.jp/kiss_sis"));
 			$project->setAiringYear(2008);
 			$project->setGenre("Ecchi");
 			$project->setAuthor("Ditawa Bow");
