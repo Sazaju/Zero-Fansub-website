@@ -260,7 +260,7 @@ class Project {
 			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
-			$project->setSynopsis("Aoki Daisuke sensei est un tout nouveau professeur en primaire et débute sa carrière dans une classe d'enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d'elle, par de nombreux pièges parfois osés, et rendra sa vie de nouveau professeur très difficile. 
+			$project->setSynopsis("Aoki Daisuke sensei est un tout nouvel instituteur en primaire et débute sa carrière dans une classe d'enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d'elle, par de nombreux pièges parfois osés, et rendra sa vie de nouvel instituteur très difficile. 
 Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans la vie de ses élèves et fera de son mieux pour les aider à surmonter les problèmes, même s'il met parfois en jeu son poste d'éducateur. Reste à voir dans quelles galères il se mettra, surtout avec le trio Kokonoe, Kagami et Usa.");
 			$project->setVosta('<a href="http://www.genjo-subs.net/" target="_blank">Genjo Subs</a> et <a href="http://loli-pop-subs.blogspot.com/" target="_blank">Loli-Pop-Subs</a>');
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
@@ -275,7 +275,7 @@ Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans l
 			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
-			$project->setSynopsis("Rin, Kuro et Mimi sont trois adorables petites filles de 10 ans qui découvrent le monde des adultes... C'est l'anniversaire de Aoki, leur professeur mais aussi l'amoureux secret de Rin. Celle-ci tentent donc de le séduire en lui offrant un cadeau...original ^^");
+			$project->setSynopsis("Rin, Kuro et Mimi sont trois adorables petites filles de 10 ans qui découvrent le monde des adultes... C'est l'anniversaire d'Aoki, leur instituteur mais aussi l'amoureux secret de Rin. Celle-ci tente donc de le séduire en lui offrant un cadeau... original.");
 			$project->setVosta('<a href="http://www.genjo-subs.net/" target="_blank">Genjo Subs</a>');
 			$project->setComment("Si vous souhaitez regarder l'OAV mais aussi la série, il est conseillé de regarder l'OAV entre l'épisode 5 et 6.
 Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le regarder sans voir la série. Mais c'est quand même mieux de regarder la série, évidemment ^^");
@@ -304,7 +304,7 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut 
 			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
-			$project->setSynopsis("Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'été, en vacances avec Aoki et Houin.");
+			$project->setSynopsis("Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absolument adorables dans leurs maillots de bain d'été, en vacances avec Aoki et Houin.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
 			$project->setStatus(Project::FINISHED);
 			Project::$allProjects[] = $project;
@@ -317,7 +317,7 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut 
 			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
-			$project->setSynopsis("Aoki Daisuke sensei est un tout nouveau professeur en primaire et débute sa carrière dans une classe d'enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d'elle, par de nombreux pièges parfois osés, et rendra sa vie de nouveau professeur très difficile. 
+			$project->setSynopsis("Aoki Daisuke sensei est un tout nouvel instituteur en primaire et débute sa carrière dans une classe d'enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d'elle, par de nombreux pièges parfois osés, et rendra sa vie de nouvel instituteur très difficile. 
 Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans la vie de ses élèves et fera de son mieux pour les aider à surmonter les problèmes, même s'il met parfois en jeu son poste d'éducateur. Reste à voir dans quelles galères il se mettra, surtout avec le trio Kokonoe, Kagami et Usa.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
 			$project->setStatus(Project::FINISHED);
@@ -331,7 +331,7 @@ Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans l
 			$project->setStudio("Bridge");
 			$project->setAuthor("Sakurai Norio");
 			$project->setGenre("Comédie Ecchi");
-			$project->setSynopsis("Les triplés raconte l'histoire de 3 filles de primaire un peu perverses qui harcèlent leur prof pas doué.");
+			$project->setSynopsis("Les triplées raconte l'histoire de 3 filles de primaire un peu perverses qui harcèlent leur prof pas doué.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
 			$project->setStatus(Project::FINISHED);
 			Project::$allProjects[] = $project;
@@ -548,8 +548,8 @@ Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans l
 			$project->setAiringYear(2007);
 			$project->setStudio(Link::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
 			$project->setGenre("Comédie");
-			$project->setSynopsis("Sunao Moriyama, se préparant à partir à l'école, ouvre la porte de son frigo afin de déjeuner, hors celui-ci tombe nez à nez avec une drôle de créature plus ou moins semblable à un \"bébé\".
-Comme s'il n'avait rien vu de spécial celui-ci ferme la porte sans porter plus d'attention à la créature en ayant au préalable saisi son déjeuné, celui-ci portant le nom de \"Potemayo\", il surnommera la créature \"Potemayo\".
+			$project->setSynopsis("Sunao Moriyama, se préparant à partir à l'école, ouvre la porte de son frigo afin de déjeuner, or celui-ci tombe nez à nez avec une drôle de créature plus ou moins semblable à un \"bébé\".
+Comme s'il n'avait rien vu de spécial, celui-ci ferme la porte sans porter plus d'attention à la créature, en ayant au préalable saisi son déjeuner, celui-ci portant le nom de \"Potemayo\", il surnommera la créature \"Potemayo\".
 Et c'est dès lors qu'à se moment, les gags et situations humoristiques apparaissent !");
 			$project->setVosta("<a href=\"http://fansubs.anime-share.net/\" target=\"_blank\">Anime-Share fansub</a> et Anoymous");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2057-Ton-avis-sur-Potemayo.htm");
@@ -582,7 +582,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
 			$project->setAuthor("Matsu Tomohiro");
 			$project->setGenre("Comédie Ecchi");
-			$project->setSynopsis("Takumi Tsuzuki vit avec sa grande \"soeur\" Otome bien qu'ils ne soient pas liés par le sang. Otome gère une vieille pâtisserie appelée Stray Cats où y travaille également une amie d'enfance de Takumi, Fumino Serisawa. C'est alors qu'un jour, Nozomi Kiriya, une jeune fille mystérieuse imitant un chat, apparaît...");
+			$project->setSynopsis("Takumi Tsuzuki vit avec sa grande \"sœur\" Otome bien qu'ils ne soient pas liés par le sang. Otome gère une vieille pâtisserie appelée Stray Cats où y travaille également une amie d'enfance de Takumi, Fumino Serisawa. C'est alors qu'un jour, Nozomi Kiriya, une jeune fille mystérieuse imitant un chat, apparaît...");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2047-Ton-avis-sur-Mayoi-Neko-Overrun.htm");
 			$project->setStatus(Project::RUNNING);
 			Project::$allProjects[] = $project;
@@ -636,7 +636,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setAiringYear(2008);
 			$project->setStudio("Nippon Animation");
 			$project->setGenre("Comédie");
-			$project->setSynopsis("L'école privée Kamizono est un établissement qui possède la particularité d'accueillir en son sein des élèves allant du primaire jusqu'au lycée. De ce fait, son immense structure donne du mal aux nouveaux arrivants pour s'y retrouver. Nonomura Ayumi, jeune étudiante au caractère réservé, arrive à se perdre dés le premier jour de la rentrée. Cherchant désespérément son chemin, elle fini par tomber sur une de ses camarades de classe Lizuda Tatsuki qui se trouve être, sans vouloir l'admettre, dans la même situation qu'elle. Après un long moment de marche, toutes les deux voient incrédules deux élèves sautaient du deuxième étage d'un bâtiment. C'est ainsi qu'elles font la rencontre de Torako et Suzu, également perdues mais ayant un moyen infaillible pour atteindre rapidement leur salle de classe : aller de l'avant quelque soit l'obstacle rencontré. Commence alors pour ce nouveau quatuor formé, une année scolaire placée sous le signe de l'amitié et de l'humour.");
+			$project->setSynopsis("L'école privée Kamizono est un établissement qui possède la particularité d'accueillir en son sein des élèves allant du primaire jusqu'au lycée. De ce fait, son immense structure donne du mal aux nouveaux arrivants pour s'y retrouver. Nonomura Ayumi, jeune étudiante au caractère réservé, arrive à se perdre dès le premier jour de la rentrée. Cherchant désespérément son chemin, elle finit par tomber sur une de ses camarades de classe, Lizuda Tatsuki, qui se trouve être, sans vouloir l'admettre, dans la même situation qu'elle. Après un long moment de marche, toutes les deux voient incrédules deux élèves sautaient du deuxième étage d'un bâtiment. C'est ainsi qu'elles font la rencontre de Torako et Suzu, également perdues, mais ayant un moyen infaillible pour atteindre rapidement leur salle de classe : aller de l'avant quelque soit l'obstacle rencontré. Commence alors pour ce nouveau quatuor formé une année scolaire placée sous le signe de l'amitié et de l'humour.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2064-Ton-avis-sur-Hyakko.htm");
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
@@ -773,7 +773,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Takemiya Yuyuko");
-			$project->setSynopsis("En raison de son regard menaçant hérité de son père, Takasu Ryuuji est un adolescent craint, car considéré comme un délinquant, par les autres élèves de son lycée. Cette image étant à l'opposé de ce qu'il est réellement, ce dernier aimerait s'en séparer définitivement afin de ne plus souffrir des conséquences qui en découlent. Ryuuji ne perd pas espoir d'y arriver grâce notamment à son ami Kitamura qui, en plus d'avoir vu clair dans cette mésentente, lui a permis de rencontrer Kushieda Minori dont il est tombé amoureux. Alors qu'il pense à elle, il bouscule par mégarde Asaika Taiga, une élève de sa classe et amie de Minori dont le mauvais caractère n'a d'égal que sa force. Suite à un concours de circonstances, Ryuuji apprendra que Aisaka est sa nouvelle voisine et que cette dernière est amoureuse de Kitamura. Se développe alors entre les deux une relation ambiguë dans le but de se rapprocher des personnes respectives aimées.");
+			$project->setSynopsis("En raison de son regard menaçant hérité de son père, Takasu Ryuuji est un adolescent craint car considéré comme un délinquant par les autres élèves de son lycée. Cette image étant à l'opposé de ce qu'il est réellement, ce dernier aimerait s'en séparer définitivement afin de ne plus souffrir des conséquences qui en découlent. Ryuuji ne perd pas espoir d'y arriver grâce notamment à son ami Kitamura qui, en plus d'avoir vu clair dans cette mésentente, lui a permis de rencontrer Kushieda Minori dont il est tombé amoureux. Alors qu'il pense à elle, il bouscule par mégarde Asaika Taiga, une élève de sa classe et amie de Minori dont le mauvais caractère n'a d'égal que sa force. Suite à un concours de circonstances, Ryuuji apprendra que Aisaka est sa nouvelle voisine et que cette dernière est amoureuse de Kitamura. Se développe alors entre les deux une relation ambiguë dans le but de se rapprocher des personnes respectives aimées.");
 			$project->setVosta('<a href="http://www.ggkthx.org/" target="_blank">GG</a>');
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
@@ -965,7 +965,7 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project->setStudio("Feel - Starchild Records");
 			$project->setGenre("Comédie Ecchi");
 			$project->setAuthor("Ditawa Bow");
-			$project->setSynopsis("Keita a deux grandes demi-soeurs, Ako et Riko, mais puisqu'ils ne sont pas liés par le sang, elles l'aiment d'une façon assez lascive. Après une infortune à l'école, Ako et Riko lui avouent finalement leur amour. Keita n'aime pas la pensée d'être plus que frère et soeur, mais comme il essaye d'entrer à la même école que ses soeurs, il devient lentement attiré par elles.");
+			$project->setSynopsis("Keita a deux grandes demi-sœurs, Ako et Riko, mais puisqu'ils ne sont pas liés par le sang, elles l'aiment d'une façon assez lascive. Après une infortune à l'école, Ako et Riko lui avouent finalement leur amour. Keita n'aime pas la pensée d'être plus que frère et sœur, mais comme il essaye d'entrer à la même école que ses sœurs, il devient lentement attiré par elles.");
 			$project->setVosta("Subdesu");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
 			$project->setStatus(Project::RUNNING);
@@ -979,7 +979,7 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project->setStudio("Feel");
 			$project->setGenre("Ecchi");
 			$project->setAuthor("Ditawa Bow");
-			$project->setSynopsis("Ako et Riko sont deux soeurs jumelles. Toutes les deux sont amoureuses de leur frère par alliance, Keita, avec qui elles n'ont aucun lien de sang.");
+			$project->setSynopsis("Ako et Riko sont deux sœurs jumelles. Toutes les deux sont amoureuses de leur frère par alliance, Keita, avec qui elles n'ont aucun lien de sang.");
 			$project->setVosta("Anonymous et AKFDP");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
 			$project->setStatus(Project::RUNNING);
