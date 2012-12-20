@@ -411,6 +411,7 @@ Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans l
 			$project->setOriginalName("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setAiringYear(2011);
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.isshoni-training026.com/", "Isshoni Training 026"));
 			$project->setStudio("Primaesta");
 			$project->setGenre("Ecchi");
 			$project->setSynopsis("Prendre un bain avec Hinako, &ccedil;a vous dit ? En plus, elle n'est pas seule : Hiyoko, sa copine loli, vient vous rejoindre.");
@@ -614,7 +615,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project = new Project("sketchbookdrama", "Sketchbook ~full colors~ Picture Drama");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Sketchbook - full color's Picture Drama");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.sketch-full.net/", "Sketch-full.net"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://ani.tv/sketch-full/", "Ani.tv"));
 			$project->setAiringYear(2008);
 			$project->setStudio(Link::newWindowLink("http://www.hal-film.co.jp/", "Hal film maker"));
 			$project->setGenre("Comédie");
@@ -663,7 +664,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project = new Project("sketchbook", "Sketchbook ~full colors~");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Sketchbook - full color's");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.sketch-full.net/", "Sketch-full.net"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://ani.tv/sketch-full/", "Ani.tv"));
 			$project->setAiringYear(2007);
 			$project->setStudio(Link::newWindowLink("http://www.hal-film.co.jp/", "Hal film maker"));
 			$project->setGenre("Comédie");
@@ -988,7 +989,7 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project = new Project("hitohira", "Hitohira");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Hitohira");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.hitohira.tv/", "Hitohira.tv"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://web.peex.jp/hitohira/", "Peex Hitohira"));
 			$project->setAiringYear(2007);
 			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Amour et Amitié");
