@@ -979,7 +979,7 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project->setStudio("Feel");
 			$project->setGenre("Ecchi");
 			$project->setAuthor("Ditawa Bow");
-			$project->setSynopsis("Ako et Riko sont deux sœurs jumelles. Toutes les deux sont amoureuses de leur frère par alliance, Keita, avec qui elles n'ont aucun lien de sang.");
+			$project->setSynopsis("Ako et Riko sont deux sœurs jumelles. Toutes les deux sont amoureuses de leur demi-frère, Keita, avec qui elles n'ont aucun lien de sang.");
 			$project->setVosta("Anonymous et AKFDP");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
 			$project->setStatus(Project::RUNNING);
