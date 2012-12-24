@@ -4423,6 +4423,28 @@ Bien entendu, on se doute bien que vous vous en fout... Hum... que cela vous ré
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			
+			$news = new News();
+			$news->setTitle("Joyeux Noël !");
+			$news->setTimestamp(strtotime("25 December 2012 00:00"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("JOYEUX NOËL À TOUS ! \\{^o^}/
+
+[img=images/news/noel2012.jpg]JOYEUX NOËL ![/img]
+
+Bon, certains vont sûrement être déçus, on n'a pas été capable de mettre en place ce qu'on voulait. Un de nos membres étant tombé malade (paix à son âme), la surprise a dû se serrer la ceinture {'^_^}.
+
+Néanmoins, on ne vient pas à vous les mains vides ! Les habitués connaissent déjà le principe, pour les nouveaux on espère que certains y trouveront leur intérêt : un pack d'images spécial Noël est dispo [url=ddl/bonus/noel_zero_2012.zip]>ici<[/url] !
+
+Certaines sont spécialement taillées pour être utilisées comme wallpapers, d'autres non, ce qui explique certains doublons (un complet et un retaillé).");
+			$news->setCommentId(310);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
