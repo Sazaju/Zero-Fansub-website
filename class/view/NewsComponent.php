@@ -15,7 +15,7 @@ class NewsComponent extends SimpleBlockComponent {
 		$subtitle = new Title(null, 4);
 		$subtitle->setClass("subtitle");
 		$time = "Préparée";
-		$timestamp = $news->getTimestamp();
+		$timestamp = $news->getPublicationTime();
 		if ($timestamp !== null) {
 			$time = strftime("%d/%m/%Y", $timestamp);
 		}

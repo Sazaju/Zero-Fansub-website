@@ -122,7 +122,7 @@ class NewsSelector {
 	public function isSelectingNews(News $news) {
 		if ($this->isHModeActivated() && !$news->displayInHentaiMode() // wrong mode (H)
 		    || !$this->isHModeActivated() && !$news->displayInNormalMode() // wrong mode (not H)
-		    || !$this->isPreparedShown() && ($news->getTimestamp() === null || $news->getTimestamp() > time()) // hidden news
+		    || !$this->isPreparedShown() && !$news->isPublished() // hidden news
 		    ) {
 			return false;
 		} else {
