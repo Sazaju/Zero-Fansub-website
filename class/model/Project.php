@@ -603,6 +603,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setSynopsis("Takumi Tsuzuki vit avec sa grande \"sœur\" Otome bien qu'ils ne soient pas liés par le sang. Otome gère une vieille pâtisserie appelée Stray Cats où y travaille également une amie d'enfance de Takumi, Fumino Serisawa. C'est alors qu'un jour, Nozomi Kiriya, une jeune fille mystérieuse imitant un chat, apparaît...");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2047-Ton-avis-sur-Mayoi-Neko-Overrun.htm");
 			$project->setStatus(Project::RUNNING, null);
+			$project->setStatus(Project::FINISHED, strtotime("1 January 2013 00:00"));
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mayoisp", "Mayoi Neko Overrun! - Spéciaux");

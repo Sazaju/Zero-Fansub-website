@@ -1115,11 +1115,27 @@ class Release {
 			$release = new Release(Project::getProject('mayoi'), 'ep11');
 			$release->setName("11");
 			$release->setPreviewUrl("images/episodes/mayoi11.png");
+			$release->setHeaderImage("images/sorties/mayoi11-12.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_11_[H264-AAC][BD][EA1758BC].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('1 January 2013 00:00'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep12');
 			$release->setName("12");
 			$release->setPreviewUrl("images/episodes/mayoi12.png");
+			$release->setHeaderImage("images/sorties/mayoi11-12.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_12_[H264-AAC][BD][76693473].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('1 January 2013 00:00'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kimikiss'), 'ep1');

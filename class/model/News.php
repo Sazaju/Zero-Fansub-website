@@ -4444,6 +4444,31 @@ Certaines sont spécialement taillées pour être utilisées comme wallpapers, d
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Année terminée, MNO aussi !");
+			$news->setTimestamp(strtotime("1 January 2013 00:00"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez, on se la refait ?
+
+BONNE ANNÉE À TOUS ! \\{^o^}/
+
+Bon d'accord, pas très original. Mais cette fois on tient parole : la seconde partie de la surprise est désormais disponible (même si certains y ont coupé court de manière brutale dans les commentaires précédents, sympa {-_-}).
+
+Enfin bref, Mayoi Neko Overrun 11 et 12 disponibles et, par conséquent, on clot cette série chez nous. Eh oui, Mayoi Neko Overrun est fini !
+
+[img=images/news/mayoi11-12.jpg]Mayoi, c'est fini.[/img]
+
+Cela dit, ce n'est pas parce que l'année 2012 est finie que nos besoins le sont aussi. On cherche toujours du monde pour nous aider à tourner. Donc n'hésitez pas à postuler {^_°}.");
+			$news->setCommentId(311);
+			$news->addReleasing(Release::getRelease('mayoi', 'ep11'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep12'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
