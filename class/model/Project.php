@@ -171,14 +171,13 @@ class Project {
 	
 	public function getStatus() {
 		$timeRef = 0;
-		$timeMax = time();
 		$statusRef = null;
 		foreach($this->status as $array) {
 			$time = $array[0];
 			$status = $array[1];
 			if ($timeRef === 0 && $time === null) {// worst case: status with no date
 				$statusRef = $status;
-			} else if ($time > $timeRef && $time <= $timeMax) {// best case: full status
+			} else if ($time > $timeRef && $time <= $_SESSION[TIME]) {// best case: full status
 				$timeRef = $time;
 				$statusRef = $status;
 			} else {

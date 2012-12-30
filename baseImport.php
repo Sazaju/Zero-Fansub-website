@@ -149,6 +149,15 @@ if (TEST_MODE_ACTIVATED) {
 	}
 	$features->addComponent($link);
 	
+	$link = new Link(Url::getCurrentUrl(), 'Go in the future');
+	if (Url::getCurrentUrl()->hasQueryVar('setdate')) {
+		$link->getUrl()->removeQueryVar('setdate');
+		$link->setClass('reverse');
+	} else {
+		$link->getUrl()->setQueryVar('setdate', PHP_INT_MAX);
+	}
+	$features->addComponent($link);
+	
 	$link = new Link(Url::getCurrentUrl(), 'deactivate testing mode');
 	if (Url::getCurrentUrl()->hasQueryVar('noTest')) {
 		$link->getUrl()->removeQueryVar('noTest');
@@ -183,6 +192,7 @@ define('WEBSITE_VERSION', exec('git tag'));
 define('MODE_H', 'modeH');
 define('DISPLAY_H_AVERT', 'displayHavert');
 define('STYLE', 'style');
+define('TIME', 'time');
 
 /**********************************\
          SESSION MANAGEMENT
@@ -213,4 +223,10 @@ if (!isset($_SESSION[STYLE])) {
 	// keep it as is
 }
 $_SESSION[STYLE] = Check::getInputIn(isset($_GET[STYLE]) ? $_GET[STYLE] : $_SESSION[STYLE], $styles, "default");
+
+if (TEST_MODE_ACTIVATED && Url::getCurrentUrl()->hasQueryVar('setdate')) {
+	$_SESSION[TIME] = $link->getUrl()->getQueryVar('setdate');
+} else {
+	$_SESSION[TIME] = time();
+}
 ?>

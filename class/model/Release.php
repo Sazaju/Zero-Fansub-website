@@ -171,7 +171,7 @@ class Release {
 	}
 	
 	public function isReleased() {
-		return $this->releasingTime !== null && $this->releasingTime <= time();
+		return $this->releasingTime !== null && $this->releasingTime <= $_SESSION[TIME];
 	}
 	
 	public function getReleasingTime() {
