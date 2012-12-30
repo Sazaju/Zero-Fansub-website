@@ -4423,7 +4423,6 @@ Bien entendu, on se doute bien que vous vous en fout... Hum... que cela vous ré
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
-			
 			$news = new News();
 			$news->setTitle("Joyeux Noël !");
 			$news->setTimestamp(strtotime("25 December 2012 00:00"));
