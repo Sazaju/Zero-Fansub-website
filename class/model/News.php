@@ -102,7 +102,7 @@ class News {
 	}
 	
 	public function isPublished() {
-		return $this->getPublicationTime() !== null && $this->getPublicationTime() <= time();
+		return $this->getPublicationTime() !== null && $this->getPublicationTime() <= $_SESSION[TIME];
 	}
 	
 	public function setAuthor($author) {
