@@ -6,7 +6,7 @@
 	          LOAD NEWS
 	\******************************/
 	$selected = $url->hasQueryVar('select') ? $url->getQueryVar('select') : NEWSSELECTOR_ALL;
-	$selector = new NewsSelector($selected, $_SESSION[MODE_H], $url->hasQueryVar('showPrepared'));
+	$selector = new NewsSelector($selected, $_SESSION[MODE_H]);
 	$newsList = News::getAllNews($selector);
 	usort($newsList, array('News', 'timestampSorter'));
 	
@@ -48,15 +48,6 @@
 		$options = new SimpleBlockComponent();
 		$options->setClass('testFeatures');
 		$options->addComponent("Options : ");
-		
-		$link = new Link(Url::getCurrentUrl(), "show prepared");
-		if ($link->getUrl()->hasQueryVar('showPrepared')) {
-			$link->getUrl()->removeQueryVar('showPrepared');
-			$link->setClass('reverse');
-		} else {
-			$link->getUrl()->setQueryVar('showPrepared');
-		}
-		$options->addComponent($link);
 		
 		$link = new Link(Url::getCurrentUrl(), "show all");
 		if ($link->getUrl()->hasQueryVar('showAll')) {

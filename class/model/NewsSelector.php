@@ -9,9 +9,8 @@ define('NEWSSELECTOR_ALL', '');
 class NewsSelector {
 	public static $readers;//initialized out of the class
 	
-	public function __construct($string = NEWSSELECTOR_ALL, $hMode = false, $showPrepared = false) {
+	public function __construct($string = NEWSSELECTOR_ALL, $hMode = false) {
 		$this->setHModeActivated($hMode);
-		$this->setPreparedShown($showPrepared);
 		$this->parseString($string);
 	}
 	
@@ -22,15 +21,6 @@ class NewsSelector {
 	
 	public function isHModeActivated() {
 		return $this->hMode;
-	}
-	
-	private $showPrepared = false;
-	public function setPreparedShown($boolean) {
-		$this->showPrepared = $boolean;
-	}
-	
-	public function isPreparedShown() {
-		return $this->showPrepared;
 	}
 	
 	private $constraints = array();
@@ -122,7 +112,7 @@ class NewsSelector {
 	public function isSelectingNews(News $news) {
 		if ($this->isHModeActivated() && !$news->displayInHentaiMode() // wrong mode (H)
 		    || !$this->isHModeActivated() && !$news->displayInNormalMode() // wrong mode (not H)
-		    || !$this->isPreparedShown() && !$news->isPublished() // hidden news
+		    || !$news->isPublished() // hidden news
 		    ) {
 			return false;
 		} else {
