@@ -23,53 +23,53 @@ II.ARCHITECTURE DU SITE
 
 II.1 Architecture globale
 
-+ class.............. Classes PHP
-|	+ model.......... Modèle (structures de données)
-|	|	+ database....... Base de données
-|	|
-|	+ util........... Utilitaires
-|	+ view........... Vue (représentations graphiques)
++ class..................... Classes PHP
+|   + model................. Modèle (structures de données)
+|   |   + database.......... Base de données (basé sur le modèle)
+|   |
+|   + util.................. Fonctions utilitaires
+|   + view.................. Vue (représentations graphiques)
 |
-+ ddl................ Releases de la team (disponible uniquement sur le serveur)
++ ddl....................... Releases de la team (disponible uniquement sur le serveur)
 |
-+ images............. Images utilisées pour le site
-|	+ autre.......... 
-|	+ calques........ Images transparentes utilisables pour faire du traitement d'image
-|	+ cover.......... 
-|	+ episodes....... Preview des épisodes
-|	+ forum.......... 
-|	+ hautmenu....... Images aleatoires utilisées dans le coin en haut à gauche du site
-|	+ icones......... 
-|	+ interface...... 
-|	+ kanaii......... 
-|	+ news........... Images utilisées dans les news
-|	+ part........... 
-|	+ partenaires.... 
-|	+ pub............ 
-|	+ recrut......... 
-|	+ scan........... 
-|	+ series......... Images utilisées pour décrire les projets (liste + descriptions)
-|	+ sorties........ Images apparaissant en haut du site, montrant les dernières sorties
-|	+ team........... Avatars des membres de l'équipe (page équipe)
-|	+ titres......... 
-|	+ xdcc........... 
++ images.................... Images utilisées pour le site
+|   + autre................. 
+|   + calques............... Images transparentes utilisables pour faire du traitement d'image
+|   + cover................. 
+|   + episodes.............. Preview des épisodes
+|   + forum................. 
+|   + hautmenu.............. Images aleatoires utilisées dans le coin en haut à gauche du site
+|   + icones................ 
+|   + interface............. 
+|   + kanaii................ 
+|   + news.................. Images utilisées dans les news
+|   + part.................. 
+|   + partenaires........... 
+|   + pub................... 
+|   + recrut................ 
+|   + scan.................. 
+|   + series................ Images utilisées pour décrire les projets (liste + descriptions)
+|   + sorties............... Images apparaissant en haut du site, montrant les dernières sorties
+|   + team.................. Avatars des membres de l'équipe (page équipe)
+|   + titres................ 
+|   + xdcc.................. 
 |
-+ interface.......... Pages PHP décrivant les différentes parties de l'interface (entête et pied de page, menus, contenu de page)
-|	+ pages.............. Contenu de page
++ interface................. Pages PHP décrivant les différentes parties de l'interface (entête et pied de page, menus, contenu de page)
+|   + pages................. Contenu de page (accueil, projets, XDCC, etc.)
 |
-+ styles............. Styles du site (CSS)
-|	+ default........ Style par défaut
-|		+ images..... Images utilisées par le style par défaut
++ styles.................... Styles du site (CSS)
+|   + default............... Style par défaut
+|   + (autres dosiers)...... Autres styles
 |
-+ tests.............. Tests automatisés
++ tests..................... Tests automatisés
 
 II.1 Classes PHP
 
 La hiérarchie des classes PHP n'est pas encore complètement fixée, cela dit elle est similaire à un schéma MVC (Model-View-Controler), avec quelques différences cependant. Pour bien clarifier cette différence, nous parlerons d'un schéma MVU (Model-View-Utilitary). Cette hiérarchie s'organise comme suit :
 
-- le modèle (M) définit les données disponibles, c'est à dire les objets qui seront manipulés (membre, dossier, projet, épisode, ...). La convention de nommage des classes est simplement le nom des données (Member, Dossier, Project, Release, ...), normalement en anglais. Ces classes regroupent tous les accesseurs/modifieurs (setters/getters) nécessaires à le lecture et l'écriture des données. Certaines fonctions de calculs simples peuvent être implémentées (ex: calcul de l'âge à partir de la date de naissance) mais rien de complexe ou consommateur en ressources, l'objectif principal est de donner accès aux données, et non de les générer. La couche utilitaire (décrite ci-dessous) peut prendre en charge les gros calculs.
+- le modèle (M) définit les données disponibles, c'est à dire les objets qui seront manipulés (membre, dossier, projet, épisode, ...). La convention de nommage des classes est simplement le nom des données (TeamMember, Dossier, Project, Release, ...), normalement en anglais. Ces classes regroupent tous les accesseurs/modifieurs (setters/getters) nécessaires à le lecture et l'écriture des données. Certaines fonctions de calculs simples peuvent être implémentées (ex: calcul de l'âge à partir de la date de naissance) mais rien de complexe ou consommateur en ressources, l'objectif principal est de donner accès aux données, et non de les générer. La couche utilitaire (décrite ci-dessous) peut prendre en charge les gros calculs.
 
-- la vue (V) correspond au rendu final des données (affichage sur le site). La convention de nommage est le nom de l'objet rendu suivi de "Renderer" (cette convention n'est pas encore appliquée, au profit de "Component", mais devra l'être dans le futur). Les classes de la vue implémentent l'interface IHtmlComponent (qui devra donc s'appeler IHtmlRenderer dans le futur).
+- la vue (V) correspond au rendu final des données (affichage sur le site). La convention de nommage est le nom de l'objet rendu suivi de "Renderer" (cette convention n'est pas encore appliquée, au profit de "Component" ou rien du tout, mais devra l'être dans le futur). Les classes de la vue implémentent l'interface IHtmlComponent (qui devra donc s'appeler IHtmlRenderer dans le futur).
 
 - les classes utilitaires (U) sont les éléments qui ne rentrent pas dans les sections précédentes (gros calculs, données indépendantes du site, ...). La convention de nommage n'est pas fixée, elle est donc libre (tant qu'elle ne reprend pas des noms de classes déjà existants, ce qui inclu les autres sections).
 
@@ -113,6 +113,7 @@ Le dossier "interface/pages" contient les différentes pages du site, à savoir :
 - dossiers.php correspond à la liste des dossiers
 - havert.php correspond à l'avertissement pour l'accès à la partie hentai
 - news.php correspond à la page affichant les news, qui est aussi la page d'accueil
+- news2.php correspond à la page affichant une news spécifique (notamment pour les liens RSS)
 - partenariat.php correspond à la page "Devenir partenaires"
 - project.php correspond à l'affichage d'un projet particulier
 - projects.php correspond à la liste des projets
@@ -143,9 +144,11 @@ II.4 Styles
 
 Pour l'instant un seul style est disponible, celui par défaut (default). Ce style est le modèle à considérer pour tout nouveau style. En particulier, tout style devrait se composer de cette façon :
 
-+ images........ Ensemble des images utilisées par le style
-+ style.css..... Style tout public
-+ styleH.css.... Style Hentai
++ images............ Ensemble des images utilisées par le style
++ style.css......... Style tout public
++ styleH.css........ Style Hentai
++ styleXMas.css..... Style tout public pour Noël
++ styleHXMas.css.... Style Hentai pour Noël
 
 Il peut y avoir d'autres fichiers (CSS découpés, sous-répertoires pour les images, ...) mais toutes les images utilisées par le style (et uniquement ça) doivent être dans le dossier image, et les deux fichiers de styles doivent avoir ces noms et être placés à la racine du répertoire.
 
@@ -171,4 +174,4 @@ Le commentaire est ici inutile, car le code est assez explicite pour voir qu'on 
 
 II.6 Divers
 
-Le dossier "ddl" est sensé contenir les releases de la team. En raison de sa taille, il n'est pas disponible sur le dépôt. De ce fait certaines informations relatives aux releases peuvent être non renseignées sur le site local et sur le site de test, cependant elles doivent apparaître sur le site serveur. Il est possible de rajouter des releases dans ce dossier, dès lors le site correspondant dispose des informations relatives aux releases disponibles. Dans le futur, il est prévu de placer les releases dans un répertoire "resources".
+Le dossier "ddl" est censé contenir les releases de la team. En raison de sa taille, il n'est pas disponible sur le dépôt. De ce fait certaines informations relatives aux releases peuvent être non renseignées sur le site local et sur le site de test, cependant elles doivent apparaître sur le site serveur. Il est possible de rajouter des releases dans ce dossier, dès lors le site correspondant dispose des informations relatives aux releases disponibles. Dans le futur, il est prévu de placer les releases dans un répertoire "resources" (comme beaucoup d'autres fichiers).
