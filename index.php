@@ -74,7 +74,7 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta name="DC.Language" scheme="RFC3066" content="fr" />
 		<?php
-			$date = getdate($_SESSION[TIME]);
+			$date = getdate($_SESSION[CURRENT_TIME]);
 			$month = $date['mon'];
 			$day = $date['mday'];
 			

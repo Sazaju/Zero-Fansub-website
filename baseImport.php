@@ -192,7 +192,7 @@ define('WEBSITE_VERSION', exec('git tag'));
 define('MODE_H', 'modeH');
 define('DISPLAY_H_AVERT', 'displayHavert');
 define('STYLE', 'style');
-define('TIME', 'time');
+define('CURRENT_TIME', 'currentTime');
 
 /**********************************\
          SESSION MANAGEMENT
@@ -225,8 +225,8 @@ if (!isset($_SESSION[STYLE])) {
 $_SESSION[STYLE] = Check::getInputIn(isset($_GET[STYLE]) ? $_GET[STYLE] : $_SESSION[STYLE], $styles, "default");
 
 if (TEST_MODE_ACTIVATED && Url::getCurrentUrl()->hasQueryVar('setdate')) {
-	$_SESSION[TIME] = $link->getUrl()->getQueryVar('setdate');
+	$_SESSION[CURRENT_TIME] = $link->getUrl()->getQueryVar('setdate');
 } else {
-	$_SESSION[TIME] = time();
+	$_SESSION[CURRENT_TIME] = time();
 }
 ?>

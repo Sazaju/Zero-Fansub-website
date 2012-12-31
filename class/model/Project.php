@@ -177,7 +177,7 @@ class Project {
 			$status = $array[1];
 			if ($timeRef === 0 && $time === null) {// worst case: status with no date
 				$statusRef = $status;
-			} else if ($time > $timeRef && $time <= $_SESSION[TIME]) {// best case: full status
+			} else if ($time > $timeRef && $time <= $_SESSION[CURRENT_TIME]) {// best case: full status
 				$timeRef = $time;
 				$statusRef = $status;
 			} else {
