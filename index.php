@@ -58,6 +58,10 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 		// no retro-compatibility action is needed
 	}
 }
+
+/**********************************\
+         PAGE RENDERING
+\**********************************/
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
