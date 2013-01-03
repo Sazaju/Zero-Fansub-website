@@ -3891,7 +3891,7 @@ class Release {
 			$release->setName("[01] 01 + 02");
 			$release->setPreviewUrl("images/episodes/potemayo1.jpg");
 			$release->setLocalizedTitle("01 : Potemayo / 02 : Invasion ! Créatures mystérieuses !!");
-			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnomme alors Potemayo. Il l'emmène en classe, où la créature attise la curiosité de tout le monde. Et puis d'autres créatures arrivent.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_01_[H264-AAC][5F560FCF].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -3904,7 +3904,7 @@ class Release {
 			$release->setName("[02] 03 + 04");
 			$release->setPreviewUrl("images/episodes/potemayo2.jpg");
 			$release->setLocalizedTitle("03 : Aimant cet enfant / 04 : Dimanche");
-			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$release->setSynopsis("");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_02_[H264-AAC][50DA4D18].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -3917,7 +3917,7 @@ class Release {
 			$release->setName("[03] 05 + 06");
 			$release->setPreviewUrl("images/episodes/potemayo3.jpg");
 			$release->setLocalizedTitle("05 : Le miracle de la veille de noël / 06 : C'est soudainement le nouvel an");
-			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$release->setSynopsis("");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_03_[H264-AAC][936F924F].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -3930,7 +3930,7 @@ class Release {
 			$release->setName("[04] 07 + 08");
 			$release->setPreviewUrl("images/episodes/potemayo4.jpg");
 			$release->setLocalizedTitle("07 : En parlant de février, c'est la veille du printemps / 08 : Un matin atchoum");
-			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$release->setSynopsis("");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_04_[H264-AAC][69FD511B].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
