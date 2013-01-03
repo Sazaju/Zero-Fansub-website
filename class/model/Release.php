@@ -1833,7 +1833,7 @@ class Release {
 			$release->setHeaderImage("images/sorties/hyakko.jpg");
 			$release->setLocalizedTitle("Rencontre avec un tigre");
 			$release->setOriginalTitle("Aimamieru Torako");
-			$release->setSynopsis("Ayumu est à la recherche de sa salle de classe. Elle rencontre sur son chemin Tatsuki. en cherchant toutes les deux, elle voient Torako et Suzume sautant du deuxième étage d'une fenêtre. Après avoir rejoint le groupe, elles se dirige vers la salle de classe.");
+			$release->setSynopsis("Ayumi est à la recherche de sa salle de classe. Elle rencontre sur son chemin Tatsuki. en cherchant toutes les deux, elle voient Torako et Suzume sautant du deuxième étage d'une fenêtre. Après avoir rejoint le groupe, elles se dirigent vers la salle de classe.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1853,7 +1853,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko2.jpg");
 			$release->setLocalizedTitle("Qui ne risque rien n'a rien");
 			$release->setOriginalTitle("Koketsu ni Irazunba Koji o EZU");
-			$release->setSynopsis("Ayumu, Tatsuki, Torako et Suzume sont à la recherche d'un club. Elles essayent plusieurs clubs de sport ensemble.");
+			$release->setSynopsis("Ayumi, Tatsuki, Torako et Suzume sont à la recherche d'un club. Elles essayent plusieurs clubs de sport ensemble.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1873,7 +1873,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko3.jpg");
 			$release->setLocalizedTitle("Un tigre à l'entrée, un tigre à l'arrière");
 			$release->setOriginalTitle("Zenmon pas mo Tora Tora Komon / Hariko pas Tora");
-			$release->setSynopsis("Torako et Suzume rencontrent Nene sur leur chemin. Elle leur annonce que Torako est chargée de la discipline ! Elle doit donc dès le lendemain vérifier les uniformes des élèves. Dans la deuxième partie de l'épisode, Torako et Suzume découvrent un robot grotesque fait par Chie, membre du club de robotique. Plus tard, Torako et ses amis sont invitées à la salle du club robotique et Chie leur annonce qu'elle veut devenir ingénieure en robotique.");
+			$release->setSynopsis("Torako et Suzume rencontrent Nene sur leur chemin. Elle leur annonce que Torako est chargée de la discipline ! Elle doit donc dès le lendemain vérifier les uniformes des élèves. Dans la deuxième partie de l'épisode, Torako et Suzume découvrent un robot grotesque fait par Chie, membre du club de robotique. Plus tard, Torako et ses amies sont invitées à la salle du club de robotique, où Chie leur annonce qu'elle veut devenir ingénieure en robotique.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1913,7 +1913,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko5.jpg");
 			$release->setLocalizedTitle("Relation étrange / Combats un tigre et tu verras");
 			$release->setOriginalTitle("Aien Koen / Hito ni wa soute miyo Tora à wa Tatakatte miyo");
-			$release->setSynopsis("Un nouveau personnage : Yanagi. Tout comme Koma, elle fait des profits de la vente de photographies des élèves. Lorsque Shishimaru regarde la photographie de Ayumu par hasard, il est instantanément épris de la photographie. Sur son chemin, il la Ayumu et confesse son amour pour elle. Dans la deuxième partie de l'épisode, Torako et Ushio sèchent les cours et passent leur temps ensemble dans le centre-ville.");
+			$release->setSynopsis("Un nouveau personnage : Yanagi. Tout comme Koma, il fait des profits de la vente de photographies des élèves. Lorsque Shishimaru regarde la photographie d'Ayumi par hasard, il est instantanément épris de la photographie. Sur son chemin, il confesse son amour à Ayumi. Dans la deuxième partie de l'épisode, Torako et Ushio sèchent les cours et passent leur temps ensemble dans le centre-ville.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1933,7 +1933,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko6.jpg");
 			$release->setLocalizedTitle("Encerclée par des tigres");
 			$release->setOriginalTitle("Sangen mukou Ryogawa ni Tora");
-			$release->setSynopsis("Torako, Suzume, et Ayumu vont chez Tatsuki sans la prévenir.");
+			$release->setSynopsis("Torako, Suzume et Ayumi vont chez Tatsuki sans la prévenir.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1953,7 +1953,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko7.jpg");
 			$release->setLocalizedTitle("Finallement, le tigre et le renard se rencontrent / Le renard provoque la colère du tigre");
 			$release->setOriginalTitle("Koko de Atta ga Hyakunenme / Tora no o Ikari Kitsune Kau");
-			$release->setSynopsis("Koma et Yanagi se cachent dans les buissons pour prendre des photos d'élèves en secret. Kitsuna décide de les aider et tire la jupe d'Ayumi pour Koma et Yanagi la prenne en photo. Dans la deuxième partie de l'épisode, Torako se plaint à ses amis de tous les mauvais souvenirs qu'elle avait avec son frère dans le passé. Kitsune décide de faire une blague à Torako en mettant des épices dans ses ramens.");
+			$release->setSynopsis("Koma et Yanagi se cachent dans les buissons pour prendre des photos d'élèves en secret. Kitsuna décide de les aider et tire la jupe d'Ayumi pour que Koma et Yanagi la prenne en photo. Dans la deuxième partie de l'épisode, Torako se plaint à ses amis de tous les mauvais souvenirs qu'elle avait avec son frère dans le passé. Kitsune décide de faire une blague à Torako en mettant des épices dans ses ramens.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1973,7 +1973,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko8.jpg");
 			$release->setLocalizedTitle("Une flèche atteint le tigre / J'ai bousculé un tigre, mais c'était en fait un chat");
 			$release->setOriginalTitle("Tora ni Tatsu Ya / Tora o Egai te Neko ni Ruisuru");
-			$release->setSynopsis("Inori est en détresse de ne pas pouvoir se faire des amis car elle a du mal à parler à haute voix et son visage couvert par ses cheveux longs effraie les autres étudiants. Torako décide alors de l'aider en demandant à ses amis de la recoiffer.");
+			$release->setSynopsis("Inori est en détresse de ne pas pouvoir se faire des amis, car elle a du mal à parler à haute voix et son visage couvert par ses cheveux longs effraie les autres étudiants. Torako décide alors de l'aider en demandant à ses amies de la recoiffer.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1993,7 +1993,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko9.jpg");
 			$release->setLocalizedTitle("La compassion ne profite qu'aux autres / J'ai bousculé un tigre, mais c'était en fait un chat");
 			$release->setOriginalTitle("zu na Suzume, yo Ataeraren Saraba Nasake");
-			$release->setSynopsis("Minato a perdu sa pièce pour acheter une canette. Elle se met à pleurer, et Torako Ayumi arrivent. Torako lui achète une canette de boisson pour qu'elle cesse de pleurer. Depuis, Minato veut absolument lui rendre la pareille en l'aidant tout le temps.");
+			$release->setSynopsis("Minato a perdu sa pièce pour acheter une canette. Elle se met à pleurer, Torako et Ayumi arrivent. Torako lui achète une canette de boisson pour qu'elle cesse de pleurer. Depuis, Minato veut absolument lui rendre la pareille en l'aidant tout le temps.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -2013,7 +2013,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko10.jpg");
 			$release->setLocalizedTitle("Un tigre avec des ailes");
 			$release->setOriginalTitle("Tora ni Tsubasa");
-			$release->setSynopsis("Toma passe son temps sur le dessus du bâtiment scolaire. Torako s'approche d'elle et essaie de lui parler. Toma la rejette. Plus tard, Toma rencontre les amies de Torako à l'école et elle décide avec certitude que chacune d'entre elle a quelque chose d'étrange, d'une manière ou d'une autre.");
+			$release->setSynopsis("Toma passe son temps sur le toit du bâtiment scolaire. Torako s'approche d'elle et essaie de lui parler. Toma la rejette. Plus tard, Toma rencontre les amies de Torako à l'école et elle décide avec certitude que chacune d'entre elles a quelque chose d'étrange, d'une manière ou d'une autre.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -2073,7 +2073,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko13.jpg");
 			$release->setLocalizedTitle("Les quatres forment un tigre");
 			$release->setOriginalTitle("Yonin Tora o Nasu");
-			$release->setSynopsis("Torako et Suzume se sont enfuie de chez elles. C'est le dernier jour de l'école.");
+			$release->setSynopsis("Torako et Suzume se sont enfuies de chez elles. C'est le premier jour de l'école.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
