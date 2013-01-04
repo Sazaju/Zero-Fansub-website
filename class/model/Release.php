@@ -3943,7 +3943,7 @@ class Release {
 			$release->setName("[05] 09 + 10");
 			$release->setPreviewUrl("images/episodes/potemayo5.jpg");
 			$release->setLocalizedTitle("09 : Un grand nombre de souvenirs profonds / 10 : Changements de printemps.");
-			$release->setSynopsis("Guchiko découvre la maison de sa chère amie. La maid de cette dernière est sous le charme et veut l'adopter. Un nouvel élève arrive.");
+			$release->setSynopsis("Guchiko découvre la maison de sa chère amie. La mère de cette dernière est sous le charme et veut l'adopter. Un nouvel élève arrive.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_05_[H264-AAC][5230A764].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -3982,7 +3982,7 @@ class Release {
 			$release->setName("[08] 15 + 16");
 			$release->setPreviewUrl("images/episodes/potemayo8.jpg");
 			$release->setLocalizedTitle("15 : Les courses / 16 : L'hiver est arrivé");
-			$release->setSynopsis("Il reste un peu d'argent à Potemayo qui va apprebndre à faire les courses toute seule. Guchiko a volé des chataîgnes. Il neige ! Potemayo n'a jamais vu ça. Elle ne sait pas que c'est froid.");
+			$release->setSynopsis("Il reste un peu d'argent à Potemayo qui va apprendre à faire les courses toute seule. Guchiko a volé des châtaignes. Il neige ! Potemayo n'a jamais vu ça. Elle ne sait pas que c'est froid.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_08_[H264-AAC][8840F56E].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
