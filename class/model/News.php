@@ -4473,6 +4473,44 @@ Cela dit, ce n'est pas parce que l'année 2012 est finie que nos besoins le sont
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Nouvelle année, nouveaux recrutements.");
+			$news->setPublicationTime(strtotime("4 January 2013 15:30"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Et oui, malgré la nouvelle année, certaines choses ne changent pas chez Zéro, comme le besoin de monde pour nous aider dans nos tâches. Et tout le monde sait que le fansub, c'est que du bonheur {^_^} !
+
+[img=images/news/recruitMoetan.jpg]Que du bonheur...[/img]
+
+On relance donc une annonce pour un karamaker (je dis un, mais si on peut en avoir plusieurs c'est mieux). N'hésitez donc pas à prendre de bonnes résolutions pour l'année et à passer sur notre page de recrutement {°_^}.
+
+J'en profite pour vous faire savoir que je cherche aussi quelqu'un pour m'aider à améliorer le site. En effet j'ai un paquet de tâches à faire, dont certaines grosses tâches et un paquet de nouveautés (reconnaissance de liens morts, liens magnet, chat IRC, apprentissage et entraînement fansub, etc.), mais je n'ai guère le temps de m'occuper de tout ça + du fansub + de ma vie IRL (qui devient pompante d'ailleurs). Je prends pour exemple notre branche pour la v4 (utilisation d'une base de données, pour pouvoir se connecter et faire plein de trucs directement sur le site) qui existe depuis un moment et est bien avancée, mais que je n'ai pas touché depuis un bail, faute de temps.
+
+[spoiler=Cliquez ici pour voir ce que je recherche.][left]
+Le candidat doit :
+[list]
+	[item]Avoir du temps à consacrer, je ne cherche pas quelqu'un d'aussi surbooké que moi sinon ça n'a aucun intérêt.[/item]
+	[item]Aimer programmer, et cela de manière claire, efficace et maintenable.[/item]
+	[item]Connaître PHP et avoir des notions en SQL (rien de compliqué, savoir faire des requêtes).[/item]
+	[item]Connaître ou avoir envie d'utiliser Git et GitHub (bases suffisantes, inutile d'être un expert).[/item]
+	[item]Être prêt à apprendre et faire des choses qu'il ne maîtrise pas du tout, quitte à recommencer plusieurs fois jusqu'à ce que ça marche du feu de Dieu.[/item]
+[/list]
+Le dernier point, bien que ça semble être du bon sens, est plus profond. En effet, je fais (IRL) de la recherche en informatique, et donc j'utilise des techniques qui sont à l'état de l'art (façon compliquée de dire [i]nouvelles[/i]) et n'hésite pas à revoir depuis zéro des principes de base pour faire des choses plus optimisées. Il est donc important que le candidat n'ait pas froid aux yeux et aime se lancer des défis.
+
+Mais soyez rassurés, je serai derrière vous et toutes les modifs passeront par moi, donc pas de soucis pour ceux qui craindraient faire des bétises. Vous n'aurez aucune influence directe sur le site. De même, vous travaillez sur votre propre copie du site, donc vous pouvez essayer tout et n'importe quoi, comme ça vous chante. Enfin, on commencera avec des tâches simples (j'en ai un paquet) dire de prendre en main le code avant de passer aux choses sérieuses {^_°}.
+
+Une autre précision est que, bien que je recherche un candidat, n'importe qui peut participer (le site est en [url=https://github.com/Sazaju/Zero-Fansub-website]open source sur GitHub[/url]). C'est juste que je cherche quelqu'un qui s'impliquera de manière plus active et qui sera donc régulièrement présent sur le forum, en tant que membre de la team. Il peut bien entendu postuler pour une tâche de fansub si le cœur lui en dit, mais ça ne sera pas sa tâche principale. J'ai pas mal de tâches à faire, dont certaines sont assez conséquentes. Il y a de quoi s'amuser pour un bon moment {^_^}.
+[/left]
+[/spoiler]
+
+Donc que vous souhaitiez faire du karaoke ou de la prog (ou toute autre chose qui nous soit utile), nos portes sont ouvertes. On n'attend que vous pour nous rejoindre dans l'aventure {°_^}.");
+			$news->setCommentId(312);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
