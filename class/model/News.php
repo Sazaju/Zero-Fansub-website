@@ -4483,7 +4483,7 @@ Cela dit, ce n'est pas parce que l'année 2012 est finie que nos besoins le sont
 
 On relance donc une annonce pour un karamaker (je dis un, mais si on peut en avoir plusieurs c'est mieux). N'hésitez donc pas à prendre de bonnes résolutions pour l'année et à passer sur notre page de recrutement {°_^}.
 
-J'en profite pour vous faire savoir que je cherche aussi quelqu'un pour m'aider à améliorer le site. En effet j'ai un paquet de tâches à faire, dont certaines grosses tâches et un paquet de nouveautés (reconnaissance de liens morts, liens magnet, chat IRC, apprentissage et entraînement fansub, etc.), mais je n'ai guère le temps de m'occuper de tout ça + du fansub + de ma vie IRL (qui devient pompante d'ailleurs). Je prends pour exemple notre branche pour la v4 (utilisation d'une base de données, pour pouvoir se connecter et faire plein de trucs directement sur le site) qui existe depuis un moment et est bien avancée, mais que je n'ai pas touché depuis un bail, faute de temps.
+J'en profite pour vous faire savoir que je cherche aussi quelqu'un pour m'aider à améliorer le site. En effet j'ai un paquet de tâches à faire, dont certaines grosses tâches et un paquet de nouveautés (reconnaissance de liens morts, liens magnet, chat IRC, apprentissage et entraînement fansub, etc.), mais je n'ai guère le temps de m'occuper de tout ça + du fansub + de ma vie IRL (qui devient pompante d'ailleurs). Je prends pour exemple notre branche pour la v4 (utilisation d'une base de données pour pouvoir se connecter et faire plein de trucs directement sur le site) qui existe depuis un moment et est bien avancée, mais que je n'ai pas touchée depuis un bail, faute de temps.
 
 [spoiler=Cliquez ici pour voir ce que je recherche.][left]
 Le candidat doit :
@@ -4502,7 +4502,7 @@ Une autre précision est que, bien que je recherche un candidat, n'importe qui p
 [/left]
 [/spoiler]
 
-Donc que vous souhaitiez faire du karaoke ou de la prog (ou toute autre chose qui nous soit utile), nos portes sont ouvertes. On n'attend que vous pour nous rejoindre dans l'aventure {°_^}.");
+Donc, que vous souhaitiez faire du karaoke ou de la prog (ou toute autre chose qui nous soit utile), nos portes sont ouvertes. On n'attend que vous pour nous rejoindre dans l'aventure {°_^}.");
 			$news->setCommentId(312);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
