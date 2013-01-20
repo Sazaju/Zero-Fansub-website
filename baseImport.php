@@ -102,6 +102,9 @@ if ($needConfig) {
 }
 unset($criticalDataFile); // security: we forget the source of critical information
 
+// other critical configs (which need to be done as soon as possible)
+date_default_timezone_set("Europe/Paris");
+
 /**********************************\
          STRANGE URL CHECK
 \**********************************/
