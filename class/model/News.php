@@ -4511,6 +4511,23 @@ Donc, que vous souhaitiez faire du karaoke ou de la prog (ou toute autre chose q
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Problèmes sur les forums.");
+			$news->setPublicationTime(strtotime("20 January 2013 15:40"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Juste pour ceux qui se posent des questions : Xooit est actuellement (et cela depuis plusieurs jours) en train de se faire attaquer. Ils essuyent donc des problèmes techniques qui se répercutent sur l'ensemble de leurs forums, nous inclus.
+			
+			Le site (là où vous lisez cette news) étant sur un serveur perso, il n'est pas soumis à ces problèmes. Cependant vous pourriez avoir du mal à lire et écrire des posts, que ce soit sur le forum ou dans les commentaires des news (qui eux sont hébergés par Xooit). Aussi, soyez patients et, dans le cas où vous auriez quelque chose d'urgent à nous faire savoir, vous pouvez toujours nous [url=?page=contact]contacter par mail[/url].
+			
+			On espère tous que ces problèmes se règleront vite.");
+			//$news->setCommentId(312);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
