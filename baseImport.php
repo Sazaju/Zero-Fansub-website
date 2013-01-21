@@ -126,6 +126,52 @@ if ($url->isStrangeUrl()) {
 }
 
 /**********************************\
+          OTHER CONSTANTS
+\**********************************/
+
+define('WEBSITE_VERSION', exec('git tag'));
+define('MODE_H', 'modeH');
+define('DISPLAY_H_AVERT', 'displayHavert');
+define('STYLE', 'style');
+define('CURRENT_TIME', 'currentTime');
+
+/**********************************\
+         SESSION MANAGEMENT
+\**********************************/
+
+session_start();
+
+if (isset($_GET[MODE_H])) {
+	$_SESSION[MODE_H] = $_GET[MODE_H];
+	$url = Url::getCurrentUrl();
+	$url->removeQueryVar(MODE_H);
+	header('Location: '.$url->toString());
+	exit();
+} else if (!isset($_SESSION[MODE_H])) {
+	$_SESSION[MODE_H] = false;
+} else {
+	// let the state as is
+}
+
+$dirs = DirectoryManager::getContent("styles");
+$styles = array();
+foreach($dirs as $info) {
+	$styles[] = $info['name'];
+}
+if (!isset($_SESSION[STYLE])) {
+	$_SESSION[STYLE] = null;
+} else {
+	// keep it as is
+}
+$_SESSION[STYLE] = Check::getInputIn(isset($_GET[STYLE]) ? $_GET[STYLE] : $_SESSION[STYLE], $styles, "default");
+
+if (TEST_MODE_ACTIVATED && Url::getCurrentUrl()->hasQueryVar('setdate')) {
+	$_SESSION[CURRENT_TIME] = Url::getCurrentUrl()->getQueryVar('setdate');
+} else {
+	$_SESSION[CURRENT_TIME] = time();
+}
+
+/**********************************\
             TEST FEATURES
 \**********************************/
 
@@ -190,49 +236,4 @@ if (TEST_MODE_ACTIVATED) {
 	define('TESTING_FEATURE', $features->getCurrentHTML());
 }
 
-/**********************************\
-          OTHER CONSTANTS
-\**********************************/
-
-define('WEBSITE_VERSION', exec('git tag'));
-define('MODE_H', 'modeH');
-define('DISPLAY_H_AVERT', 'displayHavert');
-define('STYLE', 'style');
-define('CURRENT_TIME', 'currentTime');
-
-/**********************************\
-         SESSION MANAGEMENT
-\**********************************/
-
-session_start();
-
-if (isset($_GET[MODE_H])) {
-	$_SESSION[MODE_H] = $_GET[MODE_H];
-	$url = Url::getCurrentUrl();
-	$url->removeQueryVar(MODE_H);
-	header('Location: '.$url->toString());
-	exit();
-} else if (!isset($_SESSION[MODE_H])) {
-	$_SESSION[MODE_H] = false;
-} else {
-	// let the state as is
-}
-
-$dirs = DirectoryManager::getContent("styles");
-$styles = array();
-foreach($dirs as $info) {
-	$styles[] = $info['name'];
-}
-if (!isset($_SESSION[STYLE])) {
-	$_SESSION[STYLE] = null;
-} else {
-	// keep it as is
-}
-$_SESSION[STYLE] = Check::getInputIn(isset($_GET[STYLE]) ? $_GET[STYLE] : $_SESSION[STYLE], $styles, "default");
-
-if (TEST_MODE_ACTIVATED && Url::getCurrentUrl()->hasQueryVar('setdate')) {
-	$_SESSION[CURRENT_TIME] = $link->getUrl()->getQueryVar('setdate');
-} else {
-	$_SESSION[CURRENT_TIME] = time();
-}
 ?>
