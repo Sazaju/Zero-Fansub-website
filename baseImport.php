@@ -217,7 +217,7 @@ if (TEST_MODE_ACTIVATED) {
 	$features->addComponent($link);
 	
 	$features->addComponent('<br/>');
-	$features->addComponent(date("Y-m-d H:i:s"));
+	$features->addComponent(date("Y-m-d H:i:s", $_SESSION[CURRENT_TIME]));
 	
 	$features->addComponent('<br/>');
 	
