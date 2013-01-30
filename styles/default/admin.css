@@ -1,0 +1,20 @@
+#page.admin table, #page.admin td {
+	border: 1px solid black;
+}
+
+#page.admin td.key {
+	font-weight: bold;
+}
+
+#page.admin tr:hover td {
+	background-color: cyan;
+}
+
+#page.admin tr:hover td.field, #page.admin tr:hover td.value {
+	background-color: yellow;
+}
+
+#page.admin tr:hover td.key {
+	background-color: red;
+	color: white;
+}
