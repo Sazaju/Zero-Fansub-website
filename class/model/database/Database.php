@@ -224,6 +224,12 @@ class Database implements Patchable {
 		return $counter > 0;
 	}
 	
+	public function getUsers() {
+		$statement = $this->connection->prepare('SELECT id FROM "user"');
+		$statement->execute(array());
+		return $statement->fetchAll(PDO::FETCH_COLUMN);
+	}
+	
 	/********************************************\
 	                   TABLES
 	\********************************************/
@@ -402,6 +408,18 @@ class Database implements Patchable {
 		}
 	}
 	
+	public function getClasses() {
+		$statement = $this->connection->prepare('SELECT DISTINCT class FROM "working_structure"');
+		$statement->execute(array());
+		return $statement->fetchAll(PDO::FETCH_COLUMN);
+	}
+	
+	public function getFields($class) {
+		$statement = $this->connection->prepare('SELECT DISTINCT class FROM "working_structure"');
+		$statement->execute(array());
+		return $statement->fetchAll(PDO::FETCH_COLUMN);
+	}
+	
 	public function getIDFieldsForClass($class) {
 		$statement = $this->connection->query('SELECT field FROM "working_key" WHERE class = "'.$class.'"');
 		$fields = $statement->fetchAll(PDO::FETCH_COLUMN);
@@ -546,18 +564,44 @@ class Database implements Patchable {
 		}
 	}
 	
-	private function getSavedValuesFor($key) {
-		// TODO improve to take arrays of keys
-		$data = array();
-		$data[$key] = array();
+	public function getRecordsForClass($class, $addMetadata = false) {
+		$keys = array();
 		foreach($this->getExistingTypes() as $type) {
-			$statement = $this->connection->prepare('SELECT field, value FROM "working_'.$type.'" WHERE key = ?');
-			$statement->execute(array($key));
-			foreach($statement->fetchAll(PDO::FETCH_GROUP|PDO::FETCH_COLUMN) as $name => $array) {
-				$data[$key][$name] = $array[0];
+			$statement = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$type.'" WHERE class = ?');
+			$statement->execute(array($class));
+			foreach($statement->fetchAll(PDO::FETCH_COLUMN) as $key) {
+				$keys[] = $key;
 			}
 		}
-		return $data;
+		return $this->getSavedValuesFor($keys, $addMetadata);
+	}
+	
+	private function getSavedValuesFor($keys, $addMetadata = false) {
+		if (!is_array($keys)) {
+			$keys = array($keys);
+		} else {
+			// use it as is
+		}
+		
+		$records = array();
+		foreach($keys as $key) {
+			$records[$key] = array();
+			foreach($this->getExistingTypes() as $type) {
+				$statement = $this->connection->prepare('SELECT field, value, timestamp, author FROM "working_'.$type.'" WHERE key = ?');
+				$statement->execute(array($key));
+				foreach($statement->fetchAll() as $array) {
+					$name = $array['field'];
+					if ($addMetadata) {
+						$records[$key][$name]['value'] = $array['value'];
+						$records[$key][$name]['timestamp'] = $array['timestamp'];
+						$records[$key][$name]['author'] = $array['author'];
+					} else {
+						$records[$key][$name] = $array['value'];
+					}
+				}
+			}
+		}
+		return $records;
 	}
 	
 	public function load(PersistentComponent $component) {
@@ -646,6 +690,40 @@ class Database implements Patchable {
 		$key++;
 		$this->connection->exec('UPDATE "property" SET value = "'.$key.'" WHERE name = "lastKey"');
 		return $key;
+	}
+	
+	public function createProperty($id) {
+		if ($this->hasProperty($id)) {
+			throw new Exception($id." alredy exists as a property.");
+		} else {
+			$this->connection->exec('UPDATE "property" ADD (name, value) ("'.$id.'", null)');
+		}
+	}
+	
+	public function hasProperty($id) {
+		return $this->connection->query('SELECT COUNT(*) FROM "property" WHERE name = "'.$id.'"')->fetchColumn() > 0;
+	}
+	
+	public function setProperty($id, $value) {
+		if (!$this->hasProperty($id)) {
+			throw new Exception($id." is not an existing property.");
+		} else {
+			$this->connection->exec('UPDATE "property" SET value = "'.$value.'" WHERE name = "'.$id.'"');
+		}
+	}
+	
+	public function getProperty($id) {
+		if (!$this->hasProperty($id)) {
+			throw new Exception($id." is not an existing property.");
+		} else {
+			return $this->connection->query('SELECT value FROM "property" WHERE name = "'.$id.'"')->fetchColumn();
+		}
+	}
+	
+	public function getProperties() {
+		$statement = $this->connection->prepare('SELECT name FROM "property"');
+		$statement->execute(array());
+		return $statement->fetchAll(PDO::FETCH_COLUMN);
 	}
 	
 	public function clear() {
