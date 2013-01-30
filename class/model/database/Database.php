@@ -217,7 +217,7 @@ class Database implements Patchable {
 		return $this->generateSaltedHash($password, $salt) === $saltedhash;
 	}
 	
-	public function isActiveUser($id) {
+	public function isValidUser($id) {
 		$statement = $this->connection->prepare('SELECT count(*) FROM "user" WHERE id = ? AND passhash NOT NULL');
 		$statement->execute(array($id));
 		$counter = $statement->fetchColumn();
@@ -317,7 +317,7 @@ class Database implements Patchable {
 	}
 	
 	public function removeFieldAndArchiveRelatedValues($time, $authorId, $class, $fieldName) {
-		$data = $this->getFieldsForClass($class);
+		$data = $this->getFieldsDataForClass($class);
 		$type = $data[$fieldName]['type'];
 		$this->archiveValues($time, $authorId, $type, $class, $fieldName);
 		
@@ -343,7 +343,7 @@ class Database implements Patchable {
 	
 	public function changeTypeAndMoveRelatedValues($time, $authorId, $class, $fieldName, $newType) {
 		// retrieve the current property data
-		// TODO use getFieldsForClass()
+		// TODO use getFieldsDataForClass()
 		$select = $this->connection->prepare('SELECT * FROM "working_structure" WHERE class = ? AND field = ?');
 		$select->execute(array($class, $fieldName));
 		$property = $select->fetch(PDO::FETCH_ASSOC);
@@ -386,7 +386,7 @@ class Database implements Patchable {
 		}
 	}
 	
-	private function getFieldsForClass($class, $exceptionIfUnknown = true) {
+	public function getFieldsDataForClass($class, $exceptionIfUnknown = true) {
 		$statement = $this->connection->prepare('SELECT field, type, mandatory, timestamp FROM "working_structure" WHERE class = ?');
 		$statement->execute(array($class));
 		$fields = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
@@ -402,7 +402,7 @@ class Database implements Patchable {
 		}
 	}
 	
-	private function getIDFieldsForClass($class) {
+	public function getIDFieldsForClass($class) {
 		$statement = $this->connection->query('SELECT field FROM "working_key" WHERE class = "'.$class.'"');
 		$fields = $statement->fetchAll(PDO::FETCH_COLUMN);
 		return $fields;
@@ -414,7 +414,7 @@ class Database implements Patchable {
 	
 	public function getStructureDiff(PersistentComponent $component) {
 		$class = $component->getClass();
-		$fields = $this->getFieldsForClass($class, false);
+		$fields = $this->getFieldsDataForClass($class, false);
 		$diff = new StructureDiff();
 		foreach($component->getPersistentFields() as $name => $field) {
 			$type = $field->getTranslator()->getPersistentType($field)->getType();
@@ -481,7 +481,7 @@ class Database implements Patchable {
 	
 	private function getTypesForClass($class) {
 		$types = array();
-		foreach($this->getFieldsForClass($class) as $field => $array) {
+		foreach($this->getFieldsDataForClass($class) as $field => $array) {
 			$types[$field] = $array['type'];
 		}
 		return $types;
@@ -495,7 +495,7 @@ class Database implements Patchable {
 			throw new Exception("There is no user ".$authorId);
 		} else {
 			$class = $component->getClass();
-			$savedFields = $this->getFieldsForClass($class);
+			$savedFields = $this->getFieldsDataForClass($class);
 			
 			$key = $component->getInternalKey();
 			$isNew = empty($key);
@@ -614,7 +614,7 @@ class Database implements Patchable {
 			if (empty($key)) {
 				throw new Exception("Cannot delete $component, it is not linked to an existing record");
 			} else {
-				$savedFields = $this->getFieldsForClass($class);
+				$savedFields = $this->getFieldsDataForClass($class);
 				$time = time();
 				$this->connection->beginTransaction();
 				foreach($savedFields as $field => $metadata) {
