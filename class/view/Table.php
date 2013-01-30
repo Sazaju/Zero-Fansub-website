@@ -32,33 +32,42 @@ class TableRow extends DefaultHtmlComponent {
 	
 	public function addComponent($component) {
 		if (!($component instanceof TableCell)) {
-			$component = new TableCell($component);
+			$component = new TableCell($component, $this->isHeader());
 		}
 		parent::addComponent($component);
+	}
+	
+	private $isHeader = false;
+	public function setHeader($boolean) {
+		$this->isHeader = $boolean;
+	}
+	
+	public function isHeader() {
+		return $this->isHeader;
 	}
 }
 
 class TableCell extends DefaultHtmlComponent {
-	public function __construct($content = null) {
+	public function __construct($content = null, $isHeader = false) {
 		$this->setContent($content);
+		$this->setHeader($isHeader);
 	}
 	
 	public function getHtmlTag() {
-		return 'td';
+		return $this->isHeader() ? 'th' : 'td';
 	}
 	
 	public function isAutoClose() {
 		return false;
 	}
-}
-
-class TableHeader extends TableCell {
-	public function getHtmlTag() {
-		return 'th';
+	
+	private $isHeader;
+	public function setHeader($boolean) {
+		$this->isHeader = $boolean;
 	}
 	
-	public function isAutoClose() {
-		return false;
+	public function isHeader() {
+		return $this->isHeader;
 	}
 }
 ?>

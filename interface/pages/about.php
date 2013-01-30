@@ -58,13 +58,14 @@
 	$page->addComponent($table);
 
 	$row = new TableRow();
-	$head = new TableHeader("Version");
+	$row->setHeader(true);
+	$head = new TableCell("Version");
 	$head->setClass("version");
 	$row->addComponent($head);
-	$head = new TableHeader("Déscription");
+	$head = new TableCell("Déscription");
 	$head->setClass("description");
 	$row->addComponent($head);
-	$head = new TableHeader("Aperçu");
+	$head = new TableCell("Aperçu");
 	$head->setClass("preview");
 	$row->addComponent($head);
 	$table->addComponent($row);

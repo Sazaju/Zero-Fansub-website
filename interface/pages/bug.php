@@ -34,4 +34,4 @@ En voici quelques unes, vous pouvez les recopier et les compléter :
 	
 	$page->addComponent($content);
 
-?> 
+?>
