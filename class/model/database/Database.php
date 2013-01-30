@@ -387,7 +387,7 @@ class Database implements Patchable {
 	}
 	
 	public function getFieldsDataForClass($class, $exceptionIfUnknown = true) {
-		$statement = $this->connection->prepare('SELECT field, type, mandatory, timestamp FROM "working_structure" WHERE class = ?');
+		$statement = $this->connection->prepare('SELECT field, type, mandatory, timestamp, author FROM "working_structure" WHERE class = ?');
 		$statement->execute(array($class));
 		$fields = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 		if ($exceptionIfUnknown && empty($fields)) {
