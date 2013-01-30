@@ -58,16 +58,20 @@ $size = 3;
 $sorties = array();
 $sortie = null;
 foreach($completeList as $release) {
-	$timestamp = $release->getReleasingTime();
-	$image = $release->getHeaderImage();
-	if ($sortie === null || $sortie->getTimestamp() != $timestamp || strcmp($sortie->getImage(), $image) !== 0) {
-		if (count($sorties) == $size) {
-			break;
+	if ($release->isReleased()) {
+		$timestamp = $release->getReleasingTime();
+		$image = $release->getHeaderImage();
+		if ($sortie === null || $sortie->getTimestamp() != $timestamp || strcmp($sortie->getImage(), $image) !== 0) {
+			if (count($sorties) == $size) {
+				break;
+			}
+			$sortie = new Sortie($timestamp, $image);
+			$sorties[count($sorties)] = $sortie;
 		}
-		$sortie = new Sortie($timestamp, $image);
-		$sorties[count($sorties)] = $sortie;
+		$sortie->addRelease($release);
+	} else {
+		continue;
 	}
-	$sortie->addRelease($release);
 }
 
 $list = new SimpleListComponent();

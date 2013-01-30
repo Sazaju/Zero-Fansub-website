@@ -171,7 +171,7 @@ class Release {
 	}
 	
 	public function isReleased() {
-		return $this->releasingTime !== null;
+		return $this->releasingTime !== null && $this->releasingTime <= $_SESSION[CURRENT_TIME];
 	}
 	
 	public function getReleasingTime() {
@@ -986,7 +986,7 @@ class Release {
 			$release->setName("01");
 			$release->setPreviewUrl("images/episodes/mayoi1.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_01_[H264-AAC][BD][2DAC2E1C].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_01_[H264-AAC][BD][2DAC2E1C].mp4");
 			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -999,7 +999,7 @@ class Release {
 			$release->setName("02");
 			$release->setPreviewUrl("images/episodes/mayoi2.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_02_[H264-AAC][BD][129752E7].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_02_[H264-AAC][BD][129752E7].mp4");
 			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -1012,7 +1012,7 @@ class Release {
 			$release->setName("03");
 			$release->setPreviewUrl("images/episodes/mayoi3.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_03_[H264-AAC][BD][3D344736].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_03_[H264-AAC][BD][3D344736].mp4");
 			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -1025,7 +1025,7 @@ class Release {
 			$release->setName("04");
 			$release->setPreviewUrl("images/episodes/mayoi4.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_04_[H264-AAC][BD][02B37B51].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_04_[H264-AAC][BD][02B37B51].mp4");
 			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -1038,7 +1038,7 @@ class Release {
 			$release->setName("05");
 			$release->setPreviewUrl("images/episodes/mayoi5.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_05_[H264-AAC][BD][95B320E3].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_05_[H264-AAC][BD][95B320E3].mp4");
 			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -1051,7 +1051,7 @@ class Release {
 			$release->setName("06");
 			$release->setPreviewUrl("images/episodes/mayoi6.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_06_[H264-AAC][BD][0C8CE0AD].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_06_[H264-AAC][BD][0C8CE0AD].mp4");
 			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -1064,7 +1064,7 @@ class Release {
 			$release->setName("07");
 			$release->setPreviewUrl("images/episodes/mayoi7.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_07_[H264-AAC][BD][D66FEE9D].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_07_[H264-AAC][BD][D66FEE9D].mp4");
 			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -1077,7 +1077,7 @@ class Release {
 			$release->setName("08");
 			$release->setPreviewUrl("images/episodes/mayoi8.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_08_[H264-AAC][BD][CC111162].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_08_[H264-AAC][BD][CC111162].mp4");
 			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -1090,7 +1090,7 @@ class Release {
 			$release->setName("09");
 			$release->setPreviewUrl("images/episodes/mayoi9.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_09_[H264-AAC][BD][5E441726].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_09_[H264-AAC][BD][5E441726].mp4");
 			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -1103,7 +1103,7 @@ class Release {
 			$release->setName("10");
 			$release->setPreviewUrl("images/episodes/mayoi10.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun!_10_[H264-AAC][BD][5A4E44A3].mp4");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_10_[H264-AAC][BD][5A4E44A3].mp4");
 			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -1115,11 +1115,27 @@ class Release {
 			$release = new Release(Project::getProject('mayoi'), 'ep11');
 			$release->setName("11");
 			$release->setPreviewUrl("images/episodes/mayoi11.png");
+			$release->setHeaderImage("images/sorties/mayoi11-12.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_11_[H264-AAC][BD][EA1758BC].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('1 January 2013 00:00'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('mayoi'), 'ep12');
 			$release->setName("12");
 			$release->setPreviewUrl("images/episodes/mayoi12.png");
+			$release->setHeaderImage("images/sorties/mayoi11-12.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_12_[H264-AAC][BD][76693473].mp4");
+			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('1 January 2013 00:00'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kimikiss'), 'ep1');
@@ -1817,7 +1833,7 @@ class Release {
 			$release->setHeaderImage("images/sorties/hyakko.jpg");
 			$release->setLocalizedTitle("Rencontre avec un tigre");
 			$release->setOriginalTitle("Aimamieru Torako");
-			$release->setSynopsis("Ayumu est à la recherche de sa salle de classe. Elle rencontre sur son chemin Tatsuki. en cherchant toutes les deux, elle voient Torako et Suzume sautant du deuxième étage d'une fenêtre. Après avoir rejoint le groupe, elles se dirige vers la salle de classe.");
+			$release->setSynopsis("Ayumi est à la recherche de sa salle de classe. Elle rencontre sur son chemin Tatsuki. en cherchant toutes les deux, elle voient Torako et Suzume sautant du deuxième étage d'une fenêtre. Après avoir rejoint le groupe, elles se dirigent vers la salle de classe.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1837,7 +1853,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko2.jpg");
 			$release->setLocalizedTitle("Qui ne risque rien n'a rien");
 			$release->setOriginalTitle("Koketsu ni Irazunba Koji o EZU");
-			$release->setSynopsis("Ayumu, Tatsuki, Torako et Suzume sont à la recherche d'un club. Elles essayent plusieurs clubs de sport ensemble.");
+			$release->setSynopsis("Ayumi, Tatsuki, Torako et Suzume sont à la recherche d'un club. Elles essayent plusieurs clubs de sport ensemble.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1857,7 +1873,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko3.jpg");
 			$release->setLocalizedTitle("Un tigre à l'entrée, un tigre à l'arrière");
 			$release->setOriginalTitle("Zenmon pas mo Tora Tora Komon / Hariko pas Tora");
-			$release->setSynopsis("Torako et Suzume rencontrent Nene sur leur chemin. Elle leur annonce que Torako est chargée de la discipline ! Elle doit donc dès le lendemain vérifier les uniformes des élèves. Dans la deuxième partie de l'épisode, Torako et Suzume découvrent un robot grotesque fait par Chie, membre du club de robotique. Plus tard, Torako et ses amis sont invitées à la salle du club robotique et Chie leur annonce qu'elle veut devenir ingénieure en robotique.");
+			$release->setSynopsis("Torako et Suzume rencontrent Nene sur leur chemin. Elle leur annonce que Torako est chargée de la discipline ! Elle doit donc dès le lendemain vérifier les uniformes des élèves. Dans la deuxième partie de l'épisode, Torako et Suzume découvrent un robot grotesque fait par Chie, membre du club de robotique. Plus tard, Torako et ses amies sont invitées à la salle du club de robotique, où Chie leur annonce qu'elle veut devenir ingénieure en robotique.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1897,7 +1913,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko5.jpg");
 			$release->setLocalizedTitle("Relation étrange / Combats un tigre et tu verras");
 			$release->setOriginalTitle("Aien Koen / Hito ni wa soute miyo Tora à wa Tatakatte miyo");
-			$release->setSynopsis("Un nouveau personnage : Yanagi. Tout comme Koma, elle fait des profits de la vente de photographies des élèves. Lorsque Shishimaru regarde la photographie de Ayumu par hasard, il est instantanément épris de la photographie. Sur son chemin, il la Ayumu et confesse son amour pour elle. Dans la deuxième partie de l'épisode, Torako et Ushio sèchent les cours et passent leur temps ensemble dans le centre-ville.");
+			$release->setSynopsis("Un nouveau personnage : Yanagi. Tout comme Koma, il fait des profits de la vente de photographies des élèves. Lorsque Shishimaru regarde la photographie d'Ayumi par hasard, il est instantanément épris de la photographie. Sur son chemin, il confesse son amour à Ayumi. Dans la deuxième partie de l'épisode, Torako et Ushio sèchent les cours et passent leur temps ensemble dans le centre-ville.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1917,7 +1933,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko6.jpg");
 			$release->setLocalizedTitle("Encerclée par des tigres");
 			$release->setOriginalTitle("Sangen mukou Ryogawa ni Tora");
-			$release->setSynopsis("Torako, Suzume, et Ayumu vont chez Tatsuki sans la prévenir.");
+			$release->setSynopsis("Torako, Suzume et Ayumi vont chez Tatsuki sans la prévenir.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1937,7 +1953,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko7.jpg");
 			$release->setLocalizedTitle("Finallement, le tigre et le renard se rencontrent / Le renard provoque la colère du tigre");
 			$release->setOriginalTitle("Koko de Atta ga Hyakunenme / Tora no o Ikari Kitsune Kau");
-			$release->setSynopsis("Koma et Yanagi se cachent dans les buissons pour prendre des photos d'élèves en secret. Kitsuna décide de les aider et tire la jupe d'Ayumi pour Koma et Yanagi la prenne en photo. Dans la deuxième partie de l'épisode, Torako se plaint à ses amis de tous les mauvais souvenirs qu'elle avait avec son frère dans le passé. Kitsune décide de faire une blague à Torako en mettant des épices dans ses ramens.");
+			$release->setSynopsis("Koma et Yanagi se cachent dans les buissons pour prendre des photos d'élèves en secret. Kitsuna décide de les aider et tire la jupe d'Ayumi pour que Koma et Yanagi la prenne en photo. Dans la deuxième partie de l'épisode, Torako se plaint à ses amis de tous les mauvais souvenirs qu'elle avait avec son frère dans le passé. Kitsune décide de faire une blague à Torako en mettant des épices dans ses ramens.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1957,7 +1973,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko8.jpg");
 			$release->setLocalizedTitle("Une flèche atteint le tigre / J'ai bousculé un tigre, mais c'était en fait un chat");
 			$release->setOriginalTitle("Tora ni Tatsu Ya / Tora o Egai te Neko ni Ruisuru");
-			$release->setSynopsis("Inori est en détresse de ne pas pouvoir se faire des amis car elle a du mal à parler à haute voix et son visage couvert par ses cheveux longs effraie les autres étudiants. Torako décide alors de l'aider en demandant à ses amis de la recoiffer.");
+			$release->setSynopsis("Inori est en détresse de ne pas pouvoir se faire des amis, car elle a du mal à parler à haute voix et son visage couvert par ses cheveux longs effraie les autres étudiants. Torako décide alors de l'aider en demandant à ses amies de la recoiffer.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1977,7 +1993,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko9.jpg");
 			$release->setLocalizedTitle("La compassion ne profite qu'aux autres / J'ai bousculé un tigre, mais c'était en fait un chat");
 			$release->setOriginalTitle("zu na Suzume, yo Ataeraren Saraba Nasake");
-			$release->setSynopsis("Minato a perdu sa pièce pour acheter une canette. Elle se met à pleurer, et Torako Ayumi arrivent. Torako lui achète une canette de boisson pour qu'elle cesse de pleurer. Depuis, Minato veut absolument lui rendre la pareille en l'aidant tout le temps.");
+			$release->setSynopsis("Minato a perdu sa pièce pour acheter une canette. Elle se met à pleurer, Torako et Ayumi arrivent. Torako lui achète une canette de boisson pour qu'elle cesse de pleurer. Depuis, Minato veut absolument lui rendre la pareille en l'aidant tout le temps.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -1997,7 +2013,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko10.jpg");
 			$release->setLocalizedTitle("Un tigre avec des ailes");
 			$release->setOriginalTitle("Tora ni Tsubasa");
-			$release->setSynopsis("Toma passe son temps sur le dessus du bâtiment scolaire. Torako s'approche d'elle et essaie de lui parler. Toma la rejette. Plus tard, Toma rencontre les amies de Torako à l'école et elle décide avec certitude que chacune d'entre elle a quelque chose d'étrange, d'une manière ou d'une autre.");
+			$release->setSynopsis("Toma passe son temps sur le toit du bâtiment scolaire. Torako s'approche d'elle et essaie de lui parler. Toma la rejette. Plus tard, Toma rencontre les amies de Torako à l'école et elle décide avec certitude que chacune d'entre elles a quelque chose d'étrange, d'une manière ou d'une autre.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -2057,7 +2073,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hyakko13.jpg");
 			$release->setLocalizedTitle("Les quatres forment un tigre");
 			$release->setOriginalTitle("Yonin Tora o Nasu");
-			$release->setSynopsis("Torako et Suzume se sont enfuie de chez elles. C'est le dernier jour de l'école.");
+			$release->setSynopsis("Torako et Suzume se sont enfuies de chez elles. C'est le premier jour de l'école.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('edit'));
@@ -3875,7 +3891,7 @@ class Release {
 			$release->setName("[01] 01 + 02");
 			$release->setPreviewUrl("images/episodes/potemayo1.jpg");
 			$release->setLocalizedTitle("01 : Potemayo / 02 : Invasion ! Créatures mystérieuses !!");
-			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnomme alors Potemayo. Il l'emmène en classe, où la créature attise la curiosité de tout le monde. Et puis d'autres créatures arrivent.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_01_[H264-AAC][5F560FCF].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -3888,7 +3904,7 @@ class Release {
 			$release->setName("[02] 03 + 04");
 			$release->setPreviewUrl("images/episodes/potemayo2.jpg");
 			$release->setLocalizedTitle("03 : Aimant cet enfant / 04 : Dimanche");
-			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$release->setSynopsis("");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_02_[H264-AAC][50DA4D18].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -3901,7 +3917,7 @@ class Release {
 			$release->setName("[03] 05 + 06");
 			$release->setPreviewUrl("images/episodes/potemayo3.jpg");
 			$release->setLocalizedTitle("05 : Le miracle de la veille de noël / 06 : C'est soudainement le nouvel an");
-			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$release->setSynopsis("");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_03_[H264-AAC][936F924F].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -3914,7 +3930,7 @@ class Release {
 			$release->setName("[04] 07 + 08");
 			$release->setPreviewUrl("images/episodes/potemayo4.jpg");
 			$release->setLocalizedTitle("07 : En parlant de février, c'est la veille du printemps / 08 : Un matin atchoum");
-			$release->setSynopsis("Moriyama trouve une drôle de bestiole dans son frigo et la surnome alors Potemayo. Il l'enmene en classe, ou la créature attise la curioisité de tout le monde. Et puis d'autres créatures arrivent.");
+			$release->setSynopsis("");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_04_[H264-AAC][69FD511B].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -3927,7 +3943,7 @@ class Release {
 			$release->setName("[05] 09 + 10");
 			$release->setPreviewUrl("images/episodes/potemayo5.jpg");
 			$release->setLocalizedTitle("09 : Un grand nombre de souvenirs profonds / 10 : Changements de printemps.");
-			$release->setSynopsis("Guchiko découvre la maison de sa chère amie. La maid de cette dernière est sous le charme et veut l'adopter. Un nouvel élève arrive.");
+			$release->setSynopsis("Guchiko découvre la maison de sa chère amie. La mère de cette dernière est sous le charme et veut l'adopter. Un nouvel élève arrive.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_05_[H264-AAC][5230A764].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -3966,7 +3982,7 @@ class Release {
 			$release->setName("[08] 15 + 16");
 			$release->setPreviewUrl("images/episodes/potemayo8.jpg");
 			$release->setLocalizedTitle("15 : Les courses / 16 : L'hiver est arrivé");
-			$release->setSynopsis("Il reste un peu d'argent à Potemayo qui va apprebndre à faire les courses toute seule. Guchiko a volé des chataîgnes. Il neige ! Potemayo n'a jamais vu ça. Elle ne sait pas que c'est froid.");
+			$release->setSynopsis("Il reste un peu d'argent à Potemayo qui va apprendre à faire les courses toute seule. Guchiko a volé des châtaignes. Il neige ! Potemayo n'a jamais vu ça. Elle ne sait pas que c'est froid.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Potemayo_[H264-AAC]/[Zero]Potemayo_08_[H264-AAC][8840F56E].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);

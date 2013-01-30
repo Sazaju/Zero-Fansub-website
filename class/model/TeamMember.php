@@ -719,6 +719,7 @@ class TeamMember {
 			$member->setImage("mijari.jpg");
 			$member->setPseudo("Mijari");
 			$member->addRole(Role::getRole("tradEn"));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
@@ -743,6 +744,12 @@ class TeamMember {
 			$member->setImage("Phantafun.png");
 			$member->setPseudo("Phantafun");
 			$member->addRole(Role::getRole("adapt"));
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember();
+			$member->setImage("BigMoon.jpg");
+			$member->setPseudo("BigMoon");
+			$member->addRole(Role::getRole("time"));
 			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;

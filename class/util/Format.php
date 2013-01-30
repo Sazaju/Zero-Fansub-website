@@ -107,8 +107,9 @@ class Format {
 					$refIndex = null;
 				}
 			}
-
-			$diff = array_diff_assoc($refArray, $array);
+			
+// 			$diff = array_diff_assoc($refArray, $array);
+			$diff = Format::array_diff_values($refArray, $array);
 			$refArray = $array;
 		} while (!empty($diff));
 
@@ -185,6 +186,18 @@ class Format {
 		return "\n$html\n";
 	}
 
+	public static function array_diff_values($tab1, $tab2) {
+		$result = array();
+		foreach($tab1 as $values) {
+			if (!in_array($values, $tab2)) {
+				$result[] = $values;
+			} else {
+				continue;
+			}
+		}
+		return $result;
+	}
+	
 	public static function truncateText($text, $maxLength) {
 		$length = strlen($text);
 		if ($length > $maxLength) {

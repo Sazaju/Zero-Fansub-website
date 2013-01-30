@@ -21,7 +21,7 @@ class Project {
 	private $airingYear = null;
 	private $author = null;
 	private $synopsis = null;
-	private $status = Project::INTENDED;
+	private $status = array();
 	private $license = null;
 	private $isHentai = false;
 	private $isDoujin = false;
@@ -165,32 +165,46 @@ class Project {
 		return $this->name;
 	}
 	
-	public function setStatus($status) {
-		$this->status = $status;
+	public function setStatus($status, $timestamp) {
+		$this->status[] = array($timestamp, $status);
 	}
 	
 	public function getStatus() {
-		return $this->status;
+		$timeRef = 0;
+		$statusRef = null;
+		foreach($this->status as $array) {
+			$time = $array[0];
+			$status = $array[1];
+			if ($timeRef === 0 && $time === null) {// worst case: status with no date
+				$statusRef = $status;
+			} else if ($time > $timeRef && $time <= $_SESSION[CURRENT_TIME]) {// best case: full status
+				$timeRef = $time;
+				$statusRef = $status;
+			} else {
+				continue;
+			}
+		}
+		return $statusRef;
 	}
 	
 	public function isIntended() {
-		return $this->status === Project::INTENDED;
+		return $this->getStatus() === Project::INTENDED;
 	}
 	
 	public function isRunning() {
-		return $this->status === Project::RUNNING;
+		return $this->getStatus() === Project::RUNNING;
 	}
 	
 	public function isPaused() {
-		return $this->status === Project::PAUSED;
+		return $this->getStatus() === Project::PAUSED;
 	}
 	
 	public function isFinished() {
-		return $this->status === Project::FINISHED;
+		return $this->getStatus() === Project::FINISHED;
 	}
 	
 	public function isAbandonned() {
-		return $this->status === Project::ABANDONNED;
+		return $this->getStatus() === Project::ABANDONNED;
 	}
 	
 	public function setLicense(License $license) {
@@ -235,19 +249,21 @@ class Project {
 			$project = new Project("haganai", "Boku ha Tomodachi ga Sukunai");
 			$project->setOriginalName("Boku ha Tomodachi ga Sukunai");
 			$project->setAiringYear(2011);
+			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setSynopsis("C'est bien connu, les otakus n'ont pas d'amis. Mais quand on n'en est pas un, ça ne veut pas dire pour autant qu'on en a. Si vous aussi vous avez du mal avec les autres, peut-être vous reconnaitrez-vous dans cette série. Sinon, vous pourrez toujours en profiter pleinement pour découvrir comment s'amuser quand on n'a pas d'amis... ou tout du moins quand on en est convaincu.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::INTENDED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("haganaioav", "Boku ha Tomodachi ga Sukunai OAV");
 			$project->setOriginalName("Boku ha Tomodachi ga Sukunai OAV");
 			$project->setAiringYear(2011);
+			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
 			$project->setGenre("Comédie - Ecchi");
-			$project->setSynopsis("Quand on a une bonne bande d'amis, on partage de bons moments ensemble. On organise des pique-niques, chacun ramène son repas, et tout le monde s'amuse avec entrain. Enfin ça, c'est ce qu'on fait quand on a des amis. Mais quand on n'en a pas, que fait-on ? Et bien certains essayent de faire comme-si... et là ça peut tourner au génocide. Attention à la crise de foie.");
+			$project->setSynopsis("Quand on a une bonne bande d'amis, on partage de bons moments ensemble. On organise des pique-niques, chacun apporte son repas, et tout le monde s'amuse avec entrain. Enfin ça, c'est ce qu'on fait quand on a des amis. Mais quand on n'en a pas, que fait-on ? Eh bien, certains essayent de faire comme si... et là, ça peut tourner au génocide. Attention à la crise de foie.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomo", "Kodomo no Jikan");
@@ -258,11 +274,11 @@ class Project {
 			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
-			$project->setSynopsis("Aoki Daisuke sensei est un tout nouveau professeur en primaire et débute sa carrière dans une classe denfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux delle, par de nombreux pièges parfois osés, et rendra sa vie de nouveau professeur très difficile. 
-Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans la vie de ses élèves et fera de son mieux pour les aider à surmonter les problèmes, même sil met parfois en jeu son poste déducateur. Reste à voir dans quelles galères il se mettra, surtout avec le trio Kokonoe, Kagami et Usa.");
+			$project->setSynopsis("Aoki Daisuke sensei est un tout nouvel instituteur en primaire et débute sa carrière dans une classe d'enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d'elle, par de nombreux pièges parfois osés, et rendra sa vie de nouvel instituteur très difficile. 
+Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans la vie de ses élèves et fera de son mieux pour les aider à surmonter les problèmes, même s'il met parfois en jeu son poste d'éducateur. Reste à voir dans quelles galères il se mettra, surtout avec le trio Kokonoe, Kagami et Usa.");
 			$project->setVosta('<a href="http://www.genjo-subs.net/" target="_blank">Genjo Subs</a> et <a href="http://loli-pop-subs.blogspot.com/" target="_blank">Loli-Pop-Subs</a>');
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomooav", "Kodomo no Jikan OAV");
@@ -273,12 +289,12 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
-			$project->setSynopsis("Rin, Kuro et Mimi sont trois adorables petites filles de 10 ans qui découvrent le monde des adultes... C'est l'anniversaire de Aoki, leur professeur mais aussi l'amoureux secret de Rin. Celle-ci tentent donc de le séduire en lui offrant un cadeau...original ^^");
+			$project->setSynopsis("Rin, Kuro et Mimi sont trois adorables petites filles de 10 ans qui découvrent le monde des adultes... C'est l'anniversaire d'Aoki, leur instituteur mais aussi l'amoureux secret de Rin. Celle-ci tente donc de le séduire en lui offrant un cadeau... original.");
 			$project->setVosta('<a href="http://www.genjo-subs.net/" target="_blank">Genjo Subs</a>');
 			$project->setComment("Si vous souhaitez regarder l'OAV mais aussi la série, il est conseillé de regarder l'OAV entre l'épisode 5 et 6.
 Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut le regarder sans voir la série. Mais c'est quand même mieux de regarder la série, évidemment ^^");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t251-Ton-avis-sur----Kodomo-no-Jikan-OAV.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomo2", "Kodomo no Jikan ~ Ni Gakki");
@@ -291,7 +307,7 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut 
 			$project->setAuthor("Watashiya Kaworu");
 			$project->setVosta('<a href="http://loli-pop-subs.blogspot.com/" target="_blank">Loli-Pop-Subs</a>');
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t358-Ton-avis-sur-Kodomo-no-Jikan-Saison-2.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomonatsu", "Kodomo no Natsu Jikan");
@@ -302,9 +318,9 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut 
 			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
-			$project->setSynopsis("Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absulument adorables dans leurs maillots de bains d'été, en vacances avec Aoki et Houin.");
+			$project->setSynopsis("Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodomo no Natsu Jikan ! Elles sont toutes les trois absolument adorables dans leurs maillots de bain d'été, en vacances avec Aoki et Houin.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kodomofilm", "Kodomo no Jikan Le Film");
@@ -315,10 +331,10 @@ Si vous voulez connaître rapidement la série, cet OAV résume bien et on peut 
 			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
-			$project->setSynopsis("Aoki Daisuke sensei est un tout nouveau professeur en primaire et débute sa carrière dans une classe denfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux delle, par de nombreux pièges parfois osés, et rendra sa vie de nouveau professeur très difficile. 
-Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans la vie de ses élèves et fera de son mieux pour les aider à surmonter les problèmes, même sil met parfois en jeu son poste déducateur. Reste à voir dans quelles galères il se mettra, surtout avec le trio Kokonoe, Kagami et Usa.");
+			$project->setSynopsis("Aoki Daisuke sensei est un tout nouvel instituteur en primaire et débute sa carrière dans une classe d'enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d'elle, par de nombreux pièges parfois osés, et rendra sa vie de nouvel instituteur très difficile. 
+Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans la vie de ses élèves et fera de son mieux pour les aider à surmonter les problèmes, même s'il met parfois en jeu son poste d'éducateur. Reste à voir dans quelles galères il se mettra, surtout avec le trio Kokonoe, Kagami et Usa.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mitsudomoe", "Mitsudomoe");
@@ -329,9 +345,9 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setStudio("Bridge");
 			$project->setAuthor("Sakurai Norio");
 			$project->setGenre("Comédie Ecchi");
-			$project->setSynopsis("Les triplés raconte l'histoire de 3 filles de primaire un peu perverses qui harcèlent leur prof pas doué.");
+			$project->setSynopsis("Les triplées raconte l'histoire de 3 filles de primaire un peu perverses qui harcèlent leur prof pas doué.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mitsudomoeoad", "Mitsudomoe OAD");
@@ -343,7 +359,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setGenre("Comédie Ecchi");
 			$project->setSynopsis("14e épisode de la série Mitsudomoe.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mitsudomoe2", "Mitsudomoe Zouryouchuu!");
@@ -355,7 +371,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setGenre("Comédie Ecchi");
 			//$project->setSynopsis("La suite des aventures des triplées, .");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::RUNNING, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("eriko", "ERIKO");
@@ -367,7 +383,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2052-Ton-avis-sur-ERIKO.htm");
 			$project->setHentai(true);
 			$project->setDoujin(true);
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("heismymaster", "Ce sont mes Maids");
@@ -379,7 +395,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2054-Ton-avis-sur-Ce-sont-mes-Maids.htm");
 			$project->setHentai(true);
 			$project->setDoujin(true);
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("denpa", "Denpa Onna to Seishun Otoko");
@@ -391,7 +407,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setGenre("Fantastique");
 			$project->setSynopsis("Niwa Makoto est un lycéen parti vivre chez sa tante car ses parents sont en voyage d'affaires. Il y rencontre une cousine du même âge, inconnue du reste de sa famille, Towa Erio. Cette cousine étrange porte constamment un futon autour du corps, ne se nourrit pratiquement que de pizzas et pense être un extraterrestre.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2046-Ton-avis-sur-Denpa-onna-to-seishun-otoko.htm");
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::RUNNING, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("sleeping", "Isshoni Sleeping - S'endormir avec Hinako");
@@ -401,7 +417,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setGenre("Ecchi");
 			$project->setSynopsis("Hinako est de retour ! Après l'effort, le réconfort, et c'est avec elle que vous allez pouvoir vous reposer après les difficiles exercices de musculations du précédent épisode.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2055-Ton-avis-sur-Isshoni-Sleeping-S-endormir-avec-Hinako.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
@@ -409,11 +425,12 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setOriginalName("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setAiringYear(2011);
+			$project->setOfficialWebsite(Link::newWindowLink("http://www.isshoni-training026.com/", "Isshoni Training 026"));
 			$project->setStudio("Primaesta");
 			$project->setGenre("Ecchi");
 			$project->setSynopsis("Prendre un bain avec Hinako, &ccedil;a vous dit ? En plus, elle n'est pas seule : Hiyoko, sa copine loli, vient vous rejoindre.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2056-Ton-avis-sur-Isshoni-Training-Ofuro-Bathtime-with-Hinako-Hiyoko.htm#p50921");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("potemayooav", "Potemayo OAV");
@@ -425,7 +442,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setGenre("Comédie");
 			$project->setSynopsis("De petites aventures arrivent à Potemayo dans ces épisodes bonus de la série Potemayo.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2057-Ton-avis-sur-Potemayo.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("konoe", "Konoe no Jikan");
@@ -435,7 +452,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setSynopsis("Parodie pornographique de Kodomo no Jikan.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2058-Ton-avis-sur-Konoe-no-Jikan.htm");
 			$project->setHentai(true);
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::RUNNING, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("akinahshiyo", "Akina To Onsen De H Shiyo !");
@@ -445,7 +462,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setGenre("Hentai");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2059-Ton-avis-sur-Akina-To-Onsen-De-H-Shiyo.htm");
 			$project->setHentai(true);
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("alignment", "Alignment You ! You ! The Animation");
@@ -457,6 +474,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setGenre("Hentai");
 			$project->setSynopsis("Takahashi, jeune lycéenne, se masturbe furieusement dans la salle de cours devant l'homme qu'elle aime, Oohara. Mais personne ne remarque la lubrique jeune femme ! Et pour cause : elle est déjà morte...");
 			$project->setVosta(Link::newWindowLink("http://www.killer-maid.net", "Killer maid"));
+			$project->setStatus(Project::INTENDED, null);
 			$project->setHentai(true);
 			$project->setHidden(true);
 			Project::$allProjects[] = $project;
@@ -469,7 +487,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setSynopsis("Hinako est aspirée dans le monde des mangas alors qu'elle en regardait un à la télévision. C'est ainsi que commence sa vie en tant que personnage d'anime, tandis que le spectateur est sans cesse sollicité pour des exercices physiques de remise en forme, avec une caméra à la première personne.");
 			$project->setVosta("Boobz");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t547-Ton-avis-sur-L-entrainement-avec-Hinako-Isshoni-Training.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
@@ -482,7 +500,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setGenre("Comédie");
 			$project->setSynopsis("Takanashi Souta est un lycéen qui a une passion pour les petites choses mignonnes. Quand une fille, Taneshima Popla, l'aborde dans la rue et lui demande si il cherche un travail à mi-temps, il la trouve mignonne car elle ressemble à une collégienne, peut-être même une écolière. Mais il se rend compte quelle a un an de plus que lui. Passant par dessus ce détail, il accepte le travail à mi-temps car elle est toute petite et craquante à souhait. Il commence donc à travailler dans un restaurant familial, mais on peut dire que le personnel est unique ici !");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2045-Ton-avis-sur-Working.htm");
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::RUNNING, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("working2", "Working!! 2");
@@ -494,6 +512,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setGenre("Comédie");
 			$project->setSynopsis("Takanashi Souta est un lycéen qui a une passion pour les petites choses mignonnes. Quand une fille, Taneshima Popla, l'aborde dans la rue et lui demande si il cherche un travail à mi-temps, il la trouve mignonne car elle ressemble à une collégienne, peut-être même une écolière. Mais il se rend compte quelle a un an de plus que lui. Passant par dessus ce détail, il accepte le travail à mi-temps car elle est toute petite et craquante à souhait. Il commence donc à travailler dans un restaurant familial, mais on peut dire que le personnel est unique ici !");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2045-Ton-avis-sur-Working.htm");
+			$project->setStatus(Project::INTENDED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hshiyo", "Faisons l'amour ensemble !");
@@ -504,7 +523,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setSynopsis("Vous avez aimez L'entraînement avec Hinako ? Vous aimerez sûrement sa parodie Hentaï, \"faisons l'amour ensemble\" ! Aujourd'hui, c'est avec vous que notre jolie héroïne fait l'amour... Vous, et vous seul ! Profitez-en ;)");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2061-Ton-avis-sur-Faisons-l-amour-ensemble.htm");
 			$project->setHentai(true);
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::RUNNING, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mermaid", "Mermaid Melody Pichi Pichi Pitch");
@@ -518,7 +537,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setSynopsis("Luchia, une jeune sirène, a sauvé dans son enfance un garçon du même âge qu'elle qui était en train de se noyer et lui a mis au cou un médaillon. Quelques années plus tard, elle gagne la terre ferme dans l'espoir de retrouver celui qu'elle a toujours aimé. Le jeune collégien en question qui est devenu un surfer participant à des concours invite Luchia et sa copine Hanon pour la revoir lors de sa prochaine compétition, mais les Forces du Mal aquatiques vont venir semer le trouble...");
 			$project->setVosta("Lunar anime");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t148-Ton-avis-sur-Mermaid-Melody-Pichi-Pichi-Pich-la-serie-en-general.htm");
-			$project->setStatus(Project::ABANDONNED);
+			$project->setStatus(Project::ABANDONNED, null);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
@@ -536,7 +555,7 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 <img src='http://zerofansub.net/images/news/theme_nanami.png' border='0' alt='Themepack Thème Windows 7 de Nanami Madobe à télécharger download gratuit' />
 </a>"));
 			$project->addBonus(new ProjectBonus("Pack d'images", Link::newWindowLink("http://zerofansub.net/galerie/index.php?spgmGal=Zero_fansub/Images/Nanami%20Madobe", new Image("http://zerofansub.net/images/news/galerie_nanami.png", "Galerie d'images Nanami Madobe"))));
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("potemayo", "Potemayo");
@@ -546,12 +565,12 @@ Au fil du temps, Aoki sensei découvrira que tout nest pas toujours rose dans 
 			$project->setAiringYear(2007);
 			$project->setStudio(Link::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
 			$project->setGenre("Comédie");
-			$project->setSynopsis("Sunao Moriyama, se préparant à partir à l'école, ouvre la porte de son frigo afin de déjeuner, hors celui-ci tombe nez à nez avec une drôle de créature plus ou moins semblable à un \"bébé\".
-Comme s'il n'avait rien vu de spécial celui-ci ferme la porte sans porter plus d'attention à la créature en ayant au préalable saisi son déjeuné, celui-ci portant le nom de \"Potemayo\", il surnommera la créature \"Potemayo\".
+			$project->setSynopsis("Sunao Moriyama, se préparant à partir à l'école, ouvre la porte de son frigo afin de déjeuner, or celui-ci tombe nez à nez avec une drôle de créature plus ou moins semblable à un \"bébé\".
+Comme s'il n'avait rien vu de spécial, celui-ci ferme la porte sans porter plus d'attention à la créature, en ayant au préalable saisi son déjeuner, celui-ci portant le nom de \"Potemayo\", il surnommera la créature \"Potemayo\".
 Et c'est dès lors qu'à se moment, les gags et situations humoristiques apparaissent !");
 			$project->setVosta("<a href=\"http://fansubs.anime-share.net/\" target=\"_blank\">Anime-Share fansub</a> et Anoymous");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2057-Ton-avis-sur-Potemayo.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hyakkooav", "Hyakko OAV");
@@ -569,7 +588,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20Original%20Soundtrack.zip.torrent">[Nipponsei] Hyakko Original Soundtrack.zip</a><br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20OP%20Single%20-%20Suppin%20Rock%20%5BOgawa%20Mana%5D.zip.torrent">[Nipponsei] Hyakko OP Single - Suppin Rock [Ogawa Mana].zip</a><br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20ED%20Single%20-%20Namida%20Namida%20Namida%20%5BHirano%20Aya%5D.zip.torrent">[Nipponsei] Hyakko ED Single - Namida Namida Namida [Hirano Aya].zip</a>'));
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mayoi", "Mayoi Neko Overrun!");
@@ -580,9 +599,10 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
 			$project->setAuthor("Matsu Tomohiro");
 			$project->setGenre("Comédie Ecchi");
-			$project->setSynopsis("Takumi Tsuzuki vit avec sa grande soeur Otome bien quils ne soient pas liés par le sang. Otome gère une vieille pâtisserie appelée Stray Cats où y travaille également une amie denfance de Takumi, Fumino Serisawa. Cest alors quun jour, Nozomi Kiriya, une jeune fille mystérieuse imitant un chat, apparaît");
+			$project->setSynopsis("Takumi Tsuzuki vit avec sa grande \"sœur\" Otome bien qu'ils ne soient pas liés par le sang. Otome gère une vieille pâtisserie appelée Stray Cats où y travaille également une amie d'enfance de Takumi, Fumino Serisawa. C'est alors qu'un jour, Nozomi Kiriya, une jeune fille mystérieuse imitant un chat, apparaît...");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2047-Ton-avis-sur-Mayoi-Neko-Overrun.htm");
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::RUNNING, null);
+			$project->setStatus(Project::FINISHED, strtotime("1 January 2013 00:00"));
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mayoisp", "Mayoi Neko Overrun! - Spéciaux");
@@ -594,7 +614,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setGenre("Comédie Ecchi");
 			$project->setSynopsis("Ces épisodes sont de petites scènes indépendantes de l'histoire. Pour ceux qui ont le nez fragile, préparez les mouchoirs : saignements de nez au programme.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2047-Ton-avis-sur-Mayoi-Neko-Overrun.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("tayutamapure", "Tayutama - Kiss on my Deity - Pure My Heart");
@@ -606,13 +626,13 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setGenre("Amour et Amitié");
 			$project->setSynopsis("Les épisodes Bonus DVD de la série Tayutama -Kiss on my Deity-.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2063-Ton-avis-sur-Tayutama-Kiss-on-my-Deity.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("sketchbookdrama", "Sketchbook ~full colors~ Picture Drama");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Sketchbook - full color's Picture Drama");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.sketch-full.net/", "Sketch-full.net"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://ani.tv/sketch-full/", "Ani.tv"));
 			$project->setAiringYear(2008);
 			$project->setStudio(Link::newWindowLink("http://www.hal-film.co.jp/", "Hal film maker"));
 			$project->setGenre("Comédie");
@@ -624,7 +644,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20OP%20Single%20-%20Kaze%20Sagashi%20%5BKiyoura%20Natsumi%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ OP Single - Kaze Sagashi [Kiyoura Natsumi].zip	10-24 01:52	43.88 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20ED%20Single%20-%20Sketchbook%20wo%20Motta%20Mama%20%5BMakino%20Yui%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ ED Single - Sketchbook wo Motta Mama [Makino Yui].zip	10-24 01:52	47.75 MB</a>'));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t359-Ton-avis-sur-Sketchbook-full-color-s.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hyakko", "Hyakko");
@@ -634,14 +654,14 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setAiringYear(2008);
 			$project->setStudio("Nippon Animation");
 			$project->setGenre("Comédie");
-			$project->setSynopsis("Lécole privée Kamizono est un établissement qui possède la particularité daccueillir en son sein des élèves allant du primaire jusquau lycée. De ce fait, son immense structure donne du mal aux nouveaux arrivants pour sy retrouver. Nonomura Ayumi, jeune étudiante au caractère réservé, arrive à se perdre dés le premier jour de la rentrée. Cherchant désespérément son chemin, elle fini par tomber sur une de ses camarades de classe Lizuda Tatsuki qui se trouve être, sans vouloir ladmettre, dans la même situation quelle. Après un long moment de marche, toutes les deux voient incrédules deux élèves sautaient du deuxième étage dun bâtiment. Cest ainsi quelles font la rencontre de Torako et Suzu, également perdues mais ayant un moyen infaillible pour atteindre rapidement leur salle de classe : aller de lavant quelque soit lobstacle rencontré. Commence alors pour ce nouveau quatuor formé, une année scolaire placée sous le signe de lamitié et de lhumour.");
+			$project->setSynopsis("L'école privée Kamizono est un établissement qui possède la particularité d'accueillir en son sein des élèves allant du primaire jusqu'au lycée. De ce fait, son immense structure donne du mal aux nouveaux arrivants pour s'y retrouver. Nonomura Ayumi, jeune étudiante au caractère réservé, arrive à se perdre dès le premier jour de la rentrée. Cherchant désespérément son chemin, elle finit par tomber sur une de ses camarades de classe, Iizuka Tatsuki, qui se trouve être, sans vouloir l'admettre, dans la même situation qu'elle. Après un long moment de marche, toutes les deux voient incrédules deux élèves sautaient du deuxième étage d'un bâtiment. C'est ainsi qu'elles font la rencontre de Torako et Suzu, également perdues, mais ayant un moyen infaillible pour atteindre rapidement leur salle de classe : aller de l'avant quelque soit l'obstacle rencontré. Commence alors pour ce nouveau quatuor formé une année scolaire placée sous le signe de l'amitié et de l'humour.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2064-Ton-avis-sur-Hyakko.htm");
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20Original%20Soundtrack.zip.torrent">[Nipponsei] Hyakko Original Soundtrack.zip</a><br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20OP%20Single%20-%20Suppin%20Rock%20%5BOgawa%20Mana%5D.zip.torrent">[Nipponsei] Hyakko OP Single - Suppin Rock [Ogawa Mana].zip</a><br />
 <a class="download" href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Hyakko%20ED%20Single%20-%20Namida%20Namida%20Namida%20%5BHirano%20Aya%5D.zip.torrent">[Nipponsei] Hyakko ED Single - Namida Namida Namida [Hirano Aya].zip</a>'));
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			$project->setLicense(new License("Wakanim"));
 			Project::$allProjects[] = $project;
 			
@@ -655,18 +675,18 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setSynopsis("L'histoire est centrée sur Yuuri Mito, un étudiant de l'Académie Sousei et le fils unique de l'homme qui dirige le temple Yachimata. À Yachimata, il y a une légende à propos d'une divinité appelée Tayutama-sama qui protégea la région, mais cette divinité et d'autres ainsi nommées \"Tayutai\" ont été oubliées avec le temps. Mito et ses amis découvrent une relique dans le sol de l'école, avec de mystérieux motifs. Dès lors, à la cérémonie d'ouverture de la nouvelle année scolaire, une tout aussi mystérieuse fille appelée Mashiro apparaît devant Mito. Mashiro est d'une certaine manière liée à la relique et à la légende de Tayutama-sama.");
 			$project->setVosta('<a href="http://fansubs.anime-share.net/" target="_blank">Anime-Share fansub</a> et Anoymous');
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2063-Ton-avis-sur-Tayutama-Kiss-on-my-Deity.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("sketchbook", "Sketchbook ~full colors~");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Sketchbook - full color's");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.sketch-full.net/", "Sketch-full.net"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://ani.tv/sketch-full/", "Ani.tv"));
 			$project->setAiringYear(2007);
 			$project->setStudio(Link::newWindowLink("http://www.hal-film.co.jp/", "Hal film maker"));
 			$project->setGenre("Comédie");
 			$project->setAuthor("Kobako Totan");
-			$project->setSynopsis("Nous suivons la vie de Sora, une jeune adolescente très timide et qui, en raison de cela ne parle pas beaucoup. Donnant limpression de vivre dans sa bulle, cette dernière a une passion pour le dessin. Ce penchant pour lart lentraîna à faire partie du club de dessin de son école où elle sest fait plusieurs amies. Une des particularités de Sora est quelle ne quitte jamais son sketchbook afin de pouvoir retranscrire à nimporte quel moment sur papier, un évènement qui lémerveille. Malheureusement, elle rencontre toujours le même problème, celui de ne jamais pouvoir terminer les dessins quelle fait sur des scènes éphémères (chat qui se lèche, feu dartifice). Légèrement déprimée à cause de cela, elle retrouve cependant très vite le sourire grâce à des petites choses qui paraissent insignifiantes, nous faisant ainsi partager son univers à la fois poétique et touchant.");
+			$project->setSynopsis("Nous suivons la vie de Sora, une jeune adolescente très timide et qui, en raison de cela ne parle pas beaucoup. Donnant l'impression de vivre dans sa bulle, cette dernière a une passion pour le dessin. Ce penchant pour l'art l'entraîna à faire partie du club de dessin de son école où elle s'est fait plusieurs amies. Une des particularités de Sora est qu'elle ne quitte jamais son sketchbook afin de pouvoir retranscrire à n'importe quel moment sur papier, un évènement qui l'émerveille. Malheureusement, elle rencontre toujours le même problème, celui de ne jamais pouvoir terminer les dessins qu'elle fait sur des scènes éphémères (chat qui se lèche, feu d'artifice...). Légèrement déprimée à cause de cela, elle retrouve cependant très vite le sourire grâce à des petites choses qui paraissent insignifiantes, nous faisant ainsi partager son univers à la fois poétique et touchant.");
 			$project->setVosta('Spoonmoon');
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur la radio.<br />
@@ -674,7 +694,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20OP%20Single%20-%20Kaze%20Sagashi%20%5BKiyoura%20Natsumi%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ OP Single - Kaze Sagashi [Kiyoura Natsumi].zip	10-24 01:52	43.88 MB</a><br />
 <a href="http://tracker.minglong.org/torrents/%5BNipponsei%5D%20Sketchbook%20~full%20color%27s~%20ED%20Single%20-%20Sketchbook%20wo%20Motta%20Mama%20%5BMakino%20Yui%5D.zip.torrent" target="_blank">[Nipponsei] Sketchbook ~full color\'s~ ED Single - Sketchbook wo Motta Mama [Makino Yui].zip	10-24 01:52	47.75 MB</a>'));
 			$project->setDiscussionUrl('http://forum.zerofansub.net/t359-Ton-avis-sur-Sketchbook-full-color-s.htm');
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mariaholic", "Maria+Holic");
@@ -685,8 +705,8 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Déjanté - Ecchi");
 			$project->setAuthor("Endou Minari");
-			$project->setSynopsis("Au milieu de lannée scolaire, Kanako est une adolescente qui décide de venir étudier dans un établissement pour filles : Ame no Kisaki. En faisant ceci, cette dernière espère avoir autant de chance en amour que ses parents qui sy sont rencontrés (sa mère était une élève et son père un enseignant). Néanmoins, due à sa grande taille, Kanako na jamais pu imaginer entretenir une vraie relation avec un garçon et sest finalement rendue compte quelle nétait attirée que par la gente féminine.
-Alors quelle cherche son chemin, elle tombe sous le charme dune étudiante accompagnée de sa servante et répondant au nom de Mariya. Après avoir fait connaissance, cette dernière lui indique le lieu où se situe le dortoir et lui donne rendez vous un peu plus tard dans la journée pour lui servir de guide à travers létablissement. Cependant, le moment venu, Kanako découvre par hasard la vraie « nature » de Mariya qui, si celle-ci était découverte, suffirait à lexclure de lécole. Afin que Kanako garde le secret, Mariya exploite vicieusement les penchants yuri que cette dernière tente de dissimuler et la force à rester près delle pour la surveiller. Ne pouvant faire face, Kanako lui obéit en devenant sa camarade de chambre et voit son espoir ardant de trouver son étoile promise samincir");
+			$project->setSynopsis("Au milieu de l'année scolaire, Kanako est une adolescente qui décide de venir étudier dans un établissement pour filles : Ame no Kisaki. En faisant ceci, cette dernière espère avoir autant de chance en amour que ses parents qui s'y sont rencontrés (sa mère était une élève et son père un enseignant). Néanmoins, due à sa grande taille, Kanako n'a jamais pu imaginer entretenir une vraie relation avec un garçon et s'est finalement rendue compte qu'elle n'était attirée que par la gente féminine.
+Alors qu'elle cherche son chemin, elle tombe sous le charme d'une étudiante accompagnée de sa servante et répondant au nom de Mariya. Après avoir fait connaissance, cette dernière lui indique le lieu où se situe le dortoir et lui donne rendez vous un peu plus tard dans la journée pour lui servir de guide à travers l'établissement. Cependant, le moment venu, Kanako découvre par hasard la vraie « nature » de Mariya qui, si celle-ci était découverte, suffirait à l'exclure de l'école. Afin que Kanako garde le secret, Mariya exploite vicieusement les penchants yuri que cette dernière tente de dissimuler et la force à rester près d'elle pour la surveiller. Ne pouvant faire face, Kanako lui obéit en devenant sa camarade de chambre et voit son espoir ardant de trouver son étoile promise s'amincir...");
 			$project->setVosta('<a href="http://www.ggkthx.org/" target="_blank">GG</a>');
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
@@ -700,7 +720,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 <img src="images/icones/bonus.png" alt="Bonus" /> <a href="ddl/%5bKanaii-Zero%5d_HANAJI_Maria+Holic_OP_%5bX264_1280x720%5d.mp4">Clip de l\'Opening Hanaji</a>'));
 			$project->addBonus(new FirefoxPersonaBonus(array(126094, 93715), $project->getName()." theme firefox"));
 			$project->setDiscussionUrl('http://forum.zerofansub.net/t476-Ton-avis-sur-Maria-Holic.htm');
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kanamemobook", "Kanamemo");
@@ -708,7 +728,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setGenre("Comédie - Déjanté - Ecchi");
 			$project->setSynopsis("Kana vient tout juste de perdre sa grand-mère et seule famille, la laissant seule au monde. Après avoir fuit une horde de déménageurs à l'air sournois (du moins pour son petit esprit hermétique à toute réflexion), elle entreprend de chercher un travail, ce qu'elle réussit plus ou moins à trouver au sein d'une petite entreprise de livraison de journaux...");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2065-Ton-avis-sur-Kanamemo-Scans.htm");
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::RUNNING, null);
 			$project->setDoujin(true);
 			Project::$allProjects[] = $project;
 			
@@ -746,7 +766,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
     <a href="galerie/index.php?spgmGal=Zero_fansub/Images/Kanamemo&amp;spgmPic=10#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kanamemo/_thb_[Zero]Kanamemo_Image11.jpg" alt="galerie/gal/Zero_fansub/Images/Kanamemo/_thb_[Zero]Kanamemo_Image11.jpg" class="img-thumbnail" width="150" height="150"/></a>    
     <a href="galerie/index.php?spgmGal=Zero_fansub/Images/Kanamemo&amp;spgmPic=11#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kanamemo/_thb_[Zero]Kanamemo_Image12.jpg" alt="galerie/gal/Zero_fansub/Images/Kanamemo/_thb_[Zero]Kanamemo_Image12.jpg" class="img-thumbnail" width="150" height="150"/></a>     
     <a href="galerie/index.php?spgmGal=Zero_fansub/Images/Kanamemo&amp;spgmPic=12#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kanamemo/_thb_[Zero]Kanamemo_Image13.jpg" alt="galerie/gal/Zero_fansub/Images/Kanamemo/_thb_[Zero]Kanamemo_Image13.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("toradorasos", "Toradora! Spécial SOS");
@@ -760,7 +780,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setSynopsis("Ami, Taiga et Ryuuji décident d'aller chez Jonny's pour y gouter les spaghettis Tarako. Sur place ils retrouvent Minori et la dégustation culinaire vire au duel...");
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("toradora", "Toradora!");
@@ -771,11 +791,11 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Takemiya Yuyuko");
-			$project->setSynopsis("En raison de son regard menaçant hérité de son père, Takasu Ryuuji est un adolescent craint, car considéré comme un délinquant, par les autres élèves de son lycée. Cette image étant à lopposé de ce quil est réellement, ce dernier aimerait sen séparer définitivement afin de ne plus souffrir des conséquences qui en découlent. Ryuuji ne perd pas espoir dy arriver grâce notamment à son ami Kitamura qui, en plus davoir vu clair dans cette mésentente, lui a permis de rencontrer Kushieda Minori dont il est tombé amoureux. Alors quil pense à elle, il bouscule par mégarde Asaika Taiga, une élève de sa classe et amie de Minori dont le mauvais caractère na dégal que sa force. Suite à un concours de circonstances, Ryuuji apprendra que Aisaka est sa nouvelle voisine et que cette dernière est amoureuse de Kitamura. Se développe alors entre les deux une relation ambiguë dans le but de se rapprocher des personnes respectives aimées.");
+			$project->setSynopsis("En raison de son regard menaçant hérité de son père, Takasu Ryuuji est un adolescent craint car considéré comme un délinquant par les autres élèves de son lycée. Cette image étant à l'opposé de ce qu'il est réellement, ce dernier aimerait s'en séparer définitivement afin de ne plus souffrir des conséquences qui en découlent. Ryuuji ne perd pas espoir d'y arriver grâce notamment à son ami Kitamura qui, en plus d'avoir vu clair dans cette mésentente, lui a permis de rencontrer Kushieda Minori dont il est tombé amoureux. Alors qu'il pense à elle, il bouscule par mégarde Asaika Taiga, une élève de sa classe et amie de Minori dont le mauvais caractère n'a d'égal que sa force. Suite à un concours de circonstances, Ryuuji apprendra que Aisaka est sa nouvelle voisine et que cette dernière est amoureuse de Kitamura. Se développe alors entre les deux une relation ambiguë dans le but de se rapprocher des personnes respectives aimées.");
 			$project->setVosta('<a href="http://www.ggkthx.org/" target="_blank">GG</a>');
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("toradorabento", "Toradora! OAD");
@@ -785,7 +805,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setAuthor("Takemiya Yuyuko");
 			$project->setSynopsis("Faire un bentô peut être compliqué. Ce doit être un repas équilibré, permettant de tenir tout l'après-midi. Ryuuji le sait bien, après tout il met un point d'honneur à ce que ses bentôs soient digne d'un étudiant en pleine croissance... Oui mais voilà, Yuusaku se trouve être secondé par sa grand-mère dans cette tâche. Grand-mère qui, au passage, semble maîtriser fort bien l'art du repas en boîte. Ryuuji tentera dès lors de faire valoir ses capacités de cuisinier... Par tous les moyens.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kujibiki", "Kujibiki Unbalance II");
@@ -829,7 +849,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kujibiki%20Unbalance&amp;spgmPic=13#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kujibiki%20Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image14.jpg" alt="gal/Zero_fansub/Images/Kujibiki Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image14.jpg" class="img-thumbnail" width="150" height="150"/></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kujibiki%20Unbalance&amp;spgmPic=14#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kujibiki%20Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image15.jpg" alt="gal/Zero_fansub/Images/Kujibiki Unbalance/_thb_[Zero]Kujibiki_Unbalance_Image15.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t253-Ton-avis-sur-Kujibiki-Unbalance-2006.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("genshiken", "Genshiken II");
@@ -840,12 +860,12 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie");
 			$project->setAuthor("Kio Shimoku");
-			$project->setSynopsis("Lancien président du club Genshiken ayant eu son diplôme lannée dernière, Sasahara se voit nommer par les autres membres pour lui succéder. En ce début dannée, la venue de deux nouvelles personnes au sein du club saccompagne dune autre bonne surprise. En effet, nos fidèles otakus ont reçu pour la première fois lautorisation de participer au Comi-Fes (convention de jap'anime). Léquipe en effervescence décide de créer un doujinshi que Ohno vendra en tenue de cosplay. Ogiue quant à elle, montre quelle possède un talent assez étonnant pour le dessin. Grâce à cela, il ne reste au club plus quà prévoir les divers préparatifs matériels et financiers nécessaires pour le jour J. Toujours dans la bonne humeur et lamusement, les membres de Genshiken semblent ainsi faire un nouveau pas dans lunivers des otakus.");
+			$project->setSynopsis("L'ancien président du club Genshiken ayant eu son diplôme l'année dernière, Sasahara se voit nommer par les autres membres pour lui succéder. En ce début d'année, la venue de deux nouvelles personnes au sein du club s'accompagne d'une autre bonne surprise. En effet, nos fidèles otakus ont reçu pour la première fois l'autorisation de participer au Comi-Fes (convention de jap'anime). L'équipe en effervescence décide de créer un doujinshi que Ohno vendra en tenue de cosplay. Ogiue quant à elle, montre qu'elle possède un talent assez étonnant pour le dessin. Grâce à cela, il ne reste au club plus qu'à prévoir les divers préparatifs matériels et financiers nécessaires pour le jour J. Toujours dans la bonne humeur et l'amusement, les membres de Genshiken semblent ainsi faire un nouveau pas dans l'univers des otakus.");
 			$project->setVosta('<a href="http://dattebayo.com/" target="_blank">Dattebayo US</a>');
 			$project->addBonus(new ProjectBonus("La Saison 1", '<div style="float : right; display:block; margin-right: 20px;">
 	<img src="images/autre/genshikendvd.jpg" border="0" width="100"/><img src="http://www.discountmanga.fr/images/927754.pid.jpg" border="0" width="100"/>
 </div>
-<b>Résumé</b> La rentrée des classes a enfin lieu et Sasahara, jeune étudiant timide, se décide à intégrer une association. Le choix se révèle particulièrement ardu pour notre héros et finalement, celui-ci va rejoindre le Genshiken (Gendai Shikaku Bunka Kenkyuu Kai), un club où se retrouve de jeunes otakus. Sasahara, qui ne peut encore admettre quil en est un, va peu à peu découvrir le monde si particulier des otakus et trouver sa véritable place parmi ces jeunes passionnés de mangas et de jeux vidéos<br />
+<b>Résumé</b> La rentrée des classes a enfin lieu et Sasahara, jeune étudiant timide, se décide à intégrer une association. Le choix se révèle particulièrement ardu pour notre héros et finalement, celui-ci va rejoindre le Genshiken ("Gendai Shikaku Bunka Kenkyuu Kai"), un club où se retrouve de jeunes otakus. Sasahara, qui ne peut encore admettre qu\'il en est un, va peu à peu découvrir le monde si particulier des otakus et trouver sa véritable place parmi ces jeunes passionnés de mangas et de jeux vidéos...<br />
 La saison 1 de Genshiken est licenciée en France par <a href="http://www.kaze.fr/" target="_blank">Kaze</a>.<br />
 <b>Commander la saison 1 en dvd !</b><br />
 <ul>
@@ -890,7 +910,7 @@ galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=3#spgmPicture
 spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image07.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image07.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=7#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image08.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image08.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=8#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image09.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image09.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=9#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/
 _thb_[Zero]Genshiken_Image10.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image10.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Genshiken&amp;spgmPic=10#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image11.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/_thb_[Zero]Genshiken_Image11.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t254-Ton-avis-sur-Genshiken-II.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("canaan", "Canaan");
@@ -951,7 +971,7 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=31#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image7.jpg" alt="gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image7.jpg" class="img-thumbnail" width="150" height="150"/></a>
     <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=32#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image8.jpg" alt="gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image8.jpg" class="img-thumbnail" width="150" height="150"/></a>
 <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=33#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image9.jpg" alt="gal/Zero_fansub/Images/Canaan/_thb_[Zero]Canaan_Image9.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
@@ -960,31 +980,33 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project->setOriginalName("Kiss×sis (2010)");
 			$project->setOfficialWebsite(Link::newWindowLink("http://kc.kodansha.co.jp/kiss_sis/", "kc.kodansha.co.jp/kiss_sis"));
 			$project->setAiringYear(2010);
+			$project->setStudio("Feel - Starchild Records");
 			$project->setGenre("Comédie Ecchi");
 			$project->setAuthor("Ditawa Bow");
-			$project->setSynopsis("Keita a deux grandes demi-soeurs, Ako et Riko, mais puisqu'ils ne sont pas liés par le sang, elles l'aiment d'une façon assez lascive. Après une infortune à l'école, Ako et Riko lui avouent finalement leur amour. Keita n'aime pas la pensée d'être plus que frère et soeur, mais comme il essaye d'entrer à la même école que ses soeurs, il devient lentement attiré par elles.");
+			$project->setSynopsis("Keita a deux grandes demi-sœurs, Ako et Riko, mais puisqu'ils ne sont pas liés par le sang, elles l'aiment d'une façon assez lascive. Après une infortune à l'école, Ako et Riko lui avouent finalement leur amour. Keita n'aime pas la pensée d'être plus que frère et sœur, mais comme il essaye d'entrer à la même école que ses sœurs, il devient lentement attiré par elles.");
 			$project->setVosta("Subdesu");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::RUNNING, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kissxsisoav", "KissXsis OAD");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kiss×sis");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.yanmaga.kodansha.co.jp/ym/rensai/bessatu/kissxsis/kiss.html", "Yamaga.kodansha.co.jp"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://kc.kodansha.co.jp/kiss_sis/", "kc.kodansha.co.jp/kiss_sis"));
 			$project->setAiringYear(2008);
+			$project->setStudio("Feel");
 			$project->setGenre("Ecchi");
 			$project->setAuthor("Ditawa Bow");
-			$project->setSynopsis("Ako et Riko sont deux soeurs jumelles. Toutes les deux sont amoureuses de leur frère par alliance, Keita, avec qui elles n'ont aucun lien de sang.");
+			$project->setSynopsis("Ako et Riko sont deux sœurs jumelles. Toutes les deux sont amoureuses de leur demi-frère, Keita, avec qui elles n'ont aucun lien de sang.");
 			$project->setVosta("Anonymous et AKFDP");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
-			$project->setStatus(Project::RUNNING);
+			$project->setStatus(Project::RUNNING, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hitohira", "Hitohira");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Hitohira");
-			$project->setOfficialWebsite(Link::newWindowLink("http://www.hitohira.tv/", "Hitohira.tv"));
+			$project->setOfficialWebsite(Link::newWindowLink("http://web.peex.jp/hitohira/", "Peex Hitohira"));
 			$project->setAiringYear(2007);
 			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Amour et Amitié");
@@ -1021,7 +1043,7 @@ spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Ze
 Hitohira_Image34.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image34.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=34#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image35.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image35.jpg" class="img-thumbnail" width="150" height="150"/></a><a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=35#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image36.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image36.jpg" class="img-thumbnail" width="150" height="150"/></a>
 <a href="galerie/index.php?spgmGal=Zero_fansub/Images/Hitohira&amp;spgmPic=36#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image37.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hitohira_Image37.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t145-Ton-avis-sur-Hitohira-la-serie-en-general.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kannagi", "Kannagi");
@@ -1034,7 +1056,7 @@ Hitohira_Image34.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hi
 			$project->setSynopsis("Un jeune lycéen voit sa vie basculer le jour où la statue qu'il a sculpté se transforme en une ravissante jeune fille. Le bois de sa sculpture provenait en fait d'un arbre sacré habité par une déesse du nom de Nagi, celle-ci était là dans le but de veiller sur le quartier. Jin devra dorénavant héberger Nagi chez lui, mais la jeune fille n'a pas caractère facile.");
 			$project->setComment("Le 14e épisode (spécial) est disponible [project=kannagioad]ici[/project].");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2067-Ton-avis-sur-Kannagi.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
@@ -1046,7 +1068,7 @@ Hitohira_Image34.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hi
 			$project->setGenre("Fantastique - Comédie");
 			$project->setSynopsis("C'est le 14ème épisode de la série Kannagi.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2067-Ton-avis-sur-Kannagi.htm");
-			$project->setStatus(Project::FINISHED);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kimikiss", "Kimikiss Pure Rouge");
@@ -1056,7 +1078,7 @@ Hitohira_Image34.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hi
 			$project->setAiringYear("2007-08");
 			$project->setStudio(Link::newWindowLink("http://www.jcstaff.co.jp/", "JC Staff"));
 			$project->setGenre("Amour et Amitié");
-			$project->setSynopsis("Après avoir passé deux années en France, Mao jeune étudiante, décide de revenir seule dans sa ville natale au Japon pour finir ses études. Elle y retrouve ainsi ses deux amis denfance : Sanada Kouichi, chez lequel elle résidera et Aihara Kazuki. Le trio ainsi réunit compte bien partager ensemble daussi agréables moments quà lépoque. Le temps ayant passé, Mao va vite comprendre que les histoires de cur sont devenus dactualité pendant son absence. En effet, alors que Aihara semble avoir une relation ambiguë avec une élève considérée comme un génie, Sanada quand à lui, a lair déprouver des sentiments pour Hoshino, une camarade de classe. Mao ne voulant pas être en reste décide alors dintervenir afin de les aider à atteindre leur bonheur.");
+			$project->setSynopsis("Après avoir passé deux années en France, Mao jeune étudiante, décide de revenir seule dans sa ville natale au Japon pour finir ses études. Elle y retrouve ainsi ses deux amis d'enfance : Sanada Kouichi, chez lequel elle résidera et Aihara Kazuki. Le trio ainsi réunit compte bien partager ensemble d'aussi agréables moments qu'à l'époque. Le temps ayant passé, Mao va vite comprendre que les histoires de cœur sont devenus d'actualité pendant son absence. En effet, alors que Aihara semble avoir une relation ambiguë avec une élève considérée comme un génie, Sanada quant à lui, a l'air d'éprouver des sentiments pour Hoshino, une camarade de classe. Mao ne voulant pas être en reste décide alors d'intervenir afin de les aider à atteindre leur bonheur.");
 			$project->setVosta('<a href="http://www.bssubs.net" target="_blank">BSS</a>');
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
@@ -1077,25 +1099,25 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->addBonus(new ProjectBonus("Scantrad (Manga)", 'Ces mangas sont traduits par l\'équipe de Scantrad Française Fuyu No Yo <a href="http://www.fuyunoyo.com" target="_blank"><img style="border: none;" src="http://www.fuyunoyo.com/ban8831.jpg" alt="Fuyu no Yo"/></a> et Tengoku <a href="http://tengoku.team.free.fr/" target="_blank"><img style="border: none;" src="http://mahojapan.free.fr/img/partenaires/logo_Tengoku.gif" alt="Tengoku"/></a><br />
 Si vous aimez leur travail, allez les remercier sur leurs sites !<br /><br />
 <img src="http://www.fuyunoyo.com/samples/vignettes/kkiss01.jpg" alt="Kimikiss tome1" style="float:right;"/>
-Mao 1st KISS : <a href="http://www.megaupload.com/?d=NSE7FM30"><b>Un vieil ami denfance</b></a><br />
+Mao 1st KISS : <a href="http://www.megaupload.com/?d=NSE7FM30"><b>Un vieil ami d\'enfance</b></a><br />
 Mao 2nd KISS : <a href="http://www.megaupload.com/?d=EZ4Z1402"><b>Deuxième baiser</b></a><br />
 Mao 3rd KISS : <a href="http://www.4shared.com/file/7iOxZPOC/Shinjou_KimiKiss_-_Various_Heroines_vol01_chap03.html"><b>Ma chambre, Mao-Neechan et moi</b></a><br />
 Mao 4th KISS : <a href="http://www.4shared.com/file/gAycowuJ/Shinjou_KimiKiss_-_Various_Heroines_vol01_chap04.html"><b>Une intruse en pyjama</b></a><br />
-Mao 5th KISS : <a href="http://www.4shared.com/file/AdXekjos/Shinjou_KimiKiss_-_Various_Heroines_vol01_chap05.html"><b>Jai mangé Kôichi</b></a><br />
+Mao 5th KISS : <a href="http://www.4shared.com/file/AdXekjos/Shinjou_KimiKiss_-_Various_Heroines_vol01_chap05.html"><b>J\'ai mangé Kôichi</b></a><br />
 Mao 6th KISS : <a href="http://www.4shared.com/file/FqdMTD2A/KtShinjou_KimiKiss_Various_Heroines-vol01_ch06.html"><b>Les tests de Mao sont enfin terminés</b></a><br />
-Mao 7th KISS : <a href="http://www.4shared.com/file/_oBCu9Ju/KtShinjou_KimiKiss_Various_Heroines-vol01_ch07.html"><b>Leur fête de lécole à eux deux</b></a><br />
+Mao 7th KISS : <a href="http://www.4shared.com/file/_oBCu9Ju/KtShinjou_KimiKiss_Various_Heroines-vol01_ch07.html"><b>Leur fête de l\'école à eux deux</b></a><br />
 Mao 8th KISS : <a href="http://www.4shared.com/file/KXP63myn/KtShinjou_KimiKiss_Various_Her.htmlKtShinjou_KimiKiss_Various_Heroines-vol01_ch08.html"><b>Promesse</b></a><br />
 Extra KISS : <a href="http://www.4shared.com/file/DholXrXB/KtShinjou_KimiKiss_Various_Heroines-vol01_extra.html"><b>Sans compter</b></a><br />
 <br />
 <img src="http://www.fuyunoyo.com/samples/vignettes/kkiss02.jpg" alt="Kimikiss tome2" style="float:right;"/>
 Asuka 1st KISS : <a href="http://www.4shared.com/file/mxtLJdq4/KtShinjou_KimiKiss_Various_Heroines-vol02_ch09.html"><b>Le goût de Sakino-San</b></a><br />
-Asuka 2nd KISS : <a href="http://www.4shared.com/file/gRm6Lt64/KtShinjou_KimiKiss_Various_Heroines-vol02_ch10.html"><b>Le changement de direction dAsuka</b></a><br />
+Asuka 2nd KISS : <a href="http://www.4shared.com/file/gRm6Lt64/KtShinjou_KimiKiss_Various_Heroines-vol02_ch10.html"><b>Le changement de direction d\'Asuka</b></a><br />
 Asuka 3rd KISS : <a href="http://www.4shared.com/file/-V0G_-QV/ShinjouTT_KimiKiss_Various_Heroines-vol02_ch11.html"><b>Partager un parapluie</b></a><br />
 Asuka 4th KISS : <a href="http://www.4shared.com/file/jTEqmPHs/ShinjouTT_KimiKiss_Various_Heroines-vol02_ch12.html"><b>Coach en amour&nbsp;!</b></a><br />
-Asuka 5th KISS : <a href="http://www.4shared.com/file/8fUdIboy/ShinjouTT_KimiKiss_Various_Heroines-vol02_ch13.html"><b>À laide, coach&nbsp;!</b></a><br />
+Asuka 5th KISS : <a href="http://www.4shared.com/file/8fUdIboy/ShinjouTT_KimiKiss_Various_Heroines-vol02_ch13.html"><b>À l\'aide, coach&nbsp;!</b></a><br />
 Asuka 6th KISS : <a href="http://www.4shared.com/file/-u1hr6-J/ShinjouTT_KimiKiss_Various_Heroines-vol02_ch14.html"><b>Un baiser au goût de soda</b></a><br />
 Asuka 7th KISS : <a href="http://www.4shared.com/file/mH_YCOPg/ShinjouTT_KimiKiss_Various_Heroines-vol02_ch15.html"><b>Peux-tu venir avec moi&nbsp;?</b></a><br />
-Asuka 8th KISS : <a href="http://www.4shared.com/file/BK_agptX/ShinjouTT_KimiKiss_Various_Heroines-vol02_ch16.html"><b>Je taime</b></a><br />
+Asuka 8th KISS : <a href="http://www.4shared.com/file/BK_agptX/ShinjouTT_KimiKiss_Various_Heroines-vol02_ch16.html"><b>Je t\'aime...</b></a><br />
 Asuka 9th KISS : <a href="http://www.4shared.com/file/fBGZCeRg/ShinjouTT_KimiKiss_Various_Heroines-vol02_ch17.html"><b>À toi de tirer</b></a><br />
 <br />
 <img src="images/autre/kimi3.jpg" alt="Kimikiss tome3" style="float:right;"/>
@@ -1160,13 +1182,17 @@ php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=7#spgmPicture" class=""><img
    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=56#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image57.jpg" alt="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image57.jpg" class="img-thumbnail" width="150" height="150"/></a>    
    <a target="_blank" href="galerie/index.php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=57#spgmPicture" class=""><img src="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image58.jpg" alt="galerie/gal/Zero_fansub/Images/Kimikiss/_thb_[Zero]Kimikiss_Image58.jpg" class="img-thumbnail" width="150" height="150"/></a>'));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t120-Ton-avis-sur-Kimikiss-pue-rouge-la-serie-en-general.htm");
-			$project->setStatus(Project::ABANDONNED);
+			$project->setStatus(Project::ABANDONNED, null);
 			Project::$allProjects[] = $project;
 		}
 		
 		foreach(Project::$allProjects as $project) {
 			if (!$project->isHidden() && $project->getDiscussionUrl() == null) {
 				throw new Exception($project->getID()." has no discussion");
+			} else if ($project->getStatus() === null) {
+				throw new Exception($project->getID()." has no status");
+			} else {
+				continue;
 			}
 		}
 		

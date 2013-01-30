@@ -91,6 +91,10 @@
 	margin-bottom: 7px;
 }
 
+#colRight .logo:after {/*should not be after, nor before, but does not work with Firefox 17 without this*/
+	content: url('images/logo.png');
+}
+
 .menu {
 	border: 5px solid rgb(128, 128, 128);
     -moz-border-radius-topleft: 15px;
@@ -134,7 +138,7 @@
 }
 
 #header img {
-	padding: 18px 25px;
+	margin: 18px 25px;
 }
 
 #footer {

@@ -1,13 +1,2 @@
 @import url(style.css);
-
-#main {
-	background: url('images/h/bg2.png') repeat-y;
-}
-
-#header, #footer {
-	background: url('images/h/banniere.png') no-repeat;
-}
-
-#page:after, #page p:after, .archives:after, .news:after, .teamList .member:after, .teamList:before, .p:after {
-	content: url('images/h/barre.png');
-}
+@import url(variantH.css);
