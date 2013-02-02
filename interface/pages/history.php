@@ -61,18 +61,6 @@
 				$row->addComponent($cell);
 			}
 		}
-		
-// 		$metadata = $record[$field];
-// 		$content = $metadata['value'];
-// 		if ($data['type'] == 'string' && strlen($content) > $contentLimit) {
-// 			$content = substr($content, 0, $contentLimit)."...";
-// 		} else {
-// 			// keep the full content
-// 		}
-// 		$cell = new TableCell($content);
-// 		$cell->setClass('value '.(in_array($field, $key) ? 'key' : ''));
-// 		$cell->setMetaData('title', 'type = '.$data['type'].'&#013;'.($data['mandatory'] ? 'obligatoire' : 'facultatif').'&#013;modifié le '.date("Y-m-d H:i:s", $metadata['timestamp']).'&#013;par '.$metadata['author']);
-// 		$row->addComponent($cell);
 		$table->addComponent($row);
 	}
 	
