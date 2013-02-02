@@ -392,6 +392,12 @@ class Database implements Patchable {
 		}
 	}
 	
+	public function getClasses() {
+		$statement = $this->connection->prepare('SELECT DISTINCT class FROM "working_structure"');
+		$statement->execute(array());
+		return $statement->fetchAll(PDO::FETCH_COLUMN);
+	}
+	
 	public function getFields($class, $addMetadata = false) {
 		$fields = $this->getFieldsDataForClass($class);
 		if ($addMetadata) {
@@ -422,12 +428,6 @@ class Database implements Patchable {
 			}
 			return $fields;
 		}
-	}
-	
-	public function getClasses() {
-		$statement = $this->connection->prepare('SELECT DISTINCT class FROM "working_structure"');
-		$statement->execute(array());
-		return $statement->fetchAll(PDO::FETCH_COLUMN);
 	}
 	
 	public function getIDFieldsForClass($class) {
