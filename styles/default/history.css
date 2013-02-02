@@ -1,0 +1,28 @@
+#page.history table, #page.history td {
+	border: 1px solid black;
+}
+
+#page.history tr:hover td {
+	background-color: yellow;
+}
+
+#page.history td.same {
+	border: 0px;
+}
+
+#page.history td.deleted, #page.history tr:hover td.deleted {
+	background-color: gray;
+}
+
+#page.history td.key {
+	font-weight: bold;
+}
+
+#page.history tr:hover td.class {
+	background-color: cyan;
+}
+
+#page.history tr:hover td.key {
+	background-color: red;
+	color: white;
+}

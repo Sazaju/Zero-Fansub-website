@@ -81,9 +81,17 @@
 		$contentLimit = 20;
 		foreach($db->getRecordsForClass($class, true) as $record) {
 			$row = new TableRow();
+			$historyUrl = new Url();
+			$historyUrl->setQueryVar("page", "history");
+			$historyUrl->setQueryVar("class", $class);
 			foreach($fields as $field => $data) {
 				$metadata = $record[$field];
 				$content = $metadata['value'];
+				if (in_array($field, $key)) {
+					$historyUrl->setQueryVar('key_'.$field, $content);
+				} else {
+					// do not consider it in the history link
+				}
 				if ($data['type'] == 'string' && strlen($content) > $contentLimit) {
 					$content = substr($content, 0, $contentLimit)."...";
 				} else {
@@ -94,6 +102,7 @@
 				$cell->setMetaData('title', 'type = '.$data['type'].'&#013;'.($data['mandatory'] ? 'obligatoire' : 'facultatif').'&#013;modifié le '.date("Y-m-d H:i:s", $metadata['timestamp']).'&#013;par '.$metadata['author']);
 				$row->addComponent($cell);
 			}
+			$row->addComponent(new Link($historyUrl->toString(), "H"));
 			$table->addComponent($row);
 		}
 		$page->addComponent(new Title("Enregistrements ".$class, 2));
