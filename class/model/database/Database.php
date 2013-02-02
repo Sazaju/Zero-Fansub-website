@@ -502,7 +502,7 @@ class Database implements Patchable {
 	                  DATA TYPES
 	\********************************************/
 	private function getExistingTypes() {
-		$statement = $this->connection->query('SELECT DISTINCT type FROM "working_structure"');
+		$statement = $this->connection->query('SELECT DISTINCT type FROM "working_structure" UNION SELECT DISTINCT type FROM "archive_structure" ');
 		$types = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
 		return $types;
 	}
