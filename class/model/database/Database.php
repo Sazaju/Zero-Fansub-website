@@ -540,7 +540,6 @@ class Database implements Patchable {
 				$component->setInternalKey($key);
 			} else {
 				$savedValues = $this->getSavedValuesFor($key);
-				$savedValues = $savedValues[$key];
 			}
 			
 			$time = time();
@@ -588,30 +587,86 @@ class Database implements Patchable {
 	
 	private function getSavedValuesFor($keys, $addMetadata = false) {
 		if (!is_array($keys)) {
-			$keys = array($keys);
+			$records = $this->getSavedValuesFor(array($keys), $addMetadata);
+			return $records[$keys];
 		} else {
-			// use it as is
+			$records = array();
+			foreach($keys as $key) {
+				$records[$key] = array();
+				$class = null;
+				foreach($this->getExistingTypes() as $type) {
+					$statement = $this->connection->prepare('SELECT DISTINCT class FROM "working_'.$type.'" WHERE key = ?');
+					$statement->execute(array($key));
+					$class = $statement->fetchColumn();
+					if ($class === null) {
+						continue;
+					} else {
+						break;
+					}
+				}
+				$fields = $this->getFields($class, true);
+				foreach($fields as $field => $data) {
+					$type = $data['type'];
+					$statement = $this->connection->prepare('SELECT value, timestamp, author FROM "working_'.$type.'" WHERE key = ? AND field  = ?');
+					$statement->execute(array($key, $field));
+					foreach($statement->fetchAll() as $array) {
+						$temp = array();
+						if ($addMetadata) {
+							$temp['value'] = $array['value'];
+							$temp['timestamp'] = $array['timestamp'];
+							$temp['author'] = $array['author'];
+						} else {
+							$temp = $array['value'];
+						}
+					}
+					$records[$key][$field] = $temp;
+				}
+			}
+			return $records;
+		}
 		}
 		
+	private function getArchivedValuesFor($keys, $addMetadata = false) {
+		if (!is_array($keys)) {
+			$records = $this->getArchivedValuesFor(array($keys), $addMetadata);
+			return $records[$keys];
+		} else {
 		$records = array();
 		foreach($keys as $key) {
 			$records[$key] = array();
+				$class = null;
 			foreach($this->getExistingTypes() as $type) {
-				$statement = $this->connection->prepare('SELECT field, value, timestamp, author FROM "working_'.$type.'" WHERE key = ?');
+					$statement = $this->connection->prepare('SELECT DISTINCT class FROM "archive_'.$type.'" WHERE key = ?');
 				$statement->execute(array($key));
-				foreach($statement->fetchAll() as $array) {
-					$name = $array['field'];
-					if ($addMetadata) {
-						$records[$key][$name]['value'] = $array['value'];
-						$records[$key][$name]['timestamp'] = $array['timestamp'];
-						$records[$key][$name]['author'] = $array['author'];
+					$class = $statement->fetchColumn();
+					if ($class === null) {
+						continue;
 					} else {
-						$records[$key][$name] = $array['value'];
+						break;
 					}
+				}
+				$fields = $this->getFields($class, true);
+				foreach($fields as $field => $data) {// TODO consider also the archived fields
+					$type = $data['type'];
+					$statement = $this->connection->prepare('SELECT value, timeCreate, authorCreate, timeArchive, authorArchive FROM "archive_'.$type.'" WHERE key = ? AND field  = ?');
+					$statement->execute(array($key, $field));
+				foreach($statement->fetchAll() as $array) {
+						$temp = array();
+					if ($addMetadata) {
+							$temp['value'] = $array['value'];
+							$temp['timeCreate'] = $array['timeCreate'];
+							$temp['authorCreate'] = $array['authorCreate'];
+							$temp['timeArchive'] = $array['timeArchive'];
+							$temp['authorArchive'] = $array['authorArchive'];
+					} else {
+							$temp = $array['value'];
+					}
+						$records[$key][$field][] = $temp;
 				}
 			}
 		}
 		return $records;
+	}
 	}
 	
 	public function load(PersistentComponent $component) {
@@ -624,16 +679,16 @@ class Database implements Patchable {
 		}
 		$savedValues = $this->getSavedValuesFor($key);
 		foreach($component->getPersistentFields() as $name => $field) {
-			if (!array_key_exists($name, $savedValues[$key])) {
+			if (!array_key_exists($name, $savedValues)) {
 				throw new Exception("No field $name for the component $component");
 			} else {
 				$translator = $field->getTranslator();
-				$translator->setPersistentValue($field, $savedValues[$key][$name]);
-				unset($savedValues[$key][$name]);
+				$translator->setPersistentValue($field, $savedValues[$name]);
+				unset($savedValues[$name]);
 			}
 		}
-		if (!empty($savedValues[$key])) {
-			throw new Exception("Saved field(s) not used for the component $component: ".implode(", ", array_keys($savedValues[$key])));
+		if (!empty($savedValues)) {
+			throw new Exception("Saved field(s) not used for the component $component: ".implode(", ", array_keys($savedValues)));
 		}
 	}
 	
