@@ -44,7 +44,9 @@
 		$row = new TableRow();
 		$structureUrl = Url::getCurrentUrl();
 		$structureUrl->setQueryVar('class', $class);
-		$row->addComponent(new Link($structureUrl->toString(), $class));
+		$cell = new TableCell(new Link($structureUrl->toString(), $class));
+		$cell->setClass('class');
+		$row->addComponent($cell);
 		$key = $db->getIDFieldsForClass($class);
 		foreach($db->getFieldsDataForClass($class) as $field => $data) {
 			$cell = new TableCell($field);
