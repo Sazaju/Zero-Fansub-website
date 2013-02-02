@@ -271,6 +271,14 @@ class Format {
 		return substr($string, strlen($separator));
 	}
 
+	public static function arrayWithKeysToString($array, $keySeparator = ' = ', $valueSeparator = ', ') {
+		$string = '';
+		foreach ($array as $key => $element) {
+			$string .= $valueSeparator . $key . $keySeparator . $element;
+		}
+		return substr($string, strlen($valueSeparator));
+	}
+
 	public static function trimAndCleanArray($array) {
 		$array = array_map(function($s) {
 					return is_string($s) ? trim($s) : $s;
