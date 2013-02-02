@@ -23,15 +23,16 @@ class Debug {
 		$COLOR_UNKNOWN	= 'red';	//autres
 		
 		//vérification si tableau non NULL (égalité souple pour prendre en compte un maximum de cas)
-		if ( $object == NULL ) {
+		if ( $object === NULL ) {
 			$string .= '<font color="' . $COLOR_OTHER . '">';
 			$string .= '<b>$</b>' . $name;
 			$string .= ' = ';
 			$string .= '(<font color="' . $COLOR_NULL . '">NULL</font>)';
 			$string .= '</font>';
 			$string .= '<br />';
-		}
-		else {
+		} else if (!is_array($object) && !is_object($object)) {
+			return Debug::toString( array($object), $name = 'object' );
+		} else {
 			//traitement de chaque entrée du tableau
 			foreach ( $object as $key => $value ) {
 				
