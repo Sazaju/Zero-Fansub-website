@@ -417,6 +417,7 @@ class Database implements Patchable {
 			foreach($fields as $field => $array) {
 				$array = $array[0];
 				settype($array['mandatory'], 'boolean');
+				settype($array['timestamp'], 'integer');
 				$fields[$field] = $array;
 			}
 			return $fields;
