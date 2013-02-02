@@ -392,7 +392,22 @@ class Database implements Patchable {
 		}
 	}
 	
-	public function getFieldsDataForClass($class, $exceptionIfUnknown = true) {
+	public function getFields($class, $addMetadata = false) {
+		$fields = $this->getFieldsDataForClass($class);
+		if ($addMetadata) {
+			// let the full array
+		} else {
+			$reduced = array();
+			foreach($fields as $field => $data) {
+				$reduced[] = $field;
+			}
+			$fields = $reduced;
+		}
+		return $fields;
+	}
+	
+	private function getFieldsDataForClass($class, $exceptionIfUnknown = true) {
+		// TODO move to getFields()
 		$statement = $this->connection->prepare('SELECT field, type, mandatory, timestamp, author FROM "working_structure" WHERE class = ?');
 		$statement->execute(array($class));
 		$fields = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
@@ -409,12 +424,6 @@ class Database implements Patchable {
 	}
 	
 	public function getClasses() {
-		$statement = $this->connection->prepare('SELECT DISTINCT class FROM "working_structure"');
-		$statement->execute(array());
-		return $statement->fetchAll(PDO::FETCH_COLUMN);
-	}
-	
-	public function getFields($class) {
 		$statement = $this->connection->prepare('SELECT DISTINCT class FROM "working_structure"');
 		$statement->execute(array());
 		return $statement->fetchAll(PDO::FETCH_COLUMN);

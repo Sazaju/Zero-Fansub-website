@@ -48,7 +48,7 @@
 		$cell->setClass('class');
 		$row->addComponent($cell);
 		$key = $db->getIDFieldsForClass($class);
-		foreach($db->getFieldsDataForClass($class) as $field => $data) {
+		foreach($db->getFields($class, true) as $field => $data) {
 			$cell = new TableCell($field);
 			$cell->setClass('field '.(in_array($field, $key) ? 'key' : ''));
 			$cell->setMetaData('title', 'type = '.$data['type'].'&#013;'.($data['mandatory'] ? 'obligatoire' : 'facultatif').'&#013;modifié le '.date("Y-m-d H:i:s", $data['timestamp']).'&#013;par '.$data['author']);
@@ -69,7 +69,7 @@
 		$table = new Table();
 		$row = new TableRow();
 		$key = $db->getIDFieldsForClass($class);
-		$fields = $db->getFieldsDataForClass($class);
+		$fields = $db->getFields($class, true);
 		foreach($fields as $field => $data) {
 			$cell = new TableCell($field, true);
 			$cell->setClass('field '.(in_array($field, $key) ? 'key' : ''));
