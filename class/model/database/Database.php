@@ -585,6 +585,84 @@ class Database implements Patchable {
 		return $this->getSavedValuesFor($keys, $addMetadata);
 	}
 	
+	private function getKeyForRecord($class, $keyData) {
+		$fields = $this->getFields($class, true);
+		$idFields = array();
+		foreach($this->getIDFieldsForClass($class) as $field) {
+			$idFields[$field] = $fields[$field];
+		}
+		
+		$relations = array();
+		$count = 0;
+		foreach($idFields as $field => $data) {
+			$relations[] = array(
+					'table' => 'working_'.$data['type'],
+					'name' => 't'.$count,
+					'value' => $keyData[$field],
+			);
+			$count ++;
+		}
+		$join = "";
+		$where = "";
+		$args = array();
+		$t0 = null;
+		foreach($relations as $data) {
+			$table = $data['table'];
+			$name = $data['name'];
+			$value = $data['value'];
+			if (strlen($join) == 0) {
+				$join .= 'FROM "'.$table.'" AS '.$name;
+				$where .= $name.'.value = ?';
+				$args[] = $value;
+				$t0 = $name;
+			} else {
+				$join .= ' JOIN "'.$table.'" AS '.$name.' ON '.$t0.'.key = '.$name.'.key';
+				$where .= ' AND '.$name.'.value = ?';
+				$args[] = $value;
+			}
+		}
+		$where .= ' AND '.$t0.'.class = ?';
+		$args[] = $class;
+		$query = 'SELECT '.$t0.'.key '.$join.' WHERE '.$where;
+		$statement = $this->connection->prepare($query);
+		$statement->execute($args);
+		$keys = $statement->fetchAll(PDO::FETCH_COLUMN);
+		if (count($keys) == 1) {
+			return $keys[0];
+		} else if (count($keys) > 1) {
+			throw new Exception("More than one key have been found for $class(".Format::arrayWithKeysToString($keyData)."): ".Format::arrayToString($keys));
+		} else if (count($keys) < 1) {
+			throw new Exception("No key has been found for $class(".Format::arrayWithKeysToString($keyData).").");
+		} else {
+			throw new Exception("This case should not happen.");
+		}
+	}
+	
+	public function getRecord($class, $keyData, $addMetadata = false) {
+		$key = $this->getKeyForRecord($class, $keyData);
+		return $this->getSavedValuesFor($key, $addMetadata);
+	}
+	
+	public function getRecordHistory($class, $keyData, $addMetadata = false, $from = 0, $to = PHP_INT_MAX) {
+		$key = $this->getKeyForRecord($class, $keyData);
+		
+		$record = $this->getSavedValuesFor($key, true);
+		$history = new RecordHistory();
+		foreach($record as $field => $data) {
+			$history->addUpdate($field, $data['value'], $data['timestamp'], $data['author']);
+		}
+		
+		// look for the record in archive tables
+		$record = $this->getArchivedValuesFor($key, true);
+		foreach($record as $field => $versions) {
+			foreach($versions as $data) {
+				$history->addUpdate($field, $data['value'], $data['timeCreate'], $data['authorCreate'], $data['timeArchive'], $data['authorArchive']);
+			}
+		}
+		
+		return $history;
+	}
+	
 	private function getSavedValuesFor($keys, $addMetadata = false) {
 		if (!is_array($keys)) {
 			$records = $this->getSavedValuesFor(array($keys), $addMetadata);
@@ -624,20 +702,20 @@ class Database implements Patchable {
 			}
 			return $records;
 		}
-		}
-		
+	}
+	
 	private function getArchivedValuesFor($keys, $addMetadata = false) {
 		if (!is_array($keys)) {
 			$records = $this->getArchivedValuesFor(array($keys), $addMetadata);
 			return $records[$keys];
 		} else {
-		$records = array();
-		foreach($keys as $key) {
-			$records[$key] = array();
+			$records = array();
+			foreach($keys as $key) {
+				$records[$key] = array();
 				$class = null;
-			foreach($this->getExistingTypes() as $type) {
+				foreach($this->getExistingTypes() as $type) {
 					$statement = $this->connection->prepare('SELECT DISTINCT class FROM "archive_'.$type.'" WHERE key = ?');
-				$statement->execute(array($key));
+					$statement->execute(array($key));
 					$class = $statement->fetchColumn();
 					if ($class === null) {
 						continue;
@@ -650,23 +728,23 @@ class Database implements Patchable {
 					$type = $data['type'];
 					$statement = $this->connection->prepare('SELECT value, timeCreate, authorCreate, timeArchive, authorArchive FROM "archive_'.$type.'" WHERE key = ? AND field  = ?');
 					$statement->execute(array($key, $field));
-				foreach($statement->fetchAll() as $array) {
+					foreach($statement->fetchAll() as $array) {
 						$temp = array();
-					if ($addMetadata) {
+						if ($addMetadata) {
 							$temp['value'] = $array['value'];
 							$temp['timeCreate'] = $array['timeCreate'];
 							$temp['authorCreate'] = $array['authorCreate'];
 							$temp['timeArchive'] = $array['timeArchive'];
 							$temp['authorArchive'] = $array['authorArchive'];
-					} else {
+						} else {
 							$temp = $array['value'];
-					}
+						}
 						$records[$key][$field][] = $temp;
+					}
 				}
 			}
+			return $records;
 		}
-		return $records;
-	}
 	}
 	
 	public function load(PersistentComponent $component) {
