@@ -30,9 +30,12 @@ class Database implements Patchable {
 	/********************************************\
 	            CONSTRUCTOR & DB INIT
 	\********************************************/
+	
 	private $connection = null;
+	private $checker = null;
 	
 	public function __construct($driver = 'sqlite', $database = 'database', $host = 'localhost', $user = 'admin', $password = null) {
+		$this->initChecker();
 		if ($driver === 'sqlite') {
 			$dbFile = $database.'.sqlite';
 			if (!file_exists($dbFile)) {
@@ -48,6 +51,51 @@ class Database implements Patchable {
 		$this->initDatabase();
 	}
 	
+	private function initChecker() {
+		$this->checker = new Checker();
+		$db = $this;
+		$this->checker->registerCallbacks('propertyDoesNotExist',
+			function($name) use ($db) {return !$db->hasProperty($name);},
+			function($name) {return "There is already a property '$name'.";}
+		);
+		$this->checker->registerCallbacks('propertyExists',
+			function($name) use ($db) {return $db->hasProperty($name);},
+			function($name) {return "There is no property '$name'.";}
+		);
+		$this->checker->registerCallbacks('knowsClass',
+			function($class) use ($db) {return $db->isKnownClass($class);},
+			function($class) {return "'$class' is not a known class.";}
+		);
+		$this->checker->registerCallbacks('doesNotKnowClass',
+			function($class) use ($db) {return !$db->isKnownClass($class);},
+			function($class) {return "'$class' is already a known class.";}
+		);
+		$this->checker->registerCallbacks('knowsUser',
+			function($name) use ($db) {return $db->isKnownUser($name);},
+			function($name) {return "'$name' is not a known user.";}
+		);
+		$this->checker->registerCallbacks('doesNotKnowUser',
+			function($name) use ($db) {return !$db->isKnownUser($name);},
+			function($name) {return "'$name' is already a known user.";}
+		);
+		$this->checker->registerCallbacks('isFunction',
+			function($arg) {return is_callable($arg);},
+			function($arg) {return "The argument is not a function.";}
+		);
+		$this->checker->registerCallbacks('isNotFunction',
+			function($arg) {return !is_callable($arg);},
+			function($arg) {return "The argument is a function.";}
+		);
+		$this->checker->registerCallbacks('isIdBasedData',
+			function($data) {$keys = array_keys($data);return is_int($keys[0]);},
+			function($data) {return "The data is not based on IDs.";}
+		);
+		$this->checker->registerCallbacks('isNotIdBasedData',
+			function($data) {$keys = array_keys($data);return is_string($keys[0]);},
+			function($data) {return "The data is based on IDs.";}
+		);
+	}
+	
 	private function initDatabase() {
 		$c = $this->connection;
 		$checkExistence = function($table) use ($c) {$c->prepare('SELECT * FROM "'.$table.'" LIMIT 1');};
@@ -56,210 +104,1146 @@ class Database implements Patchable {
 			$checkExistence('property');
 		} catch(PDOException $ex) {
 			$this->connection->exec('CREATE TABLE "property" (
-				name     VARCHAR(128),
+				name     VARCHAR(128) NOT NULL,
 				value    VARCHAR(128),
 				
 				PRIMARY KEY (name)
 			)');
-			$statement = $this->connection->prepare('INSERT INTO "property" (name, value) VALUES (?, ?)');
-			$statement->execute(array('lastKey', '0'));
-		}
-		
-		try {
-			$checkExistence('working_structure');
-		} catch(PDOException $ex) {
-			$this->connection->exec('CREATE TABLE "working_structure" (
-				class       VARCHAR(128) NOT NULL,
-				field       VARCHAR(128) NOT NULL,
-				type        VARCHAR(128) NOT NULL,
-				mandatory   BOOLEAN NOT NULL,
-				timestamp   INTEGER NOT NULL,
-				author      VARCHAR(128) NOT NULL,
-				
-				PRIMARY KEY (class, field)
-			)');
-		}
-		
-		try {
-			$checkExistence('archive_structure');
-		} catch(PDOException $ex) {
-			$this->connection->exec('CREATE TABLE "archive_structure" (
-				class         VARCHAR(128) NOT NULL,
-				field         VARCHAR(128) NOT NULL,
-				type          VARCHAR(128) NOT NULL,
-				mandatory     BOOLEAN NOT NULL,
-				timeCreate    INTEGER NOT NULL,
-				authorCreate  VARCHAR(128) NOT NULL,
-				timeArchive   INTEGER NOT NULL,
-				authorArchive VARCHAR(128) NOT NULL,
-				
-				PRIMARY KEY (class, field, timeCreate)
-			)');
-		}
-		
-		try {
-			$checkExistence('working_key');
-		} catch(PDOException $ex) {
-			$this->connection->exec('CREATE TABLE "working_key" (
-				class       VARCHAR(128) NOT NULL,
-				field       VARCHAR(128) NOT NULL,
-				timestamp   INTEGER NOT NULL,
-				author      VARCHAR(128) NOT NULL,
-				
-				PRIMARY KEY (class, field)
-			)');
-		}
-		
-		try {
-			$checkExistence('archive_key');
-		} catch(PDOException $ex) {
-			$this->connection->exec('CREATE TABLE "archive_key" (
-				class         VARCHAR(128) NOT NULL,
-				field         VARCHAR(128) NOT NULL,
-				timeCreate    INTEGER NOT NULL,
-				authorCreate  VARCHAR(128) NOT NULL,
-				timeArchive   INTEGER NOT NULL,
-				authorArchive VARCHAR(128) NOT NULL,
-				
-				PRIMARY KEY (class, field, timeCreate)
-			)');
+			$this->createProperty('lastId', '0');
+			$this->createProperty('recordTypes', '|');
 		}
 		
 		try {
 			$checkExistence('user');
 		} catch(PDOException $ex) {
 			$this->connection->exec('CREATE TABLE "user" (
-				id       VARCHAR(128) NOT NULL,
+				id       INTEGER NOT NULL,
+				name     VARCHAR(128) NOT NULL,
 				passhash CHAR(34),
 				
+				UNIQUE (name),
 				PRIMARY KEY (id)
 			)');
 			$this->addUser('admin');
 			$this->setUserPassword('admin', 'admin');
 		}
+		
+		foreach(array('class', 'field', 'key') as $type) {
+			$t = new PersistentTable($type);
+			foreach(array(false, true) as $archiveMode) {
+				$t->setArchiveMode($archiveMode);
+				try {
+					$checkExistence($t->getName());
+				} catch(PDOException $ex) {
+					$this->connection->exec($t->getCreationScript());
+				}
+			}
+		}
 	}
 	
 	private function initMissingTable($type) {
 		$type = $type instanceof PersistentType ? $type->getType() : $type;
-		
-		$column = null;
-		if ($type == "boolean") {
-			$column = 'BOOLEAN';
-		} else if ($type == "integer") {
-			$column = 'INTEGER';
-		} else if ($type == "double") {
-			$column = 'DOUBLE';
-		} else if ($type == "string") {
-			$column = 'TEXT';
-		} else if (preg_match("#^string[0-9]+$#", $type)) {
-			$column = 'VARCHAR('.substr($type, 6).')';
-		} else {
-			throw new Exception("$type is not a managed persistent type");
+		$t = new PersistentTable($type);
+		foreach(array(false, true) as $archiveMode) {
+			$t->setArchiveMode($archiveMode);
+			$this->connection->exec($t->getCreationScript(true));
 		}
 		
-		$this->connection->exec('CREATE TABLE IF NOT EXISTS "working_'.$type.'" (
-			class     VARCHAR(128) NOT NULL,
-			field     VARCHAR(128) NOT NULL,
-			key       INTEGER NOT NULL,
-			value     '.$column.',
-			timestamp INTEGER NOT NULL,
-			author    VARCHAR(128) NOT NULL,
-			
-			PRIMARY KEY (class, field, key, timestamp)
-		)');
+		$types = $this->getProperty('recordTypes');
+		if (strpos($types, "|$type|") === false) {
+			$this->setProperty('recordTypes', $types.$type.'|');
+		} else {
+			// do not insert another time
+		}
+	}
+	
+	/**********************************\
+	             GENERAL
+	\**********************************/
+	
+	public function setCheckerActivity($boolean) {
+		$this->checker->setActivated($boolean);
+	}
+	
+	public function isCheckerActivited() {
+		return $this->checker->isActivated();
+	}
+	
+	private function getNewDatabaseId() {
+		$id = $this->getProperty('lastId');
+		settype($id, 'int');
+		$id++;
+		$this->setProperty('lastId', $id);
+		return $id;
+	}
+	
+	private function formatQueryConditions($constraints, &$args = array()) {
+		$this->checker->checkIsArray($constraints);
+		$this->checker->checkIsArray($args);
 		
-		$this->connection->exec('CREATE TABLE IF NOT EXISTS "archive_'.$type.'" (
-			class         VARCHAR(128) NOT NULL,
-			field         VARCHAR(128) NOT NULL,
-			key           INTEGER NOT NULL,
-			value         '.$column.',
-			timeCreate    INTEGER NOT NULL,
-			authorCreate  VARCHAR(128) NOT NULL,
-			timeArchive   INTEGER NOT NULL,
-			authorArchive VARCHAR(128) NOT NULL,
-			
-			PRIMARY KEY (class, field, key, timeCreate)
-		)');
+		$conditions = '';
+		foreach($constraints as $field => $value) {
+			if (is_scalar($value)) {
+				$conditions .= ' AND '.$field.' = ?';
+				$args[] = $value;
+			} else if (is_array($value)) {
+				$conditions .= ' AND '.$field.' IN ('.Format::arrayToString(array_map(function($a) {return '?';}, $value)).')';
+				$args = array_merge($args, array_values($value));
+			} else {
+				throw new Exception(gettype($value)." objects are not managed.");
+			}
+		}
+		return substr($conditions, strlen(' AND '));
 	}
 	
-	/********************************************\
-	                     USERS
-	\********************************************/
-	public function addUser($id) {
-		$statement = $this->connection->prepare('INSERT INTO "user" (id, passhash) VALUES (?, NULL)');
-		$statement->execute(array($id));
+	private function setWorkingValue($id, $field, $value, $timestamp, $authorId, $type, $constraints = array()) {
+		$this->checker->checkIsNotEmpty($id);
+		$this->checker->checkIsNotEmpty($field);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		$this->checker->checkIsNotEmpty($type);
+		$this->checker->checkIsArray($constraints);
+		
+		$args = array($value);
+		$constraints = array_merge(array('id' => $id), $constraints);
+		$conditions = $this->formatQueryConditions($constraints, $args);
+		
+		$update = $this->connection->prepare('UPDATE "working_'.$type.'" SET '.$field.' = ? WHERE '.$conditions);
+		$update->execute($args);
+		
+		$update = $this->connection->prepare('UPDATE "working_'.$type.'" SET timestamp = ? WHERE '.$conditions);
+		$args[0] = $timestamp;
+		$update->execute($args);
+		
+		$update = $this->connection->prepare('UPDATE "working_'.$type.'" SET author_id = ? WHERE '.$conditions);
+		$args[0] = $authorId;
+		$update->execute($args);
 	}
 	
-	public function isRegisteredUser($id) {
-		$statement = $this->connection->prepare('SELECT count(*) FROM "user" WHERE id = ?');
-		$statement->execute(array($id));
+	private function copyInArchive($id, $timestamp, $authorId, $type, $columns, $constraints = array()) {
+		$this->checker->checkIsNotEmpty($id);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		$this->checker->checkIsNotEmpty($type);
+		$this->checker->checkIsArray($constraints);
+		$this->checker->checkIsArray($columns);
+		
+		$columns = Format::arrayToString($columns);
+		$args = array();
+		$constraints = array_merge(array('id' => $id), $constraints);
+		$conditions = $this->formatQueryConditions($constraints, $args);
+		$archive = $this->connection->prepare('INSERT INTO "archive_'.$type.'" (id, '.$columns.', timeCreate, authorCreate_id, timeArchive, authorArchive_id) SELECT id, '.$columns.', timestamp as timeCreate, author_id as authorCreate_id, '.$timestamp.' as timeArchive, '.$authorId.' as authorArchive_id FROM "working_'.$type.'" WHERE '.$conditions);
+		$archive->execute($args);
+	}
+	
+	public function clear() {
+		$tables = array("property", "user");
+		$types = array_merge(array('class', 'field', 'key'), $this->getDbTypes());
+		foreach($types as $type) {
+			$tables[] = "working_$type";
+			$tables[] = "archive_$type";
+		}
+		foreach($tables as $table) {
+			$this->connection->exec('DROP TABLE "'.$table.'"');
+		}
+	}
+	
+	private function createRandomSalt() {
+		$salt = '';
+		for($i = 0 ; $i < 2 ; $i ++) {
+			$salt .= chr(rand(32, 126));
+		}
+		return $salt;
+	}
+	
+	private function generateSaltedHash($password, $salt) {
+		$this->checker->checkIsNotEmpty($password);
+		$this->checker->checkIsNotEmpty($salt);
+		
+		return $salt.md5($salt.$password);
+	}
+	
+	private function getDbTypes() {
+		$list = explode('|', $this->getProperty('recordTypes'));
+		$list = array_filter($list);
+		return $list;
+	}
+	
+	private function mapDbTypeToPhpType($type) {
+		if ($type == 'boolean') {
+			return 'bool';
+		} else if ($type == 'integer') {
+			return 'int';
+		} else if ($type == 'double') {
+			return 'float';
+		} else if (strpos($type, 'string') === 0) {
+			return 'string';
+		} else {
+			throw new Exception("'$type' is not a managed type.");
+		}
+	}
+	
+	/**********************************\
+	        PROPERTIES - SINGLE
+	\**********************************/
+	
+	public function hasProperty($name) {
+		return $this->connection->query('SELECT COUNT(*) FROM "property" WHERE name = "'.$name.'"')->fetchColumn() > 0;
+	}
+	
+	public function createProperty($name, $value = null) {
+		$this->checker->checkPropertyDoesNotExist($name);
+		
+		$statement = $this->connection->prepare('INSERT INTO "property" (name, value) VALUES (?, ?)');
+		$statement->execute(array($name, $value));
+	}
+	
+	public function setProperty($name, $value) {
+		$this->checker->checkPropertyExists($name);
+		
+		$this->connection->exec('UPDATE "property" SET value = "'.$value.'" WHERE name = "'.$name.'"');
+	}
+	
+	public function getProperty($name) {
+		$this->checker->checkPropertyExists($name);
+		
+		return $this->connection->query('SELECT value FROM "property" WHERE name = "'.$name.'"')->fetchColumn();
+	}
+	
+	/**********************************\
+	       PROPERTIES - MULTIPLE
+	\**********************************/
+	
+	public function getPropertyNames() {
+		return $this->connection->query('SELECT name FROM "property"')->fetchAll(PDO::FETCH_COLUMN);
+	}
+	
+	/**********************************\
+	          USERS - SINGLE
+	\**********************************/
+	
+	public function addUser($name) {
+		$this->checker->checkDoesNotKnowUser($name);
+		
+		$statement = $this->connection->prepare('INSERT INTO "user" (id, name, passhash) VALUES (?, ?, NULL)');
+		$statement->execute(array($this->getNewDatabaseId(), $name));
+	}
+	
+	public function setUserName($oldName, $newName) {
+		$this->checker->checkKnowsUser($oldName);
+		
+		$statement = $this->connection->prepare('UPDATE "user" SET name = ? WHERE name = ?');
+		$statement->execute(array($newName, $oldName));
+	}
+	
+	private function getUserId($name) {
+		$this->checker->checkKnowsUser($name);
+		
+		$statement = $this->connection->prepare('SELECT id FROM "user" WHERE name = ?');
+		$statement->execute(array($name));
+		return $statement->fetchColumn();
+	}
+	
+	private function getUserFromId($userId) {
+		$this->checker->checkIsNotEmpty($userId);
+		
+		$statement = $this->connection->prepare('SELECT name FROM "user" WHERE id = ?');
+		$statement->execute(array($userId));
+		return $statement->fetchColumn();
+	}
+	
+	public function isKnownUser($name) {
+		$statement = $this->connection->prepare('SELECT count(*) FROM "user" WHERE name = ?');
+		$statement->execute(array($name));
 		$counter = $statement->fetchColumn();
 		return $counter > 0;
 	}
 	
-	public function setUserPassword($id, $password) {
-		$hash = $password != null
-				? $this->generateSaltedHash($password, $this->createRandomSalt())
-				: null;
-		$this->setUserHash($id, $hash);
+	public function isIdentifiableUser($name) {
+		$statement = $this->connection->prepare('SELECT count(*) FROM "user" WHERE name = ? AND passhash NOT NULL');
+		$statement->execute(array($name));
+		$counter = $statement->fetchColumn();
+		return $counter > 0;
 	}
 	
-	private function setUserHash($id, $hash) {
-		$statement = $this->connection->prepare('UPDATE "user" SET passhash = ? WHERE id = ?');
-		$statement->execute(array($hash, $id));
+	private function setUserHash($name, $hash) {
+		$this->checker->checkKnowsUser($name);
+		
+		$statement = $this->connection->prepare('UPDATE "user" SET passhash = ? WHERE name = ?');
+		$statement->execute(array($hash, $name));
 	}
 	
-	public function isValidUserPassword($id, $password) {
-		$statement = $this->connection->prepare('SELECT passhash FROM "user" WHERE id = ?');
-		$statement->execute(array($id));
+	public function setUserPassword($name, $password) {
+		$this->checker->checkKnowsUser($name);
+		
+		$hash = $password != null ? $this->generateSaltedHash($password, $this->createRandomSalt()) : null;
+		$this->setUserHash($name, $hash);
+	}
+	
+	public function isValidUserPassword($name, $password) {
+		$this->checker->checkIsNotEmpty($name);
+		$this->checker->checkIsNotEmpty($password);
+		
+		$statement = $this->connection->prepare('SELECT passhash FROM "user" WHERE name = ?');
+		$statement->execute(array($name));
 		$saltedhash = $statement->fetchColumn();
 		$salt = substr($saltedhash, 0, 2);
 		return $this->generateSaltedHash($password, $salt) === $saltedhash;
 	}
 	
-	public function isValidUser($id) {
-		$statement = $this->connection->prepare('SELECT count(*) FROM "user" WHERE id = ? AND passhash NOT NULL');
-		$statement->execute(array($id));
-		$counter = $statement->fetchColumn();
-		return $counter > 0;
-	}
+	/**********************************\
+	         USERS - MULTIPLE
+	\**********************************/
 	
 	public function getUsers() {
-		$statement = $this->connection->prepare('SELECT id FROM "user"');
-		$statement->execute(array());
+		return $this->connection->query('SELECT name FROM "user"')->fetchAll(PDO::FETCH_COLUMN);
+	}
+	
+	/**********************************\
+	         CLASSES - SINGLE
+	\**********************************/
+	
+	private function addClass($class, $timestamp, $authorId) {
+		$this->checker->checkIsNotEmpty($class);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		
+		$statement = $this->connection->prepare('INSERT INTO "working_class" (id, class, timestamp, author_id) VALUES (?, ?, ?, ?)');
+		$statement->execute(array($this->getNewDatabaseId(), $class, $timestamp, $authorId));
+	}
+	
+	public function isKnownClass($class) {
+		if (is_object($class)) {
+			$class = get_class($class);
+		} else if (is_string($class)) {
+			// considered as the name of the class, let as is
+		} else {
+			throw new Exception("'$class' cannot be interpreted as an object or its class name");
+		}
+		return in_array($class, $this->getClasses());
+	}
+	
+	private function getClass($classId) {
+		$this->checker->checkIsNotEmpty($classId);
+		
+		$statement = $this->connection->prepare('SELECT class FROM "working_class" WHERE id = ?');
+		$statement->execute(array($classId));
+		return $statement->fetchColumn();
+	}
+	
+	private function getClassId($class) {
+		$this->checker->checkKnowsClass($class);
+		
+		$statement = $this->connection->prepare('SELECT id FROM "working_class" WHERE class = ?');
+		$statement->execute(array($class));
+		return $statement->fetchColumn();
+	}
+	
+	private function copyClassInArchive($classId, $timestamp, $authorId) {
+		$this->copyInArchive($classId, $timestamp, $authorId, 'class', array('class'));
+	}
+	
+	private function setClassName($classId, $name, $timestamp, $authorId) {
+		$this->copyClassInArchive($classId, $timestamp, $authorId);
+		$this->setWorkingValue($classId, 'class', $name, $timestamp, $authorId, 'class');
+	}
+	
+	private function deleteClass($classId, $timestamp, $authorId) {
+		$this->checker->checkIsNotEmpty($classId);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		
+		foreach($this->getKeyIds($classId) as $keyId) {
+			$this->deleteKey($keyId, $timestamp, $authorId);
+		}
+		
+		foreach($this->getFieldIds($classId) as $fieldId) {
+			$this->deleteField($fieldId, $timestamp, $authorId);
+		}
+		
+		$this->copyClassInArchive($classId, $timestamp, $authorId);
+		$clean = $this->connection->prepare('DELETE FROM "working_class" WHERE id = ?');
+		$clean->execute(array($classId));
+	}
+	
+	/**********************************\
+	        CLASSES - MULTIPLE
+	\**********************************/
+	
+	public function getClasses() {
+		return $this->connection->query('SELECT class FROM "working_class"')->fetchAll(PDO::FETCH_COLUMN);
+	}
+	
+	public function getClassesMetadata($class = null) {
+		$classIds = array();
+		foreach($this->getClasses() as $class) {
+			$classIds[$class] = $this->getClassId($class);
+		}
+		$metadata = array();
+		if (empty($classIds)) {
+			// no data to retrieve
+		} else {
+			foreach($this->getClassIdsMetadata($classIds) as $classId => $meta) {
+				$metadata[$class] = $meta;
+			}
+		}
+		return $metadata;
+	}
+	
+	private function getClassIdsMetadata($classIds) {
+		$this->checker->checkIsNotEmpty($classIds);
+		$this->checker->checkIsArray($classIds);
+		
+		$diff = array_diff($classIds, array_filter($classIds));
+		if(empty($classIds) || !empty($diff)) {
+			throw new Exception("(".Format::arrayToString($classIds).") is not a valid set of class IDs.");
+		} else {
+			$args = array();
+			$statement = $this->connection->prepare('SELECT id, class, timestamp, author_id FROM "working_class" WHERE '.$this->formatQueryConditions(array('id' => $classIds), $args));
+			$statement->execute($args);
+			$metadata = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
+			foreach($metadata as $classId => $meta) {
+				$meta = $meta[0];
+				settype($meta['timestamp'], 'int');
+				$meta['author'] = $this->getUserFromId($meta['author_id']);
+				unset($meta['author_id']);
+				$metadata[$classId] = $meta;
+			}
+			return $metadata;
+		}
+	}
+	
+	/**********************************\
+	          FIELDS - SINGLE
+	\**********************************/
+	
+	private function addField($classId, $field, $type, $mandatory, $timestamp, $authorId, $valueCallback = null) {
+		$this->checker->checkIsNotEmpty($classId);
+		$this->checker->checkIsNotEmpty($field);
+		$this->checker->checkIsNotEmpty($type);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		
+		$this->initMissingTable($type);
+		$fieldId = $this->getNewDatabaseId();
+		$statement = $this->connection->prepare('INSERT INTO "working_field" (id, class_id, field, type, mandatory, timestamp, author_id) VALUES (?, ?, ?, ?, ?, ?, ?)');
+		$statement->execute(array($fieldId, $classId, $field, $type, $mandatory, $timestamp, $authorId));
+		
+		$valueCallback = $valueCallback === null ? function($id) {return null;} : $valueCallback;
+		$this->completeAllRecords($fieldId, $valueCallback, $timestamp, $authorId);
+	}
+	
+	private function getField($fieldId) {
+		$this->checker->checkIsNotEmpty($fieldId);
+		
+		$statement = $this->connection->prepare('SELECT field FROM "working_field" WHERE id = ?');
+		$statement->execute(array($fieldId));
+		return $statement->fetchColumn();
+	}
+	
+	private function getFieldId($classId, $field) {
+		$this->checker->checkIsNotEmpty($classId);
+		$this->checker->checkIsNotEmpty($field);
+		
+		$statement = $this->connection->prepare('SELECT id FROM "working_field" WHERE class_id = ? AND field = ?');
+		$statement->execute(array($classId, $field));
+		return $statement->fetchColumn();
+	}
+	
+	private function getFieldClassId($fieldId) {
+		$this->checker->checkIsNotEmpty($fieldId);
+		
+		$statement = $this->connection->prepare('SELECT class_id FROM "working_field" WHERE id = ?');
+		$statement->execute(array($fieldId));
+		$result = $statement->fetchColumn();
+		return $result;
+	}
+	
+	private function getFieldType($fieldId) {
+		$this->checker->checkIsNotEmpty($fieldId);
+		
+		$types = $this->getFieldTypes(array($fieldId));
+		return $types[$fieldId];
+	}
+	
+	private function getFieldValues($fieldId) {
+		$this->checker->checkIsNotEmpty($fieldId);
+		
+		$type = $this->getFieldType($fieldId);
+		$statement = $this->connection->prepare('SELECT id, value FROM "working_'.$type.'" WHERE field_id = ?');
+		$statement->execute($fieldId);
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP|PDO::FETCH_COLUMN);
+		$result = array_map(function($a) {return $a[0];}, $result);
+		return $result;
+	}
+	
+	private function copyFieldInArchive($fieldId, $timestamp, $authorId) {
+		$this->copyInArchive($fieldId, $timestamp, $authorId, 'field', array('class_id', 'field', 'type', 'mandatory'));
+	}
+	
+	private function setFieldName($fieldId, $name, $timestamp, $authorId) {
+		$this->copyFieldInArchive($fieldId, $timestamp, $authorId);
+		$this->setWorkingValue($fieldId, 'field', $name, $timestamp, $authorId, 'field');
+	}
+	
+	private function setFieldType($fieldId, $type, $timestamp, $authorId) {
+		$values = $this->getFieldValues($fieldId);
+		$this->clearRecords($fieldId, $timestamp, $authorId);
+		
+		$this->copyFieldInArchive($fieldId, $timestamp, $authorId);
+		$this->setWorkingValue($fieldId, 'type', $type, $timestamp, $authorId, 'field');
+		
+		$this->completeAllRecords($fieldId, function($id) use ($values) {return $values[$id];}, $timestamp, $authorId);
+	}
+	
+	private function deleteField($fieldId, $timestamp, $authorId) {
+		$this->checker->checkIsNotEmpty($fieldId);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		
+		$keyIds = $this->getKeyIdsUsing(array($fieldId));
+		if (empty($keyIds)) {
+			// no key is using this field, so we can delete
+		} else {
+			throw new Exception("At least one key uses the field '$fieldId', you cannot delete it.");
+		}
+		
+		$this->clearRecords($fieldId, $timestamp, $authorId);
+		
+		$this->copyFieldInArchive($fieldId, $timestamp, $authorId);
+		$clean = $this->connection->prepare('DELETE FROM "working_field" WHERE id = ?');
+		$clean->execute(array($fieldId));
+	}
+	
+	/**********************************\
+	         FIELDS - MULTIPLE
+	\**********************************/
+	
+	public function getFieldsForClass($class) {
+		$this->checker->checkKnowsClass($class);
+		
+		$statement = $this->connection->prepare('SELECT field FROM "working_field" WHERE class_id = ?');
+		$statement->execute(array($this->getClassId($class)));
 		return $statement->fetchAll(PDO::FETCH_COLUMN);
 	}
 	
-	/********************************************\
-	                   TABLES
-	\********************************************/
-	private function getTableNames() {
-		$tables = $this->getDataTableNames();
-		$tables[] = "property";
-		$tables[] = "working_structure";
-		$tables[] = "archive_structure";
-		$tables[] = "working_key";
-		$tables[] = "archive_key";
-		$tables[] = "user";
-		return $tables;
+	private function getFieldsForIds($fieldIds) {
+		$this->checker->checkIsNotEmpty($fieldIds);
+		$this->checker->checkIsArray($fieldIds);
+		
+		$statement = $this->connection->prepare('SELECT id, field FROM "working_field" WHERE '.$this->formatQueryConditions(array('id' => $fieldIds)));
+		$statement->execute(array_values($fieldIds));
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP|PDO::FETCH_COLUMN);
+		$result = array_map(function($a) {return $a[0];}, $result);
+		return $result;
 	}
 	
-	private function getDataTableNames() {
-		$tables = array();
-		foreach($this->getExistingTypes() as $type) {
-			$tables[] = "working_".$type;
-			$tables[] = "archive_".$type;
+	private function getFieldIds($classId, $fields = null) {
+		$this->checker->checkIsNotEmpty($classId);
+		
+		$args = array();
+		$constraints = array('class_id' => $classId);
+		if ($fields === null) {
+			// do not constraint the fields to get all of them.
+		} else {
+			$constraints['field'] = $fields;
 		}
-		return $tables;
+		$statement = $this->connection->prepare('SELECT field, id FROM "working_field" WHERE '.$this->formatQueryConditions($constraints, $args));
+		$statement->execute($args);
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP|PDO::FETCH_COLUMN);
+		$result = array_map(function($a) {return (int) $a[0];}, $result);
+		return $result;
+	}
+	
+	private function getMandatoryFieldIds($classId) {
+		$this->checker->checkIsNotEmpty($classId);
+		
+		$statement = $this->connection->prepare('SELECT id FROM "working_field" WHERE class_id = ? AND mandatory = ?');
+		$statement->execute(array($classId, true));
+		return $statement->fetchAll(PDO::FETCH_COLUMN);
+	}
+	
+	private function getFieldTypes($fieldIds) {
+		$this->checker->checkIsNotEmpty($fieldIds);
+		$this->checker->checkIsArray($fieldIds);
+		
+		$metadata = $this->getFieldIdsMetadata($fieldIds);
+		foreach($metadata as $fieldId => $array) {
+			$metadata[$fieldId] = $array['type'];
+		}
+		return $metadata;
+	}
+	
+	public function getFieldsMetadata($class, $fields = null) {
+		$classId = $this->getClassId($class);
+		$fieldIds = $this->getFieldIds($classId, $fields);
+		$metadata = $this->getFieldIdsMetadata($fieldIds);
+		return $this->mapDataToFields($metadata);
+	}
+	
+	private function getFieldIdsMetadata($fieldIds) {
+		$this->checker->checkIsNotEmpty($fieldIds);
+		$this->checker->checkIsArray($fieldIds);
+		
+		$diff = array_diff($fieldIds, array_filter($fieldIds));
+		if(empty($fieldIds) || !empty($diff)) {
+			throw new Exception("(".Format::arrayToString($fieldIds).") is not a valid set of field IDs.");
+		} else {
+			$args = array();
+			$statement = $this->connection->prepare('SELECT id, field, type, mandatory, timestamp, author_id FROM "working_field" WHERE '.$this->formatQueryConditions(array('id' => $fieldIds), $args));
+			$statement->execute($args);
+			$metadata = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
+			foreach($metadata as $fieldId => $meta) {
+				$meta = $meta[0];
+				settype($meta['mandatory'], 'bool');
+				settype($meta['timestamp'], 'int');
+				$meta['author'] = $this->getUserFromId($meta['author_id']);
+				unset($meta['author_id']);
+				$metadata[$fieldId] = $meta;
+			}
+			return $metadata;
+		}
+	}
+	
+	private function mapDataToFieldIds($classId, $fieldData) {
+		$this->checker->checkIsNotEmpty($classId);
+		$this->checker->checkIsNotEmpty($fieldData);
+		$this->checker->checkIsArray($fieldData);
+		$this->checker->checkIsNotIdBasedData($fieldData);
+		
+		$idBased = array();
+		$fields = array_keys($fieldData);
+		$fieldIds = $this->getFieldIds($classId, $fields);
+		foreach($fieldData as $field => $value) {
+			$fieldId = $fieldIds[$field];
+			$idBased[$fieldId] = $value;
+		}
+		return $idBased;
+	}
+	
+	private function mapDataToFields($fieldData) {
+		$this->checker->checkIsNotEmpty($fieldData);
+		$this->checker->checkIsArray($fieldData);
+		$this->checker->checkIsIdBasedData($fieldData);
+		
+		$fieldBased = array();
+		$fieldIds = array_keys($fieldData);
+		$fields = $this->getFieldsForIds($fieldIds);
+		foreach($fieldData as $fieldId => $value) {
+			$field = $fields[$fieldId];
+			$fieldBased[$field] = $value;
+		}
+		return $fieldBased;
+	}
+	
+	/**********************************\
+	            KEYS - SINGLE
+	\**********************************/
+	
+	private function addKey($fieldIds, $timestamp, $authorId) {
+		$this->checker->checkIsNotEmpty($fieldIds);
+		$this->checker->checkIsArray($fieldIds);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		
+		$statement = $this->connection->prepare('INSERT INTO "working_key" (id, field_id, timestamp, author_id) VALUES (?, ?, ?, ?)');
+		foreach($fieldIds as $fieldId) {
+			$statement->execute(array($this->getNewDatabaseId(), $fieldId, $timestamp, $authorId));
+		}
+	}
+	
+	private function getKey($keyId) {
+		$this->checker->checkIsNotEmpty($keyId);
+		
+		$statement = $this->connection->prepare('SELECT field_id FROM "working_key" WHERE id = ?');
+		$statement->execute(array($keyId));
+		return $statement->fetchAll(PDO::FETCH_COLUMN);
+	}
+	
+	private function getKeyId($fieldIds) {
+		$this->checker->checkIsNotEmpty($fieldIds);
+		$this->checker->checkIsArray($fieldIds);
+		
+		$statement = $this->connection->prepare('SELECT id, fieldId FROM "working_key"');
+		$statement->execute(array($class));
+		$keys = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP|PDO::FETCH_COLUMN);
+		$keys = array_map(function($a) {return $a[0];}, $keys);
+		foreach($keys as $id => $ids) {
+			$missingFields = array_diff($ids, $fieldIds);
+			$excessingFields = array_diff($fieldIds, $ids);
+			if (empty($missingFields) && empty($excessingFields)) {
+				return $id;
+			} else {
+				continue;
+			}
+		}
+		return null;
+	}
+	
+	private function copyKeyInArchive($keyId, $timestamp, $authorId) {
+		$this->copyInArchive($keyId, $timestamp, $authorId, 'key', array('field_id'));
+	}
+	
+	/*
+	No setting function for a key, consider to delete an existing key to
+	create a new one. If it becomes necessary, think to copy-paste and
+	adapt a similar function (look field-related functions for instance).
+	*/
+	
+	private function deleteKey($keyId, $timestamp, $authorId) {
+		$this->copyKeyInArchive($keyId, $timestamp, $authorId);
+		$clean = $this->connection->prepare('DELETE FROM "working_key" WHERE id = ?');
+		$clean->execute(array($keyId));
+	}
+	
+	/**********************************\
+	           KEYS - MULTIPLE
+	\**********************************/
+	
+	public function getKeys($class) {
+		$this->checker->checkKnowsClass($class);
+		
+		$classId = $this->getClassId($class);
+		$keyIds = $this->getKeyIds($classId);
+		$keys = $this->getKeysForIds($keyIds);
+		foreach($keys as $keyId => $fieldIds) {
+			$keys[$keyId] = array_values($this->getFieldsForIds($fieldIds));
+		}
+		return array_values($keys);
+	}
+	
+	private function getKeysForIds($keyIds) {
+		$this->checker->checkIsNotEmpty($keyIds);
+		$this->checker->checkIsArray($keyIds);
+		
+		$keys = array();
+		foreach($keyIds as $keyId) {
+			$keys[$keyId] = $this->getKey($keyId);
+		}
+		return $keys;
+	}
+	
+	private function getKeyIds($classId) {
+		$this->checker->checkIsNotEmpty($classId);
+		
+		$statement = $this->connection->prepare('SELECT k.id FROM "working_key" AS k JOIN "working_field" as f ON k.field_id = f.id WHERE f.class_id = ?');
+		$statement->execute(array($classId));
+		return $statement->fetchAll(PDO::FETCH_COLUMN);
+	}
+	
+	private function getKeysOverlapping($fieldIds, $bigger, $smaller) {
+		$this->checker->checkIsNotEmpty($fieldIds);
+		$this->checker->checkIsArray($fieldIds);
+		
+		$statement = $this->connection->prepare('SELECT id, field_id FROM "working_key"');
+		$statement->execute(array());
+		$keys = array();
+		$allKeys = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
+		$allKeys = array_map(function($a) {
+					$ids = array_values($a[0]);
+					$ids = array_map(function($a) {return (int) $a;}, $ids);
+					return $ids;
+				}, $allKeys);
+		foreach($allKeys as $id => $ids) {
+			$missingFields = array_diff($ids, $fieldIds);
+			$excessingFields = array_diff($fieldIds, $ids);
+			if ($bigger && empty($excessingFields)
+			    || $smaller && empty($missingFields)) {
+				$keys[$id] = $ids;
+			} else {
+				continue;
+			}
+		}
+		return $keys;
+	}
+	
+	private function getKeysContainedIn($fieldIds) {
+		return $this->getKeysOverlapping($fieldIds, false, true);
+	}
+	
+	private function getKeyIdsUsing($fieldIds) {
+		return $this->getKeysOverlapping($fieldIds, true, false);
+	}
+	
+	private function getKeyIdsCoveredBy($fieldData) {
+		$this->checker->checkIsNotEmpty($fieldData);
+		$this->checker->checkIsArray($fieldData);
+		
+		$fieldIds = array_keys($fieldData);
+		return $this->getKeysContainedIn($fieldIds);
+	}
+	
+	/**********************************\
+	          RECORDS - SINGLE
+	\**********************************/
+	
+	private function addRecord($fieldData, $timestamp, $authorId) {
+		$this->checker->checkIsNotEmpty($fieldData);
+		$this->checker->checkIsArray($fieldData);
+		$this->checker->checkIsIdBasedData($fieldData);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		
+		$recordId = $this->getRecordId($fieldData);
+		if ($recordId) {
+			throw new Exception("A record already exists with the same identifiers ($recordId), you cannot add the record (".Format::arrayToString($this->mapDataToFields($fieldData)).")");
+		} else {
+			// no record found with the same identifiers, we can go further.
+		}
+		
+		$fieldData = array_filter($fieldData, function($a) {return $a !== null;});
+		$fieldIds = array_keys($fieldData);
+		$classId = $this->getFieldClassId($fieldIds[0]);
+		$mandatoryFields = $this->getMandatoryFieldIds($classId);
+		$missingFields = array_diff($mandatoryFields, $fieldIds);
+		if (empty($missingFields)) {
+			// all the mandatory fields are provided, we can go further.
+		} else {
+			throw new Exception("Some mandatory fields are missing: ".Format::arrayWithKeysToString($this->mapDataToFields($fieldData)));
+		}
+		
+		$recordId = $this->getNewDatabaseId();
+		$fieldIds = $this->getFieldIds($classId);
+		$fieldTypes = $this->getFieldTypes($fieldIds);
+		foreach($fieldIds as $fieldId) {
+			$value = isset($fieldData[$fieldId]) ? $fieldData[$fieldId] : null;
+			$type = $fieldTypes[$fieldId];
+			$statement = $this->connection->prepare('INSERT INTO "working_'.$type.'" (id, field_id, value, timestamp, author_id) VALUES (?, ?, ?, ?, ?)');
+			$statement->execute(array($recordId, $fieldId, $value, $timestamp, $authorId));
+		}
+		
+		return $recordId;
+	}
+	
+	private function getRecordId($fieldData, $keyId = null) {
+		$this->checker->checkIsNotEmpty($fieldData);
+		$this->checker->checkIsArray($fieldData);
+		$this->checker->checkIsIdBasedData($fieldData);
+		
+		// remove classId by using fieldIds as keys of fieldData (instead of fields)
+		if ($keyId === null) {
+			$keys = $this->getKeyIdsCoveredBy($fieldData);
+			if (count($keys) == 0) {
+				$fieldIds = array_keys($fieldData);
+				$classId = $this->getFieldClassId($fieldIds[0]);
+				$class = $this->getClass($classId);
+				throw new Exception("No key found in $class(".Format::arrayToString(array_keys($this->mapDataToFields($fieldData))).")");
+			} else {
+				$keyIds = array_keys($keys);
+				$keyId = $keyIds[0];
+			}
+		} else {
+			// use the given key ID
+		}
+		$fieldIds = $this->getKey($keyId);
+		$fieldTypes = $this->getFieldTypes($fieldIds);
+		
+		$join = '';
+		$where = '';
+		$args = array();
+		$counter = 0;
+		foreach($fieldIds as $fieldId) {
+			$value = $fieldData[$fieldId];
+			$type = $fieldTypes[$fieldId];
+			if ($counter == 0) {
+				$join = '"working_'.$type.'" AS t'.$counter;
+				$where = 't'.$counter.'.field_id = ? AND t'.$counter.'.value = ?';
+			} else {
+				$join = ' JOIN "working_'.$type.'" AS t'.$counter.' ON t0.id = t'.$counter.'.id';
+				$where = ' AND t'.$counter.'.field_id = ? AND t'.$counter.'.value = ?';
+			}
+			$args[] = $fieldId;
+			$args[] = $value;
+			$counter++;
+		}
+		$statement = $this->connection->prepare('SELECT t0.id FROM '.$join.' WHERE '.$where);
+		$statement->execute($args);
+		return $statement->fetchColumn();
+	}
+	
+	public function getRecordFromId($recordId) {
+		$this->checker->checkIsNotEmpty($recordId);
+		
+		$classId = $this->getRecordClassId($recordId);
+		$fieldIds = $this->getFieldIds($classId);
+		$fields = $this->getFieldsForIds($fieldIds);
+		$fieldTypes = $this->getFieldTypes($fieldIds);
+		$record = array();
+		foreach($fieldIds as $fieldId) {
+			$type = $fieldTypes[$fieldId];
+			$statement = $this->connection->prepare('SELECT value FROM "working_'.$type.'" WHERE id = ? AND field_id = ?');
+			$statement->execute(array($recordId, $fieldId));
+			$record[$fields[$fieldId]] = $statement->fetchColumn();
+		}
+		return $record;
+	}
+	
+	public function getRecordFromData($class, $fieldData) {
+		$this->checker->checkKnowsClass($class);
+		$this->checker->checkIsNotEmpty($fieldData);
+		$this->checker->checkIsArray($fieldData);
+		
+		$classId = $this->getClassId($class);
+		$fieldData = $this->mapDataToFieldIds($classId, $fieldData);
+		$recordId = $this->getRecordId($fieldData);
+		$fieldIds = $this->getFieldIds($classId);
+		$fieldTypes = $this->getFieldTypes($fieldIds);
+		$record = array();
+		foreach($fieldIds as $fieldId) {
+			$type = $fieldTypes[$fieldId];
+			$statement = $this->connection->prepare('SELECT value FROM "working_'.$type.'" WHERE id = ? AND field_id = ?');
+			$statement->execute(array($recordId, $fieldId));
+			$record[$field] = $statement->fetchColumn();
+		}
+		return $record;
+	}
+	
+	private function getRecordClassId($recordId) {
+		$this->checker->checkIsNotEmpty($recordId);
+		
+		foreach($this->getDbTypes() as $type) {
+			$statement = $this->connection->prepare('SELECT f.class_id FROM "working_'.$type.'" AS r JOIN "working_field" AS f ON r.field_id = f.id WHERE r.id = ?');
+			$statement->execute(array($recordId));
+			$classId = $statement->fetchColumn();
+			if ($classId === false) {
+				continue;
+			} else {
+				return $classId;
+			}
+		}
+		return null;
+	}
+	
+	private function copyRecordInArchive($recordId, $timestamp, $authorId, $fieldIds = null) {
+		$this->checker->checkIsNotEmpty($recordId);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		
+		if ($fieldIds === null) {
+			$classId = $this->getRecordClassId($recordId);
+			$fieldIds = $this->getFieldIds($classId);
+		} else {
+			// use the given IDs
+		}
+		$fieldTypes = $this->getFieldTypes($fieldIds);
+		foreach($fieldIds as $fieldId) {
+			$type = $fieldTypes[$fieldId];
+			$this->copyInArchive($recordId, $timestamp, $authorId, $type, array('field_id', 'value'), array('field_id' => $fieldId));
+		}
+	}
+	
+	private function setRecordField($recordId, $fieldId, $value, $timestamp, $authorId) {
+		$this->copyRecordInArchive($recordId, $timestamp, $authorId, array($fieldId));
+		$type = $this->getFieldType($fieldId);
+		$this->setWorkingValue($recordId, 'value', $value, $timestamp, $authorId, $type, array('field_id' => $fieldId));
+	}
+	
+	private function deleteRecord($recordId, $timestamp, $authorId) {
+		$this->checker->checkIsNotEmpty($recordId);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		
+		$classId = $this->getRecordClassId($recordId);
+		$fieldIds = $this->getFieldIds($classId);
+		$this->copyRecordInArchive($recordId, $timestamp, $authorId, $fieldIds);
+		$fieldTypes = $this->getFieldTypes($fieldIds);
+		foreach($fieldTypes as $type) {
+			$clean = $this->connection->prepare('DELETE FROM "working_'.$type.'" WHERE id = ?');
+			$clean->execute(array($recordId));
+		}
+	}
+	
+	public function getRecordHistory($class, $fieldData, $from = 0, $to = PHP_INT_MAX) {
+		$this->checker->checkIsNotEmpty($class);
+		$this->checker->checkIsNotEmpty($fieldData);
+		$this->checker->checkIsArray($fieldData);
+		
+		$classId = $this->getClassId($class);
+		$fieldData = $this->mapDataToFieldIds($classId, $fieldData);
+		$recordId = $this->getRecordId($fieldData);
+		$metadata = $this->getRecordIdsMetadata(array($recordId));
+		$metadata = array_shift($metadata);
+		$recordData = $this->mapDataToFields($metadata);
+		$history = new RecordHistory();
+		foreach($recordData as $field => $data) {
+			$history->addUpdate($field, $data['value'], $data['timestamp'], $data['author']);
+		}
+		
+		
+		$metadata = $this->getRecordIdsArchivedMetadata(array($recordId));
+		$metadata = array_shift($metadata);
+		if (empty($metadata)) {
+			// no archived data, just ignore this phase.
+		} else {
+			$recordData = $this->mapDataToFields($metadata);
+			foreach($recordData as $field => $versions) {
+				foreach($versions as $data) {
+					$history->addUpdate($field, $data['value'], $data['timeCreate'], $data['authorCreate'], $data['timeArchive'], $data['authorArchive']);
+				}
+			}
+		}
+		
+		return $history;
+	}
+	
+	/**********************************\
+	         RECORDS - MULTIPLE
+	\**********************************/
+	
+	private function getRecordIds($classId) {
+		$this->checker->checkIsNotEmpty($classId);
+		
+		$fieldIds = $this->getFieldIds($classId);
+		$fieldTypes = $this->getFieldTypes($fieldIds);
+		
+		// all records have all the fields, so we look only one field to gather all the IDs
+		$fieldIdRef = array_pop($fieldIds);
+		$typeRef = $fieldTypes[$fieldIdRef];
+		$statement = $this->connection->prepare('SELECT id FROM "working_'.$typeRef.'" WHERE field_id = ?');
+		$statement->execute(array($fieldIdRef));
+		$result = $statement->fetchAll(PDO::FETCH_COLUMN);
+		return $result;
+	}
+	
+	public function getAllRecords($class) {
+		$this->checker->checkKnowsClass($class);
+		
+		$classId = $this->getClassId($class);
+		$recordIds = $this->getRecordIds($classId);
+		$fieldIds = $this->getFieldIds($classId);
+		$fieldTypes = $this->getFieldTypes($fieldIds);
+		$record = array();
+		foreach($recordIds as $recordId) {
+			foreach($fieldIds as $fieldId) {
+				$type = $fieldTypes[$fieldId];
+				$args = array();
+				$statement = $this->connection->prepare('SELECT value FROM "working_'.$type.'" WHERE '.$this->formatQueryConditions(array('id' => $recordId, 'field_id' => $fieldId), $args));
+				$statement->execute($args);
+				$record[$field] = $statement->fetchColumn();
+			}
+		}
+		return $record;
+	}
+	
+	public function getDataMetadata($class, $records = null) {
+		$this->checker->checkKnowsClass($class);
+		
+		$classId = $this->getClassId($class);
+		$recordIds = array();
+		if (empty($records)) {
+			$recordIds = $this->getRecordIds($classId);
+		} else {
+			foreach($records as $record) {
+				$recordIds[] = $this->getRecordId($class, $record);
+			}
+		}
+		$metadata = $this->getRecordIdsMetadata($recordIds);
+		foreach($metadata as $recordId => $meta) {
+			$metadata[$recordId] = $this->mapDataToFields($meta);
+		}
+		return array_values($metadata);
+	}
+	
+	private function getRecordIdsMetadata($recordIds) {
+		$this->checker->checkIsNotEmpty($recordIds);
+		$this->checker->checkIsArray($recordIds);
+		
+		$metadata = array();
+		foreach($recordIds as $recordId) {
+			$classId = $this->getRecordClassId($recordId);
+			$fieldIds = $this->getFieldIds($classId);
+			$fields = $this->getFieldsForIds($fieldIds);
+			$fieldTypes = $this->getFieldTypes($fieldIds);
+			$metadata[$recordId] = array();
+			foreach($fieldIds as $fieldId) {
+				$type = $fieldTypes[$fieldId];
+				$args = array();
+				$statement = $this->connection->prepare('SELECT field_id, value, timestamp, author_id FROM "working_'.$type.'" WHERE '.$this->formatQueryConditions(array('id' => $recordId, 'field_id' => $fieldId), $args));
+				$statement->execute($args);
+				$recordMeta = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
+				foreach($recordMeta as $fieldId => $meta) {
+					$meta = $meta[0];
+					settype($meta['value'], $this->mapDbTypeToPhpType($type));
+					settype($meta['timestamp'], 'int');
+					$meta['author'] = $this->getUserFromId($meta['author_id']);
+					unset($meta['author_id']);
+					$metadata[$recordId][$fieldId] = $meta;
+				}
+			}
+		}
+		return $metadata;
+	}
+	
+	private function getRecordIdsArchivedMetadata($recordIds) {
+		$this->checker->checkIsNotEmpty($recordIds);
+		$this->checker->checkIsArray($recordIds);
+		
+		$metadata = array();
+		foreach($recordIds as $recordId) {
+			$classId = $this->getRecordClassId($recordId);
+			$fieldIds = $this->getFieldIds($classId);
+			$fields = $this->getFieldsForIds($fieldIds);
+			$fieldTypes = $this->getFieldTypes($fieldIds);
+			$metadata[$recordId] = array();
+			foreach($fieldIds as $fieldId) {
+				$type = $fieldTypes[$fieldId];
+				$args = array();
+				$statement = $this->connection->prepare('SELECT field_id, value, timeCreate, authorCreate_id, timeArchive, authorArchive_id FROM "archive_'.$type.'" WHERE '.$this->formatQueryConditions(array('id' => $recordId, 'field_id' => $fieldId), $args));
+				$statement->execute($args);
+				$recordMeta = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
+				foreach($recordMeta as $fieldId => $metaList) {
+					foreach($metaList as $meta) {
+						settype($meta['value'], $this->mapDbTypeToPhpType($type));
+						settype($meta['timeCreate'], 'int');
+						settype($meta['timeArchive'], 'int');
+						$meta['authorCreate'] = $this->getUserFromId($meta['authorCreate_id']);
+						$meta['authorArchive'] = $this->getUserFromId($meta['authorArchive_id']);
+						unset($meta['authorCreate_id']);
+						unset($meta['authorArchive_id']);
+						$metadata[$recordId][$fieldId][] = $meta;
+					}
+				}
+			}
+		}
+		return $metadata;
+	}
+	
+	private function completeAllRecords($fieldId, $valueCallback, $timestamp, $authorId) {
+		$this->checker->checkIsNotEmpty($fieldId);
+		$this->checker->checkIsFunction($valueCallback);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		
+		$classId = $this->getFieldClassId($fieldId);
+		$recordIds = $this->getRecordIds($classId);
+		$fieldType = $this->getFieldType($fieldId);
+		foreach($recordIds as $recordId) {
+			$statement = $this->connection->prepare('INSERT INTO "working_'.$type.'" (id, field_id, value, timestamp, author_id) VALUES (?, ?, ?, ?, ?)');
+			$statement->execute(array($recordId, $fieldId, $valueCallback($recordId), $timestamp, $authorId));
+		}
+	}
+	
+	private function clearRecords($fieldId, $timestamp, $authorId) {
+		$this->checker->checkIsNotEmpty($fieldId);
+		$this->checker->checkIsNotEmpty($timestamp);
+		$this->checker->checkIsNotEmpty($authorId);
+		
+		$type = $this->getFieldType($fieldId);
+		$clear = $this->connection->prepare('DELETE FROM "working_'.$type.'" WHERE field_id = ?');
+		$clear->execute(array($fieldId));
 	}
 	
 	/********************************************\
-	                  STRUCTURE
+	                    PATCH
 	\********************************************/
+	
 	public function applyPatch(Patch $patch) {
-		$authorId = $patch->getUser();
-		$time = $patch->getTime();
-		if (!$this->isRegisteredUser($authorId)) {
+		$this->checker->checkIsNotEmpty($patch);
+		
+		$author = $patch->getUser();
+		$authorId = $this->getUserId($author);
+		$timestamp = $patch->getTime();
+		if (!$this->isKnownUser($author)) {
 			throw new Exception("There is no user ".$authorId);
 		} else {
 			$this->connection->beginTransaction();
@@ -269,25 +1253,48 @@ class Database implements Patchable {
 					$field = $instruction->getField();
 					$type = $instruction->getType();
 					$mandatory = $instruction->getMandatoryAsBoolean();
-					$this->addField($time, $authorId, $class, $field, $type, $mandatory);
+					
+					if (!$this->isKnownClass($class)) {
+						$this->addClass($class, $timestamp, $authorId);
+					} else {
+						// use the existing one.
+					}
+					$classId = $this->getClassId($class);
+					// TODO exploit the value callback of the function (especially for mandatory fields)
+					$this->addField($classId, $field, $type, $mandatory, $timestamp, $authorId);
 				} else if ($instruction instanceof PatchRemoveField) {
 					$class = $instruction->getClass();
 					$field = $instruction->getField();
-					$this->removeFieldAndArchiveRelatedValues($time, $authorId, $class, $field);
+					
+					$classId = $this->getClassId($class);
+					$fieldId = $this->getFieldId($classId, $field);
+					$this->deleteField($fieldId, $timestamp, $authorId);
 				} else if ($instruction instanceof PatchSetClassKey) {
 					$class = $instruction->getClass();
 					$fields = $instruction->getIDFields();
-					$this->changeKey($time, $authorId, $class, $fields);
+					
+					// TODO exploit several keys (so do not delete)
+					$classId = $this->getClassId($class);
+					$keyIds = $this->getKeyIds($classId);
+					foreach($keyIds as $keyId) {
+						$this->deleteKey($keyId, $timestamp, $authorId);
+					}
+					
+					$fieldIds = $this->getFieldIds($classId, $fields);
+					$this->addKey($fieldIds, $timestamp, $authorId);
 				} else if ($instruction instanceof PatchChangeFieldType) {
 					$class = $instruction->getClass();
 					$field = $instruction->getField();
 					$type = $instruction->getTypeValue();
-					$this->changeTypeAndMoveRelatedValues($time, $authorId, $class, $field, $type);
+					
+					$classId = $this->getClassId($class);
+					$fieldId = $this->getFieldId($classId, $field);
+					$this->setFieldType($fieldId, $type, $timestamp, $authorId);
 				} else if ($instruction instanceof PatchUser) {
-					$authorId = $instruction->getUser();
+					$name = $instruction->getUser();
 					$hash = $instruction->getHash();
-					$this->addUser($authorId);
-					$this->setUserHash($authorId, $hash);
+					$this->addUser($name);
+					$this->setUserHash($name, $hash);
 				} else {
 					// TODO implement other cases
 					throw new Exception("Not implemented yet: ".get_class($instruction));
@@ -297,162 +1304,48 @@ class Database implements Patchable {
 		}
 	}
 	
-	public function addField($time, $authorId, $class, $fieldName, $type, $mandatory) {
-		$property = array('class' => $class,
-					'field' => $fieldName,
-					'type' => $type,
-					'mandatory' => $mandatory,
-					'timestamp' => $time,
-					'author' => $authorId);
-		
-		$insert = $this->connection->prepare('INSERT INTO "working_structure" (class, field, type, mandatory, timestamp, author) VALUES (:class, :field, :type, :mandatory, :timestamp, :author)');
-		foreach($property as $key => $value) {
-			$insert->bindParam(':'.$key, $property[$key]);
-		}
-		$insert->execute($property);
-		$this->initMissingTable($type);
-		
-		$select = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$type.'" WHERE class = ?');
-		$select->execute(array($class));
-		$array = $select->fetchAll(PDO::FETCH_COLUMN);
-		$insert = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, value, timestamp, author) VALUES (?, ?, ?, ?, ?, ?)');
-		foreach($array as $key) {
-			$value = null;
-			$insert->execute(array($class, $key, $fieldName, $value, $time, $authorId));
+	/********************************************\
+	                    CHECKS
+	\********************************************/
+	
+	private function check($expected, $result, $logIfExpected, $logIfNotExpected) {
+		if ($expected && !$result) {
+			throw new Exception($logIfExpected);
+		} else if (!$expected && $result) {
+			throw new Exception($logIfNotExpected);
 		}
 	}
 	
-	public function removeFieldAndArchiveRelatedValues($time, $authorId, $class, $fieldName) {
-		$data = $this->getFieldsDataForClass($class);
-		$type = $data[$fieldName]['type'];
-		$this->archiveValues($time, $authorId, $type, $class, $fieldName);
-		
-		$source = '"working_structure" WHERE class = ? AND field = ?';
-		$copy = $this->connection->prepare('INSERT INTO "archive_structure" (class, field, type, mandatory, timeCreate, authorCreate, timeArchive, authorArchive) SELECT class, field, type, mandatory, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$authorId.'" as authorArchive FROM '.$source);
-		$clean = $this->connection->prepare('DELETE FROM '.$source);
-		$copy->execute(array($class, $fieldName));
-		$clean->execute(array($class, $fieldName));
-	}
 	
-	public function changeKey($time, $authorId, $class, $newFields) {
-		$source = '"working_key" WHERE class = ?';
-		$copy = $this->connection->prepare('INSERT INTO "archive_key" (class, field, timeCreate, authorCreate, timeArchive, authorArchive) SELECT class, field, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$authorId.'" as authorArchive FROM '.$source);
-		$clean = $this->connection->prepare('DELETE FROM '.$source);
-		$copy->execute(array($class));
-		$clean->execute(array($class));
-		
-		$insert = $this->connection->prepare('INSERT INTO "working_key" (class, field, timestamp, author) VALUES (:class, :field, :timestamp, :author)');
-		foreach($newFields as $name) {
-			$insert->execute(array($class, $name, $time, $authorId));
-		}
-	}
 	
-	public function changeTypeAndMoveRelatedValues($time, $authorId, $class, $fieldName, $newType) {
-		// retrieve the current property data
-		// TODO use getFieldsDataForClass()
-		$select = $this->connection->prepare('SELECT * FROM "working_structure" WHERE class = ? AND field = ?');
-		$select->execute(array($class, $fieldName));
-		$property = $select->fetch(PDO::FETCH_ASSOC);
-		$oldType = $property['type'];
-		
-		if ($oldType == $newType) {
-			throw new Exception("The type for $class.$fieldName is already $newType");
-		} else {
-			// archive the current property
-			$source = '"working_structure" WHERE class = ? AND field = ?';
-			$copy = $this->connection->prepare('INSERT INTO "archive_structure" (class, field, type, mandatory, timeCreate, authorCreate, timeArchive, authorArchive) SELECT class, field, type, mandatory, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$authorId.'" as authorArchive FROM '.$source);
-			$clean = $this->connection->prepare('DELETE FROM '.$source);
-			$copy->execute(array($class, $fieldName));
-			$clean->execute(array($class, $fieldName));
-			
-			// create the updated property
-			$property['type'] = $newType;
-			$property['timestamp'] = $time;
-			$property['author'] = $authorId;
-			$insert = $this->connection->prepare('INSERT INTO "working_structure" (class, field, type, mandatory, timestamp, author) VALUES (:class, :field, :type, :mandatory, :timestamp, :author)');
-			foreach($property as $key => $value) {
-				$insert->bindParam(':'.$key, $property[$key]);
-			}
-			$insert->execute($property);
-			
-			// retrieve the obsolete values
-			$select = $this->connection->prepare('SELECT key, value FROM "working_'.$oldType.'" WHERE class = ? AND field = ?');
-			$select->execute(array($class, $fieldName));
-			$array = $select->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
-			
-			// archive the obsolete values
-			$this->archiveValues($time, $authorId, $oldType, $class, $fieldName);
-			
-			// save the new values
-			$update = $this->connection->prepare('INSERT INTO "working_'.$newType.'" (class, key, field, value, timestamp, author) VALUES (?, ?, ?, ?, ?, ?)');
-			foreach($array as $key => $values) {
-				$value = $values[0];
-				$update->execute(array($class, $key, $fieldName, $value, $time, $authorId));
-			}
-		}
-	}
 	
-	public function getClasses() {
-		$statement = $this->connection->prepare('SELECT DISTINCT class FROM "working_structure"');
-		$statement->execute(array());
-		return $statement->fetchAll(PDO::FETCH_COLUMN);
-	}
-	
-	public function getFields($class, $addMetadata = false) {
-		$fields = $this->getFieldsDataForClass($class);
-		if ($addMetadata) {
-			// let the full array
-		} else {
-			$reduced = array();
-			foreach($fields as $field => $data) {
-				$reduced[] = $field;
-			}
-			$fields = $reduced;
-		}
-		return $fields;
-	}
-	
-	private function getFieldsDataForClass($class, $exceptionIfUnknown = true) {
-		// TODO move to getFields()
-		$statement = $this->connection->prepare('SELECT field, type, mandatory, timestamp, author FROM "working_structure" WHERE class = ?');
-		$statement->execute(array($class));
-		$fields = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
-		if ($exceptionIfUnknown && empty($fields)) {
-			throw new Exception("No known structure for $class");
-		} else {
-			foreach($fields as $field => $array) {
-				$array = $array[0];
-				settype($array['mandatory'], 'boolean');
-				settype($array['timestamp'], 'integer');
-				$fields[$field] = $array;
-			}
-			return $fields;
-		}
-	}
-	
-	public function getIDFieldsForClass($class) {
-		$statement = $this->connection->query('SELECT field FROM "working_key" WHERE class = "'.$class.'"');
-		$fields = $statement->fetchAll(PDO::FETCH_COLUMN);
-		return $fields;
-	}
-	
-	public function isUpdatedStructure(PersistentComponent $component) {
-		return !$this->getStructureDiff($component)->isEmpty();
-	}
+	/********************************************\
+	            PERSISTENT COMPONENTS
+	\********************************************/
 	
 	public function getStructureDiff(PersistentComponent $component) {
+		$this->checker->checkIsNotEmpty($component);
+		
 		$class = $component->getClass();
-		$fields = $this->getFieldsDataForClass($class, false);
+		$metadata = null;
+		if (!$this->isKnownClass($class)) {
+			$metadata = array();
+		} else {
+			$classId = $this->getClassId($class);
+			$fieldIds = $this->getFieldIds($classId);
+			$metadata = $this->getFieldIdsMetadata($fieldIds);
+			$metadata = $this->mapDataToFields($metadata);
+		}
 		$diff = new StructureDiff();
 		foreach($component->getPersistentFields() as $name => $field) {
 			$type = $field->getTranslator()->getPersistentType($field)->getType();
 			$mandatory = $field->isMandatory();
 			
-			if (!array_key_exists($name, $fields)) {
+			if (!array_key_exists($name, $metadata)) {
 				$diff->addDiff(new AddFieldDiff($class, $name, $type, $mandatory));
 			} else {
-				$property = $fields[$name];
-				unset($fields[$name]);
+				$property = $metadata[$name];
+				unset($metadata[$name]);
 				if ($property['type'] != $type) {
 					$diff->addDiff(new ChangeTypeDiff($class, $name, $property['type'], $type));
 				} else if ($property['mandatory'] != $mandatory) {
@@ -463,459 +1356,133 @@ class Database implements Patchable {
 			}
 		}
 		
-		foreach($fields as $name => $property) {
+		foreach($metadata as $name => $property) {
 			$diff->addDiff(new RemoveFieldDiff($class, $name, $property['type'], $property['mandatory']));
 		}
 		
 		$componentKey = array_keys($component->getIDFields());
-		$savedIDFields = $this->getIDFieldsForClass($class);
-		if (count(array_diff_assoc($savedIDFields, $componentKey)) > 0 || count(array_diff_assoc($componentKey, $savedIDFields)) > 0) {
-			$diff->addDiff(new ChangeKeyDiff($class, $savedIDFields, $componentKey));
+		
+		$savedKeys = $this->isKnownClass($class) ? $this->getkeys($class) : array();
+		$savedKey = empty($savedKeys) ? array() : $savedKeys[0];
+		if (count(array_diff_assoc($savedKey, $componentKey)) > 0 || count(array_diff_assoc($componentKey, $savedKey)) > 0) {
+			$diff->addDiff(new ChangeKeyDiff($class, $savedKey, $componentKey));
 		}
 		
 		return $diff;
 	}
 	
-	public function isKnownStructure($structure) {
-		if (is_object($structure)) {
-			$structure = get_class($structure);
-		} else if (is_string($structure)) {
-			// considered as the name of the class, let as is
+	private function checkComponentDataMapping($databaseFields, $componentFields) {
+		$remainingFields = array_diff($componentFields, $databaseFields);
+		if (!empty($remainingFields)) {
+			throw new Exception("Some fields are not known in the database: ".Format::arrayToString($remainingFields));
 		} else {
-			throw new Exception($structure." cannot be interpreted as an object or its class name");
+			// all the object fields are known.
 		}
-		$statement = $this->connection->prepare('SELECT COUNT(field) FROM "working_structure" WHERE class = ?');
-		$statement->execute(array($structure));
-		$counter = $statement->fetchColumn();
-		return $counter > 0;
-	}
-	
-	private function checkStructureIsWellKnown(PersistentComponent $component) {
-		if (!$this->isKnownStructure($component->getClass())) {
-			throw new Exception("Not known structure: ".$component->getClass());
-		} else if ($this->isUpdatedStructure($component)) {
-			throw new Exception("Not same structure for ".$component->getClass().": ".$this->getStructureDiff($component));
-		}
-	}
-	
-	/********************************************\
-	                  DATA TYPES
-	\********************************************/
-	private function getExistingTypes() {
-		$statement = $this->connection->query('SELECT DISTINCT type FROM "working_structure" UNION SELECT DISTINCT type FROM "archive_structure" ');
-		$types = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
-		return $types;
-	}
-	
-	private function getTypesForClass($class) {
-		$types = array();
-		foreach($this->getFieldsDataForClass($class) as $field => $array) {
-			$types[$field] = $array['type'];
-		}
-		return $types;
-	}
-	
-	/********************************************\
-	                    RECORDS
-	\********************************************/
-	public function save(PersistentComponent $component, $authorId) {
-		if (!$this->isRegisteredUser($authorId)) {
-			throw new Exception("There is no user ".$authorId);
+		
+		$missingFields = array_diff($databaseFields, $componentFields);
+		if (!empty($missingFields)) {
+			throw new Exception("Some fields are missing in the object: ".Format::arrayToString($missingFields));
 		} else {
-			$class = $component->getClass();
-			$savedFields = $this->getFieldsDataForClass($class);
-			
-			$key = $component->getInternalKey();
-			$isNew = empty($key);
-			$savedValues = null;
-			$IDString = $component->getIDString();
-			if ($isNew) {
-				if ($this->isIDAvailableForComponent($component)) {
-					// ID available, can save the new element
-				} else {
-					throw new Exception("Cannot save $component, its ID $IDString is already used");
-				}
-				
-				$key = $this->getNewKey();
-				$component->setInternalKey($key);
+			// all the database fields are checked.
+		}
+	}
+	
+	private function extractUpdatedData(PersistentComponent $component) {
+		$this->checker->checkIsNotEmpty($component);
+		
+		$recordId = $component->getInternalKey();
+		$savedData = $this->getRecordFromId($recordId);
+		$componentData = $this->extractComponentData($component);
+		
+		$this->checkComponentDataMapping(array_keys($savedData), array_keys($componentData));
+		
+		return array_diff_assoc($componentData, $savedData);
+	}
+	
+	private function extractComponentData(PersistentComponent $component) {
+		$this->checker->checkIsNotEmpty($component);
+		
+		$componentData = array();
+		foreach($component->getPersistentFields() as $field => $object) {
+			$translator = $object->getTranslator();
+			$componentData[$field] = $translator->getPersistentValue($object);
+		}
+		return $componentData;
+	}
+	
+	private function feedComponentWithData(PersistentComponent $component, $data) {
+		$this->checker->checkIsNotEmpty($component);
+		$this->checker->checkIsNotEmpty($data);
+		$this->checker->checkIsArray($data);
+		
+		$persistentFields = $component->getPersistentFields();
+		
+		$this->checkComponentDataMapping(array_keys($data), array_keys($persistentFields));
+		
+		foreach($persistentFields as $field => $object) {
+			$translator = $object->getTranslator();
+			$translator->setPersistentValue($object, $data[$field]);
+		}
+	}
+	
+	public function save(PersistentComponent $component, $author) {
+		$this->checker->checkIsNotEmpty($component);
+		$this->checker->checkKnowsUser($author);
+		
+		$recordId = $component->getInternalKey();
+		$timestamp = time();
+		$authorId = $this->getUserId($author);
+		$this->connection->beginTransaction();
+		if (empty($recordId)) {
+			$componentData = $this->extractComponentData($component);
+			$classId = $this->getClassId($component->getClass());
+			$componentData = $this->mapDataToFieldIds($classId, $componentData);
+			$recordId = $this->addRecord($componentData, $timestamp, $authorId);
+			$component->setInternalKey($recordId);
+		} else {
+			$updatedData = $this->extractUpdatedData($component);
+			if (empty($updatedData)) {
+				// nothing to do, just pass
 			} else {
-				$savedValues = $this->getSavedValuesFor($key);
-			}
-			
-			$time = time();
-			$currentFields = $component->getPersistentFields();
-			$this->connection->beginTransaction();
-			foreach($currentFields as $name => $field) {
-				if (!$isNew && !array_key_exists($name, $savedFields)) {
-					throw new Exception("No field $name for the component $component");
-				} else if ($savedFields[$name]['mandatory'] && $field->get() === null) {
-					throw new Exception("The mandatory field $name is not specified for the component $component");
-				} else {
-					$translator = $field->getTranslator();
-					$value = $translator->getPersistentValue($field);
-					if ($isNew || $savedValues[$name] !== "".$value /*$savedValues only contains strings*/) {
-						$type = $field->getTranslator()->getPersistentType($field)->getType();
-						
-						if (!$isNew) {
-							$this->archiveValues($time, $authorId, $type, $class, $name, array($key));
-						}
-						$statement = $this->connection->prepare('INSERT INTO "working_'.$type.'" (class, key, field, value, timestamp, author) VALUES (?, ?, ?, ?, ?, ?)');
-						$statement->execute(array($class, $key, $name, $value, $time, $authorId));
-						
-					}
-					unset($savedFields[$name]);
+				$classId = $this->getClassId($component->getClass());
+				$updatedData = $this->mapDataToFieldIds($classId, $updatedData);
+				foreach($updatedData as $fieldId => $value) {
+					$this->setRecordField($recordId, $fieldId, $value, $timestamp, $authorId);
 				}
 			}
-			if (!empty($savedFields)) {
-				throw new Exception("Saved field(s) not seen for the component $class with the key $key: ".implode(", ", array_keys($savedFields)));
-			}
-			$this->connection->commit();
 		}
-	}
-	
-	public function getRecordsForClass($class, $addMetadata = false) {
-		$keys = array();
-		foreach($this->getExistingTypes() as $type) {
-			$statement = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$type.'" WHERE class = ?');
-			$statement->execute(array($class));
-			foreach($statement->fetchAll(PDO::FETCH_COLUMN) as $key) {
-				$keys[] = $key;
-			}
-		}
-		return $this->getSavedValuesFor($keys, $addMetadata);
-	}
-	
-	private function getKeyForRecord($class, $keyData) {
-		$fields = $this->getFields($class, true);
-		$idFields = array();
-		foreach($this->getIDFieldsForClass($class) as $field) {
-			$idFields[$field] = $fields[$field];
-		}
-		
-		$relations = array();
-		$count = 0;
-		foreach($idFields as $field => $data) {
-			$relations[] = array(
-					'table' => 'working_'.$data['type'],
-					'name' => 't'.$count,
-					'value' => $keyData[$field],
-			);
-			$count ++;
-		}
-		$join = "";
-		$where = "";
-		$args = array();
-		$t0 = null;
-		foreach($relations as $data) {
-			$table = $data['table'];
-			$name = $data['name'];
-			$value = $data['value'];
-			if (strlen($join) == 0) {
-				$join .= 'FROM "'.$table.'" AS '.$name;
-				$where .= $name.'.value = ?';
-				$args[] = $value;
-				$t0 = $name;
-			} else {
-				$join .= ' JOIN "'.$table.'" AS '.$name.' ON '.$t0.'.key = '.$name.'.key';
-				$where .= ' AND '.$name.'.value = ?';
-				$args[] = $value;
-			}
-		}
-		$where .= ' AND '.$t0.'.class = ?';
-		$args[] = $class;
-		$query = 'SELECT '.$t0.'.key '.$join.' WHERE '.$where;
-		$statement = $this->connection->prepare($query);
-		$statement->execute($args);
-		$keys = $statement->fetchAll(PDO::FETCH_COLUMN);
-		if (count($keys) == 1) {
-			return $keys[0];
-		} else if (count($keys) > 1) {
-			throw new Exception("More than one key have been found for $class(".Format::arrayWithKeysToString($keyData)."): ".Format::arrayToString($keys));
-		} else if (count($keys) < 1) {
-			throw new Exception("No key has been found for $class(".Format::arrayWithKeysToString($keyData).").");
-		} else {
-			throw new Exception("This case should not happen.");
-		}
-	}
-	
-	public function getRecord($class, $keyData, $addMetadata = false) {
-		$key = $this->getKeyForRecord($class, $keyData);
-		return $this->getSavedValuesFor($key, $addMetadata);
-	}
-	
-	public function getRecordHistory($class, $keyData, $addMetadata = false, $from = 0, $to = PHP_INT_MAX) {
-		$key = $this->getKeyForRecord($class, $keyData);
-		
-		$record = $this->getSavedValuesFor($key, true);
-		$history = new RecordHistory();
-		foreach($record as $field => $data) {
-			$history->addUpdate($field, $data['value'], $data['timestamp'], $data['author']);
-		}
-		
-		// look for the record in archive tables
-		$record = $this->getArchivedValuesFor($key, true);
-		foreach($record as $field => $versions) {
-			foreach($versions as $data) {
-				$history->addUpdate($field, $data['value'], $data['timeCreate'], $data['authorCreate'], $data['timeArchive'], $data['authorArchive']);
-			}
-		}
-		
-		return $history;
-	}
-	
-	private function getSavedValuesFor($keys, $addMetadata = false) {
-		if (!is_array($keys)) {
-			$records = $this->getSavedValuesFor(array($keys), $addMetadata);
-			return $records[$keys];
-		} else {
-			$records = array();
-			foreach($keys as $key) {
-				$records[$key] = array();
-				$class = null;
-				foreach($this->getExistingTypes() as $type) {
-					$statement = $this->connection->prepare('SELECT DISTINCT class FROM "working_'.$type.'" WHERE key = ?');
-					$statement->execute(array($key));
-					$class = $statement->fetchColumn();
-					if ($class === null) {
-						continue;
-					} else {
-						break;
-					}
-				}
-				$fields = $this->getFields($class, true);
-				foreach($fields as $field => $data) {
-					$type = $data['type'];
-					$statement = $this->connection->prepare('SELECT value, timestamp, author FROM "working_'.$type.'" WHERE key = ? AND field  = ?');
-					$statement->execute(array($key, $field));
-					foreach($statement->fetchAll() as $array) {
-						$temp = array();
-						if ($addMetadata) {
-							$temp['value'] = $array['value'];
-							$temp['timestamp'] = $array['timestamp'];
-							$temp['author'] = $array['author'];
-						} else {
-							$temp = $array['value'];
-						}
-					}
-					$records[$key][$field] = $temp;
-				}
-			}
-			return $records;
-		}
-	}
-	
-	private function getArchivedValuesFor($keys, $addMetadata = false) {
-		if (!is_array($keys)) {
-			$records = $this->getArchivedValuesFor(array($keys), $addMetadata);
-			return $records[$keys];
-		} else {
-			$records = array();
-			foreach($keys as $key) {
-				$records[$key] = array();
-				$class = null;
-				foreach($this->getExistingTypes() as $type) {
-					$statement = $this->connection->prepare('SELECT DISTINCT class FROM "archive_'.$type.'" WHERE key = ?');
-					$statement->execute(array($key));
-					$class = $statement->fetchColumn();
-					if ($class === null) {
-						continue;
-					} else {
-						break;
-					}
-				}
-				$fields = $this->getFields($class, true);
-				foreach($fields as $field => $data) {// TODO consider also the archived fields
-					$type = $data['type'];
-					$statement = $this->connection->prepare('SELECT value, timeCreate, authorCreate, timeArchive, authorArchive FROM "archive_'.$type.'" WHERE key = ? AND field  = ?');
-					$statement->execute(array($key, $field));
-					foreach($statement->fetchAll() as $array) {
-						$temp = array();
-						if ($addMetadata) {
-							$temp['value'] = $array['value'];
-							$temp['timeCreate'] = $array['timeCreate'];
-							$temp['authorCreate'] = $array['authorCreate'];
-							$temp['timeArchive'] = $array['timeArchive'];
-							$temp['authorArchive'] = $array['authorArchive'];
-						} else {
-							$temp = $array['value'];
-						}
-						$records[$key][$field][] = $temp;
-					}
-				}
-			}
-			return $records;
-		}
+		$this->connection->commit();
 	}
 	
 	public function load(PersistentComponent $component) {
-		$this->checkStructureIsWellKnown($component);
-		$class = $component->getClass();
-		
-		$key = $component->getInternalKey();
-		if (empty($key)) {
-			throw new Exception("No key has been assigned to the component $component");
+		$recordId = $component->getInternalKey();
+		$record = array();
+		if (empty($recordId)) {
+			$class = $component->getClass();
+			$data = $this->extractComponentData($component);
+			$record = $this->getRecordFromData($class, $data);
+			
+			$data = $this->mapDataToFieldIds($data);
+			$recordId = $this->getRecordId($data);
+			$component->setInternalKey($recordId);
+		} else {
+			$record = $this->getRecordFromId($recordId);
 		}
-		$savedValues = $this->getSavedValuesFor($key);
-		foreach($component->getPersistentFields() as $name => $field) {
-			if (!array_key_exists($name, $savedValues)) {
-				throw new Exception("No field $name for the component $component");
-			} else {
-				$translator = $field->getTranslator();
-				$translator->setPersistentValue($field, $savedValues[$name]);
-				unset($savedValues[$name]);
-			}
-		}
-		if (!empty($savedValues)) {
-			throw new Exception("Saved field(s) not used for the component $component: ".implode(", ", array_keys($savedValues)));
-		}
+		$this->feedComponentWithData($component, $record);
 	}
 	
 	public function loadAll($class) {
+		$classId = $this->getClassId($class);
+		$recordIds = $this->getRecordIds($classId);
 		$reflector = new ReflectionClass($class);
-		$this->checkStructureIsWellKnown($reflector->newInstance());
-		
-		$statement = $this->connection->query('SELECT type FROM "working_structure" WHERE class = ?');
-		$statement->execute(array($class));
-		$type = $statement->fetchColumn();
-		
-		$statement = $this->connection->prepare('SELECT DISTINCT key FROM "working_'.$type.'" WHERE class = ?');
-		$statement->execute(array($class));
-		$keys = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
-		
-		$loaded = array();
-		foreach($keys as $key) {
+		$components = array();
+		foreach($recordIds as $recordId) {
 			$component = $reflector->newInstance();
-			$component->setInternalKey($key);
+			$component->setInternalKey($recordId);
 			$this->load($component);
-			$loaded[] = $component;
+			$components[] = $component;
 		}
-		return $loaded;
-	}
-	
-	public function delete(PersistentComponent $component, $authorId) {
-		if (!$this->isRegisteredUser($authorId)) {
-			throw new Exception("There is no user ".$authorId);
-		} else {
-			$class = $component->getClass();
-			$key = $component->getInternalKey();
-			if (empty($key)) {
-				throw new Exception("Cannot delete $component, it is not linked to an existing record");
-			} else {
-				$savedFields = $this->getFieldsDataForClass($class);
-				$time = time();
-				$this->connection->beginTransaction();
-				foreach($savedFields as $field => $metadata) {
-					$this->archiveValues($time, $authorId, $metadata['type'], $class, $field, array($key));
-				}
-				$this->connection->commit();
-			}
-		}
-	}
-	
-	/********************************************\
-	                 MISCELLANEOUS
-	\********************************************/
-	private function createRandomSalt() {
-		$salt = '';
-		for($i = 0 ; $i < 2 ; $i ++) {
-			$salt .= chr(rand(32, 126));
-		}
-		return $salt;
-	}
-	
-	private function generateSaltedHash($password, $salt) {
-		return $salt.md5($salt.$password);
-	}
-	
-	public function getNewKey() {
-		// TODO create property save/load methods
-		$key = $this->connection->query('SELECT value FROM "property" WHERE name = "lastKey"')->fetchColumn();
-		$key++;
-		$this->connection->exec('UPDATE "property" SET value = "'.$key.'" WHERE name = "lastKey"');
-		return $key;
-	}
-	
-	public function createProperty($id) {
-		if ($this->hasProperty($id)) {
-			throw new Exception($id." alredy exists as a property.");
-		} else {
-			$this->connection->exec('UPDATE "property" ADD (name, value) ("'.$id.'", null)');
-		}
-	}
-	
-	public function hasProperty($id) {
-		return $this->connection->query('SELECT COUNT(*) FROM "property" WHERE name = "'.$id.'"')->fetchColumn() > 0;
-	}
-	
-	public function setProperty($id, $value) {
-		if (!$this->hasProperty($id)) {
-			throw new Exception($id." is not an existing property.");
-		} else {
-			$this->connection->exec('UPDATE "property" SET value = "'.$value.'" WHERE name = "'.$id.'"');
-		}
-	}
-	
-	public function getProperty($id) {
-		if (!$this->hasProperty($id)) {
-			throw new Exception($id." is not an existing property.");
-		} else {
-			return $this->connection->query('SELECT value FROM "property" WHERE name = "'.$id.'"')->fetchColumn();
-		}
-	}
-	
-	public function getProperties() {
-		$statement = $this->connection->prepare('SELECT name FROM "property"');
-		$statement->execute(array());
-		return $statement->fetchAll(PDO::FETCH_COLUMN);
-	}
-	
-	public function clear() {
-		foreach($this->getTableNames() as $name) {
-			$this->connection->exec('DROP TABLE "'.$name.'"');
-		}
-	}
-	
-	private function archiveValues($time, $author, $type, $class, $field, $keys = null) {
-		$archiveAll = $keys === null;
-		
-		$source = '"working_'.$type.'" WHERE class = ? AND field = ?';
-		if (!$archiveAll) {
-			$source .= ' AND key = ?';
-		}
-		$copy = $this->connection->prepare('INSERT INTO "archive_'.$type.'" (class, key, field, value, timeCreate, authorCreate, timeArchive, authorArchive) SELECT class, key, field, value, timestamp as timeCreate, author as authorCreate, '.$time.' as timeArchive, "'.$author.'" as authorArchive FROM '.$source);
-		$clean = $this->connection->prepare('DELETE FROM '.$source);
-		if (!$archiveAll) {
-			foreach($keys as $key) {
-				$copy->execute(array($class, $field, $key));
-				$clean->execute(array($class, $field, $key));
-			}
-		} else {
-			$copy->execute(array($class, $field));
-			$clean->execute(array($class, $field));
-		}
-	}
-	
-	public function isIDAvailableForComponent(PersistentComponent $component) {
-		$class = $component->getClass();
-		$IDFields = $component->getIDFields();
-		$correspondingKeys = null;
-		foreach($IDFields as $name => $field) {
-			$statement = $this->connection->prepare('SELECT type FROM "working_structure" WHERE class = ? AND field = ?');
-			$statement->execute(array($class, $name));
-			$type = $statement->fetchColumn();
-			
-			$statement = $this->connection->prepare('SELECT key FROM "working_'.$type.'" WHERE class = ? AND field = ? AND value = ?');
-			$value = $field->getTranslator()->getPersistentValue($field);
-			$statement->execute(array($class, $name, $value));
-			$keys = $statement->fetchAll(PDO::FETCH_COLUMN);
-			if ($correspondingKeys === null) {
-				$correspondingKeys = $keys;
-			} else {
-				$correspondingKeys = array_intersect($correspondingKeys, $keys);
-			}
-		}
-		
-		return empty($correspondingKeys);
+		return $components;
 	}
 }
 ?>

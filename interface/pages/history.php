@@ -7,8 +7,11 @@
 		// continue loading
 	}
 	$class = $url->getQueryVar('class');
+	
 	$keyData = array();
-	foreach($db->getIDFieldsForClass($class) as $field) {
+	$keys = $db->getKeys($class);
+	$key = $keys[0];
+	foreach($key as $field) {
 		if ($url->hasQueryVar('key_'.$field)) {
 			$keyData[$field] = $url->getQueryVar('key_'.$field);
 		} else {
@@ -20,7 +23,7 @@
 	$table = new Table();
 	
 	/**********************************\
-	               FIELDS
+				FIELDS
 	\**********************************/
 	
 	$fields = $history->getAllFields();
@@ -33,7 +36,7 @@
 	$table->addComponent($row);
 	
 	/**********************************\
-	              VALUES
+				VALUES
 	\**********************************/
 	
 	
@@ -65,7 +68,7 @@
 	}
 	
 	/**********************************\
-	               DISPLAY
+				DISPLAY
 	\**********************************/
 	
 	$page = PageContent::getInstance();

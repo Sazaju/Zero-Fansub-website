@@ -91,7 +91,7 @@ class Dossier extends PersistentComponent {
 	public static function getAllDossiers() {
 		if (Dossier::$allDossiers === null) {
 			$db = Database::getDefaultDatabase();
-			if ($db->isKnownStructure(new Dossier())) {
+			if ($db->isKnownClass(new Dossier())) {
 				/*
 				if ($db->isUpdatedStructure(new Dossier())) {
 					$patch = Patch::buildFromDiff($db->getStructureDiff(new Dossier()), 'admin');
@@ -447,7 +447,7 @@ C'était Epitanime ! J'espére que ça vous a plu ! À bientôt pour Japan Expo,
 				
 				$user = 'anonymous';
 				$patch = Patch::buildFromDiff($db->getStructureDiff($dossier), $user);
-				if (!$db->isRegisteredUser($user)) {
+				if (!$db->isKnownUser($user)) {
 					$db->addUser($user);
 				} else {
 					// do not register it another time

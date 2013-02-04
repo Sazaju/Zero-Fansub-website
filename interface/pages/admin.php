@@ -11,7 +11,7 @@
 	$row->addComponent("ID");
 	$row->addComponent("VALEUR");
 	$table->addComponent($row);
-	foreach($db->getProperties() as $id) {
+	foreach($db->getPropertyNames() as $id) {
 		$row = new TableRow();
 		$row->addComponent($id);
 		$row->addComponent($db->getProperty($id));
@@ -24,12 +24,12 @@
 	$row = new TableRow();
 	$row->setHeader(true);
 	$row->addComponent("ID");
-	$row->addComponent("VALIDE");
+	$row->addComponent("PASS");
 	$table->addComponent($row);
-	foreach($db->getUsers() as $id) {
+	foreach($db->getUsers() as $name) {
 		$row = new TableRow();
-		$row->addComponent($id);
-		$row->addComponent($db->isValidUser($id) ? "oui" : "non");
+		$row->addComponent($name);
+		$row->addComponent($db->isIdentifiableUser($name) ? "oui" : "non");
 		$table->addComponent($row);
 	}
 	$page->addComponent(new Title("Utilisateurs", 2));
@@ -38,17 +38,20 @@
 	$table = new Table();
 	$row = new TableRow();
 	$row->setHeader(true);
-	$row->addComponent("STRUCTURE");
+	$row->addComponent("CLASSES");
 	$table->addComponent($row);
+	$classMetas = $db->getClassesMetadata();
 	foreach($db->getClasses() as $class) {
 		$row = new TableRow();
 		$structureUrl = Url::getCurrentUrl();
 		$structureUrl->setQueryVar('class', $class);
 		$cell = new TableCell(new Link($structureUrl->toString(), $class));
 		$cell->setClass('class');
+		$cell->setMetaData('title', 'Modifié le '.date("Y-m-d H:i:s", $classMetas[$class]['timestamp']).'&#013;par '.$classMetas[$class]['author']);
 		$row->addComponent($cell);
-		$key = $db->getIDFieldsForClass($class);
-		foreach($db->getFields($class, true) as $field => $data) {
+		$keys = $db->getKeys($class);
+		$key = $keys[0];
+		foreach($db->getFieldsMetadata($class) as $field => $data) {
 			$cell = new TableCell($field);
 			$cell->setClass('field '.(in_array($field, $key) ? 'key' : ''));
 			$cell->setMetaData('title', 'type = '.$data['type'].'&#013;'.($data['mandatory'] ? 'obligatoire' : 'facultatif').'&#013;modifié le '.date("Y-m-d H:i:s", $data['timestamp']).'&#013;par '.$data['author']);
@@ -68,8 +71,9 @@
 		$class = $url->getQueryVar('class');
 		$table = new Table();
 		$row = new TableRow();
-		$key = $db->getIDFieldsForClass($class);
-		$fields = $db->getFields($class, true);
+		$keys = $db->getKeys($class);
+		$key = $keys[0];
+		$fields = $db->getFieldsMetadata($class);
 		foreach($fields as $field => $data) {
 			$cell = new TableCell($field, true);
 			$cell->setClass('field '.(in_array($field, $key) ? 'key' : ''));
@@ -79,7 +83,7 @@
 		$table->addComponent($row);
 		
 		$contentLimit = 20;
-		foreach($db->getRecordsForClass($class, true) as $record) {
+		foreach($db->getDataMetadata($class) as $record) {
 			$row = new TableRow();
 			$historyUrl = new Url();
 			$historyUrl->setQueryVar("page", "history");
