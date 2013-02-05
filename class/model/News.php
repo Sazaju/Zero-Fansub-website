@@ -4528,6 +4528,38 @@ Donc, que vous souhaitiez faire du karaoke ou de la prog (ou toute autre chose q
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("On prend le taureau par les cornes !");
+			$news->setPublicationTime(strtotime("05 February 2013 22:39"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("[imgr=images/news/fight.png]On n'est pas encore mort ![/imgr]
+Bon, vous l'aurez sûrement remarqué, mais les commentaires des news sont toujours inaccessibles. Bien que le forum soit toujours dispo (et donc vous pouvez y aller pour nous dire que tout ce casse la figure chez Zéro {'>.<}), j'imagine bien que c'est une facilité en moins pour soutenir notre communauté.
+
+Mais qu'à cela ne tienne ! On fait ce qu'il faut pour tenir le coup depuis des années, c'est pas un petit hébergeur qui va nous arrêter ! {>o<}°
+
+On est en train de donner un coup de fouet à la V4 pour pouvoir la sortir au plus tôt. Cette version nous permettra de gérer vos commentaires directement sur le site (et bien d'autres choses), et non via un outil tierce comme c'était le cas jusqu'alors.
+
+Vu que je fais encore un long speech, je met en spoiler. Ceux qui veulent en savoir plus n'ont qu'à cliquer [spoiler=>ici<.]
+
+Cette mouture, contrairement aux petites évolutions progressives, apporte un gros plus au site : la gestion de la base de données. Certains se diront que c'est rien et que ça se fait en moins d'une journée, mais on ne parle pas d'une simple création de schéma et un transfert des données. Ceux qui seront allé voir le code du site sur GitHub auront probablement compris que c'est bien plus fournis et avancé.
+
+L'objectif premier de cette gestion de base de données est en effet de pouvoir faire de la gestion de version de manière aisée, y compris avec le code du site (donc pas juste les données, mais aussi leur structure). Les plus curieux sur les aspects techniques iront sur le forum pour demander les détails.
+
+Pourquoi en faire autant me direz-vous ? Ceux qui auront utilisé des systèmes de gestion de version (CVS, Subversion, Git, Mercurial, etc.) savent probablement déjà qu'il est difficile (et même absurde) de s'en passer une fois qu'on y a goûté. Mais quand on à affaire à une base de données, tout changement dans les structures de données doit être répercuté sur le schéma de la BDD... et là soit on a quelque chose de simple soit ça devient la galère.
+
+Certaines solutions existent pour [i]mapper[/i] (faire correspondre) le schéma avec le code (je pense à Hibernate en Java, mais il y en a d'autres). Mais si le schéma est modifié, l'ensemble des enregistrements l'est aussi : si une colonne a été enlevée, les données de la colonne ont été supprimées dans tous les enregistrements. Quand on utilise un système de gestion de version, il est facile de revenir en arrière : on charge la bonne version et c'est reparti. Mais dans la BDD, même si l'outil de [i]mapping[/i] vous refait la colonne, il ne recrée pas les données, qui sont donc définitivement perdues. Même ceux suffisamment prévoyants pour faire des sauvegardes régulières devraont faire un effort conséquent pour remettre juste la dite colonne.
+
+La gestion de BDD mise en place chez Zéro vise à supprimer ces problèmes, de manière à pouvoir retrouver n'importe quand un état passé de la BDD. Le code du site est déjà sur un système de gestion de version, cette fonctionnalité est donc le pendant BDD de cette gestion de version. Et bien entendu, cela nous sera aussi d'une grande aide dans nos travaux, vu qu'on pourra toujours compter dessus pour corriger nos boulettes le cas échéant.
+
+[/spoiler] Evidemment, des tas d'autres fonctionnalités devraient arriver à la suite de cette V4 (les projets ne manquent pas). Mais une des premières est de pouvoir ramener à la vie les commentaires, moyen de communication privilégié pour nous faire parvenir vos ressentis sur nos sorties.");
+			//$news->setCommentId(312);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
