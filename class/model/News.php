@@ -4532,8 +4532,7 @@ Donc, que vous souhaitiez faire du karaoke ou de la prog (ou toute autre chose q
 			$news->setTitle("On prend le taureau par les cornes !");
 			$news->setPublicationTime(strtotime("05 February 2013 22:39"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("[imgr=images/news/fight.png]On n'est pas encore mort ![/imgr]
-Bon, vous l'aurez sûrement remarqué, mais les commentaires des news sont toujours inaccessibles. Bien que le forum soit toujours dispo (et donc vous pouvez y aller pour nous dire que tout ce casse la figure chez Zéro {'>.<}), j'imagine bien que c'est une facilité en moins pour soutenir notre communauté.
+			$news->setMessage("[imgr=images/news/fight.png]On n'est pas encore mort ![/imgr]Bon, vous l'aurez sûrement remarqué, mais les commentaires des news sont toujours inaccessibles. Bien que le forum soit toujours dispo (et donc vous pouvez y aller pour nous dire que tout ce casse la figure chez Zéro {'>.<}), j'imagine bien que c'est une facilité en moins pour soutenir notre communauté.
 
 Mais qu'à cela ne tienne ! On fait ce qu'il faut pour tenir le coup depuis des années, c'est pas un petit hébergeur qui va nous arrêter ! {>o<}°
 
