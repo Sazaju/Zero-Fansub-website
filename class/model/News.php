@@ -4558,6 +4558,19 @@ La gestion de BDD mise en place chez Zéro vise à supprimer ces problèmes, de 
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Commentaires revenus... mais sait-on jamais.");
+			$news->setPublicationTime(strtotime("06 February 2013 13:44"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Les commentaires semblent être revenus ce matin. Pour la peine on va les utiliser, mais on ne change pas le programme. Vivement la V4 !");
+			$news->setCommentId(313);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
