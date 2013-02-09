@@ -1391,7 +1391,7 @@ class Database implements Patchable {
 		return $diff;
 	}
 	
-	private function checkComponentDataMapping($databaseFields, $componentFields) {
+	private function checkComponentFieldsMapping($databaseFields, $componentFields) {
 		$remainingFields = array_diff($componentFields, $databaseFields);
 		if (!empty($remainingFields)) {
 			throw new Exception("Some fields are not known in the database: ".Format::arrayToString($remainingFields));
@@ -1414,7 +1414,7 @@ class Database implements Patchable {
 		$savedData = $this->getRecordFromId($recordId);
 		$componentData = $this->extractComponentData($component);
 		
-		$this->checkComponentDataMapping(array_keys($savedData), array_keys($componentData));
+		$this->checkComponentFieldsMapping(array_keys($savedData), array_keys($componentData));
 		
 		return array_diff_assoc($componentData, $savedData);
 	}
@@ -1437,7 +1437,7 @@ class Database implements Patchable {
 		
 		$persistentFields = $component->getPersistentFields();
 		
-		$this->checkComponentDataMapping(array_keys($data), array_keys($persistentFields));
+		$this->checkComponentFieldsMapping(array_keys($data), array_keys($persistentFields));
 		
 		foreach($persistentFields as $field => $object) {
 			$translator = $object->getTranslator();
