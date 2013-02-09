@@ -1391,6 +1391,22 @@ class Database implements Patchable {
 		return $diff;
 	}
 	
+	public function isUpdatedStructure(PersistentComponent $component) {
+		$this->checker->checkIsNotEmpty($component);
+		
+		$class = $component->getClass();
+		$savedFields = $this->getFieldsForClass($class);
+		
+		// TODO optimize by looking only the fields, not the data
+		$componentFields = $this->extractComponentFields($component);
+		try {
+			$this->checkComponentFieldsMapping($savedFields, $componentFields);
+			return false;
+		} catch(DifferentStructureException $e) {
+			return true;
+		}
+	}
+	
 	private function checkComponentFieldsMapping($databaseFields, $componentFields) {
 		$remainingFields = array_diff($componentFields, $databaseFields);
 		if (!empty($remainingFields)) {
