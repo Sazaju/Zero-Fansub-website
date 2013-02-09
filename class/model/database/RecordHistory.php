@@ -1,5 +1,6 @@
 <?php
 class RecordHistory {
+	// TODO consider the structure history to display the full history of the record (removed fields)
 	private $fields = array();
 	
 	public function addUpdate($field, $value, $from, $authorFrom, $to = null, $authorTo = null) {
@@ -64,13 +65,13 @@ class RecordHistory {
 			} else {
 				$author = $history->getAuthorAt($times[0]);
 				if ($authorRef === null || $timeRef < $times[0]) {
-				$authorRef = $author;
+					$authorRef = $author;
 					$timeRef = $times[0];
 				} else if ($timeRef > $times[0]) {
 					// we already have a better one, ignore it
-			} else if ($authorRef == $author) {
-				// everything is OK, should be the same
-			} else {
+				} else if ($authorRef == $author) {
+					// everything is OK, should be the same
+				} else {
 					throw new Exception("At least two authors seems to have modified the record at the same time ($author & $authorRef at $time). This should not be feasible.");
 				}
 			}

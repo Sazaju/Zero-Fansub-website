@@ -466,6 +466,61 @@ class Database implements Patchable {
 		$clean->execute(array($classId));
 	}
 	
+	public function getClassHistory($class, $from = 0, $to = PHP_INT_MAX) {
+		$this->checker->checkIsNotEmpty($class);
+		
+		$history = new StructureHistory();
+		
+		$classId = $this->getClassId($class);
+		
+		//********** CLASS NAME **********
+		
+		$metadata = $this->getClassIdsMetadata(array($classId));
+		$metadata = array_shift($metadata);
+		$history->addClassNameUpdate($metadata['class'], $metadata['timestamp'], $metadata['author']);
+		
+		$metadata = $this->getClassIdsArchivedMetadata(array($classId));
+		$metadata = array_shift($metadata);
+		if (empty($metadata)) {
+			// no archived data, just ignore this phase.
+		} else {
+			foreach($metadata as $versions) {
+				foreach($versions as $data) {
+					$history->addClassNameUpdate($data['class'], $data['timeCreate'], $data['authorCreate'], $data['timeArchive'], $data['authorArchive']);
+				}
+			}
+		}
+		
+		//********** FIELDS **********
+		
+		$fieldIds = $this->getFieldIds($classId);
+		$metadata = $this->getFieldIdsMetadata($fieldIds);
+		foreach($metadata as $fieldId => $data) {
+			// TODO add only the actual updates, not everything
+			$history->addFieldNameUpdate($fieldId, $data['field'], $data['timestamp'], $data['author']);
+			$history->addFieldTypeUpdate($fieldId, $data['type'], $data['timestamp'], $data['author']);
+			$history->addFieldMandatoryUpdate($fieldId, $data['mandatory'], $data['timestamp'], $data['author']);
+		}
+		
+		// TODO complete with field IDs which have been removed
+		$fieldIds = $this->getFieldIdsIncludingArchives($classId);
+		$metadata = $this->getFieldIdsArchivedMetadata($fieldIds);
+		foreach($metadata as $fieldId => $submetadata) {
+			if (empty($submetadata)) {
+				// no archived data, just ignore this phase.
+			} else {
+				foreach($submetadata as $data) {
+					// TODO add only the actual updates, not everything
+					$history->addFieldNameUpdate($fieldId, $data['field'], $data['timeCreate'], $data['authorCreate'], $data['timeArchive'], $data['authorArchive']);
+					$history->addFieldTypeUpdate($fieldId, $data['type'], $data['timeCreate'], $data['authorCreate'], $data['timeArchive'], $data['authorArchive']);
+					$history->addFieldMandatoryUpdate($fieldId, $data['mandatory'], $data['timeCreate'], $data['authorCreate'], $data['timeArchive'], $data['authorArchive']);
+				}
+			}
+		}
+		
+		return $history;
+	}
+	
 	/**********************************\
 	        CLASSES - MULTIPLE
 	\**********************************/
@@ -508,6 +563,32 @@ class Database implements Patchable {
 				$meta['author'] = $this->getUserFromId($meta['author_id']);
 				unset($meta['author_id']);
 				$metadata[$classId] = $meta;
+			}
+			return $metadata;
+		}
+	}
+	
+	private function getClassIdsArchivedMetadata($classIds) {
+		$this->checker->checkIsNotEmpty($classIds);
+		$this->checker->checkIsArray($classIds);
+		
+		$diff = array_diff($classIds, array_filter($classIds));
+		if(empty($classIds) || !empty($diff)) {
+			throw new Exception("(".Format::arrayToString($classIds).") is not a valid set of class IDs.");
+		} else {
+			$args = array();
+			$statement = $this->connection->prepare('SELECT id, class, timeCreate, authorCreate_id, timeArchive, authorArchive_id FROM "archive_class" WHERE '.$this->formatQueryConditions(array('id' => $classIds), $args));
+			$statement->execute($args);
+			$metadata = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
+			foreach($metadata as $classId => $meta) {
+				$meta = $meta[0];
+				settype($meta['timeCreate'], 'int');
+				settype($meta['timeArchive'], 'int');
+				$meta['authorCreate'] = $this->getUserFromId($meta['authorCreate_id']);
+				unset($meta['authorCreate_id']);
+				$meta['authorArchive'] = $this->getUserFromId($meta['authorArchive_id']);
+				unset($meta['authorArchive_id']);
+				$metadata[$classId][] = $meta;
 			}
 			return $metadata;
 		}
@@ -655,6 +736,23 @@ class Database implements Patchable {
 		return $result;
 	}
 	
+	private function getFieldIdsIncludingArchives($classId, $fields = null) {
+		$this->checker->checkIsNotEmpty($classId);
+		
+		$args = array();
+		$constraints = array('class_id' => $classId);
+		if ($fields === null) {
+			// do not constraint the fields to get all of them.
+		} else {
+			$constraints['field'] = $fields;
+		}
+		$conditions = $this->formatQueryConditions($constraints, $args);
+		$statement = $this->connection->prepare('SELECT DISTINCT id FROM (SELECT id, class_id FROM "working_field" UNION SELECT id, class_id FROM "archive_field") WHERE '.$conditions);
+		$statement->execute($args);
+		$result = $statement->fetchAll(PDO::FETCH_COLUMN);
+		return $result;
+	}
+	
 	private function getMandatoryFieldIds($classId) {
 		$this->checker->checkIsNotEmpty($classId);
 		
@@ -720,6 +818,34 @@ class Database implements Patchable {
 				$meta['author'] = $this->getUserFromId($meta['author_id']);
 				unset($meta['author_id']);
 				$metadata[$fieldId] = $meta;
+			}
+			return $metadata;
+		}
+	}
+	
+	private function getFieldIdsArchivedMetadata($fieldIds) {
+		$this->checker->checkIsNotEmpty($fieldIds);
+		$this->checker->checkIsArray($fieldIds);
+		
+		$diff = array_diff($fieldIds, array_filter($fieldIds));
+		if(empty($fieldIds) || !empty($diff)) {
+			throw new Exception("(".Format::arrayToString($fieldIds).") is not a valid set of field IDs.");
+		} else {
+			$metadata = array();
+			$args = array();
+			$statement = $this->connection->prepare('SELECT id, field, type, mandatory, timeCreate, authorCreate_id, timeArchive, authorArchive_id FROM "archive_field" WHERE '.$this->formatQueryConditions(array('id' => $fieldIds), $args));
+			$statement->execute($args);
+			$result = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
+			foreach($result as $fieldId => $meta) {
+				$meta = $meta[0];
+				settype($meta['mandatory'], 'bool');
+				settype($meta['timeCreate'], 'int');
+				settype($meta['timeArchive'], 'int');
+				$meta['authorCreate'] = $this->getUserFromId($meta['authorCreate_id']);
+				unset($meta['authorCreate_id']);
+				$meta['authorArchive'] = $this->getUserFromId($meta['authorArchive_id']);
+				unset($meta['authorArchive_id']);
+				$metadata[$fieldId][] = $meta;
 			}
 			return $metadata;
 		}
@@ -1089,7 +1215,6 @@ class Database implements Patchable {
 			$history->addUpdate($field, $data['value'], $data['timestamp'], $data['author']);
 		}
 		
-		
 		$metadata = $this->getRecordIdsArchivedMetadata(array($recordId));
 		$metadata = array_shift($metadata);
 		if (empty($metadata)) {
@@ -1201,7 +1326,7 @@ class Database implements Patchable {
 		$metadata = array();
 		foreach($recordIds as $recordId) {
 			$classId = $this->getRecordClassId($recordId);
-			$fieldIds = $this->getFieldIds($classId);
+			$fieldIds = $this->getFieldIdsIncludingArchives($classId);
 			$fields = $this->getFieldsForIds($fieldIds);
 			$fieldTypes = $this->getFieldTypes($fieldIds);
 			$metadata[$recordId] = array();
@@ -1444,6 +1569,16 @@ class Database implements Patchable {
 			$componentData[$field] = $translator->getPersistentValue($object);
 		}
 		return $componentData;
+	}
+	
+	private function extractComponentFields(PersistentComponent $component) {
+		$this->checker->checkIsNotEmpty($component);
+		
+		$componentFields = array();
+		foreach($component->getPersistentFields() as $field => $object) {
+			$componentFields[] = $field;
+		}
+		return $componentFields;
 	}
 	
 	private function feedComponentWithData(PersistentComponent $component, $data) {

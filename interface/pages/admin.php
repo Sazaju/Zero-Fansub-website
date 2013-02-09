@@ -38,17 +38,26 @@
 	$table = new Table();
 	$row = new TableRow();
 	$row->setHeader(true);
+	$row->addComponent("");//history
 	$row->addComponent("CLASSES");
 	$table->addComponent($row);
 	$classMetas = $db->getClassesMetadata();
 	foreach($db->getClasses() as $class) {
 		$row = new TableRow();
+		
+		$historyUrl = new Url();
+		$historyUrl->setQueryVar("page", "history");
+		$historyUrl->setQueryVar("level", "structure");
+		$historyUrl->setQueryVar("class", $class);
+		$row->addComponent(new Link($historyUrl->toString(), "H"));
+		
 		$structureUrl = Url::getCurrentUrl();
 		$structureUrl->setQueryVar('class', $class);
 		$cell = new TableCell(new Link($structureUrl->toString(), $class));
 		$cell->setClass('class');
 		$cell->setMetaData('title', 'Modifié le '.date("Y-m-d H:i:s", $classMetas[$class]['timestamp']).'&#013;par '.$classMetas[$class]['author']);
 		$row->addComponent($cell);
+		
 		$keys = $db->getKeys($class);
 		$key = $keys[0];
 		foreach($db->getFieldsMetadata($class) as $field => $data) {
@@ -91,6 +100,7 @@
 			$row->addComponent($historyCell);
 			$historyUrl = new Url();
 			$historyUrl->setQueryVar("page", "history");
+			$historyUrl->setQueryVar("level", "data");
 			$historyUrl->setQueryVar("class", $class);
 			foreach($fields as $field => $data) {
 				$metadata = $record[$field];
@@ -116,6 +126,6 @@
 		$page->addComponent(new Title("Enregistrements ".$class, 2));
 		$page->addComponent($table);
 	} else {
-		$page->addComponent("Cliquez sur une structure pour afficher les enregistrements concernés.");
+		$page->addComponent("Cliquez sur le nom d'une classe pour afficher les enregistrements concernés, ou cliquez sur son lien d'historique pour afficher les évolutions de sa structure.");
 	}
 ?>
