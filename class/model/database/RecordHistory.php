@@ -52,14 +52,27 @@ class RecordHistory {
 	
 	public function getAuthorAt($time) {
 		$authorRef = null;
-		foreach($this->fields as $field => $history) {
-			$author = $history->getAuthorAt($time);
-			if ($authorRef === null) {
+		$timeRef = null;
+		foreach($this->fields as $history) {
+			$times = $history->getUpdateTimes();
+			rsort($times);
+			while(!empty($times) && $times[0] > $time) {
+				array_shift($times);
+			}
+			if (empty($times)) {
+				// too recent field, ignore it
+			} else {
+				$author = $history->getAuthorAt($times[0]);
+				if ($authorRef === null || $timeRef < $times[0]) {
 				$authorRef = $author;
+					$timeRef = $times[0];
+				} else if ($timeRef > $times[0]) {
+					// we already have a better one, ignore it
 			} else if ($authorRef == $author) {
 				// everything is OK, should be the same
 			} else {
-				throw new Exception("At least two authors seems to have modified a record at the same time ($author & $authorRef). This should not be feasible.");
+					throw new Exception("At least two authors seems to have modified the record at the same time ($author & $authorRef at $time). This should not be feasible.");
+				}
 			}
 		}
 		return $authorRef;
