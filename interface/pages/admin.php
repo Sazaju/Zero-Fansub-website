@@ -71,6 +71,8 @@
 		$class = $url->getQueryVar('class');
 		$table = new Table();
 		$row = new TableRow();
+		$row->setHeader(true);
+		$row->addComponent("");//history
 		$keys = $db->getKeys($class);
 		$key = $keys[0];
 		$fields = $db->getFieldsMetadata($class);
