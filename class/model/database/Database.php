@@ -671,6 +671,26 @@ class Database implements Patchable {
 		foreach($metadata as $fieldId => $array) {
 			$metadata[$fieldId] = $array['type'];
 		}
+		
+		$fieldIds = array_diff($fieldIds, array_keys($metadata));
+		if (empty($fieldIds)) {
+			// all fields have been retrieved, ignore the following steps
+		} else {
+			$metadata2 = $this->getFieldIdsArchivedMetadata($fieldIds);
+			foreach($metadata2 as $fieldId => $versions) {
+				$typeRef = null;
+				$timeRef = 0;
+				foreach($versions as $array) {
+					if ($array['timeCreate'] > $timeRef) {
+						$typeRef = $array['type'];
+					} else {
+						// keep the current one which is more recent
+					}
+				}
+				$metadata[$fieldId] = $typeRef;
+			}
+		}
+		
 		return $metadata;
 	}
 	
