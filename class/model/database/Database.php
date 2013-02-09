@@ -1394,14 +1394,14 @@ class Database implements Patchable {
 	private function checkComponentFieldsMapping($databaseFields, $componentFields) {
 		$remainingFields = array_diff($componentFields, $databaseFields);
 		if (!empty($remainingFields)) {
-			throw new Exception("Some fields are not known in the database: ".Format::arrayToString($remainingFields));
+			throw new UnkownFieldsException($remainingFields);
 		} else {
 			// all the object fields are known.
 		}
 		
 		$missingFields = array_diff($databaseFields, $componentFields);
 		if (!empty($missingFields)) {
-			throw new Exception("Some fields are missing in the object: ".Format::arrayToString($missingFields));
+			throw new MissingFieldsException($missingFields);
 		} else {
 			// all the database fields are checked.
 		}
