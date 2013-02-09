@@ -85,6 +85,8 @@
 		$contentLimit = 20;
 		foreach($db->getDataMetadata($class) as $record) {
 			$row = new TableRow();
+			$historyCell = new TableCell();
+			$row->addComponent($historyCell);
 			$historyUrl = new Url();
 			$historyUrl->setQueryVar("page", "history");
 			$historyUrl->setQueryVar("class", $class);
@@ -106,7 +108,7 @@
 				$cell->setMetaData('title', 'type = '.$data['type'].'&#013;'.($data['mandatory'] ? 'obligatoire' : 'facultatif').'&#013;modifié le '.date("Y-m-d H:i:s", $metadata['timestamp']).'&#013;par '.$metadata['author']);
 				$row->addComponent($cell);
 			}
-			$row->addComponent(new Link($historyUrl->toString(), "H"));
+			$historyCell->setContent(new Link($historyUrl->toString(), "H"));
 			$table->addComponent($row);
 		}
 		$page->addComponent(new Title("Enregistrements ".$class, 2));
