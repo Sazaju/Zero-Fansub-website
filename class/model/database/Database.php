@@ -1238,7 +1238,7 @@ class Database implements Patchable {
 		$recordIds = $this->getRecordIds($classId);
 		$fieldType = $this->getFieldType($fieldId);
 		foreach($recordIds as $recordId) {
-			$statement = $this->connection->prepare('INSERT INTO "working_'.$type.'" (id, field_id, value, timestamp, author_id) VALUES (?, ?, ?, ?, ?)');
+			$statement = $this->connection->prepare('INSERT INTO "working_'.$fieldType.'" (id, field_id, value, timestamp, author_id) VALUES (?, ?, ?, ?, ?)');
 			$statement->execute(array($recordId, $fieldId, $valueCallback($recordId), $timestamp, $authorId));
 		}
 	}
