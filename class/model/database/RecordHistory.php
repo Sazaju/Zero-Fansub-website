@@ -3,14 +3,14 @@ class RecordHistory {
 	// TODO consider the structure history to display the full history of the record (removed fields)
 	private $fields = array();
 	
-	public function addUpdate($field, $value, $from, $authorFrom, $to = null, $authorTo = null) {
-		if (!array_key_exists($field, $this->fields)) {
-			$this->fields[$field] = new FieldValueHistory();
+	public function addUpdate($fieldId, $value, $from, $authorFrom, $to = null, $authorTo = null) {
+		if (!array_key_exists($fieldId, $this->fields)) {
+			$this->fields[$fieldId] = new FieldValueHistory();
 		} else {
 			// do not overwrite it
 		}
 		
-		$history = $this->fields[$field];
+		$history = $this->fields[$fieldId];
 		if ($to === null && $authorTo === null) {
 			$history->addUpdate($value, $from, $authorFrom);
 		} else {
@@ -33,9 +33,9 @@ class RecordHistory {
 	
 	public function getUpdatesAt($time) {
 		$updates = array();
-		foreach($this->fields as $field => $history) {
+		foreach($this->fields as $fieldId => $history) {
 			if ($history->isUpdatedAt($time)) {
-				$updates[$field] = $history->getValueAt($time);
+				$updates[$fieldId] = $history->getValueAt($time);
 			} else {
 				continue;
 			}
@@ -45,8 +45,8 @@ class RecordHistory {
 	
 	public function getValuesAt($time) {
 		$values = array();
-		foreach($this->fields as $field => $history) {
-			$values[$field] = $history->getValueAt($time);
+		foreach($this->fields as $fieldId => $history) {
+			$values[$fieldId] = $history->getValueAt($time);
 		}
 		return $values;
 	}
