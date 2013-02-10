@@ -29,37 +29,40 @@
 			$row = new TableRow();
 			$row->addComponent(date("Y-m-d H:i:s", $time).'<br/>('.$history->getAuthorAt($time).')');
 			
-			$update = $history->getNameUpdateAt($time);
-			if ($update !== null) {
-				$row->addComponent($update);
+			$cell = new TableCell($history->getNameValueAt($time));
+			if ($history->getNameUpdateAt($time) !== null) {
+				$cell->setClass('update');
 			} else {
-				$cell = new TableCell();
-				$cell->setClass('same');
-				$row->addComponent($cell);
+				$cell->setClass('inherited');
 			}
+			$row->addComponent($cell);
 			
 			$updates = $history->getFieldsUpdatesAt($time);
+			$values = $history->getFieldsValuesAt($time);
 			foreach($fieldIds as $fieldId) {
-				if (array_key_exists($fieldId, $updates)) {
-					$content = array();
-					$cell = new TableCell();
-					$data = $updates[$fieldId];
-					$notNull = array_filter($data);
-					if (empty($notNull)) {
-						$cell->setClass(empty($content) ? 'deleted' : '');
+				$content = array();
+				$cell = new TableCell();
+				$data = $values[$fieldId];
+				$notNull = array_filter($data);
+				if (empty($notNull)) {
+					if (array_key_exists($fieldId, $updates)) {
+						$cell->setClass('deleted');
 					} else {
-						$name = $data['name'];
-						$type = $data['type'];
-						$mandatory = $data['mandatory'] ? 'mandatory' : 'facultative';
-						$content = "$name\n($type)\n$mandatory";
-						$cell->setContent(Format::convertTextToHtml($content));
+						$cell->setClass('inherited deleted');
 					}
-					$row->addComponent($cell);
 				} else {
-					$cell = new TableCell();
-					$cell->setClass('same');
-					$row->addComponent($cell);
+					$name = $data['name'];
+					$type = $data['type'];
+					$mandatory = $data['mandatory'] ? 'mandatory' : 'facultative';
+					$content = "$name\n($type)\n$mandatory";
+					$cell->setContent(Format::convertTextToHtml($content));
+					if (array_key_exists($fieldId, $updates)) {
+						$cell->setClass('update');
+					} else {
+						$cell->setClass('inherited');
+					}
 				}
+				$row->addComponent($cell);
 			}
 			$table->addComponent($row);
 		}
@@ -109,22 +112,29 @@
 			$row = new TableRow();
 			$row->addComponent(date("Y-m-d H:i:s", $time).'<br/>('.$history->getAuthorAt($time).')');
 			$updates = $history->getUpdatesAt($time);
+			$values = $history->getValuesAt($time);
 			foreach($fields as $field) {
-				if (array_key_exists($field, $updates)) {
-					$content = $updates[$field];
-					if (strlen($content) > $contentLimit) {
-						$content = substr($content, 0, $contentLimit)."...";
-					} else {
-						// keep the full content
-					}
-					$cell = new TableCell($content);
-					$cell->setClass($content === null ? 'deleted' : '');
-					$row->addComponent($cell);
+				$content = $values[$field];
+				if (strlen($content) > $contentLimit) {
+					$content = substr($content, 0, $contentLimit)."...";
 				} else {
-					$cell = new TableCell();
-					$cell->setClass('same');
-					$row->addComponent($cell);
+					// keep the full content
 				}
+				$cell = new TableCell($content);
+				if (array_key_exists($field, $updates)) {
+					if ($values[$field] === RecordHistory::DELETED) {
+						$cell->setClass('deleted');
+					} else {
+						$cell->setClass('update');
+					}
+				} else {
+					if ($values[$field] === RecordHistory::DELETED) {
+						$cell->setClass('inherited deleted');
+					} else {
+						$cell->setClass('inherited');
+					}
+				}
+				$row->addComponent($cell);
 			}
 			$table->addComponent($row);
 		}

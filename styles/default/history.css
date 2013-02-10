@@ -10,10 +10,6 @@
 	background-color: yellow;
 }
 
-#page.history td.same {
-	border: 0px;
-}
-
 #page.history td.deleted, #page.history tr:hover td.deleted {
 	background-color: gray;
 }
@@ -29,4 +25,15 @@
 #page.history tr:hover td.key {
 	background-color: red;
 	color: white;
+}
+
+#page.history td.inherited {
+	border: 0px;
+	font-size: 0;
+	background-color: transparent;
+}
+
+#page.history tr:hover td.inherited {
+	border: 1px solid black;
+	font-size: inherit;
 }

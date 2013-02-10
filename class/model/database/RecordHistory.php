@@ -1,5 +1,7 @@
 <?php
 class RecordHistory {
+	const DELETED = "deleted";
+	
 	// TODO consider the structure history to display the full history of the record (removed fields)
 	private $fields = array();
 	
@@ -97,7 +99,7 @@ class FieldValueHistory {
 			// indefinite period
 		} else {
 			$this->checkAuthor($to, $authorTo);
-			$this->values[$to] = isset($this->values[$to]) ? $this->values[$to] : null;
+			$this->values[$to] = isset($this->values[$to]) ? $this->values[$to] : RecordHistory::DELETED;
 			$this->authors[$to] = $authorTo;
 		}
 	}
@@ -186,7 +188,7 @@ class FieldValueHistory {
 		
 		// find not null values conflicting
 		foreach($this->values as $time => $value) {
-			if ($time >= $fromRef && $time < $toRef && $value !== null) {
+			if ($time >= $fromRef && $time < $toRef && $value !== RecordHistory::DELETED) {
 				throw new Exception("Overlapping between ($from, $to) and ($fromRef, $toRef) which contains '$value'.");
 			} else {
 				// ignore it
