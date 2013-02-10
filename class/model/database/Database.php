@@ -1384,6 +1384,9 @@ class Database implements Patchable {
 		$this->checker->checkIsNotEmpty($authorId);
 		
 		$type = $this->getFieldType($fieldId);
+		$classId = $this->getFieldClassId($fieldId);
+		$recordIds = $this->getRecordIds($classId);
+		$this->copyRecordFieldInArchive($recordIds, $fieldId, $timestamp, $authorId);
 		$clear = $this->connection->prepare('DELETE FROM "working_'.$type.'" WHERE field_id = ?');
 		$clear->execute(array($fieldId));
 	}
