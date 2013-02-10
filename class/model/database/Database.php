@@ -712,7 +712,7 @@ class Database implements Patchable {
 		$this->checker->checkIsNotEmpty($fieldIds);
 		$this->checker->checkIsArray($fieldIds);
 		
-		$statement = $this->connection->prepare('SELECT id, field FROM "working_field" WHERE '.$this->formatQueryConditions(array('id' => $fieldIds)));
+		$statement = $this->connection->prepare('SELECT * FROM (SELECT id, field FROM "working_field" UNION SELECT id, field FROM "archive_field") WHERE '.$this->formatQueryConditions(array('id' => $fieldIds)));
 		$statement->execute(array_values($fieldIds));
 		$result = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP|PDO::FETCH_COLUMN);
 		$result = array_map(function($a) {return $a[0];}, $result);
