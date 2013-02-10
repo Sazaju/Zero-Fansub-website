@@ -1310,7 +1310,11 @@ class Database implements Patchable {
 				$recordMeta = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 				foreach($recordMeta as $fieldId => $meta) {
 					$meta = $meta[0];
-					settype($meta['value'], $this->mapDbTypeToPhpType($type));
+					if ($meta['value'] === null) {
+						// let it as is, do not create a non existing value.
+					} else {
+						settype($meta['value'], $this->mapDbTypeToPhpType($type));
+					}
 					settype($meta['timestamp'], 'int');
 					$meta['author'] = $this->getUserFromId($meta['author_id']);
 					unset($meta['author_id']);
@@ -1340,7 +1344,11 @@ class Database implements Patchable {
 				$recordMeta = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 				foreach($recordMeta as $fieldId => $metaList) {
 					foreach($metaList as $meta) {
-						settype($meta['value'], $this->mapDbTypeToPhpType($type));
+						if ($meta['value'] === null) {
+							// let it as is, do not create a non existing value.
+						} else {
+							settype($meta['value'], $this->mapDbTypeToPhpType($type));
+						}
 						settype($meta['timeCreate'], 'int');
 						settype($meta['timeArchive'], 'int');
 						$meta['authorCreate'] = $this->getUserFromId($meta['authorCreate_id']);
