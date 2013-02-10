@@ -121,7 +121,7 @@ class StructureHistory {
 	}
 	
 	public function getNameValueAt($time) {
-		return $this->name->getValueAt($time);
+		return $this->name->getNameAt($time);
 	}
 	
 	public function getAuthorAt($time) {
