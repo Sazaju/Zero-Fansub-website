@@ -1213,10 +1213,9 @@ class Database implements Patchable {
 		$recordId = $this->getRecordId($fieldData);
 		$metadata = $this->getRecordIdsMetadata(array($recordId));
 		$metadata = array_shift($metadata);
-		$recordData = $this->mapDataToFields($metadata);
 		$history = new RecordHistory();
-		foreach($recordData as $field => $data) {
-			$history->addUpdate($field, $data['value'], $data['timestamp'], $data['author']);
+		foreach($metadata as $fieldId => $data) {
+			$history->addUpdate($fieldId, $data['value'], $data['timestamp'], $data['author']);
 		}
 		
 		$metadata = $this->getRecordIdsArchivedMetadata(array($recordId));
@@ -1224,10 +1223,9 @@ class Database implements Patchable {
 		if (empty($metadata)) {
 			// no archived data, just ignore this phase.
 		} else {
-			$recordData = $this->mapDataToFields($metadata);
-			foreach($recordData as $field => $versions) {
+			foreach($metadata as $fieldId => $versions) {
 				foreach($versions as $data) {
-					$history->addUpdate($field, $data['value'], $data['timeCreate'], $data['authorCreate'], $data['timeArchive'], $data['authorArchive']);
+					$history->addUpdate($fieldId, $data['value'], $data['timeCreate'], $data['authorCreate'], $data['timeArchive'], $data['authorArchive']);
 				}
 			}
 		}
