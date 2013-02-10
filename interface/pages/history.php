@@ -91,12 +91,12 @@
 					FIELDS
 		\**********************************/
 		
-		$fields = $history->getAllFields();
+		$fieldIds = $history->getAllFieldIds();
 		$row = new TableRow();
 		$row->setHeader(true);
 		$row->addComponent("");// time + author
-		foreach($fields as $field) {
-			$row->addComponent($field);
+		foreach($fieldIds as $fieldId) {
+			$row->addComponent($fieldId);
 		}
 		$table->addComponent($row);
 		
@@ -113,22 +113,22 @@
 			$row->addComponent(date("Y-m-d H:i:s", $time).'<br/>('.$history->getAuthorAt($time).')');
 			$updates = $history->getUpdatesAt($time);
 			$values = $history->getValuesAt($time);
-			foreach($fields as $field) {
-				$content = $values[$field];
+			foreach($fieldIds as $fieldId) {
+				$content = $values[$fieldId];
 				if (strlen($content) > $contentLimit) {
 					$content = substr($content, 0, $contentLimit)."...";
 				} else {
 					// keep the full content
 				}
 				$cell = new TableCell($content);
-				if (array_key_exists($field, $updates)) {
-					if ($values[$field] === RecordHistory::DELETED) {
+				if (array_key_exists($fieldId, $updates)) {
+					if ($values[$fieldId] === RecordHistory::DELETED) {
 						$cell->setClass('deleted');
 					} else {
 						$cell->setClass('update');
 					}
 				} else {
-					if ($values[$field] === RecordHistory::DELETED) {
+					if ($values[$fieldId] === RecordHistory::DELETED) {
 						$cell->setClass('inherited deleted');
 					} else {
 						$cell->setClass('inherited');

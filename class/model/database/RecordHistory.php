@@ -20,7 +20,7 @@ class RecordHistory {
 		}
 	}
 	
-	public function getAllFields() {
+	public function getAllFieldIds() {
 		return array_keys($this->fields);
 	}
 	
