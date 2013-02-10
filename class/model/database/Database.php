@@ -1171,11 +1171,15 @@ class Database implements Patchable {
 		} else {
 			// use the given IDs
 		}
-		$fieldTypes = $this->getFieldTypes($fieldIds);
 		foreach($fieldIds as $fieldId) {
-			$type = $fieldTypes[$fieldId];
-			$this->copyInArchive($recordId, $timestamp, $authorId, $type, array('field_id', 'value'), array('field_id' => $fieldId));
+			$this->copyRecordFieldInArchive($recordId, $fieldId, $timestamp, $authorId);
 		}
+	}
+	
+	private function copyRecordFieldInArchive($recordId, $fieldId, $timestamp, $authorId) {
+		$fieldTypes = $this->getFieldTypes(array($fieldId));
+		$type = $fieldTypes[$fieldId];
+		$this->copyInArchive($recordId, $timestamp, $authorId, $type, array('field_id', 'value'), array('field_id' => $fieldId));
 	}
 	
 	private function setRecordField($recordId, $fieldId, $value, $timestamp, $authorId) {
