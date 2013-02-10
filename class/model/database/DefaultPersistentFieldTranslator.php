@@ -57,7 +57,11 @@ final class DefaultPersistentFieldTranslator implements IPersistentFieldTranslat
 			} else if ($field->isResource()) {
 				throw new Exception("Resource management is not implemented yet.");
 			} else {
-				settype($value, $field->getPHPType());
+				if ($value !== null) {
+					settype($value, $field->getPHPType());
+				} else {
+					// keep the null value.
+				}
 				$field->set($value);
 			}
 		}
