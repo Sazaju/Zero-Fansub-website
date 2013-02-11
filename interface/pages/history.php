@@ -5,13 +5,13 @@
 	$level = $url->getQueryVar('level');
 	$table = new Table();
 	if ($level == 'structure') {
-		$history = $db->getClassHistory($class);
+		$structureHistory = $db->getClassHistory($class);
 		
 		/**********************************\
 					FIELDS
 		\**********************************/
 		
-		$fieldIds = $history->getAllFieldIds();
+		$fieldIds = $structureHistory->getAllFieldIds();
 		$row = new TableRow();
 		$row->setHeader(true);
 		$row->addComponent("");// time + author
@@ -22,23 +22,23 @@
 					VALUES
 		\**********************************/
 		
-		$milestones = $history->getUpdateTimes();
+		$milestones = $structureHistory->getUpdateTimes();
 		rsort($milestones);
 		$contentLimit = 20;
 		foreach($milestones as $time) {
 			$row = new TableRow();
-			$row->addComponent(date("Y-m-d H:i:s", $time).'<br/>('.$history->getAuthorAt($time).')');
+			$row->addComponent(date("Y-m-d H:i:s", $time).'<br/>('.$structureHistory->getAuthorAt($time).')');
 			
-			$cell = new TableCell($history->getNameValueAt($time));
-			if ($history->getNameUpdateAt($time) !== null) {
+			$cell = new TableCell($structureHistory->getNameValueAt($time));
+			if ($structureHistory->getNameUpdateAt($time) !== null) {
 				$cell->setClass('update');
 			} else {
 				$cell->setClass('inherited');
 			}
 			$row->addComponent($cell);
 			
-			$updates = $history->getFieldsUpdatesAt($time);
-			$values = $history->getFieldsValuesAt($time);
+			$updates = $structureHistory->getFieldsUpdatesAt($time);
+			$values = $structureHistory->getFieldsValuesAt($time);
 			foreach($fieldIds as $fieldId) {
 				$content = array();
 				$cell = new TableCell();
@@ -85,13 +85,13 @@
 			}
 		}
 		
-		$history = $db->getRecordHistory($class, $keyData);
+		$recordHistory = $db->getRecordHistory($class, $keyData);
 		
 		/**********************************\
 					FIELDS
 		\**********************************/
 		
-		$fieldIds = $history->getAllFieldIds();
+		$fieldIds = $recordHistory->getAllFieldIds();
 		$row = new TableRow();
 		$row->setHeader(true);
 		$row->addComponent("");// time + author
@@ -105,14 +105,14 @@
 		\**********************************/
 		
 		
-		$milestones = $history->getUpdateTimes();
+		$milestones = $recordHistory->getUpdateTimes();
 		rsort($milestones);
 		$contentLimit = 20;
 		foreach($milestones as $time) {
 			$row = new TableRow();
-			$row->addComponent(date("Y-m-d H:i:s", $time).'<br/>('.$history->getAuthorAt($time).')');
-			$updates = $history->getUpdatesAt($time);
-			$values = $history->getValuesAt($time);
+			$row->addComponent(date("Y-m-d H:i:s", $time).'<br/>('.$recordHistory->getAuthorAt($time).')');
+			$updates = $recordHistory->getUpdatesAt($time);
+			$values = $recordHistory->getValuesAt($time);
 			foreach($fieldIds as $fieldId) {
 				$content = $values[$fieldId];
 				if (strlen($content) > $contentLimit) {
