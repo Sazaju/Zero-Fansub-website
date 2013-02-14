@@ -19,28 +19,52 @@
 	$fields = $component->getPersistentFields();
 	$form = new FormComponent();
 	foreach($fields as $fieldName => $field) {
-		// TODO consider type of data to constraint the inputs
-		$fieldName .= $field->isMandatory() ? '*' : '';
-		$value = $field->get();
+		$mandatory = $field->isMandatory();
+		$input = null;
 		if ($field->isBoolean()) {
-			$form->addInput($fieldName, $value);
+			$value = $field->get();
+			$input = FormInputComponent::createBooleanInput($fieldName, $value);
 		} else if ($field->isInteger()) {
-			$form->addInput($fieldName, $value);
+			$value = $field->get();
+			$input = FormInputComponent::createTextInput($fieldName, $value);
 		} else if ($field->isDouble()) {
-			$form->addInput($fieldName, $value);
+			$value = $field->get();
+			$input = FormInputComponent::createTextInput($fieldName, $value);
 		} else if ($field->isArray()) {
-			$form->addComponent($fieldName.' = '.print_r($value, true).'<br/>');
+			$input = $fieldName.' = Array (array not implemented yet)<br/>';
 		} else if ($field->isResource()) {
-			$form->addComponent($fieldName.' = '.get_class($value).'<br/>');
+			$value = $field->get();
+			$input = $fieldName.' = '.get_class($value).' (resource not implemented yet)<br/>';
 		} else if ($field->isString()) {
 			// TODO consider length (no length => text area)
-			$form->addInput($fieldName, $value);
+			$value = $field->get();
+			if ($field->hasLength()) {
+				$input = FormInputComponent::createTextInput($fieldName, $value, $field->getLength());
+			} else {
+				$input = FormInputComponent::createTextAreaInput($fieldName, $value);
+			}
 		} else if ($field->isCustomized()) {
-			$form->addComponent($fieldName.' = '.get_class($value).'<br/>');
+			$translator = $field->getTranslator();
+			$value = $translator->getPersistentValue($field);
+			$possible = $translator->getPossiblePersistentValues($field);
+			$input = FormInputComponent::createSelectInput($fieldName, $value, $possible);
+			$input->setValueRenderer(function($value) use ($translator) {
+				return "".$translator->translateFromPersistentValue($value);
+			});
 		} else {
 			throw new Exception("This case should not happen.");
 		}
+		
+		if ($input instanceof FormInputComponent) {
+			$input->setMandatory($mandatory);
+			$form->addInput($input);
+		} else {
+			// TODO this case should be removed when all the cases above will be implemented
+			$form->addComponent($input);
+		}
 	}
+	$form->addInput(FormInputComponent::createResetInput("RAZ"));
+	$form->addInput(FormInputComponent::createSubmitInput("Enregistrer"));
 	
 	
 	$page = PageContent::getInstance();

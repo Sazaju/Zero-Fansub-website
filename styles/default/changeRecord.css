@@ -1,0 +1,16 @@
+.changeRecord form {
+	text-align: left;
+}
+
+.changeRecord form span.fullInput {
+	display: block;
+}
+
+.changeRecord form span.mandatory .label:before {
+	content: '*';
+}
+
+.changeRecord form textarea {
+	width: 100%;
+	height: 10em;
+}
