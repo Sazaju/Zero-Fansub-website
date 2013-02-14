@@ -53,6 +53,10 @@ class PersistentField {
 		return $this->type;
 	}
 	
+	public function getDatabaseType() {
+		return $this->getTranslator()->getPersistentType($this)->getType();
+	}
+	
 	public function getLength() {
 		return $this->length;
 	}

@@ -1498,7 +1498,7 @@ class Database implements Patchable {
 		}
 		$diff = new StructureDiff();
 		foreach($component->getPersistentFields() as $name => $field) {
-			$type = $field->getTranslator()->getPersistentType($field)->getType();
+			$type = $field->getDatabaseType();
 			$mandatory = $field->isMandatory();
 			
 			if (!array_key_exists($name, $metadata)) {
