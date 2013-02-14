@@ -787,5 +787,9 @@ class TeamMember {
 		}
 		return $members;
 	}
+	
+	public function __toString() {
+		return $this->getPseudo();
+	}
 }
 ?>
