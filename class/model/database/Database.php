@@ -677,6 +677,17 @@ class Database implements Patchable {
 		$this->completeAllRecords($fieldId, function($id) use ($values) {return $values[$id];}, $timestamp, $authorId);
 	}
 	
+	private function setFieldMandatory($fieldId, $mandatory, $timestamp, $authorId) {
+		$values = $this->getFieldValues($fieldId);
+		if ($mandatory && in_array(null, $values)) {
+			$field = $this->getFieldForId($fieldId);
+			throw new Exception("Some records have no values for the field '$field', you cannot set it as mandatory.");
+		} else {
+			$this->copyFieldInArchive($fieldId, $timestamp, $authorId);
+			$this->setWorkingValue($fieldId, 'mandatory', $mandatory, $timestamp, $authorId, 'field');
+		}
+	}
+	
 	private function deleteField($fieldId, $timestamp, $authorId) {
 		$this->checker->checkIsNotEmpty($fieldId);
 		$this->checker->checkIsNotEmpty($timestamp);
@@ -1455,6 +1466,14 @@ class Database implements Patchable {
 					$classId = $this->getClassId($class);
 					$fieldId = $this->getFieldId($classId, $field);
 					$this->setFieldType($fieldId, $type, $timestamp, $authorId);
+				} else if ($instruction instanceof PatchChangeFieldMandatory) {
+					$class = $instruction->getClass();
+					$field = $instruction->getField();
+					$mandatory = $instruction->getMandatoryBooleanValue();
+					
+					$classId = $this->getClassId($class);
+					$fieldId = $this->getFieldId($classId, $field);
+					$this->setFieldMandatory($fieldId, $mandatory, $timestamp, $authorId);
 				} else if ($instruction instanceof PatchUser) {
 					$name = $instruction->getUser();
 					$hash = $instruction->getHash();

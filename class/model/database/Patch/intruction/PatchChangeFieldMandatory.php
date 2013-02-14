@@ -15,5 +15,9 @@ class PatchChangeFieldMandatory extends ComposedPatchInstruction implements IPat
 	public function getMandatoryValue() {
 		return $this->getInnerValue(2);
 	}
+	
+	public function getMandatoryBooleanValue() {
+		return $this->getMandatoryValue() == 'mandatory';
+	}
 }
 ?>
