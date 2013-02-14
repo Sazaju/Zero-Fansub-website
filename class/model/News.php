@@ -4571,6 +4571,23 @@ La gestion de BDD mise en place chez Zéro vise à supprimer ces problèmes, de 
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement adapt.");
+			$news->setPublicationTime(strtotime("14 February 2013 17:17"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Même si on pousse un peu sur la programmation, le fansub reste la principale activité chez Zéro... à condition qu'on ait des gens pour s'en occuper {^_^}.
+
+[img=images/news/recruitAdapt.png]On cherche toujours ![/img]
+
+On relance donc nos appels à candidature : un poste d'adapt est à pourvoir. Pour ceux qui aiment jouer avec les mots, trouver des tournures qui donnent tout leur charme aux scènes importantes, ou tout simplement se vanter de maîtriser plus de vocabulaire que les autres, le job est pour vous. Passez par le lien de recrutement dans le menu à gauche {^_°}.");
+			//$news->setCommentId(313);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
