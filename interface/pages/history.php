@@ -16,6 +16,9 @@
 		$row->setHeader(true);
 		$row->addComponent("");// time + author
 		$row->addComponent("CLASS");
+		foreach($fieldIds as $id) {
+			$row->addComponent($id);
+		}
 		$table->addComponent($row);
 		
 		/**********************************\
