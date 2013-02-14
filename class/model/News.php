@@ -4580,7 +4580,7 @@ La gestion de BDD mise en place chez Zéro vise à supprimer ces problèmes, de 
 [img=images/news/recruitAdapt.png]On cherche toujours ![/img]
 
 On relance donc nos appels à candidature : un poste d'adapt est à pourvoir. Pour ceux qui aiment jouer avec les mots, trouver des tournures qui donnent tout leur charme aux scènes importantes, ou tout simplement se vanter de maîtriser plus de vocabulaire que les autres, le job est pour vous. Passez par le lien de recrutement dans le menu à gauche {^_°}.");
-			//$news->setCommentId(313);
+			$news->setCommentId(314);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
