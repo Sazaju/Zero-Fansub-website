@@ -1646,7 +1646,7 @@ class Database implements Patchable {
 			$data = $this->extractComponentData($component);
 			$record = $this->getRecordFromData($class, $data);
 			
-			$data = $this->mapDataToFieldIds($data);
+			$data = $this->mapDataToFieldIds($class, $data);
 			$recordId = $this->getRecordId($data);
 			$component->setInternalKey($recordId);
 		} else {
