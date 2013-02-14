@@ -1531,46 +1531,58 @@ class Database implements Patchable {
 		return $diff;
 	}
 	
-	public function isUpdatedStructure(PersistentComponent $component) {
+	public function checkNotUpdatedStructure(PersistentComponent $component) {
 		$this->checker->checkIsNotEmpty($component);
 		
 		$class = $component->getClass();
-		$savedFields = $this->getFieldsForClass($class);
-		
-		// TODO optimize by looking only the fields, not the data
+		$savedFields = $this->getFieldsMetadata($class);
 		$componentFields = $this->extractComponentFields($component);
+		$this->checkComponentFieldsMatching($savedFields, $componentFields);
+	}
+	
+	public function isUpdatedStructure(PersistentComponent $component) {
 		try {
-			$this->checkComponentFieldsMapping($savedFields, $componentFields);
+			$this->checkNotUpdatedStructure($component);
 			return false;
 		} catch(DifferentStructureException $e) {
 			return true;
 		}
 	}
 	
-	private function checkComponentFieldsMapping($databaseFields, $componentFields) {
-		$remainingFields = array_diff($componentFields, $databaseFields);
+	private function checkComponentFieldsMatching($databaseFields, $componentFields) {
+		$remainingFields = array_diff_key($componentFields, $databaseFields);
 		if (!empty($remainingFields)) {
-			throw new UnkownFieldsException($remainingFields);
+			throw new UnkownFieldsException(array_keys($remainingFields));
 		} else {
 			// all the object fields are known.
 		}
 		
-		$missingFields = array_diff($databaseFields, $componentFields);
+		$missingFields = array_diff_key($databaseFields, $componentFields);
 		if (!empty($missingFields)) {
-			throw new MissingFieldsException($missingFields);
+			throw new MissingFieldsException(array_keys($missingFields));
 		} else {
 			// all the database fields are checked.
+		}
+		
+		foreach($databaseFields as $field => $data1) {
+			$data2 = $componentFields[$field];
+			if ($data1['type'] != $data2['type']) {
+				throw new DifferentStructureException("'$field' have another type: ".$data1['type'].' -> '.$data2['type']);
+			} else if ($data1['mandatory'] != $data2['mandatory']) {
+				throw new DifferentStructureException("'$field' have another mandatory status: ".$data1['mandatory'].' -> '.$data2['mandatory']);
+			} else {
+				continue;
+			}
 		}
 	}
 	
 	private function extractUpdatedData(PersistentComponent $component) {
 		$this->checker->checkIsNotEmpty($component);
+		$this->checkNotUpdatedStructure($component);
 		
 		$recordId = $component->getInternalKey();
 		$savedData = $this->getRecordFromId($recordId);
 		$componentData = $this->extractComponentData($component);
-		
-		$this->checkComponentFieldsMapping(array_keys($savedData), array_keys($componentData));
 		
 		return array_diff_assoc($componentData, $savedData);
 	}
@@ -1591,7 +1603,13 @@ class Database implements Patchable {
 		
 		$componentFields = array();
 		foreach($component->getPersistentFields() as $field => $object) {
-			$componentFields[] = $field;
+			$type = $object->getDatabaseType();
+			$mandatory = $object->isMandatory();
+			$componentFields[$field] = array(
+				'field' => $field,
+				'type' => $type,
+				'mandatory' => $mandatory,
+			);
 		}
 		return $componentFields;
 	}
@@ -1600,10 +1618,9 @@ class Database implements Patchable {
 		$this->checker->checkIsNotEmpty($component);
 		$this->checker->checkIsNotEmpty($data);
 		$this->checker->checkIsArray($data);
+		$this->checkNotUpdatedStructure($component);
 		
 		$persistentFields = $component->getPersistentFields();
-		
-		$this->checkComponentFieldsMapping(array_keys($data), array_keys($persistentFields));
 		
 		foreach($persistentFields as $field => $object) {
 			$translator = $object->getTranslator();
