@@ -13,13 +13,13 @@ class Dossier extends PersistentComponent {
 	private $commentID = null;
 	
 	public function __construct() {
-		$this->id = PersistentField::stringField(50);
-		$this->title = PersistentField::stringField(500);
+		$this->id = PersistentField::stringField(50)->mandatory();
+		$this->title = PersistentField::stringField(500)->mandatory();
 		// TODO make TeamMember as a PersistentComponent
-		$this->author = PersistentField::objectField('TeamMember')->translateWith(new DossierTeamMemberPersistentFieldTranslator());
+		$this->author = PersistentField::objectField('TeamMember')->translateWith(new DossierTeamMemberPersistentFieldTranslator())->mandatory();
 		$this->commentID = PersistentField::integerField();
 		$this->timestamp = PersistentField::integerField();
-		$this->content = PersistentField::stringField();
+		$this->content = PersistentField::stringField()->mandatory();
 		$this->content2 = PersistentField::integerField();
 		
 		$this->registerPersistentFields(
