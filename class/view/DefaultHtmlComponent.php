@@ -99,7 +99,7 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		$this->subcomponents = array();
 	}
 	
-	public function getOptions() {
+	public function getMetadataString() {
 		$meta = array();
 		foreach($this->metadata as $id => $value) {
 			$meta[] = $id.($value == null ? '' : '="'.$value.'"');
@@ -158,9 +158,9 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	
 	public function getOpenTag() {
 		if ($this->hasLegend()) {
-			return '<fieldset '.$this->getOptions().'><legend>'.$this->getLegend().'</legend>';
+			return '<fieldset '.$this->getMetadataString().'><legend>'.$this->getLegend().'</legend>';
 		} else {
-			return '<'.$this->getHtmlTag().' '.$this->getOptions().($this->isAutoClose() ? '/' : '').'>';
+			return '<'.$this->getHtmlTag().' '.$this->getMetadataString().($this->isAutoClose() ? '/' : '').'>';
 		}
 	}
 	
