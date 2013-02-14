@@ -16,7 +16,7 @@ class Format {
 
 		// explode the code
 		$exploder = new StringExploder();
-		$exploder->addDescriptor(new StringExploderDescriptor("#<[^/\s][^>]*>#", true));
+		$exploder->addDescriptor(new StringExploderDescriptor("#<[^!/\s][^>]*>#", true));
 		$exploder->addDescriptor(new StringExploderDescriptor("#</[^>]+>#", false));
 		$array = $exploder->parse($html);
 
