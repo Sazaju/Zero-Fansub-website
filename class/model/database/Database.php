@@ -708,6 +708,11 @@ class Database implements Patchable {
 		return $statement->fetchAll(PDO::FETCH_COLUMN);
 	}
 	
+	private function getFieldForId($fieldId) {
+		$fields = $this->getFieldsForIds(array($fieldId));
+		return $fields[$fieldId];
+	}
+	
 	private function getFieldsForIds($fieldIds) {
 		$this->checker->checkIsNotEmpty($fieldIds);
 		$this->checker->checkIsArray($fieldIds);
