@@ -109,6 +109,7 @@ class FormInputComponent extends defaultHtmlComponent {
 		
 		$this->valueComponent->setValue($this->value);
 		$this->valueComponent->setMetadata('id', $this->getLabelId());
+		$this->valueComponent->setMetadata('name', $this->getLabelId());
 		
 		$limit = $this->getMaxLength();
 		if ($limit) {
@@ -258,7 +259,7 @@ class FormValueComponent extends DefaultHtmlComponent {
 				$comp->clear();
 				foreach($list as $id => $display) {
 					$opt = '';
-					$opt .= ' id="'.$id.'"';
+					$opt .= ' value="'.$id.'"';
 					$opt .= $val == $id ? ' selected="selected"' : '';
 					$comp->addComponent("<option$opt>$display</option>");
 				}
