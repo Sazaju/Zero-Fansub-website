@@ -475,9 +475,8 @@ C'était Epitanime ! J'espére que ça vous a plu ! À bientôt pour Japan Expo,
 	}
 }
 
-class DossierTeamMemberPersistentFieldTranslator implements IPersistentFieldTranslator {
-	public function getPersistentValue(PersistentField $field) {
-		$value = $field->get();
+class DossierTeamMemberPersistentFieldTranslator extends AbstractPersistentFieldTranslator {
+	public function translateToPersistentValue($value) {
 		if ($value === null) {
 			return null;
 		} else {
@@ -485,20 +484,28 @@ class DossierTeamMemberPersistentFieldTranslator implements IPersistentFieldTran
 		}
 	}
 	
+	public function translateFromPersistentValue($value) {
+		if ($value === null) {
+			return null;
+		} else {
+			return TeamMember::getMember(intval($value));
+		}
+	}
+	
 	public function getPersistentType(PersistentField $field) {
 		return PersistentType::getIntegerType();
 	}
 	
-	public function setPersistentValue(PersistentField $field, $value) {
-		if ($value === null) {
-			$field->set(null);
-		} else {
-			$field->set(TeamMember::getMember(intval($value)));
-		}
-	}
-	
 	public function getPersistentTable(PersistentField $field) {
 		return PersistentTable::defaultIntegerTable();
+	}
+	
+	public function getPossiblePersistentValues(PersistentField $field) {
+		$ids = array();
+		foreach(TeamMember::getAllMembers() as $member) {
+			$ids[] = $member->getID();
+		}
+		return $ids;
 	}
 }
 ?>

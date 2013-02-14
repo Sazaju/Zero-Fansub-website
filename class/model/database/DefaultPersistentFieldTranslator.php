@@ -1,5 +1,13 @@
 <?php
-final class DefaultPersistentFieldTranslator implements IPersistentFieldTranslator {
+final class DefaultPersistentFieldTranslator extends AbstractPersistentFieldTranslator {
+	public function translateToPersistentValue($value) {
+		throw new Exception("Cannot use this function (field needed).");
+	}
+	
+	public function translateFromPersistentValue($value) {
+		throw new Exception("Cannot use this function (field needed).");
+	}
+	
 	public function getPersistentValue(PersistentField $field) {
 		$value = $field->get();
 		if ($field->isBoolean()) {
@@ -14,7 +22,7 @@ final class DefaultPersistentFieldTranslator implements IPersistentFieldTranslat
 			throw new Exception("Array management is not implemented yet.");
 		} else if ($field->isResource()) {
 			throw new Exception("Resource management is not implemented yet.");
-		} else if ($field->get() instanceof PersistentComponent) {
+		} else if ($value instanceof PersistentComponent) {
 			return $value->getInternalKey();
 		} else {
 			throw new Exception("You have to use a specific translator for ".get_class($value)." objects.");
@@ -65,6 +73,11 @@ final class DefaultPersistentFieldTranslator implements IPersistentFieldTranslat
 				$field->set($value);
 			}
 		}
+	}
+	
+	public function getPossiblePersistentValues(PersistentField $field) {
+		// we do not know, so we do not return anything
+		return null;
 	}
 }
 ?> 
