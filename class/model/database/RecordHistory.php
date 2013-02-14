@@ -4,6 +4,7 @@ class RecordHistory {
 	
 	// TODO consider the structure history to display the full history of the record (removed fields)
 	private $fields = array();
+	private $structureHistory = null;
 	
 	public function addUpdate($fieldId, $value, $from, $authorFrom, $to = null, $authorTo = null) {
 		if (!array_key_exists($fieldId, $this->fields)) {
@@ -22,6 +23,27 @@ class RecordHistory {
 	
 	public function getAllFieldIds() {
 		return array_keys($this->fields);
+	}
+	
+	public function setStructureHistory(StructureHistory $history) {
+		$this->structureHistory = $history;
+	}
+	
+	public function getFieldNameAt($time, $fieldId) {
+		$values = $this->structureHistory->getFieldsValuesAt($time);
+		$times = $this->structureHistory->getUpdateTimes();
+		rsort($times);
+		foreach($times as $time) {
+			$newValues = $this->structureHistory->getFieldsValuesAt($time);
+			foreach($values as $id => $data) {
+				if (empty($data['name'])) {
+					$values[$id] = $newValues[$id];
+				} else {
+					continue;
+				}
+			}
+		}
+		return $values[$fieldId]['name'];
 	}
 	
 	public function getUpdateTimes() {

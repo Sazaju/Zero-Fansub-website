@@ -98,8 +98,14 @@
 		$row = new TableRow();
 		$row->setHeader(true);
 		$row->addComponent("");// time + author
+		$time = $_SESSION[CURRENT_TIME];
 		foreach($fieldIds as $fieldId) {
-			$row->addComponent($fieldId);
+			$fieldName = $recordHistory->getFieldNameAt($time, $fieldId);
+			if (empty($fieldName)) {
+				throw new Exception("No name for the field $fieldId at $time");
+			} else {
+				$row->addComponent($fieldName);
+			}
 		}
 		$table->addComponent($row);
 		

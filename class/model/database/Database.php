@@ -1230,6 +1230,8 @@ class Database implements Patchable {
 			}
 		}
 		
+		$history->setStructureHistory($this->getClassHistory($class));
+		
 		return $history;
 	}
 	
