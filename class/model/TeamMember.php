@@ -167,6 +167,7 @@ class TeamMember {
 			$member->setPseudo("Jembé");
 			$member->setImage("jembe.png");
 			$member->addRole(Role::getRole("adapt"));
+			$member->setHasGone(true);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
