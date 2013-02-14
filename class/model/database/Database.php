@@ -1139,7 +1139,7 @@ class Database implements Patchable {
 			$type = $fieldTypes[$fieldId];
 			$statement = $this->connection->prepare('SELECT value FROM "working_'.$type.'" WHERE id = ? AND field_id = ?');
 			$statement->execute(array($recordId, $fieldId));
-			$record[$field] = $statement->fetchColumn();
+			$record[$fieldId] = $statement->fetchColumn();
 		}
 		return $record;
 	}
