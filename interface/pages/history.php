@@ -122,13 +122,13 @@
 				}
 				$cell = new TableCell($content);
 				if (array_key_exists($fieldId, $updates)) {
-					if ($values[$fieldId] === RecordHistory::DELETED) {
+					if ($values[$fieldId] === RecordHistory::ABSENT) {
 						$cell->setClass('deleted');
 					} else {
 						$cell->setClass('update');
 					}
 				} else {
-					if ($values[$fieldId] === RecordHistory::DELETED) {
+					if ($values[$fieldId] === RecordHistory::ABSENT) {
 						$cell->setClass('inherited deleted');
 					} else {
 						$cell->setClass('inherited');
