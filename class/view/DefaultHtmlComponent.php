@@ -104,7 +104,7 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		foreach($this->metadata as $id => $value) {
 			$meta[] = $id.($value == null ? '' : '="'.$value.'"');
 		}
-		
+		$meta = array_filter($meta);
 		return Format::arrayToString($meta, ' ');
 	}
 	
@@ -160,7 +160,8 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		if ($this->hasLegend()) {
 			return '<fieldset '.$this->getMetadataString().'><legend>'.$this->getLegend().'</legend>';
 		} else {
-			return '<'.$this->getHtmlTag().' '.$this->getMetadataString().($this->isAutoClose() ? '/' : '').'>';
+			$meta = $this->getMetadataString();
+			return '<'.$this->getHtmlTag().(empty($meta) ? '' : ' '.$meta).($this->isAutoClose() ? '/' : '').'>';
 		}
 	}
 	
