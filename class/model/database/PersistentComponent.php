@@ -152,4 +152,4 @@ class PersistentComponent {
 		return $this->getClass().$this->getIDString()."[key $key]";
 	}
 }
-?> 
+?>

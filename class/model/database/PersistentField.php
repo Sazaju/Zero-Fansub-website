@@ -146,4 +146,4 @@ class PersistentField {
 		return $this->type.'['.$this->value.']';
 	}
 }
-?> 
+?>

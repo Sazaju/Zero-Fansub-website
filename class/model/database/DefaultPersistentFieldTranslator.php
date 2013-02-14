@@ -80,4 +80,4 @@ final class DefaultPersistentFieldTranslator extends AbstractPersistentFieldTran
 		return null;
 	}
 }
-?> 
+?>
