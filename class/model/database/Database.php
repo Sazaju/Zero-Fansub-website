@@ -1681,6 +1681,25 @@ class Database implements Patchable {
 		$this->connection->commit();
 	}
 	
+	public function loadFromData($class, $fieldData) {
+		$this->checker->checkIsNotEmpty($class);
+		$this->checker->checkIsNotEmpty($fieldData);
+		
+		$reflector = new ReflectionClass($class);
+		$component = $reflector->newInstance();
+		
+		$record = $this->getRecordFromData($class, $fieldData);
+		$record = $this->mapDataToFields($record);
+		$this->feedComponentWithData($component, $record);
+		
+		$classId = $this->getClassId($class);
+		$fieldData = $this->mapDataToFieldIds($classId, $fieldData);
+		$recordId = $this->getRecordId($fieldData);
+		$component->setInternalKey($recordId);
+		
+		return $component;
+	}
+	
 	public function load(PersistentComponent $component) {
 		$recordId = $component->getInternalKey();
 		$record = array();
