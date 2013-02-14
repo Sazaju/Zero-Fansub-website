@@ -35,7 +35,6 @@ class Format {
 				});
 		$indexStack = array();
 		$tagStack = array();
-		// var_dump($temp);
 		foreach ($temp as $index => $row) {
 			if ($row[1]) {
 				array_push($indexStack, $index);
