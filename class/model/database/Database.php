@@ -652,7 +652,7 @@ class Database implements Patchable {
 		
 		$type = $this->getFieldType($fieldId);
 		$statement = $this->connection->prepare('SELECT id, value FROM "working_'.$type.'" WHERE field_id = ?');
-		$statement->execute($fieldId);
+		$statement->execute(array($fieldId));
 		$result = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP|PDO::FETCH_COLUMN);
 		$result = array_map(function($a) {return $a[0];}, $result);
 		return $result;
