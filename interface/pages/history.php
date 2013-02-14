@@ -113,7 +113,6 @@
 					VALUES
 		\**********************************/
 		
-		
 		$milestones = $recordHistory->getUpdateTimes();
 		rsort($milestones);
 		$contentLimit = 20;
