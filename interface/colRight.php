@@ -42,5 +42,5 @@
 	$menu = new Menu(new Link("?page=partenariat", "Devenir partenaires"));
 	$rightCol->addComponent(new MenuComponent($menu));
 	
-	$rightCol->writeNow();
+	return $rightCol->getCurrentHTML();
 ?>

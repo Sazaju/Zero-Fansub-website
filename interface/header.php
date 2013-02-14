@@ -84,5 +84,5 @@ foreach($sorties as $sortie) {
 $header = new SimpleBlockComponent();
 $header->setId("header");
 $header->addComponent($list);
-$header->writeNow();
+return $header->getCurrentHTML();
 ?>

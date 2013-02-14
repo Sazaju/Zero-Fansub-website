@@ -45,19 +45,21 @@
 		} catch(Exception $e) {
 			require_once("interface/pages/$page.php");
 		}
-		PageContent::getInstance()->writeNow();
+		return PageContent::getInstance()->getCurrentHTML();
 	} catch(Exception $e) {
 		if (TEST_MODE_ACTIVATED) {
-			echo '<div id="page">';
-			echo 'Invalid URL, the bug page should be displayed in not testing mode.<br/><br/>';
-			echo $e->__toString();
-			echo '</div>';
+			$text = '';
+			$text .= '<div id="page">';
+			$text .= 'Invalid URL, the bug page should be displayed in not testing mode.<br/><br/>';
+			$text .= $e->__toString();
+			$text .= '</div>';
+			return $text;
 		}
 		else {
 			$pageContent = PageContent::getInstance();
 			$pageContent->clear();
 			require_once("pages/bug.php");
-			$pageContent->writeNow();
+			return $pageContent->getCurrentHTML();
 		}
 	}
 ?>

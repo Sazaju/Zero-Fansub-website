@@ -50,5 +50,5 @@
 	$menu->addEntry($donateLink);
 	$leftCol->addComponent(new MenuComponent($menu));
 	
-	$leftCol->writeNow();
+	return $leftCol->getCurrentHTML();
 ?>

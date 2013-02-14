@@ -62,28 +62,35 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 /**********************************\
          PAGE RENDERING
 \**********************************/
-?>
 
+$display = '';
+
+$display .= <<<HTML
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 	<head>
-		<title>Zéro ~fansub~ :: Le Site Officiel <?php echo WEBSITE_VERSION?></title>
+		<title>Zéro ~fansub~ :: Le Site Officiel
+HTML;
+$display .= WEBSITE_VERSION;
+$display .= <<<HTML
+		</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Language" content="fr" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta name="DC.Language" scheme="RFC3066" content="fr" />
-		<?php
-			$date = getdate($_SESSION[CURRENT_TIME]);
-			$month = $date['mon'];
-			$day = $date['mday'];
-			
-			$variant = "";
-			$variant .= $_SESSION[MODE_H] ? "H" : "";
-			$variant .= ($month == 12 && $day >= 15 && $day <= 31) ? "Xmas" : "";
-			$styleFile = "styles/".$_SESSION[STYLE]."/style".$variant.".css";
-		?>
-		<link rel="stylesheet" href="<?php echo $styleFile; ?>" type="text/css" media="screen" title="Normal" />  
+HTML;
+
+$date = getdate($_SESSION[CURRENT_TIME]);
+$month = $date['mon'];
+$day = $date['mday'];
+
+$variant = "";
+$variant .= $_SESSION[MODE_H] ? "H" : "";
+$variant .= ($month == 12 && $day >= 15 && $day <= 31) ? "Xmas" : "";
+$styleFile = "styles/".$_SESSION[STYLE]."/style".$variant.".css";
+$display .= '<link rel="stylesheet" href="'.$styleFile.'" type="text/css" media="screen" title="Normal" />';
+$display .= <<<HTML
 		<link rel="icon" type="image/gif" href="favicon.gif" />
 		<link rel="shortcut icon" href="favicon.ico" />
 		<script type="text/javascript">
@@ -124,46 +131,50 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 			})();
 		</script>
 		<!--/GOOGLE-->
-		<?php
-			$preload = new SimpleBlockComponent();
-			$preload->setID("preload");
-			$preload->setClass("hidden");
-			$dir = "styles/".$_SESSION[STYLE]."/images/";
-			$descStack = DirectoryManager::getContent($dir, true);
-			$files = array();
-			while(!empty($descStack)) {
-				$descriptor = array_pop($descStack);
-				if ($descriptor['type'] === 'file') {
-					$files[] = $dir.$descriptor['name'];
-				} else if ($descriptor['type'] === 'directory') {
-					foreach($descriptor['content'] as $sub) {
-						$sub['name'] = $descriptor['name'].'/'.$sub['name'];
-						array_push($descStack, $sub);
-					}
-				} else {
-					// ignore others (not recognized)
-				}
-			}
-			foreach($files as $file) {
-				$preload->addComponent(new Image($file));
-			}
-			$preload->writeNow();
-		?>
-		<?php
-			if (TEST_MODE_ACTIVATED) {
-				echo TESTING_FEATURE;
-			}
-			if (Url::getCurrentUrl()->hasQueryVar('phpinfo')) {
-				phpinfo();
-				exit;
-			}
-		?>
-		<div id="main">
-			<?php require_once("interface/colLeft.php")?>
-			<?php require_once("interface/colRight.php")?>
-			<?php require_once("interface/header.php")?>
-			<?php require_once("interface/page.php")?>
-			<?php require_once("interface/footer.php")?>
+HTML;
+
+$preload = new SimpleBlockComponent();
+$preload->setID("preload");
+$preload->setClass("hidden");
+$dir = "styles/".$_SESSION[STYLE]."/images/";
+$descStack = DirectoryManager::getContent($dir, true);
+$files = array();
+while(!empty($descStack)) {
+	$descriptor = array_pop($descStack);
+	if ($descriptor['type'] === 'file') {
+		$files[] = $dir.$descriptor['name'];
+	} else if ($descriptor['type'] === 'directory') {
+		foreach($descriptor['content'] as $sub) {
+			$sub['name'] = $descriptor['name'].'/'.$sub['name'];
+			array_push($descStack, $sub);
+		}
+	} else {
+		// ignore others (not recognized)
+	}
+}
+foreach($files as $file) {
+	$preload->addComponent(new Image($file));
+}
+$display .= $preload->getCurrentHTML();
+
+if (TEST_MODE_ACTIVATED) {
+	$display .= TESTING_FEATURE;
+}
+if (Url::getCurrentUrl()->hasQueryVar('phpinfo')) {
+	echo $display;
+	phpinfo();
+	exit;
+}
+
+$display .= '<div id="main">';
+
+$display .= require_once("interface/colLeft.php");
+$display .= require_once("interface/colRight.php");
+$display .= require_once("interface/header.php");
+$display .= require_once("interface/page.php");
+$display .= require_once("interface/footer.php");
+
+$display .= <<<HTML
 		</div>
 		<script type="text/javascript">
 			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -179,10 +190,20 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 				pageTracker._trackPageview();
 			} catch(err) {}
 		</script>
-		<?php
-			if (TEST_MODE_ACTIVATED) {
-				echo TESTING_FEATURE;
-			}
-		?>
+HTML;
+
+if (TEST_MODE_ACTIVATED) {
+	$display .= TESTING_FEATURE;
+}
+
+$display .= <<<HTML
 	</body>
 </html>
+HTML;
+
+if (TEST_MODE_ACTIVATED) {
+	$display = trim(Format::indentHTML($display, "    "));
+}
+
+echo $display;
+?>
