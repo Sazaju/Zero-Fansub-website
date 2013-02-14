@@ -45,11 +45,11 @@
 	foreach($db->getClasses() as $class) {
 		$row = new TableRow();
 		
-		$historyUrl = new Url();
-		$historyUrl->setQueryVar("page", "history");
-		$historyUrl->setQueryVar("level", "structure");
-		$historyUrl->setQueryVar("class", $class);
-		$row->addComponent(new Link($historyUrl->toString(), "H"));
+		$toolUrl = new Url();
+		$toolUrl->setQueryVar("page", "history");
+		$toolUrl->setQueryVar("level", "structure");
+		$toolUrl->setQueryVar("class", $class);
+		$row->addComponent(new Link($toolUrl->toString(), "H"));
 		
 		$structureUrl = Url::getCurrentUrl();
 		$structureUrl->setQueryVar('class', $class);
@@ -81,7 +81,7 @@
 		$table = new Table();
 		$row = new TableRow();
 		$row->setHeader(true);
-		$row->addComponent("");//history
+		$row->addComponent("");//tools
 		$keys = $db->getKeys($class);
 		$key = $keys[0];
 		$fields = $db->getFieldsMetadata($class);
@@ -96,17 +96,15 @@
 		$contentLimit = 20;
 		foreach($db->getDataMetadata($class) as $record) {
 			$row = new TableRow();
-			$historyCell = new TableCell();
-			$row->addComponent($historyCell);
-			$historyUrl = new Url();
-			$historyUrl->setQueryVar("page", "history");
-			$historyUrl->setQueryVar("level", "data");
-			$historyUrl->setQueryVar("class", $class);
+			$toolCell = new TableCell();
+			$row->addComponent($toolCell);
+			$toolUrl = new Url();
+			$toolUrl->setQueryVar("class", $class);
 			foreach($fields as $field => $data) {
 				$metadata = $record[$field];
 				$content = $metadata['value'];
 				if (in_array($field, $key)) {
-					$historyUrl->setQueryVar('key_'.$field, $content);
+					$toolUrl->setQueryVar('key_'.$field, $content);
 				} else {
 					// do not consider it in the history link
 				}
@@ -120,7 +118,12 @@
 				$cell->setMetaData('title', 'type = '.$data['type'].'&#013;'.($data['mandatory'] ? 'obligatoire' : 'facultatif').'&#013;modifié le '.date("Y-m-d H:i:s", $metadata['timestamp']).'&#013;par '.$metadata['author']);
 				$row->addComponent($cell);
 			}
-			$historyCell->setContent(new Link($historyUrl->toString(), "H"));
+			$toolUrl->setQueryVar("page", "history");
+			$toolUrl->setQueryVar("level", "data");
+			$toolCell->addComponent(new Link($toolUrl->toString(), "H"));
+			$toolUrl->setQueryVar("page", "changeRecord");
+			$toolUrl->removeQueryVar("level");
+			$toolCell->addComponent(new Link($toolUrl->toString(), "M"));
 			$table->addComponent($row);
 		}
 		$page->addComponent(new Title("Enregistrements ".$class, 2));
