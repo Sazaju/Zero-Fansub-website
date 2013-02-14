@@ -53,7 +53,7 @@
 				} else {
 					$name = $data['name'];
 					$type = $data['type'];
-					$mandatory = $data['mandatory'] ? 'mandatory' : 'facultative';
+					$mandatory = $data['mandatory'] ? 'mandatory' : 'optionnal';
 					$content = "$name\n($type)\n$mandatory";
 					$cell->setContent(Format::convertTextToHtml($content));
 					if (array_key_exists($fieldId, $updates)) {
