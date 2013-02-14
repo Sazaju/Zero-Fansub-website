@@ -38,7 +38,7 @@ class Patch {
 				$instruction->setValue($row->getClass().'.'.$row->getField().'.type='.$row->getNewValue());
 			} else if ($row instanceof ChangeMandatoryDiff) {
 				$instruction = new PatchChangeFieldMandatory();
-				$instruction->setValue($row->getClass().'.'.$row->getField().'.mandatory='.$row->getNewValue());
+				$instruction->setValue($row->getClass().'.'.$row->getField().'.mandatory='.($row->getNewValue() ? 'mandatory' : 'optional'));
 			} else {
 				throw new Exception(get_class($row)." is not a managed diff element");
 			}
