@@ -15,7 +15,7 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 		$view = $url->getQueryVar('view');
 		$url->removeQueryVar('view');
 		
-		$select = '';
+		$selected = '';
 		switch($view) {
 			case 'all': $selected = '';break;
 			case 'releases': $selected = 'r';break;
