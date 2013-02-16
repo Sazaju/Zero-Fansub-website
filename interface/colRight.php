@@ -12,8 +12,7 @@
 	$menu = new Menu("db0 company");
 	foreach($partners as $partner) {
 		if ($partner->isDb0Company()) {
-			$link = new PartnerLink($partner);
-			$link->setUseImage(true);
+			$link = Link::createPartnerLink($partner, true);
 			$menu->addEntry($link);
 		}
 	}
@@ -22,8 +21,7 @@
 	$menu = new Menu("Fansub potes");
 	foreach($partners as $partner) {
 		if ($partner->isFansubPartner()) {
-			$link = new PartnerLink($partner);
-			$link->setUseImage(true);
+			$link = Link::createPartnerLink($partner, true);
 			$menu->addEntry($link);
 		}
 	}
@@ -32,8 +30,7 @@
 	$menu = new Menu("Liens");
 	foreach($partners as $partner) {
 		if (!$partner->isFansubPartner() && !$partner->isDb0Company()) {
-			$link = new PartnerLink($partner);
-			$link->setUseImage(true);
+			$link = Link::createPartnerLink($partner, true);
 			$menu->addEntry($link);
 		}
 	}

@@ -38,14 +38,6 @@ class Sortie {
 	}
 }
 
-class SortieComponent extends ReleaseLink {
-	public function __construct(Sortie $sortie) {
-		parent::__construct($sortie->getProject()->getID(), $sortie->getReleasesIDs());
-		$this->setClass("sortie");
-		$this->setContent(new Image($sortie->getImage(), $sortie->getProject()->getName()));
-	}
-}
-
 $completeList = null;
 if ($_SESSION[MODE_H]) {
 	$completeList = Release::getHentaiReleases();
@@ -78,7 +70,10 @@ $list = new SimpleListComponent();
 $list->setClass("sortieList");
 krsort($sorties);
 foreach($sorties as $sortie) {
-	$list->addComponent(new SortieComponent($sortie));
+	$link = Link::createReleaseLink($sortie->getProject()->getID(), $sortie->getReleasesIDs());
+	$link->setContent(new Image($sortie->getImage(), $sortie->getProject()->getName()));
+	$link->setClass("sortie");
+	$list->addComponent($link);
 }
 
 $header = new SimpleBlockComponent();

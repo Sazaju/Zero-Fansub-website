@@ -71,7 +71,7 @@ class TeamMemberList extends SimpleListComponent {
 		$mail = $member->getMail();
 		if ($mail !== null) {
 			$wrap = new SimpleTextComponent("<b>Contact :</b> ");
-			$wrap->addComponent(new MailLink($mail));
+			$wrap->addComponent(Link::createMailLink($mail));
 			$list->addComponent($wrap);
 		}
 		

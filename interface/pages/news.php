@@ -33,7 +33,7 @@
 	$rssUrl->setQueryVar('select', empty($selected) ? null : $selected, true);
 	$rssUrl->setQueryVar('h', null, !$_SESSION[MODE_H]);
 	$title = new Title(null, 2);
-	$title->addComponent(new RssLink($rssUrl));
+	$title->addComponent(Link::createRssLink($rssUrl));
 	$title->addComponent("Vues");
 	$views->addComponent($title);
 	$views->addComponent($viewsLinks);

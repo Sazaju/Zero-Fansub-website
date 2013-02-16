@@ -516,7 +516,7 @@ class Format {
 						if (in_array($tag, array('url', 'ext'))) {
 							$link = new Link($parameter, $content);
 							if ($tag == 'ext' || $tag == 'url' && !$link->isLocalLink()) {
-								$link->openNewWindow(true);
+								$link->setNewWindow(true);
 							}
 						} else if ($tag == 'urlk') {
 							$parameter = preg_split('#\\|#', $parameter);
@@ -534,13 +534,13 @@ class Format {
 							}
 							$link = new Link($url, $content, $full);
 							if (!$link->isLocalLink()) {
-								$link->openNewWindow(true);
+								$link->setNewWindow(true);
 							}
 						} else if ($tag == 'mail') {
 							if (is_numeric($parameter)) {
 								$parameter = TeamMember::getMember(intval($parameter))->getMail();
 							}
-							$link = new MailLink($parameter, $content);
+							$link = Link::createMailLink($parameter, $content);
 						} else {
 							throw new Exception($tag . " is not managed");
 						}
@@ -586,7 +586,7 @@ class Format {
 						} else {
 							$parameter[1] = Format::trimAndCleanArray(preg_split('#,#', $parameter[1]));
 						}
-						$link = new ReleaseLink($parameter[0], $parameter[1], null);
+						$link = Link::createReleaseLink($parameter[0], $parameter[1], null);
 						return $link->getOpenTag();
 					};
 			$releaseContent = function($tag, $parameter, $content) {
@@ -664,11 +664,9 @@ class Format {
 							$partner = Partner::getPartner($content);
 							$content = null;
 						}
-						$link = new PartnerLink($partner, BBCodeDescriptor::contentToHTML($content));
-						$link->openNewWindow(true);
-						if ($useImage) {
-							$link->setUseImage(true);
-						}
+						$link = Link::createPartnerLink($partner, $useImage);
+						$link->setContent(BBCodeDescriptor::contentToHTML($content));
+						$link->setNewWindow(true);
 						return $link->getOpenTag();
 					};
 			$partnerContent = function($tag, $parameter, $content) {
@@ -692,42 +690,40 @@ class Format {
 							$partner = Partner::getPartner($content);
 							$content = null;
 						}
-						$link = new PartnerLink($partner, BBCodeDescriptor::contentToHTML($content));
-						$link->openNewWindow(true);
-						if ($useImage) {
-							$link->setUseImage(true);
-						}
+						$link = Link::createPartnerLink($partner, $useImage);
+						$link->setcontent(BBCodeDescriptor::contentToHTML($content));
+						$link->setNewWindow(true);
 						return $link->getHTMLContent();
 					};
 			$projectOpenTag = function($tag, $parameter, $content) {
 						if (empty($parameter)) {
-							$link = new ProjectLink(Project::getProject($content));
+							$link = Link::createProjectLink(Project::getProject($content));
 						} else {
 							$parameter = preg_split('#\\|#', $parameter);
+							$project = null;
 							try {
-								$link = new ProjectLink(Project::getProject($parameter[0]));
+								$project = Project::getProject($parameter[0]);
 							} catch (Exception $e) {
-								$link = new ProjectLink(Project::getProject($content));
+								$project = Project::getProject($content);
 							}
+							$link = Link::createProjectLink($project);
 						}
 						return $link->getOpenTag();
 					};
 			$projectContent = function($tag, $parameter, $content) {
 						if (empty($parameter)) {
-							$link = new ProjectLink(Project::getProject($content));
+							$link = Link::createProjectLink(Project::getProject($content));
 						} else {
 							$parameter = preg_split('#\\|#', $parameter);
+							$project = null;
 							try {
-								$link = new ProjectLink(Project::getProject($parameter[0]));
-								if (!empty($content)) {
-									$link->setContent(BBCodeDescriptor::contentToHTML($content));
-								}
+								$project = Project::getProject($parameter[0]);
 							} catch (Exception $e) {
-								$link = new ProjectLink(Project::getProject($content));
+								$project = Project::getProject($content);
 							}
-
-							if (in_array('image', $parameter)) {
-								$link->useImage(true);
+							$link = Link::createProjectLink($project, in_array('image', $parameter));
+							if (!empty($content)) {
+								$link->setContent(BBCodeDescriptor::contentToHTML($content));
 							}
 						}
 						return $link->getHTMLContent();

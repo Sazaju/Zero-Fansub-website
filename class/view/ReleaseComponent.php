@@ -277,7 +277,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			$list->addComponent($mediaFireLinks);
 		}
 		$list->addComponent($torrentLinks);
-		$list->addComponent(new XdccLink());
+		$list->addComponent(Link::createXdccLink());
 		$streamingsLinks = new GroupedLinks(new Image("images/icones/streaming.png"));
 		$streamingsLinks->setClass("streamingsLinks");
 		foreach($release->getStreamings() as $link) {
