@@ -157,11 +157,12 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	}
 	
 	public function getOpenTag() {
+		$meta = $this->getMetadataString();
+		$meta = empty($meta) ? '' : ' '.$meta;
 		if ($this->hasLegend()) {
-			return '<fieldset '.$this->getMetadataString().'><legend>'.$this->getLegend().'</legend>';
+			return '<fieldset'.$meta.'><legend>'.$this->getLegend().'</legend>';
 		} else {
-			$meta = $this->getMetadataString();
-			return '<'.$this->getHtmlTag().(empty($meta) ? '' : ' '.$meta).($this->isAutoClose() ? '/' : '').'>';
+			return '<'.$this->getHtmlTag().$meta.($this->isAutoClose() ? '/' : '').'>';
 		}
 	}
 	
