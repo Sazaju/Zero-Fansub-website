@@ -102,14 +102,18 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	public function getMetadataString() {
 		$meta = array();
 		foreach($this->metadata as $id => $value) {
-			$meta[] = $id.($value == null ? '' : '="'.$value.'"');
+			$meta[] = $id.($value == null ? '' : '="'.htmlspecialchars($value).'"');
 		}
 		$meta = array_filter($meta);
 		return Format::arrayToString($meta, ' ');
 	}
 	
-	public function setMetaData($id, $value = null) {
-		$this->metadata[$id] = $value;
+	public function setMetaData($id, $value = null, $deleteIfNull = false) {
+		if ($deleteIfNull && $value === null) {
+			$this->removeMetaData($id);
+		} else {
+			$this->metadata[$id] = $value;
+		}
 	}
 	
 	public function getMetaData($id) {

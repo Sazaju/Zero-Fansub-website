@@ -4,14 +4,11 @@
 */
 
 class Image extends DefaultHtmlComponent {
-	private $source = null;
-	private $alternative = '';
-	private $title = '';
 	
 	public function __construct($source = '', $title = '') {
 		$this->setUrl($source);
-		$this->title = $title;
-		$this->alternative = $title;
+		$this->setTitle($title);
+		$this->setAlternative($title);
 	}
 	
 	public function getHtmlTag() {
@@ -23,37 +20,32 @@ class Image extends DefaultHtmlComponent {
 	}
 	
 	public function setUrl($url) {
-		$this->source = $url == null ? null : new Url($url);
+		if ($url == null) {
+			$this->removeMetadata('src');
+		} else {
+			$url = new Url($url);
+			$this->setMetadata('src', $url->toString());
+		}
 	}
 	
 	public function getUrl() {
-		return $this->source;
+		return $this->getMetadata('src');
 	}
 	
 	public function setTitle($title) {
-		$this->title = $title;
+		$this->setMetadata('title', $title, true);
 	}
 	
 	public function getTitle() {
-		return $this->title;
+		return $this->getMetadata('title');
 	}
 	
 	public function setAlternative($alt) {
-		$this->alternative = $alt;
+		$this->setMetadata('alt', $alt, true);
 	}
 	
 	public function getAlternative() {
-		return $this->alternative;
-	}
-	
-	public function getMetadataString() {
-		$source = $this->getUrl();
-		$alt = $this->getAlternative();
-		$title = $this->getTitle();
-		$sourcePart = ' src="'.$source->toString().'"';
-		$altPart = ' alt="'.htmlspecialchars($alt).'"';
-		$titlePart = !empty($title) ? ' title="'.htmlspecialchars($title).'"' : '';
-		return parent::getMetadataString().$sourcePart.$titlePart.$altPart;
+		return $this->getMetadata('alt');
 	}
 	
 	public function makeRightFloating() {
