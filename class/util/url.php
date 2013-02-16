@@ -63,7 +63,9 @@ class Url {
 				$url = substr($url, strlen($currentDir));
 			}
 		} else {
-			if ($this->data[URL_SERVER] != null) {
+			if ($this->data[URL_PROTOCOL] == 'mailto') {
+				$url = $this->data[URL_PROTOCOL].':'.$url;
+			} else if ($this->data[URL_SERVER] != null) {
 				$serverPart = $this->data[URL_SERVER];
 				if ($this->data[URL_PORT] != null) {
 					$serverPart .= ':'.$this->data[URL_PORT];
