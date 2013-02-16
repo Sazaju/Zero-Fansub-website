@@ -31,11 +31,11 @@ class MailLink extends DefaultHtmlComponent {
 		return $this->mail;
 	}
 	
-	public function getOptions() {
+	public function getMetadataString() {
 		$mail = $this->getMail();
 		$mailPart = !empty($mail) ? ' href="mailto:'.$mail.'"' : '';
 		
-		return parent::getOptions().$mailPart;
+		return parent::getMetadataString().$mailPart;
 	}
 }
 ?>

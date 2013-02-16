@@ -71,7 +71,7 @@ class Link extends DefaultHtmlComponent {
 		return $this->title;
 	}
 	
-	public function getOptions() {
+	public function getMetadataString() {
 		$url = $this->getUrl()->toString($this->forceFull);
 		$title = $this->getTitle();
 		$onClick = $this->getOnClick();
@@ -80,7 +80,7 @@ class Link extends DefaultHtmlComponent {
 		$titlePart = $title === null ? '' : ' title="'.$title.'"';
 		$onClickPart = $onClick === null ? '' : ' onclick="'.$onClick.'"';
 		$targetPart = $newWindow === true ? ' target="_blank"' : '';
-		return parent::getOptions().$urlPart.$titlePart.$targetPart.$onClickPart;
+		return parent::getMetadataString().$urlPart.$titlePart.$targetPart.$onClickPart;
 	}
 	
 	public function isLocalLink() {

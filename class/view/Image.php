@@ -46,14 +46,14 @@ class Image extends DefaultHtmlComponent {
 		return $this->alternative;
 	}
 	
-	public function getOptions() {
+	public function getMetadataString() {
 		$source = $this->getUrl();
 		$alt = $this->getAlternative();
 		$title = $this->getTitle();
 		$sourcePart = ' src="'.$source->toString().'"';
 		$altPart = ' alt="'.htmlspecialchars($alt).'"';
 		$titlePart = !empty($title) ? ' title="'.htmlspecialchars($title).'"' : '';
-		return parent::getOptions().$sourcePart.$titlePart.$altPart;
+		return parent::getMetadataString().$sourcePart.$titlePart.$altPart;
 	}
 	
 	public function makeRightFloating() {
