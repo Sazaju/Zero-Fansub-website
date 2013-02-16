@@ -1769,7 +1769,7 @@ Et ainsi se termine Genshiken, le club d'étude de la culture visuelle moderne, 
 			$news->setPublicationTime(strtotime("19 July 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/genshiken-11.jpg[/imgr]
-C'est les vacances pour certains membres de chez Zéro donc on a le temps de s'occuper de vous... Du moins, des épisodes que vous attendez avec impatience. (Pour qu'on s'occupe de vous personnellement, appelez le 08XXXXXXXX 0.34 la minute demandez Sonia) Bref, ce soir sort l'épisode 11 de la saison 2 de Genshiken, c'est-à-dire l'avant dernier de la série. Les deux copines américaines sont toujours là pour vous faire rire, mais partieront à la fin de l'épisode. Profitez bien, c'est bientôt la fin ^^");
+C'est les vacances pour certains membres de chez Zéro donc on a le temps de s'occuper de vous... Du moins, des épisodes que vous attendez avec impatience. (Pour qu'on s'occupe de vous personnellement, appelez le 08XXXXXXXX 0.34€ la minute demandez Sonia) Bref, ce soir sort l'épisode 11 de la saison 2 de Genshiken, c'est-à-dire l'avant dernier de la série. Les deux copines américaines sont toujours là pour vous faire rire, mais partieront à la fin de l'épisode. Profitez bien, c'est bientôt la fin ^^");
 			$news->setCommentId(104);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('genshiken', 'ep11'));
@@ -2937,7 +2937,7 @@ Venez nombreux, parlez en autours de vous !
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/anniv1.jpg][/img]
 Aujourd'hui est un grand jour pour Zéro et pour la db0 company ! Cela fait maintenant exactement deux ans que le groupe Zéro existe, donc j'en profite pour faire un petit résumé de ces deux années riches en evennements.
-db0 créer le site \"Zéro\", qui vient de la dernière lettre de son pseudo le 18 décembre 2007. Au départ, c'est un énième site de liens MU et torrent pour télécharger des animes. db0 rencontre ensuite Genesis et se met au fansub. Elle créait ensuite avec et grâce à cette équipe une nouvelle équipe de fansub qui prend la place de l'ancien site Zéro mais garde le design. Les débuts de Zéro sont difficiles. La formation fansub de db0 s'est en grande partie faite par Klick et le reste de l'équipe Genesis. D'autres membres ont ensuite rejoint l'équipe, dont praia qui deviendra par la suite le co-administrateur de l'équipe. Ryocu rejoint ensuite l'équipe en nous hebergant le site et les épisode en DirectDownload. L'équipe s'agrandit petit à petit, devient amie avec Maboroshi, Kanaii, Animekami, Moe, Kyoutsu, Sky, ect. db0 et Ryocu reprennent ensemble la db0 company et tout ses nombreux sites, dont Anime-ultime et Stream-Anime. Ces sites nous coûtent actuellement dans les environs de 300 à 350 par mois, et nous 
+db0 créer le site \"Zéro\", qui vient de la dernière lettre de son pseudo le 18 décembre 2007. Au départ, c'est un énième site de liens MU et torrent pour télécharger des animes. db0 rencontre ensuite Genesis et se met au fansub. Elle créait ensuite avec et grâce à cette équipe une nouvelle équipe de fansub qui prend la place de l'ancien site Zéro mais garde le design. Les débuts de Zéro sont difficiles. La formation fansub de db0 s'est en grande partie faite par Klick et le reste de l'équipe Genesis. D'autres membres ont ensuite rejoint l'équipe, dont praia qui deviendra par la suite le co-administrateur de l'équipe. Ryocu rejoint ensuite l'équipe en nous hebergant le site et les épisode en DirectDownload. L'équipe s'agrandit petit à petit, devient amie avec Maboroshi, Kanaii, Animekami, Moe, Kyoutsu, Sky, ect. db0 et Ryocu reprennent ensemble la db0 company et tout ses nombreux sites, dont Anime-ultime et Stream-Anime. Ces sites nous coûtent actuellement dans les environs de 300 à 350€ par mois, et nous 
 avons toujours beaucoup de mal à les financer. Un quatrième \"gros\" site devait ouvrir cet été mais est sans cesse repoussé pour des raisons financières. Stream-Anime a malheuresement fermé ses portes recemment, emportant avec lui ses plus de 5000 vidéos en streaming haute qualité. Malgré ce triste bilan financier, Zéro et la db0 company se porte plutôt bien. Zéro a désormais une équipe soudée et motivée qui ne risque pas de s'arrêter de si tôt. Pour plus d'informations sur la db0 company, un historique complet et détaillé est disponible sur le forum.
 
 Concernant les évennements à venir, un nouveau design de Zéro fansub et d'Anime-Ultime sont prévu. La db0 company devrait bientôt ouvrir un site et regrouper les communautés.
@@ -3163,15 +3163,15 @@ Vous ne le savez peut-être pas, mais Zéro envoie à chaque news une newsletter
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/merci.jpg][/img]
 Toute l'équipe Zéro fansub et toute la db0 company (Anime-Ultime, Stream-Anime, Zéro, Kojikan, ect) tient à remercier chalereusement les personnes suivantes pour leurs réponses à notre appel à l'aide :
-Hervé (14)
-Nicolas (10)
-Guillaume (5)
-Fabrice (20)
-Luc (10)
-Julien (40)
-Bkdenice (15)
-Pascal (10)
-Mathieu (25)
+Hervé (14€)
+Nicolas (10€)
+Guillaume (5€)
+Fabrice (20€)
+Luc (10€)
+Julien (40€)
+Bkdenice (15€)
+Pascal (10€)
+Mathieu (25€)
 Ces sommes ne nous permettent certes pas de nous sortir de nos problèmes d'argent actuels, mais nous aident énormément à remonter peu à peu la pente ! Nous reprenons du courage et la force de continuer à tenir en forme les sites de la db0 company. Encore une fois, merci.
 //Ryocu et db0");
 			$news->setCommentId(71);
@@ -3186,7 +3186,7 @@ Ces sommes ne nous permettent certes pas de nous sortir de nos problèmes d'arge
 			$news->setTitle("C'est la crise !");
 			$news->setPublicationTime(strtotime("01 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("C'est la crise pour tout le monde, et même pour nous. Nous n'arrivons plus à payer nos serveurs... On ajoute des publicités et on vous sollicite pour des dons, mais rien ne s'améliore. Depuis le début de Zéro, et sur tout les sites de la db0 company, nous n'avons reçu que 14  de dons et 75  de publicités. Sachant qu'il nous a fallut environ 80  (en tout depuis que Zéro existe) pour l'association humanitaire que Zéro soutient et que nos serveurs de la db0 company coûte environ 250  /mois, le calcul n'est pas long, nous sommes dans le négatif. Et pauvres petits étudiants que nous sommes, à découvert tout les mois... C'est un appel à l'aide que je lance aujourd'hui, à ceux de Zéro, de la db0 company, à ceux qui aiment les animes que nous sous-titrons et qui respectent notre travail. Par avance, merci.");
+			$news->setMessage("C'est la crise pour tout le monde, et même pour nous. Nous n'arrivons plus à payer nos serveurs... On ajoute des publicités et on vous sollicite pour des dons, mais rien ne s'améliore. Depuis le début de Zéro, et sur tout les sites de la db0 company, nous n'avons reçu que 14 € de dons et 75 € de publicités. Sachant qu'il nous a fallut environ 80 € (en tout depuis que Zéro existe) pour l'association humanitaire que Zéro soutient et que nos serveurs de la db0 company coûte environ 250 € /mois, le calcul n'est pas long, nous sommes dans le négatif. Et pauvres petits étudiants que nous sommes, à découvert tout les mois... C'est un appel à l'aide que je lance aujourd'hui, à ceux de Zéro, de la db0 company, à ceux qui aiment les animes que nous sous-titrons et qui respectent notre travail. Par avance, merci.");
 			$news->setCommentId(66);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
@@ -3496,7 +3496,7 @@ Je vous laisse juger de notre performence au combat :P
 			$news->setTitle("C'est la crise !");
 			$news->setPublicationTime(strtotime("01 May 2009"));
 			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
-			$news->setMessage("C'est la crise pour tout le monde, et même pour nous. Nous n'arrivons plus à payer nos serveurs... On ajoute des publicités et on vous sollicite pour des dons, mais rien ne s'améliore. Depuis le début de Zéro, et sur tout les sites de la db0 company, nous n'avons reçu que 14  de dons et 75  de publicités. Sachant qu'il nous a fallut environ 80  (en tout depuis que Zéro existe) pour l'association humanitaire que Zéro soutient et que nos serveurs de la db0 company coûte environ 250  /mois, le calcul n'est pas long, nous sommes dans le négatif. Et pauvres petits étudiants que nous sommes, à découvert tout les mois... C'est un appel à l'aide que je lance aujourd'hui, à ceux de Zéro, de la db0 company, à ceux qui aiment les animes que nous sous-titrons et qui respectent notre travail. Par avance, merci.");
+			$news->setMessage("C'est la crise pour tout le monde, et même pour nous. Nous n'arrivons plus à payer nos serveurs... On ajoute des publicités et on vous sollicite pour des dons, mais rien ne s'améliore. Depuis le début de Zéro, et sur tout les sites de la db0 company, nous n'avons reçu que 14 € de dons et 75 € de publicités. Sachant qu'il nous a fallut environ 80 € (en tout depuis que Zéro existe) pour l'association humanitaire que Zéro soutient et que nos serveurs de la db0 company coûte environ 250 € /mois, le calcul n'est pas long, nous sommes dans le négatif. Et pauvres petits étudiants que nous sommes, à découvert tout les mois... C'est un appel à l'aide que je lance aujourd'hui, à ceux de Zéro, de la db0 company, à ceux qui aiment les animes que nous sous-titrons et qui respectent notre travail. Par avance, merci.");
 			$news->setCommentId(66);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
