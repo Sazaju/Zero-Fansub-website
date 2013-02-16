@@ -474,11 +474,11 @@ class Format {
 							$image = new Image($parameter, $content);
 							$image->makeRightFloating();
 						} else if (in_array($tag, array('img-auto', 'imga'))) {
-							$image = new AutoFloatImage($parameter, $content);
+							$image = Image::createAutoFloatImage($parameter, $content);
 						} else if (in_array($tag, array('img-auto-right', 'imgar'))) {
-							$image = new AutoFloatImage($parameter, $content, true);
+							$image = Image::createAutoFloatImage($parameter, $content, true);
 						} else if (in_array($tag, array('img-auto-left', 'imgal'))) {
-							$image = new AutoFloatImage($parameter, $content, false);
+							$image = Image::createAutoFloatImage($parameter, $content, false);
 						} else {
 							throw new Exception($tag . " is not managed");
 						}

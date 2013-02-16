@@ -25,7 +25,7 @@ class ReleaseComponent extends SimpleBlockComponent {
 			if ($release->getPreviewUrl() !== null) {
 				try {
 					$pUrl = $release->getPreviewUrl()->toString();
-					$previewImage = new AutoFloatImage($pUrl);
+					$previewImage = Image::createAutoFloatImage($pUrl);
 					$previewImage->setClass("previewImage");
 					
 					$description = getimagesize($pUrl);
