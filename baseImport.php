@@ -192,35 +192,42 @@ if (TEST_MODE_ACTIVATED) {
 	$features->setClass('testFeatures');
 	$features->addComponent('Testing mode : ');
 	
-	$link = new Link(Url::getCurrentUrl(), 'clear DB');
-	$link->getUrl()->setQueryVar('clearDB');
+	$url = Url::getCurrentUrl();
+	$url->setQueryVar('clearDB');
+	$link = new Link($url, 'clear DB');
 	$features->addComponent($link);
 	
-	$link = new Link(Url::getCurrentUrl(), 'PHP info');
-	if (Url::getCurrentUrl()->hasQueryVar('phpinfo')) {
-		$link->getUrl()->removeQueryVar('phpinfo');
+	$url = Url::getCurrentUrl();
+	$link = new Link($url, 'PHP info');
+	if ($url->hasQueryVar('phpinfo')) {
+		$url->removeQueryVar('phpinfo');
 		$link->setClass('reverse');
 	} else {
-		$link->getUrl()->setQueryVar('phpinfo');
+		$url->setQueryVar('phpinfo');
 	}
+	$link->setUrl($url);
 	$features->addComponent($link);
 	
-	$link = new Link(Url::getCurrentUrl(), 'Go in the future');
-	if (Url::getCurrentUrl()->hasQueryVar('setdate')) {
-		$link->getUrl()->removeQueryVar('setdate');
+	$url = Url::getCurrentUrl();
+	$link = new Link($url, 'Go in the future');
+	if ($url->hasQueryVar('setdate')) {
+		$url->removeQueryVar('setdate');
 		$link->setClass('reverse');
 	} else {
-		$link->getUrl()->setQueryVar('setdate', PHP_INT_MAX);
+		$url->setQueryVar('setdate', PHP_INT_MAX);
 	}
+	$link->setUrl($url);
 	$features->addComponent($link);
 	
-	$link = new Link(Url::getCurrentUrl(), 'deactivate testing mode');
-	if (Url::getCurrentUrl()->hasQueryVar('noTest')) {
-		$link->getUrl()->removeQueryVar('noTest');
+	$url = Url::getCurrentUrl();
+	$link = new Link($url, 'deactivate testing mode');
+	if ($url->hasQueryVar('noTest')) {
+		$$url->removeQueryVar('noTest');
 		$link->setClass('reverse');
 	} else {
-		$link->getUrl()->setQueryVar('noTest');
+		$url->setQueryVar('noTest');
 	}
+	$link->setUrl($url);
 	$features->addComponent($link);
 	
 	$features->addComponent('<br/>');

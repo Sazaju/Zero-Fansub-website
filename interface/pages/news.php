@@ -49,13 +49,15 @@
 		$options->setClass('testFeatures');
 		$options->addComponent("Options : ");
 		
-		$link = new Link(Url::getCurrentUrl(), "show all");
-		if ($link->getUrl()->hasQueryVar('showAll')) {
-			$link->getUrl()->removeQueryVar('showAll');
+		$url = Url::getCurrentUrl();
+		$link = new Link($url, "show all");
+		if ($url->hasQueryVar('showAll')) {
+			$url->removeQueryVar('showAll');
 			$link->setClass('reverse');
 		} else {
-			$link->getUrl()->setQueryVar('showAll');
+			$url->setQueryVar('showAll');
 		}
+		$link->setUrl($url);
 		$options->addComponent($link);
 		
 		$page->addComponent($options);
