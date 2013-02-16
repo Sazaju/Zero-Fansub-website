@@ -5,9 +5,7 @@
 
 class Link extends DefaultHtmlComponent {
 	private $url = null;
-	private $title = null;
 	private $newWindow = null;
-	private $onClick = null;
 	private $forceFull = null;
 	
 	public function __construct($url = null, $content = null, $forceFull = false) {
@@ -56,19 +54,19 @@ class Link extends DefaultHtmlComponent {
 	}
 	
 	public function setOnClick($javascript) {
-		$this->onClick = $javascript;
+		$this->setMetadata('onclick', $javascript, true);
 	}
 	
 	public function getOnClick() {
-		return $this->onClick;
+		return $this->getMetadata('onclick');
 	}
 	
 	public function setTitle($title) {
-		$this->title = $title;
+		$this->setMetadata('title', $title, true);
 	}
 	
 	public function getTitle() {
-		return $this->title;
+		return $this->getMetadata('title');
 	}
 	
 	public function getMetadataString() {
