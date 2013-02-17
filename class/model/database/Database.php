@@ -130,8 +130,8 @@ class Database implements Patchable {
 		
 		foreach(array('class', 'field', 'key') as $type) {
 			$t = PersistentTable::getTableFor($type);
-			foreach(array(false, true) as $archiveMode) {
-				$t->setArchiveMode($archiveMode);
+			foreach(array(PersistentTable::WORKING_ONLY, PersistentTable::ARCHIVE_ONLY) as $mode) {
+				$t->setMode($mode);
 				try {
 					$checkExistence($t->getName());
 				} catch(PDOException $ex) {
@@ -142,15 +142,14 @@ class Database implements Patchable {
 	}
 	
 	private function initMissingTable($type) {
-		$type = $type instanceof PersistentType ? $type->getType() : $type;
-		$t = PersistentTable::getTableFor($type);
-		foreach(array(false, true) as $archiveMode) {
-			$t->setArchiveMode($archiveMode);
-			$this->connection->exec($t->getCreationScript(true));
-		}
-		
 		$types = $this->getProperty('recordTypes');
 		if (strpos($types, "|$type|") === false) {
+			$type = $type instanceof PersistentType ? $type->getType() : $type;
+			$t = PersistentTable::getTableFor($type);
+			foreach(array(PersistentTable::WORKING_ONLY, PersistentTable::ARCHIVE_ONLY) as $mode) {
+				$t->setMode($mode);
+				$this->connection->exec($t->getCreationScript(true));
+			}
 			$this->setProperty('recordTypes', $types.$type.'|');
 		} else {
 			// do not insert another time
@@ -177,63 +176,35 @@ class Database implements Patchable {
 		return $id;
 	}
 	
-	private function formatQueryConditions($constraints, &$args = array()) {
-		$this->checker->checkIsArray($constraints);
-		$this->checker->checkIsArray($args);
-		
-		$conditions = '';
-		foreach($constraints as $field => $value) {
-			if (is_scalar($value)) {
-				$conditions .= ' AND '.$field.' = ?';
-				$args[] = $value;
-			} else if (is_array($value)) {
-				$conditions .= ' AND '.$field.' IN ('.Format::arrayToString(array_map(function($a) {return '?';}, $value)).')';
-				$args = array_merge($args, array_values($value));
-			} else {
-				throw new Exception(gettype($value)." objects are not managed.");
-			}
-		}
-		return substr($conditions, strlen(' AND '));
-	}
-	
-	private function setWorkingValue($id, $field, $value, $timestamp, $authorId, $type, $constraints = array()) {
-		$this->checker->checkIsNotEmpty($id);
+	private function setWorkingValue($field, $ids, $value, $timestamp, $authorId, $type, $constraints = array()) {
+		$this->checker->checkIsNotEmpty($ids);
 		$this->checker->checkIsNotEmpty($field);
 		$this->checker->checkIsNotEmpty($timestamp);
 		$this->checker->checkIsNotEmpty($authorId);
 		$this->checker->checkIsNotEmpty($type);
 		$this->checker->checkIsArray($constraints);
 		
-		$args = array($value);
-		$constraints = array_merge(array('id' => $id), $constraints);
-		$conditions = $this->formatQueryConditions($constraints, $args);
-		
-		$update = $this->connection->prepare('UPDATE "working_'.$type.'" SET '.$field.' = ? WHERE '.$conditions);
-		$update->execute($args);
-		
-		$update = $this->connection->prepare('UPDATE "working_'.$type.'" SET timestamp = ? WHERE '.$conditions);
-		$args[0] = $timestamp;
-		$update->execute($args);
-		
-		$update = $this->connection->prepare('UPDATE "working_'.$type.'" SET author_id = ? WHERE '.$conditions);
-		$args[0] = $authorId;
-		$update->execute($args);
+		$ids = is_array($ids) ? $ids : array($ids);
+		$queries = PersistentTable::getQueriesToUpdate($type, $field, $ids, $value, $timestamp, $authorId, $constraints);
+		foreach($queries as $query => $args) {
+			$update = $this->connection->prepare($query);
+			$update->execute($args);
+		}
 	}
 	
-	private function copyInArchive($id, $timestamp, $authorId, $type, $columns, $constraints = array()) {
-		$this->checker->checkIsNotEmpty($id);
+	private function copyInArchive($ids, $timestamp, $authorId, $type, $constraints = array()) {
+		$this->checker->checkIsNotEmpty($ids);
 		$this->checker->checkIsNotEmpty($timestamp);
 		$this->checker->checkIsNotEmpty($authorId);
 		$this->checker->checkIsNotEmpty($type);
 		$this->checker->checkIsArray($constraints);
-		$this->checker->checkIsArray($columns);
 		
-		$columns = Format::arrayToString($columns);
-		$args = array();
-		$constraints = array_merge(array('id' => $id), $constraints);
-		$conditions = $this->formatQueryConditions($constraints, $args);
-		$archive = $this->connection->prepare('INSERT INTO "archive_'.$type.'" (id, '.$columns.', timeCreate, authorCreate_id, timeArchive, authorArchive_id) SELECT id, '.$columns.', timestamp as timeCreate, author_id as authorCreate_id, '.$timestamp.' as timeArchive, '.$authorId.' as authorArchive_id FROM "working_'.$type.'" WHERE '.$conditions);
-		$archive->execute($args);
+		$ids = is_array($ids) ? $ids : array($ids);
+		$queries = PersistentTable::getQueriesToArchive($type, $ids, $timestamp, $authorId, $constraints);
+		foreach($queries as $query => $args) {
+			$archive = $this->connection->prepare($query);
+			$archive->execute($args);
+		}
 	}
 	
 	public function clear() {
@@ -440,12 +411,12 @@ class Database implements Patchable {
 	}
 	
 	private function copyClassInArchive($classId, $timestamp, $authorId) {
-		$this->copyInArchive($classId, $timestamp, $authorId, 'class', array('class'));
+		$this->copyInArchive($classId, $timestamp, $authorId, 'class');
 	}
 	
 	private function setClassName($classId, $name, $timestamp, $authorId) {
 		$this->copyClassInArchive($classId, $timestamp, $authorId);
-		$this->setWorkingValue($classId, 'class', $name, $timestamp, $authorId, 'class');
+		$this->setWorkingValue('class', $classId, $name, $timestamp, $authorId, 'class');
 	}
 	
 	private function deleteClass($classId, $timestamp, $authorId) {
@@ -554,7 +525,7 @@ class Database implements Patchable {
 			throw new Exception("(".Format::arrayToString($classIds).") is not a valid set of class IDs.");
 		} else {
 			$args = array();
-			$statement = $this->connection->prepare('SELECT id, class, timestamp, author_id FROM "working_class" WHERE '.$this->formatQueryConditions(array('id' => $classIds), $args));
+			$statement = $this->connection->prepare('SELECT id, class, timestamp, author_id FROM "working_class" WHERE '.PersistentTable::formatQueryConditions(array('id' => $classIds), $args));
 			$statement->execute($args);
 			$metadata = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 			foreach($metadata as $classId => $meta) {
@@ -577,7 +548,7 @@ class Database implements Patchable {
 			throw new Exception("(".Format::arrayToString($classIds).") is not a valid set of class IDs.");
 		} else {
 			$args = array();
-			$statement = $this->connection->prepare('SELECT id, class, timeCreate, authorCreate_id, timeArchive, authorArchive_id FROM "archive_class" WHERE '.$this->formatQueryConditions(array('id' => $classIds), $args));
+			$statement = $this->connection->prepare('SELECT id, class, timeCreate, authorCreate_id, timeArchive, authorArchive_id FROM "archive_class" WHERE '.PersistentTable::formatQueryConditions(array('id' => $classIds), $args));
 			$statement->execute($args);
 			$metadata = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 			foreach($metadata as $classId => $meta) {
@@ -659,12 +630,12 @@ class Database implements Patchable {
 	}
 	
 	private function copyFieldInArchive($fieldId, $timestamp, $authorId) {
-		$this->copyInArchive($fieldId, $timestamp, $authorId, 'field', array('class_id', 'field', 'type', 'mandatory'));
+		$this->copyInArchive($fieldId, $timestamp, $authorId, 'field');
 	}
 	
 	private function setFieldName($fieldId, $name, $timestamp, $authorId) {
 		$this->copyFieldInArchive($fieldId, $timestamp, $authorId);
-		$this->setWorkingValue($fieldId, 'field', $name, $timestamp, $authorId, 'field');
+		$this->setWorkingValue('field', $fieldId, $name, $timestamp, $authorId, 'field');
 	}
 	
 	private function setFieldType($fieldId, $type, $timestamp, $authorId) {
@@ -672,7 +643,7 @@ class Database implements Patchable {
 		$this->clearRecords($fieldId, $timestamp, $authorId);
 		
 		$this->copyFieldInArchive($fieldId, $timestamp, $authorId);
-		$this->setWorkingValue($fieldId, 'type', $type, $timestamp, $authorId, 'field');
+		$this->setWorkingValue('type', $fieldId, $type, $timestamp, $authorId, 'field');
 		
 		$this->completeAllRecords($fieldId, function($id) use ($values) {return $values[$id];}, $timestamp, $authorId);
 	}
@@ -684,7 +655,7 @@ class Database implements Patchable {
 			throw new Exception("Some records have no values for the field '$field', you cannot set it as mandatory.");
 		} else {
 			$this->copyFieldInArchive($fieldId, $timestamp, $authorId);
-			$this->setWorkingValue($fieldId, 'mandatory', $mandatory, $timestamp, $authorId, 'field');
+			$this->setWorkingValue('mandatory', $fieldId, $mandatory, $timestamp, $authorId, 'field');
 		}
 	}
 	
@@ -728,7 +699,7 @@ class Database implements Patchable {
 		$this->checker->checkIsNotEmpty($fieldIds);
 		$this->checker->checkIsArray($fieldIds);
 		
-		$statement = $this->connection->prepare('SELECT * FROM (SELECT id, field FROM "working_field" UNION SELECT id, field FROM "archive_field") WHERE '.$this->formatQueryConditions(array('id' => $fieldIds)));
+		$statement = $this->connection->prepare('SELECT * FROM (SELECT id, field FROM "working_field" UNION SELECT id, field FROM "archive_field") WHERE '.PersistentTable::formatQueryConditions(array('id' => $fieldIds)));
 		$statement->execute(array_values($fieldIds));
 		$result = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP|PDO::FETCH_COLUMN);
 		$result = array_map(function($a) {return $a[0];}, $result);
@@ -745,7 +716,7 @@ class Database implements Patchable {
 		} else {
 			$constraints['field'] = $fields;
 		}
-		$statement = $this->connection->prepare('SELECT field, id FROM "working_field" WHERE '.$this->formatQueryConditions($constraints, $args));
+		$statement = $this->connection->prepare('SELECT field, id FROM "working_field" WHERE '.PersistentTable::formatQueryConditions($constraints, $args));
 		$statement->execute($args);
 		$result = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP|PDO::FETCH_COLUMN);
 		$result = array_map(function($a) {return (int) $a[0];}, $result);
@@ -762,7 +733,7 @@ class Database implements Patchable {
 		} else {
 			$constraints['field'] = $fields;
 		}
-		$conditions = $this->formatQueryConditions($constraints, $args);
+		$conditions = PersistentTable::formatQueryConditions($constraints, $args);
 		$statement = $this->connection->prepare('SELECT DISTINCT id FROM (SELECT id, class_id FROM "working_field" UNION SELECT id, class_id FROM "archive_field") WHERE '.$conditions);
 		$statement->execute($args);
 		$result = $statement->fetchAll(PDO::FETCH_COLUMN);
@@ -824,7 +795,7 @@ class Database implements Patchable {
 			throw new Exception("(".Format::arrayToString($fieldIds).") is not a valid set of field IDs.");
 		} else {
 			$args = array();
-			$statement = $this->connection->prepare('SELECT id, field, type, mandatory, timestamp, author_id FROM "working_field" WHERE '.$this->formatQueryConditions(array('id' => $fieldIds), $args));
+			$statement = $this->connection->prepare('SELECT id, field, type, mandatory, timestamp, author_id FROM "working_field" WHERE '.PersistentTable::formatQueryConditions(array('id' => $fieldIds), $args));
 			$statement->execute($args);
 			$metadata = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 			foreach($metadata as $fieldId => $meta) {
@@ -849,7 +820,7 @@ class Database implements Patchable {
 		} else {
 			$metadata = array();
 			$args = array();
-			$statement = $this->connection->prepare('SELECT id, field, type, mandatory, timeCreate, authorCreate_id, timeArchive, authorArchive_id FROM "archive_field" WHERE '.$this->formatQueryConditions(array('id' => $fieldIds), $args));
+			$statement = $this->connection->prepare('SELECT id, field, type, mandatory, timeCreate, authorCreate_id, timeArchive, authorArchive_id FROM "archive_field" WHERE '.PersistentTable::formatQueryConditions(array('id' => $fieldIds), $args));
 			$statement->execute($args);
 			$result = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 			foreach($result as $fieldId => $meta) {
@@ -943,7 +914,7 @@ class Database implements Patchable {
 	}
 	
 	private function copyKeyInArchive($keyId, $timestamp, $authorId) {
-		$this->copyInArchive($keyId, $timestamp, $authorId, 'key', array('field_id'));
+		$this->copyInArchive($keyId, $timestamp, $authorId, 'key');
 	}
 	
 	/*
@@ -1195,13 +1166,13 @@ class Database implements Patchable {
 	private function copyRecordFieldInArchive($recordId, $fieldId, $timestamp, $authorId) {
 		$fieldTypes = $this->getFieldTypes(array($fieldId));
 		$type = $fieldTypes[$fieldId];
-		$this->copyInArchive($recordId, $timestamp, $authorId, $type, array('field_id', 'value'), array('field_id' => $fieldId));
+		$this->copyInArchive($recordId, $timestamp, $authorId, $type, array('field_id' => $fieldId));
 	}
 	
 	private function setRecordField($recordId, $fieldId, $value, $timestamp, $authorId) {
 		$this->copyRecordInArchive($recordId, $timestamp, $authorId, array($fieldId));
 		$type = $this->getFieldType($fieldId);
-		$this->setWorkingValue($recordId, 'value', $value, $timestamp, $authorId, $type, array('field_id' => $fieldId));
+		$this->setWorkingValue('value', $recordId, $value, $timestamp, $authorId, $type, array('field_id' => $fieldId));
 	}
 	
 	private function deleteRecord($recordId, $timestamp, $authorId) {
@@ -1282,7 +1253,7 @@ class Database implements Patchable {
 			foreach($fieldIds as $fieldId) {
 				$type = $fieldTypes[$fieldId];
 				$args = array();
-				$statement = $this->connection->prepare('SELECT value FROM "working_'.$type.'" WHERE '.$this->formatQueryConditions(array('id' => $recordId, 'field_id' => $fieldId), $args));
+				$statement = $this->connection->prepare('SELECT value FROM "working_'.$type.'" WHERE '.PersistentTable::formatQueryConditions(array('id' => $recordId, 'field_id' => $fieldId), $args));
 				$statement->execute($args);
 				$record[$field] = $statement->fetchColumn();
 			}
@@ -1323,7 +1294,7 @@ class Database implements Patchable {
 			foreach($fieldIds as $fieldId) {
 				$type = $fieldTypes[$fieldId];
 				$args = array();
-				$statement = $this->connection->prepare('SELECT field_id, value, timestamp, author_id FROM "working_'.$type.'" WHERE '.$this->formatQueryConditions(array('id' => $recordId, 'field_id' => $fieldId), $args));
+				$statement = $this->connection->prepare('SELECT field_id, value, timestamp, author_id FROM "working_'.$type.'" WHERE '.PersistentTable::formatQueryConditions(array('id' => $recordId, 'field_id' => $fieldId), $args));
 				$statement->execute($args);
 				$recordMeta = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 				foreach($recordMeta as $fieldId => $meta) {
@@ -1357,7 +1328,7 @@ class Database implements Patchable {
 			foreach($fieldIds as $fieldId) {
 				$type = $fieldTypes[$fieldId];
 				$args = array();
-				$statement = $this->connection->prepare('SELECT field_id, value, timeCreate, authorCreate_id, timeArchive, authorArchive_id FROM "archive_'.$type.'" WHERE '.$this->formatQueryConditions(array('id' => $recordId, 'field_id' => $fieldId), $args));
+				$statement = $this->connection->prepare('SELECT field_id, value, timeCreate, authorCreate_id, timeArchive, authorArchive_id FROM "archive_'.$type.'" WHERE '.PersistentTable::formatQueryConditions(array('id' => $recordId, 'field_id' => $fieldId), $args));
 				$statement->execute($args);
 				$recordMeta = $statement->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 				foreach($recordMeta as $fieldId => $metaList) {
