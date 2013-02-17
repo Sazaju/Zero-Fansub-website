@@ -108,8 +108,8 @@ class PersistentTable {
 		return $constraints;
 	}
 	
-	public function getCreationScript($onlyIfNecessary = false) {
-		$check = $onlyIfNecessary ? 'IF NOT EXISTS' : '';
+	public function getCreationScript($ifNotExists = false) {
+		$check = $ifNotExists ? 'IF NOT EXISTS' : '';
 		$name = $this->getName();
 		$columns = Format::arrayToString($this->getColumnDefinitions());
 		$constraints = Format::arrayToString($this->getConstraints());
