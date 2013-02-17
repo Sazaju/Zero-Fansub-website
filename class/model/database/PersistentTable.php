@@ -3,7 +3,7 @@ class PersistentTable {
 	private $type;
 	private $isArchiveMode = false;
 	
-	public function __construct($type) {
+	private function __construct($type) {
 		$this->type = $type;
 	}
 	
@@ -114,6 +114,16 @@ class PersistentTable {
 		$columns = Format::arrayToString($this->getColumnDefinitions());
 		$constraints = Format::arrayToString($this->getConstraints());
 		return 'CREATE TABLE '.$check.' "'.$name.'" ('.$columns.', '.$constraints.')';
+	}
+	
+	private static $tables = array();
+	public static function getTableFor($type) {
+		if (array_key_exists($type, PersistentTable::$tables)) {
+			// do not recreate it
+		} else {
+			PersistentTable::$tables[$type] = new PersistentTable($type);
+		}
+		return PersistentTable::$tables[$type];
 	}
 }
 

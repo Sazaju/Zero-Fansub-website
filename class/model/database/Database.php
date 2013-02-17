@@ -129,7 +129,7 @@ class Database implements Patchable {
 		}
 		
 		foreach(array('class', 'field', 'key') as $type) {
-			$t = new PersistentTable($type);
+			$t = PersistentTable::getTableFor($type);
 			foreach(array(false, true) as $archiveMode) {
 				$t->setArchiveMode($archiveMode);
 				try {
@@ -143,7 +143,7 @@ class Database implements Patchable {
 	
 	private function initMissingTable($type) {
 		$type = $type instanceof PersistentType ? $type->getType() : $type;
-		$t = new PersistentTable($type);
+		$t = PersistentTable::getTableFor($type);
 		foreach(array(false, true) as $archiveMode) {
 			$t->setArchiveMode($archiveMode);
 			$this->connection->exec($t->getCreationScript(true));
