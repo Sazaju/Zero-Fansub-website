@@ -262,6 +262,7 @@ class TeamMember {
 			$member->setImage("shana.png");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setFirstName("Guillaume");
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 
 			$member = new TeamMember();
