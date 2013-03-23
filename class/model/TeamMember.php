@@ -745,7 +745,7 @@ class TeamMember {
 			$member->setImage("Cavi.png");
 			$member->setPseudo("Cavi");
 			$member->addRole(Role::getRole("edit"));
-			$member->setAvailability(TeamMember::POST_GONE);
+			$member->setAvailability(TeamMember::AVAILABLE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
