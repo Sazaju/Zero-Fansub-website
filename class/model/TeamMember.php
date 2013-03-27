@@ -739,6 +739,7 @@ class TeamMember {
 			$member->setImage("brainstorm27.jpg");
 			$member->setPseudo("brainstorm27");
 			$member->addRole(Role::getRole("tradEn"));
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
