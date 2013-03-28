@@ -4589,25 +4589,32 @@ On relance donc nos appels à candidature : un poste d'adapt est à pourvoir. Po
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Résurrection en cours...");
+			$news->setTitle("Résurrection en cours... Kiss X Sis TV 1-3 BD.");
 			//$news->setPublicationTime(strtotime("14 February 2013 17:17"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Pas de news depuis mi-Février, aucune sortie depuis le premier Janvier et on est déjà fin Mars... La team Zéro serait-elle morte ?
+			$news->setMessage("Pas de news depuis mi-février, aucune sortie depuis le premier janvier et on est déjà fin mars... La team Zéro serait-elle morte ?
 
-Oui vous dirons certains (beaucoup ?). Non vous dirons ceux de la team, ces accrocs qui ne veulent pas crever en silence. Mais ce coup-ci, ils ont des arguments les coquins !
+Oui vous dirons certains (beaucoup ?). Non vous dirons ceux de la team, ces accrocs qui ne veulent pas crever en silence. Mais ce coup-ci, ils ont des arguments, les coquins ! {^_^}
 
-Voilà donc une vieille série sortie du tiroir : Kiss X Sis !
+Voilà donc une vieille série sortie du tiroir : [b]Kiss X Sis[/b] !
 Les épisodes 1 à 3 disposent de nouvelles versions.
 
 \"[i]Quoi ?! Seulement des nouvelles versions ?[/i]\"
 
 Et oui, RIEN QUE ça ! Ou presque...
-En fait on les avait depuis un moment, et on attendais d'en avoir un de plus pour dire d'avoir justement du neuf avec. Mais vu qu'on avance peu, c'est l'occasion de se mettre un peu plus de pression ! Maintenant que ceux-là sont sortis, on se doute que vous voulez la suite.
+En fait on les avait depuis un moment, et on attendait d'en avoir un de plus pour dire d'avoir justement du neuf avec. Mais vu qu'on avance peu, c'est l'occasion de se mettre un peu plus de pression ! Maintenant que ceux-là sont sortis, on se doute que vous voulez la suite.
 
 ... Et on est déjà dessus {^_°}.
 
 [img=images/news/readyToWork.png]Un peu de pression ne fait pas de mal.[/img]
-");
+
+La refonte du site a bien avancé, mais il reste encore certaines choses à finaliser avant de pouvoir l'exploiter. Il s'agit aussi de revoir l'interface pour la rendre plus intuitive. Cela dit on n'a qu'un seul programmeur... qui est aussi un des rares adapts et l'unique check jap de la team (impératif pour faire des sous-titres de qualité). Donc forcément, si le site avance, le fansub stagne.
+Et l'IRL n'aide pas...
+
+On a eu quelques nouveaux membres depuis, mais aussi des départs. On a gagné un précieux timeur, chose qu'on n'avait pas jusque-là, mais on a aussi perdu un précieux édit. Ce qui accélère les choses dans un sens, mais les ralentit dans l'autre.
+
+On pense pouvoir faire des sorties plus régulières.
+Du moins, on ne chôme pas en coulisse...");
 			//$news->setCommentId(314);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
