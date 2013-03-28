@@ -4590,7 +4590,7 @@ On relance donc nos appels à candidature : un poste d'adapt est à pourvoir. Po
 			
 			$news = new News();
 			$news->setTitle("Résurrection en cours... Kiss X Sis TV 1-3 Blu-Ray.");
-			//$news->setPublicationTime(strtotime("14 February 2013 17:17"));
+			$news->setPublicationTime(strtotime("28 March 2013 21:46"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Pas de news depuis mi-février, aucune sortie depuis le premier janvier et on est déjà fin mars... La team Zéro serait-elle morte ?
 
@@ -4615,7 +4615,7 @@ On a eu quelques nouveaux membres depuis, mais aussi des départs. On a gagné u
 
 On pense pouvoir faire des sorties plus régulières.
 Du moins, on ne chôme pas en coulisse...");
-			//$news->setCommentId(314);
+			$news->setCommentId(315);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
