@@ -4588,6 +4588,37 @@ On relance donc nos appels à candidature : un poste d'adapt est à pourvoir. Po
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Résurrection en cours...");
+			//$news->setPublicationTime(strtotime("14 February 2013 17:17"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Pas de news depuis mi-Février, aucune sortie depuis le premier Janvier et on est déjà fin Mars... La team Zéro serait-elle morte ?
+
+Oui vous dirons certains (beaucoup ?), non vous dirons ceux de la team, ces accrocs qui ne veulent pas crever en silence. Mais ce coup-ci, ils ont des arguments les coquins !
+
+Voilà donc une vieille série sortie du tiroir : Kiss X Sis !
+Les épisodes 1 à 3 disposent de nouvelles versions.
+
+\"[i]Quoi ?! Seulement des nouvelles versions ?[/i]\"
+
+Et oui, RIEN QUE ça. Ou presque...
+En fait on les avait depuis un moment, et on attendais d'en avoir un de plus pour dire d'avoir justement du neuf avec. Mais vu qu'on avance peu, c'est l'occasion de se mettre un peu plus de pression ! Maintenant que ceux-là sont sortis, on se doute que vous voulez la suite.
+
+... Et on est déjà dessus {^_°}.
+
+[img=images/news/readyToWork.png]Un peu de pression ne fait pas de mal.[/img]
+");
+			//$news->setCommentId(314);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep1'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep2'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep3'));
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
