@@ -23,6 +23,15 @@ class NewsSelector {
 		return $this->hMode;
 	}
 	
+	private $preparedShown = false;
+	public function setPreparedShown($boolean) {
+		$this->preparedShown = $boolean;
+	}
+	
+	public function isPreparedShown() {
+		return $this->preparedShown;
+	}
+	
 	private $constraints = array();
 	private function set($key, $value) {
 		if ($value === null) {
@@ -112,7 +121,7 @@ class NewsSelector {
 	public function isSelectingNews(News $news) {
 		if ($this->isHModeActivated() && !$news->displayInHentaiMode() // wrong mode (H)
 		    || !$this->isHModeActivated() && !$news->displayInNormalMode() // wrong mode (not H)
-		    || !$news->isPublished() // hidden news
+		    || !$this->isPreparedShown() && !$news->isPublished() // unpublished news
 		    ) {
 			return false;
 		} else {

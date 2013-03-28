@@ -7,6 +7,9 @@
 	\******************************/
 	$selected = $url->hasQueryVar('select') ? $url->getQueryVar('select') : NEWSSELECTOR_ALL;
 	$selector = new NewsSelector($selected, $_SESSION[MODE_H]);
+	if (Url::getCurrentUrl()->hasQueryVar('showPrepared')) {
+		$selector->setPreparedShown(true);
+	}
 	$newsList = News::getAllNews($selector);
 	usort($newsList, array('News', 'timestampSorter'));
 	
@@ -49,12 +52,21 @@
 		$options->setClass('testFeatures');
 		$options->addComponent("Options : ");
 		
-		$link = new Link(Url::getCurrentUrl(), "show all");
-		if ($link->getUrl()->hasQueryVar('showAll')) {
-			$link->getUrl()->removeQueryVar('showAll');
+		$link = new Link(Url::getCurrentUrl(), "show prepared");
+		if ($link->getUrl()->hasQueryVar('showPrepared')) {
+			$link->getUrl()->removeQueryVar('showPrepared');
 			$link->setClass('reverse');
 		} else {
-			$link->getUrl()->setQueryVar('showAll');
+			$link->getUrl()->setQueryVar('showPrepared');
+		}
+		$options->addComponent($link);
+		
+		$link = new Link(Url::getCurrentUrl(), "show old");
+		if ($link->getUrl()->hasQueryVar('showOld')) {
+			$link->getUrl()->removeQueryVar('showOld');
+			$link->setClass('reverse');
+		} else {
+			$link->getUrl()->setQueryVar('showOld');
 		}
 		$options->addComponent($link);
 		
@@ -64,7 +76,7 @@
 	$page->addComponent($views);
 	
 	$remaining = 10;
-	if (Url::getCurrentUrl()->hasQueryVar('showAll')) {
+	if (Url::getCurrentUrl()->hasQueryVar('showOld')) {
 		// TODO display this option or implement pages
 		$remaining = -1;
 	}
