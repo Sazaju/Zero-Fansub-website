@@ -4594,15 +4594,15 @@ On relance donc nos appels à candidature : un poste d'adapt est à pourvoir. Po
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Pas de news depuis mi-février, aucune sortie depuis le premier janvier et on est déjà fin mars... La team Zéro serait-elle morte ?
 
-Oui vous dirons certains (beaucoup ?). Non vous dirons ceux de la team, ces accrocs qui ne veulent pas crever en silence. Mais ce coup-ci, ils ont des arguments, les coquins ! {^_^}
+Oui vous diront certains (beaucoup ?). Non vous diront ceux de la team, ces accrocs qui ne veulent pas crever en silence. Mais ce coup-ci, ils ont des arguments, les coquins ! {^_^}
 
 Voilà donc une vieille série sortie du tiroir : [b]Kiss X Sis[/b] !
 Les épisodes 1 à 3 disposent de nouvelles versions.
 
 \"[i]Quoi ?! Seulement des nouvelles versions ?[/i]\"
 
-Et oui, RIEN QUE ça ! Ou presque...
-En fait on les avait depuis un moment, mais les choses avançant peu, ça a fini aux oubliettes {'>_<}. Maintenant qu'on arrive à avancer un peu mieux certaines tâches, c'est l'occasion de se mettre un peu plus de pression : avec ceux-là de sortis, on se doute bien que vous voulez la suite.
+Eh oui, RIEN QUE ça ! Ou presque...
+Maintenant qu'on arrive à avancer un peu mieux certaines tâches, ça se débloque un peu par-ci par-là. Kiss X Sis fait partie des séries débloquées, et on espère donc que la suite arrivera sans trop tarder.
 
 ... Et on est déjà dessus {^_°}.
 
