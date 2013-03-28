@@ -4589,7 +4589,7 @@ On relance donc nos appels à candidature : un poste d'adapt est à pourvoir. Po
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Résurrection en cours... Kiss X Sis TV 1-3 BD.");
+			$news->setTitle("Résurrection en cours... Kiss X Sis TV 1-3 Blu-Ray.");
 			//$news->setPublicationTime(strtotime("14 February 2013 17:17"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Pas de news depuis mi-février, aucune sortie depuis le premier janvier et on est déjà fin mars... La team Zéro serait-elle morte ?
@@ -4602,7 +4602,7 @@ Les épisodes 1 à 3 disposent de nouvelles versions.
 \"[i]Quoi ?! Seulement des nouvelles versions ?[/i]\"
 
 Et oui, RIEN QUE ça ! Ou presque...
-En fait on les avait depuis un moment, et on attendait d'en avoir un de plus pour dire d'avoir justement du neuf avec. Mais vu qu'on avance peu, c'est l'occasion de se mettre un peu plus de pression ! Maintenant que ceux-là sont sortis, on se doute que vous voulez la suite.
+En fait on les avait depuis un moment, mais les choses avançant peu, ça a fini aux oubliettes {'>_<}. Maintenant qu'on arrive à avancer un peu mieux certaines tâches, c'est l'occasion de se mettre un peu plus de pression : avec ceux-là de sortis, on se doute bien que vous voulez la suite.
 
 ... Et on est déjà dessus {^_°}.
 
