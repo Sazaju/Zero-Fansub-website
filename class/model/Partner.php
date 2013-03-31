@@ -108,7 +108,7 @@ class Partner {
 			$partner = new Partner();
 			$partner->setID('samazama');
 			$partner->setName("Samazama na Koto");
-			$partner->setWebsiteUrl('http://samazamablog.wordpress.com/');
+			$partner->setWebsiteUrl('http://www.samazama.fr');
 			$partner->setBannerUrl('images/partenaires/samazama.gif');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
