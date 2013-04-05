@@ -27,7 +27,7 @@
 		$link = $news->getUrl()->toFullString();
 		$message = Format::convertTextToHtml($news->getMessage());
 		$description = Format::truncateText(strip_tags($message), 300);
-		$timestamp = $news->getTimestamp();
+		$timestamp = $news->getPublicationTime();
 		
 		$item = '';
 		$item .= '<title>'.htmlspecialchars($title).'</title>';
