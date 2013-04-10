@@ -103,6 +103,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/kouhai.jpg');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
