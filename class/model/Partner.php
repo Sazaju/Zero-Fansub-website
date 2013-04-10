@@ -94,6 +94,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/kanaii.png');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
