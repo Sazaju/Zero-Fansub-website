@@ -4626,6 +4626,31 @@ Du moins, on ne chôme pas en coulisse...");
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep3'));
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Kiss X Sis TV 4-5 BD");
+			$news->setPublicationTime(strtotime("26 April 2013 18:20"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Réjouissez-vous, vile populace ! Après avoir sorti 3 épisodes de KxS, en voilà encore 2 de plus. Et surtout, moins d'un mois après. Si si, c'est pas une blague !
+
+[img=images/news/pasPossible.png]Sérieux ? Déjà ?[/img]
+
+Voyez donc comme on s'active pour satisfaire votre libido !
+
+...
+
+Comment ça, surtout la notre ? Mais non... Enfin... Il faut bien qu'on regarde pour pouvoir traduire quoi... Et plusieurs fois pour être sûr d'avoir bien compris... Mais c'est vraiment parce qu'on n'a pas le choix ! Si c'était pas pour vous, on ne le ferai pas... enfin peut-être pas... probablement...
+
+Bref, qui s'en préoccupe ? Les liens sont dispos, alors arrêtez de nous embêter et allez les déguster sans modération !");
+			$news->setCommentId(316);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep4'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep5'));
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
