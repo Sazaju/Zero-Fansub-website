@@ -4627,7 +4627,7 @@ Du moins, on ne chôme pas en coulisse...");
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Kiss X Sis TV 4-5 BD");
+			$news->setTitle("Kiss X Sis TV 4-5 Blu-Ray");
 			$news->setPublicationTime(strtotime("26 April 2013 18:20"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Réjouissez-vous, vile populace ! Après avoir sorti 3 épisodes de KxS, en voilà encore 2 de plus. Et surtout, moins d'un mois après. Si si, c'est pas une blague !
