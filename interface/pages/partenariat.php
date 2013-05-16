@@ -2,7 +2,7 @@
 	$page = PageContent::getInstance();
 	
 	$page->addComponent(new Title("Partenariat", 1));
-	$link = new Link("http://forum.zerofansub.net/t552-Les-regles-d-Or-de-chez-Zero.htm#p17057", "Conditions, Offres (a lire avant toute demande !)");
+	$link = new Link("http://forum.zerofansub.net/t552-Les-regles-d-Or-de-chez-Zero.htm#p17057", "Conditions, Offres (à lire avant toute demande !)");
 	$link->openNewWindow(true);
 	$link->setMetadata("style", "display: block; border: 1px solid black; font-size: 150%; padding: 0.2em; margin: 1em; background-color: gray; color: red;");
 	$page->addComponent($link);
