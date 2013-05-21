@@ -225,10 +225,10 @@ class TeamMember {
 			$member->addRole(Role::getRole("qc"));
 			$member->addRole(Role::getRole("forumadmin"));
 			$member->setIsAdmin(true);
-			$member->setFirstName("Piet");
-			$member->setAge(30);
+			//$member->setFirstName("Piet");
+			//$member->setAge(30);
 			$member->setLocation("Belgique");
-			$member->setMail("raiapietro_dam22@hotmail.com");
+			//$member->setMail("raiapietro_dam22@hotmail.com");
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
@@ -733,6 +733,7 @@ class TeamMember {
 			$member->setImage("kupoftea.jpg");
 			$member->setPseudo("KupofTea");
 			$member->addRole(Role::getRole("graphiste"));
+			$member->setAvailability(TeamMember::POST_GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
@@ -746,7 +747,7 @@ class TeamMember {
 			$member->setImage("Cavi.png");
 			$member->setPseudo("Cavi");
 			$member->addRole(Role::getRole("edit"));
-			$member->setAvailability(TeamMember::AVAILABLE);
+			$member->setAvailability(TeamMember::POST_GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
