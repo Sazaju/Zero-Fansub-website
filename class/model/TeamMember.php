@@ -221,7 +221,7 @@ class TeamMember {
 			$member = new TeamMember();
 			$member->setPseudo("praia");
 			$member->setImage("praia.jpg");
-			$member->addRole(Role::getRole("verifFinale"));
+			$member->addRole(Role::getRole("ortho"));
 			$member->addRole(Role::getRole("qc"));
 			$member->addRole(Role::getRole("forumadmin"));
 			$member->setIsAdmin(true);

@@ -43,8 +43,9 @@ class Role {
 			Role::$allRoles[] = new Role('kara', 'karaoké');
 			Role::$allRoles[] = new Role('check', 'check');
 			Role::$allRoles[] = new Role('checkTrad', 'check traduction');
-			Role::$allRoles[] = new Role('qc', 'QC');
+			Role::$allRoles[] = new Role('qc', 'contrôle qualité');
 			Role::$allRoles[] = new Role('verifFinale', 'vérif finale');
+			Role::$allRoles[] = new Role('ortho', 'orthographe');
 			Role::$allRoles[] = new Role('encod', 'encodage');
 			Role::$allRoles[] = new Role('sorties', 'sorties');
 			Role::$allRoles[] = new Role('torrent', 'tracker BT');
