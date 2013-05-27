@@ -762,6 +762,18 @@ class TeamMember {
 			$member->setPseudo("BigMoon");
 			$member->addRole(Role::getRole("time"));
 			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember();
+			$member->setImage("sysmetrix.gif");
+			$member->setPseudo("sysmetrix");
+			$member->addRole(Role::getRole("adapt"));
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember();
+			$member->setImage("azy.png");
+			$member->setPseudo("Azy");
+			$member->addRole(Role::getRole("tradEn"));
+			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;
 	}
