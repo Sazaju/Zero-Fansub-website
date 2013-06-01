@@ -189,6 +189,30 @@ class Partner {
 			$partner->setOfficial(true);
 			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('adala-news');
+			$partner->setName("Adala News");
+			$partner->setWebsiteUrl('http://adala-news.fr/');
+			$partner->setBannerUrl('images/partenaires/adala-news.jpg');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('icotaku');
+			$partner->setName("Icotaku");
+			$partner->setWebsiteUrl('http://www.icotaku.com/');
+			$partner->setBannerUrl('images/partenaires/icotaku.gif');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('anidb');
+			$partner->setName("AniDB");
+			$partner->setWebsiteUrl('http://anidb.net');
+			$partner->setBannerUrl('images/partenaires/anidb.png');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
 		}
 		return Partner::$allPartners;
 	}
