@@ -6,41 +6,24 @@
 	$logo->setClass("logo");
 	$rightCol->addComponent($logo);
 	
-	$partners = Partner::getAllPartners();
-	$partners = array_filter($partners, function(Partner $partner) {return !$partner->isOver();});
-	
-	$menu = new Menu("db0 company");
+	$partners = array_filter(Partner::getAllPartners(), function(Partner $partner) {return !$partner->isOver();});
+	$partnerMenu = new Menu("Partenaires");
+	$crushMenu = new Menu("Coups de cœur");
 	foreach($partners as $partner) {
-		if ($partner->isDb0Company()) {
-			$link = new PartnerLink($partner);
-			$link->setUseImage(true);
-			$menu->addEntry($link);
+		$link = new PartnerLink($partner);
+		$link->setUseImage(true);
+		if ($partner->isOfficial()) {
+			$partnerMenu->addEntry($link);
+		} else {
+			$crushMenu->addEntry($link);
 		}
 	}
-	$rightCol->addComponent(new MenuComponent($menu));
 	
-	$menu = new Menu("Fansub potes");
-	foreach($partners as $partner) {
-		if ($partner->isFansubPartner()) {
-			$link = new PartnerLink($partner);
-			$link->setUseImage(true);
-			$menu->addEntry($link);
-		}
-	}
-	$rightCol->addComponent(new MenuComponent($menu));
+	$becomePartnerLink = new Link("?page=partenariat", "Devenir partenaires");
+	$becomePartnerLink->setClass('become-partner');
+	$partnerMenu->addEntry($becomePartnerLink);
 	
-	$menu = new Menu("Liens");
-	foreach($partners as $partner) {
-		if (!$partner->isFansubPartner() && !$partner->isDb0Company()) {
-			$link = new PartnerLink($partner);
-			$link->setUseImage(true);
-			$menu->addEntry($link);
-		}
-	}
-	$rightCol->addComponent(new MenuComponent($menu));
-	
-	$menu = new Menu(new Link("?page=partenariat", "Devenir partenaires"));
-	$rightCol->addComponent(new MenuComponent($menu));
-	
+	$rightCol->addComponent(new MenuComponent($partnerMenu));
+	$rightCol->addComponent(new MenuComponent($crushMenu));
 	$rightCol->writeNow();
 ?>

@@ -71,30 +71,6 @@
               MENUS
 \******************************/
 
-#colLeft, #colRight {
-	position: absolute;
-} 
-
-#colRight {
-	margin-left: 827px;
-} 
-
-#colLeft .cornerImage {
-	display: block;
-	height: 250px;
-	text-align: center;
-	margin-bottom: 0px;
-}
-
-#colRight .logo {
-	margin: auto;
-	margin-bottom: 7px;
-}
-
-#colRight .logo:after {/*should not be after, nor before, but does not work with Firefox 17 without this*/
-	content: url('images/logo.png');
-}
-
 .menu {
 	border: 5px solid rgb(128, 128, 128);
     -moz-border-radius-topleft: 15px;
@@ -126,6 +102,42 @@
 
 .menu a{
 	color: rgb(80,80,80);
+}
+
+#colLeft, #colRight {
+	position: absolute;
+} 
+
+#colRight {
+	margin-left: 827px;
+} 
+
+#colLeft .cornerImage {
+	display: block;
+	height: 250px;
+	text-align: center;
+	margin-bottom: 0px;
+}
+
+#colRight .menu {
+	padding: 1em 20px;
+	text-align: center;
+}
+
+#colRight .logo {
+	margin: auto;
+	margin-bottom: 7px;
+}
+
+#colRight .logo:after {/*should not be after, nor before, but does not work with Firefox 17 without this*/
+	content: url('images/logo.png');
+}
+
+#colRight .become-partner {
+	color: 1px solid rgb(128, 128, 128);
+	text-align: center;
+	font-weight: bold;
+	display: block;
 }
 
 /******************************\

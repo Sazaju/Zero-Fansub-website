@@ -4,9 +4,18 @@ class Partner {
 	private $name = null;
 	private $websiteUrl = null;
 	private $bannerUrl = null;
-	private $isFansubPartner = null;
-	private $isDb0Company = null;
-	private $isOver = null;
+	private $isFansubPartner = false;
+	private $isDb0Company = false;
+	private $isOver = false;
+	private $isOfficial = false;
+	
+	public function setOfficial($boolean) {
+		$this->isOfficial = $boolean;
+	}
+	
+	public function isOfficial() {
+		return $this->isOfficial;
+	}
 	
 	public function setOver($boolean) {
 		$this->isOver = $boolean;
@@ -76,6 +85,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/finalfan.png');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -85,6 +95,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/mangas_arigatou.png');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -94,6 +105,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/kanaii.png');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
@@ -104,6 +116,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/kouhai.jpg');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
@@ -114,6 +127,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/samazama.gif');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -123,6 +137,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/sky.png');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -132,6 +147,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/anime-ultime.jpg');
 			$partner->setFansubPartner(false);
 			$partner->setDb0Company(true);
+			$partner->setOfficial(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -141,6 +157,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/animeka.jpg');
 			$partner->setFansubPartner(false);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -149,6 +166,7 @@ class Partner {
 			$partner->setWebsiteUrl('http://japanslash.free.fr');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
@@ -158,6 +176,7 @@ class Partner {
 			$partner->setWebsiteUrl('http://kyoutsu-subs.over-blog.com');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
@@ -167,6 +186,7 @@ class Partner {
 			$partner->setWebsiteUrl('http://db0.fr');
 			$partner->setFansubPartner(false);
 			$partner->setDb0Company(true);
+			$partner->setOfficial(true);
 			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 		}
