@@ -213,6 +213,14 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/anidb.png');
 			$partner->setOfficial(false);
 			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('otaku-attitude');
+			$partner->setName("Otaku-Attitude");
+			$partner->setWebsiteUrl('http://www.otaku-attitude.net/');
+			$partner->setBannerUrl('images/partenaires/otaku-attitude.png');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
 		}
 		return Partner::$allPartners;
 	}
