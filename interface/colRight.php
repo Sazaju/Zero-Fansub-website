@@ -7,6 +7,7 @@
 	$rightCol->addComponent($logo);
 	
 	$partners = array_filter(Partner::getAllPartners(), function(Partner $partner) {return !$partner->isOver();});
+	usort($partners, function($a, $b) { return strnatcasecmp($a->getName(), $b->getName()); });
 	$partnerMenu = new Menu("Partenaires");
 	$crushMenu = new Menu("Coups de cœur");
 	foreach($partners as $partner) {
