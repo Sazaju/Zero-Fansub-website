@@ -221,6 +221,22 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/otaku-attitude.png');
 			$partner->setOfficial(false);
 			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('myanimelist');
+			$partner->setName("MyAnimeList");
+			$partner->setWebsiteUrl('http://myanimelist.net/');
+			$partner->setBannerUrl('images/partenaires/myanimelist.png');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('sky-animes');
+			$partner->setName("Sky-Animes");
+			$partner->setWebsiteUrl('http://www.sky-animes.com');
+			$partner->setBannerUrl('images/partenaires/sky-animes.gif');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
 		}
 		return Partner::$allPartners;
 	}
