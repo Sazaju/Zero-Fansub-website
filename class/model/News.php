@@ -4659,7 +4659,7 @@ Bref, qui s'en préoccupe ? Les liens sont dispos, alors arrêtez de nous embêt
 
 Non, n'allez pas voir ailleurs ! {;o;}°
 
-Bon, pour me faire pardonner, voilà non pas 1, ni 2 ni 3 ZÉROS... bon d'accord, c'était facile... Donc, voilà 4 épisodes de Denpa ! Ça, c'est du scoop ! Faites-le savoir à vos amis ! Utilisez les liens facebook et autre en fin de news ! {^_°}
+Bon, pour me faire pardonner, voilà non pas 1, ni 2, ni 3 ZÉROS... bon d'accord, c'était facile... Donc, voilà 4 épisodes de Denpa ! Ça, c'est du scoop ! Faites-le savoir à vos amis ! Utilisez les liens facebook et autre en fin de news ! {^_°}
 
 [img=images/news/avertissez-vos-amis.png]Faites passer le message ![/img]
 
