@@ -4651,6 +4651,31 @@ Bref, qui s'en préoccupe ? Les liens sont dispos, alors arrêtez de nous embêt
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep5'));
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Denpa 6-9 Blu-Ray");
+			$news->setPublicationTime(strtotime('2 June 2013 11:54'));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Yo {^_^}°, voilà un bon mois qu'on n'a rien posté. Désolé c'est ma faute, je suis assez occupé du coup je bloque tout le monde. Et oui, c'est moi qui contrôle votre consommation d'animes ! Muahahaha !
+
+Non, n'allez pas voir ailleurs ! {;o;}°
+
+Bon, pour me faire pardonner voilà non pas 1, ni 2, ni 3 ZÉROS... bon d'accord, c'était facile... Donc voilà 4 épisodes de Denpa ! Ça c'est du scoop ! Faites-le savoir à vos amis ! Utilisez les liens facebook et autre en fin de news ! {^_°}
+
+[img=images/news/avertissez-vos-amis.png]Faites passer le message ![/img]
+
+Sur ceux, bon mattage ! Et n'oubliez pas de partager !");
+			$news->setCommentId(317);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('denpa', 'ep6'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep7'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep8'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep9'));
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
