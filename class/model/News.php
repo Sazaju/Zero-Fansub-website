@@ -4680,13 +4680,13 @@ Sur ceux, bon mattage ! Et n'oubliez pas de partager !");
 			$news->setTitle("Recrutement trad. EN-FR");
 			$news->setPublicationTime(strtotime("29 June 2013 16:16"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Allez ! Ça faisait un moment qu'on ne vous l'avez pas fait, mais il ne faut pass oublier qu'on est toujours en demande de gens motivés voulant participer à la promotion de l'animation japonaise {^_^}.
+			$news->setMessage("Allez ! Ça faisait un moment qu'on ne vous l'avez pas fait, mais il ne faut pas oublier qu'on est toujours en demande de gens motivés voulant participer à la promotion de l'animation japonaise {^_^}.
 
-Sachez donc qu'une place de traducteur vous attend. Traducteur anglais-français, mais si vous avez des bases de japonais, voire plus, c'est tout bonus {^_°}.
+Sachez donc qu'une place de traducteur vous attend. Traducteur anglais-français, mais si vous avez des bases (voire plus) de japonais, c'est tout bonus {^_°}.
 
 [img=images/news/trad-enjoy.png][/img]
 
-Pour déposer votre candidature, direction la [url=?page=recruit]page de recrutement[/url].
+Pour déposer votre candidature, direction la [url=?page=recruit]page de recrutement[/url] !
 
 À tout de suite {^_^}°.");
 			$news->setCommentId(318);
