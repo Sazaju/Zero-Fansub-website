@@ -4676,6 +4676,27 @@ Sur ceux, bon mattage ! Et n'oubliez pas de partager !");
 			$news->addReleasing(Release::getRelease('denpa', 'ep9'));
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement trad. EN-FR");
+			$news->setPublicationTime(strtotime("29 June 2013 16:16"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez ! Ça faisait un moment qu'on ne vous l'avez pas fait, mais il ne faut pass oublier qu'on est toujours en demande de gens motivés voulant participer à la promotion de l'animation japonaise {^_^}.
+
+Sachez donc qu'une place de traducteur vous attend. Traducteur anglais-français, mais si vous avez des bases de japonais, voire plus, c'est tout bonus {^_°}.
+
+[img=images/news/trad-enjoy.png][/img]
+
+Pour déposer votre candidature, direction la [url=?page=recruit]page de recrutement[/url].
+
+À tout de suite {^_^}°.");
+			$news->setCommentId(318);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
