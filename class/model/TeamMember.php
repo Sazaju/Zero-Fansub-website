@@ -733,7 +733,7 @@ class TeamMember {
 			$member->setImage("kupoftea.jpg");
 			$member->setPseudo("KupofTea");
 			$member->addRole(Role::getRole("graphiste"));
-			$member->setAvailability(TeamMember::POST_GONE);
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
@@ -747,14 +747,14 @@ class TeamMember {
 			$member->setImage("Cavi.png");
 			$member->setPseudo("Cavi");
 			$member->addRole(Role::getRole("edit"));
-			$member->setAvailability(TeamMember::POST_GONE);
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
 			$member->setImage("Phantafun.png");
 			$member->setPseudo("Phantafun");
 			$member->addRole(Role::getRole("adapt"));
-			$member->setAvailability(TeamMember::POST_GONE);
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
