@@ -4697,6 +4697,21 @@ Pour déposer votre candidature, direction la [url=?page=recruit]page de recrute
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement adaptation + édition");
+			$news->setPublicationTime(strtotime("2013-07-10 21:17"));
+			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Dans la suite de la news précédente, on cherche des bonnes âmes pour nous aider à avancer sur nos projets. On a une place disponible pour ceux qui aiment jouer avec les mots (adaptation) et une autre pour ceux qui aiment jouer avec les images (édition).
+
+Pour déposer votre candidature, direction la [url=?page=recruit]page de recrutement[/url] !");
+			$news->setCommentId(319);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 /*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
