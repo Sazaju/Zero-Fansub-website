@@ -292,20 +292,9 @@ Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
 			$group = new ProjectGroup('kissxsis', $name);
 			$group->addProject('kissxsis');
 			$group->addProject('kissxsisoav');
-			$group->addBonus(new ProjectBonus("Scantrad (Manga)", 'Ces mangas sont traduits par l\'équipe de Scantrad Française <a href="http://www.ecchi-scan.com/" target="_blank">Ecchi-no-chikara <img src="images/partenaires/ecchi.png" /></a> et <a href="http://kouhaiscantrad.wordpress.com" target="_blank">Kouhai Scantrad <img src="images/partenaires/kouhai.jpg" /></a><br />
+			$group->addBonus(new ProjectBonus("Scantrad (Manga)", 'Ces mangas ont d\'abord été traduits par l\'équipe de Scantrad Française <a href="http://www.ecchi-scan.com/" target="_blank">Ecchi-no-chikara <img src="images/partenaires/ecchi.png" /></a> et <a href="http://kouhaiscantrad.wordpress.com" target="_blank">Kouhai Scantrad <img src="images/partenaires/kouhai.jpg" target="_blank" /></a>. La traduction a ensuite été reprise par la <a href="http://hime-team.over-blog.com/">Hime Team</a>.
 Si vous aimez leur travail, allez les remercier sur leur site !<br /><br />
-<img src="images/autre/kxstome1.jpg" alt="Kiss X Sis tome 1" style="float:right;"/>
-<a href="http://www.megaupload.com/?d=N0GUHPBW" target="_blank">Chapitre 00</a><br />
-<a href="http://www.megaupload.com/?d=VLK1J43B" target="_blank">Chapitre 01</a><br />
-<a href="http://www.megaupload.com/?d=PR61TD9L" target="_blank">Chapitre 02</a><br />
-<a href="http://www.megaupload.com/?d=C5WX2GE2" target="_blank">Chapitre 03</a><br />
-<a href="http://www.megaupload.com/?d=MGLWWRLN" target="_blank">Chapitre 04</a><br />
-<a href="http://www.mediafire.com/?njzwnmdmmwx" target="_blank">Chapitre 05</a><br />
-<a href="http://www.multiupload.com/QKV5Q4QC9I" target="_blank">Chapitre 06</a><br />
-<a href="http://www.multiupload.com/IE23SC2GST" target="_blank">Tome 01 (Chapitres 01 a 06)</a><br />
-<a href="http://www.multiupload.com/6N9GJIPN5B" target="_blank">Chapitre 07</a><br />
-<a href="http://www.multiupload.com/A9A6UWFB2M" target="_blank">Chapitre 08</a><br />
-<a href="http://www.multiupload.com/C5UAALT969" target="_blank">Chapitre 09</a><br />'));
+Vous trouverez tous les chapitres sur <a href="http://hime-team.over-blog.com/kissxsis" target="_blank">la page de la Hime Team</a>.'));
 			$group->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
 
