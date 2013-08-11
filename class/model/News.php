@@ -4712,19 +4712,20 @@ Pour déposer votre candidature, direction la [url=?page=recruit]page de recrute
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
-/*
 			$news = new News();
 			$news->setTitle("Mise à jour du site v3.6");
-			$news->setPublicationTime(strtotime("31 December 2012 15:56"));
+			$news->setPublicationTime(strtotime("11 August 2013 21:40"));
 			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Depuis la v3.5, plusieurs petites évolutions ont eu lieu. Comme d'habitude, peu d'influence sur le rendu, surtout une refonte du code interne.
 
 [spoiler=Cliquez ici pour montrer les changements.]
 [left][list]
 	[item]Renouvellement des flux RSS (les plus attentifs devraient l'avoir remarqué depuis longtemps) avec la possibilité de les paramétrer : l'icône RSS que vous pouvez voir à côté de \"Vues\" vous permet d'accéder au flux RSS de la vue courante, il existe aussi de quoi contrôler la taille de la liste. Je ne détaille pas car ça peut encore changer (reportez-vous au code sur GitHub pour les plus curieux, ou demandez tout simplement {^_^}).[/item]
-	[item]Revue de la page à propos pour intégrer les dernières versions du site (avec une mise à jour automatique... normalement).[/item]
-	[item]Ajout du style pour Noël (avec changement annuel automatique).[/item]
-	[item]Extension de la fonctionnalité de programmation : on pouvait préparer les news pour qu'elles s'affichet à une heure donnée, on peut faire de même avec les releases et projets maintenant.[/item]
+	[item]Revue de la page \"à propos\" pour intégrer les dernières versions du site (avec une mise à jour automatique... normalement... donc celle-ci doit aussi apparaître).[/item]
+	[item]Ajout du style pour Noël (avec changement annuel automatique). D'ailleurs c'était déjà en cours d'utilisation durant le dernier Noël.[/item]
+	[item]Extension de la fonctionnalité de programmation : on pouvait préparer les news pour qu'elles s'affichent à une heure donnée, on peut faire de même avec les releases et projets maintenant.[/item]
+	[item]Une meilleure gestion et un meilleur affichage des membres de l'équipe (on considère les disponibilités, quelqu'un qui fait une pause n'est pas nécessairement \"plus de chez nous\").[/item]
+	[item]Passage à du code HTML 5. Comme dit précédemment, on ne change pas le rendu, donc pas de fonctions avancées. On précise juste la sémantique grace à quelques balises haut niveau (notamment [code]section[/code], [code]article[/code], [code]nav[/code], [code]header[/code], [code]footer[/code]).[/item]
 	[item]Plusieurs corrections orthographiques/grammaticales dans nos séries, corrections de liens morts, etc.[/item]
 	[item]Autres nettoyages de code, corrections de bugs et trucs du genre.[/item]
 [/list][/left]
@@ -4741,21 +4742,20 @@ Le candidat doit :
 	[item]Connaître ou avoir envie d'utiliser Git et GitHub (bases suffisantes, inutile d'être un expert).[/item]
 	[item]Être prêt à apprendre et faire des choses qu'il ne maîtrise pas du tout, quitte à recommencer plusieurs fois jusqu'à ce que ça marche du feu de Dieu.[/item]
 [/list]
-Le dernier point, bien que ça semble être du bon sens, est plus profond. En effet, je fais de la recherche en informatique (IRL), et donc j'utilise des techniques qui sont à l'état de l'art (façon compliquée de dire [i]nouvelles[/i]) et n'hésite pas à revoir depuis zéro des principes de base pour faire des choses plus optimisées. Il est donc important que le candidat n'ait pas froid aux yeux.
+Le dernier point, bien que ça semble être du bon sens, est plus profond. En effet, je fais de la recherche en informatique (AFK), et donc j'utilise des techniques qui sont à l'état de l'art (façon compliquée de dire [i]nouvelles[/i] ou [i]aux oubliettes[/i], c'est selon l'âge) et n'hésite pas à revoir depuis zéro des principes de base pour faire des choses plus optimisées. Il est donc important que le candidat n'ait pas froid aux yeux.
 
 Mais soyez rassurés, je serai derrière vous et toutes les modifs passeront par moi, donc pas de soucis pour ceux qui craindraient faire des bétises. Vous n'aurez aucune influence directe sur le site. De même, vous travaillez sur votre propre copie du site, donc vous pouvez essayer tout et n'importe quoi, comme ça vous chante. Enfin, on commencera avec des tâches simples (j'en ai un paquet) dire de prendre en main le code avant de passer aux choses sérieuses {^_°}.
 
 Une autre précision est que, bien que je recherche un candidat, n'importe qui peut participer (le site est en [url=https://github.com/Sazaju/Zero-Fansub-website]open source sur GitHub[/url]). C'est juste que je cherche quelqu'un qui s'impliquera de manière plus active et qui sera donc régulièrement présent sur le forum, en tant que membre de la team. Il peut bien entendu postuler pour une tâche de fansub si le cœur lui en dit, mais ça ne sera pas sa tâche principale. J'ai pas mal de tâches à faire, dont certaines sont assez conséquentes. Il y a de quoi s'amuser pour un bon moment {^_^}.
 [/left]
 [/spoiler]");
-			$news->setCommentId(302);
+			$news->setCommentId(320);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
 			$news->setTeamNews(true);
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
-*/
 			
 			$ids = array();
 			foreach(News::$allNews as $news) {
