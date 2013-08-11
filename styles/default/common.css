@@ -28,6 +28,10 @@ a:active, a:focus {
 	color: #FF5555 !important;
 }
 
+code {
+	white-space: pre-wrap;
+}
+
 .warning {
 	color: red;
 	font-weight: bold;

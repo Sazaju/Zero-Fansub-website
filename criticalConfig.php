@@ -10,7 +10,8 @@
 		<link rel="icon" type="image/gif" href="fav.gif" />
 		<link rel="shortcut icon" href="fav.ico" />
 		<style type="text/css">
-			pre.code {
+			code {
+				display: block;
 				text-align: left;
 				border: 1px black solid;
 				padding: 5px;
@@ -27,7 +28,7 @@
 				<p>
 					Le fichier <b><?php echo $criticalDataFile; ?></b> n'existe pas ou ses données ne sont pas correctes. Il vous faut donc le créer ou le corriger. Pour se faire, ouvrez un fichier portant ce nom à la racine du site (au même endroit que l'index) et remplissez-le selon ce modèle :
 				</p>
-				<pre class='code'>&lt;?php
+				<code>&lt;?php
 /*
 	This file contains critical data and should never be written
 	in the repository of a version management system (ensure it
@@ -39,7 +40,7 @@ define('DB_NAME', 'zero-fansub');
 define('DB_HOST', '127.0.0.1');
 define('DB_USER', 'zero');
 define('DB_PASS', 'pass');
-?&gt;</pre>
+?&gt;</code>
 				
 				<p>Les informations présentes dans ce fichier correspondent aux données de connexions à la base de données. Les termes en majuscules (comme DB_NAME) sont les <b>noms</b> des constantes utilisées dans le code pour appeler ces données. Les <b>valeurs</b> associées (par exemple 'zero-fansub') correspondent aux informations à personnaliser. Ce modèle est un exemple, libre à vous d'utiliser les même <b>valeurs</b> ou de les changer (notamment le mot de passe), les <b>noms</b> des constantes en revanche ne peuvent pas être changées. Si vous êtes un développeur qui utilise sa propre base de données pour faire ses tests, vous pouvez réutiliser ce modèle tel quel ou changer les données selon vos préférences (mais évitez d'utiliser les mêmes valeurs que celles du serveur officiel si vous les connaissez).</p>
 				
