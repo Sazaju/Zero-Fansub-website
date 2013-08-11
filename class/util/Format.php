@@ -29,6 +29,30 @@ class Format {
 			}
 		}
 
+		// ignore typical tags which care about the exact content
+		$indexMerge = -1;
+		$mergingLevel = 0;
+		foreach ($array as $index => $row) {
+			if ($indexMerge != -1) {
+				$content = is_array($row) ? $row[0] : $row;
+				$array[$indexMerge] .= $content;
+				unset($array[$index]);
+				
+				if (is_array($row)) {
+					$mergingLevel += $row[1] ? 1 : -1;
+				}
+				if ($mergingLevel <= 0) {
+					$indexMerge = -1;
+				}
+			} else if (is_array($row) && preg_match("#^</?(code|pre)#", $row[0])) {
+				$array[$index] = $row[0];
+				$indexMerge = $index;
+				$mergingLevel = 1;
+			} else {
+				// do nothing to a string out of such block
+			}
+		}
+
 		// consistency check
 		$temp = array_filter($array, function($row) {
 					return is_array($row);
@@ -133,7 +157,7 @@ class Format {
 
 		// wrap too long lines
 		foreach ($array as $index => $row) {
-			if (is_string($row)) {
+			if (is_string($row) && !preg_match("#^</?(code|pre)#", $row)) {
 				if (strlen($row) > $wrapSize) {
 					Format::introduceRows($array, $index, wordwrap($row, $wrapSize, "\n", false));
 				} else {
