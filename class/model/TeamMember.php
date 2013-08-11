@@ -262,7 +262,6 @@ class TeamMember {
 			$member->setImage("shana.png");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setFirstName("Guillaume");
-			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 
 			$member = new TeamMember();
@@ -772,6 +771,19 @@ class TeamMember {
 			$member = new TeamMember();
 			$member->setImage("azy.png");
 			$member->setPseudo("Azy");
+			$member->addRole(Role::getRole("tradEn"));
+			$member->setAvailability(TeamMember::GONE);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember();
+			$member->setImage("Greymantle.jpg");
+			$member->setPseudo("Greymantle");
+			$member->addRole(Role::getRole("adapt"));
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember();
+			$member->setImage("ZaoG.gif");
+			$member->setPseudo("ZaoG");
 			$member->addRole(Role::getRole("tradEn"));
 			TeamMember::$allMembers[] = $member;
 		}
