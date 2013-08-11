@@ -1,3 +1,11 @@
+#page.dossiers a:hover * {
+	background-color: #DDD;
+}
+
+#page.dossiers a:hover {
+	text-decoration: none !important;
+}
+
 #page.dossierPage .returnLink {
 	display: block;
 	margin: 1em 0 0 50px;

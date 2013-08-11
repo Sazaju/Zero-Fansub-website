@@ -1,5 +1,6 @@
 <?php
 	$page = PageContent::getInstance();
+	$page->setClass('dossiers');
 	
 	$page->addComponent(new Title("Dossiers", 1));
 	
