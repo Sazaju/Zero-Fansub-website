@@ -2,7 +2,7 @@
 /*
 	A release component is an HTML element displaying a single release.
 */
-class ReleaseComponent extends SimpleBlockComponent {
+class ReleaseComponent extends ArticleComponent {
 	public function __construct(Release $release, $forceDisplay = false) {
 		$this->addComponent(new Anchor($release->getID()));
 		

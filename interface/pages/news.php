@@ -30,7 +30,7 @@
 		$viewsLinks->addComponent(new Link(new Url($url), $name));
 	}
 	
-	$views = new SimpleBlockComponent();
+	$views = new HeaderComponent();
 	$views->setClass("views");
 	$rssUrl = new Url('rss.php');
 	$rssUrl->setQueryVar('select', empty($selected) ? null : $selected, true);

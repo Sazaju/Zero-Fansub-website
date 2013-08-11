@@ -64,7 +64,7 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 \**********************************/
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 	<head>
 		<title>Zéro ~fansub~ :: Le Site Officiel <?php echo WEBSITE_VERSION?></title>
@@ -83,6 +83,15 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 			$variant .= ($month == 12 && $day >= 15 && $day <= 31) ? "Xmas" : "";
 			$styleFile = "styles/".$_SESSION[STYLE]."/style".$variant.".css";
 		?>
+		<style type="text/css">
+			/* HTML 4 compatibility */
+			article, aside, figcaption, figure, footer, header, hgroup, nav, section {
+				display: block;
+			}
+		</style>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 		<link rel="stylesheet" href="<?php echo $styleFile; ?>" type="text/css" media="screen" title="Normal" />  
 		<link rel="icon" type="image/gif" href="favicon.gif" />
 		<link rel="shortcut icon" href="favicon.ico" />
@@ -101,88 +110,92 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 		</script>
 	</head>
 	<body>
-		<!--FACEBOOK-->
-		<div id="fb-root"></div>
-		<script>
-			(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
-		<!--/FACEBOOK-->
-		<!--GOOGLE-->
-		<script type="text/javascript">
-			window.___gcfg = {lang: 'fr'};
-			
-			(function() {
-				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-				po.src = 'https://apis.google.com/js/plusone.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-			})();
-		</script>
-		<!--/GOOGLE-->
-		<?php
-			$preload = new SimpleBlockComponent();
-			$preload->setID("preload");
-			$preload->setClass("hidden");
-			$dir = "styles/".$_SESSION[STYLE]."/images/";
-			$descStack = DirectoryManager::getContent($dir, true);
-			$files = array();
-			while(!empty($descStack)) {
-				$descriptor = array_pop($descStack);
-				if ($descriptor['type'] === 'file') {
-					$files[] = $dir.$descriptor['name'];
-				} else if ($descriptor['type'] === 'directory') {
-					foreach($descriptor['content'] as $sub) {
-						$sub['name'] = $descriptor['name'].'/'.$sub['name'];
-						array_push($descStack, $sub);
+		<section id="pre-main">
+			<!--FACEBOOK-->
+			<div id="fb-root"></div>
+			<script>
+				(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+			<!--/FACEBOOK-->
+			<!--GOOGLE-->
+			<script type="text/javascript">
+				window.___gcfg = {lang: 'fr'};
+				
+				(function() {
+					var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+					po.src = 'https://apis.google.com/js/plusone.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				})();
+			</script>
+			<!--/GOOGLE-->
+			<?php
+				$preload = new SimpleBlockComponent();
+				$preload->setID("preload");
+				$preload->setClass("hidden");
+				$dir = "styles/".$_SESSION[STYLE]."/images/";
+				$descStack = DirectoryManager::getContent($dir, true);
+				$files = array();
+				while(!empty($descStack)) {
+					$descriptor = array_pop($descStack);
+					if ($descriptor['type'] === 'file') {
+						$files[] = $dir.$descriptor['name'];
+					} else if ($descriptor['type'] === 'directory') {
+						foreach($descriptor['content'] as $sub) {
+							$sub['name'] = $descriptor['name'].'/'.$sub['name'];
+							array_push($descStack, $sub);
+						}
+					} else {
+						// ignore others (not recognized)
 					}
-				} else {
-					// ignore others (not recognized)
 				}
-			}
-			foreach($files as $file) {
-				$preload->addComponent(new Image($file));
-			}
-			$preload->writeNow();
-		?>
-		<?php
-			if (TEST_MODE_ACTIVATED) {
-				echo TESTING_FEATURE;
-			}
-			if (Url::getCurrentUrl()->hasQueryVar('phpinfo')) {
-				phpinfo();
-				exit;
-			}
-		?>
-		<div id="main">
+				foreach($files as $file) {
+					$preload->addComponent(new Image($file));
+				}
+				$preload->writeNow();
+			?>
+			<?php
+				if (TEST_MODE_ACTIVATED) {
+					echo TESTING_FEATURE;
+				}
+				if (Url::getCurrentUrl()->hasQueryVar('phpinfo')) {
+					phpinfo();
+					exit;
+				}
+			?>
+		</section>
+		<section id="main">
 			<?php require_once("interface/colLeft.php")?>
 			<?php require_once("interface/colRight.php")?>
 			<?php require_once("interface/header.php")?>
 			<?php require_once("interface/page.php")?>
 			<?php require_once("interface/footer.php")?>
-		</div>
-		<script type="text/javascript">
-			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-		<script type="text/javascript">
-			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-		<script type="text/javascript">
-			try {
-				var pageTracker = _gat._getTracker("UA-4691079-6");
-				pageTracker._trackPageview();
-			} catch(err) {}
-		</script>
-		<?php
-			if (TEST_MODE_ACTIVATED) {
-				echo TESTING_FEATURE;
-			}
-		?>
+		</section>
+		<section id="post-main">
+			<script type="text/javascript">
+				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			<script type="text/javascript">
+				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			<script type="text/javascript">
+				try {
+					var pageTracker = _gat._getTracker("UA-4691079-6");
+					pageTracker._trackPageview();
+				} catch(err) {}
+			</script>
+			<?php
+				if (TEST_MODE_ACTIVATED) {
+					echo TESTING_FEATURE;
+				}
+			?>
+		</section>
 	</body>
 </html>

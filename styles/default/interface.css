@@ -144,15 +144,15 @@
         HEADER & FOOTER
 \******************************/
 
-#header, #footer {
+#main > header, #main > footer {
 	background: url('images/banniere.png') no-repeat;
 	text-align: center;
 }
 
-#header img {
+#main > header img {
 	margin: 18px 25px;
 }
 
-#footer {
+#main > footer {
 	height: 50px;
 }

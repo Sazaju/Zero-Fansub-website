@@ -1,5 +1,4 @@
 <?php
-$footer = new SimpleBlockComponent();
-$footer->setId("footer");
+$footer = new FooterComponent();
 $footer->writeNow();
 ?>

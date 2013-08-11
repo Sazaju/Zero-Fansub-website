@@ -3,7 +3,7 @@
 	A news is a block of text giving actual information. A news contains the text
 	to display and some added data (image, author, date of writing, ...).
 */
-class NewsComponent extends SimpleBlockComponent {
+class NewsComponent extends ArticleComponent {
 	public function __construct(News $news) {
 		$this->setClass("news");
 		

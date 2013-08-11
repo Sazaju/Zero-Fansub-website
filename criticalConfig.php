@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 	<head>
 		<title>Configuration initiale</title>
@@ -9,6 +9,15 @@
 		<link rel="stylesheet" href="styles/default/style.css" type="text/css" media="screen" title="Normal" />  
 		<link rel="icon" type="image/gif" href="fav.gif" />
 		<link rel="shortcut icon" href="fav.ico" />
+		<style type="text/css">
+			/* HTML 4 compatibility */
+			article, aside, figcaption, figure, footer, header, hgroup, nav, section {
+				display: block;
+			}
+		</style>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 		<style type="text/css">
 			code {
 				display: block;
@@ -22,8 +31,8 @@
 		</style>
 	</head>
 	<body>
-		<div id="main">
-			<div id="page">
+		<section id="main">
+			<article id="page">
 				<h1>Initialisation des données critiques</h1>
 				<p>
 					Le fichier <b><?php echo $criticalDataFile; ?></b> n'existe pas ou ses données ne sont pas correctes. Il vous faut donc le créer ou le corriger. Pour se faire, ouvrez un fichier portant ce nom à la racine du site (au même endroit que l'index) et remplissez-le selon ce modèle :

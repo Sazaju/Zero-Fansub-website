@@ -1,8 +1,8 @@
 <?php
-	$rightCol = new SimpleBlockComponent();
+	$rightCol = new AsideComponent();
 	$rightCol->setId("colRight");
 	
-	$logo = new SimpleBlockComponent(); // content set by the style
+	$logo = new HeaderComponent(); // content set by the style
 	$logo->setClass("logo");
 	$rightCol->addComponent($logo);
 	

@@ -81,8 +81,7 @@ foreach($sorties as $sortie) {
 	$list->addComponent(new SortieComponent($sortie));
 }
 
-$header = new SimpleBlockComponent();
-$header->setId("header");
+$header = new HeaderComponent();
 $header->addComponent($list);
 $header->writeNow();
 ?>
