@@ -60,6 +60,26 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 }
 
 /**********************************\
+    CONTEXT-DEPENDENT FUNCTIONS
+  (remove when refining allow it)
+\**********************************/
+
+function getCurrentPage() {
+	$url = new Url();
+	
+	$page = 'news';
+	if ($url->hasQueryVar('page')) {
+		$page = $url->getQueryVar('page');
+	}
+	
+	if ($url->hasQueryVar(DISPLAY_H_AVERT)) {
+		$page = "havert";
+	}
+	
+	return $page;
+}
+
+/**********************************\
          PAGE RENDERING
 \**********************************/
 ?>

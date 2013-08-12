@@ -1,30 +1,10 @@
 <?php
 	try {
-		$url = new Url();
-		
-		/***************************************\
-		         READ GENERIC QUERY VARS
-		\***************************************/
-		$page = 'news';
-		if ($url->hasQueryVar('page')) {
-			$page = $url->getQueryVar('page');
-		}
-		
-		$id = null;
-		if ($url->hasQueryVar('id')) {
-			$id = $url->getQueryVar('id');
-		}
-		
-		/***************************************\
-		           SPECIAL FEATURES
-		\***************************************/
-		if ($url->hasQueryVar(DISPLAY_H_AVERT)) {
-			$page = "havert";
-		}
-		
 		/***************************************\
 		              PAGE LOADING
 		\***************************************/
+		$page = getCurrentPage();
+		
 		if (!in_array($page, array('project', 'news', 'news2', 'about', 'contact', 'bug', 'projects',
 		                           'team', 'xdcc', 'havert', 'dossiers', 'dossier', 'partenariat',
 		                           'kanaiiddl', 'recrutement', 'dakko', 'dons', 'dl', 'recruit'))) {
