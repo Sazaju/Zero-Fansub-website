@@ -1,6 +1,6 @@
 <?php
 	$url = Url::getCurrentUrl();
-	new NewsSelector();//force class loading
+	new NewsSelector();//force class loading for constants
 	
 	/******************************\
 	          LOAD NEWS
@@ -32,9 +32,7 @@
 	
 	$views = new HeaderComponent();
 	$views->setClass("views");
-	$rssUrl = new Url('rss.php');
-	$rssUrl->setQueryVar('select', empty($selected) ? null : $selected, true);
-	$rssUrl->setQueryVar('h', null, !$_SESSION[MODE_H]);
+	$rssUrl = buildRssUrlIfAvailable();
 	$title = new Title(null, 2);
 	$title->addComponent(new RssLink($rssUrl));
 	$title->addComponent("Vues");

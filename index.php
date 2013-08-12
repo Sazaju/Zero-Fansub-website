@@ -79,6 +79,20 @@ function getCurrentPage() {
 	return $page;
 }
 
+function buildRssUrlIfAvailable() {
+	if (getCurrentPage() == 'news') {
+		$url = Url::getCurrentUrl();
+		new NewsSelector();//force class loading for constants
+		$selected = $url->hasQueryVar('select') ? $url->getQueryVar('select') : NEWSSELECTOR_ALL;
+		$rssUrl = new Url('rss.php');
+		$rssUrl->setQueryVar('select', empty($selected) ? null : $selected, true);
+		$rssUrl->setQueryVar('h', null, !$_SESSION[MODE_H]);
+		return $rssUrl;
+	} else {
+		return null;
+	}
+}
+
 /**********************************\
          PAGE RENDERING
 \**********************************/
@@ -128,6 +142,12 @@ function getCurrentPage() {
 				}
 			}
 		</script>
+		<?php
+			$rssUrl = buildRssUrlIfAvailable();
+			if (!empty($rssUrl)) {
+				echo '<link rel="alternate" type="application/rss+xml" href="'.$rssUrl.'" title="Votre titre">';
+			}
+		?>
 	</head>
 	<body>
 		<section id="pre-main">
