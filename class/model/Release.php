@@ -226,6 +226,8 @@ class Release {
 			$ac3 = Codec::getCodec("ac3");
 			$mp4 = Codec::getCodec("mp4");
 			$mkv = Codec::getCodec("mkv");
+			$dvd = ReleaseSource::getSource("DVD");
+			$bd = ReleaseSource::getSource("BD");
 			
 			$release = new Release(Project::getProject("mitsudomoe"), "ep0");
 			$release->setName("preview");
@@ -251,6 +253,7 @@ class Release {
 			$release->setName("épisode 01");
 			$release->setPreviewUrl("images/episodes/mitsudomoe1.jpg");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_01[BD][H264-AAC][A551786E].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -262,6 +265,7 @@ class Release {
 			$release->setName("épisode 02");
 			$release->setPreviewUrl("images/episodes/mitsudomoe2.jpg");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_02[BD][H264-AAC][D324A25E].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -273,6 +277,7 @@ class Release {
 			$release->setName("épisode 03");
 			$release->setPreviewUrl("images/episodes/mitsudomoe3.jpg");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_03[BD][H264-AAC][8C7C6BC3].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -284,6 +289,7 @@ class Release {
 			$release->setName("épisode 04");
 			$release->setPreviewUrl("images/episodes/mitsudomoe4.jpg");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_04[BD][H264-AAC][A9514039].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -295,6 +301,7 @@ class Release {
 			$release->setName("épisode 05");
 			$release->setPreviewUrl("images/episodes/mitsudomoe5.jpg");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_05[BD][H264-AAC][199319E2].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -307,6 +314,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mitsudomoe6.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoe6.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_06[BD][H264-AAC][43B2986A].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -319,6 +327,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mitsudomoe7.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoe7.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_07[BD][H264-AAC][ABFFF382].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -331,6 +340,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mitsudomoe8.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoe8.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_08[BD][H264-AAC][276A1B90].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -343,6 +353,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mitsudomoe9.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoe9.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_09[BD][H264-AAC][D1E24E94].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -355,6 +366,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mitsudomoe10.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoe10.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_10[BD][H264-AAC][8C7103DF].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -367,6 +379,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mitsudomoe11.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoe11.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_11[BD][H264-AAC][93374939].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -379,6 +392,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mitsudomoe12.png");
 			$release->setHeaderImage("images/sorties/mitsudomoe12_13.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_12[BD][H264-AAC][29C1450A].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -391,6 +405,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mitsudomoe13.png");
 			$release->setHeaderImage("images/sorties/mitsudomoe12_13.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe[BD][H264-AAC]/[Zero]Mitsudomoe_13[BD][H264-AAC][11BEE6D0].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -403,6 +418,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mitsudomoeoad.jpg");
 			$release->setHeaderImage("images/sorties/mitsudomoeoad.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mitsudomoe_OAV[BD][H264-AAC][EEBF1E66].mp4");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -449,6 +465,7 @@ class Release {
 			$release->setLocalizedTitle("Merveilleuses journées");
 			$release->setSynopsis("Keita vit avec Ako et Riko, ses deux soeurs jumelles par alliance. Toutes deux sont amoureuses de lui et se battent pour le séduire. Il souhaite rejoindre le même lycée qu'elles.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_01[BD][H264-AAC][503DE466].mkv");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -464,6 +481,7 @@ class Release {
 			$release->setLocalizedTitle("Un Cours Particulier à Deux");
 			$release->setSynopsis("Keita a des difficultés scolaires en ce moment, et il lui sera difficile de rejoindre le lycée de ses soeurs. Qu'à cela ne tienne, Ako décide de lui donner des cours particulier, sous le regard jaloux de Riko.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_02[BD][H264-AAC][F8890F92].mkv");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -479,6 +497,7 @@ class Release {
 			$release->setLocalizedTitle("Douces sucreries !");
 			$release->setSynopsis("Keita n'arrive pas à se concentrer car ses soeurs l'embrassent trop souvent. Il décide donc que les baisers sont interdits. Ako et Riko arriveront-elles à le faire changer d'avis ?");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_03[BD][H264-AAC][B289F43A].mkv");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -492,6 +511,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kissxsistv4.png");
 			$release->setHeaderImage("images/sorties/kissxsistv4-5.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_04[BD][H264-AAC][F67B46DE].mkv");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -504,6 +524,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kissxsistv5.png");
 			$release->setHeaderImage("images/sorties/kissxsistv4-5.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_05[BD][H264-AAC][36D7E803].mkv");
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
@@ -967,7 +988,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi1.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_01_[H264-AAC][BD][2DAC2E1C].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -980,7 +1001,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi2.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_02_[H264-AAC][BD][129752E7].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -993,7 +1014,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi3.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_03_[H264-AAC][BD][3D344736].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -1006,7 +1027,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi4.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_04_[H264-AAC][BD][02B37B51].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -1019,7 +1040,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi5.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_05_[H264-AAC][BD][95B320E3].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -1032,7 +1053,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi6.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_06_[H264-AAC][BD][0C8CE0AD].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -1045,7 +1066,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi7.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_07_[H264-AAC][BD][D66FEE9D].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -1058,7 +1079,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi8.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_08_[H264-AAC][BD][CC111162].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -1071,7 +1092,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi9.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_09_[H264-AAC][BD][5E441726].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -1084,7 +1105,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi10.png");
 			$release->setHeaderImage("images/sorties/mayoi1-10.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_10_[H264-AAC][BD][5A4E44A3].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -1097,7 +1118,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi11.png");
 			$release->setHeaderImage("images/sorties/mayoi11-12.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_11_[H264-AAC][BD][EA1758BC].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -1110,7 +1131,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mayoi12.png");
 			$release->setHeaderImage("images/sorties/mayoi11-12.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Mayoi_Neko_Overrun_[H264-AAC][BD]/[Zero]Mayoi_Neko_Overrun!_12_[H264-AAC][BD][76693473].mp4");
-			$descriptor->setReleaseSource(ReleaseSource::getSource('BD'));
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -6208,12 +6229,14 @@ class Release {
 			$release->setHeaderImage("images/sorties/denpa2.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_02[BD][8bits-720p][29A4CBD5].mp4");
 			$descriptor->setID('8 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_02[BD][10bits-1080p][756902E5].mp4");
 			$descriptor->setID('10 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -6227,12 +6250,14 @@ class Release {
 			$release->setHeaderImage("images/sorties/denpa3.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_03[BD][8bits-720p][7D2ECC41].mp4");
 			$descriptor->setID('8 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_03[BD][10bits-1080p][109A867F].mp4");
 			$descriptor->setID('10 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -6246,12 +6271,14 @@ class Release {
 			$release->setHeaderImage("images/sorties/denpa4-5.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_04[BD][8bits-720p][1733BFA5].mp4");
 			$descriptor->setID('8 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_04[BD][10bits-1080p][4C93316E].mp4");
 			$descriptor->setID('10 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -6265,12 +6292,14 @@ class Release {
 			$release->setHeaderImage("images/sorties/denpa4-5.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_05[BD][8bits-720p][AAF431E3].mp4");
 			$descriptor->setID('8 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_05[BD][10bits-1080p][6C28F74C].mp4");
 			$descriptor->setID('10 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -6284,12 +6313,14 @@ class Release {
 			$release->setHeaderImage("images/sorties/denpa6-9.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_06[BD][8bits-720p][A9E18C25].mp4");
 			$descriptor->setID('8 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_06[BD][10bits-1080p][3B848669].mp4");
 			$descriptor->setID('10 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -6303,12 +6334,14 @@ class Release {
 			$release->setHeaderImage("images/sorties/denpa6-9.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_07[BD][8bits-720p][F2C372F2].mp4");
 			$descriptor->setID('8 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_07[BD][10bits-1080p][57CD9079].mp4");
 			$descriptor->setID('10 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -6322,12 +6355,14 @@ class Release {
 			$release->setHeaderImage("images/sorties/denpa6-9.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_08[BD][8bits-720p][86E7B968].mp4");
 			$descriptor->setID('8 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_08[BD][10bits-1080p][9485B651].mp4");
 			$descriptor->setID('10 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
@@ -6341,12 +6376,14 @@ class Release {
 			$release->setHeaderImage("images/sorties/denpa6-9.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_09[BD][8bits-720p][ED4B9B4D].mp4");
 			$descriptor->setID('8 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_09[BD][10bits-1080p][63115B36].mp4");
 			$descriptor->setID('10 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
