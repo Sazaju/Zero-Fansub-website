@@ -4759,7 +4759,7 @@ Une autre précision est que, bien que je recherche un candidat, n'importe qui p
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Denpa Onna, suite et fin ! + licence Maria+Holic");
+			$news->setTitle("Fin des Denpa Onna (Blu-Ray) + licence Maria+Holic");
 			//$news->setPublicationTime(strtotime("2013-07-10 21:57"));
 			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
 			$news->setMessage("Comme d'hab, on vous sort les séries deux ans après, mais au moins, on est satisfaits de notre trad. On s'est creusé les méninges et on y a gagné quelques rides. ^_^
@@ -4767,19 +4767,18 @@ Une autre précision est que, bien que je recherche un candidat, n'importe qui p
 Une série se finit et une autre ne commence pas.
 C'est pas plus mal, on a des saisons 2 à rattraper. ^_^
 
---------------------
-Sazaju :
 Notez au passage que Maria+Holic a été licensié par Docomo.
 Vous pouvez donc regarder cette série sur [url=https://www.docomo-anime.jp/fr/p_animestore/ci?workId=10330]leur site[/url].
-(Désolé, on vient tout juste de le voir {'^_^})");
+Désolé du retard, l'info est mal passée et on a oublié entre-temps,
+mais voilà, c'est corrigé à présent...");
 			//$news->setCommentId(321);
 			$news->addReleasing(Release::getRelease('denpa', 'ep10'));
 			$news->addReleasing(Release::getRelease('denpa', 'ep11'));
 			$news->addReleasing(Release::getRelease('denpa', 'ep12'));
 			$news->addReleasing(Release::getRelease('denpa', 'ep13'));
 			$news->setDisplayInNormalMode(true);
-			$news->setDisplayInHentaiMode(true);
-			$news->setTeamNews(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
