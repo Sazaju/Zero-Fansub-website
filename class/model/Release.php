@@ -6210,12 +6210,14 @@ class Release {
 			$release->setHeaderImage("images/sorties/denpa1.png");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_01[8bits-720p][274B8DF2].mp4");
 			$descriptor->setID('8 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
 			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Denpa_Onna_to_Seishun_Otoko_01[10bits-1080p][9D523984].mp4");
 			$descriptor->setID('10 bits');
+			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mp4);
