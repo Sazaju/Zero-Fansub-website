@@ -20,8 +20,12 @@ class NewsComponent extends ArticleComponent {
 			$time = strftime("%d/%m/%Y", $timestamp);
 		}
 		$subtitle->addComponent($time);
-		if ($news->getAuthor() != null) {
-			$subtitle->addComponent(" par ".$news->getAuthor());
+		if (count($news->getAuthors()) > 0) {
+			$s = "";
+			foreach($news->getAuthors() as $author) {
+				$s .= ", ".$author;
+			}
+			$subtitle->addComponent(" par ".substr($s, 2));
 		}
 		$this->addComponent($subtitle);
 		
