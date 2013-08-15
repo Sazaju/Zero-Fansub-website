@@ -4759,7 +4759,7 @@ Une autre précision est que, bien que je recherche un candidat, n'importe qui p
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Fin des Denpa Onna (Blu-Ray) + licence Maria+Holic");
+			$news->setTitle("Fin de Denpa Onna (Blu-Ray) + licence Maria+Holic");
 			$news->setPublicationTime(strtotime("2013-08-15 19:12"));
 			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
 			$news->setMessage("Comme d'hab, on vous sort les séries deux ans après, mais au moins, on est satisfaits de notre trad. On s'est creusé les méninges et on y a gagné quelques rides. ^_^
