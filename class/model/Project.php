@@ -407,7 +407,7 @@ Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans l
 			$project->setGenre("Fantastique");
 			$project->setSynopsis("Niwa Makoto est un lycéen parti vivre chez sa tante car ses parents sont en voyage d'affaires. Il y rencontre une cousine du même âge, inconnue du reste de sa famille, Towa Erio. Cette cousine étrange porte constamment un futon autour du corps, ne se nourrit pratiquement que de pizzas et pense être un extraterrestre.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2046-Ton-avis-sur-Denpa-onna-to-seishun-otoko.htm");
-			$project->setStatus(Project::RUNNING, null);
+			$project->setStatus(Project::FINISHED, strtotime('2013-08-15 19:12'));
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("sleeping", "Isshoni Sleeping - S'endormir avec Hinako");

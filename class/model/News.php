@@ -4760,7 +4760,7 @@ Une autre précision est que, bien que je recherche un candidat, n'importe qui p
 			
 			$news = new News();
 			$news->setTitle("Fin des Denpa Onna (Blu-Ray) + licence Maria+Holic");
-			//$news->setPublicationTime(strtotime("2013-07-10 21:57"));
+			$news->setPublicationTime(strtotime("2013-08-15 19:12"));
 			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
 			$news->setMessage("Comme d'hab, on vous sort les séries deux ans après, mais au moins, on est satisfaits de notre trad. On s'est creusé les méninges et on y a gagné quelques rides. ^_^
 
@@ -4771,7 +4771,7 @@ Notez au passage que Maria+Holic a été licensié par Docomo.
 Vous pouvez donc regarder cette série sur [url=https://www.docomo-anime.jp/fr/p_animestore/ci?workId=10330]leur site[/url].
 Désolé du retard, l'info est mal passée et on a oublié entre-temps,
 mais voilà, c'est corrigé à présent...");
-			//$news->setCommentId(321);
+			$news->setCommentId(321);
 			$news->addReleasing(Release::getRelease('denpa', 'ep10'));
 			$news->addReleasing(Release::getRelease('denpa', 'ep11'));
 			$news->addReleasing(Release::getRelease('denpa', 'ep12'));
