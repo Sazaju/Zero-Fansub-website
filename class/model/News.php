@@ -4767,6 +4767,8 @@ Une autre précision est que, bien que je recherche un candidat, n'importe qui p
 Une série se finit et une autre ne commence pas.
 C'est pas plus mal, on a des saisons 2 à rattraper. ^_^
 
+[img=images/news/denpa-final.jpg]Voilà, Denpa c'est terminé ![/img]
+
 Notez au passage que Maria+Holic a été licensié par Docomo.
 Vous pouvez donc regarder cette série sur [url=https://www.docomo-anime.jp/fr/p_animestore/ci?workId=10330]leur site[/url].
 Désolé du retard, l'info est mal passée et on a oublié entre-temps,
