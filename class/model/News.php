@@ -4791,7 +4791,7 @@ mais voilà, c'est corrigé à présent...");
 			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 		$news->setMessage("Les vacances arrivent à leur terme et la rentrée se profile à l'horizon. Après ces 2 mois passés à profiter, vous avez forcément de l'énergie à revendre. Aussi vous avez tout intérêt à venir l'utiliser chez nous, de manière à ce qu'on puisse terminer nos séries en cours depuis tant de temps et enfin prendre de nouvelles sorties. À ce titre, et rien que pour vous (oui, vous qui lisez cette news), des postes d'éditeur et de traducteur sont à pourvoir ! Sautez sur l'occasion !
 
-Cela dit, si certains souhaitent prolonger leut temps à flâner et ignorer cette offre pourtant si alléchante, nous devront demander à des \"amis\" de [spoiler=venir vous chercher!]
+Cela dit, si certains souhaitent prolonger leur temps à flâner et ignorer cette offre pourtant si alléchante, nous devrons demander à des \"amis\" de [spoiler=venir vous chercher!]
 [img=images/news/on-va-vous-bouffer.jpg]On va venir vous chercher ! Muahaha ![/img][/spoiler]
 
 Pour ceux qui ne voudraient pas avoir affaire à nos \"amis\", direction la [url=?page=recruit]page de recrutement[/url].
