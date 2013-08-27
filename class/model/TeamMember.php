@@ -785,6 +785,7 @@ class TeamMember {
 			$member->setImage("ZaoG.gif");
 			$member->setPseudo("ZaoG");
 			$member->addRole(Role::getRole("tradEn"));
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;
