@@ -17,8 +17,6 @@
 	
 	$uploaders = array();
 	$uploaders[] = "Sazaju HITOKAGE";
-	$uploaders[] = "etienne2000";
-	$uploaders[] = "lwienlin";
 	$uploaders[] = "lepims";
 	natcasesort($uploaders);
 	
