@@ -721,7 +721,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->addBonus(new FirefoxPersonaBonus(array(126094, 93715), $project->getName()." theme firefox"));
 			$project->setDiscussionUrl('http://forum.zerofansub.net/t476-Ton-avis-sur-Maria-Holic.htm');
 			$project->setStatus(Project::FINISHED, null);
-			$project->setLicense(new License("Docomo"));
+			//$project->setLicense(new License("Docomo"));
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kanamemobook", "Kanamemo");
