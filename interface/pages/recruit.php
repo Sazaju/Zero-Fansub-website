@@ -21,15 +21,15 @@
 
 [title=2|number]Choisir son rôle[/title]
 
-[b]Traducteur anglais :[/b] traduit depuis l'anglais 
-[b]Traducteur japonais :[/b] traduit depuis le japonais ou vérifie une traduction
-[b][/b][b]Adapt : [/b]reformule les phrases en un français correct, simple et intelligible.
-[b]Check ortho : [/b]débusque et corrige les fautes d'ortho.
-[b]Timeur :[/b] découpe les phrases, décide le moment d'apparition et la durée de chaque phrase. 
-[b]Edit :[/b] positionne les sous-titres, choisit la taille, la \"police\" de caractère, crée des effets. 
-[b]Karamaker :[/b] time le karaoké depuis le roumaji et crée des effets.
-[b]Encodeur :[/b]  incruste les sous-titres à la vidéo.
-[b]Qualité Contrôle :[/b] vérifie que tout a bien été effectué : time, édit, ortho, adapt, etc.
+[b]Traducteur anglais :[/b] traduit depuis l'anglais. ([url=http://forum.zerofansub.net/f221-Cours-br.htm]cours[/url])
+[b]Traducteur japonais :[/b] traduit depuis le japonais ou vérifie une traduction. ([url=http://forum.zerofansub.net/f212-Cours-br.htm]cours[/url])
+[b]Adapt : [/b]reformule les phrases en un français correct, simple et intelligible.
+[b]Check ortho : [/b]débusque et corrige les fautes d'ortho. ([url=http://forum.zerofansub.net/f192-Cours.htm]cours[/url])
+[b]Timeur :[/b] découpe les phrases, décide le moment d'apparition et la durée de chaque phrase. ([url=http://forum.zerofansub.net/f197-Cours.htm]cours Aegisub[/url])
+[b]Edit :[/b] positionne les sous-titres, choisit la taille, la \"police\" de caractère, crée des effets. ([url=http://forum.zerofansub.net/f197-Cours.htm]cours Aegisub[/url], [url=http://forum.zerofansub.net/f198-Cours.htm]cours After Effect[/url])
+[b]Karamaker :[/b] time le karaoké depuis le roumaji et crée des effets. ([url=http://forum.zerofansub.net/f197-Cours.htm]cours Aegisub[/url], [url=http://forum.zerofansub.net/f198-Cours.htm]cours After Effect[/url])
+[b]Encodeur :[/b]  incruste les sous-titres à la vidéo. ([url=http://forum.zerofansub.net/f202-Cours-br.htm]cours[/url])
+[b]Qualité Contrôle :[/b] vérifie que tout a bien été effectué : time, édit, ortho, adapt, etc. ([url=http://forum.zerofansub.net/f192-Cours.htm]cours[/url])
 
 [title=2|number]Poster sa fiche de candidature[/title]
 Elle se poste [url=http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-team-de-fansub.htm]sur le forum[/url] (créer un [url=http://forum.zerofansub.net/posting.php?mode=newtopic&f=21]nouveau sujet[/url]). Elle doit être correctement remplie.
