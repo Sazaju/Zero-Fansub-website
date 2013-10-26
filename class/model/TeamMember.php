@@ -787,6 +787,19 @@ class TeamMember {
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember();
+			$member->setImage("Uboa.png");
+			$member->setPseudo("Uboa");
+			$member->addRole(Role::getRole("tradEn"));
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember();
+			$member->setImage("valderoth.jpeg");
+			$member->setPseudo("valderoth");
+			$member->addRole(Role::getRole("adapt"));
+			$member->addRole(Role::getRole("edit"));
+			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;
 	}
