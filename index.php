@@ -114,7 +114,7 @@ function buildRssUrlIfAvailable() {
 			
 			$variant = "";
 			$variant .= $_SESSION[MODE_H] ? "H" : "";
-			$variant .= ($month == 12 && $day >= 15 && $day <= 31) ? "Xmas" : "";
+			$variant .= ($month == 12) ? "Xmas" : "";
 			$styleFile = "styles/".$_SESSION[STYLE]."/style".$variant.".css";
 		?>
 		<style type="text/css">
