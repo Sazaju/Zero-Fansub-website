@@ -4805,6 +4805,25 @@ Et bonne fin de vacances {^_^}.");
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement édit");
+			$news->setPublicationTime(strtotime("2013-12-13 17:22"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("[imgr=images/news/kanamemo_p4.png]Venez, petits éditeurs ! On a des cookies aussi ![/imgr]Salut tout le monde ! {^o^}/
+
+Non, on n'est pas mort ! Et à vrai dire on espère vous sortir quelque chose de bien pour Noël. Mais on a toujours besoin de main d'oeuvre, car certains jobs sont en manque et peu postulent ou restent... et pas question qu'on fasse une croix dessus, donc ça attendra le temps qu'il faudra ! {^_^}
+
+On cherche donc des éditeurs pour nous aider à retravailler les vidéos. Ceux intéressés peuvent passer par la [url=?page=recruit]page de recrutement[/url]. Notez d'ailleurs que certains cours y sont disponibles, ce qui permettra aux curieux de se faire une idée, s'exercer et, pourquoi pas, postuler.
+
+On attend donc vos candidatures. {^_°}");
+			$news->setCommentId(323);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
