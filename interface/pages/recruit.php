@@ -28,7 +28,7 @@
 [b]Karamaker :[/b] time le karaoké depuis le roumaji et crée des effets. ([url=http://forum.zerofansub.net/f197-Cours.htm]cours Aegisub[/url], [url=http://forum.zerofansub.net/f198-Cours.htm]cours After Effect[/url])
 [b]Encodeur :[/b]  incruste les sous-titres à la vidéo. ([url=http://forum.zerofansub.net/f202-Cours-br.htm]cours[/url])
 [b]Qualité Contrôle :[/b] vérifie que tout a bien été effectué : time, édit, ortho, adapt, etc. ([url=http://forum.zerofansub.net/f192-Cours.htm]cours[/url])
-[b]Programmeur Web :[/b] gère le site web, connais PHP, CSS, (X)HTML et si possible JSP. ([url=http://forum.zerofansub.net/f192-Cours.htm]site sur GitHub[/url])
+[b]Programmeur Web :[/b] gère le site web, connais PHP, CSS, (X)HTML et si possible JSP. ([url=https://github.com/Sazaju/Zero-Fansub-website]site sur GitHub[/url])
 [b]Programmeur Logiciel :[/b] automatise les tâches nécessaires et améliore le support des tâches manuelles, de préférence en Java ou PHP.
 
 [title=2|number]Poster sa fiche de candidature[/title]
