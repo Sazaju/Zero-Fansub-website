@@ -237,6 +237,14 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/sky-animes.gif');
 			$partner->setOfficial(false);
 			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('chibi-shiba');
+			$partner->setName("Chibi Shiba fansub");
+			$partner->setWebsiteUrl('http://www.chibi-shiba.fr/');
+			$partner->setBannerUrl('images/partenaires/chibi-shiba.png');
+			$partner->setOfficial(true);
+			Partner::$allPartners[] = $partner;
 		}
 		return Partner::$allPartners;
 	}
