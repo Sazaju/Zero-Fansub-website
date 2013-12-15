@@ -534,26 +534,32 @@ class Release {
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep6');
 			$release->setName("épisode 6");
+			$release->setPreviewUrl("images/episodes/kissxsistv6.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep7');
 			$release->setName("épisode 7");
+			$release->setPreviewUrl("images/episodes/kissxsistv7.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep8');
 			$release->setName("épisode 8");
+			$release->setPreviewUrl("images/episodes/kissxsistv8.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep9');
 			$release->setName("épisode 9");
+			$release->setPreviewUrl("images/episodes/kissxsistv9.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep10');
 			$release->setName("épisode 10");
+			$release->setPreviewUrl("images/episodes/kissxsistv10.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep11');
 			$release->setName("épisode 11");
+			$release->setPreviewUrl("images/episodes/kissxsistv11.png");
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep12');
