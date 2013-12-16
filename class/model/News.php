@@ -4824,6 +4824,27 @@ On attend donc vos candidatures. {^_°}");
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Partenariats Chibi Shiba fansub");
+			$news->setPublicationTime(strtotime("2013-12-20 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setMessage("Bonjour tout le monde ! {^_^}
+
+Pour aujourd'hui, une news un peu particulière, puisque c'est le genre de news qu'on n'a pas eu depuis des années !
+
+Nous avons donc le plaisir de vous annoncer notre partenariat avec une nouvelle team de fansub, la [partner]chibi-shiba[/partner], qui se concentre sur les anciennes séries qui ne sont pas (ou plus) disponibles.
+
+[img]images/news/chibi-shiba_logo.png[/img]
+
+Ils ont sorti Video Girl Ai et sont actuellement sur Miyuki. Nous leur souhaitons une bonne continuation et n'hésitez pas à passer les voir !");
+			$news->setCommentId(324);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
