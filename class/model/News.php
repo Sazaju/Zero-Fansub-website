@@ -4825,7 +4825,7 @@ On attend donc vos candidatures. {^_°}");
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Partenariats Chibi Shiba fansub");
+			$news->setTitle("Partenariat Chibi Shiba fansub");
 			$news->setPublicationTime(strtotime("2013-12-20 00:00"));
 			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setMessage("Bonjour tout le monde ! {^_^}
