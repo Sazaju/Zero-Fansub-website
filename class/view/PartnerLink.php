@@ -6,7 +6,7 @@ class PartnerLink extends Link {
 	public function __construct(Partner $partner, $content = null) {
 		parent::__construct($partner->getWebsiteUrl(), $content);
 		$this->partner = $partner;
-		if ($content === null) {
+		if ($content == null) {
 			$this->setContent($partner->getName());
 		}
 		$this->openNewWindow(true);
