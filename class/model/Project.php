@@ -1058,7 +1058,7 @@ Hitohira_Image34.jpg" alt="galerie/gal/Zero_fansub/Images/Hitohira/_thb_[Zero]Hi
 			$project->setComment("Le 14e épisode (spécial) est disponible [project=kannagioad]ici[/project].");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2067-Ton-avis-sur-Kannagi.htm");
 			$project->setStatus(Project::FINISHED, null);
-			$project->setLicense(License::getDefaultLicense());
+			//$project->setLicense(License::getDefaultLicense());
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kannagioad", "Kannagi OAD");
