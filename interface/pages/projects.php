@@ -109,12 +109,12 @@
 		"abandonnés" => $abandonnedFilter,
 		"envisagés" => $intendedFilter,
 	);
-	$page->addComponent(new Title("Non licenciés", 2));
+	$page->addComponent(new Title("Légalement indisponibles", 2));
 	foreach($categoryMap as $category => $projects) {
 		foreach($filterMap as $desc => $filter) {
 			call_user_func($listProcessor, ucfirst($category)." ".$desc, $projects, $filter, $useImageLists);
 		}
 	}
 	
-	call_user_func($listProcessor, new Title("Licenciés", 2), $allProjects, $licensedFilter, $useImageLists);
+	call_user_func($listProcessor, new Title("Légalement disponibles", 2), $allProjects, $licensedFilter, $useImageLists);
 ?>
