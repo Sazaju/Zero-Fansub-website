@@ -2124,78 +2124,143 @@ class Release {
 			$release->setName("01");
 			$release->setPreviewUrl("images/episodes/kannagi1.jpg");
 			$release->setHeaderImage("images/sorties/lastkannagi.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_01[H264-AAC][BC2AECB0].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep2');
 			$release->setName("02");
 			$release->setPreviewUrl("images/episodes/kannagi2.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_02[H264-AAC][170BD39F].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep3');
 			$release->setName("03");
 			$release->setPreviewUrl("images/episodes/kannagi3.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_03[H264-AAC][1C3E2AC3].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep4');
 			$release->setName("04");
 			$release->setPreviewUrl("images/episodes/kannagi4.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_04[H264-AAC][B152D47D].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep5');
 			$release->setName("05");
 			$release->setPreviewUrl("images/episodes/kannagi5.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_05[H264-AAC][848BD4B6].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep6');
 			$release->setName("06");
 			$release->setPreviewUrl("images/episodes/kannagi6.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_06[H264-AAC][21F8448D].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep7');
 			$release->setName("07");
 			$release->setPreviewUrl("images/episodes/kannagi7.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_07[H264-AAC][81CB8665].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep8');
 			$release->setName("08");
 			$release->setPreviewUrl("images/episodes/kannagi8.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_08[H264-AAC][C9EDDBCC].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep9');
 			$release->setName("09");
 			$release->setPreviewUrl("images/episodes/kannagi9.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_09[H264-AAC][54FE7064].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep10');
 			$release->setName("10");
 			$release->setPreviewUrl("images/episodes/kannagi10.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_10[H264-AAC][2FE70C93].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep11');
 			$release->setName("11");
 			$release->setPreviewUrl("images/episodes/kannagi11.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_11[H264-AAC][471EA57E].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep12');
 			$release->setName("12");
 			$release->setPreviewUrl("images/episodes/kannagi12.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_12[H264-AAC][27934203].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kannagi'), 'ep13');
 			$release->setName("13");
 			$release->setPreviewUrl("images/episodes/kannagi13.jpg");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kannagi[H264-AAC]/[Zero]Kannagi_13[H264-AAC][E4159202].mp4");
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mp4);
+			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
