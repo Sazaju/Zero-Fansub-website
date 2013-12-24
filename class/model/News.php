@@ -4859,7 +4859,7 @@ Voilà donc une nouvelle fournée de KissXsis ! Chaud devant !
 
 Et n'oubliez pas de laisser des gâteaux devant la cheminée {^_°}.
 
-PS : On a remis à disposition certaines séries qui, bien qu'officiellement licenciées, ne sont pas disponibles (la boite a fermé ou n'a jamais sorti l'anime).");
+PS : On a décidé de remettre en service les séries non disponibles dont il est légalement impossible de mettre la main dessus (licence acquise depuis belle lurette ou boîte fermée).");
 			$news->setCommentId(325);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep6'));
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep7'));
