@@ -4845,6 +4845,33 @@ Ils ont sorti Video Girl Ai et sont actuellement sur Miyuki. Nous leur souhaiton
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Joyeux Noël ! KxS TV 6-9 dans les bacs !");
+			$news->setPublicationTime(strtotime("2013-12-25 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Ho ho ho ! Bonjour les enfants ! Devinez qui voilà !
+
+Et non, ce n'est pas un shinigami venant vous annoncer la mort de la Zéro (on est plus coriace que des cafards {^_^}). C'est petit Papa Noël qui, après avoir lutté durement contre ses lutins grévistes du fait de la crise financière, a pu finalement terminer d'empaqueter ses cadeaux.
+
+Voilà donc une nouvelle fournée de KissXsis ! Chaud devant !
+
+[img=images/news/santa-kxs.png]Faites de la place sous le sapin ![/img]
+
+Et n'oubliez pas de laisser des gâteaux devant la cheminée {^_°}.
+
+PS : On a remis à disposition certaines séries qui, bien qu'officiellement licenciées, ne sont pas disponibles (la boite a fermé ou n'a jamais sorti l'anime).");
+			$news->setCommentId(325);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep6'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep7'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep8'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep9'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();

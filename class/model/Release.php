@@ -535,21 +535,53 @@ class Release {
 			$release = new Release(Project::getProject('kissxsis'), 'ep6');
 			$release->setName("épisode 6");
 			$release->setPreviewUrl("images/episodes/kissxsistv6.png");
+			$release->setHeaderImage("images/sorties/kissxsistv6-9.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_06[BD][H264-AAC][E685D08A].mkv");
+			$descriptor->setReleaseSource($bd);
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mkv);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('25 December 2013 00:00'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep7');
 			$release->setName("épisode 7");
 			$release->setPreviewUrl("images/episodes/kissxsistv7.png");
+			$release->setHeaderImage("images/sorties/kissxsistv6-9.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_07[BD][H264-AAC][E6893355].mkv");
+			$descriptor->setReleaseSource($bd);
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mkv);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('25 December 2013 00:00'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep8');
 			$release->setName("épisode 8");
 			$release->setPreviewUrl("images/episodes/kissxsistv8.png");
+			$release->setHeaderImage("images/sorties/kissxsistv6-9.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_08[BD][H264-AAC][9CA812DF].mkv");
+			$descriptor->setReleaseSource($bd);
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mkv);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('25 December 2013 00:00'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep9');
 			$release->setName("épisode 9");
 			$release->setPreviewUrl("images/episodes/kissxsistv9.png");
+			$release->setHeaderImage("images/sorties/kissxsistv6-9.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_09[BD][H264-AAC][96131801].mkv");
+			$descriptor->setReleaseSource($bd);
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mkv);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('25 December 2013 00:00'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep10');
