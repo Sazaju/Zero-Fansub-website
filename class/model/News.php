@@ -4872,6 +4872,26 @@ PS : On a décidé de remettre en service les séries non disponibles dont il es
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Nouvel an spécial recrutement");
+			$news->setPublicationTime(strtotime("2014-01-01 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("[imgr=images/news/madarame-job.png]Lancez-vous ![/imgr]Et voilà la news du nouvel an ! {^_^}
+
+On a réussi à sortir des épisodes pour Noël, donc forcément on n'a pas grand chose pour le nouvel an. Néanmoins, on manque toujours cruellement de monde, donc on va en reparler un peu. {^_°}
+
+Tout d'abord les classiques : on a besoin d'un [b]karamakeur[/b] pour nos génériques, et tant qu'on n'en aura pas vous ne verrez probablement pas nos derniers épisodes de KxS. Ensuite on a besoin d'un [b]éditeur[/b] pour faire de la retouche d'image/vidéo. Vous trouverez nos cours sur la page de recrutement si vous voulez vous faire la main avant de postuler.
+[pin][imgl=images/news/mikazuki-fight.png]Allez, courage ![/imgl]Ensuite le nouveau : on a besoin d'un [b]programmeur[/b] ! On l'avait déjà dit mais on n'était pas organisé pour le recevoir. Du coup c'était à lui de voir ce qu'il pouvait faire. Mais maintenant on a identifié pas mal de tâches à déléguer, des plus simples aux plus complexes. Donc s'il y a des motivés, passez sur la page de recrutement pour voir les 2 types de programmeur qu'on embauche (si vous faites les 2, c'est tout bon pour vous {^_^}).
+
+À vos candidatures. {^_°}");
+			$news->setCommentId(326);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
