@@ -4896,7 +4896,7 @@ Tout d'abord les classiques : on a besoin d'un [b]karamakeur[/b] pour nos géné
 			$news->setTitle("Recrutement édit");
 			$news->setPublicationTime(strtotime("2014-02-15 19:01"));
 			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Allez une petite news, pour montrer qu'on n'est pas mort. Même si ça en a des allures {'^_^}. On a pas mal de monde occupé, et cela à tous les niveaux. Du coup on traine un peu des pieds, et le manque d'édits n'aide pas.
+			$news->setMessage("Allez, une petite news pour montrer qu'on n'est pas mort. Même si ça en a des allures {'^_^}. On a pas mal de monde occupé, et cela à tous les niveaux. Du coup on traine un peu des pieds, et le manque d'édits n'aide pas.
 
 Du coup, s'il y a des édits dans le coin, on en cherche un (ou une) pour pouvoir continuer nos séries. On y passe beaucoup de temps, donc ça serait bien qu'on puisse les finir {^_°}.
 
