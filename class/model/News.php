@@ -4892,6 +4892,29 @@ Tout d'abord les classiques : on a besoin d'un [b]karamakeur[/b] pour nos géné
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement édit");
+			$news->setPublicationTime(strtotime("2014-02-15 19:01"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez une petite news, pour montrer qu'on n'est pas mort. Même si ça en a des allures {'^_^}. On a pas mal de monde occupé, et cela à tous les niveaux. Du coup on traine un peu des pieds.
+
+Du coup, s'il y a des édits dans le coin, on en cherche un (ou une) pour pouvoir continuer nos séries, notamment finir nos Kiss x Sis TV. Cette série nous auras pris beaucoup de temps, donc ce serait dommage de pas la finir par manque de main d'oeuvre {'^_^}.
+
+[img=images/news/kxs-a-finir.png]Ce serait dommage de pas aller jusqu'au bout non ?[/img]
+
+Pour ceux qui voudraient aider mais ne connaissent pas le boulot, c'est possible aussi. Si vous passez sur notre page de recrutement, vous avez accès à nos tutos, donc vous pouvez vous familiariser avec la tâche et postuler chez nous quand vous pensez avoir acquis les bases. A priori, rien de difficile, et une fois admis on forme de toute façon, pour être sûr que le boulot soit bien fait.
+
+On prend le temps de bien faire, donc faut pas se sentir \"incapable\". Le plus important, c'est la motivation et l'envie d'apprendre, de faire toujours mieux. Si vous pensez que vous n'en seriez pas capable, c'est qu'en fait vous n'avez pas envie d'en faire.
+
+Alors, à vos candidatures ! {^o^}°");
+			$news->setCommentId(327);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
