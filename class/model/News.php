@@ -4896,17 +4896,18 @@ Tout d'abord les classiques : on a besoin d'un [b]karamakeur[/b] pour nos géné
 			$news->setTitle("Recrutement édit");
 			$news->setPublicationTime(strtotime("2014-02-15 19:01"));
 			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
-			$news->setMessage("Allez une petite news, pour montrer qu'on n'est pas mort. Même si ça en a des allures {'^_^}. On a pas mal de monde occupé, et cela à tous les niveaux. Du coup on traine un peu des pieds.
+			$news->setMessage("Allez une petite news, pour montrer qu'on n'est pas mort. Même si ça en a des allures {'^_^}. On a pas mal de monde occupé, et cela à tous les niveaux. Du coup on traine un peu des pieds, et le manque d'édits n'aide pas.
 
-Du coup, s'il y a des édits dans le coin, on en cherche un (ou une) pour pouvoir continuer nos séries, notamment finir nos Kiss x Sis TV. Cette série nous auras pris beaucoup de temps, donc ce serait dommage de pas la finir par manque de main d'oeuvre {'^_^}.
+Du coup, s'il y a des édits dans le coin, on en cherche un (ou une) pour pouvoir continuer nos séries. On y passe beaucoup de temps, donc ça serait bien qu'on puisse les finir {^_°}.
 
-[img=images/news/kxs-a-finir.png]Ce serait dommage de pas aller jusqu'au bout non ?[/img]
+Cela inclus les Kiss x Sis.
+[img=images/news/kxs-a-finir.png]Les KxS aussi sont à finir ! Aidez-nous ![/img]
 
-Pour ceux qui voudraient aider mais ne connaissent pas le boulot, c'est possible aussi. Si vous passez sur notre page de recrutement, vous avez accès à nos tutos, donc vous pouvez vous familiariser avec la tâche et postuler chez nous quand vous pensez avoir acquis les bases. A priori, rien de difficile, et une fois admis on forme de toute façon, pour être sûr que le boulot soit bien fait.
+Pour ceux qui voudraient aider mais ne connaissent pas le boulot, c'est possible aussi. Si vous passez sur notre page de recrutement, vous avez accès à nos tutos, donc vous pouvez vous familiariser avec la tâche et, si ça vous plaît, postuler quand vous pensez avoir acquis les bases. A priori, rien de difficile, et une fois admis on forme de toute façon, de manière à faire au mieux.
 
-On prend le temps de bien faire, donc faut pas se sentir \"incapable\". Le plus important, c'est la motivation et l'envie d'apprendre, de faire toujours mieux. Si vous pensez que vous n'en seriez pas capable, c'est qu'en fait vous n'avez pas envie d'en faire.
+On prend le temps de bien faire, donc faut pas vous dire d'emblée que vous n'avez pas les compétences. Tout le monde a commencé un jour. Le plus important, c'est la motivation et l'envie d'apprendre, de faire toujours mieux.
 
-Alors, à vos candidatures ! {^o^}°");
+Alors, rendez-vous sur la page de recrutement ! {^o^}°");
 			$news->setCommentId(327);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
