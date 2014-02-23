@@ -244,7 +244,7 @@ class TeamMember {
 			$member->setPseudo("Nyaa-Gentle");
 			$member->setImage("nyaa-gentle.jpeg");
 			$member->addRole(Role::getRole("time"));
-			$member->setAvailability(TeamMember::AVAILABLE);
+			$member->setAvailability(TeamMember::INACTIVE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
@@ -799,6 +799,7 @@ class TeamMember {
 			$member->setPseudo("valderoth");
 			$member->addRole(Role::getRole("adapt"));
 			$member->addRole(Role::getRole("edit"));
+			$member->setAvailability(TeamMember::INACTIVE);
 			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;
