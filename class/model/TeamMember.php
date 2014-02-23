@@ -4,7 +4,7 @@
 */
 class TeamMember {
 	const AVAILABLE = "présent";
-	const POST_GONE = "candidat à la retraite";
+	const INACTIVE = "inactif";
 	const GONE = "retraité";
 	
 	private $id = null;
