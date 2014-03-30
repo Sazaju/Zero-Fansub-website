@@ -207,6 +207,7 @@ class TeamMember {
 			$member->setAge(25);
 			$member->setImage("lepims.gif");
 			$member->setLocation("Clermont-Ferrand");
+			$member->setAvailability(TeamMember::INACTIVE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
@@ -799,7 +800,7 @@ class TeamMember {
 			$member->setPseudo("valderoth");
 			$member->addRole(Role::getRole("adapt"));
 			$member->addRole(Role::getRole("edit"));
-			$member->setAvailability(TeamMember::INACTIVE);
+			$member->setAvailability(TeamMember::AVAILABLE);
 			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;
