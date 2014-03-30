@@ -4916,6 +4916,24 @@ Alors, rendez-vous sur la page de recrutement ! {^o^}°");
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("KxS TV 10 BD");
+			$news->setPublicationTime(strtotime("2014-04-01 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("En ce moi d'Avril qui commence, et malgré de nombreuses péripéties telles que des plannings surchargés et des disques durs qui flanchent, voilà un nouvel épisode de nos jumelles préférées !
+
+[img=images/news/soinAttentifs.png]Il faut se tenir chaud pour se soigner...[/img]
+
+Bon mattage ! {^_°}");
+			$news->setCommentId(328);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep10'));
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();

@@ -587,6 +587,14 @@ class Release {
 			$release = new Release(Project::getProject('kissxsis'), 'ep10');
 			$release->setName("épisode 10");
 			$release->setPreviewUrl("images/episodes/kissxsistv10.png");
+			$release->setHeaderImage("images/sorties/kissxsistv10.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_10[BD][H264-AAC][4061FF83].mkv");
+			$descriptor->setReleaseSource($bd);
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mkv);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('1 April 2014 00:00'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep11');
