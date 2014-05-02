@@ -276,7 +276,7 @@ class TeamMember {
 			$member->setPseudo("Litinae");
 			$member->setImage("litinae.jpg");
 			$member->addRole(Role::getRole("tradEn"));
-			$member->setAvailability(TeamMember::AVAILABLE);
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
