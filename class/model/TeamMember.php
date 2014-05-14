@@ -207,7 +207,7 @@ class TeamMember {
 			$member->setAge(25);
 			$member->setImage("lepims.gif");
 			$member->setLocation("Clermont-Ferrand");
-			$member->setAvailability(TeamMember::INACTIVE);
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
