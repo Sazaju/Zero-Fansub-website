@@ -4934,6 +4934,33 @@ Bon matage ! {^_°}");
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep10'));
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement enco/édit/prog");
+			$news->setPublicationTime(strtotime("2014-05-25 17:08"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Bonjour à tous ! {^_^}°
+
+Avec la fin de l'année scolaire qui approche, on entre dans une phase ou tout le monde est occupé. Bien entendu, cela vaut aussi pour nous, et le manque de main d'oeuvre se fait donc davantage ressentir sur cette période.
+
+Pour ceux qui voudraient se changer les idées en s'essayant à une nouvelle activité, ou pour ceux qui se sentiraient pousser des ailes de bénévoles, la Zéro vous propose tout un menu :
+[list]
+[item]si vous aimez faire des vidéos de qualité, notre poste d'[b]encodeur[/b] est fait pour vous ;[/item]
+[item]si vous êtes un accro de la retouche d'image, une place d'[b]éditeur[/b] vous attend ;[/item]
+[item]si vous préférez automatiser des tâches, nous recherchons un [b]programmeur[/b].[/item]
+[/list]
+[img=images/news/recrutement2014-05-25.png]Les KxS aussi sont à finir ! Aidez-nous ![/img]
+
+Nos séries avancent, mais bloquent sur certains point, nous sommes donc obligé d'attendre que quelqu'un de compétent nous vienne en aide. N'hésitez pas à vous proposer si vous aimez le challenge. Si vous connaissez les bases, on a des tutos pour vous aider à vous améliorer. Dans les deux cas, vous pourrez trouver ce qui vous intéresse sur notre [url=?page=recruit]page de recrutement[/url] !
+
+Les projets ne manquent pas, alors lancez-vous ! {^_°}");
+			$news->setCommentId(329);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
