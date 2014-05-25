@@ -4950,7 +4950,7 @@ Pour ceux qui voudraient se changer les idées en s'essayant à une nouvelle act
 [/list]
 [img=images/news/recrutement2014-05-25.png]Les KxS aussi sont à finir ! Aidez-nous ![/img]
 
-Nos séries avancent, mais bloquent sur certains point, nous sommes donc obligé d'attendre que quelqu'un de compétent nous vienne en aide. N'hésitez pas à vous proposer si vous aimez le challenge. Si vous connaissez les bases, on a des tutos pour vous aider à vous améliorer. Dans les deux cas, vous pourrez trouver ce qui vous intéresse sur notre [url=?page=recruit]page de recrutement[/url] !
+Nos séries avancent, mais bloquent sur certains points, nous sommes donc obligés d'attendre que quelqu'un de compétent nous vienne en aide. N'hésitez pas à vous proposer si vous aimez le challenge. Si vous connaissez les bases, on a des tutos pour vous aider à vous améliorer. Dans les deux cas, vous pourrez trouver ce qui vous intéresse sur notre [url=?page=recruit]page de recrutement[/url] !
 
 Les projets ne manquent pas, alors lancez-vous ! {^_°}");
 			$news->setCommentId(329);
