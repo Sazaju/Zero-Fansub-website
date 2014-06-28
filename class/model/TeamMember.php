@@ -809,6 +809,22 @@ class TeamMember {
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setAvailability(TeamMember::AVAILABLE);
 			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember();
+			//$member->setImage("Mystiky.jpg");
+			$member->setPseudo("Mystiky!");
+			$member->addRole(Role::getRole("encod"));
+			$member->addRole(Role::getRole("edit"));
+			$member->setAvailability(TeamMember::AVAILABLE);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember();
+			$member->setImage("Akuma.png");
+			$member->setPseudo("Akuma");
+			$member->addRole(Role::getRole("kara"));
+			$member->addRole(Role::getRole("edit"));
+			$member->setAvailability(TeamMember::AVAILABLE);
+			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;
 	}
