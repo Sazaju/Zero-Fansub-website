@@ -245,7 +245,7 @@ class TeamMember {
 			$member->setPseudo("Nyaa-Gentle");
 			$member->setImage("nyaa-gentle.jpeg");
 			$member->addRole(Role::getRole("time"));
-			$member->setAvailability(TeamMember::INACTIVE);
+			$member->setAvailability(TeamMember::AVAILABLE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
