@@ -4961,6 +4961,29 @@ Les projets ne manquent pas, alors lancez-vous ! {^_°}");
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("KxS TV 11-12 BD");
+			$news->setPublicationTime(strtotime("2014-06-28 22:16"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("C'est avec beaucoup d'émotions que nous vous annonçons la sortie des deux derniers épisodes de Kiss X Sis TV ! 4 ans après sa sortie en 2010, et 2 ans après qu'on les ait repris pour les faire en BD et les réadapter depuis le japonais, voilà enfin de quoi clore cette série.
+
+On espère que les plus patients d'entre vous seront satisfait. {^_^}
+
+[img=images/news/kxs_tv_final.png]Enfin terminé! Quoique...[/img]
+
+Mais ce n'est pas encore fini, car il nous reste encore la série de 10 OAVs sortie de 2008 à 2013 ! Nous l'avions déjà commencée, mais elle profitera aussi d'une réadaptation depuis le japonais, de façon à maximiser la qualité de nos sous-titres. Et comme ce sont des OAVs, attendez-vous à des épisodes encore plus chauds ! {^_°}
+
+Sur ceux, bon matage !");
+			$news->setCommentId(330);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep11'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep12'));
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();

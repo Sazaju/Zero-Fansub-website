@@ -464,7 +464,7 @@ class Release {
 			$release->setHeaderImage("images/sorties/kissxsistv1-3.png");
 			$release->setLocalizedTitle("Merveilleuses journées");
 			$release->setSynopsis("Keita vit avec Ako et Riko, ses deux soeurs jumelles par alliance. Toutes deux sont amoureuses de lui et se battent pour le séduire. Il souhaite rejoindre le même lycée qu'elles.");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_01[BD][H264-AAC][503DE466].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_01[BD][H264-AAC][503DE466].mkv");
 			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -480,7 +480,7 @@ class Release {
 			$release->setHeaderImage("images/sorties/kissxsistv1-3.png");
 			$release->setLocalizedTitle("Un Cours Particulier à Deux");
 			$release->setSynopsis("Keita a des difficultés scolaires en ce moment, et il lui sera difficile de rejoindre le lycée de ses soeurs. Qu'à cela ne tienne, Ako décide de lui donner des cours particulier, sous le regard jaloux de Riko.");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_02[BD][H264-AAC][F8890F92].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_02[BD][H264-AAC][F8890F92].mkv");
 			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -496,7 +496,7 @@ class Release {
 			$release->setHeaderImage("images/sorties/kissxsistv1-3.png");
 			$release->setLocalizedTitle("Douces sucreries !");
 			$release->setSynopsis("Keita n'arrive pas à se concentrer car ses soeurs l'embrassent trop souvent. Il décide donc que les baisers sont interdits. Ako et Riko arriveront-elles à le faire changer d'avis ?");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_03[BD][H264-AAC][B289F43A].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_03[BD][H264-AAC][B289F43A].mkv");
 			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -510,7 +510,7 @@ class Release {
 			$release->setName("épisode 4");
 			$release->setPreviewUrl("images/episodes/kissxsistv4.png");
 			$release->setHeaderImage("images/sorties/kissxsistv4-5.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_04[BD][H264-AAC][F67B46DE].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_04[BD][H264-AAC][F67B46DE].mkv");
 			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -523,7 +523,7 @@ class Release {
 			$release->setName("épisode 5");
 			$release->setPreviewUrl("images/episodes/kissxsistv5.png");
 			$release->setHeaderImage("images/sorties/kissxsistv4-5.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_05[BD][H264-AAC][36D7E803].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_05[BD][H264-AAC][36D7E803].mkv");
 			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -536,7 +536,7 @@ class Release {
 			$release->setName("épisode 6");
 			$release->setPreviewUrl("images/episodes/kissxsistv6.png");
 			$release->setHeaderImage("images/sorties/kissxsistv6-9.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_06[BD][H264-AAC][E685D08A].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_06[BD][H264-AAC][E685D08A].mkv");
 			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -549,7 +549,7 @@ class Release {
 			$release->setName("épisode 7");
 			$release->setPreviewUrl("images/episodes/kissxsistv7.png");
 			$release->setHeaderImage("images/sorties/kissxsistv6-9.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_07[BD][H264-AAC][E6893355].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_07[BD][H264-AAC][E6893355].mkv");
 			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -562,7 +562,7 @@ class Release {
 			$release->setName("épisode 8");
 			$release->setPreviewUrl("images/episodes/kissxsistv8.png");
 			$release->setHeaderImage("images/sorties/kissxsistv6-9.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_08[BD][H264-AAC][9CA812DF].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_08[BD][H264-AAC][9CA812DF].mkv");
 			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -575,7 +575,7 @@ class Release {
 			$release->setName("épisode 9");
 			$release->setPreviewUrl("images/episodes/kissxsistv9.png");
 			$release->setHeaderImage("images/sorties/kissxsistv6-9.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_09[BD][H264-AAC][96131801].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_09[BD][H264-AAC][96131801].mkv");
 			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -588,7 +588,7 @@ class Release {
 			$release->setName("épisode 10");
 			$release->setPreviewUrl("images/episodes/kissxsistv10.png");
 			$release->setHeaderImage("images/sorties/kissxsistv10.png");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV_10[BD][H264-AAC][4061FF83].mkv");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_10[BD][H264-AAC][4061FF83].mkv");
 			$descriptor->setReleaseSource($bd);
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -600,10 +600,27 @@ class Release {
 			$release = new Release(Project::getProject('kissxsis'), 'ep11');
 			$release->setName("épisode 11");
 			$release->setPreviewUrl("images/episodes/kissxsistv11.png");
+			$release->setHeaderImage("images/sorties/kissxsistv11-12.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_11[BD][H264-AAC][8F7E227F].mkv");
+			$descriptor->setReleaseSource($bd);
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mkv);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('28 June 2014 21:07'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsis'), 'ep12');
 			$release->setName("épisode 12");
+			$release->setPreviewUrl("images/episodes/kissxsistv12.png");
+			$release->setHeaderImage("images/sorties/kissxsistv11-12.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kiss_x_Sis_TV[BD][H264-AAC]/[Zero]Kiss_x_Sis_TV_12[BD][H264-AAC][D2570996].mkv");
+			$descriptor->setReleaseSource($bd);
+			$descriptor->setVideoCodec($h264);
+			$descriptor->setSoundCodec($aac);
+			$descriptor->setContainerCodec($mkv);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('28 June 2014 21:07'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kissxsisoav'), 'ep3');

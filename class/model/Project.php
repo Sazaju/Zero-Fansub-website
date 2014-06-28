@@ -1001,7 +1001,7 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project->setSynopsis("Ako et Riko sont deux sœurs jumelles. Toutes les deux sont amoureuses de leur demi-frère, Keita, avec qui elles n'ont aucun lien de sang.");
 			$project->setVosta("Anonymous et AKFDP");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
-			$project->setStatus(Project::RUNNING, null);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hitohira", "Hitohira");
