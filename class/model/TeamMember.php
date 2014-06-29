@@ -215,7 +215,7 @@ class TeamMember {
 			$member->setImage("dc.jpg");
 			$member->addRole(Role::getRole("encod"));
 			$member->setFirstName("Denis");
-			$member->setAge(24);
+			//$member->setAge(24);
 			$member->setLocation("Lyon");
 			TeamMember::$allMembers[] = $member;
 			
@@ -780,6 +780,7 @@ class TeamMember {
 			$member->setImage("Greymantle.jpg");
 			$member->setPseudo("Greymantle");
 			$member->addRole(Role::getRole("adapt"));
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
