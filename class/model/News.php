@@ -4967,7 +4967,7 @@ Les projets ne manquent pas, alors lancez-vous ! {^_°}");
 			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("C'est avec beaucoup d'émotions que nous vous annonçons la sortie des deux derniers épisodes de Kiss X Sis TV ! 4 ans après sa sortie en 2010, et 2 ans après qu'on les ait repris pour les faire en BD et les réadapter depuis le japonais, voilà enfin de quoi clore cette série.
 
-On espère que les plus patients d'entre vous seront satisfait. {^_^}
+On espère que les plus patients d'entre vous seront satisfaits. {^_^}
 
 [img=images/news/kxs_tv_final.png]Enfin terminé! Quoique...[/img]
 
