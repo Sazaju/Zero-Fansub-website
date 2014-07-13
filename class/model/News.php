@@ -4973,7 +4973,7 @@ On espère que les plus patients d'entre vous seront satisfaits. {^_^}
 
 Mais ce n'est pas encore fini, car il nous reste encore la série de 10 OAVs sortie de 2008 à 2013 ! Nous l'avions déjà commencée, mais elle profitera aussi d'une réadaptation depuis le japonais, de façon à maximiser la qualité de nos sous-titres. Et comme ce sont des OAVs, attendez-vous à des épisodes encore plus chauds ! {^_°}
 
-Sur ceux, bon matage !");
+Sur ce, bon matage !");
 			$news->setCommentId(330);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
