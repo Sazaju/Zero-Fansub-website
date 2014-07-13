@@ -2590,20 +2590,24 @@ class Release {
 			$release->addStaff(TeamMember::getMemberByPseudo('praia'), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo('Jembé'), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo('Tcho'), Role::getRole('qc'));
-			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_Chapitre01_MQ.zip");
-			$descriptor->setID("MQ");
-			$descriptor->setPageNumber(18);
-			$release->addFileDescriptor($descriptor);
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_Chapitre01.zip");
-			$descriptor->setID("HQ");
+			$descriptor->setID("Scans");
 			$descriptor->setPageNumber(18);
-			$descriptor->setMegauploadUrl("http://www.megaupload.com/?d=5YJOCPDK");
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kanamemobook'), 'ch2');
 			$release->setName("chapitre 02");
+			$release->setPreviewUrl("images/episodes/kanamemochap2.png");
+			$release->addStaff(TeamMember::getMemberByPseudo('db0'), Role::getRole('tradEn'));
+			$release->addStaff(TeamMember::getMemberByPseudo('db0'), Role::getRole('edit'));
+			$release->addStaff(TeamMember::getMemberByPseudo('praia'), Role::getRole('qc'));
+			$descriptor = new ReleaseFileDescriptor("[Zero]Kanamemo_Chapitre02.zip");
+			$descriptor->setID("Scans");
+			$descriptor->setPageNumber(8);
+			$release->addFileDescriptor($descriptor);
+			$release->setReleasingTime(strtotime('2014-07-13 19:52'));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('kanamemobook'), 'ch3');

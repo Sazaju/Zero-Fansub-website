@@ -4984,6 +4984,22 @@ Sur ce, bon matage !");
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep12'));
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Scantrad Kanamemo, chapitre 2");
+			$news->setPublicationTime(strtotime("2014-07-13 19:52"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Vous vous souvenez de Kanamemo ? Non ? Alors [project=kanamemo]regardez-le[/project] !
+
+Pour ceux qui s'en souviennent et on aimé, peut-être savez-vous que la Zéro s'est essayée au scantrad sur le yonkoma (histoires en 4 cases) qui est à a base de cette série. Bien que nous ayons revu nos priorités, un de nos anciens membres a profité d'un peu de temps libre pour se charger du second chapitre. N'hésitez pas à lui faire parvenir vos commentaires.");
+			$news->setCommentId(331);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('kanamemobook', 'ch2'));
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
