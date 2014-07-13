@@ -58,7 +58,8 @@ $size = 3;
 $sorties = array();
 $sortie = null;
 foreach($completeList as $release) {
-	if ($release->isReleased()) {
+	// no header image => no advertisement => ignored for the header
+	if ($release->isReleased() && $release->getHeaderImage() != null) {
 		$timestamp = $release->getReleasingTime();
 		$image = $release->getHeaderImage();
 		if ($sortie === null || $sortie->getTimestamp() != $timestamp || strcmp($sortie->getImage(), $image) !== 0) {
