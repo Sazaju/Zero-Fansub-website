@@ -581,7 +581,7 @@ Et c'est dès lors qu'à se moment, les gags et situations humoristiques apparai
 			$project->setStudio("Nippon Animation");
 			$project->setGenre("Comédie");
 			$project->setAuthor("Katoh Aruaki");
-			$project->setSynopsis("Torako invite Toma dans un café manger des patisseries.");
+			$project->setSynopsis("Torako invite Toma dans un café manger des pâtisseries.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2049-Ton-avis-sur-Hyakko-OAD.htm");
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
@@ -778,7 +778,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Takemiya Yuyuko");
-			$project->setSynopsis("Ami, Taiga et Ryuuji décident d'aller chez Jonny's pour y gouter les spaghettis Tarako. Sur place ils retrouvent Minori et la dégustation culinaire vire au duel...");
+			$project->setSynopsis("Ami, Taiga et Ryuuji décident d'aller chez Jonny's pour y goûter les spaghettis Tarako. Sur place ils retrouvent Minori et la dégustation culinaire vire au duel...");
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
 			$project->setStatus(Project::FINISHED, null);
