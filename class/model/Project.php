@@ -249,9 +249,9 @@ class Project {
 			$project = new Project("haganai", "Boku ha Tomodachi ga Sukunai");
 			$project->setOriginalName("Boku ha Tomodachi ga Sukunai");
 			$project->setAiringYear(2011);
-			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
+			$project->setStudio(Link::newWindowLink("http://www.haganai.net/", "Studio AIC"));
 			$project->setGenre("Comédie - Ecchi");
-			$project->setSynopsis("C'est bien connu, les otakus n'ont pas d'amis. Mais quand on n'en est pas un, ça ne veut pas dire pour autant qu'on en a. Si vous aussi vous avez du mal avec les autres, peut-être vous reconnaitrez-vous dans cette série. Sinon, vous pourrez toujours en profiter pleinement pour découvrir comment s'amuser quand on n'a pas d'amis... ou tout du moins quand on en est convaincu.");
+			$project->setSynopsis("C'est bien connu, les otakus n'ont pas d'amis. Mais quand on n'en est pas un, ça ne veut pas dire pour autant qu'on en a. Si vous aussi vous avez du mal avec les autres, peut-être vous reconnaitrez-vous dans cette série. Sinon, vous pourrez toujours en profiter pleinement pour découvrir comment s'amuser quand on n'a pas d'amis... ou tout du moins quand on en est convaincus.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
 			$project->setStatus(Project::RUNNING, null);
 			Project::$allProjects[] = $project;
@@ -274,7 +274,7 @@ class Project {
 			$project->setStudio(Link::newWindowLink("http://www.stbarcelona.com/", "Studio Barcelona"));
 			$project->setGenre("Comédie - Ecchi");
 			$project->setAuthor("Watashiya Kaworu");
-			$project->setSynopsis("Aoki Daisuke sensei est un tout nouvel instituteur en primaire et débute sa carrière dans une classe d'enfants à priori calme, mais il découvrira que même à 9 ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d'elle, par de nombreux pièges parfois osés, et rendra sa vie de nouvel instituteur très difficile. 
+			$project->setSynopsis("M. Aoki Daisuke sensei est un tout nouvel instituteur en primaire et débute sa carrière dans une classe d'enfants a priori calme, mais il découvrira que même à neuf ans on peut être bien précoce. Il fera la rencontre de Rin Kokonoe, Kuro Kagami et Mimi Usa, trois jeunes filles de sa classe qui sont prêtes à lui apporter bien des soucis, surtout pour la petite Kokonoe. Cette dernière fera tout pour que son sensei chéri tombe amoureux d'elle, comme par exemple des pièges parfois osés, et rendra sa vie de nouvel instituteur très difficile. 
 Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans la vie de ses élèves et fera de son mieux pour les aider à surmonter les problèmes, même s'il met parfois en jeu son poste d'éducateur. Reste à voir dans quelles galères il se mettra, surtout avec le trio Kokonoe, Kagami et Usa.");
 			$project->setVosta('<a href="http://www.genjo-subs.net/" target="_blank">Genjo Subs</a> et <a href="http://loli-pop-subs.blogspot.com/" target="_blank">Loli-Pop-Subs</a>');
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t252-Ton-avis-sur-Kodomo-no-Jikan.htm");
@@ -345,7 +345,7 @@ Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans l
 			$project->setStudio("Bridge");
 			$project->setAuthor("Sakurai Norio");
 			$project->setGenre("Comédie Ecchi");
-			$project->setSynopsis("Les triplées raconte l'histoire de 3 filles de primaire un peu perverses qui harcèlent leur prof pas doué.");
+			$project->setSynopsis("Les triplées raconte l'histoire de trois filles de primaire un peu perverses qui harcèlent leur prof pas doué.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2051-Ton-avis-sur-Mitsudomoe.htm");
 			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
@@ -498,7 +498,7 @@ Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans l
 			$project->setAiringYear(2010);
 			$project->setStudio("A-1 Pictures Inc");
 			$project->setGenre("Comédie");
-			$project->setSynopsis("Takanashi Souta est un lycéen qui a une passion pour les petites choses mignonnes. Quand une fille, Taneshima Popla, l'aborde dans la rue et lui demande si il cherche un travail à mi-temps, il la trouve mignonne car elle ressemble à une collégienne, peut-être même une écolière. Mais il se rend compte quelle a un an de plus que lui. Passant par dessus ce détail, il accepte le travail à mi-temps car elle est toute petite et craquante à souhait. Il commence donc à travailler dans un restaurant familial, mais on peut dire que le personnel est unique ici !");
+			$project->setSynopsis("Takanashi Souta est un lycéen qui a une passion pour les petites choses mignonnes. Quand une fille, Taneshima Popura, l'aborde dans la rue et lui demande si il cherche un travail à mi-temps, il la trouve mignonne car elle ressemble à une collégienne, peut-être même une écolière. Mais il se rend compte quelle a un an de plus que lui. Passant par dessus ce détail, il accepte le travail à mi-temps car elle est toute petite et craquante à souhait. Il commence donc à travailler dans un restaurant familial, mais on peut dire que le personnel est unique ici !");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2045-Ton-avis-sur-Working.htm");
 			$project->setStatus(Project::RUNNING, null);
 			Project::$allProjects[] = $project;
@@ -567,7 +567,7 @@ Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans l
 			$project->setGenre("Comédie");
 			$project->setSynopsis("Sunao Moriyama, se préparant à partir à l'école, ouvre la porte de son frigo afin de déjeuner, or celui-ci tombe nez à nez avec une drôle de créature plus ou moins semblable à un \"bébé\".
 Comme s'il n'avait rien vu de spécial, celui-ci ferme la porte sans porter plus d'attention à la créature, en ayant au préalable saisi son déjeuner, celui-ci portant le nom de \"Potemayo\", il surnommera la créature \"Potemayo\".
-Et c'est dès lors qu'à se moment, les gags et situations humoristiques apparaissent !");
+Et c'est dès lors à ce moment les gags et situations humoristiques apparaissent !");
 			$project->setVosta("<a href=\"http://fansubs.anime-share.net/\" target=\"_blank\">Anime-Share fansub</a> et Anoymous");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2057-Ton-avis-sur-Potemayo.htm");
 			$project->setStatus(Project::FINISHED, null);
@@ -599,7 +599,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
 			$project->setAuthor("Matsu Tomohiro");
 			$project->setGenre("Comédie Ecchi");
-			$project->setSynopsis("Takumi Tsuzuki vit avec sa grande \"sœur\" Otome bien qu'ils ne soient pas liés par le sang. Otome gère une vieille pâtisserie appelée Stray Cats où y travaille également une amie d'enfance de Takumi, Fumino Serisawa. C'est alors qu'un jour, Nozomi Kiriya, une jeune fille mystérieuse imitant un chat, apparaît...");
+			$project->setSynopsis("Takumi Tsuzuki vit avec sa grande sœur Otome bien qu'ils ne soient pas liés par le sang. Otome gère une vieille pâtisserie appelée Stray Cats, où y travaille également une amie d'enfance de Takumi, Fumino Serisawa. C'est alors qu'un jour, Nozomi Kiriya, une jeune fille mystérieuse imitant un chat, apparaît...");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2047-Ton-avis-sur-Mayoi-Neko-Overrun.htm");
 			$project->setStatus(Project::RUNNING, null);
 			$project->setStatus(Project::FINISHED, strtotime("1 January 2013 00:00"));
@@ -654,7 +654,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setAiringYear(2008);
 			$project->setStudio("Nippon Animation");
 			$project->setGenre("Comédie");
-			$project->setSynopsis("L'école privée Kamizono est un établissement qui possède la particularité d'accueillir en son sein des élèves allant du primaire jusqu'au lycée. De ce fait, son immense structure donne du mal aux nouveaux arrivants pour s'y retrouver. Nonomura Ayumi, jeune étudiante au caractère réservé, arrive à se perdre dès le premier jour de la rentrée. Cherchant désespérément son chemin, elle finit par tomber sur une de ses camarades de classe, Iizuka Tatsuki, qui se trouve être, sans vouloir l'admettre, dans la même situation qu'elle. Après un long moment de marche, toutes les deux voient incrédules deux élèves sautaient du deuxième étage d'un bâtiment. C'est ainsi qu'elles font la rencontre de Torako et Suzu, également perdues, mais ayant un moyen infaillible pour atteindre rapidement leur salle de classe : aller de l'avant quelque soit l'obstacle rencontré. Commence alors pour ce nouveau quatuor formé une année scolaire placée sous le signe de l'amitié et de l'humour.");
+			$project->setSynopsis("L'école privée Kamizono est un établissement qui possède la particularité d'accueillir en son sein des élèves allant du primaire jusqu'au lycée. De ce fait, son immense structure donne du mal aux nouveaux arrivants pour s'y retrouver. Nonomura Ayumi, jeune étudiante au caractère réservé, arrive à se perdre dès le premier jour de la rentrée. Cherchant désespérément son chemin, elle finit par tomber sur une de ses camarades de classe, Iizuka Tatsuki, qui se trouve être, sans vouloir l'admettre, dans la même situation qu'elle. Après un long moment de marche, toutes les deux voient incrédules deux élèves sautant du deuxième étage d'un bâtiment. C'est ainsi qu'elles font la rencontre de Torako et Suzu, également perdues, mais ayant un moyen infaillible pour atteindre rapidement leur salle de classe : aller de l'avant quel que soit l'obstacle rencontré. Commence alors pour ce nouveau quatuor formé une année scolaire placée sous le signe de l'amitié et de l'humour.");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2064-Ton-avis-sur-Hyakko.htm");
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur <a href="radio" target="_blank">la radio</a>.<br />
@@ -672,7 +672,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setAiringYear(2009);
 			$project->setStudio("Silver Link");
 			$project->setGenre("Amour et Amitié");
-			$project->setSynopsis("L'histoire est centrée sur Yuuri Mito, un étudiant de l'Académie Sousei et le fils unique de l'homme qui dirige le temple Yachimata. À Yachimata, il y a une légende à propos d'une divinité appelée Tayutama-sama qui protégea la région, mais cette divinité et d'autres ainsi nommées \"Tayutai\" ont été oubliées avec le temps. Mito et ses amis découvrent une relique dans le sol de l'école, avec de mystérieux motifs. Dès lors, à la cérémonie d'ouverture de la nouvelle année scolaire, une tout aussi mystérieuse fille appelée Mashiro apparaît devant Mito. Mashiro est d'une certaine manière liée à la relique et à la légende de Tayutama-sama.");
+			$project->setSynopsis("L'histoire est centrée sur Yuuri Mito, un étudiant de l'Académie Sousei et le fils unique de l'homme qui dirige le temple Yachimata. À Yachimata, il y a une légende à propos d'une divinité appelée Tayutama-sama qui protégea la région, mais cette divinité et d'autres ainsi nommées \"Tayutai\" ont été oubliées avec le temps. Mito et ses amis découvrent une relique dans le sol de l'école avec de mystérieux motifs. Dès lors, à la cérémonie d'ouverture de la nouvelle année scolaire, une tout aussi mystérieuse fille appelée Mashiro apparaît devant Mito. Mashiro est d'une certaine manière liée à la relique et à la légende de Tayutama-sama.");
 			$project->setVosta('<a href="http://fansubs.anime-share.net/" target="_blank">Anime-Share fansub</a> et Anoymous');
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2063-Ton-avis-sur-Tayutama-Kiss-on-my-Deity.htm");
 			$project->setStatus(Project::FINISHED, null);
@@ -686,7 +686,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.hal-film.co.jp/", "Hal film maker"));
 			$project->setGenre("Comédie");
 			$project->setAuthor("Kobako Totan");
-			$project->setSynopsis("Nous suivons la vie de Sora, une jeune adolescente très timide et qui, en raison de cela ne parle pas beaucoup. Donnant l'impression de vivre dans sa bulle, cette dernière a une passion pour le dessin. Ce penchant pour l'art l'entraîna à faire partie du club de dessin de son école où elle s'est fait plusieurs amies. Une des particularités de Sora est qu'elle ne quitte jamais son sketchbook afin de pouvoir retranscrire à n'importe quel moment sur papier, un évènement qui l'émerveille. Malheureusement, elle rencontre toujours le même problème, celui de ne jamais pouvoir terminer les dessins qu'elle fait sur des scènes éphémères (chat qui se lèche, feu d'artifice...). Légèrement déprimée à cause de cela, elle retrouve cependant très vite le sourire grâce à des petites choses qui paraissent insignifiantes, nous faisant ainsi partager son univers à la fois poétique et touchant.");
+			$project->setSynopsis("Nous suivons la vie de Sora, une jeune adolescente très timide et qui, en raison de cela ne parle pas beaucoup. Donnant l'impression de vivre dans sa bulle, cette dernière a une passion pour le dessin. Ce penchant pour l'art l'entraîna à faire partie du club de dessin de son école où elle s'est fait plusieurs amies. Une des particularités de Sora est qu'elle ne quitte jamais son sketchbook afin de pouvoir retranscrire à n'importe quel moment sur papier un évènement qui l'émerveille. Malheureusement, elle rencontre toujours le même problème, celui de ne jamais pouvoir terminer les dessins qu'elle fait sur des scènes éphémères (chat qui se lèche, feu d'artifice...). Légèrement déprimée à cause de cela, elle retrouve cependant très vite le sourire grâce à des petites choses qui paraissent insignifiantes, nous faisant ainsi partager son univers à la fois poétique et touchant.");
 			$project->setVosta('Spoonmoon');
 			$project->addBonus(new ProjectBonus("OST", 'Ces OST vous sont proposées par Nipponsei.<br />
 Les principales chansons de cette série sont disponibles en DDL <a href="radio/mp3" target="_blank">Lien</a> ou directement écoutable sur la radio.<br />
@@ -778,7 +778,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Takemiya Yuyuko");
-			$project->setSynopsis("Ami, Taiga et Ryuuji décident d'aller chez Jonny's pour y goûter les spaghettis Tarako. Sur place ils retrouvent Minori et la dégustation culinaire vire au duel...");
+			$project->setSynopsis("Ami, Taiga et Ryuuji décident d'aller chez Jonny's pour y goûter les spaghettis Tarako, sur place ils retrouvent Minori, et la dégustation culinaire vire au duel...");
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
 			$project->setStatus(Project::FINISHED, null);
@@ -792,7 +792,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Takemiya Yuyuko");
-			$project->setSynopsis("En raison de son regard menaçant hérité de son père, Takasu Ryuuji est un adolescent craint car considéré comme un délinquant par les autres élèves de son lycée. Cette image étant à l'opposé de ce qu'il est réellement, ce dernier aimerait s'en séparer définitivement afin de ne plus souffrir des conséquences qui en découlent. Ryuuji ne perd pas espoir d'y arriver grâce notamment à son ami Kitamura qui, en plus d'avoir vu clair dans cette mésentente, lui a permis de rencontrer Kushieda Minori dont il est tombé amoureux. Alors qu'il pense à elle, il bouscule par mégarde Asaika Taiga, une élève de sa classe et amie de Minori dont le mauvais caractère n'a d'égal que sa force. Suite à un concours de circonstances, Ryuuji apprendra que Aisaka est sa nouvelle voisine et que cette dernière est amoureuse de Kitamura. Se développe alors entre les deux une relation ambiguë dans le but de se rapprocher des personnes respectives aimées.");
+			$project->setSynopsis("En raison de son regard menaçant hérité de son père, Takasu Ryuuji est un adolescent craint car considéré comme un délinquant par les autres élèves de son lycée. Cette image étant à l'opposé de ce qu'il est réellement, ce dernier aimerait s'en séparer définitivement afin de ne plus souffrir des conséquences qui en découlent. Ryuuji ne perd pas espoir d'y arriver grâce notamment à son ami Kitamura qui, en plus d'avoir vu clair dans cette mésentente, lui a permis de rencontrer Kushieda Minori dont il est tombé amoureux. Alors qu'il pense à elle, il bouscule par mégarde Asaika Taiga, une élève de sa classe et amie de Minori dont le mauvais caractère n'a d'égal que sa force. Suite à un concours de circonstances, Ryuuji apprendra qu'Aisaka est sa nouvelle voisine et que cette dernière est amoureuse de Kitamura. Se développe alors entre les deux une relation ambiguë dans le but de se rapprocher des personnes respectives aimées.");
 			$project->setVosta('<a href="http://www.ggkthx.org/" target="_blank">GG</a>');
 			$project->setCoproduction(Link::newWindowLink("http://japanslash.free.fr", new Image("http://japanslash.free.fr/images/bannieres/naishi.png", "Maboroshi no fansub")));
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t357-Ton-avis-sur-Toradora.htm");
@@ -861,7 +861,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setStudio(Link::newWindowLink("http://www.genco.co.jp/", "Genco"));
 			$project->setGenre("Comédie");
 			$project->setAuthor("Kio Shimoku");
-			$project->setSynopsis("L'ancien président du club Genshiken ayant eu son diplôme l'année dernière, Sasahara se voit nommer par les autres membres pour lui succéder. En ce début d'année, la venue de deux nouvelles personnes au sein du club s'accompagne d'une autre bonne surprise. En effet, nos fidèles otakus ont reçu pour la première fois l'autorisation de participer au Comi-Fes (convention de jap'anime). L'équipe en effervescence décide de créer un doujinshi que Ohno vendra en tenue de cosplay. Ogiue quant à elle, montre qu'elle possède un talent assez étonnant pour le dessin. Grâce à cela, il ne reste au club plus qu'à prévoir les divers préparatifs matériels et financiers nécessaires pour le jour J. Toujours dans la bonne humeur et l'amusement, les membres de Genshiken semblent ainsi faire un nouveau pas dans l'univers des otakus.");
+			$project->setSynopsis("L'ancien président du club Genshiken ayant eu son diplôme l'année dernière, Sasahara se voit nommer par les autres membres pour lui succéder. En ce début d'année, la venue de deux nouvelles personnes au sein du club s'accompagne d'une autre bonne surprise. En effet, nos fidèles otakus ont reçu pour la première fois l'autorisation de participer au Comi-Fes (convention de jap'anime). L'équipe en effervescence décide de créer un doujinshi qu'Ohno vendra en tenue de cosplay. Ogiue quant à elle montre qu'elle possède un talent assez étonnant pour le dessin. Grâce à cela, il ne reste au club plus qu'à prévoir les divers préparatifs matériels et financiers nécessaires pour le jour J. Toujours dans la bonne humeur et l'amusement, les membres de Genshiken semblent ainsi faire un nouveau pas dans l'univers des otakus.");
 			$project->setVosta('<a href="http://dattebayo.com/" target="_blank">Dattebayo US</a>');
 			$project->addBonus(new ProjectBonus("La Saison 1", '<div style="float : right; display:block; margin-right: 20px;">
 	<img src="images/autre/genshikendvd.jpg" border="0" width="100"/><img src="http://www.discountmanga.fr/images/927754.pid.jpg" border="0" width="100"/>
@@ -1013,8 +1013,8 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project->setGenre("Comédie - Amour et Amitié");
 			$project->setAuthor("Kirihara Izumi");
 			$project->setSynopsis("Asai Mugi est une fille très introvertie qui vient d'entrer dans le lycée des arts Kumakata pour suivre son amie Kayo. 
-Sa timidité maladive,lorsque la situation la dépasse, lui fait perdre la voix ou la fait s'évanouir. 
-Bien des péripéties vont la conduire à s'inscrire dans un club...de théâtre. Ichinose Nono, Nishida Risaki, Katsuigari Takashi et Nishida Kai sont les membres de la Sociéte de Recherche Dramatique où vient de s'inscrire Mugi. 
+Sa timidité maladive, lorsque la situation la dépasse, lui fait perdre la voix ou la fait s'évanouir. 
+Bien des péripéties vont la conduire à s'inscrire dans un club... de théâtre. Ichinose Nono, Nishida Risaki, Katsuigari Takashi et Nishida Kai sont les membres de la sociéte de recherche dramatique où vient de s'inscrire Mugi. 
 Mais elle n'est pas au bout de ses peines, car les deux clubs de théâtre de l'école se mènent une guerre ouverte dans laquelle elle finira par se faire embarquer. 
 Devenir actrice de théâtre en étant pleurnicharde et sans volonté... c'est impossible.");
 			$project->setVosta('<a href="http://starlight-subs.com/" target="_blank">Starlight Subs</a>');
