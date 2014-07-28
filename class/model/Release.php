@@ -758,7 +758,6 @@ class Release {
 			$release->setHeaderImage("images/sorties/kodomooavv3.png");
 			$release->setLocalizedTitle("Ce que tu m'as offert...");
 			$release->setOriginalTitle("Yasumi Jikan '~Anata ga Watashi ni Kureta Mono~'");
-			$release->setSynopsis("Rin, Kuro et Mimi sont trois adorables petites filles de 10 ans qui découvrent le monde des adultes... C'est l'anniversaire de Aoki, leur professeur mais aussi l'amoureux secret de Rin. Celle-ci tentent donc de le séduire en lui offrant un cadeau...original ^^");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
@@ -2691,7 +2690,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/genshiken1.jpg");
 			$release->setLocalizedTitle("Les projets du nouveau président");
 			$release->setOriginalTitle("Shin-Kaicho no Kokorozashi");
-			$release->setSynopsis("Le Genshiken reviens avec Sasahara comme nouveau président ! Ils comptent participer au Comic Festival en tant qu'exposant et donc faire un fanzine.");
+			$release->setSynopsis("Le Genshiken revient avec Sasahara comme nouveau président ! Ils comptent participer au Comic Festival en tant qu'exposant et donc faire un fanzine.");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -2781,7 +2780,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/genshiken4.jpg");
 			$release->setLocalizedTitle("Vous sortez ensemble ?");
 			$release->setOriginalTitle("Atsui Natsu no Ichinichi");
-			$release->setSynopsis("Tanaka et Ohno sont très proche, et toute la bande à l'impréssion qu'ils sortent ensemble. Comment savoir si c'est bien le cas...?");
+			$release->setSynopsis("Tanaka et Ohno sont très proches, et toute la bande a l'impression qu'ils sortent ensemble. Comment savoir si c'est bien le cas ?...");
 			$release->addStaff(TeamMember::getMemberByPseudo("Man-ban"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sunao"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sunao"), Role::getRole('adapt'));
@@ -2815,7 +2814,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/genshiken5.jpg");
 			$release->setLocalizedTitle("Madarame devient Uke");
 			$release->setOriginalTitle("Madarame So-Uke");
-			$release->setSynopsis("Ogiue surprend Madarame et Sasahara dans une drôle de situation. Son imagination débordante de fan de yaoi va lui faire inventer de drôles de scénario...");
+			$release->setSynopsis("Ogiue surprend Madarame et Sasahara dans une drôle de situation. Son imagination débordante de fan de yaoi va lui faire inventer de drôles de scénarios...");
 			$release->addStaff(TeamMember::getMemberByPseudo("Man-ban"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sunao"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sunao"), Role::getRole('adapt'));
@@ -2846,7 +2845,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/genshiken6.jpg");
 			$release->setLocalizedTitle("Un problème de Hobby");
 			$release->setOriginalTitle("Shumi no Mondai");
-			$release->setSynopsis("Ogiue refuse d'admettre qu'elle souhaite aller au Comic Festival. Elle va donc se déguiser pour passer inaperçu et aller s'acheter ses fanzines yaoi préférés.");
+			$release->setSynopsis("Ogiue refuse d'admettre qu'elle souhaite aller au Comic Festival. Elle va donc se déguiser pour passer inaperçue et aller s'acheter ses fanzines yaoi préférés.");
 			$release->addStaff(TeamMember::getMemberByPseudo("Man-ban"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sunao"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sunao"), Role::getRole('adapt'));
@@ -2944,7 +2943,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/genshiken9.jpg");
 			$release->setLocalizedTitle("Il pleut toujours quand on cherche un emploi");
 			$release->setOriginalTitle("Shukatsu wa Itsumo Ame");
-			$release->setSynopsis("Sasahara continue désespèrement à chercher un emploi dans une boîte d'édition et passe plusieurs entretiens.");
+			$release->setSynopsis("Sasahara continue désespérément à chercher un emploi dans une boîte d'édition et passe plusieurs entretiens.");
 			$release->addStaff(TeamMember::getMemberByPseudo("Man-ban"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sunao"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sunao"), Role::getRole('adapt'));
@@ -2975,7 +2974,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/genshiken10.jpg");
 			$release->setLocalizedTitle("Otaku des USA");
 			$release->setOriginalTitle("Otaku Furomu USA");
-			$release->setSynopsis("Des amies de Kanako venant des état-unis sont venues lui rendre visite. Evidemment, elles ne parlent pas japonais.");
+			$release->setSynopsis("Des amies de Kanako venant des États-Unis sont venues lui rendre visite. Évidemment, elles ne parlent pas japonais.");
 			$release->addStaff(TeamMember::getMemberByPseudo("Man-ban"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sunao"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Sunao"), Role::getRole('adapt'));
@@ -3202,7 +3201,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/sketchbook7.jpg");
 			$release->setLocalizedTitle("Une Journée de Septembre...");
 			$release->setOriginalTitle("Kugatsu no Hi ni...");
-			$release->setSynopsis("Kate est une étudiante transferée. Elle parle anglais et se débrouille un peu en Japonais, mais pour les kanjis, elle a plus de mal.");
+			$release->setSynopsis("Kate est une étudiante transférée. Elle parle anglais et se débrouille un peu en japonais, mais pour les kanjis, elle a plus de mal.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
@@ -3223,7 +3222,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/sketchbook8.jpg");
 			$release->setLocalizedTitle("La jeune fille et le lecteur de CD");
 			$release->setOriginalTitle("Rajikase to Shojo no Nihondate");
-			$release->setSynopsis("La blonde a cassé son lecteur de CD et cherche desespérement quelqu'un pour le lui réparer ? Sora n'est pas de la partie, puisque le dimanche est pour elle un jour de repos. Elle rencontre d'ailleurs la petite fille du premier épisode qui prend des photos.");
+			$release->setSynopsis("Hazuki a cassé son lecteur de CD et cherche desespérément quelqu'un pour le lui réparer ? Sora n'est pas de la partie, puisque le dimanche est pour elle un jour de repos. Elle rencontre d'ailleurs la petite fille du premier épisode qui prend des photos.");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('qc'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Khorx"), Role::getRole('time'));
@@ -3499,7 +3498,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/mariaholic2.jpg");
 			$release->setLocalizedTitle("Douce souffrance");
 			$release->setOriginalTitle("Kanbi na Uzuki");
-			$release->setSynopsis("C'est le premier jour des cours, et donc débute la cérémonie d'entrée des nouvelles lycéennes. C'est Mariya qui a été choisit pour représenter les premières années.");
+			$release->setSynopsis("C'est le premier jour des cours, et donc débute la cérémonie d'entrée des nouvelles lycéennes. C'est Mariya qui a été choisie pour représenter les élèves de première année .");
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Inuarth"), Role::getRole('check'));
@@ -3585,7 +3584,7 @@ class Release {
 			$release->setName("04");
 			$release->setPreviewUrl("images/episodes/mariaholic4.jpg");
 			$release->setLocalizedTitle("Le prix du plaisir");
-			$release->setSynopsis("Le mystére de l'alaria continue. Ryuuken veut protéger à tout prix Kanako et devient son garde du corp. C'est évidemment l'effet inverse qui se produit...");
+			$release->setSynopsis("Le mystère de l'alaria continue. Ryuuken veut protéger à tout prix Kanako et devient son garde du corps. C'est évidemment l'effet inverse qui se produit...");
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Inuarth"), Role::getRole('check'));
@@ -3627,7 +3626,7 @@ class Release {
 			$release->setName("05");
 			$release->setPreviewUrl("images/episodes/mariaholic5.jpg");
 			$release->setLocalizedTitle("Parfum défendu /  Secrets de Jeune fille");
-			$release->setSynopsis("Kanako va tout faire pour devenir amie avec Kiri-san. Aidée de ses deux amies, elle va monter toutes sortes de situations. Malheuresement, Kiri-san a du mal à comprendre le message...");
+			$release->setSynopsis("Kanako va tout faire pour devenir amie avec Kiri-san. Aidée de ses deux amies, elle va monter toutes sortes de situations. Malheureusement, Kiri-san a du mal à comprendre le message...");
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Inuarth"), Role::getRole('check'));
@@ -3669,7 +3668,7 @@ class Release {
 			$release->setName("06");
 			$release->setPreviewUrl("images/episodes/mariaholic6.jpg");
 			$release->setLocalizedTitle("L'infirmerie de la perversion");
-			$release->setSynopsis("Visite médicale pour toutes les filles du lycée. Kanako en est responsable et aura donc le droit de voir toutes les filles en soutien-gorge et de mesurer leurs poitrines ! Petit problème : Comment Mariya va-t'il faire ?");
+			$release->setSynopsis("Visite médicale pour toutes les filles du lycée. Kanako en est responsable et aura donc le droit de voir toutes les filles en soutien-gorge et de mesurer leurs poitrines ! Petit problème : Comment Mariya va-t-il faire ?");
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Inuarth"), Role::getRole('check'));
@@ -3753,7 +3752,7 @@ class Release {
 			$release->setName("08");
 			$release->setPreviewUrl("images/episodes/mariaholic8.jpg");
 			$release->setLocalizedTitle("La vierge souillée partie 1");
-			$release->setSynopsis("C'est bientôt le festival de la Sainte Vierge, et c'est à Kanako de s'en occuper. Problème : Elle n'y connaît rien. Solution : Demander l'aide de la présidente du conseil des élèves !");
+			$release->setSynopsis("C'est bientôt le festival de la Sainte Vierge, et c'est à Kanako de s'en occuper. Problème : elle n'y connaît rien. Solution : demander l'aide de la présidente du conseil des élèves !");
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Inuarth"), Role::getRole('check'));
@@ -3799,8 +3798,8 @@ class Release {
 			$release = new Release(Project::getProject('mariaholic'), 'ep9');
 			$release->setName("09");
 			$release->setPreviewUrl("images/episodes/mariaholic9.jpg");
-			$release->setLocalizedTitle("La vierge souillée partie 1");
-			$release->setSynopsis("C'est bientôt le festival de la Sainte Vierge, et c'est à Kanako de s'en occuper. Problème : Elle n'y connaît rien. Solution : Demander l'aide de la présidente du conseil des élèves !");
+			$release->setLocalizedTitle("La vierge souillée partie 2");
+			$release->setSynopsis("C'est bientôt le festival de la Sainte Vierge, et c'est à Kanako de s'en occuper. Problème : elle n'y connaît rien. Solution : demander l'aide de la présidente du conseil des élèves !");
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Inuarth"), Role::getRole('check'));
@@ -3879,7 +3878,7 @@ class Release {
 			$release = new Release(Project::getProject('mariaholic'), 'ep11');
 			$release->setName("11");
 			$release->setPreviewUrl("images/episodes/mariaholic11.jpg");
-			$release->setSynopsis("Kanae Touichirou, professeur à Ame no Kisaki, est amoureux de Mariya mais fait passer son amour après son devoir de professeur, entre autre de se soucier des problèmes de \"santé fragile\" de Kanako, au grand déséspoir de celle-ci.");
+			$release->setSynopsis("Kanae Touichirou, professeur à Ame no Kisaki, est amoureux de Mariya mais fait passer son amour après son devoir de professeur, entre autres de se soucier des problèmes de \"santé fragile\" de Kanako, au grand désespoir de celle-ci.");
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Inuarth"), Role::getRole('check'));
@@ -3918,7 +3917,7 @@ class Release {
 			$release = new Release(Project::getProject('mariaholic'), 'ep12');
 			$release->setName("12");
 			$release->setPreviewUrl("images/episodes/mariaholic12.jpg");
-			$release->setSynopsis("Enfin ! La piscine vient d'ouvrir ! Quel bonheur pour Kanako qui attendait ce moment avec impatience... Tant de jolies filles en maillots de bains... Résistera-t-elle ?");
+			$release->setSynopsis("Enfin ! La piscine vient d'ouvrir ! Quel bonheur pour Kanako qui attendait ce moment avec impatience... Tant de jolies filles en maillots de bain... Résistera-t-elle ?");
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("DC"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Inuarth"), Role::getRole('check'));
@@ -4173,7 +4172,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kujibiki1.jpg");
 			$release->setLocalizedTitle("Tous le monde a des surprises à l'école. 7 points.?");
 			$release->setOriginalTitle("Minna, gakko de odoroku. Nana-ten ?");
-			$release->setSynopsis("C'est la rentrée pour Chihiro et Tokino. Un tirage au sort est organisé pour determiner les rôles de chacun au sein de l'établissement. Chihiro, connu pour être malchanceux, senble avoir tiré le gros lot... ou pas.");
+			$release->setSynopsis("C'est la rentrée pour Chihiro et Tokino. Un tirage au sort est organisé pour déterminer les rôles de chacun au sein de l'établissement. Chihiro, connu pour être malchanceux, semble avoir tiré le gros lot... ou pas.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kujibiki_Unbalance_2[HD][H264-AAC]/[Zero]Kujibiki_Unbalance[01v2][HD][H264-AAC].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -4243,7 +4242,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kujibiki6.jpg");
 			$release->setLocalizedTitle("Je le garderai secret pour toujours. 8 points.");
 			$release->setOriginalTitle("Zettai, naisho ni shite oko. Hachi-ten");
-			$release->setSynopsis("Le journal de Rikkyouin a de moins en moins de succés. La nouvelle mission du futur conseil des élèves est de trouver un scoop pour faire remonter les ventes du fameux journal.");
+			$release->setSynopsis("Le journal de Rikkyouin a de moins en moins de succès. La nouvelle mission du futur conseil des élèves est de trouver un scoop pour faire remonter les ventes du fameux journal.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kujibiki_Unbalance_2[HD][H264-AAC]/[Zero]Kujibiki_Unbalance[06v2][HD][H264-AAC].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -4258,7 +4257,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kujibiki7.jpg");
 			$release->setLocalizedTitle("Bien écouter la bonne personne. 4 points.");
 			$release->setOriginalTitle("Erai hito no hanashi o kiku. Yon-ten");
-			$release->setSynopsis("Des éspions se cachent partout à Rikkyouin. À titre d'entraînement, nos héros vont devoir en demasqué un. Ils seront aidés par Tachibana, une \"amie\" de Tokino.");
+			$release->setSynopsis("Des éeions se cachent partout à Rikkyouin. À titre d'entraînement, nos héros vont devoir en démasquer un. Ils seront aidés par Tachibana, une \"amie\" de Tokino.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kujibiki_Unbalance_2[HD][H264-AAC]/[Zero]Kujibiki_Unbalance[07v2][HD][H264-AAC].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -4272,7 +4271,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kujibiki8.jpg");
 			$release->setLocalizedTitle("J'ai oublie le passe. 7 points.");
 			$release->setOriginalTitle("Mukashi no koto o wasurete iru. Nana-ten");
-			$release->setSynopsis("C'est l'anniversaire de Ric-chan. Chihiro et Tsukino decident de venir le lui souhaiter, mais difficile pour eux de convaincre le vigile de les laisser rentrer dans une fete si prestigieuse.");
+			$release->setSynopsis("C'est l'anniversaire de Rit-chan. Chihiro et Tsukino décident de venir le lui souhaiter, mais difficile pour eux de convaincre le vigile de les laisser rentrer dans une fête si prestigieuse.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kujibiki_Unbalance_2[HD][H264-AAC]/[Zero]Kujibiki_Unbalance[08v2][HD][H264-AAC].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -4286,7 +4285,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kujibiki9.jpg");
 			$release->setLocalizedTitle("Les feux d'artifice sont jolis. 5 points.");
 			$release->setOriginalTitle("Hanabi ga kirei ni mieta. Go-ten");
-			$release->setSynopsis("Le grand feu d'artifice annuel de Rikkyouin est sur le point de commencer ! C'est la fête pour tout le monde ! Sauf pour nos amis du futur conseil des élèves qui ont perdu la trace de Renko et doivent être prêts à 19 heure pour receptionner les invités VIP.");
+			$release->setSynopsis("Le grand feu d'artifice annuel de Rikkyouin est sur le point de commencer ! C'est la fête pour tout le monde ! Sauf pour nos amis du futur conseil des élèves qui ont perdu la trace de Renko et doivent être prêts à 19 heures pour réceptionner les invités VIP.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Kujibiki_Unbalance_2[HD][H264-AAC]/[Zero]Kujibiki_Unbalance[09v2][HD][H264-AAC].mp4");
 			$descriptor->setVideoCodec($h264);
 			$descriptor->setSoundCodec($aac);
@@ -4704,7 +4703,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hitohira2.jpg");
 			$release->setLocalizedTitle("Une... imitation ?");
 			$release->setOriginalTitle("Magai...mono?");
-			$release->setSynopsis("Mugi va rencontrer Chitose, du club de théâtre. Le conflit entre les deux clubs va tourner autours d'elle.");
+			$release->setSynopsis("Mugi va rencontrer Chitose, du club de théâtre. Le conflit entre les deux clubs va tourner autour d'elle.");
 			$release->addStaff(TeamMember::getMemberByPseudo("Adeo"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Karta"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Vegeta"), Role::getRole('check'));
@@ -4730,7 +4729,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hitohira3.jpg");
 			$release->setLocalizedTitle("Début");
 			$release->setOriginalTitle("Magai...mono?");
-			$release->setSynopsis("Premier passage sur le devant de la scéne pour Mugi ! Réussira-t-elle à vaincre sa timidité...?");
+			$release->setSynopsis("Premier passage sur le devant de la scène pour Mugi ! Réussira-t-elle à vaincre sa timidité ?...");
 			$release->addStaff(TeamMember::getMemberByPseudo("Jeanba"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('adapt'));
@@ -4754,7 +4753,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hitohira4.jpg");
 			$release->setLocalizedTitle("Je fais de mon mieux...?!");
 			$release->setOriginalTitle("Ganbatteru...?!");
-			$release->setSynopsis("Un conflits entre les 2 presidentes du club de théâtre oblige nos héros à réviser pour être dans les 50 premiers ! Y parviendront-ils...?");
+			$release->setSynopsis("Un conflit entre les 2 présidentes du club de théâtre oblige nos héros à réviser pour être dans les 50 premiers ! Y parviendront-ils ?...");
 			$release->addStaff(TeamMember::getMemberByPseudo("Jeanba"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('adapt'));
@@ -4778,7 +4777,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/hitohira5.jpg");
 			$release->setLocalizedTitle("Ouaaaah");
 			$release->setOriginalTitle("Uwaaaaan");
-			$release->setSynopsis("Un camp d'entraînement ? Quelle bonne idée, pour le club ! Un peu de repos...? Ce n'est pas ce que Nono a prévu.");
+			$release->setSynopsis("Un camp d'entraînement ? Quelle bonne idée pour le club ! Un peu de repos ? Ce n'est pas ce que Nono a prévu.");
 			$release->addStaff(TeamMember::getMemberByPseudo("whatake"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('adapt'));
@@ -4984,7 +4983,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kodomo3.jpg");
 			$release->setLocalizedTitle("Grandir vite");
 			$release->setOriginalTitle("Sukusuku Sodate");
-			$release->setSynopsis("Mimi se sent serrée dans ses vêtements, alors Rin et Kuro lui propose de s'acheter un soutien-gorge. Elles se rendent alors compte que la poitrine de Mimi attire beaucoup les convoitises...");
+			$release->setSynopsis("Mimi se sent serrée dans ses vêtements, alors Rin et Kuro lui proposent de s'acheter un soutien-gorge. Elles se rendent alors compte que la poitrine de Mimi attire beaucoup les convoitises...");
 			$release->addStaff(TeamMember::getMemberByPseudo("angel"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Thibou"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("ed3"), Role::getRole('check'));
@@ -5119,7 +5118,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kodomo6.jpg");
 			$release->setLocalizedTitle("Souvenirs");
 			$release->setOriginalTitle("Omoide");
-			$release->setSynopsis("Reiji enméne Rin dans un lieu de vacances qui leur rappelle tout leurs souvenirs d'enfance. Cet épisode est un flash-back du passée de Reiji.");
+			$release->setSynopsis("Reiji enmène Rin dans un lieu de vacances qui leur rappelle tous leurs souvenirs d'enfance. Cet épisode est un flash-back du passé de Reiji.");
 			$release->addStaff(TeamMember::getMemberByPseudo("angel"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -5164,7 +5163,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kodomo7.jpg");
 			$release->setLocalizedTitle("Classe verte");
 			$release->setOriginalTitle("Rinkan Gakko");
-			$release->setSynopsis("Une classe verte est organisé par l'école. Cela n'a pas l'air d'enchanter Aoki-sensei, qui redoute le pire venant de nos 3 héroines.");
+			$release->setSynopsis("Une classe verte est organisée par l'école. Cela n'a pas l'air d'enchanter Aoki-sensei, qui redoute le pire venant de nos 3 héroïnes.");
 			$release->addStaff(TeamMember::getMemberByPseudo("angel"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
@@ -5208,7 +5207,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kodomo8.jpg");
 			$release->setLocalizedTitle("Tenez-moi bien");
 			$release->setOriginalTitle("Dakkoshite Gyu");
-			$release->setSynopsis("Nogi-sensei, ancienne prof, revient voir l'école. Aoki-sensei va s'éloigné de Rin qui va se déguiser en garçon pour l'approcher.");
+			$release->setSynopsis("Nogi-sensei, ancienne prof, revient voir l'école. Aoki-sensei va s'éloigner de Rin, cette dernière va se déguiser en garçon pour l'approcher.");
 			$release->addStaff(TeamMember::getMemberByPseudo("angel"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('adapt'));
@@ -5253,7 +5252,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kodomo9.jpg");
 			$release->setLocalizedTitle("Jalousie");
 			$release->setOriginalTitle("Yakimochi Doriru");
-			$release->setSynopsis("Aoki-sensei se rapproche de plus en plus de Hoin-sensei, ce qui rend Rin extrêment jalouse. Aoki-sensei tombe malade, et les 3 héroïnes vont lui rendre visite. Seul hic : Hoin-sensei aussi...");
+			$release->setSynopsis("Aoki-sensei se rapproche de plus en plus d'Hoin-sensei, ce qui rend Rin extrêmement jalouse. Aoki-sensei tombe malade, et les 3 héroïnes vont lui rendre visite. Seul hic : Hoin-sensei aussi...");
 			$release->addStaff(TeamMember::getMemberByPseudo("angel"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('adapt'));
@@ -5296,7 +5295,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kodomo10.jpg");
 			$release->setLocalizedTitle("Gentille avec les autres");
 			$release->setOriginalTitle("Hito ni Yasashiku");
-			$release->setSynopsis("Rin tente d'avouer à Aoki-sensei son amour, mais c'est une nouvelle fois un echec. Elle se rend compte qu'il la prend comme une enfant et pas une femme. Elle va donc jouer la carte de la provocation, ammenant un qui proquo. Rin, dépressive, va même jusqu'à demander conseil à sa rivale Kyoko-sensei.");
+			$release->setSynopsis("Rin tente d'avouer à Aoki-sensei son amour, mais c'est une nouvelle fois un échec. Elle se rend compte qu'il la prend comme une enfant et pas une femme. Elle va donc jouer la carte de la provocation, amenant un quiproquo. Rin, dépressive, va même jusqu'à demander conseil à sa rivale Kyoko-sensei.");
 			$release->addStaff(TeamMember::getMemberByPseudo("Shana-chan"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('adapt'));
@@ -5330,7 +5329,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/kodomo11.jpg");
 			$release->setLocalizedTitle("Tout le monde s'en va");
 			$release->setOriginalTitle("Minna Nakayoku");
-			$release->setSynopsis("Après le sport, Rin et Aoki se retrouvent enfermer dans le local du gymnasme. Reiji s'inquiète beaucoup, surtout qu'il vient de faire un mauvais rêve...");
+			$release->setSynopsis("Après le sport, Rin et Aoki se retrouvent enfermés dans le local du gymnase. Reiji s'inquiète beaucoup, surtout qu'il vient de faire un mauvais rêve...");
 			$release->addStaff(TeamMember::getMemberByPseudo("Shana-chan"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("Chakko33"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('adapt'));
@@ -5397,7 +5396,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/toradora1.jpg");
 			$release->setLocalizedTitle("Tigre et dragon");
 			$release->setOriginalTitle("Tora to Ryu");
-			$release->setSynopsis("Nous avons deux personnages très attachant possédant tous les deux un caractère très spécial. Takasu, un lycéen qui effraie tous les autres élèves rien qu'avec son regard et Aisaka, la petite fille surnommée Temori Tiger... sa particularité ? Elle ressemble à une poupée mais elle est aussi féroce qu'un tigre.^^");
+			$release->setSynopsis("Nous avons deux personnages très attachants possédant tous les deux un caractère très spécial. Takasu, un lycéen qui effraie tous les autres élèves rien qu'avec son regard et Aisaka, la petite fille surnommée Temori Tiger... sa particularité ? Elle ressemble à une poupée mais elle est aussi féroce qu'un tigre.");
 			$release->setComment("<b>Staff </b> <a href='http://japanslash.free.fr' target='_blank'>Maboroshi no fansub</a>");
 			$descriptor = new ReleaseFileDescriptor("[Maboroshi-Zero]_Toradora!_01_vostf.avi");
 			$descriptor->setVideoCodec($xvid);
@@ -5455,7 +5454,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/toradora3.jpg");
 			$release->setLocalizedTitle("Ta chanson");
 			$release->setOriginalTitle("Kimi no Uta");
-			$release->setSynopsis("Ryuji va essayer d'en apprendre un peu plus sur Kushieda, et va passer du temps avec elle. Ils sont se retrouver coincé dans une cave sombre...");
+			$release->setSynopsis("Ryuji va essayer d'en apprendre un peu plus sur Kushieda et va passer du temps avec elle. Ils vont se retrouver coincés dans une cave sombre...");
 			$release->addStaff(TeamMember::getMemberByPseudo("praia"), Role::getRole('check'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
@@ -5518,7 +5517,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/toradora5.jpg");
 			$release->setLocalizedTitle("Ami Kawashima");
 			$release->setOriginalTitle("Kawashima Ami");
-			$release->setSynopsis("Cette fois, un nouveau personnage fait son entrée. il s'agit de Ami-chan ! Aux premiers abords, gentille, belle et pourtant....");
+			$release->setSynopsis("Cette fois, un nouveau personnage fait son entrée. il s'agit d'Ami-chan ! Aux premiers abords, gentille, belle et pourtant....");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
@@ -5676,7 +5675,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/toradora10.jpg");
 			$release->setLocalizedTitle("Feu d'artifice");
 			$release->setOriginalTitle("Hanabi");
-			$release->setSynopsis("Une sorte d'épreuve de courage est organisé pour effrayer Minorin. Cependant, tout ne se passe pas si bien que prévu, et il semble qu'il n'y ai pas que Minorin qui soit effrayée...");
+			$release->setSynopsis("Une sorte d'épreuve de courage est organisée pour effrayer Minorin. Cependant, tout ne se passe pas si bien que prévu, et il semble qu'il n'y ait pas que Minorin qui soit effrayée...");
 			$release->addStaff(TeamMember::getMemberByPseudo("Shana-chan"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
@@ -5765,7 +5764,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/toradora13.jpg");
 			$release->setLocalizedTitle("Le festival culturel du lycée Oohashi [3]");
 			$release->setOriginalTitle("Ohashi Koko Bunkasai - Kohen");
-			$release->setSynopsis("Voici enfin le concours de Miss Oohashi, les candidate se succèdent, mais qui sera la gagnante ? Oh, mais voila que la Présidente du Conseil des Elèves organise également le Mister Constest, où le gagnant aura le droit de danser avec Miss Oohashi...");
+			$release->setSynopsis("Voici enfin le concours de Miss Oohashi, les candidates se succèdent, mais qui sera la gagnante ? Oh, mais voilà que la Présidente du Conseil des élèves organise également le Mister Constest, où le gagnant aura le droit de danser avec Miss Oohashi...");
 			$release->addStaff(TeamMember::getMemberByPseudo("Tohru"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
@@ -5825,7 +5824,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/toradora15.jpg");
 			$release->setLocalizedTitle("Les étoiles lointaines");
 			$release->setOriginalTitle("Ohashi Koko Bunkasai - Zenpen");
-			$release->setSynopsis("Kitamura-kun est bizarre depuis quelques temps. Que lui arrive-t-il ? Il ne veut plus faire parti du Conseil des Elèves. Peut-être que quelque chose s'est passé entre lui et Kanou-san, la Président du Conseil des Elèves...?");
+			$release->setSynopsis("Kitamura-kun est bizarre depuis quelque temps. Que lui arrive-t-il ? Il ne veut plus faire parti du Conseil des élèves. Peut-être que quelque chose s'est passé entre lui et Kanou-san, la Présidente du Conseil des Eélèves...");
 			$release->addStaff(TeamMember::getMemberByPseudo("Merry-Aime"), Role::getRole('tradEn'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
@@ -6021,7 +6020,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/toradora22.jpg");
 			$release->setLocalizedTitle("La scène avec toi");
 			$release->setOriginalTitle("Doshitatte");
-			$release->setSynopsis("Taiga fait une déclaration à Ryuuji. Mais en réalité, Taiga croit que tout ceci n'était qu'un rêve et demande donc à Ryuuji ce qu'il s'est réellement passé. Que va-t-il lui réponde ?");
+			$release->setSynopsis("Taiga fait une déclaration à Ryuuji. Mais en réalité, Taiga croit que tout ceci n'était qu'un rêve et demande donc à Ryuuji ce qu'il s'est réellement passé. Que va-t-il lui répondre ?");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('check'));
@@ -6105,7 +6104,7 @@ class Release {
 			$release->setPreviewUrl("images/episodes/toradora25.jpg");
 			$release->setLocalizedTitle("Toradora!");
 			$release->setOriginalTitle("Toradora!");
-			$release->setSynopsis("Taiga et Ryuuji s'enfuient. Sont-ils prêt à assumer leurs actes ? Hésitations, pleurs, départs...");
+			$release->setSynopsis("Taiga et Ryuuji s'enfuient. Sont-ils prêts à assumer leurs actes ? Hésitations, pleurs, départs...");
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('time'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('kara'));
 			$release->addStaff(TeamMember::getMemberByPseudo("db0"), Role::getRole('edit'));
