@@ -3,7 +3,7 @@ define('TEST_MODE_ACTIVATED', !isset($_GET['noTest']) && in_array($_SERVER["SERV
 				'127.0.0.1',
 				'localhost',
 				'to-do-list.me',
-				'sazaju-hitokage.fr'
+				'www.sazaju-hitokage.fr'
 		), true));
 
 /**********************************\
