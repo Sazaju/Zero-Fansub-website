@@ -15,5 +15,5 @@
 	$message->addLine("ou <code><i>NUMERO</i></code> doit être remplacé par le numéro du paquet (voir liste ci-dessous).");
 	$message->addLine();
 	$message->addLine();
-	$message->addLine("<iframe src='iroffer/[Zero]Rin.txt' width='100%' height='600' frameborder='0'><p>Your browser does not support iframes.</p></iframe>");
+	$message->addLine("<iframe src='xdcc_list' width='100%' height='600' frameborder='0'><p>Your browser does not support iframes.</p></iframe>");
 ?>
