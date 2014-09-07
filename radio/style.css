@@ -1,0 +1,17 @@
+body
+{
+    font-family: 'Trebuchet MS', Tahoma, sans-serif;
+    background: white url('img/bg.png') no-repeat right bottom fixed;
+    font-size: 14px;
+}
+
+a
+{
+    text-decoration:none;
+}
+
+body, a
+{
+    color: #935836;
+}
+
