@@ -1,6 +1,8 @@
 <?php
 	require_once('baseImport.php');
 	
+	header('Content-Type: application/rss+xml');
+	
 	$url = Url::getCurrentUrl();
 	$website = Url::getCurrentDirUrl()->toFullString();
 	
