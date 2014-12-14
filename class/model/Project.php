@@ -512,7 +512,7 @@ Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans l
 			$project->setGenre("Comédie");
 			$project->setSynopsis("Takanashi Souta est un lycéen qui a une passion pour les petites choses mignonnes. Quand une fille, Taneshima Popla, l'aborde dans la rue et lui demande si il cherche un travail à mi-temps, il la trouve mignonne car elle ressemble à une collégienne, peut-être même une écolière. Mais il se rend compte quelle a un an de plus que lui. Passant par dessus ce détail, il accepte le travail à mi-temps car elle est toute petite et craquante à souhait. Il commence donc à travailler dans un restaurant familial, mais on peut dire que le personnel est unique ici !");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2045-Ton-avis-sur-Working.htm");
-			$project->setStatus(Project::INTENDED, null);
+			$project->setStatus(Project::RUNNING, strtotime('2013-08-15 19:12'));
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hshiyo", "Faisons l'amour ensemble !");
@@ -987,7 +987,7 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project->setSynopsis("Keita a deux grandes demi-sœurs, Ako et Riko, mais puisqu'ils ne sont pas liés par le sang, elles l'aiment d'une façon assez lascive. Après une infortune à l'école, Ako et Riko lui avouent finalement leur amour. Keita n'aime pas la pensée d'être plus que frère et sœur, mais comme il essaye d'entrer à la même école que ses sœurs, il devient lentement attiré par elles.");
 			$project->setVosta("Subdesu");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
-			$project->setStatus(Project::RUNNING, null);
+			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("kissxsisoav", "KissXsis OAD");
@@ -1001,7 +1001,7 @@ index.php?spgmGal=Zero_fansub/Images/Canaan&amp;spgmPic=3#spgmPicture" class="">
 			$project->setSynopsis("Ako et Riko sont deux sœurs jumelles. Toutes les deux sont amoureuses de leur demi-frère, Keita, avec qui elles n'ont aucun lien de sang.");
 			$project->setVosta("Anonymous et AKFDP");
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t384-Ton-avis-sur-Kiss-X-Sis.htm");
-			$project->setStatus(Project::FINISHED, null);
+			$project->setStatus(Project::RUNNING, null);
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("hitohira", "Hitohira");
