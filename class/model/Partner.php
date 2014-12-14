@@ -157,7 +157,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/animeka.jpg');
 			$partner->setFansubPartner(false);
 			$partner->setDb0Company(false);
-			$partner->setOfficial(true);
+			$partner->setOfficial(false);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -244,6 +244,7 @@ class Partner {
 			$partner->setWebsiteUrl('http://www.chibi-shiba.fr/');
 			$partner->setBannerUrl('images/partenaires/chibi-shiba.png');
 			$partner->setOfficial(true);
+			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 		}
 		return Partner::$allPartners;
