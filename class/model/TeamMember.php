@@ -806,13 +806,13 @@ class TeamMember {
 			
 			$member = new TeamMember();
 			$member->setImage("Yasashi.jpg");
-			$member->setPseudo("Yasashi");
+			$member->setPseudo("Yasashii");
 			$member->addRole(Role::getRole("tradEn"));
 			$member->setAvailability(TeamMember::AVAILABLE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
-			//$member->setImage("Mystiky.jpg");
+			$member->setImage("Mystiky.png");
 			$member->setPseudo("Mystiky!");
 			$member->addRole(Role::getRole("encod"));
 			$member->addRole(Role::getRole("edit"));
@@ -824,6 +824,13 @@ class TeamMember {
 			$member->setPseudo("Akuma");
 			$member->addRole(Role::getRole("kara"));
 			$member->addRole(Role::getRole("edit"));
+			$member->setAvailability(TeamMember::GONE);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember();
+			$member->setImage("ZCK.jpg");
+			$member->setPseudo("ZCK");
+			$member->addRole(Role::getRole("adapt"));
 			$member->setAvailability(TeamMember::AVAILABLE);
 			TeamMember::$allMembers[] = $member;
 		}
