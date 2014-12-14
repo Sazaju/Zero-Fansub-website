@@ -60,7 +60,7 @@ class NewsComponent extends ArticleComponent {
 			$content = '';
 			foreach($releases as $pid => $ids) {
 				if (empty($ids)) {
-					$content .= '[project='.$pid.'][/project]';
+					$content .= '[release='.$pid.'|*][/release]';
 				} else {
 					$content .= '[release='.$pid.'|'.implode(",", $ids).'][/release]';
 				}
