@@ -41,10 +41,9 @@ Elle se poste [url=http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-te
 [code][b]Motivation :[/b][/code] [i]pourquoi je veux faire ce rôle et pourquoi chez vous[/i]
 [code][b]Expérience fansub :[/b][/code] [i]ce que j'ai déjà fait dans une team de fansub en rapport avec ce rôle[/i]
 [code][b]Expérience hors fansub  :[/b][/code] [i]ce que j'ai déjà fait dans la vie qui peut m'aider à faire ce rôle[/i]
-[code][b]Disponibilités :[/b][/code] [i]périodes pendant lesquelles je pense pouvoir tenir mon rôle[/i]
+[code][b]Indisponibilités :[/b][/code] [i]périodes pendant lesquelles je pense ne pas être disponible[/i]
+[code][b]Si ça arrive :[/b][/code] [i]ce que je m'engage à faire si je suis indisponible[/i]
 [code][b]Déjà membres d'autre équipe :[/b][/code] [i]si oui lesquelles[/i]
-[code][b]Connexion internet :[/b][/code] [i]connexion continue ou ponctuelle, petit ou gros débit, etc.[/i]
-[code][b]Système d'exploitation :[/b][/code] [i]Windows, Mac, Linux, etc.[/i]
 [code][b]Autre chose à dire :[/b][/code] [i]si je pense que ça peut permettre à la team de mieux juger si ce poste est fait pour moi[/i]
 
 [justify]
