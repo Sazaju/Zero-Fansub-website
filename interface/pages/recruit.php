@@ -6,7 +6,7 @@
 [left]
 [title=2|number]Prendre connaissance des engagements[/title]
 
-    * Avoir de préférence plus de 16 ans
+    * Avoir au moins 18 ans (ou pas loin)
     * Avoir lu les [url=http://forum.zerofansub.net/t552-Les-regles-d-Or-de-chez-Zero.htm]règles d'Or[/url]
     * Se tenir aux engagements qu'on aura précisé dans sa candidature
     * Ne pas mentir ou gonfler/réduire ses exploits dans sa candidature
@@ -26,8 +26,8 @@
 [b]Timeur :[/b] découpe les phrases, décide le moment d'apparition et la durée de chaque phrase. ([url=http://forum.zerofansub.net/f197-Cours.htm]cours Aegisub[/url])
 [b]Edit :[/b] positionne les sous-titres, choisit la taille, la \"police\" de caractère, crée des effets. ([url=http://forum.zerofansub.net/f197-Cours.htm]cours Aegisub[/url], [url=http://forum.zerofansub.net/f198-Cours.htm]cours After Effect[/url])
 [b]Karamaker :[/b] time le karaoké depuis le roumaji et crée des effets. ([url=http://forum.zerofansub.net/f197-Cours.htm]cours Aegisub[/url], [url=http://forum.zerofansub.net/f198-Cours.htm]cours After Effect[/url])
-[b]Encodeur :[/b]  incruste les sous-titres à la vidéo. ([url=http://forum.zerofansub.net/f202-Cours-br.htm]cours[/url])
-[b]Qualité Contrôle :[/b] vérifie que tout a bien été effectué : time, édit, ortho, adapt, etc. ([url=http://forum.zerofansub.net/f192-Cours.htm]cours[/url])
+[b]Encodeur :[/b]  trouve les raw, les retravaille et y intègre les sous-titres. ([url=http://forum.zerofansub.net/f202-Cours-br.htm]cours[/url])
+[b]Contrôle Qualité :[/b] vérifie que tout a bien été effectué : time, édit, ortho, adapt, etc. ([url=http://forum.zerofansub.net/f192-Cours.htm]cours[/url])
 [b]Programmeur Web :[/b] gère le site web, connais PHP, CSS, (X)HTML et si possible JSP. ([url=https://github.com/Sazaju/Zero-Fansub-website]site sur GitHub[/url])
 [b]Programmeur Logiciel :[/b] automatise les tâches nécessaires et améliore le support des tâches manuelles, de préférence en Java ou PHP.
 
