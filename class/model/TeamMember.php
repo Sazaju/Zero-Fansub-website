@@ -761,6 +761,7 @@ class TeamMember {
 			$member->setImage("BigMoon.jpg");
 			$member->setPseudo("BigMoon");
 			$member->addRole(Role::getRole("time"));
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
@@ -816,7 +817,7 @@ class TeamMember {
 			$member->setPseudo("Mystiky!");
 			$member->addRole(Role::getRole("encod"));
 			$member->addRole(Role::getRole("edit"));
-			$member->setAvailability(TeamMember::AVAILABLE);
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
@@ -831,6 +832,13 @@ class TeamMember {
 			$member->setImage("ZCK.jpg");
 			$member->setPseudo("ZCK");
 			$member->addRole(Role::getRole("adapt"));
+			$member->setAvailability(TeamMember::AVAILABLE);
+			TeamMember::$allMembers[] = $member;
+			
+			$member = new TeamMember();
+			$member->setImage("Ramuh.png");
+			$member->setPseudo("Ramuh");
+			$member->addRole(Role::getRole("edit"));
 			$member->setAvailability(TeamMember::AVAILABLE);
 			TeamMember::$allMembers[] = $member;
 		}
