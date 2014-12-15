@@ -801,7 +801,7 @@ class TeamMember {
 			$member->setPseudo("valderoth");
 			$member->addRole(Role::getRole("adapt"));
 			$member->addRole(Role::getRole("edit"));
-			$member->setAvailability(TeamMember::INACTIVE);
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
