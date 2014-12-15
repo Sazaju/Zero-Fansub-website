@@ -23,13 +23,13 @@ Si on trouve des vidéos de meilleures qualités (BD) il est prévu de les refai
 
 [b]Mais c'est pas logique. C'est quoi ces raisons à deux balles ?[/b]
 
-C'est nos raisons. Et qu'elles vous plaisent ou non, si on vous les donne c'est pour satisfaire votre curiosité, pas pour en débattre. Mais soyons clairs : rien ne vous empêche de faire l'effort de les recopier et de refaire le time et tout ce qui va avec. Si vous n'avez pas la motivation de le faire, c'est que ces sous-titres ne vous tiennent pas plus à cœur que ça. Vous avez vos valeurs, nous les notres. Le fansub est une notion de partage, et nous on partage des vidéos, pas des sous-titres.
+C'est nos raisons. Et qu'elles vous plaisent ou non, si on vous les donne c'est pour satisfaire votre curiosité, pas pour en débattre. Mais soyons clairs : rien ne vous empêche de faire l'effort de les recopier et de refaire le time et tout ce qui va avec. Si vous n'avez pas la motivation de le faire, c'est que ces sous-titres ne vous tiennent pas plus à cœur que ça. Vous avez vos valeurs, nous les nôtres. Le fansub est une notion de partage, et nous on partage des vidéos, pas des sous-titres.
 
 [title=2]Recrutement[/title]
 
 [b]Je veux vous rejoindre, je fais comment ?[/b]
 
-Pour nous rejoindre, c'est [url=?page=recruit]par là[/url]. Merci de bien lire et de faire votre candidature sérieusement. Vous n'êtes censés le faire qu'une seule fois donc autant y apporter du soin, ce qui nous fera gagner du temps et augmentera vos chances de convaincre que vous n'êtes pas in kikoolol qui passait parce qu'il a vu de la lumière sous la porte.
+Pour nous rejoindre, c'est [url=?page=recruit]par là[/url]. Merci de bien lire et de faire votre candidature sérieusement. Vous n'êtes censés le faire qu'une seule fois, donc autant y apporter du soin, ce qui nous fera gagner du temps et augmentera vos chances de convaincre que vous n'êtes pas un kikoolol qui passait parce qu'il a vu de la lumière sous la porte.
 
 [b]Mais j'aime pas les forums. On ne peut pas faire ça par e-mail ?[/b]
 
@@ -44,7 +44,7 @@ Pour nous signaler un bug, c'est [url=?page=bug]par là[/url].
 [/left]
 ===================
 
-Si vous n'vez pas trouvé de réponse à vos questions, vous pouvez nous contacter via cet e-mail :
+Si vous n'avez pas trouvé de réponse à vos questions, vous pouvez nous contacter via cet e-mail :
 
 
 [size=25px][mail]zero.fansub@gmail.com[/mail][/size]";
