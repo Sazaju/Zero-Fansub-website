@@ -5004,8 +5004,7 @@ Pour ceux qui s'en souviennent et on aimé, peut-être savez-vous que la Zéro s
 			$news->setTitle("Le retour de Genshiken 2, mais en BD 720p et softsub !");
 			//$news->setPublicationTime(strtotime("2014-12-25 00:00"));
 			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
-			$news->setMessage("La sortie des blu-ray nous a donné l'occasion de nous replonger dans cette série
-qui nous tient à cœur.
+			$news->setMessage("La sortie des blu-ray nous a donné l'occasion de nous replonger dans cette série qui nous tient à cœur.
 
 Comme on ne fait pas les choses à moitié, tout a été revu.
 
@@ -5013,20 +5012,20 @@ Et je dois dire que la traduction méritait vraiment d'être revue.
 
 De plus, l'épisode 10 et 11 sont cette fois-ci sans écriture jap.
 
-Le point négatif, c'est qu'on n'a pas fait de 1080p.
+[img=images/news/genshiken2_fini.png]Version BD dans les bacs ![/img]
+
+Ou presque, on n'a pas fait de 1080p, car ça n'aurait pas eu de sens.
 Les BD sont probablement des pseudo BD, vu que la série date un peu.
 
 Vous avez constaté notre changement de politique au softsub,
 j'espère que ce sera vu comme un point positif.
 
-Petite parenthèse : il y a deux histoires avant Nidaime :
+Petite parenthèse, il y a deux histoires avant Nidaime :
 
 - le camp d'entraînement
 - le passé d'Ogiue
 
 Pas d'annonce d'adaptation d'OAV à ce jour ^_^
-
-[img=images/news/genshiken2_fini.png]Version BD dans les bacs ![/img]
 
 P.S. : Vous vous demandez sûrement pourquoi on n'a pas sorti Kiss X Sis OAD.
 Le projet est en pause le temps que notre trad jap retrouve un bon rythme.
