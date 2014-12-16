@@ -5009,19 +5009,17 @@ qui nous tient à cœur.
 
 Comme on ne fait pas les choses à moitié, tout a été revu.
 
-Et je dois dire que la traduction méritait vraiment d'être revue :
-on avait apparemment mal choisit notre teamUS.
+Et je dois dire que la traduction méritait vraiment d'être revue.
 
 De plus, l'épisode 10 et 11 sont cette fois-ci sans écriture jap.
 
-Le point négatif, c'est qu'il n'ya pas de 1080p.
+Le point négatif, c'est qu'on n'a pas fait de 1080p.
 Les BD sont probablement des pseudo BD, vu que la série date un peu.
 
 Vous avez constaté notre changement de politique au softsub,
 j'espère que ce sera vu comme un point positif.
 
-Petite parenthèse : il y a deux histoires avant Nidaime
-qui n'ont pas été adaptées en anime :
+Petite parenthèse : il y a deux histoires avant Nidaime :
 
 - le camp d'entraînement
 - le passé d'Ogiue
