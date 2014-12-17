@@ -5014,8 +5014,9 @@ De plus, l'épisode 10 et 11 sont cette fois-ci sans écriture jap.
 
 [img=images/news/genshiken2_fini.png]Version BD dans les bacs ![/img]
 
-Ou presque, on n'a pas fait de 1080p, car ça n'aurait pas eu de sens.
-Les BD sont probablement des pseudo BD, vu que la série date un peu.
+Point négatif, pas de FHD.
+
+Genshiken 2 n'a pas été fait en haute résolution : les blu-ray sont des upscale.
 
 Vous avez constaté notre changement de politique au softsub,
 j'espère que ce sera vu comme un point positif.
