@@ -5002,7 +5002,7 @@ Pour ceux qui s'en souviennent et on aimé, peut-être savez-vous que la Zéro s
 			
 			$news = new News();
 			$news->setTitle("Le retour de Genshiken 2, mais en BD 720p et softsub !");
-			$news->setPublicationTime(strtotime("2014-12-25 00:00"));
+			$news->setPublicationTime(strtotime("2014-12-24 20:00"));
 			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
 			$news->setMessage("La sortie des blu-ray nous a donné l'occasion de nous replonger dans cette série qui nous tient à cœur.
 
