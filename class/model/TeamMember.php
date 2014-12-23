@@ -761,7 +761,7 @@ class TeamMember {
 			$member->setImage("BigMoon.jpg");
 			$member->setPseudo("BigMoon");
 			$member->addRole(Role::getRole("time"));
-			$member->setAvailability(TeamMember::GONE);
+			$member->setAvailability(TeamMember::AVAILABLE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
