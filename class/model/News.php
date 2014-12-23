@@ -5031,7 +5031,7 @@ Pas d'annonce d'adaptation d'OAV à ce jour ^_^
 P.S. : Vous vous demandez sûrement pourquoi on n'a pas sorti Kiss X Sis OAD.
 Le projet est en pause le temps que notre trad jap retrouve un bon rythme.
 
-Sur ce, joyeux Noël !");
+Sur ce, joyeuses fêtes !");
 			$news->setCommentId(332);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
