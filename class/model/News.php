@@ -5004,32 +5004,21 @@ Pour ceux qui s'en souviennent et on aimé, peut-être savez-vous que la Zéro s
 			$news->setTitle("Le retour de Genshiken 2, mais en BD 720p et softsub !");
 			$news->setPublicationTime(strtotime("2014-12-24 20:00"));
 			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
-			$news->setMessage("La sortie des blu-ray nous a donné l'occasion de nous replonger dans cette série qui nous tient à cœur.
+			$news->setMessage("La sortie des blu-ray nous a donné l'occasion de corriger pas mal d'erreurs de traduction et d'améliorer d'autres petites choses, comme les éditions. ^_^
 
-Comme on ne fait pas les choses à moitié, tout a été revu.
+Tout cela a été rendu possible grâce à l'envoi d'un mail d'un fan qui nous a avertis de la sortie des blu-ray, d'une nouvelle VOSTA bien meilleure que celle que nous avions utilisée, grâce à la contribution de notre trad-jap qui a su nous éclairer lorsque nous étions plongés dans le noir et à nos efforts et notre persévérance habituelle.
 
-Et je dois dire que la traduction méritait vraiment d'être revue.
-
-De plus, l'épisode 10 et 11 sont cette fois-ci sans écriture jap.
+Autre point positif, l'épisode 10 et 11 sont cette fois-ci sans écritures japonaises, ce qui est visuellement plus appréciable.
 
 [img=images/news/genshiken2_fini.png]Version BD dans les bacs ![/img]
 
-Point négatif, pas de FHD.
-
-Genshiken 2 n'a pas été fait en haute résolution : les blu-ray sont des upscale.
-
-Vous avez constaté notre changement de politique au softsub,
-j'espère que ce sera vu comme un point positif.
-
-Petite parenthèse, il y a deux histoires avant Nidaime :
-
-- le camp d'entraînement
-- le passé d'Ogiue
-
-Pas d'annonce d'adaptation d'OAV à ce jour ^_^
+Petite précision, nous n'avons pas fait de FHD, car les blu-ray sont apparemment des upscale.
 
 P.S. : Vous vous demandez sûrement pourquoi on n'a pas sorti Kiss X Sis OAD.
 Le projet est en pause le temps que notre trad jap retrouve un bon rythme.
+
+P.S. 2 : Vous avez constaté notre changement de politique au softsub ?
+J'espère que ce sera vu comme un point positif.
 
 Sur ce, joyeuses fêtes !");
 			$news->setCommentId(332);
