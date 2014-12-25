@@ -2703,7 +2703,7 @@ class Release {
 			$release = new Release(Project::getProject('genshiken'), 'ep2');
 			$release->setName("02");
 			$release->setPreviewUrl("images/episodes/genshiken2.jpg");
-			$release->setLocalizedTitle("Les rencontres sont désastreuses");
+			$release->setLocalizedTitle("Une réunion désastreuse");
 			$release->setOriginalTitle("Kaigi wa Momeru");
 			$release->setSynopsis("Plus beaucoup de temps avant la date limite fixée à l'imprimerie pour la publication du fanzine ! Une dispute entre les membres du Genshiken  ! Réussiront-ils à sortir le fanzine ?");
 			$release->setComment("Pas de FHD car les blu-ray sont des upscale.");
@@ -2732,7 +2732,7 @@ class Release {
 			$release->setName("04");
 			$release->setPreviewUrl("images/episodes/genshiken4.jpg");
 			$release->setLocalizedTitle("Vous sortez ensemble ?");
-			$release->setOriginalTitle("Atsui Natsu no Ichinichi");
+			$release->setOriginalTitle("Dekiten desu ka?");
 			$release->setSynopsis("Tanaka et Ohno sont très proche, et toute la bande à l'impréssion qu'ils sortent ensemble. Comment savoir si c'est bien le cas...?");
 			$release->setComment("Pas de FHD car les blu-ray sont des upscale.");
 			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[Hi10-720p]/[Zero]_Genshiken2_04_[Hi10-720p][1AF58655].mkv");
@@ -2748,7 +2748,7 @@ class Release {
 			$release = new Release(Project::getProject('genshiken'), 'ep5');
 			$release->setName("05");
 			$release->setPreviewUrl("images/episodes/genshiken5.jpg");
-			$release->setLocalizedTitle("Madarame devient Uke");
+			$release->setLocalizedTitle("Madarame, le soumis pur jus");
 			$release->setOriginalTitle("Madarame So-Uke");
 			$release->setSynopsis("Ogiue surprend Madarame et Sasahara dans une drôle de situation. Son imagination débordante de fan de yaoi va lui faire inventer de drôles de scénario...");
 			$release->setComment("Pas de FHD car les blu-ray sont des upscale.");
@@ -2762,7 +2762,7 @@ class Release {
 			$release = new Release(Project::getProject('genshiken'), 'ep6');
 			$release->setName("06");
 			$release->setPreviewUrl("images/episodes/genshiken6.jpg");
-			$release->setLocalizedTitle("Un problème de Hobby");
+			$release->setLocalizedTitle("Une affaire de goût");
 			$release->setOriginalTitle("Shumi no Mondai");
 			$release->setSynopsis("Ogiue refuse d'admettre qu'elle souhaite aller au Comic Festival. Elle va donc se déguiser pour passer inaperçu et aller s'acheter ses fanzines yaoi préférés.");
 			$release->setComment("Pas de FHD car les blu-ray sont des upscale.");
@@ -2776,7 +2776,7 @@ class Release {
 			$release = new Release(Project::getProject('genshiken'), 'ep7');
 			$release->setName("07");
 			$release->setPreviewUrl("images/episodes/genshiken7.jpg");
-			$release->setLocalizedTitle("Syndrôme de récéption d'un diplôme");
+			$release->setLocalizedTitle("Syndrome des diplômés");
 			$release->setOriginalTitle("Sotsugyo Shokogun");
 			$release->setSynopsis("3 membres du Genshiken reçoivent leurs diplômes aujourd'hui. Ils vont donc entrer dans la vie du travail.");
 			$release->setComment("Pas de FHD car les blu-ray sont des upscale.");
@@ -2818,7 +2818,7 @@ class Release {
 			$release = new Release(Project::getProject('genshiken'), 'ep10');
 			$release->setName("10");
 			$release->setPreviewUrl("images/episodes/genshiken10.jpg");
-			$release->setLocalizedTitle("Otaku des USA");
+			$release->setLocalizedTitle("Otakus des USA");
 			$release->setOriginalTitle("Otaku Furomu USA");
 			$release->setSynopsis("Des amies de Kanako venant des état-unis sont venues lui rendre visite. Evidemment, elles ne parlent pas japonais.");
 			$release->setComment("Pas de FHD car les blu-ray sont des upscale.");
@@ -2846,7 +2846,7 @@ class Release {
 			$release = new Release(Project::getProject('genshiken'), 'ep12');
 			$release->setName("12");
 			$release->setPreviewUrl("images/episodes/genshiken12.jpg");
-			$release->setLocalizedTitle("Mensonges à venir");
+			$release->setLocalizedTitle("Ce qui nous attend...");
 			$release->setOriginalTitle("Sono Saki ni Aru Mono..");
 			$release->setSynopsis("Sasahara continue désespérement à chercher du travail... Il a tant de mal qu'il finit par laisser tomber ses recherches, mais le reste du Genshiken ne compte pas le laisser faire.");
 			$release->setComment("Pas de FHD car les blu-ray sont des upscale.");
