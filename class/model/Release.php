@@ -2693,8 +2693,8 @@ class Release {
 			$release->setOriginalTitle("Shin-Kaicho no Kokorozashi");
 			$release->setSynopsis("Le Genshiken reviens avec Sasahara comme nouveau président ! Ils comptent participer au Comic Festival en tant qu'exposant et donc faire un fanzine.");
 			$release->setComment("Pas de FHD car les blu-ray sont des upscale.");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[Hi10-720p]/[Zero]_Genshiken2_01_[Hi10-720p][702B685F].mkv");
-			$descriptor->setCRC("702B685F");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[Hi10-720p]/[Zero]_Genshiken2_01_[Hi10-720p][D65D08F9].mkv");
+			$descriptor->setCRC("D65D08F9");
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(0);
