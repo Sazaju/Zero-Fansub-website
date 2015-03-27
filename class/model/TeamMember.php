@@ -846,7 +846,7 @@ class TeamMember {
 			$member->setImage("Thor0Asgard.jpg");
 			$member->setPseudo("Thor0Asgard");
 			$member->addRole(Role::getRole("encod"));
-			$member->setAvailability(TeamMember::AVAILABLE);
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 		}
 		return TeamMember::$allMembers;
