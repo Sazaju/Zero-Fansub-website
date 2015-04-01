@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 	<head>
 		<title>Configuration initiale</title>
@@ -10,7 +10,17 @@
 		<link rel="icon" type="image/gif" href="fav.gif" />
 		<link rel="shortcut icon" href="fav.ico" />
 		<style type="text/css">
-			pre.code {
+			/* HTML 4 compatibility */
+			article, aside, figcaption, figure, footer, header, hgroup, nav, section {
+				display: block;
+			}
+		</style>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<style type="text/css">
+			code {
+				display: block;
 				text-align: left;
 				border: 1px black solid;
 				padding: 5px;
@@ -21,13 +31,13 @@
 		</style>
 	</head>
 	<body>
-		<div id="main">
-			<div id="page">
+		<section id="main">
+			<article id="page">
 				<h1>Initialisation des données critiques</h1>
 				<p>
 					Le fichier <b><?php echo $criticalDataFile; ?></b> n'existe pas ou ses données ne sont pas correctes. Il vous faut donc le créer ou le corriger. Pour se faire, ouvrez un fichier portant ce nom à la racine du site (au même endroit que l'index) et remplissez-le selon ce modèle :
 				</p>
-				<pre class='code'>&lt;?php
+				<code>&lt;?php
 /*
 	This file contains critical data and should never be written
 	in the repository of a version management system (ensure it
@@ -39,7 +49,7 @@ define('DB_NAME', 'zero-fansub');
 define('DB_HOST', '127.0.0.1');
 define('DB_USER', 'zero');
 define('DB_PASS', 'pass');
-?&gt;</pre>
+?&gt;</code>
 				
 				<p>Les informations présentes dans ce fichier correspondent aux données de connexions à la base de données. Les termes en majuscules (comme DB_NAME) sont les <b>noms</b> des constantes utilisées dans le code pour appeler ces données. Les <b>valeurs</b> associées (par exemple 'zero-fansub') correspondent aux informations à personnaliser. Ce modèle est un exemple, libre à vous d'utiliser les même <b>valeurs</b> ou de les changer (notamment le mot de passe), les <b>noms</b> des constantes en revanche ne peuvent pas être changées. Si vous êtes un développeur qui utilise sa propre base de données pour faire ses tests, vous pouvez réutiliser ce modèle tel quel ou changer les données selon vos préférences (mais évitez d'utiliser les mêmes valeurs que celles du serveur officiel si vous les connaissez).</p>
 				

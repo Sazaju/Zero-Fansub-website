@@ -40,18 +40,19 @@ class Role {
 			Role::$allRoles[] = new Role('adapt', 'adaptation');
 			Role::$allRoles[] = new Role('time', 'time');
 			Role::$allRoles[] = new Role('edit', 'édition');
-			Role::$allRoles[] = new Role('kara', 'karaoke');
+			Role::$allRoles[] = new Role('kara', 'karaoké');
 			Role::$allRoles[] = new Role('check', 'check');
 			Role::$allRoles[] = new Role('checkTrad', 'check traduction');
-			Role::$allRoles[] = new Role('qc', 'QC');
-			Role::$allRoles[] = new Role('verifFinale', 'v&eacute;rif finale');
+			Role::$allRoles[] = new Role('qc', 'contrôle qualité');
+			Role::$allRoles[] = new Role('verifFinale', 'vérif finale');
+			Role::$allRoles[] = new Role('ortho', 'orthographe');
 			Role::$allRoles[] = new Role('encod', 'encodage');
 			Role::$allRoles[] = new Role('sorties', 'sorties');
 			Role::$allRoles[] = new Role('torrent', 'tracker BT');
 			Role::$allRoles[] = new Role('xdcc', 'XDCC');
 			Role::$allRoles[] = new Role('help', 'aide');
 			Role::$allRoles[] = new Role('clean', 'clean');
-			Role::$allRoles[] = new Role('graphiste', 'graphiste');
+			Role::$allRoles[] = new Role('graphiste', 'graphisme');
 		}
 		return Role::$allRoles;
 	}

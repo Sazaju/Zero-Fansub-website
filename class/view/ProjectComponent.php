@@ -1,5 +1,5 @@
 <?php
-class ProjectComponent extends SimpleBlockComponent {
+class ProjectComponent extends ArticleComponent {
 	public function __construct(Project $project, $forceDisplay = false) {
 		$image = new Image('images/series/'.$project->getID().'.jpg');
 		$image->setClass('projectPicture');

@@ -13,6 +13,7 @@
 .news {
 	max-width: 550px;
 	margin: auto;
+	margin-top: 1em;
 }
 
 .news .title, .news .subtitle { 
@@ -34,4 +35,24 @@
 
 .news .comment {
 	display: block;
+	margin-bottom: 1.5em;
+}
+
+/***************************************\
+   SHARING BUTTONS STYLES ADJUSTING
+\***************************************/
+.news .twitter, .news .facebook, .news .google {
+	display: inline-block;
+	margin: auto;
+	padding: 0;
+	width: 150px;
+}
+
+.news .twitter *, .news .facebook *, .news .google * {
+	margin: auto !important;
+	padding: 0 !important;
+}
+
+.news .facebook * {
+	margin-top: -4px !important;
 }

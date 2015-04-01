@@ -2,7 +2,7 @@
 /*
 	A dossier component the renderable version of a dossier.
 */
-class DossierComponent extends SimpleBlockComponent {
+class DossierComponent extends ArticleComponent {
 	public function __construct(Dossier $dossier) {
 		$this->setClass('dossier');
 		

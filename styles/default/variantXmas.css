@@ -1,0 +1,16 @@
+body {
+	background: url('images/xmas/bg.jpg');
+}
+
+#header {
+	background: url('images/xmas/banniere.png') no-repeat;
+}
+
+.sortie img {
+	background-color: white;
+	border: 2px outset red;
+}
+
+#colRight .logo:after {/*should not be after, nor before, but does not work with Firefox 17 without this*/
+	content: url('images/xmas/logo.png');
+}

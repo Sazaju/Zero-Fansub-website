@@ -4,9 +4,18 @@ class Partner {
 	private $name = null;
 	private $websiteUrl = null;
 	private $bannerUrl = null;
-	private $isFansubPartner = null;
-	private $isDb0Company = null;
-	private $isOver = null;
+	private $isFansubPartner = false;
+	private $isDb0Company = false;
+	private $isOver = false;
+	private $isOfficial = false;
+	
+	public function setOfficial($boolean) {
+		$this->isOfficial = $boolean;
+	}
+	
+	public function isOfficial() {
+		return $this->isOfficial;
+	}
 	
 	public function setOver($boolean) {
 		$this->isOver = $boolean;
@@ -76,6 +85,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/finalfan.png');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -85,6 +95,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/mangas_arigatou.png');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -94,6 +105,8 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/kanaii.png');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
+			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -103,15 +116,18 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/kouhai.jpg');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
+			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
 			$partner->setID('samazama');
 			$partner->setName("Samazama na Koto");
-			$partner->setWebsiteUrl('http://samazamablog.wordpress.com/');
+			$partner->setWebsiteUrl('http://www.samazama.fr');
 			$partner->setBannerUrl('images/partenaires/samazama.gif');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -121,6 +137,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/sky.png');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -130,6 +147,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/anime-ultime.jpg');
 			$partner->setFansubPartner(false);
 			$partner->setDb0Company(true);
+			$partner->setOfficial(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -139,6 +157,7 @@ class Partner {
 			$partner->setBannerUrl('images/partenaires/animeka.jpg');
 			$partner->setFansubPartner(false);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(false);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -147,6 +166,7 @@ class Partner {
 			$partner->setWebsiteUrl('http://japanslash.free.fr');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
@@ -156,6 +176,7 @@ class Partner {
 			$partner->setWebsiteUrl('http://kyoutsu-subs.over-blog.com');
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
+			$partner->setOfficial(true);
 			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
@@ -165,6 +186,64 @@ class Partner {
 			$partner->setWebsiteUrl('http://db0.fr');
 			$partner->setFansubPartner(false);
 			$partner->setDb0Company(true);
+			$partner->setOfficial(true);
+			$partner->setOver(true);
+			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('adala-news');
+			$partner->setName("Adala News");
+			$partner->setWebsiteUrl('http://adala-news.fr/');
+			$partner->setBannerUrl('images/partenaires/adala-news.jpg');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('icotaku');
+			$partner->setName("Icotaku");
+			$partner->setWebsiteUrl('http://www.icotaku.com/');
+			$partner->setBannerUrl('images/partenaires/icotaku.gif');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('anidb');
+			$partner->setName("AniDB");
+			$partner->setWebsiteUrl('http://anidb.net');
+			$partner->setBannerUrl('images/partenaires/anidb.png');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('otaku-attitude');
+			$partner->setName("Otaku-Attitude");
+			$partner->setWebsiteUrl('http://www.otaku-attitude.net/');
+			$partner->setBannerUrl('images/partenaires/otaku-attitude.png');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('myanimelist');
+			$partner->setName("MyAnimeList");
+			$partner->setWebsiteUrl('http://myanimelist.net/');
+			$partner->setBannerUrl('images/partenaires/myanimelist.png');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('sky-animes');
+			$partner->setName("Sky-Animes");
+			$partner->setWebsiteUrl('http://www.sky-animes.com');
+			$partner->setBannerUrl('images/partenaires/sky-animes.gif');
+			$partner->setOfficial(false);
+			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('chibi-shiba');
+			$partner->setName("Chibi Shiba fansub");
+			$partner->setWebsiteUrl('http://www.chibi-shiba.fr/');
+			$partner->setBannerUrl('images/partenaires/chibi-shiba.png');
+			$partner->setOfficial(true);
 			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 		}

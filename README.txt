@@ -3,14 +3,14 @@ I. DEFINITIONS
 Tout d'abord mettons-nous d'accord sur les termes employés, il n'en sera que plus simple de se comprendre :
 
 Les sorties :
-	Scantrad = chapitre ou volume traduit
-	Fansub   = épisode ou série traduit(e)
+	Fansub   = épisode ou série (vidéo) traduit(e)
+	Scantrad = chapitre ou volume (livre) traduit
 	Release  = élément traduit (fansub ou scantrad)
-	Preview  = images tirées d'une release pour être affichées dans sa description
+	Preview  = ensemble d'images tirée d'une release pour être affiché dans sa description
 
 Le code :
-	HTML = description de la structure du site (menus, listes, titres, ...) et de son contenu
-	CSS  = description du rendu du site (couleurs, polices, tailles, ...)
+	HTML = description de la sémantique du site (menus, listes, titres, ...) et de son contenu
+	CSS  = description de la structure du site (positions, ordres, ...) et de son rendu (couleurs, polices, tailles, ...)
 	PHP  = logique du site (objets, fonctions, ...)
 	DB   = base de données (contenu du site)
 
@@ -23,58 +23,61 @@ II.ARCHITECTURE DU SITE
 
 II.1 Architecture globale
 
-+ class.............. Classes PHP
-|	+ database....... Classes relatives à la DB
-|	+ util........... Classes utilitaires
++ class..................... Classes PHP
+|   + model................. Modèle (structures de données)
+|   |   + database.......... Base de données (basé sur le modèle)
+|   |
+|   + util.................. Fonctions utilitaires
+|   + view.................. Vue (représentations graphiques)
 |
-+ ddl................ Releases de la team (disponible uniquement sur le serveur)
++ ddl....................... Releases de la team (disponible uniquement sur le serveur)
 |
-+ images............. Images utilisées pour le site
-|	+ autre.......... 
-|	+ calques........ Images transparentes utilisables pour faire du traitement d'image
-|	+ cover.......... 
-|	+ episodes....... Preview des épisodes
-|	+ forum.......... 
-|	+ hautmenu....... Images aleatoires utilisées dans le coin en haut à gauche du site
-|	+ icones......... 
-|	+ interface...... 
-|	+ kanaii......... 
-|	+ news........... Images utilisées dans les news
-|	+ part........... 
-|	+ partenaires.... 
-|	+ pub............ 
-|	+ recrut......... 
-|	+ scan........... 
-|	+ series......... Images utilisées pour décrire les projets (liste + descriptions)
-|	+ sorties........ Images apparaissant en haut du site, montrant les dernières sorties
-|	+ team........... Avatars des membres de l'équipe (page équipe)
-|	+ titres......... 
-|	+ xdcc........... 
++ images.................... Images utilisées pour le site
+|   + autre................. 
+|   + calques............... Images transparentes utilisables pour faire du traitement d'image
+|   + cover................. 
+|   + episodes.............. Preview des épisodes
+|   + forum................. 
+|   + hautmenu.............. Images aleatoires utilisées dans le coin en haut à gauche du site
+|   + icones................ 
+|   + interface............. 
+|   + kanaii................ 
+|   + news.................. Images utilisées dans les news
+|   + part.................. 
+|   + partenaires........... 
+|   + pub................... 
+|   + recrut................ 
+|   + scan.................. 
+|   + series................ Images utilisées pour décrire les projets (liste + descriptions)
+|   + sorties............... Images apparaissant en haut du site, montrant les dernières sorties
+|   + team.................. Avatars des membres de l'équipe (page équipe)
+|   + titres................ 
+|   + xdcc.................. 
 |
-+ interface.......... Pages PHP décrivant les différentes parties de l'interface (entête et pied de page, menus, contenu de page)
++ interface................. Pages PHP décrivant les différentes parties de l'interface (entête et pied de page, menus, contenu de page)
+|   + pages................. Contenu de page (accueil, projets, XDCC, etc.)
 |
-+ pages.............. Pages HTML (vouées à disparaître)
++ styles.................... Styles du site (CSS)
+|   + default............... Style par défaut
+|   + (autres dosiers)...... Autres styles
 |
-+ styles............. Styles CSS disponibles
-	+ default........ Style par défaut
-		+ images..... Images utilisées par le style
++ tests..................... Tests automatisés
 
 II.1 Classes PHP
 
-La hiérarchie des classes PHP n'est pas encore complètement fixée, cela dit elle vise à s'approcher d'un schéma MVC (Modèle-Vue-Controleur). Ce schéma s'organise comme suit :
-- le modèle définit les données disponibles, qui est grosso modo le contenu de la DB, ce niveau est géré par les classes implémentant IDatabaseComponent (ligne d'une table) ou IDatabaseContainer (ensemble de lignes)
-- la vue correspond au rendu final de ces données (affichage sur le site), ce niveau est géré par les classes implémentant l'interface IHtmlComponent (génère la structure HTML)
-- le controleur est la logique du site, c'est lui qui gère la lecture et l'écriture des données au niveau modèle, selon les besoins du niveau vue, ce niveau est géré par des classes qui n'implémentent pas d'interface commune (chaque objet définit sa propre logique)
+La hiérarchie des classes PHP n'est pas encore complètement fixée, cela dit elle est similaire à un schéma MVC (Model-View-Controler), avec quelques différences cependant. Pour bien clarifier cette différence, nous parlerons d'un schéma MVU (Model-View-Utilitary). Cette hiérarchie s'organise comme suit :
 
-Pour faire simple, le modèle définit les informations disponibles, le controleur utilise et traite ces informations, puis la vue les formate pour l'affichage final sur le site. Le schéma suivant résume la situation par rapport aux différentes classes PHP :
+- le modèle (M) définit les données disponibles, c'est à dire les objets qui seront manipulés (membre, dossier, projet, épisode, ...). La convention de nommage des classes est simplement le nom des données (TeamMember, Dossier, Project, Release, ...), normalement en anglais. Ces classes regroupent tous les accesseurs/modifieurs (setters/getters) nécessaires à le lecture et l'écriture des données. Certaines fonctions de calculs simples peuvent être implémentées (ex: calcul de l'âge à partir de la date de naissance) mais rien de complexe ou consommateur en ressources, l'objectif principal est de donner accès aux données, et non de les générer. La couche utilitaire (décrite ci-dessous) peut prendre en charge les gros calculs.
 
-   VUE     |       IHtmlComponent
-    |      |             |
-CONTROLEUR |    classes spécialisées
-    |      |             |
-  MODÈLE   |  IDatabaseComponent/Container
+- la vue (V) correspond au rendu final des données (affichage sur le site). La convention de nommage est le nom de l'objet rendu suivi de "Renderer" (cette convention n'est pas encore appliquée, au profit de "Component" ou rien du tout, mais devra l'être dans le futur). Les classes de la vue implémentent l'interface IHtmlComponent (qui devra donc s'appeler IHtmlRenderer dans le futur).
 
-À noter que les interfaces ont leur noms préfixés par I (comme interface), par exemple IHtmlComponent pour un composant HTML, IDatabaseComponent pour un composant de la DB, etc. Cependant ces interfaces ne sont jamais implémentées directement, en effet plusieurs méthodes ont une logique commune quelque soit la classe héritant une de ces interfaces, et méritent donc d'être implémentées à un niveau supérieur. Par exemple les composants HTML peuvent tous avoir une des propriétés telles que id, class, style, etc. Aussi le processus de génération du code HTML est toujours le même (une balise englobant le contenu). Ce genre de méthodes communes est implémenté par des classes ayant le même nom que l'interface qu'il implémente, sauf que le préfixe est Default, par exemple DefaultHtmlComponent pour l'interface IHtmlComponent. Pour implémenter un nouveau composant HTML, mieux vaut étendre ces classes par défaut plutôt que de réimplémenter toute l'interface, on peut toujours surcharger certaines méthodes si besoin (mais cela peut traduire une erreur de conception). Normalement, tous les composants HTML de base sont implémentés de cette manière :
+- les classes utilitaires (U) sont les éléments qui ne rentrent pas dans les sections précédentes (gros calculs, données indépendantes du site, ...). La convention de nommage n'est pas fixée, elle est donc libre (tant qu'elle ne reprend pas des noms de classes déjà existants, ce qui inclu les autres sections).
+
+Pour faire simple, le modèle définit les informations disponibles, la vue les formate pour l'affichage final sur le site, les utilitaires permettent de les générer de diverses mannières (quand elles ne sont pas fournies à la main).
+
+À noter que les interfaces ont leur noms préfixés par "I" (comme interface), par exemple IHtmlComponent pour l'interface d'un composant HTML, IDatabaseComponent pour l'interface d'un composant de la DB, etc. Si certaines méthodes ont une implémentation connue dès le départ (communes à toutes les classes filles envisageables), une classe par défaut, du même nom mais avec le préfixe "Default" (DefaultHtmlComponent, DefaultDatabaseComponent), peut être implémentée. Il convient de regarder si une classe par défaut existe avant d'implémenter une interface. On peut toujours surcharger certaines méthodes si besoin (mais cela peut traduire une erreur de conception).
+
+Normalement, tous les composants HTML de base sont implémentés de cette manière. Ils implémentent l'interface IHtmlComponent en étendant la classe par défaut DefaultHtmlComponent :
 - Image pour la balise img
 - Link pour la balise a
 - SimpleBlockComponent pour la balise div
@@ -94,7 +97,7 @@ Il est alors possible d'étendre ces classes pour avoir des gestions spécialisées
 - Pin pour aider au positionnement de certains composants
 - ...
 
-Certaines classes ne font pas partie de ce modèle MVC, tout simplement parce qu'elles peuvent être utilisées un peu partout. Ce sont les classes utilitaires du dossier "class/util". Elles offrent par exemple des fonctionnalités pouvant :
+Dans les classes utilitaires, on peut trouver des fonctionnalités pouvant :
 - appliquer des formatages spéciaux,
 - vérifier des données,
 - déboguer,
@@ -102,17 +105,23 @@ Certaines classes ne font pas partie de ce modèle MVC, tout simplement parce qu'
 
 II.2 Pages
 
-Le dossier "pages" contient un peu tout et n'importe quoi. Cela dit il est important d'avoir en tête certains points :
-- home.php correspond à la page d'accueil, affichant les news
-- team.php correspond à la page "L'équipe"
-- about.php correspond à la apge "À propos"
+Le dossier "interface/pages" contient les différentes pages du site, à savoir :
+- about.php correspond à la page "À propos"
+- bug.php correspond à la page "Signaler un bug", affichée automatiquement en cas de bug
 - contact.php correspond à la page "Contact"
+- dossier.php correspond à l'affichage d'un dossier particulier
+- dossiers.php correspond à la liste des dossiers
+- havert.php correspond à l'avertissement pour l'accès à la partie hentai
+- news.php correspond à la page affichant les news, qui est aussi la page d'accueil
+- news2.php correspond à la page affichant une news spécifique (notamment pour les liens RSS)
+- partenariat.php correspond à la page "Devenir partenaires"
+- project.php correspond à l'affichage d'un projet particulier
+- projects.php correspond à la liste des projets
+- recruit.php correspond à la page "Recrutement"
+- team.php correspond à la page "L'équipe"
 - xdcc.php correspond à la page "XDCC"
-- series.php correspond à la liste des projets
-- hhentai.php correspond à la liste des projets + news hentai, à terme il devrait être redistribué sur la page des news et la liste des projets normaux (avec un filtre pour les hentai)
-- havert.php correspond à l'avertissement pour l'accès à la page hentai
 
-Des tas d'autres fichiers sont présents, principalement des pages obsolètes. Une fois le site complètement raffiné, un nettoyage complet de ce dossier devrait être opéré.
+D'autres fichiers sont présents, principalement des pages obsolètes. Un futur nettoyage devrait supprimer ces pages.
 
 II.3 Images
 
@@ -129,13 +138,19 @@ Ce dossier est un peu fourre-tout, mais il est important de retenir ceci :
 - sorties contient lesimages de l'entête du site (les derniers épisodes sortis)
 - team contient les avatars des membres de la team (utilisées notamment dans la page décrivant l'équipe)
 
+Il est prévu d'avoir, dans le futur, un dossier "resources" dans lequel seront mis tous les fichiers dont le site ne dépend pas (images de news, images de dossiers, releases, ...). Autrement dit, à part les images de l'interface (déjà partiellement déplacées), toutes les images devraient se retrouvées dans ce dossier "resources".
+
 II.4 Styles
 
 Pour l'instant un seul style est disponible, celui par défaut (default). Ce style est le modèle à considérer pour tout nouveau style. En particulier, tout style devrait se composer de cette façon :
 
-+ images........ Ensemble des images utilisées par le style
-+ style.css..... Style tout public
-+ styleH.css.... Style Hentai
++ images............ Ensemble des images utilisées par le style
++ style.css......... Style tout public
++ styleH.css........ Style Hentai
++ styleXMas.css..... Style tout public pour Noël
++ styleHXMas.css.... Style Hentai pour Noël
+
+Il peut y avoir d'autres fichiers (CSS découpés, sous-répertoires pour les images, ...) mais toutes les images utilisées par le style (et uniquement ça) doivent être dans le dossier image, et les deux fichiers de styles doivent avoir ces noms et être placés à la racine du répertoire.
 
 II.5 Conventions de programmation
 
@@ -159,4 +174,4 @@ Le commentaire est ici inutile, car le code est assez explicite pour voir qu'on 
 
 II.6 Divers
 
-Le dossier "ddl" est sensé contenir les releases de la team. En raison de sa taille, il n'est pas disponible sur le dépôt. De ce fait certaines informations relatives aux releases peuvent être non renseignées sur le site local et sur le site de test, cependant elles doivent apparaître sur le site serveur. Il est possible de rajouter des releases dans ce dossier, dès lors le site correspondant dispose des informations relatives aux releases disponibles.
+Le dossier "ddl" est censé contenir les releases de la team. En raison de sa taille, il n'est pas disponible sur le dépôt. De ce fait certaines informations relatives aux releases peuvent être non renseignées sur le site local et sur le site de test, cependant elles doivent apparaître sur le site serveur. Il est possible de rajouter des releases dans ce dossier, dès lors le site correspondant dispose des informations relatives aux releases disponibles. Dans le futur, il est prévu de placer les releases dans un répertoire "resources" (comme beaucoup d'autres fichiers).

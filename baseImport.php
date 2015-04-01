@@ -3,7 +3,7 @@ define('TEST_MODE_ACTIVATED', !isset($_GET['noTest']) && in_array($_SERVER["SERV
 				'127.0.0.1',
 				'localhost',
 				'to-do-list.me',
-				'sazaju.dyndns-home.com'
+				'www.sazaju-hitokage.fr'
 		), true));
 
 /**********************************\
@@ -102,6 +102,9 @@ if ($needConfig) {
 }
 unset($criticalDataFile); // security: we forget the source of critical information
 
+// other critical configs (which need to be done as soon as possible)
+date_default_timezone_set("Europe/Paris");
+
 /**********************************\
          STRANGE URL CHECK
 \**********************************/
@@ -120,6 +123,52 @@ if ($url->isStrangeUrl()) {
 		header('Location: '.$cleanAddress);
 		exit();
 	}
+}
+
+/**********************************\
+          OTHER CONSTANTS
+\**********************************/
+
+define('WEBSITE_VERSION', exec('git tag'));
+define('MODE_H', 'modeH');
+define('DISPLAY_H_AVERT', 'displayHavert');
+define('STYLE', 'style');
+define('CURRENT_TIME', 'currentTime');
+
+/**********************************\
+         SESSION MANAGEMENT
+\**********************************/
+
+session_start();
+
+if (isset($_GET[MODE_H])) {
+	$_SESSION[MODE_H] = $_GET[MODE_H];
+	$url = Url::getCurrentUrl();
+	$url->removeQueryVar(MODE_H);
+	header('Location: '.$url->toString());
+	exit();
+} else if (!isset($_SESSION[MODE_H])) {
+	$_SESSION[MODE_H] = false;
+} else {
+	// let the state as is
+}
+
+$dirs = DirectoryManager::getContent("styles");
+$styles = array();
+foreach($dirs as $info) {
+	$styles[] = $info['name'];
+}
+if (!isset($_SESSION[STYLE])) {
+	$_SESSION[STYLE] = null;
+} else {
+	// keep it as is
+}
+$_SESSION[STYLE] = Check::getInputIn(isset($_GET[STYLE]) ? $_GET[STYLE] : $_SESSION[STYLE], $styles, "default");
+
+if (TEST_MODE_ACTIVATED && Url::getCurrentUrl()->hasQueryVar('setdate')) {
+	$_SESSION[CURRENT_TIME] = Url::getCurrentUrl()->getQueryVar('setdate');
+} else {
+	$_SESSION[CURRENT_TIME] = time();
 }
 
 /**********************************\
@@ -149,6 +198,15 @@ if (TEST_MODE_ACTIVATED) {
 	}
 	$features->addComponent($link);
 	
+	$link = new Link(Url::getCurrentUrl(), 'Go in the future');
+	if (Url::getCurrentUrl()->hasQueryVar('setdate')) {
+		$link->getUrl()->removeQueryVar('setdate');
+		$link->setClass('reverse');
+	} else {
+		$link->getUrl()->setQueryVar('setdate', PHP_INT_MAX);
+	}
+	$features->addComponent($link);
+	
 	$link = new Link(Url::getCurrentUrl(), 'deactivate testing mode');
 	if (Url::getCurrentUrl()->hasQueryVar('noTest')) {
 		$link->getUrl()->removeQueryVar('noTest');
@@ -157,6 +215,9 @@ if (TEST_MODE_ACTIVATED) {
 		$link->getUrl()->setQueryVar('noTest');
 	}
 	$features->addComponent($link);
+	
+	$features->addComponent('<br/>');
+	$features->addComponent(date("Y-m-d H:i:s", $_SESSION[CURRENT_TIME]));
 	
 	$features->addComponent('<br/>');
 	
@@ -175,32 +236,4 @@ if (TEST_MODE_ACTIVATED) {
 	define('TESTING_FEATURE', $features->getCurrentHTML());
 }
 
-/**********************************\
-          OTHER CONSTANTS
-\**********************************/
-
-define('WEBSITE_VERSION', exec('git tag'));
-define('MODE_H', 'modeH');
-define('DISPLAY_H_AVERT', 'displayHavert');
-define('STYLE', 'style');
-
-/**********************************\
-         SESSION MANAGEMENT
-\**********************************/
-
-session_start();
-
-if (isset($_GET[MODE_H])) {
-	$_SESSION[MODE_H] = $_GET[MODE_H];
-	$url = Url::getCurrentUrl();
-	$url->removeQueryVar(MODE_H);
-	header('Location: '.$url->toString());
-	exit();
-} else if (!isset($_SESSION[MODE_H])) {
-	$_SESSION[MODE_H] = false;
-} else {
-	// let the state as is
-}
-
-$_SESSION[STYLE] = "default";
 ?>

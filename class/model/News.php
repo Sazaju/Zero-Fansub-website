@@ -4,9 +4,10 @@
 	to display and some added data (image, author, date of writing, ...).
 */
 class News {
+	private $id = null;
 	private $title = null;
 	private $timestamp = null;
-	private $author = null;
+	private $authors = array();
 	private $message = null;
 	private $commentAccess = null;
 	private $commentId = null;
@@ -19,9 +20,29 @@ class News {
 	private $isPartnerNews = null;
 	private $isDb0CompanyNews = null;
 	
+	private static function generateId() {
+		// /!\ This works only if the news are added always in the same order !
+		// The new ones must be placed at the end !
+		static $lastId = 0;
+		$lastId++;
+		return $lastId;
+	}
+	
 	public function __construct($title = null, $message = null) {
+		$this->id = News::generateId();
 		$this->setTitle($title);
 		$this->setMessage($message);
+	}
+	
+	public function getUrl() {
+		$url = Url::getCurrentDirUrl();
+		$url->setQueryVar('page', 'news2');
+		$url->setQueryVar('id', $this->getId());
+		return $url;
+	}
+	
+	public function getId() {
+		return $this->id;
 	}
 	
 	public function setDb0CompanyNews($boolean) {
@@ -72,23 +93,28 @@ class News {
 		return $this->title;
 	}
 	
-	public function setTimestamp($timestamp) {
+	public function setPublicationTime($timestamp) {
 		$this->timestamp = intval($timestamp);
 	}
 	
-	public function getTimestamp() {
+	public function getPublicationTime() {
 		return $this->timestamp;
 	}
 	
-	public function setAuthor($author) {
+	public function isPublished() {
+		return $this->getPublicationTime() !== null && $this->getPublicationTime() <= $_SESSION[CURRENT_TIME];
+	}
+	
+	public function addAuthor($author) {
 		if ($author instanceof TeamMember) {
 			$author = $author->getPseudo();
 		}
-		$this->author = $author;
+		// put as key to keep unique
+		$this->authors[$author] = true;
 	}
 	
-	public function getAuthor() {
-		return $this->author;
+	public function getAuthors() {
+		return array_keys($this->authors);
 	}
 	
 	public function setMessage($message) {
@@ -146,12 +172,12 @@ class News {
 	}
 	
 	private static $allNews = null;
-	public static function getAllNews() {
+	public static function getAllNews(NewsSelector $selector = null) {
 		if (News::$allNews === null) {
 			$news = new News();
 			$news->setTitle("Mayoi Neko Spéciaux");
-			$news->setTimestamp(strtotime("26 January 2012 16:18"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("26 January 2012 16:18"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setMessage("Histoire de décrisper ceux qui se disent qu'on meurt à petit feu (faut dire que la dernière sortie date de mi-novembre), voilà un petit truc à vous mettre sous la dent {^_^}. C'est tout chaud et c'est du produit bien de chez Zéro ! Les anémiques, prévoyez les poches de sang, on sait jamais.
 
 [release=mayoisp|*][img=images/news/mayoisp.png]MNO Spéciaux[/img][/release]
@@ -168,8 +194,8 @@ Profitez bien des bonus, bande de cochons {^_°}.");
 			
 			$news = new News();
 			$news->setTitle("Recrutement Boku Tomo");
-			$news->setTimestamp(strtotime("25 January 2012 15:02"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
+			$news->setPublicationTime(strtotime("25 January 2012 15:02"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setMessage("Le trad et l'adapt qui auraient dû s'occuper de Boku wa tomodachi ga Sukunai
 ne sont plus disponibles, devant affronter les aléas de la vie...
 
@@ -191,8 +217,8 @@ que de timer soi-même lol");
 			
 			$news = new News();
 			$news->setTitle("MegaUpload hors service");
-			$news->setTimestamp(strtotime("23 January 2012 13:29"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("23 January 2012 13:29"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(284);
 			$news->setTeamNews(true);
 			$news->setMessage("Pour ceux qui utilisent nos liens MegaUpload, ces derniers jours vous avez sûrement dû avoir du mal, voire vous êtes tombés sur une image comme celle-ci :
@@ -210,8 +236,8 @@ Pour télécharger nos épisodes il vous faudra donc vous retrancher sur le DDL,
 			
 			$news = new News();
 			$news->setTitle("V3.3 du site !");
-			$news->setTimestamp(strtotime("23 January 2012 01:48"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("23 January 2012 01:48"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(283);
 			$news->setTeamNews(true);
 			$news->setMessage("Ces derniers jours, le raffinage du site a pas mal avancé, et on en est désormais à la version 3.3+ du site. '+' parce que la version 3.3 s'est faite Samedi et que depuis j'ai encore raffiné une quantité assez phénoménale de données (j'y ai passé tout mon weekend). Du coup la version 3.4 ne devrait pas trop tarder à voir le jour (mais je ne donne pas de date, vu que de toute façon je n'ai aucune raison de la respecter {^.^}~). En bref, le raffinage est quasiment terminé.
@@ -242,8 +268,8 @@ Il me semble que c'est à peu près tout... Ah oui, si vous avez des soucis sur 
 			
 			$news = new News();
 			$news->setTitle("Un peu de repos");
-			$news->setTimestamp(strtotime("18 January 2012 14:26"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("18 January 2012 14:26"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(282);
 			$news->setTeamNews(true);
 			$news->setMessage("Une petite news pour les autres équipes de fansub et pour nos habitués : étant donné le nombre d'animes licenciés et le nombre d'animes restant non fansubbés, Zéro Fansub ne prévoit pas d'ajouter de nouveaux projets à sa liste pour cette saison.
@@ -257,8 +283,8 @@ On en profitera pour avancer correctement nos séries déjà en cours, dont cert
 			
 			$news = new News();
 			$news->setTitle("Encore des bugs ?");
-			$news->setTimestamp(strtotime("4 January 2012"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("4 January 2012"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(281);
 			$news->setTeamNews(true);
 			$news->setMessage("Juste une petite news informative. Beaucoup savent déjà que s'il y a un bug, c'est de ma faute. Cela dit, mon mail il faut le trouver (et oui c'est dur d'aller voir dans la page équipe, c'est qu'il faut réfléchir et les leecheurs aiment pas ça). Pour vous simplifier la vie, si vous avez le moindre problème, un lien [i]Signaler un bug[/i] est désormais disponible dans le menu de gauche.
@@ -274,8 +300,8 @@ Non seulement je vous demande de me jeter des cailloux, mais en plus je vous dit
 			$news = new News();
 			$news->setTitle("Bonne année !");
 			$news->setTeamNews(false);
-			$news->setTimestamp(strtotime("1 January 2012"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("1 January 2012"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(280);
 			$news->setMessage("Bonne année à tous ! En espérant que le raffinage du site avance vite pour enfin vous (et nous) fournir un site plus pratique {^_^}°.
 
@@ -289,8 +315,8 @@ Non seulement je vous demande de me jeter des cailloux, mais en plus je vous dit
 			$news = new News();
 			$news->setTitle("ATTENTION : Raffinage massif !");
 			$news->setTeamNews(true);
-			$news->setTimestamp(strtotime("31 December 2011 02:44"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("31 December 2011 02:44"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(279);
 			$news->setMessage("Note importante : beaucoup de raffinage a été fait dernièrement. En particulier la structure des fichiers a été retouché, certains fichiers ont même été remplacés (probablement à cause de quelques problèmes CRC). Quelques-uns ont été vérifié, mais pas tous. Aussi, si vous téléchargez des fichiers qui semblent corrompus, faites-le-moi savoir au plus vite. C'est probablement de ma faute.
 
@@ -305,8 +331,8 @@ Vous pouvez laisser des commentaires, sinon je redonne mon mail : [mail]sazaju@g
 			$news->setTitle("Issho ni H Shiyo 6");
 			$news->setDisplayInHentaiMode(true);
 			$news->setDisplayInNormalMode(false);
-			$news->setTimestamp(strtotime("28 December 2011 19:17"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("28 December 2011 19:17"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(278);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('hshiyo', 'ep6'));
@@ -320,8 +346,8 @@ Vous avez aimé le 4 (pas le précédent, celui d'avant, que j'avais détruit da
 			
 			$news = new News();
 			$news->setTitle("Recrutement pour le site");
-			$news->setTimestamp(strtotime("24 December 2011"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("24 December 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(276);
 			$news->setTeamNews(true);
 			$news->setMessage("Salut tout le monde ! {^_^}
@@ -350,8 +376,8 @@ NB : vous voyez, j'ai même pas le temps de vous faire une news décente en cett
 			$news->setTitle("Mitsudomoe 7+8");
 			$news->setDisplayInHentaiMode(false);
 			$news->setDisplayInNormalMode(true);
-			$news->setTimestamp(strtotime("14 November 2011"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("14 November 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(275);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep7'));
@@ -375,8 +401,8 @@ Sur ceux, bon visionnage {^_^}.");
 			
 			$news = new News();
 			$news->setTitle("Besoin de timeurs !");
-			$news->setTimestamp(strtotime("11 October 2011"));
-			$news->setAuthor(TeamMember::getMember(5));
+			$news->setPublicationTime(strtotime("11 October 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(273);
 			$news->setTeamNews(true);
 			$news->setMessage("Allez on enchaîne les news, la motivation est là... Mais elle va peut-être pas durer...
@@ -398,8 +424,8 @@ Si vous êtes interessés, les candidatures sont ouvertes (cliquez sur [b]Recrut
 			$news->setTitle("Kodomo no Jikan - Du neuf et du moins neuf");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("10 October 2011"));
-			$news->setAuthor(TeamMember::getMember(8));
+			$news->setPublicationTime(strtotime("10 October 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(272);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kodomooav', 'oav'));
@@ -420,8 +446,8 @@ Bon matage et à bientôt pour la suite de Mitsudomoe.");
 			$news->setTitle("Nouvelles sorties, nouveaux projets, nouveaux bugs...");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("26 September 2011"));
-			$news->setAuthor(TeamMember::getMember(5));
+			$news->setPublicationTime(strtotime("26 September 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(271);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep4'));
@@ -444,8 +470,8 @@ Pour terminer, un petit mot sur notre charte qualité. Nous avons décidé de ne
 			$news->setTitle("Hitohira - Série complète");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("14 August 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setPublicationTime(strtotime("14 August 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(270);
 			$news->setTeamNews(false);
 			$news->addReleasing(Project::getProject('hitohira'));
@@ -462,8 +488,8 @@ Sortie de Hitohira, la série complète, 12 épisodes d'un coup !
 			$news->setTitle("Mitsudomoe 03");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("05 August 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setPublicationTime(strtotime("05 August 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(269);
 			$news->setTwitterTitle("Sortie de Mitsudomoe 03 chez Z%C3%A9ro fansub !");
 			$news->setTeamNews(false);
@@ -479,8 +505,8 @@ Sortie de l'épisode 03 de Mitsudomoe.");
 			$news->setTitle("Toradora! SOS - Série complète 4 OAV");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("26 July 2011"));
-			$news->setAuthor(TeamMember::getMember(8));
+			$news->setPublicationTime(strtotime("26 July 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(268);
 			$news->setTwitterTitle("Sortie de Toradora! SOS chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -495,8 +521,8 @@ C'est de la superproduction ^_^");
 
 			$news = new News();
 			$news->setTitle("Recrutement traducteur");
-			$news->setTimestamp(strtotime("04 July 2011"));
-			$news->setAuthor(TeamMember::getMember(8));
+			$news->setPublicationTime(strtotime("04 July 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(266);
 			$news->setTeamNews(true);
 			$news->setTwitterTitle("Zero recherche un traducteur");
@@ -522,8 +548,8 @@ Pour postuler, faites une candidatures à l'école : [ext=http://ecole.zerofansu
 			$news->setTitle("Kannagi - Série complète");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("19 June 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setPublicationTime(strtotime("19 June 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(264);
 			$news->setTwitterTitle("Sortie de Kannagi serie complete chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -544,8 +570,8 @@ P.S.: Les karaokés sont nuls. Désolée !");
 			$news->setTitle("Mitsudomoe 01 + 02");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("27 May 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setPublicationTime(strtotime("27 May 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(263);
 			$news->setTwitterTitle("Sortie de Mitsudomoe 01 + 02 chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -564,8 +590,8 @@ Quelques petits changements dans notre façon de faire habituelle, on attend vos
 			$news->setTitle("Tayutama ~ Kiss on my Deity ~ Pure my Heart ~ - Série complète 6 OAV");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("15 May 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setPublicationTime(strtotime("15 May 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(262);
 			$news->setTwitterTitle("Sortie de Tayutama Kiss on my Deity Pure my Heart serie complete chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -581,8 +607,8 @@ On continue dans les séries complètes avec cette fois-ci la petite série de 6
 			$news->setTitle("Potemayo OAV - Série complète");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("11 May 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setPublicationTime(strtotime("11 May 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(261);
 			$news->setTwitterTitle("Sortie de Potemayo serie complete chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -600,8 +626,8 @@ Amusez-vous bien !");
 			$news->setTitle("Potemayo - Série complète entiérement refaite");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("08 May 2011"));
-			$news->setAuthor(TeamMember::getMember(1));
+			$news->setPublicationTime(strtotime("08 May 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(261);
 			$news->setTwitterTitle("Sortie de Potemayo serie complete chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -627,8 +653,8 @@ Bons épisodes, à très bientôt pour les 6 OAV supplémentaires Potemayo... et
 			$news->setTitle("Kujibiki Unbalance 2 - Série complète entiérement refaite");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("02 May 2011"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("02 May 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(260);
 			$news->setTwitterTitle("Sortie de Kujibiki Unbalance 2 serie complete chez Zero Fansub !");
 			$news->setTeamNews(false);
@@ -656,8 +682,8 @@ Si vous avez aimé la série, si vous avez des remarques à nous faire ou autre,
 			$news->setTitle("Kodomo no Natsu Jikan");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("11 April 2011"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("11 April 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(259);
 			$news->setTwitterTitle("Sortie de Kodomo no Natsu Jikan chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -675,8 +701,8 @@ Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodom
 
 			$news = new News();
 			$news->setTitle("Licence de L'entrainement avec Hinako + Sortie de Akina To Onsen et Faisons l'amour ensemble épisode 05");
-			$news->setTimestamp(strtotime("08 March 2011"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("08 March 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(252);
 			$news->setTwitterTitle("Deux hentai : Akina To Onsen et Issho ni H shiyo chez Zero fansub !");
 			$news->setTeamNews(false);
@@ -710,8 +736,8 @@ En parlant de Kaze, j'ai reçu hier par la poste le Blu-ray de Canaan chez Kaze.
 			$news->setTitle("Issho Ni H Shiyo OAV 04 - Fin !");
 			$news->setDisplayInNormalMode(false);
 			$news->setDisplayInHentaiMode(true);
-			$news->setTimestamp(strtotime("13 July 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("13 July 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(237);
 			$news->setTwitterTitle("Sortie de Issho Ni H Shiyo OAV 04 - Fin ! http://zerofansub.net/");
 			$news->setTeamNews(false);
@@ -731,8 +757,8 @@ Merci à tous de nous avoir suivi sur cette série, et je vous souhaite tout le 
 			$news->setTitle("KissXsis 03");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("24 June 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("24 June 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(233);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep3'));
@@ -759,8 +785,8 @@ Bonne chance à ceux qui sont en examens, et que ceux qui sont en vacances en pr
 			$news->setTitle("Mitsudomoe, Bande-Annonce");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("15 June 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("15 June 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(231);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('mitsudomoe', 'ep0'));
@@ -773,8 +799,8 @@ Bonne chance à ceux qui sont en examens, et que ceux qui sont en vacances en pr
 			$news->setTitle("Kiss X Sis TV 02");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("04 May 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("04 May 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(228);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep2'));
@@ -790,8 +816,8 @@ Vous vous attendiez à autre chose, peut-être ?");
 			$news->setTitle("Kiss X Sis TV 01");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("17 April 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("17 April 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(225);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep1'));
@@ -810,8 +836,8 @@ J'ai essayé de faire des jolis karaokés, alors chantez !! (Et envoyez les vid�
 			$news->setTitle("S'endormir avec Hinako (Issho ni Sleeping) OAV");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("08 March 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("08 March 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(209);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('sleeping', 'oav'));
@@ -832,8 +858,8 @@ J'ai essayé de faire des jolis karaokés, alors chantez !! (Et envoyez les vid�
 			$news->setTitle("KissXsis 02");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("06 December 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("06 December 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(153);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kissxsisoav', 'ep2'));
@@ -847,8 +873,8 @@ Ah, elles nous font bien attendre, les deux jolies jumelles... Des mois pour sor
 			$news->setTitle("Canaan 13 ~ Fin !");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("06 October 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("06 October 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(138);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep13'));
@@ -862,8 +888,8 @@ Ainsi se termine Canaan.");
 			$news->setTitle("Canaan 12 + Piscine + Partenariats + Maboroshi + Kobato");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("04 October 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("04 October 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(137);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('canaan', 'ep12'));
@@ -885,8 +911,8 @@ Pour finir, [b]Kobato[/b], dans la liste de nos projets depuis juin, ne se fera 
 			$news->setTitle("Canaan 11");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("30 September 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("30 September 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(136);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep11'));
@@ -900,8 +926,8 @@ Chose promise, chose due. Et en plus, on a même le droit à un peu de ecchi dan
 			$news->setTitle("Canaan 10");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("30 September 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("30 September 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(135);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep10'));
@@ -915,8 +941,8 @@ Vous en rêviez ? Les fans l'ont dessiné... Est-ce que c'est ce qui va se passe
 			$news->setTitle("Canaan 09 + Canaan Cosplays");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("25 September 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("25 September 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(130);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep9'));
@@ -924,8 +950,7 @@ Vous en rêviez ? Les fans l'ont dessiné... Est-ce que c'est ce qui va se passe
 Je comptais sortir tout les épisodes en même temps, mais comme les autres prennent plus de temps que prévu, on va pas vous faire attendre plus longtemps et on vous propose dès maintenant l'épisode 09, prêt depuis longtemps. Comme vous pouvez le constater, l'équipe est très occupée en ce moment, donc entre deux irl, on taffe un peu fansub, mais ça reste pas grand chose.
 Je profite de cette news pour vous poster quelques photos de mon cosplay Canaan. Si vous voulez en savoir plus sur ce cosplay et mes autres, rendez-vous sur mon site perso cosplay :
 [url]http://db0.dbcosplay.fr[/url] (et abonnez-vous à la newsletter !)
-[url=http://www.cosplay.com/photo/2268921/][img]http://images.cosplay.com/thumbs/22/2268921.jpg[/img][/url] [url=http://www.cosplay.com/photo/2268922/][img]http://images.cosplay.com/thumbs/22/2268922.jpg[/img][/url] [url=http://www.cosplay.com/photo/2268923/][img]http://images.cosplay.com/thumbs/22/2268923.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274553/][img]http://images.cosplay.com/thumbs/22/2274553.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274515/][img]http://images.cosplay.com/thumbs/22/2274515.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274516/][img]http://images.cosplay.com/thumbs/22/2274516.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274517/][img]http://images.cosplay.com/thumbs/22/2274517.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274518/][img]http://images.cosplay.com/thumbs/22/2274518.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274519/][img]http://images.cosplay.com/thumbs/22/2274519.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274520/][img]
-http://images.cosplay.com/thumbs/22/2274520.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274521/][img]http://images.cosplay.com/thumbs/22/2274521.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274522/][img]http://images.cosplay.com/thumbs/22/2274522.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274523/][img]http://images.cosplay.com/thumbs/22/2274523.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274531/][img]http://images.cosplay.com/thumbs/22/2274531.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274532/][img]http://images.cosplay.com/thumbs/22/2274532.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274533/][img]http://images.cosplay.com/thumbs/22/2274533.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274536/][img]http://images.cosplay.com/thumbs/22/2274536.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274537/][img]http://images.cosplay.com/thumbs/22/2274537.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274538/][img]http://images.cosplay.com/thumbs/22/2274538.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274540/][img]http://images.cosplay.com/thumbs/22/2274540.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274541/][img]http://images.cosplay.com/thumbs/22/2274541.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274542/][img]http://images.cosplay.com/thumbs/22/2274542.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274543/][img]http://images.cosplay.com/thumbs/22/2274543.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274544/][img]http://images.cosplay.com/thumbs/22/2274544.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274554/][img]http://images.cosplay.com/thumbs/22/2274554.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274555/][img]http://images.cosplay.com/thumbs/22/2274555.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274556/][img]http://images.cosplay.com/thumbs/22/2274556.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274557/][img]http://images.cosplay.com/thumbs/22/2274557.jpg[/img][/url] [url=http://www.cosplay.com/photo/
+[url=http://www.cosplay.com/photo/2268921/][img]http://images.cosplay.com/thumbs/22/2268921.jpg[/img][/url] [url=http://www.cosplay.com/photo/2268922/][img]http://images.cosplay.com/thumbs/22/2268922.jpg[/img][/url] [url=http://www.cosplay.com/photo/2268923/][img]http://images.cosplay.com/thumbs/22/2268923.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274553/][img]http://images.cosplay.com/thumbs/22/2274553.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274515/][img]http://images.cosplay.com/thumbs/22/2274515.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274516/][img]http://images.cosplay.com/thumbs/22/2274516.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274517/][img]http://images.cosplay.com/thumbs/22/2274517.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274518/][img]http://images.cosplay.com/thumbs/22/2274518.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274519/][img]http://images.cosplay.com/thumbs/22/2274519.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274520/][img]http://images.cosplay.com/thumbs/22/2274520.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274521/][img]http://images.cosplay.com/thumbs/22/2274521.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274522/][img]http://images.cosplay.com/thumbs/22/2274522.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274523/][img]http://images.cosplay.com/thumbs/22/2274523.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274531/][img]http://images.cosplay.com/thumbs/22/2274531.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274532/][img]http://images.cosplay.com/thumbs/22/2274532.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274533/][img]http://images.cosplay.com/thumbs/22/2274533.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274536/][img]http://images.cosplay.com/thumbs/22/2274536.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274537/][img]http://images.cosplay.com/thumbs/22/2274537.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274538/][img]http://images.cosplay.com/thumbs/22/2274538.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274540/][img]http://images.cosplay.com/thumbs/22/2274540.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274541/][img]http://images.cosplay.com/thumbs/22/2274541.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274542/][img]http://images.cosplay.com/thumbs/22/2274542.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274543/][img]http://images.cosplay.com/thumbs/22/2274543.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274544/][img]http://images.cosplay.com/thumbs/22/2274544.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274554/][img]http://images.cosplay.com/thumbs/22/2274554.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274555/][img]http://images.cosplay.com/thumbs/22/2274555.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274556/][img]http://images.cosplay.com/thumbs/22/2274556.jpg[/img][/url] [url=http://www.cosplay.com/photo/2274557/][img]http://images.cosplay.com/thumbs/22/2274557.jpg[/img][/url] [url=http://www.cosplay.com/photo/
 2274560/][img]http://images.cosplay.com/thumbs/22/2274560.jpg[/img][/url]");
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
@@ -935,8 +960,8 @@ http://images.cosplay.com/thumbs/22/2274520.jpg[/img][/url] [url=http://www.cosp
 			$news->setTitle("Canaan 08");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("26 August 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("26 August 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(116);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep8'));
@@ -950,8 +975,8 @@ Avec un peu de retard cette semaine, la suite de la trépidante histoire de Cana
 			$news->setTitle("Canaan 06");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("11 August 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("11 August 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(112);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep6'));
@@ -965,8 +990,8 @@ Comme à son habitude, le petit épisode de Canaan de la semaine fait sa sortie.
 			$news->setTitle("Canaan 04 + 05 + Rythme Toradora!");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("06 August 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("06 August 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(109);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('canaan', 'ep4'));
@@ -986,8 +1011,8 @@ Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord
 			$news->setTitle("Erreur Canaan 03");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("24 July 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("24 July 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(106);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep3'));
@@ -1000,8 +1025,8 @@ Et histoire de craner un peu : Ryocu et moi passons de superbes vacances en bord
 			$news->setTitle("Canaan 03 + Recrutement trad Hitohira");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("22 July 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
+			$news->setPublicationTime(strtotime("22 July 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(106);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('canaan', 'ep3'));
@@ -1018,8 +1043,8 @@ Encore du ecchi dans la série Canaan ! Mais pas que ça, bien sûr. L'épisode 
 			$news->setTitle("Canaan 02");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("19 July 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("19 July 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(103);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('canaan', 'ep2'));
@@ -1033,8 +1058,8 @@ Bah alors ? Zéro nous fait Canaan ? Mais Zéro, c'est une team de l'ecchi, non 
 			$news->setTitle("KissXsis 01");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("28 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("28 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(77);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kissxsis', 'ep1'));
@@ -1049,8 +1074,8 @@ Demain : Epitanime ! J'veux tous vous y voir !");
 			$news->setTitle("L'entraînement avec Hinako (Isshoni Training)");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("28 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("28 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(65);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('training', 'oav'));
@@ -1064,8 +1089,8 @@ L'été arrive à grand pas. C'est donc la saison des régimes ! Et qui dit rég
 			$news->setTitle("Joyeux Noël ! - OAV Kiss X Sis");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("24 December 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("24 December 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(24);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('kissxsisoav', 'ep2'));
@@ -1083,8 +1108,8 @@ Dans la liste de nos projets depuis cet été, initialement prévu en septembre.
 			$news->setTitle("Isshoni Training Ofuro - Bathtime with Hinako & Hiyoko");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("23 July 2011"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
+			$news->setPublicationTime(strtotime("23 July 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(267);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('bath', 'oav'));
@@ -1109,8 +1134,8 @@ Dans la liste de nos projets depuis cet été, initialement prévu en septembre.
 			$news->setTitle("Kanamemo 13 - FIN");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("29 March 2011"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("29 March 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(256);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep13'));
@@ -1138,8 +1163,8 @@ Merci de nous avoir suivis et à bientôt pour d'autres épisodes ^_^
 			$news->setTitle("Kanamemo 12");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("20 March 2011"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("20 March 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(255);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep12'));
@@ -1156,8 +1181,8 @@ Sortie de l'épisode 12 de Kanamemo ! Youhouh ! C'est la fête !");
 			$news->setTitle("Kanamemo 11");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("14 March 2011"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("14 March 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(254);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep11'));
@@ -1182,8 +1207,8 @@ Rappel, nos releases sont téléchargeable sur :
 			$news->setTitle("Kanamemo 10");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("10 March 2011"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("10 March 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(253);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep10'));
@@ -1200,8 +1225,8 @@ Sortie de l'episode 10 de Kanamemo ! Youhouh ! C'est la fete !");
 			$news->setTitle("Kanamemo 7, 8 et 9");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("23 February 2011"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("praia"));
+			$news->setPublicationTime(strtotime("23 February 2011"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("praia"));
 			$news->setCommentId(251);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep7'));
@@ -1222,8 +1247,8 @@ Je vous dis à bientôt pour d'autres épisodes ^_^");
 			$news->setTitle("Kanamemo Chapitre 01");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("02 August 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("02 August 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(241);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('kanamemobook', 'ch1'));
@@ -1243,8 +1268,8 @@ A bientot !");
 			$news->setTitle("Kanamemo 06");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("16 April 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("16 April 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(224);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep6'));
@@ -1260,8 +1285,8 @@ Le 6éme épisode de Kanamemo est disponible.");
 			$news->setTitle("Kanamemo 4 + 5");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("19 March 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("19 March 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(212);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep4'));
@@ -1283,8 +1308,8 @@ En bonus, un petit AMV de l'épisode 05 (passé à la TV, nous le l'avons pas fa
 			$news->setTitle("Kanamemo 03");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("26 November 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("26 November 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(150);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep3'));
@@ -1298,8 +1323,8 @@ BANZAIII !! Kanamemo épisode 03, ouais, trop bien ! Je mets du temps à sortir 
 			$news->setTitle("Kanamemo 01");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("20 August 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("20 August 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(114);
 			$news->setTeamNews(true);
 			$news->addReleasing(Release::getRelease('kanamemo', 'ep1'));
@@ -1313,8 +1338,8 @@ Kodomo no Jikan touche à sa fin (bouhouh T__T) et on nous a proposé un anime s
 			
 			$news = new News();
 			$news->setTitle("Joyeux Noël !");
-			$news->setTimestamp(strtotime("24 December 2011 21:05"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("24 December 2011 21:05"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setCommentId(277);
 			$news->setTeamNews(false);
 			$news->setMessage("Allez pour me faire pardonner de ma dernière news, un petit goût de Noël dans cette mini-news (cliquez sur l'image).
@@ -1330,8 +1355,8 @@ Kodomo no Jikan touche à sa fin (bouhouh T__T) et on nous a proposé un anime s
 			$news->setTitle("Kujibiki Unbalance épisode 09");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("18 August 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("18 August 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(243);
 			$news->setTeamNews(false);
 			$news->addReleasing(Release::getRelease('kujibiki', 'ep9'));
@@ -1356,8 +1381,8 @@ A bientot !
 			$news->setTitle("Sketchbook ~ full color's  ~ Picture Drama série complète (01 à 06)");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("26 June 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("26 June 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/sketchdrama.png]Sketchbook ~ full color's ~ Picture Drama[/img]
 Pour fêter les vacances qui arrivent, Sora et ses amies vous emmenent avec elles à la mer !
 C'est une petite série de 6 épisodes de moins de 10 minutes chacun qui étaient en Bonus sur les DVDs de Sketchbook ~ full color's ~. Ils ont été réalisé à partir du Drama CD de la série et l'animation est minime. Dans la même douceur que la série, ils sont parfait pour se reposer en pensant aux vacances qui arrivent.");
@@ -1372,8 +1397,8 @@ C'est une petite série de 6 épisodes de moins de 10 minutes chacun qui étaien
 			$news->setTitle("Kujibiki Unbalance 2 episode 08");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("03 April 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("03 April 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/newskuji8.png[/img]
 Comment attirer l'oeil des fans d'animes de chez Zero ?
 Avec une paire de seins, evidemment !
@@ -1391,8 +1416,8 @@ Bon episode a tous et a tres bientot !");
 			$news = new News();
 			$news->setDisplayInHentaiMode(false);
 			$news->setTitle("Potemayo [08] 15 + 16");
-			$news->setTimestamp(strtotime("01 March 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("01 March 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage('[img]images/news/pote8.jpg[/img]
 Anyaa~~
 Potemayo, épisode 8, youhou ! Et très bientôt, Kanamemo, Isshoni H shiyo et Isshoni sleeping ! Enjoy, Potemayo !');
@@ -1409,8 +1434,8 @@ Potemayo, épisode 8, youhou ! Et très bientôt, Kanamemo, Isshoni H shiyo et I
 			$news->setTitle("Potemayo [07] 13 + 14");
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
-			$news->setTimestamp(strtotime("30 January 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Tarf"));
+			$news->setPublicationTime(strtotime("30 January 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Tarf"));
 			$news->setMessage("[img]images/news/moepote1.jpg[/img]
 Revenons à nos charmants allumés dans un PotemaYo que j'ai particulièrement aimé.
 
@@ -1432,8 +1457,8 @@ db0 dit : Les screens ci-dessus n'ont rien à voir avec l'épisode :) Ce sont de
 			
 			$news = new News();
 			$news->setTitle("Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin");
-			$news->setTimestamp(strtotime("19 January 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("19 January 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage('[img=images/news/newkodomo1.jpg]Kodomo no Jikan ~Ni Gakki~ OAV 03 - Fin[/img]
 
 Vous l\'avez attendu longtemps, celui-là ! Il faut dire qu\'il est quand même sorti en aout. Alors pourquoi le sortir si tard ? Surtout qu\'il faut savoir qu\'il était prêt en septembre. C\'est simple : Pour toujours rester dans l\'optique de la qualité de nos animes, nous attendions que les paroles officielles du nouvel ending sortent. Malheuresement, elle ne sont toujours pas sorties à l\'heure actuelle. Nous pensons donc que les chances qu\'elles sortent maintenant sont minimes et avons à contre-coeur décidé de sortir l\'OAV maintenant et sans le karaoké. Cependant, sachez que s\'il s\'avère que les paroles finissent par sortir, même tardivement, nous sortirons une nouvelle version de celui-ci avec le karaoké !
@@ -1455,8 +1480,8 @@ Nous avons passé du bon temps aux côtés de Rin et ses deux amies et nous ésp
 			
 			$news = new News();
 			$news->setTitle("Tayutama ~Kiss on my deity~ 12 - Fin");
-			$news->setTimestamp(strtotime("12 January 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("12 January 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("C'est aujourd'hui la fin de Tayutama. Le douzième et dernier épisode toujours en coproduction avec nos amis de chez Maboroshi. Nous éspérons que vous avez passé un bon moment avec nous pour cette merveilleuse série ! Et maintenant, it's scrolling time !
 
 [img]images/news/tayufin1.jpg[/img]
@@ -1472,8 +1497,8 @@ Nous avons passé du bon temps aux côtés de Rin et ses deux amies et nous ésp
 			
 			$news = new News();
 			$news->setTitle("Tayutama - Kiss on my Deity - 11");
-			$news->setTimestamp(strtotime("04 December 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("TchO"));
+			$news->setPublicationTime(strtotime("04 December 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("TchO"));
 			$news->setMessage("[img]images/news/mashinoel.jpg[/img]
 Tayu 11, la Bataille Décisive !!
 
@@ -1498,8 +1523,8 @@ TchO_°");
 			
 			$news = new News();
 			$news->setTitle("Tayutama - Kiss on my Deity - 10");
-			$news->setTimestamp(strtotime("17 November 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("TchO"));
+			$news->setPublicationTime(strtotime("17 November 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("TchO"));
 			$news->setMessage("[img]images/news/tayu10.jpg[/img]
 L'Horoscope d'aujourd'hui :
 Humains : Ecrasé par l'émotion, sachez éviter les coups de marteau !
@@ -1519,8 +1544,8 @@ Même romantique, la passion peut être tellement furieuse !");
 			
 			$news = new News();
 			$news->setTitle("Tayutama - Kiss on my Deity - 09");
-			$news->setTimestamp(strtotime("05 November 2009 01:00"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("TchO"));
+			$news->setPublicationTime(strtotime("05 November 2009 01:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("TchO"));
 			$news->setMessage("[img]images/news/tayuu9.jpg[/img]
 Mashiro découvre que la moto est un souci pour aller aux sources d'eau chaudes.
 
@@ -1543,8 +1568,8 @@ TchO_°");
 			
 			$news = new News();
 			$news->setTitle("Tayutama - Kiss on my Deity - 08");
-			$news->setTimestamp(strtotime("05 November 2009 00:30"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("TchO"));
+			$news->setPublicationTime(strtotime("05 November 2009 00:30"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("TchO"));
 			$news->setMessage("[img]images/news/tayuuu.jpg[/img]
 Tayutama !!!!!!
 Tayutama, c'est pour ce soir l'épisode 08, toujours coproduit avec la Maboroshi.
@@ -1565,8 +1590,8 @@ J'en profite en coup de vent pour vous annoncer que la deuxième session de Kons
 			
 			$news = new News();
 			$news->setTitle("Tayutama - Kiss on my Deity - 06 + 07 + Kanamemo 02");
-			$news->setTimestamp(strtotime("05 November 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("05 November 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/tayuu.jpg[/img]
 Bonjour tout le monde !
 Je me suis dit que c'était toujours moi qui rédigait les news, et qu'il serait temps que ça change. Donc j'ai demandé à quelques membres de l'équipe de le faire. J'ai trouvé le résultat assez marrant, donc je vous donne leurs petites idées de news :
@@ -1597,8 +1622,8 @@ J'en profite en coup de vent pour vous annoncer que la deuxième session de Kons
 			
 			$news = new News();
 			$news->setTitle("Tayutama ~ Kiss on my Deity ~ 06");
-			$news->setTimestamp(strtotime("21 July 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("21 July 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/newtayu.jpg[/img]
 On vous l'avait promis : on n'allait pas laisser tomber Maboroshi ! Et voilà, c'est chose faite : l'épisode 06 de Tayutama sort aujourd'hui. J'espère qu'il vous plaira.");
 			$news->setCommentId(105);
@@ -1612,8 +1637,8 @@ On vous l'avait promis : on n'allait pas laisser tomber Maboroshi ! Et voilà, c
 			
 			$news = new News();
 			$news->setTitle("Hitohira 05 + 06");
-			$news->setTimestamp(strtotime("10 November 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("10 November 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/hito5.jpg[/img]
 Mugi-choco ! Tu nous as tellement manqué... Et tu reviens en maillot de bain, à la plage ! Yahou ! Mugi-Mugi-choco !!");
 			$news->setCommentId(142);
@@ -1628,8 +1653,8 @@ Mugi-choco ! Tu nous as tellement manqué... Et tu reviens en maillot de bain, �
 			
 			$news = new News();
 			$news->setTitle("Hitohira 04 + KnJ Ni Gakki OAV Spécial Version LD HD");
-			$news->setTimestamp(strtotime("02 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("02 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/hito4.jpg[/imgr]
 On est decidé, on va avancer nos projets ! L'un de nos plus vieux, Hitohira, revient ce soir avec son 4ème épisode.
 Et les versions LD et HD tant attendues de l'OAV sorti hier sont aussi arrivées. Profitez-en, c'est gratuit, aujourd'hui ! Et tous les autres jours aussi.");
@@ -1645,8 +1670,8 @@ Et les versions LD et HD tant attendues de l'OAV sorti hier sont aussi arrivées
 			
 			$news = new News();
 			$news->setTitle("KnJ 03 LD V2, Petit point sur nos petites séries");
-			$news->setTimestamp(strtotime("26 January 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("26 January 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/akirin.jpg[/img]
 Petite v2 qu'on attendait depuis pas mal de temps : L'épisode 03 de Kodomo no Jikan LD qui avait quelques petits soucis d'encodage. [url=ddl/%5BZero%5DKodomo_no_Jikan%5B03v2%5D%5BXVID-MP3%5D%5BLD%5D%5B499E9C85%5D.avi]DDL[/url]
  
@@ -1674,8 +1699,8 @@ On en profite pour faire un petit point sur nos séries actuellement.
 			
 			$news = new News();
 			$news->setTitle("Hitohira 03");
-			$news->setTimestamp(strtotime("07 December 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("07 December 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/mugi.png[/img]
 Oh !
 À cause d'un problème de raws, la série Hitohira est restée en pause pendant trèèès longtemps. Mais grâce à Lyf, le raw-hunter, et bien sûr à Jeanba, notre nouveau traducteur, mais aussi à B3rning14, nouvel encodeur, la série peut continuer. Et c'est donc l'épisode 03 que nous sortons aujourd'hui !
@@ -1697,8 +1722,8 @@ Les dernières sorties de la [partner]kanaii[/partner] :
 			
 			$news = new News();
 			$news->setTitle("Quelques mises à jour");
-			$news->setTimestamp(strtotime("12 October 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("12 October 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/sorties/lasthitohira2.png[/img]
 
 Cela faisait pas mal de temps que Zéro n'avait rien sorti !
@@ -1724,8 +1749,8 @@ Merci à tous et Bon download !");
 			
 			$news = new News();
 			$news->setTitle("Genshiken 12 ~ fin ! + 01v2 & 02v2");
-			$news->setTimestamp(strtotime("29 September 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("29 September 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/ogiue.jpg[/img]
 Et ainsi se termine Genshiken, le club d'étude de la culture visuelle moderne, avec un 12e épisode et quelques v2 pour perfectionner. Elle est pas trop mignonne, comme ça, Ogiue ?");
 			$news->setCommentId(133);
@@ -1741,8 +1766,8 @@ Et ainsi se termine Genshiken, le club d'étude de la culture visuelle moderne, 
 			
 			$news = new News();
 			$news->setTitle("Genshiken 2 épisode 11");
-			$news->setTimestamp(strtotime("19 July 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("19 July 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/genshiken-11.jpg[/imgr]
 C'est les vacances pour certains membres de chez Zéro donc on a le temps de s'occuper de vous... Du moins, des épisodes que vous attendez avec impatience. (Pour qu'on s'occupe de vous personnellement, appelez le 08XXXXXXXX 0.34 la minute demandez Sonia) Bref, ce soir sort l'épisode 11 de la saison 2 de Genshiken, c'est-à-dire l'avant dernier de la série. Les deux copines américaines sont toujours là pour vous faire rire, mais partieront à la fin de l'épisode. Profitez bien, c'est bientôt la fin ^^");
 			$news->setCommentId(104);
@@ -1756,8 +1781,8 @@ C'est les vacances pour certains membres de chez Zéro donc on a le temps de s'o
 			
 			$news = new News();
 			$news->setTitle("Genshiken 10");
-			$news->setTimestamp(strtotime("24 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("24 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/gen10.jpg[/imgr]
 Notre petit Week-end d'otaku kanaii-zéro s'est très bien passé, dommage pour ceux qui n'y étaient pas ^^
 Vous vous en foutez ? Anyaa ~~ Bon, bon, le v'là votre épisode 10 de Genshiken.
@@ -1773,8 +1798,8 @@ Petite info importante : L'OAV de KissXsis est en cours. Après sa sortie, Zéro
 			
 			$news = new News();
 			$news->setTitle("Genshiken 09");
-			$news->setTimestamp(strtotime("22 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("22 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/genshi9.jpg[/imgr]
 Nyaron~ La suite de Genshiken 2 avec l'épisode 09. Bon download, bande d'otaku.");
 			$news->setCommentId(75);
@@ -1788,8 +1813,8 @@ Nyaron~ La suite de Genshiken 2 avec l'épisode 09. Bon download, bande d'otaku.
 			
 			$news = new News();
 			$news->setTitle("Genshiken2 08 + Sortie Kanaii");
-			$news->setTimestamp(strtotime("10 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("10 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]http://moe.mabul.org/up/moe/2009/05/10/img-122101gdcpq.png[/img]
 3 sorties en une journée, c'est un cas plutôt rare ! La suite de Genshiken2, c'est [project=genshiken]par là[/project] avec l'épisode 08 qui sort aujourd'hui. Plus tard dans la soirée sortieront les versions LD de Kodomo oav2 et md, ld de Maria Holic 08.
 
@@ -1805,8 +1830,8 @@ Une petite sortie Kanaii-Zéro est organisée entre Otaku le 23 et 24 mai à Nic
 			
 			$news = new News();
 			$news->setTitle("Maria+Holic 05 et Genshiken2 07");
-			$news->setTimestamp(strtotime("20 March 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("20 March 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/mariagen.jpg[/imgr]
 [imgl]images/news/mariagen2.jpg[/imgl]
 Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la sortie de Maria+Holic 05 à aujourd'hui. (Nous nous excusons auprès de [partner]kanaii[/partner] en coproduction sur cet anime). Genshiken2 07 devait sortir ce soir. Maria 05 est toujours aussi drôle et dans l'épisode 07 de Genshiken, vous trouverez 2 nouveaux karaokés (à vos micros !). Profitez bien de cette double sortie !
@@ -1824,8 +1849,8 @@ Un problème de ftp est survenu hier soir, ce qui nous a poussé à reporter la 
 			
 			$news = new News();
 			$news->setTitle("Genshiken 06");
-			$news->setTimestamp(strtotime("13 January 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("13 January 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/gen6.jpg[/img] 
 Otaku, otaku, nous revoilà ! Genshiken épisode 06 enfin dans les bacs, en ddl.
 [project=genshiken]Pour télécharger les épisodes en DDL, cliquez ici ![/project]
@@ -1851,8 +1876,8 @@ Rosario+Vampire Capu2 07v2");
 			
 			$news = new News();
 			$news->setTitle("Genshiken 05, Toradora! 08, Sketchbook 05 et Recrutement QC");
-			$news->setTimestamp(strtotime("10 December 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("10 December 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/recrut/qc.jpg[/img]
 3 sorties en une, aujourd'hui ! Les épisodes 5 de Genshiken2, 8 de toradora! et 5 de Sketchbook sont disponibles dans la partie projets en DDL uniquement pour le moment. Les liens torrents, XDCC, Streaming viendront plus tard, ainsi que la version avi de genshiken et H264 de Toradora. Bon épisode !
 
@@ -1870,8 +1895,8 @@ Notre unique QC, praia, aimerait bien partager les QC de toutes nos séries avec
 			
 			$news = new News();
 			$news->setTitle("Genshiken 04");
-			$news->setTimestamp(strtotime("08 December 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("08 December 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Voilà enfin la suite de notre saga otaku préférée, j'ai nommé... GENSHIKEN ! L'épisode 04 est dispo en ddl seulement pour le moment.");
 			$news->setCommentId(19);
 			$news->setTeamNews(false);
@@ -1884,8 +1909,8 @@ Notre unique QC, praia, aimerait bien partager les QC de toutes nos séries avec
 			
 			$news = new News();
 			$news->setTitle("Maria+Holic 12 - Fin de la série");
-			$news->setTimestamp(strtotime("20 August 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("20 August 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right]images/news/mariafin.png[/img-right]
 Cette série était si drôle qu'elle est passée bien vite... Eh oui ! Déjà le dernier épisode de Maria+Holic ! Ce 12e épisode est complétement délirant, Kanako fait encore des siennes, et Mariya la suit de près. Avec la fin de cette série se termine aussi une coproduction avec Kanaii, nos partenaires et amis, qui s'est exellement bien passée et que nous accepterons avec plaisir de renouveler. Merci à eux et particulièrement à DC, le maître du projet aux superbes edits AE. Bon dernier épisode, et aussi bonne série à ceux qui attendaient la fin pour commencer la série compléte !");
 			$news->setCommentId(115);
@@ -1899,8 +1924,8 @@ Cette série était si drôle qu'elle est passée bien vite... Eh oui ! Déjà l
 			
 			$news = new News();
 			$news->setTitle("Canaan 07 + Maria Holic 11 + Mermaid Melody 02");
-			$news->setTimestamp(strtotime("17 August 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("17 August 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right=images/news/canaan7.png][/img-right]
 [img-left=images/news/maria11.png][/img-left]
 Une triple sortie ce soir !
@@ -1923,8 +1948,8 @@ Et enfin, la suite de Maria Holic que vous attendiez tous ! L'épisode 11 et... 
 			
 			$news = new News();
 			$news->setTitle("Canaan 01 + Maria Holic 10");
-			$news->setTimestamp(strtotime("16 July 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("16 July 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/canaan.jpg][/img]
 Une double sortie ce soir (peut-être pour rattraper vos attentes ?) dont l'épisode 10 tant attendu de Maria Holic avec comme toujours nos potes de chez Kanaii, et une nouvelle série : Canaan. C'est un nouveau projet assez original puisque c'est un genre d'anime qu'on ne fait habituellement chez Zéro. En fait, c'est Ryocu (le chef ultime !) qui s'est motivé à la traduire. J'espère qu'elle vous plaiera ! Bon download !");
 			$news->setCommentId(101);
@@ -1939,8 +1964,8 @@ Une double sortie ce soir (peut-être pour rattraper vos attentes ?) dont l'épi
 			
 			$news = new News();
 			$news->setTitle("Maria Holic 09");
-			$news->setTimestamp(strtotime("05 June 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("05 June 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right]images/news/maria9.jpg[/img-right]
 La team était en \"semi-pause\", maintenant que notre épisode en coproduction est sorti (Maria Holic 09 avec Kanaii), la team est en pause totale et revient en juillet. Bon épisode en attendant.");
 			$news->setCommentId(78);
@@ -1954,8 +1979,8 @@ La team était en \"semi-pause\", maintenant que notre épisode en coproduction 
 			
 			$news = new News();
 			$news->setTitle("Maria Holic 08 + Doujin");
-			$news->setTimestamp(strtotime("09 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("09 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right]images/news/maria8.jpg[/img-right]
 Maria Holic épisode 08 pour aujourd'hui, en coproduction avec Kanaii. Un épisode plutôt riche, et toujours aussi drôle. En bonus avec cet épisode, les images des anges \"cosplayés\" pendant l'épisode. [project=mariaholic]C'est par là ![/project]
 
@@ -1974,8 +1999,8 @@ Une mise à jour de la partie hentaï du site et la sortie d'un doujin de He is 
 			
 			$news = new News();
 			$news->setTitle("Maria+Holic 07");
-			$news->setTimestamp(strtotime("24 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("24 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/maria7.jpg[/imgr]
 La suite de Maria+Holic, toujours en coproduction avec nos petits kanailloux. Disponible en DDL pour l'instant, et un peu plus tard en torrent et MU. J'en profite pour vous informer que nous risquons de ralentir le rythme puisque je suis en vacances, mais que dès la rentrée, tout reviendra dans l'ordre.");
 			$news->setCommentId(63);
@@ -1989,8 +2014,8 @@ La suite de Maria+Holic, toujours en coproduction avec nos petits kanailloux. Di
 			
 			$news = new News();
 			$news->setTitle("Maria+Holic 06");
-			$news->setTimestamp(strtotime("05 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("05 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/maria6.jpg[/imgr]
 Maria+Holic, la suite plutôt attendue ! L'épisode 06, en coproduction avec la Kanaii. Et notre DC et ses edits. Un épisode particulierement important pour la série : On y apprend une information ca-pi-tale ! À ne pas manquer !
 
@@ -2009,8 +2034,8 @@ EDIT : Sorties des deux autres versions.");
 			
 			$news = new News();
 			$news->setTitle("Maria Holic 03");
-			$news->setTimestamp(strtotime("16 February 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("16 February 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			// TODO refine partner links when implemented
 			$news->setMessage("Maria Holic 03, en copro avec [partner]kanaii[/partner]. [project=mariaholic]L'épisode en DDL, c'est par ici ![/project]");
 			$news->setCommentId(39);
@@ -2024,8 +2049,8 @@ EDIT : Sorties des deux autres versions.");
 			
 			$news = new News();
 			$news->setTitle("Maria Holic 02");
-			$news->setTimestamp(strtotime("07 February 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("07 February 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/mariaholic2.jpg[/img]
 En direct de Lyon, je vous sors le deuxième épisode de Maria+Holic en co-production avec [partner]kanaii[/partner].
 Les mésaventures de Kanako continuent, ne les manquez pas !
@@ -2043,8 +2068,8 @@ Les mésaventures de Kanako continuent, ne les manquez pas !
 			
 			$news = new News();
 			$news->setTitle("Maria+Holic 01");
-			$news->setTimestamp(strtotime("28 January 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("28 January 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/kanako.png[/img]
 Nouvelle série que l'on avait pas annoncé officiellement pour le moment : Maria+Holic. Mais ce n'est pas tout : Nouvelle co-production aussi, non pas avec MNF, mais cette fois-ci avec l'un de nos [ext=?page=dakko]partenaires dakkô[/ext] a qui l'on offre du DDL et qui nous laisse poster sur leur site quelques news.... [partner=kanaii]Kanaii ![/partner]
 Trèves de paroles inutiles : Voici donc l'épisode 01, disponible en DDL chez nous et torrent MU chez eux.
@@ -2060,8 +2085,8 @@ Trèves de paroles inutiles : Voici donc l'épisode 01, disponible en DDL chez n
 			
 			$news = new News();
 			$news->setTitle("Potemayo 06 (11 + 12)");
-			$news->setTimestamp(strtotime("04 August 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("04 August 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/pote.jpg[/img]
 Le sondage de la semaine dernière était un peu foireux parce ce qu'on pouvait pas voter en fait donc euh les commentaires seront pris en compte finalement. Merci pour vos réponses. Nous continueront of course à poster moultes actualités concernant autre chose que le fansub. Ce sont les vacances, donc nous en profitons bien, mais nous ne chômons pas quand même et vous proposons donc quelques petits épisodes à regarder entre 2 séries de bronzage ou de baignade ou que sais-je encore de randonnées, de visites au musée, pourquoi pas de job d'été, ect. M'enfin, bref, je m'étale inutilement (comment ça, comme d'habitude ?) et vous propose de vous rendre sur le site si vous n'y êtes pas déjà pis d'aller télécharger notre petit potemayo, mignon potemayo, potemayo, potemayo naaassuuu !! (ça veut rien dire, c'est normal, j'ai un peu bu)(bah quoi ? c'est les vacances ou pas ?). Je regretterai sûrement d'avoir écrit une news aussi foncedé demain mais bon vous inquiétez pas je l'étais pas quand je taffais sur cet épisode, 
 hein. J'vous l'jure, m'sieur l'agent. J'suis sobre, moi, j'bois pas. Jamais, jamais. J'vais jamais en soirée ou quoi, non, non. Moi, je fais du fan-sub ! Du fan-sub ! Sinon, vous avez vu, l'image de sortie, au dessus ? Elle est pourrie, hein ? C'est parce que je sais pas me servir de Gimp et que j'ai internet qu'avec ubuntu parce que j'ai fait ça avec un téléphone portable, en fait. C'est ça, marrez-vous. M'enf, j'apprendrais à utiliser Gimp !! Bon, bon. Et l'image du mois, elle vous plaît ? Ouais, c'est des nichons, tout ça, là, ça vous plaît, ce genre de trucs. Moi, ça me plaît bien en tout cas. Je kiffe ma race, même, je dirais. Et moi, je fais du cosplay !! Si, si. Fin.");
@@ -2076,8 +2101,8 @@ hein. J'vous l'jure, m'sieur l'agent. J'suis sobre, moi, j'bois pas. Jamais, jam
 			
 			$news = new News();
 			$news->setTitle("Potemayo 05");
-			$news->setTimestamp(strtotime("21 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("21 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/pote5.jpg[/imgr]
 Si c'est pas trop Kawaii, ça ? Bah oui, c'est Potemayo ! Comme vous le savez, notre partenaire, Kirei no Tsubasa, a déposé le bilan récemment. Histoire de ne pas laisser leurs projets tomber à l'eau, nous avons accepté de reprendre le projet Potemayo. Nous continuons là où ils se sont arrêté et sortons l'épisode 05. Les épisodes 01 à 04 sont aussi disponibles sur le site. Honi Honi ~");
 			$news->setCommentId(74);
@@ -2091,8 +2116,8 @@ Si c'est pas trop Kawaii, ça ? Bah oui, c'est Potemayo ! Comme vous le savez, n
 			
 			$news = new News();
 			$news->setTitle("Kujibiki Unbalance 2 07");
-			$news->setTimestamp(strtotime("18 July 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("18 July 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/kuji.jpg[/imgr]
 Kujibiki Unbalance est de retour avec l'épisode 7 qui sort aujourd'hui. Il est riche en émotion pour nos héros et particulièrement pour Tokino. Un nouveau personnage apparaît et on découvre des informations sur les personnages. Je vous laisse découvrir tout ça...");
 			$news->setCommentId(102);
@@ -2106,8 +2131,8 @@ Kujibiki Unbalance est de retour avec l'épisode 7 qui sort aujourd'hui. Il est 
 			
 			$news = new News();
 			$news->setTitle("Kujibiki Unbalance 2 06");
-			$news->setTimestamp(strtotime("14 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("14 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/kuji6.jpg[/imgr]
 Après une longue attente sans Kujibiki, la série continue avec l'épisode 06 (Zéro n'abbandonne jamais !). Merci à Zetsubo Sensei qui prend le relais pour la traduction.
 
@@ -2123,8 +2148,8 @@ Ce Week-End, Mangazur à Toulon. Une petite convention très sympa ^^ J'y serais
 			
 			$news = new News();
 			$news->setTitle("Joyeux Anniversaire ! Zéro a un an aujourd'hui. + Kujibiki Unbalance 05");
-			$news->setTimestamp(strtotime("18 December 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("18 December 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/unan.png[/img]
 Zéro fête aujourd'hui son anniversaire ! Cela fait maintenant un an que le site Zéro existe. Crée le 18 décembre 2007, il était au départ un site de DDL. Ce n'est que le 6 janvier que le site deviens une team de fansub ^^ Pour voir les premières versions, allez sur la page 'À propos...'. Merci à tous pour votre soutien, c'est grâce à vous que nous en sommes arrivés là !
 
@@ -2143,8 +2168,8 @@ Mahou Shoujo Lyrical Nanoha Strikers 18");
 			
 			$news = new News();
 			$news->setTitle("Kujian 4, Recrutement Encodeur, Dons pour le sida");
-			$news->setTimestamp(strtotime("01 December 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("01 December 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/sida.png[/img]
 Ciao !
 Sortie de Kujibiki Unbalance, l'épisode 04 ! Je tiens à remercier DC, qui, par pitié peut-être ^^, nous a encodé cet épisode.
@@ -2170,8 +2195,8 @@ Merci à tous et à bientôt !
 			
 			$news = new News();
 			$news->setTitle("Fin de la série Sketchbook ~full color's~");
-			$news->setTimestamp(strtotime("30 June 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("30 June 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/sketchend.jpg[/img]
 Nous avons temporairement repris de nos activités pour finir la série Sketchbook full color's. Sortie aujourd'hui de 5 épisodes d'un coup : 09, 10, 11, 12 et 13 :) Profitez bien de ctte magnifique série, et à dans deux jours à Japan Expo !");
 			$news->setCommentId(98);
@@ -2189,8 +2214,8 @@ Nous avons temporairement repris de nos activités pour finir la série Sketchbo
 			
 			$news = new News();
 			$news->setTitle("Sketchbook ~ full color's ~ 08");
-			$news->setTimestamp(strtotime("15 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("15 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/sketch8.png[/img]
 V'là déjà la suite de Sketchbook full colors ! L'épisode 08 est disponible, et à peine 2 jours après l'épisode 07 ! Si c'est pas beau, ça ? Allez, détendez-vous un peu en regardant ce joli épisode.
 [project=sketchbook]En téléchargement ici ![/project]");
@@ -2205,8 +2230,8 @@ V'là déjà la suite de Sketchbook full colors ! L'épisode 08 est disponible, 
 			
 			$news = new News();
 			$news->setTitle("Sketchbook ~ full color's ~ 07");
-			$news->setTimestamp(strtotime("12 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("12 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/sketch7.jpg[/imgr]
 On avance un peu dans Sketchbook aussi, épisode 07 aujourd'hui ! Apparition d'un nouveau personnage : une étudiante transferée. Cet épisode est plutôt drôle. [project=sketchbook]Et téléchargeable ici ![/project]");
 			$news->setCommentId(72);
@@ -2220,8 +2245,8 @@ On avance un peu dans Sketchbook aussi, épisode 07 aujourd'hui ! Apparition d'u
 			
 			$news = new News();
 			$news->setTitle("Sketchbook ~full color's~ 06 + 01v2 + 02v2 + 05v2");
-			$news->setTimestamp(strtotime("23 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("23 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/sketchh.jpg[/imgr]
 Une avalanche de Sketchbook ! Ou plutôt, une avalanche de fleurs ^^ Avec la sortie longtemps attendue de la suite de Sketchbook épisode 06 et de 3 v2 (tout ça pour améliorer la qualité de nos releases) Enjoy !");
 			$news->setCommentId(62);
@@ -2238,8 +2263,8 @@ Une avalanche de Sketchbook ! Ou plutôt, une avalanche de fleurs ^^ Avec la sor
 			
 			$news = new News();
 			$news->setTitle("Sketchbook ~full color's 04~ ; Kanaii DDL et Sky-fansub");
-			$news->setTimestamp(strtotime("05 December 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("05 December 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/moka.jpg[/img]
 Bouonjòu !
 L'épisode 04 de Sketchbook est sorti ! [project=sketchbook]Lien[/project] Les sorties se font attendre, étant donné qu'on a plus vraiment d'encodeur officiel ^^ Merci à Kyon qui nous a encodé c'lui-ci.
@@ -2263,8 +2288,8 @@ Les dernières sorties de la [partner=maboroshi]Maboroshi[/partner] :
 			
 			$news = new News();
 			$news->setTitle("Sketchbook ~full color's 03~");
-			$news->setTimestamp(strtotime("22 November 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("22 November 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Bonjour, bonjour !
 Sortie de l'épisode 03 de Sketchbook full color's !
 Et c'est tout. Je sais pas quoi dire d'autre. Bonne journée, mes amis. 
@@ -2280,8 +2305,8 @@ Et c'est tout. Je sais pas quoi dire d'autre. Bonne journée, mes amis.
 			
 			$news = new News();
 			$news->setTitle("Kodomo no Jikan ~ Ni Gakki OAV 02");
-			$news->setTimestamp(strtotime("10 May 2009 01:00"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("10 May 2009 01:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/knjng2.png[/img]
 La suite tant attendue des aventures de Rin, Kuro et Mimi ! Un épisode riche en émotion qui se déroule pendant la fête du sport où toutes les trois font de leur mieux pour que leur classe, la CM1-1, remporte la victoire ! Toujours en coproduction avec [url=http://www.maboroshinofansub.fr/]Maboroshi[/url]. Cet épisode a été traduit du Japonais par Sazaju car la vosta se faisait attendre, puis \"améliorée\" par Shana. C'est triste, hein ? Plus qu'un et c'est la fin... [project=kodomo2]Ici, ici ![/project]");
 			$news->setCommentId(69);
@@ -2295,8 +2320,8 @@ La suite tant attendue des aventures de Rin, Kuro et Mimi ! Un épisode riche en
 			
 			$news = new News();
 			$news->setTitle("Kodomo no Jikan ~ Ni Gakki OAV 01");
-			$news->setTimestamp(strtotime("13 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("13 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/knjoav1.png[/imgr]
 C'est maintenant que la saison 2 de Kodomo no Jikan commence vraiment ! Profitez bien de cette épisode ^^ Toujours en coproduction avec [url=http://maboroshinofansub.fr]Maboroshi no fansub[/url], chez qui vous pourrez télecharger l'épisode en XDCC. Chez nous, c'est comme toujours en DDL. Nous vous rappelons que les torrents sont disponibles peu de temps après, et que tout nos épisodes sont disponibles en Streaming HD sur [url=http://www.anime-ultime.net/part/Site-93]Anime-Ultime[/url].");
 			$news->setCommentId(58);
@@ -2310,8 +2335,8 @@ C'est maintenant que la saison 2 de Kodomo no Jikan commence vraiment ! Profitez
 			
 			$news = new News();
 			$news->setTitle("Kodomo no Jikan ~ Ni Gakki OAV Spécial");
-			$news->setTimestamp(strtotime("01 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("01 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/nigakki0.jpg[/imgr]
 Vous l'attendiez TOUS ! (Si, si, même toi) Il est arrivé ! Le premier OAV de la saison 2 de Kodomo no Jikan. Cet OAV est consacré à Kuro-chan et Shirai-sensei. Amateurs de notre petite goth-loli-neko, vous allez être servis ! Elle est encore plus kawaii que d'habitude ^^ La saison 2 se fait en coproduction avec [url=http://maboroshinofansub.fr]Maboroshi[/url] et avec l'aide du grand (ô grand) DC.");
 			$news->setCommentId(55);
@@ -2325,8 +2350,8 @@ Vous l'attendiez TOUS ! (Si, si, même toi) Il est arrivé ! Le premier OAV de l
 			
 			$news = new News();
 			$news->setTitle("Toradora! 24 + 25 - FIN");
-			$news->setTimestamp(strtotime("29 March 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("29 March 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[url=images/news/torafin.jpg][img]images/news/min_torafin.jpg[/img][/url]
 
 C'est ainsi que se termine Toradora! ...");
@@ -2342,8 +2367,8 @@ C'est ainsi que se termine Toradora! ...");
 			
 			$news = new News();
 			$news->setTitle("Toradora! 23");
-			$news->setTimestamp(strtotime("27 March 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("27 March 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/tora23.png[/imgr]
 La suite de Toradora! avec l'épisode 23. Toujours aussi émouvant, toujours aussi kawaii, toujours aussi Taiga-Ami-Minorin-Ryyuji-ect, toujours aussi dispo sur [url=http://toradora.fr]Toradora.fr![/url], toujours aussi en copro avec [partner=maboroshi]Maboroshi[/partner], toujours en DDL sur notre site [project=toradora]\"Lien\"[/project], Bref, toujours aussi génial ! Enjoy ^^
 
@@ -2360,8 +2385,8 @@ Que penses-tu des Maid ? Tu es fanatique, fétichiste, amateur ou indifférent ?
 			
 			$news = new News();
 			$news->setTitle("Toradora! 22");
-			$news->setTimestamp(strtotime("25 March 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("25 March 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/taiiga.jpg[/imgr]
 Que d'émotion, que d'émotion ! La suite de Toradora!, l'épisode 22. Nous vous rappelons que vous pouvez aussi télécharger les épisodes et en savoir plus sur la série sur [url=http://toradora.fr/]Toradora.fr![/url]. Sinon, les épisodes sont toujours téléchargeables chez [partner=maboroshi]Maboroshi[/partner] en torrent et XDCC et chez nous [project=toradora]par ici en DDL.[/project] Enjoy ^^");
 			$news->setCommentId(51);
@@ -2375,8 +2400,8 @@ Que d'émotion, que d'émotion ! La suite de Toradora!, l'épisode 22. Nous vous
 			
 			$news = new News();
 			$news->setTitle("Toradora! 21");
-			$news->setTimestamp(strtotime("23 March 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("23 March 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/ski.jpg[/img]
 
 Toradora! encore et encore, et bientôt, la fin de la série. Cet épisode est encore une fois bourré d'émotion et de rebondissements... Et de luge, et de neige, et de skis ! [project=toradora]C'est par ici que ça se télécharge ![/project]
@@ -2393,8 +2418,8 @@ Profitions-en pour discutailler ! Alors, toi, lecteur de news de Zéro... Tu es 
 			
 			$news = new News();
 			$news->setTitle("Toradora! 19");
-			$news->setTimestamp(strtotime("16 March 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("16 March 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/taigahand.jpg[/img]
 Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons notre travail. Ou plutôt, notre partenaire [partner=maboroshi]Maboroshi[/partner] nous fait reprendre le travail ^^ Sortie de l'épisode 19 de toradora, avec notre petite Taiga toute kawaii autant sur l'image de cette news que dans l'épisode ! Comme d'hab, DDL sur le site, Torrent bientôt (Merci à Khorx), XDCC bientôt et déjà dispo chez [partner=maboroshi]Maboroshi[/partner]. [project=toradora]\"Ze veux l'épisodeuh !\"[/project].");
 			$news->setCommentId(46);
@@ -2408,8 +2433,8 @@ Après une semaine d'absence (je passais mon Bac Blanc >.< ), nous reprenons not
 			
 			$news = new News();
 			$news->setTitle("Toradora! 18");
-			$news->setTimestamp(strtotime("05 March 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("05 March 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/noeltora.jpg[/imgr]
 Serait-ce le rythme \"une sortie / un jour\" qui nous prend, à Zéro et [partner=maboroshi]Maboroshi[/partner] ? Peut-être, peut-être... En tout cas, voici la suite de Toradora!, l'épisode 18 ! [project=toradora]Je DL tisouite ![/project]");
 			$news->setCommentId(43);
@@ -2423,8 +2448,8 @@ Serait-ce le rythme \"une sortie / un jour\" qui nous prend, à Zéro et [partne
 			
 			$news = new News();
 			$news->setTitle("Toradora! 16");
-			$news->setTimestamp(strtotime("25 February 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("25 February 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/blond.jpg[/imgr]
 Toradora!, pour changer, en copro avec [url=http://japanslash.free.fr/]Maboroshi no Fansub[/url]. Un épisode plein d'émotion, de tendresse et de violence à la fois. À ne pas manquer ! [project=toradora]L'épisode en DDL, c'est par ici ![/project]");
 			$news->setCommentId(39);
@@ -2438,8 +2463,8 @@ Toradora!, pour changer, en copro avec [url=http://japanslash.free.fr/]Maboroshi
 			
 			$news = new News();
 			$news->setTitle("Toradora! 15 et Chibi JE Sud");
-			$news->setTimestamp(strtotime("20 February 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("20 February 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/chibi.jpg[/img]
 En pleine chibi Japan Expo Sud, Toradora! continue avec ce soir l'épisode 15 !
 [project=toradora]L'épisode en DDL, c'est par ici ![/project]
@@ -2461,8 +2486,8 @@ Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
 			
 			$news = new News();
 			$news->setTitle("Toradora! 12-13-14");
-			$news->setTimestamp(strtotime("17 February 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("17 February 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/dentifrice.jpg[/img]
  db0 s'excuse pour sa news ultra-courte de la dernière fois pour Maria Holic 3 et en compensasion va raconter sa vie dans celle-ci (Non, pas ça !). C'est aujourd'hui et pour la première fois chez Zéro une triple sortie ! Les épisodes 12, 13 et 14 de Toradora! sont disponibles, toujours en copro avec [url=http://japanslash.free.fr/]Maboroshi[/url].
  [project=toradora]Les épisodes en DDL, c'est par ici ![/project]
@@ -2483,8 +2508,8 @@ Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
 			
 			$news = new News();
 			$news->setTitle("Toradora! 11");
-			$news->setTimestamp(strtotime("11 February 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("11 February 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]http://japanslash.free.fr/images/news/toradora11.jpg[/img] 
  La suite, la suite ! Toradora! épisode 11 sortie, en copro avec [url=http://japanslash.free.fr/]Maboroshi no Fansub[/url].
 
@@ -2501,8 +2526,8 @@ Sky-fansub : Kurozuka 09 et Mahou Shoujo Lyrical Nanoha Strikers 25");
 			
 			$news = new News();
 			$news->setTitle("Toradora! 10");
-			$news->setTimestamp(strtotime("10 February 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("10 February 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/ami.png[/img]
 En direct de Nice, et pour ce 10 Février, l'épisode 10 de Toradora! en co-production avec [url=http://japanslash.free.fr/]Maboroshi no Fansub[/url], qui est de retour, comme vous l'avez vu ! (Avec Kannagi 01, Mermaid 11-12-13 et Kimi Ga 4). Pour Toradora!, nous allons rattraper notre retard !
 
@@ -2519,8 +2544,8 @@ En direct de Nice, et pour ce 10 Février, l'épisode 10 de Toradora! en co-prod
 			
 			$news = new News();
 			$news->setTitle("Toradora! 09");
-			$news->setTimestamp(strtotime("04 December 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("04 December 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/tora.jpg[/img]
 L'épisode 09 de Toradora! est terminé ! Nous avons pris du retard car la MNF (en co-production) est actuellement en pause temporaire (Tohru n'a plus internet).
 [project=toradora]Pour télécharger les épisodes en DDL, cliquez ici ![/project]
@@ -2546,8 +2571,8 @@ Rosario+Vampire Capu2 06");
 			
 			$news = new News();
 			$news->setTitle("Toradora! 07");
-			$news->setTimestamp(strtotime("24 November 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("24 November 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/toradora.png[/img]
 Ohayo mina !
 La suite de Toradora est arrivée ! Et toujours en co-production avec la Maboroshi  [img=http://img1.xooimage.com/files/s/m/smile-1624.gif]Smile[/img] 
@@ -2565,8 +2590,8 @@ L'épisode est sorti en DDL en format avi, en XDCC. Comme toujours, il sortira u
 			
 			$news = new News();
 			$news->setTitle("Nouveau XDCC, Radio, Scantrad et Toradora! 06");
-			$news->setTimestamp(strtotime("20 November 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("20 November 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/img_shinobu.gif[/img]
 Bonjour tout le monde !
 J'ai aujourd'hui plusieurs bonnes nouvelles à vous annoncer :
@@ -2587,8 +2612,8 @@ Enjoy  [img=http://img1.xooimage.com/files/w/i/wink-1627.gif]Wink[/img]
 			
 			$news = new News();
 			$news->setTitle("Kodomo no Jikan 12 FIN");
-			$news->setTimestamp(strtotime("06 March 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("06 March 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/kodomo12fin.png[/img]
 C'est ainsi, en ce 6 mars 2009, que nous fêtons à la fois l'anniversaire de la première release de Zéro (Kodomo no Jikan OAV) et l'achevement de notre première série de 12 épisodes. L'épisode 12 de Kodomo no Jikan sort aujourd'hui pour clore les aventures de nos 3 petites héroïnes : Rin, Mimi et Kuro. Il est dispo en DDL sur [url=http://kojikan.fr]le site Kojikan.fr[/url]. Un pack des 12 épisodes sera bientôt disponible en torrent.
 [url=http://kojikan.fr/?page=saison1-dl_1]Télécharger en DDL ![/url]");
@@ -2603,8 +2628,8 @@ C'est ainsi, en ce 6 mars 2009, que nous fêtons à la fois l'anniversaire de la
 			
 			$news = new News();
 			$news->setTitle("Kojikan 10");
-			$news->setTimestamp(strtotime("03 February 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("03 February 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/kodomo10.jpg[/img]
 RIIINN est revenue ! Elle nous apporte son dixième épisode. Plus que 2 avant la fin, et la saison 2 par la suite. Une petite surprise arrive bientôt, sans doute pour le onzième épisode. En attendant, retrouvez vite notre petite délurée dans la suite de ses aventures et ses tentatives de séduction de Aoki-sensei...");
 			$news->setCommentId(37);
@@ -2618,8 +2643,8 @@ RIIINN est revenue ! Elle nous apporte son dixième épisode. Plus que 2 avant l
 			
 			$news = new News();
 			$news->setTitle("Kodomo no Jikan 09, Recrutement QC, trad it>fr");
-			$news->setTimestamp(strtotime("13 December 2008"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("13 December 2008"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/kodomo9.jpg[/img]
 Rin, Kuro et Mimi reviennent enfin vous montrer la suite de leurs aventures ! Sortie aujourd'hui de l'épisode 09, merci à DC qui nous l'a encodé. Les 3 versions habituelles sont dispos en DDL.
 
@@ -2643,8 +2668,8 @@ Mahou Shoujo Lyrical Nanoha Strikers 17");
 			
 			$news = new News();
 			$news->setTitle("Joyeuses fêtes !");
-			$news->setTimestamp(strtotime("26 December 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("26 December 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setMessage("[img=images/news/noel0.jpg]merry christmas ore no imouto[/img]
 
 Une autre année se termine, mais ne vous en faite pas, nous on continue ! Même si on semble être au point mort, ça s'active dans les coulisses. Ne perdez pas espoir, vos commentaires ne sont pas tombés aux oubliettes !
@@ -2670,8 +2695,8 @@ PS : Le projet Canaan est licencié par Kaze. Le dvd de l'integrale est déjà d
 			
 			$news = new News();
 			$news->setTitle("Newsletter");
-			$news->setTimestamp(strtotime("30 June 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("30 June 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Pour ceux qui ne seraient pas au courant, 
 il est possible de recevoir un mail à chaque fois q'une \"news\" (sorties ou autre) apparait sur le site.
 Pour bénéficier de ce service et être les premier au courant, il suffit de vous inscrire sur le forum :
@@ -2698,8 +2723,8 @@ Pour les habitués des flux RSS, vous pouvez aussi suivre nos news :
 			
 			$news = new News();
 			$news->setTitle("L'école du fansub + Mayoi Neko Overrun!");
-			$news->setTimestamp(strtotime("22 April 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("22 April 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/ecolelogo.png][/img]
 
 Suite au succès inattendu de la précédente news, nous avons décider d'ouvrir une séction spéciale dans Zéro fansub : L'école du fansub.
@@ -2757,8 +2782,8 @@ qui sera entièrement fansubbée par les élèves de l'école du fansub épaulé
 			
 			$news = new News();
 			$news->setTitle("Recrutement novice");
-			$news->setTimestamp(strtotime("19 April 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("19 April 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/newsrecru.png][/img]
 Bonjour tout le monde !
 Actuellement, nous recherchons quelqu'un qui n'a aucune conaissance ni éxpérience en fansub pour rejoindre nos rangs.
@@ -2789,8 +2814,8 @@ Fiche à remplir :
 			
 			$news = new News();
 			$news->setTitle("Sondage : Vos séries préférées, les résultats");
-			$news->setTimestamp(strtotime("31 March 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("31 March 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/sondageres.png][/img]
 Nous vous avons laissé 5 jours pour répondre au sondage et le nombre de participants nous a positivement étonné, étant donné que le nombre de visiteurs est en baisse comparé à l'an dernier.
 Vous avez été 24 personnes à participer et à défendre votre série préférée.
@@ -2824,8 +2849,8 @@ Encore merci à tous d'avoir voté ! À bientôt pour les sorties très prochain
 			
 			$news = new News();
 			$news->setTitle("Sondage : Quelles sont vos séries préférées ?");
-			$news->setTimestamp(strtotime("26 March 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("26 March 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/newssondage.png[/img]
 Vous commencez à nous connaître !
 Du moins, si vous lisez nos news un peu longues.
@@ -2862,8 +2887,8 @@ J'éspère que vous serez nombreux à nous donner votre avis !
 			
 			$news = new News();
 			$news->setTitle("Tracker torrent, le retour ! Recrutement Seeders");
-			$news->setTimestamp(strtotime("09 February 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("09 February 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/seedep.png[/img]
 Après une très longue pause, notre tracker torrent est de retour ! Tarf a repris les rênes et nos épisodes ne devraient pas tarder à être disponibles en torrent.
 Oui, mais pour qu'il marche jusqu'au bout, il nous faut du monde qui soit là, prêt à sacrifier un peu de leur connexion pour partager avec Tarf nos épisodes.
@@ -2880,8 +2905,8 @@ Si vous êtes interessé pour devenir seeder de la team, cliquez sur le lien de 
 			
 			$news = new News();
 			$news->setTitle("Konshinkai fansub, la réunion des amateurs de fansub français");
-			$news->setTimestamp(strtotime("17 January 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("17 January 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Le rendez-vous est fixé pour la prochaine convention : Paris manga.
 C'est donc le 6 Février.
 On reste sur le même restaurant qu'à Konshinkai 1, un petit restaurant Jap' très sympathique et pas très cher près de Charle de Gaulle étoile. Toutes les infos pour s'y rendre sont sur le site partie \"Rendez-vous\".
@@ -2908,8 +2933,8 @@ Venez nombreux, parlez en autours de vous !
 			
 			$news = new News();
 			$news->setTitle("Joyeux Anniversaire ! Zéro a deux ans.");
-			$news->setTimestamp(strtotime("18 December 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("18 December 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/anniv1.jpg][/img]
 Aujourd'hui est un grand jour pour Zéro et pour la db0 company ! Cela fait maintenant exactement deux ans que le groupe Zéro existe, donc j'en profite pour faire un petit résumé de ces deux années riches en evennements.
 db0 créer le site \"Zéro\", qui vient de la dernière lettre de son pseudo le 18 décembre 2007. Au départ, c'est un énième site de liens MU et torrent pour télécharger des animes. db0 rencontre ensuite Genesis et se met au fansub. Elle créait ensuite avec et grâce à cette équipe une nouvelle équipe de fansub qui prend la place de l'ancien site Zéro mais garde le design. Les débuts de Zéro sont difficiles. La formation fansub de db0 s'est en grande partie faite par Klick et le reste de l'équipe Genesis. D'autres membres ont ensuite rejoint l'équipe, dont praia qui deviendra par la suite le co-administrateur de l'équipe. Ryocu rejoint ensuite l'équipe en nous hebergant le site et les épisode en DirectDownload. L'équipe s'agrandit petit à petit, devient amie avec Maboroshi, Kanaii, Animekami, Moe, Kyoutsu, Sky, ect. db0 et Ryocu reprennent ensemble la db0 company et tout ses nombreux sites, dont Anime-ultime et Stream-Anime. Ces sites nous coûtent actuellement dans les environs de 300 à 350 par mois, et nous 
@@ -2932,8 +2957,8 @@ Et Bon Anniversaire Zéro !
 			
 			$news = new News();
 			$news->setTitle("Recrutement Editeur ASS/AE");
-			$news->setTimestamp(strtotime("10 December 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("10 December 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/edit.jpg][/img]
 J'ai toujours tenu depuis la création de l'équipe Zéro à m'occuper personnellement des edits des épisodes. On peut d'ailleurs voir l'évolution de mon niveau au fur et à mesure des épisodes :)  Cependant, aujourd'hui, Zéro connaît un réel ralentissement et j'en prend l'entière résponsabilité : ayant commencé mes études supérieures, j'ai bien moins de temps que ce que j'en avais à l'époque où j'étais lycéenne. J'ai donc décidé, avec certes quelques regrets, d'intégrer un nouveau membre dans l'équipe pour faire les edits à ma place.
 
@@ -2968,8 +2993,8 @@ J'éspère que vous serez nombreux à répondre à notre demande ! Merci à tous
 			
 			$news = new News();
 			$news->setTitle("Konshinkai ~ fansub");
-			$news->setTimestamp(strtotime("26 October 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("26 October 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/afkonsh.png][/img]
 Bonjour cher ami gentils amis leechers.
 
@@ -2995,8 +3020,8 @@ P.S. : Nous vous serions très reconaissant de faire part de cette évenement au
 			
 			$news = new News();
 			$news->setTitle("Paris Manga");
-			$news->setTimestamp(strtotime("01 September 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("01 September 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/parismanga.jpg[/img]
 Paris Manga est une petite convention se déroulant à Paris (logique) le 12 et 13 septembre à l'espace Champerret. Zéro y sera ! Donc n'hésitez pas à venir nous voir, on est gentil et on mord pas ^^ Et comme d'habitude, je participe aux concours cosplay. Venez m'encourager samedi à partir de 14h sur scéne en cosplay individuel et dimanche à partir de 14h en cosplay groupe avec un costume spécial Zéro fansub !
 
@@ -3011,8 +3036,8 @@ L'équipe de fansub n'est actuellement pas en mesure de vous proposer des sortie
 			
 			$news = new News();
 			$news->setTitle("Recrutement traducteur Mermaid Melody");
-			$news->setTimestamp(strtotime("10 August 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("10 August 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/mermaid.jpg[/img]
 Nous avons été très étonné du succés qu'a eu notre demande de recrutement pour l'anime Hitohira et nous avons aujourd'hui un nouveau traducteur pour cette série : whatake.
 Aurons-nous autant de succés pour ce deuxième appel...? Je l'espère ! Mais avant cela, je vous vous expliquer la situation. Nous avons commencé la série Mermaid Melody Pichi Pichi Pitch en Vistfr et MnF l'a fait en Vostfr. Nous avons décidé d'abbandonner la série en Vistfr et de la continuer en Vostfr. 13 épisodes de cette série sont sortis. Vous pouvez télécharger l'épisode 01 ici : [url=http://www.megaupload.com/?d=ZZQNU3UZ]Episode 01[/url]
@@ -3027,8 +3052,8 @@ Nous recherchons quelqu'un de motivé qui aime les animes magical girl pour cont
 			
 			$news = new News();
 			$news->setTitle("Infos Téléchargements");
-			$news->setTimestamp(strtotime("09 August 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("09 August 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Depuis un incident de surcharge de téléchargements ayant fait planter toute la db0 company (anime-ultime, Zéro et tout les autres), nous avons décidé de limiter les téléchargements. Nous avons annoncé ça clairement, et pourtant, nous continuons à recevoir dans le topics des liens morts qui ne le sont pas. Donc aujourd'hui, j'insiste : Si vous êtes déjà en train de télécharger un épisode sur notre site, vous ne pourrez en telecharger un autre qu'après le premier téléchargement terminé ! Si le message suivant arrive :
 
 \"Service Temporarily Unavailable
@@ -3045,8 +3070,8 @@ Ne vous affolez pas : Attendez la fin de votre premier téléchargement. Il peut
 			
 			$news = new News();
 			$news->setTitle("[IRL] Japan Expo 2009");
-			$news->setTimestamp(strtotime("15 June 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("15 June 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-auto=images/news/japan10.jpg][/img-auto]
 Vous y allez ? Ça tombe bien, nous aussi !
 Pour s'y rencontrer, signalez-vous dans le topic dédié à cette convention sur le forum : [url]http://forum.zerofansub.net/t196-japan-expo-2009.htm[/url]
@@ -3068,8 +3093,8 @@ Rappel : La team est toujours en pause jusqu'à Juillet !");
 			
 			$news = new News();
 			$news->setTitle("[IRL] Epitanime 2009");
-			$news->setTimestamp(strtotime("06 June 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("06 June 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("C'était du 29 au 31 mai, et c'était un très grand evenement. Bien malheureux sont ceux qui l'ont ratés ! Et qui, surtout, on raté db-chan ! Oui, il faut le dire, le plus important à Epitanime, c'était elle :P Il fallait être là, car j'avais prévu pour tout les membres de la team Zéro mais aussi toutes les personnes qui viennent régulierement chez Zéro une petite surprise.
 Ce week-end, j'ai donc croisé Sazaju (notre traducteur), Ryocu, Guguganmo et des tas de copains-cosplayeurs dont je ne vous citerait pas le nom puisque vous ne les connaîtrez sûrement pas.
 
@@ -3088,8 +3113,8 @@ Vous ne trouvez pas ? Oui, je sais, c'est très difficile. Pour voir qui c'étai
 			
 			$news = new News();
 			$news->setTitle("Epitanime 2009");
-			$news->setTimestamp(strtotime("19 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("19 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-auto]http://www.epita.fr/img/design/logos/epitanime-logo.jpg[/img-auto]
 Date à retenir : 29-30-31 mai 2009 ! Durant ses trois jours se dérouleront un évenement de taille : la 17éme édition de l'Epitanime ! Une des meilleures conventions et des plus vieilles. Plus pratique pour les parisiens puisqu'elle se déroule au Kremlin-Bicêtre (Porte d'Italie). Si vous avez la possibilité de vous y rendre, faites-le ! db-chan vous y attendra ^^");
 			$news->setCommentId(525);
@@ -3102,8 +3127,8 @@ Date à retenir : 29-30-31 mai 2009 ! Durant ses trois jours se dérouleront un 
 			
 			$news = new News();
 			$news->setTitle("forum.zerofansub.net");
-			$news->setTimestamp(strtotime("18 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("18 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right]images/news/favoris.png[/img-right]
 Le forum change d'adresse : 
 [size=22px][url]http://forum.zerofansub.net[/url][/size]
@@ -3118,8 +3143,8 @@ Faites comme Mario, mettez à jour vos favoris !");
 			
 			$news = new News();
 			$news->setTitle("The legend of Melba : Tonight Princess + Newsletter");
-			$news->setTimestamp(strtotime("17 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("17 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[url=http://melbaland.free.fr/][img=http://img8.imageshack.us/img8/6162/bannirepapyo.jpg][/img][/url]
 Papy Al, QC de la petite équipe, a sorti hier soir le premier épisode de sa saga mp3. [url=http://melbaland.free.fr/]Pour l'écouter, c'est par ici ![/url]
 
@@ -3134,8 +3159,8 @@ Vous ne le savez peut-être pas, mais Zéro envoie à chaque news une newsletter
 			
 			$news = new News();
 			$news->setTitle("[Zero] Merci !");
-			$news->setTimestamp(strtotime("11 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("11 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/merci.jpg][/img]
 Toute l'équipe Zéro fansub et toute la db0 company (Anime-Ultime, Stream-Anime, Zéro, Kojikan, ect) tient à remercier chalereusement les personnes suivantes pour leurs réponses à notre appel à l'aide :
 Hervé (14)
@@ -3159,8 +3184,8 @@ Ces sommes ne nous permettent certes pas de nous sortir de nos problèmes d'arge
 			
 			$news = new News();
 			$news->setTitle("C'est la crise !");
-			$news->setTimestamp(strtotime("01 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("01 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("C'est la crise pour tout le monde, et même pour nous. Nous n'arrivons plus à payer nos serveurs... On ajoute des publicités et on vous sollicite pour des dons, mais rien ne s'améliore. Depuis le début de Zéro, et sur tout les sites de la db0 company, nous n'avons reçu que 14  de dons et 75  de publicités. Sachant qu'il nous a fallut environ 80  (en tout depuis que Zéro existe) pour l'association humanitaire que Zéro soutient et que nos serveurs de la db0 company coûte environ 250  /mois, le calcul n'est pas long, nous sommes dans le négatif. Et pauvres petits étudiants que nous sommes, à découvert tout les mois... C'est un appel à l'aide que je lance aujourd'hui, à ceux de Zéro, de la db0 company, à ceux qui aiment les animes que nous sous-titrons et qui respectent notre travail. Par avance, merci.");
 			$news->setCommentId(66);
 			$news->setDisplayInNormalMode(true);
@@ -3172,8 +3197,8 @@ Ces sommes ne nous permettent certes pas de nous sortir de nos problèmes d'arge
 			
 			$news = new News();
 			$news->setTitle("[Zero]");
-			$news->setTimestamp(strtotime("10 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("10 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right=images/news/3.1.png][/img-right]
 Du changement sur le site ?
 
@@ -3188,8 +3213,8 @@ Je ne vois vraiment pas de quoi vous parlez !");
 			
 			$news = new News();
 			$news->setTitle("Toradora! Licencié");
-			$news->setTimestamp(strtotime("01 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("01 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right=images/news/licence.jpg][/img-right]
 Triste nouvelle que je vous apporte aujourd'hui ! La première licence d'une de nos série. Avec beaucoup de regrets, nous retirons donc tout les liens de téléchargement de la série Toradora!...");
 			$news->setCommentId(54);
@@ -3202,8 +3227,8 @@ Triste nouvelle que je vous apporte aujourd'hui ! La première licence d'une de 
 			
 			$news = new News();
 			$news->setTitle("Toradora! Fin - L'impact !");
-			$news->setTimestamp(strtotime("30 March 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("30 March 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right=images/news/ryoc.jpg][/img-right]
 Bonjour.
 Je suis l'administrateur du site [url=http://www.anime-ultime.net/part/Site-93]Anime-ultime[/url], et l'admin sys de Zéro fansub ainsi que toute la [url=http://db0.fr]db0 company[/url]. Je tiens à remercier les personnes qui se sont crues malignes en employant des accélérateurs de téléchargement. Grâce à ces personnes, plusieurs sites ont été inaccessibles. En utilisant ce genre de logiciel, vous bloquez les accès aux visiteurs des sites web et vous entraînez un ralentissement général des téléchargements (au lieu des les accélerer, vous faites en sorte que les disques durs ne puissent plus tenir la cadence et font ralentir tout le monde). Par conséquent, vous ne pouvez désormais plus télécharger qu'un seul et unique fichier à la fois sur Zerofansub.net et je demande à toutes les personnes qui utilisent des accélerateurs de téléchargement d'arrêter de vous servir de ce genre de logiciel qui plombent les serveurs inutilement en plus d'avoir l'effet contraire à celui désiré.
@@ -3218,8 +3243,8 @@ Cette limite n'est pas très sévère, soyez compréhensifs. Profitez bien de la
 			
 			$news = new News();
 			$news->setTitle("Recrutement Karamaker et Gestion tracker BT");
-			$news->setTimestamp(strtotime("24 February 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("24 February 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img-right=images/news/guilde.jpg][/img-right]
 Zéro recrute !
 
@@ -3243,8 +3268,8 @@ Venez nombreux ! Nous avons besoin de vous !");
 			
 			$news = new News();
 			$news->setTitle("Kouhai Scantrad, les chapitres de KissXsis");
-			$news->setTimestamp(strtotime("26 August 2010 00:01"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("26 August 2010 00:01"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setCommentId(247);
 			$news->setTwitterTitle("Vous conaissez Kouhai Scantrad ? Ils proposent les chapitres de KissXsis ! http://kouhaiscantrad.wordpress.com/");
 			$news->setMessage("[partner=image]kouhai[/partner]
@@ -3262,8 +3287,8 @@ Allez donc visiter leur site pour lire les chapitres et les remercier pour leur 
 			
 			$news = new News();
 			$news->setTitle("Samazama no Koto recrute !");
-			$news->setTimestamp(strtotime("26 August 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("26 August 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgl=images/news/samazama.jpg]Samazama no Koto recrute finger pointed loli[/imgl]
 
 La fin de l'été arrive à grand pas, et qui dit rentrée dit manque de disponibilités ! C'est ce qui arrive à nos petits potes de chez Samazama no Koto : ils manquent d'effectifs.
@@ -3292,8 +3317,8 @@ A bientot !");
 			
 			$news = new News();
 			$news->setTitle("Licence de Rosario+Vampire");
-			$news->setTimestamp(strtotime("04 May 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("La Mite en Pullover"));
+			$news->setPublicationTime(strtotime("04 May 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("La Mite en Pullover"));
 			$news->setMessage("[img]images/news/licencerv.jpg[/img]
 Black Box a acquis les droits des deux séries, aussi je vous demande de ne plus distribuer, sur n'importe quel réseau ou système de téléchargement que ce soit, nos fansubs. Si la série vous a plu, soutenez l'éditeur en achetant ses DVD (ou allumez un cierge pour d'éventuels Bluray).
 J'en appelle à tous les sites partenaires de téléchargement, à tous les blogs sérieux et à ceux de kikoololz : stoppez tout, effacez vos liens, supprimez les épisodes de vos comptes.
@@ -3308,8 +3333,8 @@ Bon courage à Black Box !");
 			
 			$news = new News();
 			$news->setTitle("Nouveau partenaire : Samazama na Koto");
-			$news->setTimestamp(strtotime("24 April 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("24 April 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[partner=samazama][img]images/news/sama1.jpg[/img][/partner]
 Un nouveau petit pote partenaire viens s'ajouter aux petits potes de Zéro :
 [partner=samazama]Samazama na Koto[/partner] est une équipe de Fanscan, Scantrad aux penchants Ecchi et Hentaï qui nous propose du contenu d'une certaine qualité que nous apprécions.
@@ -3325,8 +3350,8 @@ Allez donc lire quelques-uns de leurs chapitres et revenez nous en dire des nouv
 			
 			$news = new News();
 			$news->setTitle("Nouveau partenaire : Mangas Arigatou");
-			$news->setTimestamp(strtotime("24 March 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("24 March 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/newsarigatou2.jpg[/img]
 Bonjour tout le monde !
 Un nouveau partenaire se joint aujourd'hui à l'équipe Zéro :
@@ -3359,8 +3384,8 @@ Allz visiter leur site au plus vite !!");
 			
 			$news = new News();
 			$news->setTitle("[MnF] K-On! et Tayutama Kiss on my Deity");
-			$news->setTimestamp(strtotime("08 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("08 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/tamakon.jpg[/imgr]
 Chez Maboroshi, ça ne chôme pas, et on ne vous l'annonce que maintenant, mais mieux vaut tard que jamais. La petite équipe est actuellement sur 2 nouveaux projets : K-on!, où elle en est déjà à l'épisode 05 et Tayutama Kiss on my deity à l'épisode 04. N'attendez plus, et allez mater ces deux exellentes séries : [partner=maboroshi]Le site Maboroshi[/partner].");
 			$news->setDisplayInNormalMode(true);
@@ -3372,8 +3397,8 @@ Chez Maboroshi, ça ne chôme pas, et on ne vous l'annonce que maintenant, mais 
 			
 			$news = new News();
 			$news->setTitle("[SkY] Lucky Star 03");
-			$news->setTimestamp(strtotime("04 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("04 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/lucky3.jpg[/imgr]
 On vous l'avait promis ! Sky-fansub, c'est du sérieux, et malgré la difficulté de la série, les revoilà déjà avec l'épisode 03... Si c'est pas beau, ça ? Allez, va le télécharger, mon petit otaku : [partner=sky-fansub]Le site Sky-fansub[/partner].");
 			$news->setDisplayInNormalMode(true);
@@ -3385,8 +3410,8 @@ On vous l'avait promis ! Sky-fansub, c'est du sérieux, et malgré la difficult�
 			
 			$news = new News();
 			$news->setTitle("Konoe no Jikan 02 + [SkY] Lucky Star 02");
-			$news->setTimestamp(strtotime("15 April 2009 00:30"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("15 April 2009 00:30"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/lucky2.jpg[/imgr]
 Sky-Anime nous apporte comme promis les aventures déjantés de Konata et ses amies. L'épisode 02 est déjà disponible sur leur site.
 
@@ -3401,8 +3426,8 @@ Côté hentaï, l'épisode 02 de Konoe no Jikan (parodie X de Kodomo no jikan)."
 			
 			$news = new News();
 			$news->setTitle("[SkY] Lucky Star !");
-			$news->setTimestamp(strtotime("07 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("07 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[imgr]images/news/lucky.png[/imgr]
 Notre très proche partenaire Sky-fansub commence une nouvelle série, et pas une petite série, attention... Lucky Star ! C'est sûr, c'est pas récent comme anime, mais malheuresement, niveau fansub, c'est pas au top (Aucune team n'est arrivé au bout de la série). La différence, c'est que cette team-là, mes amis, n'a rien à voir avec les autres ! En plus de nous faire de la qualité, elle est sérieuse et assidue. Que demandez de plus ? Profitez déjà du premier épisode ^o^
 
@@ -3416,8 +3441,8 @@ Notre très proche partenaire Sky-fansub commence une nouvelle série, et pas un
 			
 			$news = new News();
 			$news->setTitle("[KfS] Minami-ke Okawari");
-			$news->setTimestamp(strtotime("13 January 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("13 January 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img=images/news/kyoutsu.jpg][/img]
 Notre partenaire-dakkô Kyoutsu commence une nouvelle série... Minami-ke Okawari ! Vous pouvez dès maintenant télécharger l'épisode 01 en DDL :
 [url=ddl/kyoutsu/%5bKfS%5d1280x720_Minami-Ke_Okawari_001_vostfr.mkv]DDL Minami-ke Okawari 01[/url]
@@ -3431,8 +3456,8 @@ Mais aussi en torrent, Megaupload sur leur site : [partner=kyoutsu]Lien[/partner
 			
 			$news = new News();
 			$news->setTitle("[MnF] Akane 08");
-			$news->setTimestamp(strtotime("12 January 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("12 January 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[url=http://ranka.imouto.org/image/85ba4e0864c9ee58520eee540d4cebcb/moe%2053546%20bikini%20cleavage%20katagiri_yuuhi%20kiryu_tsukasa%20nagase_minato%20nekomimi%20no_bra%20open_shirt%20pantsu%20seifuku%20shiina_mitsuki%20shiraishi_nagomi%20swimsuits.jpg][img]http://japanslash.free.fr/images/news/akane8.jpg[/img][/url]
 Maboroshi nous sort aujourd'hui l'épisode 08 de Akane !
 Contrairement à ce qui a été dit, cet épisode n'a pas été réalisé en co-pro avec Zéro.
@@ -3446,8 +3471,8 @@ Contrairement à ce qui a été dit, cet épisode n'a pas été réalisé en co-
 			
 			$news = new News();
 			$news->setTitle("db0 vs Flander's Company");
-			$news->setTimestamp(strtotime("20 January 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("20 January 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[url=http://www.cosplay.com/photo/2277002/][img]http://images.cosplay.com/thumbs/22/2277002.jpg[/img] [/url][url=http://www.cosplay.com/photo/2277008/][img]http://images.cosplay.com/thumbs/22/2277008.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277009/][img]http://images.cosplay.com/thumbs/22/2277009.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277010/][img]http://images.cosplay.com/thumbs/22/2277010.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277011/][img]http://images.cosplay.com/thumbs/22/2277011.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277012/][img]http://images.cosplay.com/thumbs/22/2277012.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277013/][img]http://images.cosplay.com/thumbs/22/2277013.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277014/][img]http://images.cosplay.com/thumbs/22/2277014.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277015/][img]http://images.cosplay.com/thumbs/22/2277015.jpg[/img][/url] [url=http://www.cosplay.com/
 photo/2277016/][img]http://images.cosplay.com/thumbs/22/2277016.jpg[/img][/url] [url=http://www.cosplay.com/photo/2277017/][img]http://images.cosplay.com/thumbs/22/2277017.jpg[/img][/url] 
 
@@ -3469,8 +3494,8 @@ Je vous laisse juger de notre performence au combat :P
 			
 			$news = new News();
 			$news->setTitle("C'est la crise !");
-			$news->setTimestamp(strtotime("01 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("01 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("C'est la crise pour tout le monde, et même pour nous. Nous n'arrivons plus à payer nos serveurs... On ajoute des publicités et on vous sollicite pour des dons, mais rien ne s'améliore. Depuis le début de Zéro, et sur tout les sites de la db0 company, nous n'avons reçu que 14  de dons et 75  de publicités. Sachant qu'il nous a fallut environ 80  (en tout depuis que Zéro existe) pour l'association humanitaire que Zéro soutient et que nos serveurs de la db0 company coûte environ 250  /mois, le calcul n'est pas long, nous sommes dans le négatif. Et pauvres petits étudiants que nous sommes, à découvert tout les mois... C'est un appel à l'aide que je lance aujourd'hui, à ceux de Zéro, de la db0 company, à ceux qui aiment les animes que nous sous-titrons et qui respectent notre travail. Par avance, merci.");
 			$news->setCommentId(66);
 			$news->setDisplayInNormalMode(true);
@@ -3482,8 +3507,8 @@ Je vous laisse juger de notre performence au combat :P
 			
 			$news = new News();
 			$news->setTitle("Stream-Anime.org");
-			$news->setTimestamp(strtotime("15 March 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("15 March 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Pour les fans d'animes trop pressés ou qui préférent les VOSTA'z, Ryocu, hébergeur de Zéro fansub et fondateur d'[url=http://www.anime-ultime.net/part/Site-93]anime-ultime[/url], avec ma petite participation, a créer [url=http://www.stream-anime.org/]Stream-Anime.org[/url] ! Ce site propose toutes les dernières sorties d'animes en VOSTA en streaming de très haute qualité. Actuellement, vous pouvez visionner plus de 5000 vidéos, et c'est loin d'être fini. Bientôt, le site proposera les sous-titres dans toutes les langues.
 [url=http://www.stream-anime.org/][img]images/news/stream.png[/img][/url]
 Malheuresement, tout ceci n'est pas gratuit. Une petite aide par des dons, clicks sur les pubs ou allopass sur anime-ultime sont les bienvenus. Vos commentaires aussi, sur cette news, pour améliorer le site.");
@@ -3497,8 +3522,8 @@ Malheuresement, tout ceci n'est pas gratuit. Une petite aide par des dons, click
 			
 			$news = new News();
 			$news->setTitle("Toradora.fr!");
-			$news->setTimestamp(strtotime("26 February 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("26 February 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[url=http://toradora.fr][img=http://toradora.fr/images/partenaires/ban1.png]toradora.fr[/img][/url]
 Après Kojikan.fr, ouvrez grand vos bras au nouveau site de la db0 company : Toradora.fr !");
 			$news->setCommentId(42);
@@ -3511,8 +3536,8 @@ Après Kojikan.fr, ouvrez grand vos bras au nouveau site de la db0 company : Tor
 			
 			$news = new News();
 			$news->setTitle("[Kojikan.fr] Ouverture du site Kodomo no Jikan France ! + épisode 11");
-			$news->setTimestamp(strtotime("13 February 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("13 February 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[url=http://kojikan.fr/][img]http://zerofansub.net/images/news/kojikanfrance.png[/img][/url]
 Pour la sortie de l'épisode 11 de Kodomo no Jikan, comme promis, la petite surprise ! Quoi de mieux qu'un vendredi 13 pour l'ouverture du site officiel français Kodomo no Jikan ?
 
@@ -3529,8 +3554,8 @@ Pour la sortie de l'épisode 11 de Kodomo no Jikan, comme promis, la petite surp
 			
 			$news = new News();
 			$news->setTitle("The db0 company");
-			$news->setTimestamp(strtotime("28 January 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("28 January 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("Rien de bien important, pas de nouvelle sortie (désolée), juste un nouveau petit site à moi. [url=http://db0.fr/]db0.fr[/url] existe depuis longtemps, je viens juste de le remettre en forme, et maintenant c'est une version très simple qui présente simplement mes petits travaux. J'éspère qu'il vous plaira, n'hésitez pas à donner votre avis. [img=http://img1.xooimage.com/files/w/i/wink-1627.gif]Wink[/img]
 
 [url=http://db0.fr/][img]db0/images/interface/logo.png[/img][/url]");
@@ -3544,8 +3569,8 @@ Pour la sortie de l'épisode 11 de Kodomo no Jikan, comme promis, la petite surp
 			
 			$news = new News();
 			$news->setTitle("Jaquettes DVD");
-			$news->setTimestamp(strtotime("20 March 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("20 March 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/cover/%5BZero%5DKanamemo_Cover.png[/img]
 Des bonus, encore des bonus !
 Sur le site AnimeCoversFan, je suis allée chercher pour vous les covers et labels de nos séries.
@@ -3570,8 +3595,8 @@ Faites-vous de jolis DVD ! Mais ne les gardez pas lorsque la série est licenci�
 			
 			$news = new News();
 			$news->setTitle("Bonne année 2010 !");
-			$news->setTimestamp(strtotime("01 January 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setPublicationTime(strtotime("01 January 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
 			$news->setMessage("[img]images/news/sazanne.jpg[/img]
 [img]images/news/finalanne.jpg[/img]
 [spoiler][img=images/interface/lirelasuite.png]Lire la suite ...[/img]
@@ -3597,8 +3622,8 @@ Faites-vous de jolis DVD ! Mais ne les gardez pas lorsque la série est licenci�
 			
 			$news = new News();
 			$news->setTitle("Joyeux Noël ! Zéro vous offre pleins de cadeaux");
-			$news->setTimestamp(strtotime("25 December 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("25 December 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/zeronoel09.jpg[/img]
 C'est Noël ! Et au nom de toute l'équipe Zéro fansub et de la db0 company je vous souhaite à tous un joyeux noël, de bonnes fêtes et de passer de bos moments auprès de vos proches. Cette année, vous avez télécharger les animes ecchi-ecchi de chez Zéro, donc vous avez été très coquin et Papa Noël le sais, donc il a demandé à l'équipe Zéro de vous offrir ce petit cadeau :
 
@@ -3617,8 +3642,8 @@ En plus de ce cadeau, Zéro a aussi mis à jour le design du site et de nouveaux
 			
 			$news = new News();
 			$news->setTitle("Genshiken 2 ~ Pack Bonus");
-			$news->setTimestamp(strtotime("30 September 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("30 September 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/genshikenbonus.jpg[/img]
 Et un petit pack de bonus, un ! Pour marquer la fin de la série, je vous ai concocté un joli mélange de bonus comprenant : Diverses images, des photos de cosplay, les screenshots des épisodes, les musiques de l'opening et de l'ending et une jaquette dvd pour décorer vos dvds gravés. Le pack est disponible sur la page de la série, comme d'habitude.");
 			$news->setCommentId(134);
@@ -3631,8 +3656,8 @@ Et un petit pack de bonus, un ! Pour marquer la fin de la série, je vous ai con
 			
 			$news = new News();
 			$news->setTitle("Bonus Maria Holic");
-			$news->setTimestamp(strtotime("23 September 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("23 September 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/mariabonus.png[/img]
 Déjà 23 longues journées sans que Zéro ne donne de nouvelles... Je suis tellement occupée en ce moment que je m'occupe plus de vous ! Dieu indigne que je suis. Pas de sorties pour aujourd'hui mais juste l'annonce des nombreux bonus sortis chez Kanaii et qu'il fallait sortir chez nous aussi de Maria+Holic.
 Rendez-vous sur la page de la série Maria+Holic pour les découvrir !");
@@ -3646,8 +3671,8 @@ Rendez-vous sur la page de la série Maria+Holic pour les découvrir !");
 			
 			$news = new News();
 			$news->setTitle("Super Nihon Experimental Summer");
-			$news->setTimestamp(strtotime("16 August 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("16 August 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[url=http://snes.ambi-japan.com][img]images/news/snes.jpg[/img][/url]");
 			$news->setCommentId(100);
 			$news->setDisplayInNormalMode(true);
@@ -3659,8 +3684,8 @@ Rendez-vous sur la page de la série Maria+Holic pour les découvrir !");
 			
 			$news = new News();
 			$news->setTitle("Dossier Genshiken");
-			$news->setTimestamp(strtotime("24 June 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("Sunao"));
+			$news->setPublicationTime(strtotime("24 June 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sunao"));
 			$news->setMessage("[b]Bien le bonsoir la populace.[/b]
 
 
@@ -3690,8 +3715,8 @@ Pour certains c'est la perspective d'un examen, pour d'autres c'est la Saint Bar
 			
 			$news = new News();
 			$news->setTitle("Loli Loli ~~ Premier Mai !");
-			$news->setTimestamp(strtotime("01 May 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("01 May 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/lolisummer.jpg[/img]
 À l'occasion du premier Mai, on s'offre du muguet, en rapport avec le printemps. Zéro vous fait donc cadeau d'une jolie Loli printemps !");
 			$news->setCommentId(66);
@@ -3704,8 +3729,8 @@ Pour certains c'est la perspective d'un examen, pour d'autres c'est la Saint Bar
 			
 			$news = new News();
 			$news->setTitle("[IRL] Mang'azur 2009");
-			$news->setTimestamp(strtotime("21 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo("db0"));
+			$news->setPublicationTime(strtotime("21 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("db0"));
 			$news->setMessage("[img]images/news/dokuro.jpg[/img]
 db0 à gauche et Angel à droite.");
 			$news->setCommentId(61);
@@ -3718,7 +3743,7 @@ db0 à gauche et Angel à droite.");
 			
 			$news = new News();
 			$news->setTitle("Bonne année 2009");
-			$news->setTimestamp(strtotime("01 January 2009"));
+			$news->setPublicationTime(strtotime("01 January 2009"));
 			$news->setMessage("[url=images/news/%5BZero%5Dnewyear.jpg][img]images/news/newyear_min.jpg[/img][/url]");
 			$news->setCommentId(28);
 			$news->setDisplayInNormalMode(true);
@@ -3730,8 +3755,8 @@ db0 à gauche et Angel à droite.");
 			
 			$news = new News();
 			$news->setTitle("V3.4 du site !");
-			$news->setTimestamp(strtotime("30 January 2012 00:40"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("30 January 2012 00:40"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Après avoir bien bossé ce weekend, je reviens vous faire un petit topo sur l'avancement du raffinage {^_^}. Pour éviter de vous agresser les yeux je vous met les détails en spoiler {^_°}. Pour faire bref, les news sont toutes raffinées (c'est ce qui fait ce changement de version) et le BBCode est dispo.
 
 [spoiler=Afficher les détails]
@@ -3768,8 +3793,8 @@ NB : pour ceux qui ont vu que la section H était hors service, normalement ça 
 			
 			$news = new News();
 			$news->setTitle("Toradora! OAD");
-			$news->setTimestamp(strtotime("30 January 2012 20:16"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("30 January 2012 20:16"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("[project=toradorabento][imgl=images/news/toradorabento.png]Toradora! Bentô[/imgl][/project]
 Certains l'ont demandé, le voilà tout droit sorti du four.
 
@@ -3791,8 +3816,8 @@ Notez que l'épisode est aussi disponible en 1080p (certains l'ont demandé... e
 			
 			$news = new News();
 			$news->setTitle("Issho ni H Shiyo 03");
-			$news->setTimestamp(strtotime("03 April 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setPublicationTime(strtotime("03 April 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('db0'));
 			$news->setMessage("[img]images/news/newsisso3.png[/img]
 Yeah !
 La suite d'Issho ni H shiyo avec cette fois-ci une jolie neko-maid qui vient s'occuper de ranger votre appartement, vous faire la cuisine et pleins d'autres choses.
@@ -3809,8 +3834,8 @@ Attention ! Moins de 18 ans s'abstenir.");
 			
 			$news = new News();
 			$news->setTitle("Issho ni H shiyo OAV 02");
-			$news->setTimestamp(strtotime("03 March 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setPublicationTime(strtotime("03 March 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('db0'));
 			$news->setMessage("[imgr]images/news/issho.png[/imgr]
 La suite de notre nouvel hentaï dans la série des isshoni !
 
@@ -3830,8 +3855,8 @@ Cet épisode est en coproduction avec l'équipe Finalfan Sub.");
 			
 			$news = new News();
 			$news->setTitle("Issho ni H shiyo OAV 01");
-			$news->setTimestamp(strtotime("30 January 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setPublicationTime(strtotime("30 January 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('db0'));
 			$news->setMessage("[imgr]images/news/isho.jpg[/imgr]Encore un petit épisode de hentaï, mes chers petits pervers !
 Vous vous conaissez, on ne fait pas les choses à moitié.
 Quand on fait Kodomo, on fait Konoe.
@@ -3849,8 +3874,8 @@ Cet épisode est en co-production avec [partner=finalfan]Finalfan Sub[/partner].
 			
 			$news = new News();
 			$news->setTitle("Konoe no Jikan 03");
-			$news->setTimestamp(strtotime("28 January 2010"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setPublicationTime(strtotime("28 January 2010"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('db0'));
 			$news->setMessage("[imgr]images/news/konoee3.jpg[/imgr]Après la fin de Kodomo, vous vous sentez seuls sans Rin ? La voilà de retour ! Non, ce n'est pas la saison 3 de Kodomo no Jikan mais bien la suite de Konoe no Jikan, la parodie porno. L'épisode est disponible dans la partie Hentaï du site. Mais attention, moins de 18 ans s'abstenir... Je vous surveille, ne trichez pas !");
 			$news->setCommentId(189);
 			$news->setDisplayInNormalMode(false);
@@ -3863,8 +3888,8 @@ Cet épisode est en co-production avec [partner=finalfan]Finalfan Sub[/partner].
 			
 			$news = new News();
 			$news->setTitle("He is my master - Ce sont mes Maids DOUJIN");
-			$news->setTimestamp(strtotime("15 April 2009 01:00"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setPublicationTime(strtotime("15 April 2009 01:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('db0'));
 			$news->setMessage("[img]images/news/heismymaster.jpg[/img]
 Un nouveau doujin de plus chez Zéro ! Aucun rapport cette fois avec nos séries, mais une série qu'on aime bien : He is my master. [project=heismymaster]Lien pour le doujin[/project]");
 			$news->setCommentId(68);
@@ -3878,8 +3903,8 @@ Un nouveau doujin de plus chez Zéro ! Aucun rapport cette fois avec nos séries
 			
 			$news = new News();
 			$news->setTitle("Konoe no Jikan 02");
-			$news->setTimestamp(strtotime("15 April 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setPublicationTime(strtotime("15 April 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('db0'));
 			$news->setMessage("[img]images/news/konoe2.jpg[/img]
 Seto Hinata est de retour dans son rôle de Rin pour l'épisode 02 de Konoe no jikan ! Cette fois-ci, son prof va lui apprendre un cours plutôt interessant... [url=http://www.kojikan.fr/?page=hentai-konoe]Accéder à la page de téléchargement[/url].");
 			$news->setCommentId(60);
@@ -3893,8 +3918,8 @@ Seto Hinata est de retour dans son rôle de Rin pour l'épisode 02 de Konoe no j
 			
 			$news = new News();
 			$news->setTitle("Konoe no Jikan 01");
-			$news->setTimestamp(strtotime("18 March 2009"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('db0'));
+			$news->setPublicationTime(strtotime("18 March 2009"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('db0'));
 			$news->setMessage("[img]images/news/konoe.jpg[/img]
 Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et autres perversités à nos chers amis leechers. Ce temps est révolu ! Zéro sort aujourd'hui son premier épisode \"hentaï\" qui n'en est pas vraiment un puisque c'est un film, avec de vrais gens dedant, et tout, et tout. Konoe no Jikan ! La parodie cinématographique de Kodomo no Jikan. Série en 4 épisodes, traduits généreusement par Sazaju, traumatisé après ça (R.I.P.). Profitez bien de cet épisode, et n'hésitez pas à nous faire part de votre avis pervers dans les commentaires ! [url=http://www.kojikan.fr/?page=konoe]Accéder à la page de téléchargement[/url].");
 			$news->setCommentId(48);
@@ -3908,8 +3933,8 @@ Il fut un temps où Zéro refusait catégoriquement de proposer du hentaï et au
 			
 			$news = new News();
 			$news->setTitle("V3.5 du site");
-			$news->setTimestamp(strtotime("06 February 2012 11:21"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("06 February 2012 11:21"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Voilà encore quelques petites choses de faites (plus de 40 commits en un weekend quand même). Ce changement de version indique la fin du raffinage des pages.
 
 [spoiler=Afficher le résumé][left][list]
@@ -3934,8 +3959,8 @@ La prochaine étape devrait être la persistence des données je pense. Avec le 
 			
 			$news = new News();
 			$news->setTitle("On met la pression ! + MNO 1-10");
-			$news->setTimestamp(strtotime("25 March 2012 19:01"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("25 March 2012 19:01"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Ça fait un moment qu'on a du mal à sortir des releases, pourquoi ? Mine de rien la réponse est assez simple (malgré le gros pavé qui vous attend).
 
 [imgr=images/news/stripKobato.png]Dur, dur de changer de veste ![/imgr]En fait on a tellement peu de monde que certains doivent faire des choses [b]qu'ils ne sont pas censés faire[/b]. Et bien entendu, non seulement ça leur prend du temps supplémentaire, mais en plus c'est plus lent que quelqu'un qui ne fait que ça. En effet, il faut sans arrêt changer de veste, et donc se remettre dans le bain à chaque fois. C'est pas forcément motivant, vu qu'on n'en voit pas le bout.
@@ -3971,8 +3996,8 @@ Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exacte
 			
 			$news = new News();
 			$news->setTitle("Denpa 01");
-			$news->setTimestamp(strtotime("12 March 2012 14:47"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("12 March 2012 14:47"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Petite sortie en vitesse. Il y en a un paquet d'autres qui sont en cours de préparation mais qui devraient arriver la semaine prochaine.");
 			$news->setCommentId(290);
 			$news->addReleasing(Release::getRelease('denpa', 'ep1'));
@@ -3985,8 +4010,8 @@ Pour ceux qui se demandent pourquoi on ne les sort que maintenant : c'est exacte
 			
 			$news = new News();
 			$news->setTitle("Denpa 02 BD");
-			$news->setTimestamp(strtotime("09 May 2012 22:51"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("09 May 2012 22:51"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("[imgr=images/news/denpa2.png]On aime rouler les jeunes filles.[/imgr]
 Allez, on continue, on lâche pas le rythme ! {^_^}
 
@@ -4006,8 +4031,8 @@ Bon, à défaut d'être convaincant vous avez au moins un nouvel épisode à vou
 			
 			$news = new News();
 			$news->setTitle("Mitsudomoe 9 BD");
-			$news->setTimestamp(strtotime("4 April 2012 19:41"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("4 April 2012 19:41"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Ça se décoince petit à petit. On a eu quelques candidatures et ça allège un peu la charge de travail.
 
 Ajouté à ça, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.");
@@ -4022,8 +4047,8 @@ Ajouté à ça, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.")
 			
 			$news = new News();
 			$news->setTitle("Mitsudomoe 10 BD");
-			$news->setTimestamp(strtotime("8 April 2012 18:38"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("8 April 2012 18:38"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Allez, c'est pas fini ! On enchaîne avec l'épisode 10 de Mitsudomoe !
 
 [img]images/news/mitsudomoe10.png[/img]");
@@ -4038,8 +4063,8 @@ Ajouté à ça, Mitsudomoe 9 dans les bacs. En Blu-Ray comme d'habitude {^_^}.")
 			
 			$news = new News();
 			$news->setTitle("Mitsudomoe 11 BD");
-			$news->setTimestamp(strtotime("18 April 2012 19:49"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("18 April 2012 19:49"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Bon, on va pas se faire 2 mini-news d'affilée quand même. Donc voilà un peu de texte : Lorem ipsum... Nan je déconne {^.^}~. Un petit mot tout de même : pour la news d'il y a dix jours, à propos de l'embauche d'un graphiste, pas un seul commentaire n'a été posté (et bien entendu aucune candidature), alors que la suivante s'est vue avoir plus d'intérêt {;_;}.
 
 Je rappelle qu'il n'y a [b][u]pas besoin[/u][/b] d'être super expérimenté, comme savoir faire des effets qui tuent ou autre. Je dirais même qu'à partir du moment où vous savez utiliser le pinceau, la gomme et le couper-coller dans paint (ou tout autre logiciel de traitement d'image), c'est suffisant ! On a juste besoin de quelqu'un qui aime faire ça parce qu'on a plein de petite tâches relatives au traitement d'image, et comme ça peut prendre une masse de temps assez importante, on cherche quelqu'un pour nous épauler. Si vous aimez jouer avec des images, c'est tout ce qu'on demande. C'est même tout ce que je demande, vu que c'est surtout moi qui en ai besoin {'^_^}. S'il y a besoin de faire la moindre chose avancée, je peux dire comment le faire.
@@ -4058,8 +4083,8 @@ Au passage, Mitsudomoe 11 est dans les bacs. Mais tout le monde s'en fout de ça
 			
 			$news = new News();
 			$news->setTitle("Mitsudomoe 12+13 BD");
-			$news->setTimestamp(strtotime("01 May 2012 13:56"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("01 May 2012 13:56"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("J'ai une mauvaise nouvelle à vous annoncer...
 Mitsudomoe se termine aujourd'hui chez Zéro Fansub.
 
@@ -4087,8 +4112,8 @@ Et merci de nous suivre !
 			
 			$news = new News();
 			$news->setTitle("Recrutement exotique !");
-			$news->setTimestamp(strtotime("8 April 2012 12:57"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("8 April 2012 12:57"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("[imgr]images/news/kanamemo_p4.png[/imgr]On recrute ! Ouais mais vous me direz que ça fait un moment que vous êtes au courant. Mais le truc, c'est que toutes les candidatures qu'on reçoit (pour le peu qu'on a) sont pour des boulots tels que trad et timeurs... et c'est tout. Mais la Zéro, ce n'est pas qu'un blog de fansubbeurs : on maintient un site complet et on essaye de multiplier nos activités.
 
 Bref, tout ça pour vous dire qu'on recherche aussi [b]un graphiste[/b], qui pourra nous aider à faire les sorties en faisant les preview, les images d'entête et de news, mais aussi nous aider à faire les éditions, proposer de nouveaux styles pour le site, et même faire [i]cleaner[/i] pour nos scantrads. Car oui, je vous le rappelle, on a un projet [b]scantrad[/b] (Kanamemo) qui est commencé ! On recherche donc aussi des gens motivés pour participer à ce projet, car là on n'a plus personne {'^_^}.
@@ -4108,8 +4133,8 @@ Si vous vous sentez prêt à participer à l'aventure : cliquez sur le lien [i]R
 			
 			$news = new News();
 			$news->setTitle("Recrutement Timeur !");
-			$news->setTimestamp(strtotime("17 May 2012 18:58"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
+			$news->setPublicationTime(strtotime("17 May 2012 18:58"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('praia'));
 			$news->setMessage("Nous recherchons un timeur sur la durée qui a du temps à gaspiller.
 
 Intéressé ? Postulez sur notre forum via le lien [i]recrutement[/i] du site.
@@ -4125,8 +4150,8 @@ Intéressé ? Postulez sur notre forum via le lien [i]recrutement[/i] du site.
 			
 			$news = new News();
 			$news->setTitle("Denpa 03 BD");
-			$news->setTimestamp(strtotime("29 May 2012 22:00"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("29 May 2012 22:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Ça y est ! Avec quelques moments difficiles, nous voilà avec ce troisième épisode de la fille aux ondes.
 
 Attention, visite impromptue d'une jolie donzelle en quête de câlins !
@@ -4145,8 +4170,8 @@ Appréciez bien l'épisode et ne soyez pas trop jaloux. {^_°}
 			
 			$news = new News();
 			$news->setTitle("Mitsudomoe OAD + Denpa 4 & 5");
-			$news->setTimestamp(strtotime("8 June 2012 22:12"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setPublicationTime(strtotime("8 June 2012 22:12"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Bon, il semble que certains ont douté de la fraîcheur de nos articles sur la news précédente. On ne leur en voudra pas, après 39 ans il y a de quoi se poser des questions... {'-.-}
 
 Du coup, voilà de quoi nous rattraper !
@@ -4182,8 +4207,8 @@ Allez, bon matage et ne restez pas devant votre écran pendant tout le weekend. 
 			
 			$news = new News();
 			$news->setTitle("Recrutement adapt+time+édit !");
-			$news->setTimestamp(strtotime("13 June 2012 00:00"));
-			$news->setAuthor(TeamMember::getMemberByPseudo('praia'));
+			$news->setPublicationTime(strtotime("13 June 2012 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('praia'));
 			$news->setMessage("Cherche des adapteurs (reformulent les phrases) ou timeurs : le stock est épuisé
 
 Donc, on a besoin de vous.
@@ -4212,14 +4237,877 @@ N.B. : l'expérience n'est pas exigée ^_^
 			$news->setPartnerNews(false);
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Pas mal de petits changements");
+			$news->setPublicationTime(strtotime("25 July 2012 20:18"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Bon, ça fait longtemps qu'on n'a pas fait de news, donc j'en profite pour faire un petit topo sur ce qui a été  implémenté sur le site depuis la dernière news sur le sujet (datant du 6 Février). Je passerai sous silence ce qui attend au chaud sur les autres branches de développement (et qui n'est donc pas accessible ici) sinon je suis bon pour en écrire encore trois tonnes et perdre tout le monde {'^_^}. Les curieux sauront demander.
+
+Tout d'abord, ceux qui regardent correctement ont dû remarquer que les news ont des boutons pour les partager via Twitter et Facebook. Ces boutons ont été [b]renouvelés[/b] (on utilise les dernières versions) et le +1 de Google a été ajouté. De plus, auparavant, ces boutons étaient liés au site, donc cliquer sur l'un d'entre eux était suffisant, mais pas super intéressant. Maintenant, ils sont liés aux news elles-mêmes, donc vous pouvez toutes les cliquer. Autrement dit : lâchez-vous et [b]faites-nous de la pub ![/b] Parce qu'on manque (encore et toujours) cruellement de main d'œuvre {'^_^}.
+
+[img=images/news/follower.jpg]Oh ! On a des amis ![/img]
+
+C'est la mise à jour la plus importante que je voulais décrire, mais les curieux pourront dérouler ce spoiler pour voir la liste des améliorations.
+[spoiler=<Montrer la liste>]
+[left][list]
+[item]Les news de sorties listent (semi-automatiquement, c'est ça le plus important) les releases en fin de news.[/item]
+[item]Les releases ont désormais la source indiquée (DVD, BD, ...).[/item]
+[item]Intégration de la page de recrutement du forum sur le site (accessible depuis le lien en question dans le menu de gauche).[/item]
+[item]Mise à jour de la radio.[/item]
+[item]Les publicités qui s'affichaient sur certaines pages ont été retirées.[/item]
+[item]Des pages obsolètes ont été retirées.[/item]
+[item]Les liens MU (obsolètes) ont été retirés.[/item]
+[item]Un style plus [i]propre[/i] (autant niveau codage que rendu), même si ce sont des modifications minimes.[/item]
+[item]Quelques optimisations sur l'affichage ont également été faites.[/item]
+[item]Certains liens morts ont été corrigés dans nos releases.[/item]
+[item]Les liens vers les discussions en bas de projets ont été corrigés.[/item]
+[item]La page de bug a une meilleure couverture (certains types d'erreurs n'étaient pas pris en compte avant).[/item]
+[item]Plusieurs modifications pour avoir un code XHTML plus valide (mais on n'est pas encore nickel {'^_^}).[/item]
+[item]Encodage UTF-8 pour tout le site (au lieu de ISO-8859-15 pour ceux que ça intéresse).[/item]
+[item]Quelques tests automatisés ont été implémentés (c'est pas grand chose, mais c'est un premier pas qui ne sera pas le dernier).[/item]
+[item]Multiples corrections de bugs et autres ...[/item]
+[/list][/left]
+[/spoiler]
+
+Ceux qui voudront encore plus de détails se référeront au dépôt GitHub {^_^}.
+
+Enfin, merci de signaler tout bug sur lequel vous tombez pour nous aider à améliorer le site.");
+			$news->setCommentId(302);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement timeurs !");
+			$news->setPublicationTime(strtotime("12 August 2012 20:44"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez, vous avez l'habitude, alors on continue : une p'tite news de recrutement ! {^_^}
+
+[imgl=images/news/recrutementTimeurs.png]Alors ? Ça vous tente ?[/imgl]Ce coup-ci, on cherche (encore et toujours) des timeurs. Pas besoin d'expérience, c'est pas compliqué. C'est juste long à faire, donc il nous faut du monde.
+
+Donc si vous vous ennuyez pendant vos vacances, et que vous n'avez toujours rien à raconter pour la rentrée, c'est le moment d'en profiter ! Vous pourrez vous vanter de participer à la création de ces vidéos que vos amis téléchargent comme des cochons sur le net. Et le fin du fin, de le faire dans une team qui fait de la QUA-LI-TÉ ! {*o*}
+
+A~h, ce doux sentiment de supériorité...
+
+Pour ceux qui n'ont plus l'âge de se vanter à la récrée, un break ne vous ferait pas de mal. Ça tombe bien : avec nos séries rafraîchissantes, dépaysement garanti ! Et si, comme certains, vous en avez marre des supérieurs qui ne vous laissent pas le temps de travailler correctement, tout ça pour faire plaisir à des gens qui n'en ont rien à faire... Vous êtes les bienvenus ! Chez Zéro, on sait ce que ça veut dire de prendre le temps de bien faire. Et on aime ça ! {^_°}
+
+Donc, pour ceux qui se rendent compte de ce qu'ils ratent, direction
+[url=?page=recruit]la page de recrutement[/url] !");
+			$news->setCommentId(303);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement karamakeur !");
+			$news->setPublicationTime(strtotime("10 September 2012 20:34"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Oyez, oyez ! Braves gens !
+
+La team Zéro ouvre ses portes aux plus avenants d'entre vous qui voudraient rejoindre nos rangs !
+
+En effet, un de nos éditeurs vient de nous quitter.
+Mal lui en a pris de favoriser la vie IRL : il s'est retrouvé à ne plus avoir assez de temps pour s'amuser chez nous. {;o;}/
+
+Mais ainsi soit-il !
+Mes braves gens, votre heure de gloire est venue !
+
+Nous cherchons donc un karamakeur (ou éditeur) qui serait tenté par l'aventure Zéro Fansub. Que tous les manants intéressés, fussent-ils expérimentés ou simple amateurs, se présentent [url=?page=recruit]à nos portes[/url] !
+
+Mais attention : premier arrivé, premier servi {^_^}.
+(bien qu'il devrait y avoir de la place pour tout le monde)
+
+[img=images/news/party.png]Attention, ça va pexer ![/img]");
+			$news->setCommentId(304);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Haganai OAV");
+			$news->setPublicationTime(strtotime("2 November 2012 17:10"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Petite sortie en vitesse : en attendant d'avoir la série, voilà déjà l'OAV de Boku ha Tomodachi ga Sukunai. À réserver aux estomacs surentraînés {^_°}.
+
+[img=images/news/haganaioav.png]Attention aux aigreurs d'estomac...[/img]");
+			$news->setCommentId(305);
+			$news->addReleasing(Release::getRelease('haganaioav', 'oav'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Besoin de timeurs !");
+			$news->setPublicationTime(strtotime("11 November 2012 09:22"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez, on a fait l'effort de sortir un épisode, maintenant on a besoin de gens pour faire cet effort avec nous {^_^} !
+
+On recrute donc encore et toujours des timeurs, c'est ce qui nous manque cruellement. A défaut d'en avoir, l'horloge de Zéro risque de rester figée pendant un moment... En espérant que ça ne devienne pas un compte à rebours avant la fin...
+
+[img=images/news/time.jpg]Attention à ce que ça ne vire pas au rouge...[/img]
+
+{;o;}/ Noooon !
+
+Donc voilà, le recrutement c'est [url=?page=recruit]par ici[/url], merci de nous aider à tenir encore un peu, au moins le temps que certaines choses se débloquent.");
+			$news->setCommentId(306);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("WANTED: Karamakeur");
+			$news->setPublicationTime(strtotime("20 November 2012 18:39"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Dans la même veine que la news précédente, on a besoin de vous pour boucler des travaux ! Avec un peu de chance, on aura quelque chose à vous sortir pour Noël {^_^}.
+
+On recrute donc des karamakeurs ! [url=?page=recruit]Cliquez ici[/url] pour postuler.
+
+Si vous avez des soucis avec le forum (celui-ci étant indisponible à l'heure où cette news est écrite), postez dans les commentaires de cette news {^_°}.
+
+[img=images/news/karaKannagi.jpg]Allez, bougez-vous si vous voulez quelque chose pour Noël ![/img]");
+			$news->setCommentId(307);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement traducteurs + éditeurs");
+			$news->setPublicationTime(strtotime("12 December 2012 18:43"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("La news précédente a eu un pseudo-succès (on a gagné un timeur, c'est toujours mieux que rien), mais l'idée d'avoir quelque chose pour Noël en revanche est encore loin d'être palpable. Notre petit nouveau a beau être efficace, si personne ne suit derrière ça restera aux oubliettes. Eh oui, contrairement à ce que certains pensent, le fansub ça n'arrive pas tout cuit du ciel, il faut des gens derrière pour le faire tourner. À vous de voir si vous voulez faire partie du mouvement ou pas {^_^}.
+
+On réitère donc nos propositions de recrutement pour des traducteurs anglais-français et des éditeurs. [url=?page=recruit]Cliquez ici[/url] pour postuler.
+
+Si on n'a toujours personne, on risque de se tourner vers des solutions plus... machiavéliques.
+
+[img=images/news/recrutKobatoHaganai.jpg]Essayons l'hypnose, peut-être que ça marchera.[/img]");
+			$news->setCommentId(308);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Préparations pour Noël");
+			$news->setPublicationTime(strtotime("18 December 2012 20:13"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("À l'approche des fêtes de Noël, le team Zéro se démène pour montrer qu'elle n'est pas morte !
+
+[img=images/news/xmasPreparation.jpg]Allez, la deadline est proche ![/img]
+
+Pour l'occasion, le style du site a été légèrement revu pour les fêtes (et notez que c'est un style automatique, il est réglé pour apparaître entre le 15 et le 31 décembre {^_^}).
+
+Bien entendu, on se doute bien que vous vous en fout... Hum... que cela vous réjouit sans pour autant vous faire sauter de joie. Mais ne vous en faites pas, on vous prépare une petite surprise. De quoi vous montrer qu'on est encore dans la course {^_^}.");
+			$news->setCommentId(309);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Joyeux Noël !");
+			$news->setPublicationTime(strtotime("25 December 2012 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("JOYEUX NOËL À TOUS ! \\{^o^}/
+
+[img=images/news/noel2012.jpg]JOYEUX NOËL ![/img]
+
+Bon, certains vont sûrement être déçus, on n'a pas été capable de mettre en place ce qu'on voulait. Un de nos membres étant tombé malade (paix à son âme), la surprise a dû se serrer la ceinture {'^_^}.
+
+Néanmoins, on ne vient pas à vous les mains vides ! Les habitués connaissent déjà le principe, pour les nouveaux on espère que certains y trouveront leur intérêt : un pack d'images spécial Noël est dispo [url=ddl/bonus/noel_zero_2012.zip]>ici<[/url] !
+
+Certaines sont spécialement taillées pour être utilisées comme wallpapers, d'autres non, ce qui explique certains doublons (un complet et un retaillé).");
+			$news->setCommentId(310);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Année terminée, MNO aussi !");
+			$news->setPublicationTime(strtotime("1 January 2013 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez, on se la refait ?
+
+BONNE ANNÉE À TOUS ! \\{^o^}/
+
+Bon d'accord, pas très original. Mais cette fois on tient parole : la seconde partie de la surprise est désormais disponible (même si certains y ont coupé court de manière brutale dans les commentaires précédents, sympa {-_-}).
+
+Enfin bref, Mayoi Neko Overrun 11 et 12 disponibles et, par conséquent, on clot cette série chez nous. Eh oui, Mayoi Neko Overrun est fini !
+
+[img=images/news/mayoi11-12.jpg]Mayoi, c'est fini.[/img]
+
+Cela dit, ce n'est pas parce que l'année 2012 est finie que nos besoins le sont aussi. On cherche toujours du monde pour nous aider à tourner. Donc n'hésitez pas à postuler {^_°}.");
+			$news->setCommentId(311);
+			$news->addReleasing(Release::getRelease('mayoi', 'ep11'));
+			$news->addReleasing(Release::getRelease('mayoi', 'ep12'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Nouvelle année, nouveaux recrutements.");
+			$news->setPublicationTime(strtotime("4 January 2013 15:30"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Et oui, malgré la nouvelle année, certaines choses ne changent pas chez Zéro, comme le besoin de monde pour nous aider dans nos tâches. Et tout le monde sait que le fansub, c'est que du bonheur {^_^} !
+
+[img=images/news/recruitMoetan.jpg]Que du bonheur...[/img]
+
+On relance donc une annonce pour un karamaker (je dis un, mais si on peut en avoir plusieurs c'est mieux). N'hésitez donc pas à prendre de bonnes résolutions pour l'année et à passer sur notre page de recrutement {°_^}.
+
+J'en profite pour vous faire savoir que je cherche aussi quelqu'un pour m'aider à améliorer le site. En effet j'ai un paquet de tâches à faire, dont certaines grosses tâches et un paquet de nouveautés (reconnaissance de liens morts, liens magnet, chat IRC, apprentissage et entraînement fansub, etc.), mais je n'ai guère le temps de m'occuper de tout ça + du fansub + de ma vie IRL (qui devient pompante d'ailleurs). Je prends pour exemple notre branche pour la v4 (utilisation d'une base de données pour pouvoir se connecter et faire plein de trucs directement sur le site) qui existe depuis un moment et est bien avancée, mais que je n'ai pas touchée depuis un bail, faute de temps.
+
+[spoiler=Cliquez ici pour voir ce que je recherche.][left]
+Le candidat doit :
+[list]
+	[item]Avoir du temps à consacrer, je ne cherche pas quelqu'un d'aussi surbooké que moi sinon ça n'a aucun intérêt.[/item]
+	[item]Aimer programmer, et cela de manière claire, efficace et maintenable.[/item]
+	[item]Connaître PHP et avoir des notions en SQL (rien de compliqué, savoir faire des requêtes).[/item]
+	[item]Connaître ou avoir envie d'utiliser Git et GitHub (bases suffisantes, inutile d'être un expert).[/item]
+	[item]Être prêt à apprendre et faire des choses qu'il ne maîtrise pas du tout, quitte à recommencer plusieurs fois jusqu'à ce que ça marche du feu de Dieu.[/item]
+[/list]
+Le dernier point, bien que ça semble être du bon sens, est plus profond. En effet, je fais (IRL) de la recherche en informatique, et donc j'utilise des techniques qui sont à l'état de l'art (façon compliquée de dire [i]nouvelles[/i]) et n'hésite pas à revoir depuis zéro des principes de base pour faire des choses plus optimisées. Il est donc important que le candidat n'ait pas froid aux yeux et aime se lancer des défis.
+
+Mais soyez rassurés, je serai derrière vous et toutes les modifs passeront par moi, donc pas de soucis pour ceux qui craindraient faire des bétises. Vous n'aurez aucune influence directe sur le site. De même, vous travaillez sur votre propre copie du site, donc vous pouvez essayer tout et n'importe quoi, comme ça vous chante. Enfin, on commencera avec des tâches simples (j'en ai un paquet) dire de prendre en main le code avant de passer aux choses sérieuses {^_°}.
+
+Une autre précision est que, bien que je recherche un candidat, n'importe qui peut participer (le site est en [url=https://github.com/Sazaju/Zero-Fansub-website]open source sur GitHub[/url]). C'est juste que je cherche quelqu'un qui s'impliquera de manière plus active et qui sera donc régulièrement présent sur le forum, en tant que membre de la team. Il peut bien entendu postuler pour une tâche de fansub si le cœur lui en dit, mais ça ne sera pas sa tâche principale. J'ai pas mal de tâches à faire, dont certaines sont assez conséquentes. Il y a de quoi s'amuser pour un bon moment {^_^}.
+[/left]
+[/spoiler]
+
+Donc, que vous souhaitiez faire du karaoke ou de la prog (ou toute autre chose qui nous soit utile), nos portes sont ouvertes. On n'attend que vous pour nous rejoindre dans l'aventure {°_^}.");
+			$news->setCommentId(312);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Problèmes sur les forums.");
+			$news->setPublicationTime(strtotime("20 January 2013 15:40"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Juste pour ceux qui se posent des questions : Xooit est actuellement (et cela depuis plusieurs jours) en train de se faire attaquer. Ils essuyent donc des problèmes techniques qui se répercutent sur l'ensemble de leurs forums, nous inclus.
+			
+			Le site (là où vous lisez cette news) étant sur un serveur perso, il n'est pas soumis à ces problèmes. Cependant vous pourriez avoir du mal à lire et écrire des posts, que ce soit sur le forum ou dans les commentaires des news (qui eux sont hébergés par Xooit). Aussi, soyez patients et, dans le cas où vous auriez quelque chose d'urgent à nous faire savoir, vous pouvez toujours nous [url=?page=contact]contacter par mail[/url].
+			
+			On espère tous que ces problèmes se règleront vite.");
+			//$news->setCommentId(312);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("On prend le taureau par les cornes !");
+			$news->setPublicationTime(strtotime("05 February 2013 22:39"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("[imgr=images/news/fight.png]On n'est pas encore mort ![/imgr]Bon, vous l'aurez sûrement remarqué, mais les commentaires des news sont toujours inaccessibles. Bien que le forum soit toujours dispo (et donc vous pouvez y aller pour nous dire que tout se casse la figure chez Zéro {'>.<}), j'imagine bien que c'est une facilité en moins pour soutenir notre communauté.
+
+Mais qu'à cela ne tienne ! On fait ce qu'il faut pour tenir le coup depuis des années, c'est pas un petit hébergeur qui va nous arrêter ! {>o<}°
+
+On est en train de donner un coup de fouet à la V4 pour pouvoir la sortir au plus tôt. Cette version nous permettra de gérer vos commentaires directement sur le site (et bien d'autres choses), et non via un outil tierce comme c'était le cas jusqu'alors.
+
+Vu que je fais encore un long speech, je mets en spoiler. Ceux qui veulent en savoir plus n'ont qu'à cliquer [spoiler=>ici<.]
+
+Cette mouture, contrairement aux petites évolutions progressives, apporte un gros plus au site : la gestion de la base de données. Certains se diront que c'est rien et que ça se fait en moins d'une journée, mais on ne parle pas d'une simple création de schéma et un transfert des données. Ceux qui seront allés voir le code du site sur GitHub auront probablement compris que c'est bien plus fourni et avancé.
+
+L'objectif premier de cette gestion de base de données est en effet de pouvoir faire de la gestion de version de manière aisée, y compris avec le code du site (donc pas juste les données, mais aussi leur structure). Les plus curieux sur les aspects techniques iront sur le forum pour demander les détails.
+
+Pourquoi en faire autant me direz-vous ? Ceux qui auront utilisé des systèmes de gestion de version (CVS, Subversion, Git, Mercurial, etc.) savent probablement déjà qu'il est difficile (et même absurde) de s'en passer une fois qu'on y a goûté. Mais quand on a affaire à une base de données, tout changement dans les structures de données doit être répercuté sur le schéma de la BDD... et là soit on a quelque chose de simple soit ça devient la galère.
+
+Certaines solutions existent pour [i]mapper[/i] (faire correspondre) le schéma avec le code (je pense à Hibernate en Java, mais il y en a d'autres). Mais si le schéma est modifié, l'ensemble des enregistrements l'est aussi : si une colonne a été enlevée, les données de la colonne ont été supprimées dans tous les enregistrements. Quand on utilise un système de gestion de version, il est facile de revenir en arrière : on charge la bonne version et c'est reparti. Mais dans la BDD, même si l'outil de [i]mapping[/i] vous refait la colonne, il ne recrée pas les données, qui sont donc définitivement perdues. Même ceux suffisamment prévoyants pour faire des sauvegardes régulières devront faire un effort conséquent pour remettre juste la dite colonne.
+
+La gestion de BDD mise en place chez Zéro vise à supprimer ces problèmes, de manière à pouvoir retrouver n'importe quand un état passé de la BDD. Le code du site est déjà sur un système de gestion de version, cette fonctionnalité est donc le pendant BDD de cette gestion de version. Et bien entendu, cela nous sera aussi d'une grande aide dans nos travaux, vu qu'on pourra toujours compter dessus pour corriger nos boulettes le cas échéant.
+
+[/spoiler] Evidemment, des tas d'autres fonctionnalités devraient arriver à la suite de cette V4 (les projets ne manquent pas). Mais une des premières est de pouvoir ramener à la vie les commentaires, moyen de communication privilégié pour nous faire parvenir vos ressentis sur nos sorties.");
+			//$news->setCommentId(312);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Commentaires revenus... mais sait-on jamais.");
+			$news->setPublicationTime(strtotime("06 February 2013 13:44"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Les commentaires semblent être revenus ce matin. Pour la peine on va les utiliser, mais on ne change pas le programme. Vivement la V4 !");
+			$news->setCommentId(313);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement adapt.");
+			$news->setPublicationTime(strtotime("14 February 2013 17:17"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Même si on pousse un peu sur la programmation, le fansub reste la principale activité chez Zéro... à condition qu'on ait des gens pour s'en occuper {^_^}.
+
+[img=images/news/recruitAdapt.png]On cherche toujours ![/img]
+
+On relance donc nos appels à candidature : un poste d'adapt est à pourvoir. Pour ceux qui aiment jouer avec les mots, trouver des tournures qui donnent tout leur charme aux scènes importantes, ou tout simplement se vanter de maîtriser plus de vocabulaire que les autres, le job est pour vous. Passez par le lien de recrutement dans le menu à gauche {^_°}.");
+			$news->setCommentId(314);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Résurrection en cours... Kiss X Sis TV 1-3 Blu-Ray.");
+			$news->setPublicationTime(strtotime("28 March 2013 21:46"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Pas de news depuis mi-février, aucune sortie depuis le premier janvier et on est déjà fin mars... La team Zéro serait-elle morte ?
+
+Oui vous diront certains (beaucoup ?). Non vous diront ceux de la team, ces accrocs qui ne veulent pas crever en silence. Mais ce coup-ci, ils ont des arguments, les coquins ! {^_^}
+
+Voilà donc une vieille série sortie du tiroir : [b]Kiss X Sis[/b] !
+Les épisodes 1 à 3 disposent de nouvelles versions.
+
+\"[i]Quoi ?! Seulement des nouvelles versions ?[/i]\"
+
+Eh oui, RIEN QUE ça ! Ou presque...
+Maintenant qu'on arrive à avancer un peu mieux certaines tâches, ça se débloque un peu par-ci par-là. Kiss X Sis fait partie des séries débloquées, et on espère donc que la suite arrivera sans trop tarder.
+
+... Et on est déjà dessus {^_°}.
+
+[img=images/news/readyToWork.png]Un peu de pression ne fait pas de mal.[/img]
+
+La refonte du site a bien avancé, mais il reste encore certaines choses à finaliser avant de pouvoir l'exploiter. Il s'agit aussi de revoir l'interface pour la rendre plus intuitive. Cela dit on n'a qu'un seul programmeur... qui est aussi un des rares adapts et l'unique check jap de la team (impératif pour faire des sous-titres de qualité). Donc forcément, si le site avance, le fansub stagne.
+Et l'IRL n'aide pas...
+
+On a eu quelques nouveaux membres depuis, mais aussi des départs. On a gagné un précieux timeur, chose qu'on n'avait pas jusque-là, mais on a aussi perdu un précieux édit. Ce qui accélère les choses dans un sens, mais les ralentit dans l'autre.
+
+On pense pouvoir faire des sorties plus régulières.
+Du moins, on ne chôme pas en coulisse...");
+			$news->setCommentId(315);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep1'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep2'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep3'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Kiss X Sis TV 4-5 Blu-Ray");
+			$news->setPublicationTime(strtotime("26 April 2013 18:20"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Réjouissez-vous, vile populace ! Après avoir sorti 3 épisodes de KxS, en voilà encore 2 de plus. Et surtout, moins d'un mois après. Si si, c'est pas une blague !
+
+[img=images/news/pasPossible.png]Sérieux ? Déjà ?[/img]
+
+Voyez donc comme on s'active pour satisfaire votre libido !
+
+...
+
+Comment ça, surtout la nôtre ? Mais non... Enfin... Il faut bien qu'on regarde pour pouvoir traduire, quoi... Et plusieurs fois pour être sûr d'avoir bien compris... Mais c'est vraiment parce qu'on n'a pas le choix ! Si c'était pas pour vous, on ne le ferait pas... enfin peut-être pas... probablement...
+
+Bref, qui s'en préoccupe ? Les liens sont dispos, alors arrêtez de nous embêter et allez les déguster sans modération !");
+			$news->setCommentId(316);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep4'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep5'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Denpa 6-9 Blu-Ray");
+			$news->setPublicationTime(strtotime('2 June 2013 11:54'));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Yo {^_^}°, voilà un bon mois qu'on n'a rien posté. Désolé, c'est ma faute, je suis assez occupé, du coup je bloque tout le monde. Eh oui, c'est moi qui contrôle votre consommation d'animes ! Muahahaha !
+
+Non, n'allez pas voir ailleurs ! {;o;}°
+
+Bon, pour me faire pardonner, voilà non pas 1, ni 2, ni 3 ZÉROS... bon d'accord, c'était facile... Donc, voilà 4 épisodes de Denpa ! Ça, c'est du scoop ! Faites-le savoir à vos amis ! Utilisez les liens facebook et autre en fin de news ! {^_°}
+
+[img=images/news/avertissez-vos-amis.png]Faites passer le message ![/img]
+
+Sur ceux, bon mattage ! Et n'oubliez pas de partager !");
+			$news->setCommentId(317);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('denpa', 'ep6'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep7'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep8'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep9'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement trad. EN-FR");
+			$news->setPublicationTime(strtotime("29 June 2013 16:16"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez ! Ça faisait un moment qu'on ne vous l'avez pas fait, mais il ne faut pas oublier qu'on est toujours en demande de gens motivés voulant participer à la promotion de l'animation japonaise {^_^}.
+
+Sachez donc qu'une place de traducteur vous attend. Traducteur anglais-français, mais si vous avez des bases (voire plus) de japonais, c'est tout bonus {^_°}.
+
+[img=images/news/trad-enjoy.png][/img]
+
+Pour déposer votre candidature, direction la [url=?page=recruit]page de recrutement[/url] !
+
+À tout de suite {^_^}°.");
+			$news->setCommentId(318);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement adaptation + édition");
+			$news->setPublicationTime(strtotime("2013-07-10 21:17"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Dans la suite de la news précédente, on cherche des bonnes âmes pour nous aider à avancer sur nos projets. On a une place disponible pour ceux qui aiment jouer avec les mots (adaptation) et une autre pour ceux qui aiment jouer avec les images (édition).
+
+Pour déposer votre candidature, direction la [url=?page=recruit]page de recrutement[/url] !");
+			$news->setCommentId(319);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Mise à jour du site v3.6");
+			$news->setPublicationTime(strtotime("11 August 2013 21:40"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Depuis la v3.5, plusieurs petites évolutions ont eu lieu. Comme d'habitude, peu d'influence sur le rendu, surtout une refonte du code interne.
+
+[spoiler=Cliquez ici pour montrer les changements.]
+[left][list]
+	[item]Renouvellement des flux RSS (les plus attentifs devraient l'avoir remarqué depuis longtemps) avec la possibilité de les paramétrer : l'icône RSS que vous pouvez voir à côté de \"Vues\" vous permet d'accéder au flux RSS de la vue courante, il existe aussi de quoi contrôler la taille de la liste. Je ne détaille pas car ça peut encore changer (reportez-vous au code sur GitHub pour les plus curieux, ou demandez tout simplement {^_^}).[/item]
+	[item]Revue de la page \"à propos\" pour intégrer les dernières versions du site (avec une mise à jour automatique... normalement... donc celle-ci doit aussi apparaître).[/item]
+	[item]Ajout du style pour Noël (avec changement annuel automatique). D'ailleurs c'était déjà en cours d'utilisation durant le dernier Noël.[/item]
+	[item]Extension de la fonctionnalité de programmation : on pouvait préparer les news pour qu'elles s'affichent à une heure donnée, on peut faire de même avec les releases et projets maintenant.[/item]
+	[item]Une meilleure gestion et un meilleur affichage des membres de l'équipe (on considère les disponibilités, quelqu'un qui fait une pause n'est pas nécessairement \"plus de chez nous\").[/item]
+	[item]Passage à du code HTML 5. Comme dit précédemment, on ne change pas le rendu, donc pas de fonctions avancées. On précise juste la sémantique grace à quelques balises haut niveau (notamment [code]section[/code], [code]article[/code], [code]nav[/code], [code]header[/code], [code]footer[/code]).[/item]
+	[item]Plusieurs corrections orthographiques/grammaticales dans nos séries, corrections de liens morts, etc.[/item]
+	[item]Autres nettoyages de code, corrections de bugs et trucs du genre.[/item]
+[/list][/left]
+[/spoiler]
+
+J'en profite pour vous faire savoir que je cherche quelqu'un pour m'aider à programmer tout ça. En effet j'ai un paquet de tâches à faire, dont certaines grosses tâches et un paquet de nouveautés (reconnaissance de liens morts, liens magnet, chat IRC, apprentissage et entraînement fansub, etc.). Je prends pour exemple notre branche pour la v4 (utilisation d'une base de données, pour pouvoir se connecter et faire plein de trucs directement sur le site) qui existe depuis un moment et est bien avancé, mais que je n'ai pas touché depuis un bail, faute de temps.
+
+[spoiler=Cliquez ici pour voir ce que je recherche.][left]
+Le candidat doit :
+[list]
+	[item]Avoir du temps à consacrer, je ne cherche pas quelqu'un d'aussi surbooké que moi sinon ça n'a aucun intérêt.[/item]
+	[item]Aimer programmer, et cela de manière claire, efficace et maintenable.[/item]
+	[item]Connaître PHP et avoir des notions en SQL.[/item]
+	[item]Connaître ou avoir envie d'utiliser Git et GitHub (bases suffisantes, inutile d'être un expert).[/item]
+	[item]Être prêt à apprendre et faire des choses qu'il ne maîtrise pas du tout, quitte à recommencer plusieurs fois jusqu'à ce que ça marche du feu de Dieu.[/item]
+[/list]
+Le dernier point, bien que ça semble être du bon sens, est plus profond. En effet, je fais de la recherche en informatique (AFK), et donc j'utilise des techniques qui sont à l'état de l'art (façon compliquée de dire [i]nouvelles[/i] ou [i]aux oubliettes[/i], c'est selon l'âge) et n'hésite pas à revoir depuis zéro des principes de base pour faire des choses plus optimisées. Il est donc important que le candidat n'ait pas froid aux yeux.
+
+Mais soyez rassurés, je serai derrière vous et toutes les modifs passeront par moi, donc pas de soucis pour ceux qui craindraient faire des bétises. Vous n'aurez aucune influence directe sur le site. De même, vous travaillez sur votre propre copie du site, donc vous pouvez essayer tout et n'importe quoi, comme ça vous chante. Enfin, on commencera avec des tâches simples (j'en ai un paquet) dire de prendre en main le code avant de passer aux choses sérieuses {^_°}.
+
+Une autre précision est que, bien que je recherche un candidat, n'importe qui peut participer (le site est en [url=https://github.com/Sazaju/Zero-Fansub-website]open source sur GitHub[/url]). C'est juste que je cherche quelqu'un qui s'impliquera de manière plus active et qui sera donc régulièrement présent sur le forum, en tant que membre de la team. Il peut bien entendu postuler pour une tâche de fansub si le cœur lui en dit, mais ça ne sera pas sa tâche principale. J'ai pas mal de tâches à faire, dont certaines sont assez conséquentes. Il y a de quoi s'amuser pour un bon moment {^_^}.
+[/left]
+[/spoiler]");
+			$news->setCommentId(320);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Fin de Denpa Onna (Blu-Ray) + licence Maria+Holic");
+			$news->setPublicationTime(strtotime("2013-08-15 19:12"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
+			$news->setMessage("Comme d'hab, on vous sort les séries deux ans après, mais au moins, on est satisfaits de notre trad. On s'est creusé les méninges et on y a gagné quelques rides. ^_^
+
+Une série se finit et une autre ne commence pas.
+C'est pas plus mal, on a des saisons 2 à rattraper. ^_^
+
+[img=images/news/denpa-final.jpg]Voilà, Denpa c'est terminé ![/img]
+
+Notez au passage que Maria+Holic a été licensié par Docomo.
+Vous pouvez donc regarder cette série sur [url=https://www.docomo-anime.jp/fr/p_animestore/ci?workId=10330]leur site[/url].
+Désolé du retard, l'info est mal passée et on a oublié entre-temps,
+mais voilà, c'est corrigé à présent...");
+			$news->setCommentId(321);
+			$news->addReleasing(Release::getRelease('denpa', 'ep10'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep11'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep12'));
+			$news->addReleasing(Release::getRelease('denpa', 'ep13'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement édit + trad EN-FR");
+			$news->setPublicationTime(strtotime("2013-08-28 00:10"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Les vacances arrivent à leur terme et la rentrée se profile à l'horizon. Après ces 2 mois passés à profiter, vous avez forcément de l'énergie à revendre. Aussi vous avez tout intérêt à venir l'utiliser chez nous, de manière à ce qu'on puisse terminer nos séries en cours depuis tant de temps et enfin prendre de nouvelles sorties. À ce titre, et rien que pour vous (oui, vous qui lisez cette news), des postes d'éditeur et de traducteur sont à pourvoir ! Sautez sur l'occasion !
+
+Cela dit, si certains souhaitent prolonger leur temps à flâner et ignorer cette offre pourtant si alléchante, nous devrons demander à des \"amis\" de [spoiler=venir vous chercher!]
+[img=images/news/on-va-vous-bouffer.jpg]On va venir vous chercher ! Muahaha ![/img][/spoiler]
+
+Pour ceux qui ne voudraient pas avoir affaire à nos \"amis\", direction la [url=?page=recruit]page de recrutement[/url].
+
+Et bonne fin de vacances {^_^}.");
+			$news->setCommentId(322);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement édit");
+			$news->setPublicationTime(strtotime("2013-12-13 17:22"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("[imgr=images/news/kanamemo_p4.png]Venez, petits éditeurs ! On a des cookies aussi ![/imgr]Salut tout le monde ! {^o^}/
+
+Non, on n'est pas mort ! Et à vrai dire on espère vous sortir quelque chose de bien pour Noël. Mais on a toujours besoin de main d'oeuvre, car certains jobs sont en manque et peu postulent ou restent... et pas question qu'on fasse une croix dessus, donc ça attendra le temps qu'il faudra ! {^_^}
+
+On cherche donc des éditeurs pour nous aider à retravailler les vidéos. Ceux intéressés peuvent passer par la [url=?page=recruit]page de recrutement[/url]. Notez d'ailleurs que certains cours y sont disponibles, ce qui permettra aux curieux de se faire une idée, s'exercer et, pourquoi pas, postuler.
+
+On attend donc vos candidatures. {^_°}");
+			$news->setCommentId(323);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Partenariat Chibi Shiba fansub");
+			$news->setPublicationTime(strtotime("2013-12-20 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo("Sazaju HITOKAGE"));
+			$news->setMessage("Bonjour tout le monde ! {^_^}
+
+Pour aujourd'hui, une news un peu particulière, puisque c'est le genre de news qu'on n'a pas eu depuis des années !
+
+Nous avons donc le plaisir de vous annoncer notre partenariat avec une nouvelle team de fansub, la [partner]chibi-shiba[/partner], qui se concentre sur les anciennes séries qui ne sont pas (ou plus) disponibles.
+
+[img]images/news/chibi-shiba_logo.png[/img]
+
+Ils ont sorti Video Girl Ai et sont actuellement sur Miyuki. Nous leur souhaitons une bonne continuation et n'hésitez pas à passer les voir !");
+			$news->setCommentId(324);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(true);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Joyeux Noël ! KxS TV 6-9 dans les bacs !");
+			$news->setPublicationTime(strtotime("2013-12-25 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Ho ho ho ! Bonjour les enfants ! Devinez qui voilà !
+
+Et non, ce n'est pas un shinigami venant vous annoncer la mort de la Zéro (on est plus coriace que des cafards {^_^}). C'est petit Papa Noël qui, après avoir lutté durement contre ses lutins grévistes du fait de la crise financière, a pu finalement terminer d'empaqueter ses cadeaux.
+
+Voilà donc une nouvelle fournée de KissXsis ! Chaud devant !
+
+[img=images/news/santa-kxs.png]Faites de la place sous le sapin ![/img]
+
+Et n'oubliez pas de laisser des gâteaux devant la cheminée {^_°}.
+
+PS : On a décidé de remettre en service les séries non disponibles dont il est légalement impossible de mettre la main dessus (licence acquise depuis belle lurette ou boîte fermée).");
+			$news->setCommentId(325);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep6'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep7'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep8'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep9'));
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Nouvel an spécial recrutement");
+			$news->setPublicationTime(strtotime("2014-01-01 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("[imgr=images/news/madarame-job.png]Lancez-vous ![/imgr]Et voilà la news du nouvel an ! {^_^}
+
+On a réussi à sortir des épisodes pour Noël, donc forcément on n'a pas grand-chose pour le nouvel an. Néanmoins, on manque toujours cruellement de monde, donc on va en reparler un peu. {^_°}
+
+Tout d'abord les classiques : on a besoin d'un [b]karamakeur[/b] pour nos génériques et, tant qu'on n'en aura pas, vous ne verrez probablement pas nos derniers épisodes de KxS. Ensuite, on a besoin d'un [b]éditeur[/b] pour faire de la retouche d'image/vidéo. Vous trouverez nos cours sur la page de recrutement si vous voulez vous faire la main avant de postuler.
+[pin][imgl=images/news/mikazuki-fight.png]Allez, courage ![/imgl]Puis le nouveau : on a besoin d'un [b]programmeur[/b] ! On l'avait déjà dit mais on n'était pas organisés pour le recevoir. Du coup, c'était à lui de voir ce qu'il pouvait faire. Mais maintenant on a identifié pas mal de tâches à déléguer, des plus simples aux plus complexes. Donc, s'il y a des motivés, passez sur la page de recrutement pour voir les 2 types de programmeur qu'on embauche (si vous faites les 2, c'est tout bon pour vous {^_^}).
+
+À vos candidatures. {^_°}");
+			$news->setCommentId(326);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement édit");
+			$news->setPublicationTime(strtotime("2014-02-15 19:01"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Allez, une petite news pour montrer qu'on n'est pas mort. Même si ça en a des allures {'^_^}. On a pas mal de monde occupé, et cela à tous les niveaux. Du coup on traine un peu des pieds, et le manque d'édits n'aide pas.
+
+Du coup, s'il y a des édits dans le coin, on en cherche un (ou une) pour pouvoir continuer nos séries. On y passe beaucoup de temps, donc ça serait bien qu'on puisse les finir {^_°}.
+
+Cela inclus les Kiss x Sis.
+[img=images/news/kxs-a-finir.png]Les KxS aussi sont à finir ! Aidez-nous ![/img]
+
+Pour ceux qui voudraient aider mais ne connaissent pas le boulot, c'est possible aussi. Si vous passez sur notre page de recrutement, vous avez accès à nos tutos, donc vous pouvez vous familiariser avec la tâche et, si ça vous plaît, postuler quand vous pensez avoir acquis les bases. A priori, rien de difficile, et une fois admis on forme de toute façon, de manière à faire au mieux.
+
+On prend le temps de bien faire, donc faut pas vous dire d'emblée que vous n'avez pas les compétences. Tout le monde a commencé un jour. Le plus important, c'est la motivation et l'envie d'apprendre, de faire toujours mieux.
+
+Alors, rendez-vous sur la page de recrutement ! {^o^}°");
+			$news->setCommentId(327);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("KxS TV 10 BD");
+			$news->setPublicationTime(strtotime("2014-04-01 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("En ce mois d'Avril qui commence, et malgré de nombreuses péripéties telles que des plannings surchargés et des disques durs qui flanchent, voilà un nouvel épisode de nos jumelles préférées !
+
+[img=images/news/soinAttentifs.png]Il faut se tenir chaud pour se soigner...[/img]
+
+Bon matage ! {^_°}");
+			$news->setCommentId(328);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep10'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement enco/édit/prog");
+			$news->setPublicationTime(strtotime("2014-05-25 17:08"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Bonjour à tous ! {^_^}°
+
+Avec la fin de l'année scolaire qui approche, on entre dans une phase ou tout le monde est occupé. Bien entendu, cela vaut aussi pour nous, et le manque de main d'oeuvre se fait donc davantage ressentir sur cette période.
+
+Pour ceux qui voudraient se changer les idées en s'essayant à une nouvelle activité, ou pour ceux qui se sentiraient pousser des ailes de bénévoles, la Zéro vous propose tout un menu :
+[list]
+[item]si vous aimez faire des vidéos de qualité, notre poste d'[b]encodeur[/b] est fait pour vous ;[/item]
+[item]si vous êtes un accro de la retouche d'image, une place d'[b]éditeur[/b] vous attend ;[/item]
+[item]si vous préférez automatiser des tâches, nous recherchons un [b]programmeur[/b].[/item]
+[/list]
+[img=images/news/recrutement2014-05-25.png]Les KxS aussi sont à finir ! Aidez-nous ![/img]
+
+Nos séries avancent, mais bloquent sur certains points, nous sommes donc obligés d'attendre que quelqu'un de compétent nous vienne en aide. N'hésitez pas à vous proposer si vous aimez le challenge. Si vous connaissez les bases, on a des tutos pour vous aider à vous améliorer. Dans les deux cas, vous pourrez trouver ce qui vous intéresse sur notre [url=?page=recruit]page de recrutement[/url] !
+
+Les projets ne manquent pas, alors lancez-vous ! {^_°}");
+			$news->setCommentId(329);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("KxS TV 11-12 BD");
+			$news->setPublicationTime(strtotime("2014-06-28 22:16"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("C'est avec beaucoup d'émotions que nous vous annonçons la sortie des deux derniers épisodes de Kiss X Sis TV ! 4 ans après sa sortie en 2010, et 2 ans après qu'on les ait repris pour les faire en BD et les réadapter depuis le japonais, voilà enfin de quoi clore cette série.
+
+On espère que les plus patients d'entre vous seront satisfaits. {^_^}
+
+[img=images/news/kxs_tv_final.png]Enfin terminé! Quoique...[/img]
+
+Mais ce n'est pas encore fini, car il nous reste encore la série de 10 OAVs sortie de 2008 à 2013 ! Nous l'avions déjà commencée, mais elle profitera aussi d'une réadaptation depuis le japonais, de façon à maximiser la qualité de nos sous-titres. Et comme ce sont des OAVs, attendez-vous à des épisodes encore plus chauds ! {^_°}
+
+Sur ce, bon matage !");
+			$news->setCommentId(330);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep11'));
+			$news->addReleasing(Release::getRelease('kissxsis', 'ep12'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Scantrad Kanamemo, chapitre 2");
+			$news->setPublicationTime(strtotime("2014-07-13 19:52"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Vous vous souvenez de Kanamemo ? Non ? Alors [project=kanamemo]regardez-le[/project] ! {^_^}
+
+Pour ceux qui s'en souviennent et on aimé, peut-être savez-vous que la Zéro s'est essayée au scantrad sur le yonkoma (histoires en 4 cases) qui est à la base de cette série. Bien que nous ayons revu nos priorités, un de nos anciens membres a profité d'un peu de temps libre pour se charger du second chapitre. N'hésitez pas à lui faire parvenir vos commentaires.");
+			$news->setCommentId(331);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('kanamemobook', 'ch2'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Le retour de Genshiken 2, mais en BD 720p et softsub !");
+			$news->setPublicationTime(strtotime("2014-12-24 20:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
+			$news->setMessage("La sortie des blu-ray nous a donné l'occasion de corriger pas mal d'erreurs de traduction et d'améliorer d'autres petites choses, comme les éditions. ^_^
+
+Tout cela a été rendu possible grâce à l'envoi d'un mail d'un fan qui nous a avertis de la sortie des blu-ray, d'une nouvelle VOSTA bien meilleure que celle que nous avions utilisée, grâce à la contribution de notre trad-jap qui a su nous éclairer lorsque nous étions plongés dans le noir et à nos efforts et notre persévérance habituelle.
+
+Autre point positif, l'épisode 10 et 11 sont cette fois-ci sans écritures japonaises, ce qui est visuellement plus appréciable.
+
+[img=images/news/genshiken2_fini.png]Version BD dans les bacs ![/img]
+
+Petite précision, nous n'avons pas fait de FHD, car les blu-ray sont apparemment des upscale.
+
+P.S. : Vous vous demandez sûrement pourquoi on n'a pas sorti Kiss X Sis OAD.
+Le projet est en pause le temps que notre trad jap retrouve un bon rythme.
+
+P.S. 2 : Vous avez constaté notre changement de politique au softsub ?
+J'espère que ce sera vu comme un point positif.
+
+Sur ce, joyeuses fêtes !");
+			$news->setCommentId(332);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Project::getProject('genshiken'));
+			News::$allNews[] = $news;
+			
+			$news = new News();
+			$news->setTitle("Recrutement enco/édit/prog");
+			$news->setPublicationTime(strtotime("2014-12-28 00:00"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Bonjour à tous ! {^_^}°
+
+Avec la fin de l'année [s]scolaire[/s] qui approche, on entre dans une phase ou tout le monde est occupé. Bien entendu, cela vaut aussi pour nous, et le manque de main d'oeuvre se fait donc davantage ressentir sur cette période.
+
+Pour ceux qui voudraient se changer les idées en s'essayant à une nouvelle activité, ou pour ceux qui se sentiraient pousser des ailes de bénévoles, la Zéro vous propose tout un menu :
+[list]
+[item]si vous aimez faire des vidéos de qualité, notre poste d'[b]encodeur[/b] est fait pour vous ;[/item]
+[item]si vous êtes un accro de la retouche d'image, une place d'[b]éditeur[/b] vous attend ;[/item]
+[item]si vous préférez automatiser des tâches, nous recherchons un [b]programmeur[/b].[/item]
+[/list]
+[img=images/news/recrutement2014-12-28.png]Les KxS aussi sont à finir ! Aidez-nous ![/img]
+
+Nos séries avancent, mais bloquent sur certains points, nous sommes donc obligés d'attendre que quelqu'un de compétent nous vienne en aide. N'hésitez pas à vous proposer si vous aimez le challenge. Si vous connaissez les bases, on a des tutos pour vous aider à vous améliorer. Dans les deux cas, vous pourrez trouver ce qui vous intéresse sur notre [url=?page=recruit]page de recrutement[/url] !
+
+Les projets ne manquent pas, alors lancez-vous ! {^_°}");
+			$news->setCommentId(329);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
+			$ids = array();
+			foreach(News::$allNews as $news) {
+				$id = $news->getId();
+				if (in_array($id, $ids)) {
+					throw new Exception("$id is used more than once");
+				} else {
+					$ids[] = $id;
+				}
+			}
+			
+			// check no null property
+			array_map(function(News $news) {
+				$properties = array();
+				$properties['isReleasing'] = $news->isReleasing();
+				$properties['isTeamNews'] = $news->isTeamNews();
+				$properties['isPartnerNews'] = $news->isPartnerNews();
+				$properties['isDb0CompanyNews'] = $news->isDb0CompanyNews();
+				try {
+					array_map(function($name, $property) {
+						if ($property === null) {
+							throw new Exception($name);
+						}
+					}, array_keys($properties), $properties);
+				} catch(Exception $e) {
+					$property = $e->getMessage();
+					throw new Exception($property."() is null for the news '".$news->getTitle()."'");
+				}
+			}, News::$allNews);
 		}
 		
-		return News::$allNews;
+		if ($selector != null) {
+			return array_filter(News::$allNews, $selector->getCallback());
+		} else {
+			return News::$allNews;
+		}
+	}
+	
+	public static function getNews($id) {
+		foreach(News::getAllNews() as $news) {
+			if ($news->getId() == $id) {
+				return $news;
+			} else {
+				continue;
+			}
+		}
+		throw new Exception("$id is not a valid news ID");
 	}
 	
 	public static function timestampSorter(News $a, News $b) {
-		$ta = $a->getTimestamp();
-		$tb = $b->getTimestamp();
+		$ta = $a->getPublicationTime();
+		$tb = $b->getPublicationTime();
 		return $ta === $tb ? 0 : ($ta === null ? -1 : ($tb === null ? 1 : ($ta < $tb ? 1 : ($ta > $tb ? -1 : 0))));
 	}
 }

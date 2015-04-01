@@ -17,9 +17,9 @@
 */
 
 #main {
-background: url('images/bg2.png') repeat-y;
-margin: auto;
-width: 1000px;
+	background: url('images/bg2.png') repeat-y;
+	margin: auto;
+	width: 1000px;
 } 
 
 .left {

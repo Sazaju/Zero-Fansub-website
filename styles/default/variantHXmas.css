@@ -1,0 +1,6 @@
+@import url(variantH.css);
+@import url(variantXmas.css);
+
+#header {
+	background: url('images/xmas/h/banniere.png') no-repeat;
+}

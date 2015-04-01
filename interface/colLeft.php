@@ -1,5 +1,5 @@
 <?php
-	$leftCol = new SimpleBlockComponent();
+	$leftCol = new NavigationComponent();
 	$leftCol->setId("colLeft");
 	
 	$corners = null;

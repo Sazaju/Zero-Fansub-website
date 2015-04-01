@@ -28,6 +28,10 @@ a:active, a:focus {
 	color: #FF5555 !important;
 }
 
+code {
+	white-space: pre-wrap;
+}
+
 .warning {
 	color: red;
 	font-weight: bold;
@@ -48,6 +52,17 @@ a:active, a:focus {
 	border: 0;
 }
 
+img.rss {
+	max-height: 1em;
+}
+
 #page:after, .views:after, .news:after, .teamList .member:after, .teamList:before, .p:after, .separator {
 	content: url('images/barre.png');
+}
+
+/* Facebook */
+
+.fb-like, .fb-like * {
+	display: inline-block !important;
+	width: 90px;
 }

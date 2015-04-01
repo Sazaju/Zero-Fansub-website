@@ -5,9 +5,7 @@
 */
 
 abstract class DefaultHtmlComponent implements IHtmlComponent {
-	private $id = '';
-	private $clazz = '';
-	private $style = '';
+	private $metadata = array();
 	private $subcomponents = array();
 	private $html = '';
 	private $isContentPinned = false;
@@ -34,27 +32,27 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	}
 	
 	public function setID($id) {
-		$this->id = $id;
+		$this->setMetaData('id', $id);
 	}
 	
 	public function getID() {
-		return $this->id;
+		return $this->getMetaData('id');
 	}
 	
 	public function setClass($class) {
-		$this->clazz = $class;
+		$this->setMetaData('class', $class);
 	}
 	
 	public function getClass() {
-		return $this->clazz;
+		return $this->getMetaData('class');
 	}
 	
 	public function setStyle($style) {
-		$this->style = $style;
+		$this->setMetaData('style', $style);
 	}
 	
 	public function getStyle() {
-		return $this->style;
+		return $this->getMetaData('style');
 	}
 	
 	public function setContent($content) {
@@ -89,6 +87,10 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 		return $this->subcomponents[$index];
 	}
 	
+	public function setComponent($index, $component) {
+		$this->subcomponents[$index] = $component;
+	}
+	
 	public function isEmpty() {
 		return empty($this->subcomponents);
 	}
@@ -98,15 +100,24 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	}
 	
 	public function getOptions() {
-		$id = $this->getID();
-		$class = $this->getClass();
-		$style = $this->getStyle();
+		$meta = array();
+		foreach($this->metadata as $id => $value) {
+			$meta[] = $id.($value == null ? '' : '="'.$value.'"');
+		}
 		
-		$idPart = !empty($id) ? ' id="'.$id.'"' : '';
-		$classPart = !empty($class) ? ' class="'.$class.'"' : '';
-		$stylePart = !empty($style) ? ' style="'.$style.'"' : '';
-		
-		return $idPart.$classPart.$stylePart;
+		return Format::arrayToString($meta, ' ');
+	}
+	
+	public function setMetaData($id, $value = null) {
+		$this->metadata[$id] = $value;
+	}
+	
+	public function getMetaData($id) {
+		return $this->metadata[$id];
+	}
+	
+	public function removeMetaData($id) {
+		unset($this->metadata[$id]);
 	}
 	
 	public function getHTMLContent() {
@@ -147,9 +158,9 @@ abstract class DefaultHtmlComponent implements IHtmlComponent {
 	
 	public function getOpenTag() {
 		if ($this->hasLegend()) {
-			return '<fieldset'.$this->getOptions().'><legend>'.$this->getLegend().'</legend>';
+			return '<fieldset '.$this->getOptions().'><legend>'.$this->getLegend().'</legend>';
 		} else {
-			return '<'.$this->getHtmlTag().$this->getOptions().($this->isAutoClose() ? '/' : '').'>';
+			return '<'.$this->getHtmlTag().' '.$this->getOptions().($this->isAutoClose() ? '/' : '').'>';
 		}
 	}
 	

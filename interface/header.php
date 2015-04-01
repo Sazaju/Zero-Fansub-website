@@ -58,16 +58,21 @@ $size = 3;
 $sorties = array();
 $sortie = null;
 foreach($completeList as $release) {
-	$timestamp = $release->getReleasingTime();
-	$image = $release->getHeaderImage();
-	if ($sortie === null || $sortie->getTimestamp() != $timestamp || strcmp($sortie->getImage(), $image) !== 0) {
-		if (count($sorties) == $size) {
-			break;
+	// no header image => no advertisement => ignored for the header
+	if ($release->isReleased() && $release->getHeaderImage() != null) {
+		$timestamp = $release->getReleasingTime();
+		$image = $release->getHeaderImage();
+		if ($sortie === null || $sortie->getTimestamp() != $timestamp || strcmp($sortie->getImage(), $image) !== 0) {
+			if (count($sorties) == $size) {
+				break;
+			}
+			$sortie = new Sortie($timestamp, $image);
+			$sorties[count($sorties)] = $sortie;
 		}
-		$sortie = new Sortie($timestamp, $image);
-		$sorties[count($sorties)] = $sortie;
+		$sortie->addRelease($release);
+	} else {
+		continue;
 	}
-	$sortie->addRelease($release);
 }
 
 $list = new SimpleListComponent();
@@ -77,8 +82,7 @@ foreach($sorties as $sortie) {
 	$list->addComponent(new SortieComponent($sortie));
 }
 
-$header = new SimpleBlockComponent();
-$header->setId("header");
+$header = new HeaderComponent();
 $header->addComponent($list);
 $header->writeNow();
 ?>

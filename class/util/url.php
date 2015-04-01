@@ -42,6 +42,10 @@ class Url {
 		$this->data = Url::parseUrl($url);
 	}
 	
+	public function __toString() {
+		return $this->toString();
+	}
+	
 	public function toString($full = false) {
 		$url = $this->data[URL_PATH];
 		
@@ -149,10 +153,14 @@ class Url {
 		$this->data[URL_QUERY] = $query;
 	}
 	
-	public function setQueryVar($name, $value = null) {
-		$vars = $this->getQueryVars();
-		$vars[$name] = $value;
-		$this->setQueryVars($vars);
+	public function setQueryVar($name, $value = null, $removeIfNull = false) {
+		if ($value === null && $removeIfNull) {
+			$this->removeQueryVar($name);
+		} else {
+			$vars = $this->getQueryVars();
+			$vars[$name] = $value;
+			$this->setQueryVars($vars);
+		}
 	}
 	
 	public function removeQueryVar($name) {
