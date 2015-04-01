@@ -5057,6 +5057,27 @@ Les projets ne manquent pas, alors lancez-vous ! {^_°}");
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Nouveau serveur");
+			$news->setPublicationTime(strtotime("2015-04-01 21:03"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Changements au niveau du site ! {°o°}°
+
+Jusqu'à hier, le site était hébergé sur le serveur de notre ancienne admin. Il y a eu quelques réorganisations et tout a été transféré sur mon serveur perso il y a un moment. Cependant, la radio ne marchant pas, on a gardé le site sur le serveur d'origine dans l'attente de régler le problème.
+
+Hier, le serveur d'origine étant sur le point d'être arrêté de manière un peu abrupte, on a switché le domaine zerofansub.net sur mon serveur. Normalement tout est bon à part la radio, qui a été remplacée par une nouvelle radio toute simple le temps de s'en occuper. Donc pour ceux qui l'utilisent, normalement ça doit lire les chansons, mais rien de plus.
+
+Si vous notez d'autres soucis, n'hésitez pas à nous le signaler via [url=?page=bug]la page de bug[/url].
+
+Sur ceux, bonne journée. {^_°}");
+			$news->setCommentId(333);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
