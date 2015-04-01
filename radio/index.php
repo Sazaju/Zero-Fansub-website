@@ -9,6 +9,7 @@
 
 $page_title = "Radio . db0";
 
+
 //                 //
 //   DON'T TOUCH   //
 //                 //
@@ -17,8 +18,6 @@ session_start();
 
 if (isset($_GET['play']))
    $_SESSION['play'] = $_GET['play'];
-else
-  $_SESSION['play'] = 'mp3/';
 
 header('Content-Type: text/html; charset=utf-8');
 
@@ -30,58 +29,94 @@ header('Content-Type: text/html; charset=utf-8');
 <title><?php
 	echo $page_title;
 ?></title>
-  <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Normal" /> 
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Normal" />
   <link rel="shortcut icon" href="fav.ico" />
-  <script type="text/javascript" language="Javascript"> 
+  <script type="text/javascript" language="Javascript">
     function show(nom_champ)
      {
        if(document.getElementById)
-        {
-         tabler = document.getElementById(nom_champ);
-         if(tabler.style.display=="none")
-          {
-           tabler.style.display="";
-          }
-         else
-          {
-           tabler.style.display="none";
-          }
-        }
+	{
+	 tabler = document.getElementById(nom_champ);
+	 if(tabler.style.display=="none")
+	  {
+	   tabler.style.display="";
+	  }
+	 else
+	  {
+	   tabler.style.display="none";
+	  }
+	}
      }
   </script>
 </head>
 <body>
  <div>
 <?php
+$chansons = array();
+$totalchanson = 0;
+
+function	getchansons($dir)
+{
+  global $chansons, $totalchanson;
+
+  $handle = opendir($dir);
+  while ($filename = readdir($handle))
+    {
+      if ($filename[0] != '.')
+	{
+	  if (!is_dir($dir.$filename))
+	    {
+	      if (substr($filename, -4) == '.mp3')
+		{
+		  $chansons[] = substr($dir, 4).$filename;
+		}
+	    }
+	  else
+	    getchansons($dir.$filename.'/');
+	}
+    }
+}
+
 if (isset($_SESSION['play']))
   {
+      if (is_file($_SESSION['play']))
+	  {
+	      $tab = explode(".", $_SESSION['play']);
+	      $chansons[] = substr($tab[0], 4);
+	  }
+      else
+	  getchansons($_SESSION['play']);
+
+      $totalchanson = sizeof($chansons);
+
+      sort($chansons);
+      reset($chansons);
 ?>
-<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="280" height="320">
-  <param name="movie" value="radiozanorg.swf" />
-  <param name="quality" value="high" />
-  <param name="menu" value="false">
-  <embed src="radiozanorg.swf" quality="high" menu="false" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="280" height="320" menu="false"></embed>
-</object>
-<a href="."><img src="img/stop.gif" alt="stop player" /></a>
+<audio controls id="player" autoplay>
+<source src="mp3/<?php echo $chansons[0] ?>" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<a href="."><img src="img/stop.gif" alt="stop player" /></a><br>
+<span id="currentsong"><?php echo $chansons[0] ?></span>
 <br />
 <br />
 <?php
-      }
+    }
 ?>
 <?php
  function ShowFileExtension($filepath)
     {
-        preg_match('/[^?]*/', $filepath, $matches);
-        $string = $matches[0];
-      
-        $pattern = preg_split('/\./', $string, -1, PREG_SPLIT_OFFSET_CAPTURE);
+	preg_match('/[^?]*/', $filepath, $matches);
+	$string = $matches[0];
 
-        if(count($pattern) > 1)
-        {
-            $filenamepart = $pattern[count($pattern)-1][0];
-            preg_match('/[^?]*/', $filenamepart, $matches);
-            return ($matches[0]);
-        }
+	$pattern = preg_split('/\./', $string, -1, PREG_SPLIT_OFFSET_CAPTURE);
+
+	if(count($pattern) > 1)
+	{
+	    $filenamepart = $pattern[count($pattern)-1][0];
+	    preg_match('/[^?]*/', $filenamepart, $matches);
+	    return ($matches[0]);
+	}
 	return ('');
     }
 ?>
@@ -94,8 +129,7 @@ echo '</a>'."\n";
 	{
 		$handle = opendir($dir);
 		echo '<div id="'.$dir.'" ';
-		$play = isset($_GET['play']) ? $_GET['play'] : "";
-		if ($dir != 'mp3/' && strncmp($dir, $play, strlen($dir)) != 0)
+		if (strncmp($dir, $_GET['play'], strlen($dir)) != 0)
 		  echo 'style="display:none;"';
 		echo '>'."\n";
 		while ($filename = readdir($handle))
@@ -108,7 +142,7 @@ echo '</a>'."\n";
 			if (is_dir($dir.$filename) || ShowFileExtension($filename) == 'mp3')
 			   {
 				for ($i = 0 ; $i < $level ; ++$i)
-			    	    echo '-- ';
+				    echo '-- ';
 				echo "\n";
 				if (is_dir($dir.$filename))
 				  {
@@ -125,7 +159,7 @@ echo '</a>'."\n";
 				else
 				  {
 					echo '<img src="img/music.png" alt="folder" /> '."\n";
-				        echo ' '.substr($filename, 0, -4);
+					echo ' '.substr($filename, 0, -4);
 					echo ' <a href="?play='.$dir.$filename.'">'."\n";
 					echo '  <img src="img/play.png" alt="play" />'."\n";
 					echo '</a>'."\n";
@@ -141,5 +175,28 @@ echo '</a>'."\n";
 	echodir('mp3/', 1);
 ?>
  </div>
+<script>
+     var current = 0;
+var songs = [
+	  <?php foreach ($chansons as $chanson) {
+		echo '\'', $chanson. '\',
+	  ';
+	    } ?>
+	  ];
+
+var audio = document.getElementById('player');
+var currentsong = document.getElementById('currentsong');
+audio.addEventListener('ended',function() {
+	current++;
+	if (current >= songs.length) {
+	    current = 0;
+	}
+	currentsong.textContent = songs[current];
+	audio.src = 'mp3/' + songs[current];
+	audio.pause();
+	audio.load();
+	audio.play();
+    });
+</script>
 </body>
 </html>
