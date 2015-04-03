@@ -188,7 +188,7 @@ function displayDir(SongDir $dir, SongDir $displayedDir, $level = 1) {
 		echo ' <img src="img/folder.png" alt="folder" /> ';
 		echo basename($subdir->getPath());
 		echo '</a> '."\n";
-		echo '<a href="?play='.$subdir->getPath().'/'.'">'."\n";
+		echo '<a href="?play='.urlencode($subdir->getPath()).'/'.'">'."\n";
 		echo ' <img src="img/play.png" alt="play" />';
 		echo '</a>';
 		echo '<br />'."\n";
@@ -204,7 +204,7 @@ function displayDir(SongDir $dir, SongDir $displayedDir, $level = 1) {
 		
 		echo '<img src="img/music.png" alt="folder" /> '."\n";
 		echo ' '.$song->getTitle();
-		echo ' <a href="?play='.$song->getPath().'">'."\n";
+		echo ' <a href="?play='.urlencode($song->getPath()).'">'."\n";
 		echo '  <img src="img/play.png" alt="play" />'."\n";
 		echo '</a>'."\n";
 		echo ' <a href="'.$song->getPath().'" target="_blank">'."\n";
@@ -347,7 +347,7 @@ if (isset($_GET[PLAY])) {
 		*******************************
 		-->
 		<a href="#" onClick="show('<?php echo generateId(new SongDir(ROOT_SONG_DIR)); ?>');return(false)" id="plus">All</a>
-		<a href="?play=<?php echo ROOT_SONG_DIR; ?>"><img src="img/play.png" alt="play" /></a>
+		<a href="?play=<?php echo urlencode(ROOT_SONG_DIR); ?>"><img src="img/play.png" alt="play" /></a>
 		<?php
 			$displayedDir = null;
 			if (!isset($_SESSION[PLAY])) {
