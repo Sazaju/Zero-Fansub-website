@@ -171,7 +171,7 @@ function generateId(SongDir $dir) {
 	return preg_replace("#[^a-zA-Z0-9]#", "_", $dir->getPath());
 }
 
-function displayDir(SongDir $dir, SongDir $displayedDir, $level = 1) {
+function displayDir(SongDir $dir, $displayedDir, $level = 1) {
 	echo '<div id="'.generateId($dir).'" ';
 	if ($displayedDir === null || strncmp($dir->getPath(), $displayedDir->getPath(), strlen($dir->getPath())) != 0) {
 		echo 'style="display:none;"';
