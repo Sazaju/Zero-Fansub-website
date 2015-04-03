@@ -232,7 +232,12 @@ function printAlert($message) {
 session_start();
 
 if (isset($_GET[PLAY])) {
-	$_SESSION[PLAY] = $_GET[PLAY];
+	$play = $_GET[PLAY]; // don't use urldecode, $_GET items are already decoded
+	if (strncmp($play, ROOT_SONG_DIR, strlen(ROOT_SONG_DIR)) == 0 && file_exists($play)) {
+		$_SESSION[PLAY] = $play;
+	} else {
+		throw new Exception("Requête invalide : ".$play);
+	}
 } else {
 	// nothing requested to play
 }
