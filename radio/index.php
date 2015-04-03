@@ -80,7 +80,9 @@ class Song {
 		if ($title !== NULL) {
 			$this->title = $title;
 		} else {
-			$this->title = preg_replace("#.*/([^/]+)\\.[^.]+#", "\\1", $path);
+			$title = preg_replace("#.*/([^/]+)\\.[^.]+#", "\\1", $path);
+			$title = preg_replace("#_+#", " ", $title);
+			$this->title = $title;
 		}
 	}
 	
