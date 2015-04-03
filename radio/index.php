@@ -170,15 +170,14 @@ function generateId(SongDir $dir) {
 	return preg_replace("#[^a-zA-Z0-9]#", "_", $dir->getPath());
 }
 
-function displayDir(SongDir $dir2, $level = 1) {
-	$dir = basename($dir2->getPath());
-	echo '<div id="'.generateId($dir2).'" ';
-	if (!isset($_GET[PLAY]) || strncmp($dir, $_GET[PLAY], strlen($dir)) != 0) {
+function displayDir(SongDir $dir, SongDir $displayedDir, $level = 1) {
+	echo '<div id="'.generateId($dir).'" ';
+	if ($displayedDir === null || strncmp($dir->getPath(), $displayedDir->getPath(), strlen($dir->getPath())) != 0) {
 		echo 'style="display:none;"';
 	}
 	echo '>';
 	
-	$subdirs = $dir2->getSubdirs();
+	$subdirs = $dir->getSubdirs();
 	foreach ($subdirs as $subdir) {
 		for ($i = 0 ; $i < $level ; ++$i) {
 			echo '-- ';
@@ -193,10 +192,10 @@ function displayDir(SongDir $dir2, $level = 1) {
 		echo ' <img src="img/play.png" alt="play" />';
 		echo '</a>';
 		echo '<br />'."\n";
-		displayDir($subdir, $level+1);
+		displayDir($subdir, $displayedDir, $level+1);
 	}
 	
-	$songs = $dir2->getSongs();
+	$songs = $dir->getSongs();
 	foreach ($songs as $song) {
 		for ($i = 0 ; $i < $level ; ++$i) {
 			echo '-- ';
@@ -344,13 +343,22 @@ if (isset($_GET[PLAY])) {
 
 		<!-- 
 		*******************************
-		           FOLDERS
+		           SONGS
 		*******************************
 		-->
 		<a href="#" onClick="show('<?php echo generateId(new SongDir(ROOT_SONG_DIR)); ?>');return(false)" id="plus">All</a>
 		<a href="?play=<?php echo ROOT_SONG_DIR; ?>"><img src="img/play.png" alt="play" /></a>
 		<?php
-			displayDir(new SongDir(ROOT_SONG_DIR));
+			$displayedDir = null;
+			if (!isset($_SESSION[PLAY])) {
+				$displayedDir = null;
+			} else if (is_file($_SESSION[PLAY])) {
+				$song = new Song($_SESSION[PLAY]);
+				$displayedDir = new Songdir(dirname($song->getPath()));
+			} else {
+				$displayedDir = new SongDir($_SESSION[PLAY]);
+			}
+			displayDir(new SongDir(ROOT_SONG_DIR), $displayedDir);
 		?>
 	</body>
 </html>
