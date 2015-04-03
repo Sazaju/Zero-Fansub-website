@@ -381,7 +381,10 @@ if (isset($_GET[PLAY])) {
 		           SONGS
 		*******************************
 		-->
-		<a href="#" onClick="show('<?php echo generateId(new SongDir(ROOT_SONG_DIR)); ?>');return(false)" id="plus">All</a>
+		<?php
+			$rootDir = new SongDir(ROOT_SONG_DIR);
+		?>
+		<a href="#" onClick="show('<?php echo generateId($rootDir); ?>');return(false)" id="plus">All</a>
 		<a href="?play=<?php echo urlencode(ROOT_SONG_DIR); ?>"><img src="img/play.png" alt="play" /></a>
 		<?php
 			$displayedDir = null;
@@ -393,7 +396,7 @@ if (isset($_GET[PLAY])) {
 			} else {
 				$displayedDir = new SongDir($_SESSION[PLAY]);
 			}
-			displayDir(new SongDir(ROOT_SONG_DIR), $displayedDir);
+			displayDir($rootDir, $displayedDir);
 		?>
 	</body>
 </html>
