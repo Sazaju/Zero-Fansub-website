@@ -1,202 +1,356 @@
 <?php
-  //
-  // Made by	db0
-  // Contact	db0company@gmail.com
-  // Website	http://db0.fr/
-  //
+//
+// Made by	db0
+// Contact	db0company@gmail.com
+// Website	http://db0.fr/
+//
 
-// You can change informations below :
+define('TEST_MODE_ACTIVATED', !isset($_GET['noTest']) && in_array($_SERVER["SERVER_NAME"], array(
+				'127.0.0.1',
+				'localhost',
+				'to-do-list.me',
+				'www.sazaju-hitokage.fr'
+		), true));
 
-$page_title = "Radio . db0";
+/**********************************\
+           ERROR MANAGING
+\**********************************/
 
-
-//                 //
-//   DON'T TOUCH   //
-//                 //
-
-session_start();
-
-if (isset($_GET['play']))
-   $_SESSION['play'] = $_GET['play'];
-
-header('Content-Type: text/html; charset=utf-8');
-
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title><?php
-	echo $page_title;
-?></title>
-  <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Normal" />
-  <link rel="shortcut icon" href="fav.ico" />
-  <script type="text/javascript" language="Javascript">
-    function show(nom_champ)
-     {
-       if(document.getElementById)
-	{
-	 tabler = document.getElementById(nom_champ);
-	 if(tabler.style.display=="none")
-	  {
-	   tabler.style.display="";
-	  }
-	 else
-	  {
-	   tabler.style.display="none";
-	  }
-	}
-     }
-  </script>
-</head>
-<body>
- <div>
-<?php
-$chansons = array();
-$totalchanson = 0;
-
-function	getchansons($dir)
+function error_handler($code, $message, $file, $line)
 {
-  global $chansons, $totalchanson;
-
-  $handle = opendir($dir);
-  while ($filename = readdir($handle))
+    if (0 == error_reporting())
     {
-      if ($filename[0] != '.')
-	{
-	  if (!is_dir($dir.$filename))
-	    {
-	      if (substr($filename, -4) == '.mp3')
-		{
-		  $chansons[] = substr($dir, 4).$filename;
-		}
-	    }
-	  else
-	    getchansons($dir.$filename.'/');
-	}
+        return;
     }
+    throw new ErrorException($message, 0, $code, $file, $line);
 }
 
-if (isset($_SESSION['play']))
-  {
-      if (is_file($_SESSION['play']))
-	  {
-	      $tab = explode(".", $_SESSION['play']);
-	      $chansons[] = substr($tab[0], 4);
-	  }
-      else
-	  getchansons($_SESSION['play']);
+function exception_handler($exception) {
+	if (!TEST_MODE_ACTIVATED) {
+		// TODO
+		$administrators = "sazaju@gmail.com";
+		$subject = "ERROR";
+		$message = "aze";//$exception->getMessage();
+		$header = "From: noreply@zerofansub.net\r\n";
+		$sent = false;//mail($administrators, $subject, $message, $header);
+		echo "Une erreur est survenue, ".(
+			$sent ? "les administrateurs en ont été notifiés"
+				  : "contactez les administrateurs : ".$administrators
+			).".";
+	}
+	else {
+		echo "Une erreur est survenue : ".$exception;
+		if (defined('TESTING_FEATURE')) {
+			echo "<br/><br/>".TESTING_FEATURE;
+		}
+		phpinfo();
+	}
+}
 
-      $totalchanson = sizeof($chansons);
+set_error_handler("error_handler");
+set_exception_handler('exception_handler');
 
-      sort($chansons);
-      reset($chansons);
-?>
-<audio controls id="player" autoplay>
-<source src="mp3/<?php echo $chansons[0] ?>" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-<a href="."><img src="img/stop.gif" alt="stop player" /></a><br>
-<span id="currentsong"><?php echo $chansons[0] ?></span>
-<br />
-<br />
-<?php
-    }
-?>
-<?php
- function ShowFileExtension($filepath)
-    {
+if (TEST_MODE_ACTIVATED) {
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
+	ini_set('display_startup_errors', TRUE);
+}
+
+/*****************************\
+           CONSTANTS
+\*****************************/
+
+define('PAGE_TITLE', 'Radio . Zéro');
+define('PLAY', 'play');
+define('ROOT_SONG_DIR', 'mp3');
+
+/*****************************\
+           CLASSES
+\*****************************/
+
+class Song {
+	private $path = null;
+	private $title = null;
+	
+	public function __construct($path, $title = NULL) {
+		$this->path = $path;
+		if ($title !== NULL) {
+			$this->title = $title;
+		} else {
+			$this->title = preg_replace("#.*/([^/]+)\\.[^.]+#", "\\1", $path);
+		}
+	}
+	
+	public function getPath() {
+		return $this->path;
+	}
+	
+	public function getTitle() {
+		return $this->title;
+	}
+}
+
+class SongDir {
+	private $path = null;
+	private $songs = null;
+	private $subdirs = null;
+	
+	public function __construct($dirPath) {
+		if (!is_dir($dirPath)) {
+			throw new Exception("$dirPath is not a directory");
+		} else {
+			$this->path = $dirPath;
+		}
+		
+		if (substr($dirPath, -1) == '/') {
+			// already the good format
+		} else {
+			$dirPath = $dirPath.'/';
+		}
+		
+		$this->songs = array();
+		$this->subdirs = array();
+		$handle = opendir($dirPath);
+		while (($filename = readdir($handle)) !== FALSE) {
+			$filePath = $dirPath.$filename;
+			
+			if (in_array($filename, array(".", ".."))) {
+				// system directories, ignore them
+			} else if (is_dir($filePath)) {
+				$this->subdirs[] = new SongDir($filePath);
+			} else if (substr($filename, -4) == '.mp3') {
+				$this->songs[] = new Song($filePath);
+			} else {
+				// not a song file
+			}
+		}
+	}
+	
+	public function getSongs() {
+		return $this->songs;
+	}
+	
+	public function getAllSongs() {
+		$songs = array();
+		foreach($this->subdirs as $subdir) {
+			$songs = array_merge($songs, $subdir->getAllSongs());
+		}
+		$songs = array_merge($songs, $this->songs);
+		return $songs;
+	}
+	
+	public function getSubdirs() {
+		return $this->subdirs;
+	}
+	
+	public function getPath() {
+		return $this->path;
+	}
+}
+
+/*****************************\
+           FUNCTIONS
+\*****************************/
+
+function showFileExtension($filepath) {
 	preg_match('/[^?]*/', $filepath, $matches);
 	$string = $matches[0];
 
 	$pattern = preg_split('/\./', $string, -1, PREG_SPLIT_OFFSET_CAPTURE);
 
-	if(count($pattern) > 1)
-	{
-	    $filenamepart = $pattern[count($pattern)-1][0];
-	    preg_match('/[^?]*/', $filenamepart, $matches);
-	    return ($matches[0]);
+	if(count($pattern) > 1) {
+		$filenamepart = $pattern[count($pattern)-1][0];
+		preg_match('/[^?]*/', $filenamepart, $matches);
+		return ($matches[0]);
 	}
 	return ('');
-    }
-?>
-<a href="#" onClick="show('mp3/');return(false)" id="plus">All</a>
-<?php
-echo '<a href="?play=mp3/">';
-echo '<img src="img/play.png" alt="play" />';
-echo '</a>'."\n";
-	function echodir($dir, $level)
-	{
-		$handle = opendir($dir);
-		echo '<div id="'.$dir.'" ';
-		if (strncmp($dir, $_GET['play'], strlen($dir)) != 0)
-		  echo 'style="display:none;"';
-		echo '>'."\n";
-		while ($filename = readdir($handle))
-		  $songs[] = $filename;
-		sort($songs);
-		foreach ($songs as $filename)
-		{
-		  if ($filename[0] != '.')
-		    {
-			if (is_dir($dir.$filename) || ShowFileExtension($filename) == 'mp3')
-			   {
-				for ($i = 0 ; $i < $level ; ++$i)
-				    echo '-- ';
-				echo "\n";
-				if (is_dir($dir.$filename))
-				  {
-					echo '<a href="#" onClick="show(\''.$dir.$filename.'/'.'\');return(false)" id="plus">'."\n";
-					echo ' <img src="img/folder.png" alt="folder" /> ';
-					echo $filename;
-					echo '</a> '."\n";
-					echo '<a href="?play='.$dir.$filename.'/'.'">'."\n";
-					echo ' <img src="img/play.png" alt="play" />';
-					echo '</a>';
-					echo '<br />'."\n";
-					echodir($dir.$filename.'/', $level+1);
-				  }
-				else
-				  {
-					echo '<img src="img/music.png" alt="folder" /> '."\n";
-					echo ' '.substr($filename, 0, -4);
-					echo ' <a href="?play='.$dir.$filename.'">'."\n";
-					echo '  <img src="img/play.png" alt="play" />'."\n";
-					echo '</a>'."\n";
-					echo ' <a href="'.$dir.$filename.'" target="_blank">'."\n";
-					echo ' <img src="img/download.png" alt="download" />'."\n";
-					echo '</a>'.'<br />'."\n";
-				  }
-			  }
-		    }
-		}
-		echo '</div>'."\n";
-	}
-	echodir('mp3/', 1);
-?>
- </div>
-<script>
-     var current = 0;
-var songs = [
-	  <?php foreach ($chansons as $chanson) {
-		echo '\'', $chanson. '\',
-	  ';
-	    } ?>
-	  ];
+}
 
-var audio = document.getElementById('player');
-var currentsong = document.getElementById('currentsong');
-audio.addEventListener('ended',function() {
-	current++;
-	if (current >= songs.length) {
-	    current = 0;
+function generateId(SongDir $dir) {
+	return preg_replace("#[^a-zA-Z0-9]#", "_", $dir->getPath());
+}
+
+function displayDir(SongDir $dir2, $level = 1) {
+	$dir = basename($dir2->getPath());
+	echo '<div id="'.generateId($dir2).'" ';
+	if (strcmp($dir, $_GET[PLAY]) != 0) {
+		echo 'style="display:none;"';
 	}
-	currentsong.textContent = songs[current];
-	audio.src = 'mp3/' + songs[current];
-	audio.pause();
-	audio.load();
-	audio.play();
-    });
-</script>
-</body>
+	echo '>';
+	
+	$subdirs = $dir2->getSubdirs();
+	foreach ($subdirs as $subdir) {
+		for ($i = 0 ; $i < $level ; ++$i) {
+			echo '-- ';
+		}
+		echo "\n";
+		
+		echo '<a href="#" onClick="show(\''.generateId($subdir).'\');return(false)" id="plus">'."\n";
+		echo ' <img src="img/folder.png" alt="folder" /> ';
+		echo basename($subdir->getPath());
+		echo '</a> '."\n";
+		echo '<a href="?play='.$subdir->getPath().'/'.'">'."\n";
+		echo ' <img src="img/play.png" alt="play" />';
+		echo '</a>';
+		echo '<br />'."\n";
+		displayDir($subdir, $level+1);
+	}
+	
+	$songs = $dir2->getSongs();
+	foreach ($songs as $song) {
+		for ($i = 0 ; $i < $level ; ++$i) {
+			echo '-- ';
+		}
+		echo "\n";
+		
+		echo '<img src="img/music.png" alt="folder" /> '."\n";
+		echo ' '.$song->getTitle();
+		echo ' <a href="?play='.$song->getPath().'">'."\n";
+		echo '  <img src="img/play.png" alt="play" />'."\n";
+		echo '</a>'."\n";
+		echo ' <a href="'.$song->getPath().'" target="_blank">'."\n";
+		echo ' <img src="img/download.png" alt="download" />'."\n";
+		echo '</a>'.'<br />'."\n";
+	}
+	
+	echo '</div>';
+}
+
+function printAlert($message) {
+	?>
+	<script type="text/javascript" language="Javascript">
+		<?php
+			echo "alert(\"$message\");";
+		?>
+	</script>
+	<?php
+}
+
+/*****************************\
+            INIT
+\*****************************/
+
+session_start();
+
+if (isset($_GET[PLAY])) {
+	$_SESSION[PLAY] = $_GET[PLAY];
+} else {
+	// nothing requested to play
+}
+
+/*****************************\
+          INTERFACE
+\*****************************/
+
+?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<title><?php
+			echo PAGE_TITLE;
+		?></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Normal" />
+		<link rel="shortcut icon" href="fav.ico" />
+		<script type="text/javascript" language="Javascript">
+			function show(nom_champ) {
+				if(document.getElementById) {
+					tabler = document.getElementById(nom_champ);
+					if(tabler.style.display=="none") {
+						tabler.style.display="";
+					} else {
+						tabler.style.display="none";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!-- 
+		*******************************
+		           PLAYER
+		*******************************
+		-->
+		<?php
+			if (isset($_SESSION[PLAY])) {
+				$play = $_SESSION[PLAY];
+				
+				if (is_file($play)) {
+					$songs = array(new Song($play));
+				} else if (is_dir($play)) {
+					$dir = new SongDir($play);
+					$songs = $dir->getAllSongs();
+				} else if (!file_exists($play)) {
+					printAlert("Impossible de trouver ".$play);
+					$songs = array();
+				} else {
+					throw new Exception("Impossible de lire $play");
+				}
+				
+				if (empty($songs)) {
+					// no songs to play
+				} else {
+					//sort($songs);
+					$song = $songs[0];
+					//reset($songs);
+					?>
+						<audio controls id="player" autoplay>
+							<source src="<?php echo $song->getPath() ?>" type="audio/mpeg">
+							Your browser does not support the audio element.
+						</audio>
+						<a href="."><img src="img/stop.gif" alt="stop player" /></a><br/>
+						<span id="title"><?php echo $song->getTitle() ?></span><br/>
+						<br/>
+						
+						<script>
+							var current = 0;
+							var paths = [
+								<?php
+									foreach ($songs as $song) {
+										echo json_encode($song->getPath()).",\n";
+									}
+								?>
+							];
+							var titles = [
+								<?php
+									foreach ($songs as $song) {
+										echo json_encode($song->getTitle()).",\n";
+									}
+								?>
+							];
+
+							var player = document.getElementById('player');
+							var currentTitle = document.getElementById('title');
+							player.addEventListener('ended', function() {
+								current++;
+								if (current >= paths.length) {
+									current = 0;
+								}
+								currentTitle.textContent = titles[current];
+								player.src = paths[current];
+								player.pause();
+								player.load();
+								player.play();
+								}
+							);
+						</script>
+					<?php
+				}
+			} else {
+				// nothing to play, don't display the player
+			}
+			
+		?>
+
+		<!-- 
+		*******************************
+		           FOLDERS
+		*******************************
+		-->
+		<a href="#" onClick="show('<?php echo generateId(new SongDir(ROOT_SONG_DIR)); ?>');return(false)" id="plus">All</a>
+		<a href="?play=<?php echo ROOT_SONG_DIR; ?>"><img src="img/play.png" alt="play" /></a>
+		<?php
+			displayDir(new SongDir(ROOT_SONG_DIR));
+		?>
+	</body>
 </html>
