@@ -63,6 +63,7 @@ if (TEST_MODE_ACTIVATED) {
 define('PAGE_TITLE', 'Radio . Zéro');
 define('PLAY', 'play');
 define('ROOT_SONG_DIR', 'mp3');
+define('CLEAR_SESSION', 'clear_session');
 
 /*****************************\
            CLASSES
@@ -231,6 +232,16 @@ function printAlert($message) {
 
 session_start();
 
+if (TEST_MODE_ACTIVATED) {
+	if (isset($_GET[CLEAR_SESSION])) {
+		$_SESSION = array();
+	} else {
+		// no clear requested
+	}
+} else {
+	// official server, don't execute testing commands
+}
+
 if (isset($_GET[PLAY])) {
 	$play = $_GET[PLAY]; // don't use urldecode, $_GET items are already decoded
 	if (strncmp($play, ROOT_SONG_DIR, strlen(ROOT_SONG_DIR)) == 0 && file_exists($play)) {
@@ -270,6 +281,21 @@ if (isset($_GET[PLAY])) {
 		</script>
 	</head>
 	<body>
+		<?php
+			/*****************************\
+					   TESTING
+			\*****************************/
+			if (TEST_MODE_ACTIVATED) {
+				?>
+					<div id='test'>
+						Test: 
+						<a href="?<?php echo CLEAR_SESSION; ?>">Clear</a>
+					</div>
+				<?php
+			} else {
+				// official server, don't display testing commands
+			}
+		?>
 		<!-- 
 		*******************************
 		           PLAYER

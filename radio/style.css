@@ -15,3 +15,21 @@ body, a
     color: #935836;
 }
 
+#test {
+	border: 1px solid red;
+	background-color: white;
+	width: 100%;
+	display: block;
+	padding: 0.5em;
+}
+
+#test a {
+	display:inline-block;
+	border: 1px solid blue;
+	padding: 0.2em;
+}
+
+#test a:hover {
+	background-color: blue;
+	color: white;
+}
