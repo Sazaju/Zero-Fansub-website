@@ -173,7 +173,7 @@ function generateId(SongDir $dir) {
 function displayDir(SongDir $dir2, $level = 1) {
 	$dir = basename($dir2->getPath());
 	echo '<div id="'.generateId($dir2).'" ';
-	if (strcmp($dir, $_GET[PLAY]) != 0) {
+	if (!isset($_GET[PLAY]) || strncmp($dir, $_GET[PLAY], strlen($dir)) != 0) {
 		echo 'style="display:none;"';
 	}
 	echo '>';
