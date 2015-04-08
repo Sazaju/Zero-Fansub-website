@@ -5078,6 +5078,19 @@ Sur ceux, bonne journée. {^_°}");
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement éditeur + karamakeur");
+			$news->setPublicationTime(strtotime("2015-04-08 21:30"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("On cherche toujours...");
+			$news->setCommentId(334);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
