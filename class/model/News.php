@@ -5079,7 +5079,7 @@ Sur ceux, bonne journée. {^_°}");
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Recrutement éditeur + karamakeur");
+			$news->setTitle("Recrutement éditeur + karamakeur + encodeur");
 			$news->setPublicationTime(strtotime("2015-04-08 21:30"));
 			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("On cherche toujours...");
