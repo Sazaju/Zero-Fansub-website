@@ -5080,7 +5080,7 @@ Sur ceux, bonne journée. {^_°}");
 			
 			$news = new News();
 			$news->setTitle("Recrutement éditeur + karamakeur + encodeur");
-			$news->setPublicationTime(strtotime("2015-04-08 21:30"));
+			$news->setPublicationTime(strtotime("2015-04-10 20:02"));
 			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("On cherche toujours... en particulier un éditeur After Effect.");
 			$news->setCommentId(334);
