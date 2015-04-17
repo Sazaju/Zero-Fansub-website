@@ -130,10 +130,10 @@ class SongDir {
 			}
 		}
 		usort($this->songs, function ($a, $b) {
-			return strnatcmp($a->getTitle(), $b->getTitle());
+			return strnatcasecmp($a->getTitle(), $b->getTitle());
 		});
 		usort($this->subdirs, function ($a, $b) {
-			return strnatcmp($a->getPath(), $b->getPath());
+			return strnatcasecmp($a->getPath(), $b->getPath());
 		});
 	}
 	
