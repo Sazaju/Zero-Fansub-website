@@ -127,6 +127,17 @@ function buildRssUrlIfAvailable() {
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" href="<?php echo $styleFile; ?>" type="text/css" media="screen" title="Normal" />  
+		<style type="text/css">
+			* {
+				border-color: #F00 !important;
+			}
+			.menu {
+				background-color: #F73 !important;
+			}
+			.menu * {
+				color: #F00 !important;
+			}
+		</style>
 		<link rel="icon" type="image/gif" href="favicon.gif" />
 		<link rel="shortcut icon" href="favicon.ico" />
 		<script type="text/javascript">

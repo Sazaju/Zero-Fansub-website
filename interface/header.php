@@ -84,5 +84,8 @@ foreach($sorties as $sortie) {
 
 $header = new HeaderComponent();
 $header->addComponent($list);
-$header->writeNow();
+//$header->writeNow();
 ?>
+<header >
+    <a href="https://sous-surveillance.fr/" title="Non au projet de loi Renseignement !" alt="Non au projet de loi Renseignement !"><img src="https://wiki.laquadrature.net/images/5/54/Pjl_rens_banner.png" /></a>
+</header>
