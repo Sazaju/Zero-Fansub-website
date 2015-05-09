@@ -96,6 +96,7 @@ class Partner {
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
 			$partner->setOfficial(true);
+			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
@@ -128,6 +129,7 @@ class Partner {
 			$partner->setFansubPartner(true);
 			$partner->setDb0Company(false);
 			$partner->setOfficial(true);
+			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
 			
 			$partner = new Partner();
