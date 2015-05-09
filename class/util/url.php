@@ -204,16 +204,27 @@ class Url {
 		}
 	}
 	
+	public static function getCurrentProtocol() {
+		if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
+                    return "https";
+		} else {
+                    return "http";
+		}
+	}
+	
 	public static function getCurrentUrl() {
-		return new Url("http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
+                $protocol = Url::getCurrentProtocol();
+		return new Url($protocol."://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
 	}
 	
 	public static function getCurrentScriptUrl() {
-		return new Url("http://".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"]);
+                $protocol = Url::getCurrentProtocol();
+		return new Url($protocol."://".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"]);
 	}
 	
 	public static function getCurrentDirUrl() {
-		return new Url(dirname("http://".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"]));
+                $protocol = Url::getCurrentProtocol();
+		return new Url(dirname($protocol."://".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"]));
 	}
 	
 	public static function parseUrl($url) {
