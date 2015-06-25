@@ -5127,7 +5127,7 @@ Pour plus d'informations :
 			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Bonjour à tous.
 
-Pour ceux qui nous ont suivi, ils ont noté notre position contre la loi renseignement grace à la news précédente. Pour allier les paroles aux actes, nous avions changé le design du site, qui est maintenant revenu à sa version initiale.
+Pour ceux qui nous ont suivis, ils ont noté notre position contre la loi renseignement grâce à la news précédente. Pour allier les paroles aux actes, nous avions changé le design du site, qui est maintenant revenu à sa version initiale.
 
 Mais ce n'est pas tout : nous avons mis en place une version sécurisée (HTTPS) du site. Pour l'instant, on le fait avec un certificat auto-signé, et les navigateurs vous signalent donc que le site en question n'est pas sécurisé car il n'a pas été signé par une autorité connue. Mais dans le futur, nous comptons régler ce problème avec des solutions récentes, comme [url=https://letsencrypt.org]Let's Encrypt[/url] qui est en cours de mise en place par Mozilla et d'autres. Le jour où ce sera fait, nous n'hésiterons pas à vous le faire savoir. {^_°}
 
@@ -5135,7 +5135,7 @@ Pour ceux qui sont intéressés, vous pouvez déjà accéder au site sécurisé 
 [url]https://zerofansub.net[/url]
 Tout feedback est le bienvenu !
 
-Qu'est-ce que ça change ? Concrètement pas grand chose. Le site est strictement le même, et une boite noire qui surveille le réseau sait toujours que vous venez sur notre site. Par contre, le contenu que vous y prenez (les pages affichées, les contenus téléchargés) passe de manière cryptée. La loi renseignement se focalisant sur les métadonnées, elle ne devrait donc pas être impactée. Mais cela évite des débordements, par exemple les contenus \"surveillés par inadvertance\". C'est donc un avantage très relatif, et libre à vous d'en juger l'utilité pour vous. Néanmoins, on s'inscrit de cette manière dans le même esprit que Mozilla, à savoir favoriser le HTTPS partout.
+Qu'est-ce que ça change ? Concrètement pas grand-chose. Le site est strictement le même, et une boite noire qui surveille le réseau sait toujours que vous venez sur notre site. Par contre, le contenu que vous y prenez (les pages affichées, les contenus téléchargés) passe de manière cryptée. La loi renseignement se focalisant sur les métadonnées, elle ne devrait donc pas être impactée. Mais cela évite des débordements, par exemple les contenus \"surveillés par inadvertance\". C'est donc un avantage très relatif, et libre à vous d'en juger l'utilité pour vous. Néanmoins, on s'inscrit de cette manière dans le même esprit que Mozilla, à savoir favoriser le HTTPS partout.
 
 Voilà pour les dernières nouvelles, en espérant que la prochaine news se réorientera davantage sur nos activités fansub. {'^_^}");
 			$news->setCommentId(336);
