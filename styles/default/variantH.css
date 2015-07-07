@@ -2,7 +2,7 @@
 	background: url('images/h/bg2.png') repeat-y;
 }
 
-#header, #footer {
+#main > header, #main > footer {
 	background: url('images/h/banniere.png') no-repeat;
 }
 
