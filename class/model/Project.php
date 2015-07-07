@@ -524,6 +524,7 @@ Au fil du temps, Aoki sensei découvrira que tout n'est pas toujours rose dans l
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2061-Ton-avis-sur-Faisons-l-amour-ensemble.htm");
 			$project->setHentai(true);
 			$project->setStatus(Project::RUNNING, null);
+			$project->setStatus(Project::FINISHED, strtotime('2015-07-07 03:26'));
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mermaid", "Mermaid Melody Pichi Pichi Pitch");
