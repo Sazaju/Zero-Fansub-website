@@ -5146,6 +5146,27 @@ Voilà pour les dernières nouvelles, en espérant que la prochaine news se réo
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement adapt.");
+			$news->setPublicationTime(strtotime("2015-07-07 22:25"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
+			$news->setMessage("Urgent : nous recherchons un adapt
+
+[img=images/news/recrutement2015-07-07.png]On a besoin de vous pour Genshiken ![/img]
+
+L'un de nos deux adapt ne peut malheureusement plus poursuivre l'aventure Zéro, nous recherchons de ce fait quelqu'un qui peut prendre la relève...
+
+Pour ceux qui ne sont pas familiarisés avec le terme, il s'agit de reformuler les phrases en un français correct et facile à comprendre.
+
+Intéressé ? N'hésitez plus : venez poster votre candidature ^_^");
+			$news->setCommentId(337);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
