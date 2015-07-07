@@ -713,7 +713,7 @@ Rin, Kuro et Mimi sont de retour dans un OAV Spécial de Kodomo no Jikan : Kodom
 
 Dans la suite de notre reprise tant attendue, on ne relâche pas le rythme ! Après la sortie d'un genre classique chez Zéro, on poursuit avec l'une de nos spécialités : [i]Faisons l'amour ensemble[/i] revient en force avec un nouvel épisode (de quoi combler les déçus du 4e opus) et un épisode bonus !
 
-Tout d'abord, ce 5e épisode nous sort le grand jeu : la petite sur est dans la place ! Après plusieurs années sans nouvelles de son grand frère, voilà qu'elle a bien grandi et décide donc de taper l'incruste. Voilà une bonne occasion de faire le ménage (les filles sont douées pour ça {^.^}~). À la suite de quoi une bonne douche s'impose... Et si on la prenait ensemble comme au bon vieux temps, [i]oniichan[/i] ?
+Tout d'abord, ce 5e épisode nous sort le grand jeu : la petite sœur est dans la place ! Après plusieurs années sans nouvelles de son grand frère, voilà qu'elle a bien grandi et décide donc de taper l'incruste. Voilà une bonne occasion de faire le ménage (les filles sont douées pour ça {^.^}~). À la suite de quoi une bonne douche s'impose... Et si on la prenait ensemble comme au bon vieux temps, [i]oniichan[/i] ?
 
 Pour ceux qui auraient encore des réserves (faut dire qu'on vous a donné le temps pour {^_^}), un épisode bonus aux sources chaudes vous attend ! Akina, cette jeune demoiselle du premier épisode, revient nous saluer avec son charme généreux et son côté ivre toujours aussi mignon. Vous en dégusterez bien un morceau après le bain, non ?
 
