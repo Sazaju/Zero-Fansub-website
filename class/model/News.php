@@ -5158,7 +5158,7 @@ L'un de nos deux adapt ne peut malheureusement plus poursuivre l'aventure Zéro,
 
 Pour ceux qui ne sont pas familiarisés avec le terme, il s'agit de reformuler les phrases en un français correct et facile à comprendre.
 
-Intéressé ? N'hésitez plus : venez poster votre candidature ^_^");
+Intéressés ? N'hésitez plus : venez poster votre candidature ^_^");
 			$news->setCommentId(337);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(true);
