@@ -5167,6 +5167,29 @@ Intéressés ? N'hésitez plus : venez poster votre candidature ^_^");
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement général !");
+			$news->setPublicationTime(strtotime("2015-07-23 22:26"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Avis aux amateurs !
+
+Nos news de recrutement étant des plus efficaces, nous n'avons toujours pas d'adapt. Et l'ironie n'aidant pas, il se trouve que ce n'est pas le seul à manqué. {'^_^}
+
+Cette fois-ci, on va donc viser large : on recrute de tout, sauf au poste de trad, timeur et check ortho. Si vous êtes intéressés, direction [url=?page=recruit]la page de recrutement[/url] !
+
+Si vous ne voulez pas postuler, vous pouvez quand même partager cette news sur les réseaux sociaux en cliquant sur les petits boutons en bas de news. Ça nous permettra au moins de toucher plus de monde pour peut-être avoir quelqu'un.
+
+Alors lancez-vous !
+
+[img=images/news/recrutement2015-07-23.png]Lancez-vous ![/img]");
+			$news->setCommentId(338);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
