@@ -5173,7 +5173,7 @@ Intéressés ? N'hésitez plus : venez poster votre candidature ^_^");
 			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Avis aux amateurs !
 
-Nos news de recrutement étant des plus efficaces, nous n'avons toujours pas d'adapt. Et l'ironie n'aidant pas, il se trouve que ce n'est pas le seul à manqué. {'^_^}
+Nos news de recrutement étant des plus efficaces, nous n'avons toujours pas d'adapt. Et l'ironie n'aidant pas, il se trouve que ce n'est pas le seul à manquer. {'^_^}
 
 Cette fois-ci, on va donc viser large : on recrute de tout, sauf au poste de trad, timeur et check ortho. Si vous êtes intéressés, direction [url=?page=recruit]la page de recrutement[/url] !
 
