@@ -159,7 +159,8 @@ class TeamMember {
 			$member = new TeamMember();
 			$member->setPseudo("db0");
 			$member->setIsAdmin(true);
-			$member->addRole(Role::getRole("admin"));
+			$member->addRole(Role::getRole("fondatrice"));
+			$member->addRole(Role::getRole("forumadmin"));
 			$member->setImage("db0.png");
 			$member->setAge(19);
 			$member->setLocation("Le Kremlin-Bicetre (94)");
@@ -832,7 +833,7 @@ class TeamMember {
 			$member->setImage("ZCK.jpg");
 			$member->setPseudo("ZCK");
 			$member->addRole(Role::getRole("adapt"));
-			$member->setAvailability(TeamMember::AVAILABLE);
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
