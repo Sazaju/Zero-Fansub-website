@@ -236,6 +236,7 @@ class ReleaseComponent extends ArticleComponent {
 			}
 			
 			$description->addLine();
+			$description->addLine();
 			$fileList->addcomponent($description);
 			
 			$linkName = count($fileDescriptors) == 1 ? "Télécharger" : $id;
