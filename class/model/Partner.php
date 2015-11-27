@@ -248,6 +248,15 @@ class Partner {
 			$partner->setOfficial(true);
 			$partner->setOver(true);
 			Partner::$allPartners[] = $partner;
+			
+			$partner = new Partner();
+			$partner->setID('nobluesub');
+			$partner->setName("Nobluesky Fansub");
+			$partner->setWebsiteUrl('http://nobluesub.com/');
+			$partner->setBannerUrl('images/partenaires/nobluesub.png');
+			$partner->setOfficial(true);
+			$partner->setOver(false);
+			Partner::$allPartners[] = $partner;
 		}
 		return Partner::$allPartners;
 	}
