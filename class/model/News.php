@@ -5196,13 +5196,11 @@ Alors lancez-vous !
 			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
 			$news->setMessage("[img=images/news/MNO_10bits.jpg]Version 10 bits de MNO[/img]
 
-Cette fois-ci, on est partis sur les BDMV afin de mieux respecter la colorimétrie,
-comme c'est une version FHD, ça devrait offrir plus de détails aussi...
+Cette fois-ci, on est partis sur les BDMV afin de mieux respecter la colorimétrie, comme c'est une version FHD, ça devrait offrir plus de détails aussi...
 
 Parce que le poids compte aussi, on est restés en dessous de 325 Mo.
 
-Le time, l'adapt et l'ortho ont bénéficié de quelques améliorations
-ainsi que certaines édit pour les épisodes 2, 3 et 12.
+Le time, l'adapt et l'ortho ont bénéficié de quelques améliorations ainsi que certaines édit pour les épisodes 2, 3 et 12.
 
 Sur ce, je vous dis à très bientôt ^_^
 
