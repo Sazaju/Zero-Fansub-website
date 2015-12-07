@@ -5198,13 +5198,11 @@ Alors lancez-vous !
 
 Cette fois-ci, on est partis sur les BDMV afin de mieux respecter la colorimétrie, comme c'est une version FHD, ça devrait offrir plus de détails aussi...
 
-Niveau poids, on est en dessous de 325 Mo.
+Niveau poids, on est en dessous de 325 Mo, et les sous-titres sont aussi disponibles séparément.
 
 Le time, l'adapt et l'ortho ont bénéficié de quelques améliorations ainsi que certaines édit pour les épisodes 2, 3 et 12.
 
-Sur ce, je vous dis à très bientôt ^_^
-
-");
+Sur ce, je vous dis à très bientôt ^_^");
 			$news->setCommentId(332);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
