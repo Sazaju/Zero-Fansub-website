@@ -604,7 +604,7 @@ Les principales chansons de cette série sont disponibles en DDL <a href="radio/
 			$project->setDiscussionUrl("http://forum.zerofansub.net/t2047-Ton-avis-sur-Mayoi-Neko-Overrun.htm");
 			$project->setStatus(Project::RUNNING, null);
 			$project->setStatus(Project::FINISHED, strtotime("1 January 2013 00:00"));
-			$project->addBonus(new ProjectBonus("Sous-titres", "Les sous-titres de la série sont disponible indépendamment de la vidéo pour ceux qui voudraient les récupérer. Vous pouvez récupérer chaque fichier séparément en dépliant l'épisode concerné, ou récupérer l'ensemble des sous-titres dans l'archive ZIP ci-dessous :<br/><br/><center><a href='releases/sous-titres/Mayoi Neko Overrun!.zip'>Télécharger tous les sous-titres</a></center>"));
+			$project->addBonus(new ProjectBonus("Sous-titres", "Les sous-titres de la série sont disponible indépendamment de la vidéo pour ceux qui voudraient les récupérer. Vous pouvez récupérer chaque fichier séparément en dépliant l'épisode concerné, ou récupérer l'ensemble des sous-titres dans l'archive ZIP ci-dessous :<br/><br/><center><a href='releases/sous-titres/Mayoi Neko Overrun%21.zip'>Télécharger tous les sous-titres</a></center>"));
 			Project::$allProjects[] = $project;
 			
 			$project = new Project("mayoisp", "Mayoi Neko Overrun! - Spéciaux");
