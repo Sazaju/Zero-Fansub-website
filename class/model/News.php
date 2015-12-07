@@ -5198,7 +5198,7 @@ Alors lancez-vous !
 
 Cette fois-ci, on est partis sur les BDMV afin de mieux respecter la colorimétrie, comme c'est une version FHD, ça devrait offrir plus de détails aussi...
 
-Parce que le poids compte aussi, on est restés en dessous de 325 Mo.
+Niveau poids, on est en dessous de 325 Mo.
 
 Le time, l'adapt et l'ortho ont bénéficié de quelques améliorations ainsi que certaines édit pour les épisodes 2, 3 et 12.
 
