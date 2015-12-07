@@ -100,6 +100,14 @@
 	padding-left: 10px;
 }
 
+#page.project .linkList li * {
+	vertical-align: middle;
+}
+
+#page.project .linkList li {
+	margin-bottom: 0.5em;
+}
+
 #page.project .fileList {
 	list-style-image: url('images/puce.png');
 	padding-left: 15px;

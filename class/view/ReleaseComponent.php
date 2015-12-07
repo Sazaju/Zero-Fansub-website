@@ -287,6 +287,9 @@ class ReleaseComponent extends ArticleComponent {
 		if (!$streamingsLinks->isEmpty()) {
 			$list->addComponent($streamingsLinks);
 		}
+		if ($release->getSubtitles() !== null) {
+			$list->addComponent(new Link("releases/sous-titres/".$release->getSubtitles(), new Image("images/icones/subtitles.jpg")));
+		}
 		$bonusLinks = new GroupedLinks(new Image("images/icones/bonus.png"));
 		$bonusLinks->setClass("bonusLinks");
 		foreach($release->getBonuses() as $link) {

@@ -9,6 +9,7 @@ class Release {
 	private $previewUrl = null;
 	private $headerImage = null;
 	private $files = array();
+	private $subtitles = null;
 	private $bonuses = array();
 	private $licenseSafeBonuses = array();
 	private $streamings = array();
@@ -56,6 +57,14 @@ class Release {
 	
 	public function setID($id) {
 		$this->id = $id;
+	}
+	
+	public function getSubtitles() {
+		return $this->subtitles;
+	}
+	
+	public function setSubtitles($subtitles) {
+		$this->subtitles = $subtitles;
 	}
 	
 	public function getTorrentUrl() {
@@ -1055,6 +1064,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 01.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
@@ -1068,6 +1078,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 02.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
@@ -1081,6 +1092,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 03.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
@@ -1094,6 +1106,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 04.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
@@ -1107,6 +1120,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 05.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
@@ -1120,6 +1134,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 06.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
@@ -1133,6 +1148,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 07.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
@@ -1146,6 +1162,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 08.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
@@ -1159,6 +1176,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 09.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
@@ -1172,6 +1190,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 10.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
@@ -1185,6 +1204,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 11.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
@@ -1198,6 +1218,7 @@ class Release {
 			$descriptor->setSoundCodec($aac);
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Mayoi Neko Overrun! 12.ass");
 			$release->setReleasingTime(strtotime('2015-12-07 18:05'));
 			Release::$allReleases[] = $release;
 			
