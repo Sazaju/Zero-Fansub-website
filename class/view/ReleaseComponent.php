@@ -240,7 +240,7 @@ class ReleaseComponent extends ArticleComponent {
 			$fileList->addcomponent($description);
 			
 			$linkName = count($fileDescriptors) == 1 ? "Télécharger" : $id;
-			$ddlLinks->addLink(new Link(urlencode($url), $linkName));
+			$ddlLinks->addLink(new Link($url, $linkName));
 			if ($descriptor->getMegauploadUrl() !== null) {
 				$megauploadLinks->addLink(new Link($descriptor->getMegauploadUrl(), $linkName));
 			}
