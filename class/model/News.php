@@ -5203,7 +5203,7 @@ Niveau poids, on est en dessous de 325 Mo, et les sous-titres sont aussi disponi
 Le time, l'adapt et l'ortho ont bénéficié de quelques améliorations ainsi que certaines édit pour les épisodes 2, 3 et 12.
 
 Sur ce, je vous dis à très bientôt ^_^");
-			$news->setCommentId(332);
+			$news->setCommentId(339);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
 			$news->setTeamNews(false);
