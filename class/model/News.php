@@ -5213,16 +5213,13 @@ Sur ce, je vous dis à très bientôt ^_^");
 			News::$allNews[] = $news;
 			
 			$news = new News();
-			$news->setTitle("Genshiken 2, l'épisode 8 : sous-titre réencapsulé !");
+			$news->setTitle("Genshiken 2, épisode 8 v2 : sous-titre réencapsulé !");
 			$news->setPublicationTime(strtotime("2015-12-17 15:22"));
 			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
 			$news->setMessage("[img=images/news/ep8refait.jpg]Version 10 bits de MNO[/img]
 
 Une  erreur de traduction sur \"Youko est le nom de mon cosplay.\",
 qui est en fait : \"Youko est mon nom de cosplayeuse.\"
-
-Comme elle portait un costume à ce moment-là, ça nous a induits en erreur,
-on aurait dû le savoir, sauf qu'on le savait pas...
 
 Évidemment, on n'a pas eu besoin de réencoder avec du softsub.
 
