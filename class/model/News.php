@@ -5218,13 +5218,15 @@ Sur ce, je vous dis à très bientôt ^_^");
 			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
 			$news->setMessage("[img=images/news/ep8refait.jpg]Version 10 bits de MNO[/img]
 
-Cette fois-ci, on est partis sur les BDMV afin de mieux respecter la colorimétrie, comme c'est une version FHD, ça devrait offrir plus de détails aussi...
+Une  erreur de traduction sur \"Youko est le nom de mon cosplay.\",
+qui est en fait : \"Youko est mon nom de cosplayeuse.\"
 
-Niveau poids, on est en dessous de 325 Mo, et les sous-titres sont aussi disponibles séparément.
+Comme elle portait un costume à ce moment-là, ça nous a induits en erreur,
+on aurait dû le savoir, sauf qu'on le savait pas...
 
-Le time, l'adapt et l'ortho ont bénéficié de quelques améliorations ainsi que certaines édit pour les épisodes 2, 3 et 12.
+Évidemment, on n'a pas eu besoin de réencoder avec du softsub.
 
-Sur ce, je vous dis à très bientôt ^_^");
+Bref, j'espère que Youko ne nous en voudra pas ^_^");
 			$news->setCommentId(340);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
