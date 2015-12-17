@@ -2814,11 +2814,11 @@ class Release {
 			$release->setOriginalTitle("Kosuken");
 			$release->setSynopsis("Ohno vient d'être élue présidente du Genshiken. Ogiue a été acceptée pour le comi-fes. Pour fêter ça, pourquoi pas faire un peu de cosplay ?");
 			$release->setComment("Pas de FHD car les blu-ray sont des upscale.");
-			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[Hi10-720p]/[Zero]_Genshiken2_08_[Hi10-720p][A41F0B27].mkv");
-			$descriptor->setCRC("A41F0B27");
+			$descriptor = new ReleaseFileDescriptor("[Zero]Genshiken_2[Hi10-720p]/[Zero]_Genshiken2_08_[Hi10-720p][9C8BE886]v2.mkv");
+			$descriptor->setCRC("9C8BE886");
 			$descriptor->setContainerCodec($mkv);
 			$release->addFileDescriptor($descriptor);
-			$release->setReleasingTime(0);
+			$release->setReleasingTime(strtotime("2015-12-17 15:22"));
 			Release::$allReleases[] = $release;
 			
 			$release = new Release(Project::getProject('genshiken'), 'ep9');

@@ -5212,6 +5212,28 @@ Sur ce, je vous dis à très bientôt ^_^");
 			$news->addReleasing(Project::getProject('mayoi'));
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Genshiken 2, l'épisode 8 : sous-titre réencapsulé !");
+			$news->setPublicationTime(strtotime("2015-12-17 15:22"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
+			$news->setMessage("[img=images/news/ep8refait.jpg]Version 10 bits de MNO[/img]
+
+Cette fois-ci, on est partis sur les BDMV afin de mieux respecter la colorimétrie, comme c'est une version FHD, ça devrait offrir plus de détails aussi...
+
+Niveau poids, on est en dessous de 325 Mo, et les sous-titres sont aussi disponibles séparément.
+
+Le time, l'adapt et l'ortho ont bénéficié de quelques améliorations ainsi que certaines édit pour les épisodes 2, 3 et 12.
+
+Sur ce, je vous dis à très bientôt ^_^");
+			$news->setCommentId(340);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Release::getRelease('genshiken', 'ep8'));
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
