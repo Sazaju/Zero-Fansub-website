@@ -5233,6 +5233,30 @@ Bref, j'espère que Youko ne nous en voudra pas ^_^");
 			$news->addReleasing(Release::getRelease('genshiken', 'ep8'));
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Genshiken OAV : blu-ray et softsub");
+			$news->setPublicationTime(strtotime("2016-01-04 22:12"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Praia'));
+			$news->setMessage("[img=images/news/genshikenOav.jpg]Genshiken OAV chez Zéro Fansub ![/img]
+
+La sortie des blu-ray nous a donné l'occasion de nous lancer sur ces 3 OAV,
+blu-ray qui nous révèle un rendu visuel plus appréciable ^_^
+
+Il s'agit des épisodes 13, 14 et 15.
+
+La série reste toujours aussi réaliste et drôle à la différence qu'un courant d'air
+vient frapper le Genshiken avec l'arrivée de deux nouveaux membres.
+
+À savourer sans modération.");
+			$news->setCommentId(341);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			$news->addReleasing(Project::getProject('genshikenOav'));
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();

@@ -2877,6 +2877,42 @@ class Release {
 			$release->setReleasingTime(0);
 			Release::$allReleases[] = $release;
 			
+			$release = new Release(Project::getProject('genshikenOav'), 'ep1');
+			$release->setName("1");
+			$release->setPreviewUrl("images/episodes/genshikenOav1.jpg");
+			$release->setHeaderImage("images/sorties/genshikenOav.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]_Genshiken_OAV_[Hi10-720p]/[Zero]_Genshiken_OAV1_[Hi10-720p][B68CDBE5].mkv");
+			$descriptor->setCRC("B68CDBE5");
+			$descriptor->setContainerCodec($mkv);
+			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Genshiken OAV 1.ass");
+			$release->setReleasingTime(strtotime('2016-01-04 22:12'));
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('genshikenOav'), 'ep2');
+			$release->setName("2");
+			$release->setPreviewUrl("images/episodes/genshikenOav2.jpg");
+			$release->setHeaderImage("images/sorties/genshikenOav.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]_Genshiken_OAV_[Hi10-720p]/[Zero]_Genshiken_OAV2_[Hi10-720p][28C352BD].mkv");
+			$descriptor->setCRC("28C352BD");
+			$descriptor->setContainerCodec($mkv);
+			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Genshiken OAV 2.ass");
+			$release->setReleasingTime(strtotime('2016-01-04 22:12'));
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject('genshikenOav'), 'ep3');
+			$release->setName("3");
+			$release->setPreviewUrl("images/episodes/genshikenOav3.jpg");
+			$release->setHeaderImage("images/sorties/genshikenOav.png");
+			$descriptor = new ReleaseFileDescriptor("[Zero]_Genshiken_OAV_[Hi10-720p]/[Zero]_Genshiken_OAV3_[Hi10-720p][BFFE06DB].mkv");
+			$descriptor->setCRC("BFFE06DB");
+			$descriptor->setContainerCodec($mkv);
+			$release->addFileDescriptor($descriptor);
+			$release->setSubtitles("Genshiken OAV 3.ass");
+			$release->setReleasingTime(strtotime('2016-01-04 22:12'));
+			Release::$allReleases[] = $release;
+			
 			$release = new Release(Project::getProject('sketchbook'), 'ep1');
 			$release->setName("01");
 			$release->setPreviewUrl("images/episodes/sketchbook1.jpg");

@@ -916,6 +916,19 @@ _thb_[Zero]Genshiken_Image10.jpg" alt="galerie/gal/Zero_fansub/Images/Genshiken/
 			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
+			$project = new Project("genshikenOav", "Genshiken OAV");
+			$project->setOriginalName("Genshiken OVA");
+			$project->setAiringYear(2006);
+			$project->setStudio(Link::newWindowLink("http://www.ajiado.co.jp/", "Ajiado"));
+			$project->setGenre("Comédie, parodie, tranche de vie");
+			$project->setAuthor("Kio Shimoku");
+			$project->setSynopsis("Une nouvelle année scolaire débute pour le Genshiken, entraînant avec elle l’envie de voir arriver de nouveaux membres. En raison du caractère de Kasukabe qui à tendance à refuser toute nouveau membre, Sashara et ses amis ont que peu d’espoir de voir s’agrandir le groupe. Mais contre toute attente, cette dernière accepte la venue de Kuchiki, un otaku au comportement assez loufoque, ainsi que celle d'Ogiue, une jeune fille qui déteste les filles otakus. Un conflit entre elle et Ohno au sujet du boy's love et des cosplayeurs se met alors en place annonçant une ambiance délirante dans le groupe pour l’année à venir.");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2482-Ton-avis-sur-Genshiken-OAV.htm");
+			$project->setStatus(Project::FINISHED, null);
+			$project->addBonus(new ProjectBonus("Sous-titres", "Les sous-titres de la série sont disponible indépendamment de la vidéo pour ceux qui voudraient les récupérer. Vous pouvez récupérer chaque fichier séparément en dépliant l'épisode concerné, ou récupérer l'ensemble des sous-titres dans l'archive ZIP ci-dessous :<br/><br/><center><a href='releases/subtitles/Genshiken OAV.zip'>Télécharger tous les sous-titres</a></center>"));
+			Project::$allProjects[] = $project;
+			
 			$project = new Project("canaan", "Canaan");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Canaan");
@@ -1226,7 +1239,9 @@ php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=7#spgmPicture" class=""><img
 			Project::$allLinks[] = array(Project::getProject('tayutama'), Project::getProject('tayutamapure'));
 			Project::$allLinks[] = array(Project::getProject('sketchbook'), Project::getProject('sketchbookdrama'));
 			Project::$allLinks[] = array(Project::getProject('potemayo'), Project::getProject('potemayooav'));
+			Project::$allLinks[] = array(Project::getProject('genshiken'), Project::getProject('genshikenOav'));
 			Project::$allLinks[] = array(Project::getProject('genshiken'), Project::getProject('kujibiki'));
+			Project::$allLinks[] = array(Project::getProject('genshikenOav'), Project::getProject('kujibiki'));
 			Project::$allLinks[] = array(Project::getProject('kanamemo'), Project::getProject('kanamemobook'));
 			Project::$allLinks[] = array(Project::getProject('mayoi'), Project::getProject('mayoisp'));
 			Project::$allLinks[] = array(Project::getProject('bath'), Project::getProject('training'));
