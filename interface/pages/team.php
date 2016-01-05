@@ -15,11 +15,6 @@
 		}
 	}
 	
-	$uploaders = array();
-	$uploaders[] = "Sazaju HITOKAGE";
-	$uploaders[] = "lepims";
-	natcasesort($uploaders);
-	
 	/******************************\
 	             DISPLAY
 	\******************************/
@@ -42,5 +37,4 @@
 	$displayer("Administrateurs", $admins, new TeamMemberList());
 	$displayer("Membres disponibles", $confirmed, new TeamMemberList());
 	$displayer("Membres indisponibles", $vacant, new TeamMemberList());
-	$displayer("Seeders, Uploaders", $uploaders, new SimpleListComponent());
 ?>
