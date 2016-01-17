@@ -769,6 +769,7 @@ class TeamMember {
 			$member->setImage("sysmetrix.gif");
 			$member->setPseudo("sysmetrix");
 			$member->addRole(Role::getRole("adapt"));
+			$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
@@ -833,7 +834,7 @@ class TeamMember {
 			$member->setImage("ZCK.jpg");
 			$member->setPseudo("ZCK");
 			$member->addRole(Role::getRole("adapt"));
-			$member->setAvailability(TeamMember::GONE);
+			//$member->setAvailability(TeamMember::GONE);
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
