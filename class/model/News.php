@@ -5257,6 +5257,28 @@ vient frapper le Genshiken avec l'arrivée de deux nouveaux membres.
 			$news->addReleasing(Project::getProject('genshikenOav'));
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Recrutement: encodage, édit, adapt");
+			$news->setPublicationTime(strtotime("2016-02-04 22:10"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Bonjour à tous !
+
+Exactement un mois après la dernière news (à 2 minutes près en fait) en revient vers vous pour l'éternelle news de recrutement !
+
+Nous recherchons actuellement un [b]encodeur[/b] pour toutes nos séries en cours, à part Working!! et Kiss X Sis OAD. Si vous êtes un fan d'[b]édition[/b], vous êtes aussi le bienvenue, on a du travail pour vous. Enfin, un [b]adaptateur[/b] sera aussi un plus agréable pour nous aider à avancer nos séries.
+
+Pour tous les intéressés, direction notre [url=?page=recruit]page de recrutement[/url].
+La pêche aux candidatures est ouverte !
+
+[img=images/news/recrutement2016-02-04.png]Avouez, vous aimez ça ![/img]");
+			$news->setCommentId(342);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(false);
+			$news->setTeamNews(false);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
