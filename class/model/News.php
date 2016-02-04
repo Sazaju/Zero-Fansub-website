@@ -5263,7 +5263,7 @@ vient frapper le Genshiken avec l'arrivée de deux nouveaux membres.
 			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Bonjour à tous !
 
-Exactement un mois après la dernière news (à 2 minutes près en fait) en revient vers vous pour l'éternelle news de recrutement !
+Exactement un mois après la dernière news (à 2 minutes près en fait) on revient vers vous pour l'éternelle news de recrutement !
 
 Nous recherchons actuellement un [b]encodeur[/b] pour toutes nos séries en cours, à part Working!! et Kiss X Sis OAD. Si vous êtes un fan d'[b]édition[/b], vous êtes aussi le bienvenue, on a du travail pour vous. Enfin, un [b]adaptateur[/b] sera aussi un plus agréable pour nous aider à avancer nos séries.
 
