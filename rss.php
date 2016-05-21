@@ -43,8 +43,9 @@
 	
 	$rss = '';
 	$rss .= '<?xml version="1.0" encoding="UTF-8"?>';
-	$rss .= '<rss version="2.0">';
+	$rss .= '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">';
 	$rss .= '<channel>';
+	$rss .= '<atom:link href="'.Url::getCurrentUrl()->toFullString().'" rel="self" type="application/rss+xml" />';
 	$rss .= '<title>Zéro Fansub</title>';
 	$rss .= '<link>'.htmlspecialchars($website).'</link>';
 	$rss .= '<description>'.htmlspecialchars('Les news Zéro Fansub').'</description>';
