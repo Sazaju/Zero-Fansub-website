@@ -5279,6 +5279,32 @@ La pêche aux candidatures est ouverte !
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Site sécurisé : renaissance");
+			$news->setPublicationTime(strtotime("2016-09-09 16:07"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
+			$news->setMessage("Bonjour à tous.
+
+Certains se souviennent peut-être encore de notre news du 24 juin 2015, où nous vous notifiions de la version sécurisée (HTTPS) de notre site après les événements relatifs à la loi renseignement... qui continuent dans notre dos, hélas. La limite de notre sécurisation était que c'était un certificat auto-signé, c'est à dire ne passant pas par un organisme de confiance. La plupart des navigateurs notifiaient alors l'accès à ce site comme non sécurisé et c'était à vous de lui dire explicitement de nous faire confiance, ce qui n'était guère rassurant ni très pratique.
+
+Dès aujourd'hui, grâce à [url=https://letsencrypt.org]Let's Encrypt[/url], nous disposons d'un certificat signé par un organisme de confiance. La connexion HTTPS se fait donc sans action aucune de votre part et avec un niveau de sécurisation de grande qualité. Vous pouvez d'ailleurs tester cela [url=https://www.ssllabs.com/ssltest/analyze.html?d=zerofansub.net]sur ce site[/url].
+
+[img=images/news/support-SSH.png]Zéro Fansub dispose désormais d'une connection sécurisée de qualité ![/img]
+
+Si vous n'êtes pas encore passés à la version sécurisée du site, c'est le moment :
+[url]https://zerofansub.net[/url]
+
+N'hésitez pas à nous faire savoir si vous faites face à des problèmes. Pour le moment, les deux types d'accès (HTTP et HTTPS) restent disponibles, mais il est probable que dans le futur nous mettions en place une redirection automatique pour forcer l'utilisation de la version sécurisée. N'hésitez donc pas à vous y rendre dès à présent. Pour rappel, c'est exactement le même site, pas même une copie. C'est strictement le même mais avec un accès différent, donc vous devez pouvoir faire exactement la même chose.
+
+On attend vos retours. {^_^}");
+			$news->setCommentId(343);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
