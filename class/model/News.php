@@ -5285,7 +5285,7 @@ La pêche aux candidatures est ouverte !
 			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju HITOKAGE'));
 			$news->setMessage("Bonjour à tous.
 
-Certains se souviennent peut-être encore de notre news du 24 juin 2015, où nous vous notifiions de la version sécurisée (HTTPS) de notre site après les événements relatifs à la loi renseignement... qui continuent dans notre dos, hélas. La limite de notre sécurisation était que c'était un certificat auto-signé, c'est à dire ne passant pas par un organisme de confiance. La plupart des navigateurs notifiaient alors l'accès à ce site comme non sécurisé et c'était à vous de lui dire explicitement de nous faire confiance, ce qui n'était guère rassurant ni très pratique.
+Certains se souviennent peut-être encore de notre news du 24 juin 2015, où nous vous notifiions de la version sécurisée (HTTPS) de notre site après les événements relatifs à la loi renseignement... qui continuent dans notre dos, hélas. La limite de notre sécurisation était son certificat auto-signé, c'est-à-dire ne passant pas par un organisme de confiance. La plupart des navigateurs notifiaient alors l'accès à ce site comme non sécurisé, et c'était à vous de lui dire explicitement de nous faire confiance, ce qui n'était guère rassurant ni très pratique.
 
 Dès aujourd'hui, grâce à [url=https://letsencrypt.org]Let's Encrypt[/url], nous disposons d'un certificat signé par un organisme de confiance. La connexion HTTPS se fait donc sans action aucune de votre part et avec un niveau de sécurisation de grande qualité. Vous pouvez d'ailleurs tester cela [url=https://www.ssllabs.com/ssltest/analyze.html?d=zerofansub.net]sur ce site[/url].
 
