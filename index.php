@@ -94,6 +94,23 @@ function buildRssUrlIfAvailable() {
 }
 
 /**********************************\
+        VERSION FORMATTING
+\**********************************/
+
+// Conformance to Semantic Versionning
+// http://semver.org/
+function semver() {
+	exec('git describe --tags', $version);
+	$version = $version[0];
+	$version = preg_replace("#[^0-9]+#", ".", $version);
+	$version = preg_replace("#^\\.?((\\d+)(\\.\\d*){0,2}).*$#", "$1", $version);
+	while(!preg_match("#^\\d+\\.\\d+\\.\\d+$#", $version)) {
+		$version .= ".0";
+	}
+	return $version;
+}
+
+/**********************************\
          PAGE RENDERING
 \**********************************/
 ?>
@@ -101,12 +118,14 @@ function buildRssUrlIfAvailable() {
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 	<head>
-		<title>Zéro ~fansub~ :: Le Site Officiel <?php echo WEBSITE_VERSION?></title>
+		<title>Zéro Fansub</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Language" content="fr" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta name="DC.Language" scheme="RFC3066" content="fr" />
+		<meta name="version" content="<?php echo semver()?>" />
+		<meta name="revision" content="<?php echo exec('git log -n 1 --pretty=format:"%H"')?>" />
 		<?php
 			$date = getdate($_SESSION[CURRENT_TIME]);
 			$month = $date['mon'];
