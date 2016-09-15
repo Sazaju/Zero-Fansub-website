@@ -124,6 +124,7 @@ function semver() {
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta name="DC.Language" scheme="RFC3066" content="fr" />
+		<meta name="description" content="Team de Fansub francophone, spécialisée dans les comédies. On travaille lentement, mais bien !" />
 		<meta name="version" content="<?php echo semver()?>" />
 		<meta name="revision" content="<?php echo exec('git log -n 1 --pretty=format:"%H"')?>" />
 		<?php
