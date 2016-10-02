@@ -14,7 +14,7 @@
 	
 	$menu = new Menu();
 	$menu->addEntry(new Link("index.php", "Accueil"));
-	$menu->addEntry(Link::newWindowLink("irc://irc.Fansub-IRC.eu/zero", "IRC"));
+	$menu->addEntry(Link::newWindowLink("irc://irc.recycled-irc.net/zeroFansub", "IRC"));
 	$menu->addEntry(Link::newWindowLink("http://forum.zerofansub.net", "Forum"));
 	$menu->addEntry(Link::newWindowLink("http://twitter.com/zero_fansub", "Twitter"));
 	$menu->addEntry(Link::newWindowLink("radio", "Radio"));
