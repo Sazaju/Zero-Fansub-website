@@ -5312,20 +5312,22 @@ On attend vos retours. {^_^}");
 			$news->setMessage("[img=images/news/nouveau-chan.jpg]Le chan est à nouveau opérationnel[/img]
 
 Le réseau irc.Fansub-IRC.eu n'existant plus, nous sommes passés à Recycled-IRC.net.
-En espérant vous y retrouver, nous essaierons d'y passer aussi :)
+En espérant vous y retrouver, j'essaierai d'y passer aussi :)
 
 
-Je profite de cette news pour faire le point.
+Je profite de cette news pour faire le point sur notre baisse de régime dernièrement.
 
-Après avoir franchi une étape dans l'un de nos projets, nombreuses édit et autres corrections,
-n'ayant pas d'onsen à côté de chez moi pour me ressourcer,
-vint l'envie de faire un break.
+Après avoir franchi une grosse étape dans l'un de nos projets, édit et autres corrections,
+il me vint l'envie de faire un break pour me ressourcer.
 
-Mais c'était sans prévoir le manque de temps qui a suivi
-et a prolongé l'inactivité plus que prévu...
+Un Japonais aurait probablement été aux sources chaudes
+pour ensuite se remettre vite au boulot...
+
+Mais c'était sans prévoir le manque de temps qui nous a suivi
+et a prolongé l'inactivité fansubique plus que prévu...
 
 Les vacances de fin d'année approchant, nous serons probablement tous occupés,
-mais nous pensons retrouver un rythme meilleur ultérieurement...
+mais nous devrions retrouver un rythme meilleur ultérieurement...
 
 Déjà, avec la Toussaint, je pourrai me remotiver pour me relancer un peu.
 
