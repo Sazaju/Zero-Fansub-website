@@ -5311,23 +5311,18 @@ On attend vos retours. {^_^}");
 			$news->addAuthor(TeamMember::getMemberByPseudo('Pr_Aya'));
 			$news->setMessage("[img=images/news/nouveau-chan.jpg]Le chan est à nouveau opérationnel[/img]
 
-Le réseau irc.Fansub-IRC.eu n'existant plus, nous sommes passés à Recycled-IRC.net.
-En espérant vous y retrouver, j'essaierai d'y passer aussi :)
+Le réseau irc.Fansub-IRC.eu n'existant plus, nous sommes passés à Recycled-IRC.net. En espérant vous y retrouver, j'essaierai d'y passer aussi :)
 
 
 Je profite de cette news pour faire le point sur notre baisse de régime dernièrement.
 
-Après avoir franchi une grosse étape dans l'un de nos projets, édit et autres corrections,
-il me vint l'envie de faire un break pour me ressourcer.
+Après avoir franchi une grosse étape dans l'un de nos projets, édit et autres corrections, il me vint l'envie de faire un break pour me ressourcer.
 
-Un Japonais aurait probablement été aux sources chaudes
-pour ensuite se remettre vite au boulot...
+Un Japonais aurait probablement été aux sources chaudes pour ensuite se remettre vite au boulot...
 
-Mais c'était sans prévoir le manque de temps qui nous a suivi
-et a prolongé l'inactivité fansubique plus que prévu...
+Mais c'était sans prévoir le manque de temps qui nous a suivi et a prolongé l'inactivité fansubique plus que prévu...
 
-Les vacances de fin d'année approchant, nous serons probablement tous occupés,
-mais nous devrions retrouver un rythme meilleur ultérieurement...
+Les vacances de fin d'année approchant, nous serons probablement tous occupés, mais nous devrions retrouver un rythme meilleur ultérieurement...
 
 Déjà, avec la Toussaint, je pourrai me remotiver pour me relancer un peu.
 
