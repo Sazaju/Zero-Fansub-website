@@ -5305,6 +5305,39 @@ On attend vos retours. {^_^}");
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Le chan IRC revient !");
+			$news->setPublicationTime(strtotime("2016-10-16 13:43"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Pr_Aya'));
+			$news->setMessage("[img=images/news/nouveau-chan.jpg]Le chan est à nouveau opérationnel[/img]
+
+Le réseau irc.Fansub-IRC.eu n'existant plus, nous sommes passés à Recycled-IRC.net.
+En espérant vous y retrouver, nous essaierons d'y passer aussi :)
+
+
+Je profite de cette news pour faire le point.
+
+Après avoir franchi une étape dans l'un de nos projets, nombreuses édit et autres corrections,
+n'ayant pas d'onsen à côté de chez moi pour me ressourcer,
+vint l'envie de faire un break.
+
+Mais c'était sans prévoir le manque de temps qui a suivi
+et a prolongé l'inactivité plus que prévu...
+
+Les vacances de fin d'année approchant, nous serons probablement tous occupés,
+mais nous pensons retrouver un rythme meilleur ultérieurement...
+
+Déjà, avec la Toussaint, je pourrai me remotiver pour me relancer un peu.
+
+Sur ce, je vous dis à bientôt ( ^_ ^ )");
+			$news->setCommentId(344);
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
