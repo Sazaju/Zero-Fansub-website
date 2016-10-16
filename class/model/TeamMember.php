@@ -221,7 +221,7 @@ class TeamMember {
 			TeamMember::$allMembers[] = $member;
 			
 			$member = new TeamMember();
-			$member->setPseudo("praia");
+			$member->setPseudo("Pr_Aya");
 			$member->setImage("praia.jpg");
 			$member->addRole(Role::getRole("ortho"));
 			$member->addRole(Role::getRole("qc"));
@@ -869,6 +869,12 @@ class TeamMember {
 	}
 	
 	public static function getMemberByPseudo($pseudo) {
+		if (strcasecmp($pseudo, 'praia') == 0) {
+			$pseudo = 'Pr_Aya';
+		} else {
+			// Original pseudo
+		}
+		
 		foreach(TeamMember::getAllMembers() as $member) {
 			if (strcasecmp($member->getPseudo(), $pseudo) == 0) {
 				return $member;
