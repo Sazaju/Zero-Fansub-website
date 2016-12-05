@@ -36,9 +36,9 @@ Il n'est pas interdit de choisir plusieurs rôles mais chaque rôle doit être m
 
 [title=2|number]Choisir sa série[/title]
 [justify]
-Candidater c'est bien, mais le faire sans même savoir ce que nous faisons ne s'explique que d'une manière : le candidat n'a pas plus de raison de candidater ici qu'ailleurs. Encore une fois, les candidats bouche-trou n'étant pas ceux qu'on vise, il est de bon ton de se renseigner sur nos séries. Celles étant incomplètes sont bien sûr les premières à viser, mais certaines séries déjà sorties pouvant nécessiter d'être refaites en BD, il n'est pas exclu d'en choisir d'autres. Bien entendu, il ne s'agit pas de choisir au hasard ou de toutes les choisir : tout comme le rôle que vous souhaitez avoir, le choix des séries doit être motivé et doit resté réduit. Bien entendu, ne pas avoir besoin de vous sur les séries que vous choisissez ne se traduit pas d'office en refus, mais cela nous aide à cibler vos intérêts pour vous en proposer une autre où vous pourriez aider.
+Candidater c'est bien, mais le faire sans même savoir ce que nous faisons ne s'explique que d'une manière : le candidat n'a pas plus de raisons de candidater ici qu'ailleurs. Encore une fois, les candidats bouche-trou n'étant pas ceux qu'on vise, il est de bon ton de se renseigner sur nos séries. Celles étant incomplètes sont bien sûr les premières à viser, mais certaines séries déjà sorties pouvant nécessiter d'être refaites en BD, il n'est pas exclu d'en choisir d'autres. Bien entendu, il ne s'agit pas de choisir au hasard ou de toutes les choisir : tout comme le rôle que vous souhaitez avoir, le choix des séries doit être motivé et doit rester réduit. Bien entendu, ne pas avoir besoin de vous sur les séries que vous choisissez ne se traduit pas d'office en refus, mais cela nous aide à cibler vos intérêts pour vous en proposer une autre où vous pourriez aider.
 
-En bref, dites-vous bien que les réponses qui vous désavantagerons le plus seront les plus génériques, telles que \"Toutes les séries m'intéressent\". Donc prenez le temps de choisir.
+En bref, dites-vous bien que les réponses qui vous désavantageront le plus seront les plus génériques, telles que \"Toutes les séries m'intéressent\". Donc, prenez le temps de choisir.
 [/justify]
 
 [center]>[url=?page=projects]VOIR LA LISTE DE NOS PROJETS ICI[/url]<[/center]
