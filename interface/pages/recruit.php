@@ -18,6 +18,9 @@
 
 
 [title=2|number]Choisir son rôle[/title]
+[justify]
+Il n'est pas interdit de choisir plusieurs rôles mais chaque rôle doit être motivé, que ce soit par une expérience pré-existante ou par un intérêt clair d'apprendre et de pratiquer. Si vous postulez pour n'importe quel poste, vous n'avez pas frappé à la bonne porte : on cherche des gens qui en veulent, et non pas des bouche-trous ! N'hésitez pas à consulter les cours associés à chaque rôle pour vous faire une idée (surtout si vous ne savez pas ce que c'est) et choisir ce qui vous intéresse le plus.
+[/justify]
 
 [b]Traducteur anglais :[/b] traduit depuis l'anglais. ([url=http://forum.zerofansub.net/f221-Cours-br.htm]cours[/url])
 [b]Traducteur japonais :[/b] traduit depuis le japonais ou vérifie une traduction. ([url=http://forum.zerofansub.net/f212-Cours-br.htm]cours[/url])
@@ -31,19 +34,29 @@
 [b]Programmeur Web :[/b] gère le site web, connais PHP, CSS, (X)HTML et si possible JSP. ([url=https://github.com/Sazaju/Zero-Fansub-website]site sur GitHub[/url])
 [b]Programmeur Logiciel :[/b] automatise les tâches nécessaires et améliore le support des tâches manuelles, de préférence en Java ou PHP.
 
+[title=2|number]Choisir sa série[/title]
+[justify]
+Candidater c'est bien, mais le faire sans même savoir ce que nous faisons ne s'explique que d'une manière : le candidat n'a pas plus de raison de candidater ici qu'ailleurs. Encore une fois, les candidats bouche-trou n'étant pas ceux qu'on vise, il est de bon ton de se renseigner sur nos séries. Celles étant incomplètes sont bien sûr les premières à viser, mais certaines séries déjà sorties pouvant nécessiter d'être refaites en BD, il n'est pas exclu d'en choisir d'autres. Bien entendu, il ne s'agit pas de choisir au hasard ou de toutes les choisir : tout comme le rôle que vous souhaitez avoir, le choix des séries doit être motivé et doit resté réduit. Bien entendu, ne pas avoir besoin de vous sur les séries que vous choisissez ne se traduit pas d'office en refus, mais cela nous aide à cibler vos intérêts pour vous en proposer une autre où vous pourriez aider.
+
+En bref, dites-vous bien que les réponses qui vous désavantagerons le plus seront les plus génériques, telles que \"Toutes les séries m'intéressent\". Donc prenez le temps de choisir.
+[/justify]
+
+[center]>[url=?page=projects]VOIR LA LISTE DE NOS PROJETS ICI[/url]<[/center]
+
 [title=2|number]Poster sa fiche de candidature[/title]
-Elle se poste [url=http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-team-de-fansub.htm]sur le forum[/url] (créer un [url=http://forum.zerofansub.net/posting.php?mode=newtopic&f=21]nouveau sujet[/url]). Elle doit être correctement remplie.
+Elle se poste [url=http://forum.zerofansub.net/f21-RECRUTEMENT-Entrer-dans-la-team-de-fansub.htm]sur le forum[/url] (créer un [url=http://forum.zerofansub.net/posting.php?mode=newtopic&f=21]nouveau sujet[/url]). Elle doit être correctement remplie :
 
 [code][b]Nom :[/b][/code] [i]si je veux mieux me faire connaître[/i]
 [code][b]Âge :[/b][/code] [i]si je veux mieux me faire connaître[/i]
 [code][b]Lieu :[/b][/code] [i]si je veux mieux me faire connaître[/i]
 [code][b]Rôle :[/b][/code] [i]le ou les rôles ci-dessus que je veux faire[/i]
-[code][b]Motivation :[/b][/code] [i]pourquoi je veux faire ce rôle et pourquoi chez vous[/i]
+[code][b]Série :[/b][/code] [i]la ou les séries ci-dessus que je veux faire[/i]
+[code][b]Motivation :[/b][/code] [i]pourquoi je veux faire ce rôle sur cette série et pourquoi chez vous[/i]
 [code][b]Expérience fansub :[/b][/code] [i]ce que j'ai déjà fait dans une team de fansub en rapport avec ce rôle[/i]
 [code][b]Expérience hors fansub  :[/b][/code] [i]ce que j'ai déjà fait dans la vie qui peut m'aider à faire ce rôle[/i]
 [code][b]Indisponibilités :[/b][/code] [i]périodes pendant lesquelles je pense ne pas être disponible[/i]
 [code][b]Si ça arrive :[/b][/code] [i]ce que je m'engage à faire si je suis indisponible[/i]
-[code][b]Déjà membres d'autre équipe :[/b][/code] [i]si oui lesquelles[/i]
+[code][b]Déjà membre d'autres équipes :[/b][/code] [i]si oui lesquelles[/i]
 [code][b]Autre chose à dire :[/b][/code] [i]si je pense que ça peut permettre à la team de mieux juger si ce poste est fait pour moi[/i]
 
 [justify]
@@ -52,7 +65,7 @@ Notre but est de savoir avant tout ce que vous voulez faire, comment vous pensez
 
 [title=2|number]Effectuer un test[/title]
 [justify]
-Un test peut être mis à votre  disposition afin d'évaluer un peu votre niveau, à moins qu'on vous lance directement sur un projet, cela dépend un peu du rôle ou si vous avez déjà de l'expérience, etc.
+Un test peut être mis à votre disposition afin d'évaluer un peu votre niveau, à moins qu'on vous lance directement sur un projet, cela dépend un peu du rôle ou si vous avez déjà de l'expérience, etc.
 [/justify]
 
 [title=2|number]Attendre la réponse des membres de l'équipe[/title]
