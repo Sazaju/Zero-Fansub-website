@@ -63,7 +63,20 @@
 		return $project->isHidden();
 	};
 	$licensedFilter = function(Project $project) {
-		return $project->isLicensed();
+		if ($project->isLicensed()) {
+			$releases = Release::getAllReleasesForProject($project->getID());
+			foreach($releases as $release) {
+				if ($release->isReleased()) {
+					return true;
+				} else {
+					// Search for a released episode.
+				}
+			}
+			// Nothing as been released and it is licensed, so just ignore it.
+			return false;
+		} else {
+			return false;
+		}
 	};
 	$runningFilter = function(Project $project) {
 		return !$project->isHidden() && $project->isRunning();
