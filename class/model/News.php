@@ -5342,13 +5342,13 @@ Sur ce, je vous dis à bientôt ( ^_ ^ )");
 			$news->setMessage("Salut à tous !
 
 
-Nous avions entendu des rumeurs, mais rien trouvé d'officiel sur le sujet. Les faits sont néanmoins ce qu'ils sont : Working viens de sortir chez Wakanim.
+Nous avions entendu des rumeurs, mais rien trouvé d'officiel sur le sujet. Les faits sont néanmoins ce qu'ils sont : Working!! vient de sortir chez Wakanim.
 
-Nous vous invitons donc à aller les voir chez eux. N'ayant rien sorti de notre côté, les séries ont tout simplement été retirées de nos listes.
+Nous vous invitons donc à aller les voir chez eux. N'ayant rien sorti de notre côté, la série a tout simplement été retirée de nos projets.
 
 [img=images/news/licenceWorking.jpg]Working légalement disponible ![/img]
 
-Malgré qu'on puisse se recentrer sur nos autres séries, cela ne veut pas dire qu'on ait toute la main d'oeuvre dont on a besoin. N'hésitez pas à [url=?page=recruit]postuler[/url] pour nous aider sur les séries qui restent !");
+Bien qu'on puisse se recentrer sur nos autres séries, cela ne veut pas dire qu'on ait toute la main d'œuvre dont on a besoin. N'hésitez pas à [url=?page=recruit]postuler[/url] pour nous aider sur les séries qui restent !");
 			$news->setCommentId(345);
 			$news->setDisplayInNormalMode(true);
 			$news->setDisplayInHentaiMode(false);
