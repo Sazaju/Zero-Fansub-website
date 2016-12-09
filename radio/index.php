@@ -33,7 +33,7 @@ function exception_handler($exception) {
 		$message = "aze";//$exception->getMessage();
 		$header = "From: noreply@zerofansub.net\r\n";
 		$sent = false;//mail($administrators, $subject, $message, $header);
-		echo "Une erreur est survenue, ".(
+		echo "Une erreur est survenue. Rafraîchir la page peut régler le problème. Si ce n'est pas le cas, ".(
 			$sent ? "les administrateurs en ont été notifiés"
 				  : "contactez les administrateurs : ".$administrators
 			).".";
