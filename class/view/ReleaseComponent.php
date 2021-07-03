@@ -278,7 +278,6 @@ class ReleaseComponent extends ArticleComponent {
 			$list->addComponent($mediaFireLinks);
 		}
 		$list->addComponent($torrentLinks);
-		$list->addComponent(new XdccLink());
 		$streamingsLinks = new GroupedLinks(new Image("images/icones/streaming.png"));
 		$streamingsLinks->setClass("streamingsLinks");
 		foreach($release->getStreamings() as $link) {
