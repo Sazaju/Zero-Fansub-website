@@ -5366,7 +5366,7 @@ Plus personne n'y va, il nous semble donc pertinent de l'arrêter.
 
 Le serveur torrent étant tombé depuis longtemps, on en profite pour remplacer tous les liens.
 Ceux-ci vous permettront de télécharger un zip qui contient tous nos torrents.
-Pas sûr qu'ils soient encore alimentés, par contre.
+Nous assurons le seed, donc ils devraient tous fonctionner.
 
 Le site reste disponible avec ses épisodes en téléchargement direct.");
 			$news->setDisplayInNormalMode(true);
