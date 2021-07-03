@@ -5357,6 +5357,25 @@ Bien qu'on puisse se recentrer sur nos autres séries, cela ne veut pas dire qu'
 			$news->setDb0CompanyNews(false);
 			News::$allNews[] = $news;
 			
+			$news = new News();
+			$news->setTitle("Fermeture du canal IRC");
+			$news->setPublicationTime(strtotime("2021-07-03 18:15"));
+			$news->addAuthor(TeamMember::getMemberByPseudo('Sazaju Hitokage'));
+			$news->setMessage("Après bien des années de fonctionnement, le [url=irc://irc.recycled-irc.net/zeroFansub]canal IRC[/url] ferme ses portes.
+Plus personne n'y va, il nous semble donc pertinent de l'arrêter.
+
+Le serveur torrent étant tombé depuis longtemps, on en profite pour remplacer tous les liens.
+Ceux-ci vous permettront de télécharger un zip qui contient tous nos torrents.
+Pas sûr qu'ils soient encore alimentés, par contre.
+
+Le site reste disponible avec ses épisodes en téléchargement direct.");
+			$news->setDisplayInNormalMode(true);
+			$news->setDisplayInHentaiMode(true);
+			$news->setTeamNews(true);
+			$news->setPartnerNews(false);
+			$news->setDb0CompanyNews(false);
+			News::$allNews[] = $news;
+			
 			$ids = array();
 			foreach(News::$allNews as $news) {
 				$id = $news->getId();
