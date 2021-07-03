@@ -150,7 +150,7 @@ class ReleaseComponent extends ArticleComponent {
 		$rapidShareLinks->setClass("rapidShareLinks");
 		$mediaFireLinks = new GroupedLinks(new Image("images/icones/mediafire.jpg", "Mediafire"));
 		$mediaFireLinks->setClass("mediaFireLinks");
-		$torrentLinks = new GroupedLinks(new Link($release->getTorrentUrl(), new Image("images/icones/torrent.png")));
+		$torrentLinks = new GroupedLinks(new Link("torrentsZeroFansub.zip", new Image("images/icones/torrent.png")));
 		$torrentLinks->setClass("torrentLink");
 		$fileDescriptors = $release->getFileDescriptors();
 		$index = 1;
