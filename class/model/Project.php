@@ -266,6 +266,17 @@ class Project {
 			$project->setStatus(Project::FINISHED, null);
 			Project::$allProjects[] = $project;
 			
+			$project = new Project("haganainext", "Boku ha Tomodachi ga Sukunai Next");
+			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
+			$project->setOriginalName("Boku ha Tomodachi ga Sukunai Next");
+			$project->setAiringYear(2012);
+			$project->setStudio(Link::newWindowLink("http://www.anime-int.com/", "Studio AIC"));
+			$project->setGenre("Comédie - Amour/amitié - Ecchi");
+			//$project->setSynopsis("C'est bien connu, les otakus n'ont pas d'amis. Mais quand on n'en est pas un, ça ne veut pas dire pour autant qu'on en a. Si vous aussi vous avez du mal avec les autres, peut-être vous reconnaitrez-vous dans cette série. Sinon, vous pourrez toujours en profiter pleinement pour découvrir comment s'amuser quand on n'a pas d'amis... ou tout du moins quand on en est convaincu.");
+			$project->setDiscussionUrl("http://forum.zerofansub.net/t2053-Ton-avis-sur-Boku-wa-tomodachi-ga-sukunai.htm");
+			$project->setStatus(Project::RUNNING, strtotime('2013-08-15 19:12'));
+			Project::$allProjects[] = $project;
+			
 			$project = new Project("kodomo", "Kodomo no Jikan");
 			$project->setExternalSource(Link::newWindowLink("http://animeka.com/fansub/teams/zero.html", "Animeka"));
 			$project->setOriginalName("Kodomo no Jikan");
@@ -1272,6 +1283,8 @@ php?spgmGal=Zero_fansub/Images/Kimikiss&amp;spgmPic=7#spgmPicture" class=""><img
 			Project::$allLinks[] = array(Project::getProject('kodomo2'), Project::getProject('kodomooav'));
 			Project::$allLinks[] = array(Project::getProject('kodomooav'), Project::getProject('kodomo'));
 			Project::$allLinks[] = array(Project::getProject('haganai'), Project::getProject('haganaioav'));
+			Project::$allLinks[] = array(Project::getProject('haganai'), Project::getProject('haganainext'));
+			Project::$allLinks[] = array(Project::getProject('haganaioav'), Project::getProject('haganainext'));
 			Project::$allLinks[] = array(Project::getProject('kannagi'), Project::getProject('kannagioad'));
 			Project::$allLinks[] = array(Project::getProject('mitsudomoe'), Project::getProject('mitsudomoeoad'));
 			Project::$allLinks[] = array(Project::getProject('mitsudomoe'), Project::getProject('mitsudomoe2'));

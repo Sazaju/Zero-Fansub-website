@@ -6735,6 +6735,54 @@ class Release {
 			$release->addFileDescriptor($descriptor);
 			$release->setReleasingTime(strtotime('2 November 2012 16:25'));
 			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep1");
+			$release->setName("01");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep2");
+			$release->setName("02");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep3");
+			$release->setName("03");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep4");
+			$release->setName("04");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep5");
+			$release->setName("05");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep6");
+			$release->setName("06");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep7");
+			$release->setName("07");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep8");
+			$release->setName("08");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep9");
+			$release->setName("09");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep10");
+			$release->setName("10");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep11");
+			$release->setName("11");
+			Release::$allReleases[] = $release;
+			
+			$release = new Release(Project::getProject("haganainext"), "ep12");
+			$release->setName("12");
+			Release::$allReleases[] = $release;
 		}
 		return Release::$allReleases;
 	}
