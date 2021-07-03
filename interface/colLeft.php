@@ -38,15 +38,5 @@
 	$menu->addEntry(Link::createHentaiAccessLink());
 	$leftCol->addComponent(new MenuComponent($menu));
 	
-	$menu = new Menu();
-	/* Hidden because never updated:
-	$menu->addEntry("Serveur/mois : 173,39 ");
-	$menu->addEntry("Dons du mois : 20 ");
-	*/
-	$donateLink = Link::newWindowLink("https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mba_06%40hotmail%2efr&item_name=Zero&no_shipping=0&no_note=1&tax=0&currency_code=EUR&lc=FR&bn=PP%2dDonationsBF&charset=UTF%2d8", "Faire un don");
-	$donateLink->setStyle("font-size: 1.2em;");
-	$menu->addEntry($donateLink);
-	$leftCol->addComponent(new MenuComponent($menu));
-	
 	$leftCol->writeNow();
 ?>
