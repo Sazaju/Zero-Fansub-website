@@ -54,7 +54,7 @@ class StringExploder {
 				// empty case, no modification
 			}
 			$previousIndex = $index;
-			$previousLength = strlen($entry[0]);
+			$previousLength = strlen($entry[0] ?? "");
 		}
 		ksort($result);
 		unset($result[strlen($string)]);
