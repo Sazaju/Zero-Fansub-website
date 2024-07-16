@@ -29,7 +29,7 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 		$url->setQueryVar('select', $selected);
 		header("HTTP/1.1 301 Moved Permanently", false, 301);
 		header('Location: '.$url->toString());
-		exit();
+		die();
 	} else {
 		// no retro-compatibility action is needed
 	}
@@ -41,19 +41,19 @@ if (!$url->hasQueryVar('page') || $url->getQueryVar('page') == 'news') {
 		$url->setQueryVar('id', $parts[1]);
 		header("HTTP/1.1 301 Moved Permanently", false, 301);
 		header('Location: '.$url->toString());
-		exit();
+		die();
 	} else if (preg_match("#^dossier/#", $page)) {
 		$url->setQueryVar('page', 'dossier');
 		$parts = preg_split("#/#", $page);
 		$url->setQueryVar('id', $parts[1]);
 		header("HTTP/1.1 301 Moved Permanently", false, 301);
 		header('Location: '.$url->toString());
-		exit();
+		die();
 	} else if ($page == 'home') {
 		$url->setQueryVar('page', 'news');
 		header("HTTP/1.1 301 Moved Permanently", false, 301);
 		header('Location: '.$url->toString());
-		exit();
+		die();
 	} else {
 		// no retro-compatibility action is needed
 	}
@@ -225,7 +225,7 @@ function semver() {
 				}
 				if (Url::getCurrentUrl()->hasQueryVar('phpinfo')) {
 					phpinfo();
-					exit;
+					die;
 				}
 			?>
 		</section>

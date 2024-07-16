@@ -98,7 +98,7 @@ if (is_file($criticalDataFile)) {
 }
 if ($needConfig) {
 	require_once("criticalConfig.php");
-	exit;
+	die;
 } else {
 	// all green, just continue
 }
@@ -120,10 +120,10 @@ if ($url->isStrangeUrl()) {
 		throw new Exception (Format::convertTextToHtml("Strange url ([url]".$currentAddress."[/url]), maybe expected this one : [url]".$cleanAddress."[/url]? In not testing mode, redirection will be done."));
 	} else if ($url->isStrangeUrl()) {
 		header('Location: '.$_SERVER['SCRIPT_NAME']);
-		exit();
+		die();
 	} else {
 		header('Location: '.$cleanAddress);
-		exit();
+		die();
 	}
 }
 
@@ -148,7 +148,7 @@ if (isset($_GET[MODE_H])) {
 	$url = Url::getCurrentUrl();
 	$url->removeQueryVar(MODE_H);
 	header('Location: '.$url->toString());
-	exit();
+	die();
 } else if (!isset($_SESSION[MODE_H])) {
 	$_SESSION[MODE_H] = false;
 } else {
