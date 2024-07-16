@@ -73,7 +73,7 @@
 		$row = new TableRow();
 		$row->addComponent(preg_match('#^[0-9]+(\\.0+)*$#', $desc->getVersion()) ? '<b>'.$desc->getVersion().'</b>' : $desc->getVersion());
 		$row->addComponent(Format::convertTextToHtml($desc->getComment()));
-		$row->addComponent(WEBSITE_VERSION == $desc->getVersion() ? 'Version actuelle !' : $desc->getUrl() == null ? 'Non dispo' : Link::newWindowLink($desc->getUrl(), "Utiliser cette version"));
+		$row->addComponent(WEBSITE_VERSION == $desc->getVersion() ? 'Version actuelle !' : ($desc->getUrl() == null ? 'Non dispo' : Link::newWindowLink($desc->getUrl(), "Utiliser cette version")));
 		$table->addComponent($row);
 	}
 ?>
