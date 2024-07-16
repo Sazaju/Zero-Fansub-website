@@ -117,9 +117,10 @@ class Url {
 			foreach($blocs as $bloc) {
 				$content = preg_split("#=#", $bloc);
 				if (count($content) == 1) {
-					$content[] = null;
+					$vars[urldecode($content[0])] = null;
+				} else {
+					$vars[urldecode($content[0])] = urldecode($content[1]);
 				}
-				$vars[urldecode($content[0])] = urldecode($content[1]);
 			}
 		}
 		return $vars;
