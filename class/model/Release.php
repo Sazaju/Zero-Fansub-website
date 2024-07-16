@@ -6791,7 +6791,7 @@ class Release {
 		$ta = $a->getReleasingTime();
 		$tb = $b->getReleasingTime();
 		if ($ta == $tb) {
-			return strnatcmp($a->getName(), $b->getName());
+			return strnatcmp($a->getName() ?? "", $b->getName() ?? "");
 		}
 		return ($ta > $tb) ? -1 : 1;
 	}
