@@ -58,7 +58,7 @@ class Url {
 		}
 		
 		$currentDir = dirname($_SERVER["SCRIPT_NAME"]).'/';
-		if (!$full && !Url::getCurrentUrl()->isStrangeUrl() && strpos($url, $currentDir) === 0) {
+		if (!$full && !Url::getCurrentUrl()->isStrangeUrl() && $url != null && strpos($url, $currentDir) === 0) {
 			if (strlen($url) > strlen($currentDir)) {
 				$url = substr($url, strlen($currentDir));
 			}
