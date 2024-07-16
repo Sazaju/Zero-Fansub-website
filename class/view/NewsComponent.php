@@ -17,7 +17,7 @@ class NewsComponent extends ArticleComponent {
 		$time = "Préparée";
 		$timestamp = $news->getPublicationTime();
 		if ($timestamp !== null) {
-			$time = strftime("%d/%m/%Y", $timestamp);
+			$time = date("d/m/Y", $timestamp);
 		}
 		$subtitle->addComponent($time);
 		if (count($news->getAuthors()) > 0) {
