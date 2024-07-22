@@ -13,7 +13,7 @@
 		if ($author instanceof TeamMember) {
 			$author = $author->getPseudo();
 		}
-		$timestamp = strftime("%d/%m/%Y", $dossier->getTimestamp());
+		$timestamp = date("d/m/Y", $dossier->getTimestamp());
 		$subtitle = $timestamp." par ".$author;
 		$title->addComponent(new Title($subtitle, 4));
 		
