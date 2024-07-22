@@ -4,6 +4,8 @@
 */
 
 class ProjectLink extends Link {
+	private Project $project;
+
 	public function __construct(Project $project) {
 		parent::__construct();
 		$this->setProject($project);
