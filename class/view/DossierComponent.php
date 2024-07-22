@@ -12,7 +12,7 @@ class DossierComponent extends ArticleComponent {
 		if ($author instanceof TeamMember) {
 			$author = $author->getPseudo();
 		}
-		$timestamp = strftime("%d/%m/%Y", $dossier->getTimestamp());
+		$timestamp = data("d/m/Y", $dossier->getTimestamp());
 		$subtitle = $timestamp." par ".$author;
 		$this->addComponent(new Title($subtitle, 4));
 		
